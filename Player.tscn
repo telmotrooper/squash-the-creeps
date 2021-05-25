@@ -4,8 +4,10 @@
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
 [sub_resource type="SphereShape" id=1]
+radius = 1.04
 
 [node name="Player" type="KinematicBody"]
+collision_mask = 6
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
@@ -14,5 +16,5 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478475, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785568, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
 shape = SubResource( 1 )
