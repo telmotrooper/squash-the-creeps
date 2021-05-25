@@ -17,6 +17,17 @@ This is the starter project for the video version of the First 3D Game tutorial 
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=960
+window/size/height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[global]
+
+window=false
+
 [input]
 
 move_left={

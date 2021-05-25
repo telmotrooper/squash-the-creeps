@@ -28,4 +28,5 @@ func _physics_process(delta):
     velocity.y += jump_impulse
   
   velocity.y -= fall_acceleration * delta
+  # Assign move_and_slide to velocity prevents the velocity from accumulating.
   velocity = move_and_slide(velocity, Vector3.UP)
