@@ -84,4 +84,5 @@ rotation_mode = 1
 wait_time = 0.7
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_Timer_timeout"]
