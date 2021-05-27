@@ -5,7 +5,11 @@ export (PackedScene) var mob_scene = preload("res://Mob.tscn" )
 func _ready():
   randomize()
 
-func _on_Timer_timeout():
+func _unhandled_input(event):
+  if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
+    get_tree().reload_current_scene()
+
+func _on_MobTimer_timeout():
   var mob = mob_scene.instance()
   
   var mob_spawn_location = $SpawnPath/SpawnLocation
@@ -15,7 +19,8 @@ func _on_Timer_timeout():
   
   add_child(mob)
   mob.initiliaze(mob_spawn_location.translation, player_position)
-
+  mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
 
 func _on_Player_hit():
   $MobTimer.stop()
+  $UserInterface/Retry.show()
