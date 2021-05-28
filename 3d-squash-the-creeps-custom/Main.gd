@@ -17,7 +17,7 @@ func _on_MobTimer_timeout():
   
   var player_position = $Player.transform.origin
   
-  add_child(mob)
+  #add_child(mob)
   mob.initiliaze(mob_spawn_location.translation, player_position)
   mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
 
