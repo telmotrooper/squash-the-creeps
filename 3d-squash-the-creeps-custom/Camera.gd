@@ -2,8 +2,8 @@ extends Spatial
 
 var horizontal =  0
 var vertical = 0
-var v_min = 75
-var v_max = -55
+var v_min = -70 # Looking up
+var v_max = 20 # Look down
 var h_sensitivity = 0.1
 var v_sensitivity = 0.1
 var h_acceleration = 10
@@ -20,7 +20,8 @@ func _input(event):
     vertical -= event.relative.y
 
 func _physics_process(delta):
-  #vertical = clamp(vertical, v_min, v_max)
+  #print(vertical) # It's useful to print the current value when trying to find the proper values for 'min' and 'max'.
+  vertical = clamp(vertical, v_min, v_max)
   
   $Horizontal.rotation_degrees.y = lerp($Horizontal.rotation_degrees.y, horizontal, delta * h_acceleration)
   $Horizontal/Vertical.rotation_degrees.x = lerp($Horizontal/Vertical.rotation_degrees.x, vertical, delta * v_acceleration)
