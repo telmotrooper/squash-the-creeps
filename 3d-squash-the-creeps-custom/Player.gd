@@ -10,6 +10,9 @@ export var bounce_impulse := 16.0
 var velocity = Vector3.ZERO
 
 func _physics_process(delta):
+  var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
+  print("Horizontal rotation: ", horizontal_rotation)
+  
   var direction = Vector3.ZERO
   if Input.is_action_pressed("move_right"):
     direction.x += 1
