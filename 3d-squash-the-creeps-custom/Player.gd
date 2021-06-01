@@ -15,13 +15,17 @@ func _physics_process(delta):
   
   var direction = Vector3.ZERO
   if Input.is_action_pressed("move_right"):
-    direction.x += 1
+    direction = Vector3.RIGHT
+    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
   if Input.is_action_pressed("move_left"):
-    direction.x -= 1
+    direction = Vector3.LEFT
+    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
   if Input.is_action_pressed("move_back"):
-    direction.z += 1
+    direction = Vector3.BACK
+    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
   if Input.is_action_pressed("move_forward"):
-    direction.z -= 1
+    direction = Vector3.FORWARD
+    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
   if direction != Vector3.ZERO:
     direction = direction.normalized()
