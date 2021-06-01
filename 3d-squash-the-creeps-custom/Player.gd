@@ -11,21 +11,15 @@ var velocity = Vector3.ZERO
 
 func _physics_process(delta):
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
-  print("Horizontal rotation: ", horizontal_rotation)
   
-  var direction = Vector3.ZERO
-  if Input.is_action_pressed("move_right"):
-    direction = Vector3.RIGHT
-    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
-  if Input.is_action_pressed("move_left"):
-    direction = Vector3.LEFT
-    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
-  if Input.is_action_pressed("move_back"):
-    direction = Vector3.BACK
-    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
-  if Input.is_action_pressed("move_forward"):
-    direction = Vector3.FORWARD
-    direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+  # Get direction vector based on input.
+  var direction = Vector3(
+      Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+      0,
+      Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+  
+  # Rotate direction based on camera.
+  direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
   if direction != Vector3.ZERO:
     direction = direction.normalized()
