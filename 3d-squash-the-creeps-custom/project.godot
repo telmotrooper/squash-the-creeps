@@ -23,7 +23,7 @@ Hotkeys="*res://Hotkeys.gd"
 
 [display]
 
-window/size/width=960
+window/size/width=1280
 window/size/height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
@@ -83,5 +83,5 @@ ui_fast_forward={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+threads/thread_model=2
 quality/filters/msaa=3
