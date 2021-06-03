@@ -9,7 +9,7 @@ export var bounce_impulse := 16.0
 
 var velocity = Vector3.ZERO
 
-func _physics_process(delta):
+func _physics_process(delta):  
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
   
   # Get direction vector based on input.
@@ -21,10 +21,16 @@ func _physics_process(delta):
   # Rotate direction based on camera.
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
-  if direction != Vector3.ZERO:
+  if direction != Vector3.ZERO: # Player is moving.
     direction = direction.normalized()
     $Pivot.look_at(translation + direction, Vector3.UP)
-    $AnimationPlayer.playback_speed = 3.0
+    
+    if Input.is_action_pressed("ui_sprint"): # Running.
+      speed = 22
+      $AnimationPlayer.playback_speed = 3.0
+    else: # Walking.
+      speed = 14
+      $AnimationPlayer.playback_speed = 2.25
   else:
     $AnimationPlayer.playback_speed = 1.0
   
