@@ -23,7 +23,7 @@ jobs:
       uses: firebelley/godot-export@v2.8.0
       with:
         # Defining all the required inputs.
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_x11.64.zip
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_linux_server.64.zip
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_export_templates.tpz
         relative_project_path: ./my-3d-squash-the-creeps
       env:
