@@ -8,7 +8,7 @@
 You can [download here](https://github.com/telmotrooper/squash-the-creeps/releases/latest) the latest version of the game for both Windows and Linux, thanks to the wonderful [Godot Export](https://github.com/firebelley/godot-export) GitHub Action.
 ## Repository
 
-This repository contains two separate project:
+This repository contains two separate projects:
 * __3d-squash-the-creeps__: An isometric 3D game implemented by following the tutorial [Create Your First Complete 3D Game with Godot](https://youtu.be/YiE9tcoCfhE) by [GDQuest](https://www.gdquest.com/);
 * __my-3d-squash-the-creeps__: My own take on the game, where I try to build upon a good foundation and implement more advanced mechanics.
 
