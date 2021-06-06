@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode cull_disabled;
 
 uniform float wave_size = 1.0;
 uniform float face_distortion = 0.5;
