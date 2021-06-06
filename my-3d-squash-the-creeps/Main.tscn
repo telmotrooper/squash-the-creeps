@@ -79,8 +79,8 @@ shadow_enabled = true
 [node name="Player" parent="." groups=[
 "players",
 ] instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53519, -0.127422, 0.834938 )
-collision_mask = 524294
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127, 0.835 )
+collision_mask = 14
 
 [node name="CameraPivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0 )
@@ -190,7 +190,7 @@ mesh = ExtResource( 7 )
 material/0 = null
 
 [node name="GodotPowerUp" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -22 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.5, -22 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
