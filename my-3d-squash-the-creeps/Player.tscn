@@ -45,7 +45,7 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="Character" parent="Pivot" instance=ExtResource( 1 )]
-transform = Transform( 0.999737, 0.00211386, 0.0228295, -0.00598565, 0.985271, 0.170891, -0.022132, -0.170982, 0.985025, 0.023941, 0.734308, -0.00194666 )
+transform = Transform( 0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985271, 0.17089, -0.0221321, -0.170982, 0.985025, 0.0239411, 0.734308, -0.00194665 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
