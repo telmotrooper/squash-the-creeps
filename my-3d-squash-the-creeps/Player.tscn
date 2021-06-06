@@ -75,6 +75,7 @@ script = ExtResource( 3 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="CameraPivot/Horizontal/Vertical"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10 )
+current = true
 process_mode = 1
 
 [connection signal="body_entered" from="MobDetector" to="." method="_on_MobDetector_body_entered"]
