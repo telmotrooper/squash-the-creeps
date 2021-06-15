@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Shaders/flag_3d.shader" type="Shader" id=1]
+[ext_resource path="res://shaders/flag_3d.shader" type="Shader" id=1]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
