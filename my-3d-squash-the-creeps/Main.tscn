@@ -174,6 +174,51 @@ margin_bottom = 15.5
 text = "Press enter to retry"
 align = 1
 
+[node name="Pause" type="Control" parent="UserInterface"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="UserInterface/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="UserInterface/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -77.0
+margin_right = 112.0
+margin_bottom = 77.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="UserInterface/Pause/HBoxContainer"]
+margin_top = 35.0
+margin_right = 224.0
+margin_bottom = 72.0
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="UserInterface/Pause/HBoxContainer"]
+margin_top = 82.0
+margin_right = 224.0
+margin_bottom = 119.0
+text = "Exit"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
@@ -199,52 +244,8 @@ material/0 = null
 [node name="GodotPowerUp" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.5, -22 )
 
-[node name="Pause" type="Control" parent="."]
-pause_mode = 2
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlackOverlay" type="ColorRect" parent="Pause"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.235294 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Pause"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -112.0
-margin_top = -77.0
-margin_right = 112.0
-margin_bottom = 77.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResumeButton" type="Button" parent="Pause/HBoxContainer"]
-margin_top = 55.0
-margin_right = 224.0
-margin_bottom = 75.0
-text = "Resume"
-
-[node name="ExitButton" type="Button" parent="Pause/HBoxContainer"]
-margin_top = 79.0
-margin_right = 224.0
-margin_bottom = 99.0
-text = "Exit"
-
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="pressed" from="UserInterface/Pause/HBoxContainer/ResumeButton" to="UserInterface/Pause" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="UserInterface/Pause/HBoxContainer/ExitButton" to="UserInterface/Pause" method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]
-[connection signal="pressed" from="Pause/HBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="Pause/HBoxContainer/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

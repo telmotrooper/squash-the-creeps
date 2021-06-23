@@ -15,6 +15,5 @@ func _input(event):
 func _on_ResumeButton_pressed():
   pause()
 
-
 func _on_ExitButton_pressed():
   get_tree().quit()
