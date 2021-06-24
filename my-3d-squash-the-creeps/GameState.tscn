@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/House In a Forest Loop.ogg" type="AudioStream" id=1]
+[ext_resource path="res://GameStateAudio.gd" type="Script" id=2]
+[ext_resource path="res://GameState.gd" type="Script" id=3]
 
 [node name="GameState" type="Node"]
+script = ExtResource( 3 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="Audio" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="Audio"]
