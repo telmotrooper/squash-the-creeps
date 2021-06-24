@@ -20,4 +20,3 @@ func _on_ExitButton_pressed():
 
 func _on_ToggleFullscreenButton_pressed():
   OS.window_fullscreen = !OS.window_fullscreen
-  Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
