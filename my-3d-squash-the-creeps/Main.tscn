@@ -138,10 +138,10 @@ __meta__ = {
 }
 
 [node name="ScoreLabel" type="Label" parent="UserInterface"]
-margin_left = 24.0
-margin_top = 16.0
-margin_right = 75.0
-margin_bottom = 30.0
+margin_left = 25.0
+margin_top = 15.0
+margin_right = 121.0
+margin_bottom = 46.0
 text = "Score: 0"
 script = ExtResource( 4 )
 __meta__ = {
@@ -149,10 +149,11 @@ __meta__ = {
 }
 
 [node name="FPSLabel" type="Label" parent="UserInterface"]
-margin_left = 24.0
-margin_top = 672.0
-margin_right = 112.0
-margin_bottom = 704.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -47.0
+margin_right = 88.0
 text = "FPS: 0"
 script = ExtResource( 9 )
 __meta__ = {

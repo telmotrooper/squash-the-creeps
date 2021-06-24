@@ -25,7 +25,6 @@ Hotkeys="*res://Hotkeys.gd"
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [gdnative]
