@@ -61,6 +61,3 @@ func die():
 
 func _on_MobDetector_body_entered(body):
   die()
-
-func _on_SensitivitySlider_value_changed(value):
-  $CameraPivot.sensitivity = value

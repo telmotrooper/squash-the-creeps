@@ -1,5 +1,14 @@
 extends Control
 
+func _ready():
+  $VBoxContainer/SensitivityLabel.text = "Mouse Sensitivity: %.1f" % GameState.mouse_sensitivity
+  $VBoxContainer/SensitivitySlider.value = GameState.mouse_sensitivity
+
+func _on_SensitivitySlider_value_changed(value):
+  GameState.mouse_sensitivity = value
+  $VBoxContainer/SensitivityLabel.text = "Mouse Sensitivity: %.1f" % value
+
+
 func pause():
   get_tree().paused = not get_tree().paused
   visible = get_tree().paused

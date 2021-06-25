@@ -221,7 +221,7 @@ text = "Toggle Fullscreen"
 margin_top = 94.0
 margin_right = 253.0
 margin_bottom = 125.0
-text = "Mouse Sensitivity: 1.0"
+text = "Mouse Sensitivity: "
 
 [node name="SensitivitySlider" type="HSlider" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 135.0
@@ -263,6 +263,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.5,
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ResumeButton" to="UserInterface/Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ToggleFullscreenButton" to="UserInterface/Pause" method="_on_ToggleFullscreenButton_pressed"]
-[connection signal="value_changed" from="UserInterface/Pause/VBoxContainer/SensitivitySlider" to="Player" method="_on_SensitivitySlider_value_changed"]
+[connection signal="value_changed" from="UserInterface/Pause/VBoxContainer/SensitivitySlider" to="UserInterface/Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ExitButton" to="UserInterface/Pause" method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]

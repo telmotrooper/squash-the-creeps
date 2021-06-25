@@ -4,7 +4,6 @@ var horizontal =  0
 var vertical = 0
 var v_min = -70 # Looking up
 var v_max = 15 # Look down
-export var sensitivity = 0.5
 var h_acceleration = 10
 var v_acceleration = 10
 
@@ -15,8 +14,8 @@ func _ready():
 
 func _input(event):
   if event is InputEventMouseMotion:
-    horizontal -= event.relative.x * sensitivity
-    vertical -= event.relative.y * sensitivity
+    horizontal -= event.relative.x * GameState.mouse_sensitivity
+    vertical -= event.relative.y * GameState.mouse_sensitivity
 
 func _physics_process(delta):
   #print(vertical) # It's useful to print the current value when trying to find the proper values for 'min' and 'max'.
