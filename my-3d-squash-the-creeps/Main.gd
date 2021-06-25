@@ -1,8 +1,11 @@
 extends Node
 
 export (PackedScene) var mob_scene = preload("res://Mob.tscn" )
+export var spawn_mobs := true
 
 func _ready():
+  if !spawn_mobs:
+    $MobTimer.stop()
   randomize()
 
 func _unhandled_input(event):
