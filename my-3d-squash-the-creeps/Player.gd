@@ -25,6 +25,12 @@ func _physics_process(delta):
     direction = direction.normalized()
     $Pivot.look_at(translation + direction, Vector3.UP)
     
+    # Move origin of CollisionShape (x,z) to origin of Pivot so we can rotate it properly.
+    $CollisionShape.global_transform.origin.x = $Pivot.global_transform.origin.x
+    $CollisionShape.global_transform.origin.z = $Pivot.global_transform.origin.z
+    $CollisionShape.rotation.y = $Pivot.rotation.y
+    
+    
     if Input.is_action_pressed("ui_sprint"): # Running.
       speed = 22
       $AnimationPlayer.playback_speed = 3.0

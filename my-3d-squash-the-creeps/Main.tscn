@@ -33,6 +33,7 @@ _data = {
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
+spawn_mobs = false
 
 [node name="Flag3DScene" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031 )
