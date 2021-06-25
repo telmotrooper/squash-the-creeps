@@ -23,8 +23,13 @@ func initiliaze(start_position, player_position):
 
 func squash():
   emit_signal("squashed")
+  velocity = Vector3.ZERO
+  $AnimationPlayer.playback_speed = 1
+  $AnimationPlayer.play("squash")
   GameState.Audio.play("res://art/slimejump.ogg")
-  queue_free()
 
 func _on_VisibilityNotifier_screen_exited():
+  queue_free()
+
+func kill():
   queue_free()
