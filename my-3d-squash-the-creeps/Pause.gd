@@ -1,12 +1,14 @@
 extends Control
 
+const sensitivity_text = "Mouse Sensitivity: %.1f"
+
 func _ready():
-  $VBoxContainer/SensitivityLabel.text = "Mouse Sensitivity: %.1f" % GameState.mouse_sensitivity
+  $VBoxContainer/SensitivityLabel.text = sensitivity_text % GameState.mouse_sensitivity
   $VBoxContainer/SensitivitySlider.value = GameState.mouse_sensitivity
 
 func _on_SensitivitySlider_value_changed(value):
   GameState.mouse_sensitivity = value
-  $VBoxContainer/SensitivityLabel.text = "Mouse Sensitivity: %.1f" % value
+  $VBoxContainer/SensitivityLabel.text = sensitivity_text % value
 
 
 func pause():
