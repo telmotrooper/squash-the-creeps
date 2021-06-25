@@ -197,9 +197,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -126.5
+margin_left = -139.0
 margin_top = -99.0
-margin_right = 126.5
+margin_right = 139.0
 margin_bottom = 99.0
 custom_constants/separation = 10
 alignment = 1
@@ -208,25 +208,25 @@ __meta__ = {
 }
 
 [node name="ResumeButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
-margin_right = 253.0
+margin_right = 278.0
 margin_bottom = 37.0
 text = "Resume"
 
 [node name="ToggleFullscreenButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 47.0
-margin_right = 253.0
+margin_right = 278.0
 margin_bottom = 84.0
 text = "Toggle Fullscreen"
 
 [node name="SensitivityLabel" type="Label" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 94.0
-margin_right = 253.0
+margin_right = 278.0
 margin_bottom = 125.0
 text = "Mouse Sensitivity: "
 
 [node name="SensitivitySlider" type="HSlider" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 135.0
-margin_right = 253.0
+margin_right = 278.0
 margin_bottom = 151.0
 min_value = 0.1
 max_value = 1.0
@@ -235,7 +235,7 @@ value = 0.1
 
 [node name="ExitButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 161.0
-margin_right = 253.0
+margin_right = 278.0
 margin_bottom = 198.0
 text = "Exit"
 
