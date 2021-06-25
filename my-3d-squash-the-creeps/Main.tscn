@@ -176,7 +176,6 @@ align = 1
 
 [node name="Pause" type="Control" parent="UserInterface"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 13 )
@@ -197,10 +196,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -112.0
-margin_top = -77.0
-margin_right = 112.0
-margin_bottom = 77.0
+margin_left = -126.5
+margin_top = -99.0
+margin_right = 126.5
+margin_bottom = 99.0
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -208,20 +207,35 @@ __meta__ = {
 }
 
 [node name="ResumeButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
-margin_top = 35.0
-margin_right = 224.0
-margin_bottom = 72.0
+margin_right = 253.0
+margin_bottom = 37.0
 text = "Resume"
 
 [node name="ToggleFullscreenButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
-margin_right = 12.0
-margin_bottom = 37.0
+margin_top = 47.0
+margin_right = 253.0
+margin_bottom = 84.0
 text = "Toggle Fullscreen"
 
+[node name="SensitivityLabel" type="Label" parent="UserInterface/Pause/VBoxContainer"]
+margin_top = 94.0
+margin_right = 253.0
+margin_bottom = 125.0
+text = "Mouse Sensitivity: 1.0"
+
+[node name="SensitivitySlider" type="HSlider" parent="UserInterface/Pause/VBoxContainer"]
+margin_top = 135.0
+margin_right = 253.0
+margin_bottom = 151.0
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 0.1
+
 [node name="ExitButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
-margin_top = 82.0
-margin_right = 224.0
-margin_bottom = 119.0
+margin_top = 161.0
+margin_right = 253.0
+margin_bottom = 198.0
 text = "Exit"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -249,5 +263,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.5,
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ResumeButton" to="UserInterface/Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ToggleFullscreenButton" to="UserInterface/Pause" method="_on_ToggleFullscreenButton_pressed"]
+[connection signal="value_changed" from="UserInterface/Pause/VBoxContainer/SensitivitySlider" to="Player" method="_on_SensitivitySlider_value_changed"]
 [connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ExitButton" to="UserInterface/Pause" method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]
