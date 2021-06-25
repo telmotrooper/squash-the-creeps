@@ -53,6 +53,7 @@ func _physics_process(delta):
         mob.squash()
         velocity.y = bounce_impulse
   
+  # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
 
 func die():
