@@ -24,6 +24,7 @@ func initiliaze(start_position, player_position):
 func squash():
   emit_signal("squashed")
   velocity = Vector3.ZERO
+  $CollisionShape.disabled = true
   $AnimationPlayer.playback_speed = 1
   $AnimationPlayer.play("squash")
   GameState.Audio.play("res://art/slimejump.ogg")
