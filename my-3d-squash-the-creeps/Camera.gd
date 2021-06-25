@@ -3,7 +3,7 @@ extends Spatial
 var horizontal =  0
 var vertical = 0
 var v_min = -70 # Looking up
-var v_max = 15 # Look down
+var v_max = 12 # Look down
 var h_acceleration = 10
 var v_acceleration = 10
 
