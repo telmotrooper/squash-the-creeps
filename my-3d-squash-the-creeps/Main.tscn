@@ -192,7 +192,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="VBoxContainer" parent="UserInterface/Pause"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Pause"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -207,18 +207,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResumeButton" type="Button" parent="UserInterface/Pause/HBoxContainer"]
+[node name="ResumeButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 35.0
 margin_right = 224.0
 margin_bottom = 72.0
 text = "Resume"
 
-[node name="ToggleFullscreenButton" type="Button" parent="UserInterface/Pause/HBoxContainer"]
+[node name="ToggleFullscreenButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
 margin_right = 12.0
 margin_bottom = 37.0
 text = "Toggle Fullscreen"
 
-[node name="ExitButton" type="Button" parent="UserInterface/Pause/HBoxContainer"]
+[node name="ExitButton" type="Button" parent="UserInterface/Pause/VBoxContainer"]
 margin_top = 82.0
 margin_right = 224.0
 margin_bottom = 119.0
@@ -247,7 +247,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.5,
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
-[connection signal="pressed" from="UserInterface/Pause/HBoxContainer/ResumeButton" to="UserInterface/Pause" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="UserInterface/Pause/HBoxContainer/ToggleFullscreenButton" to="UserInterface/Pause" method="_on_ToggleFullscreenButton_pressed"]
-[connection signal="pressed" from="UserInterface/Pause/HBoxContainer/ExitButton" to="UserInterface/Pause" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ResumeButton" to="UserInterface/Pause" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ToggleFullscreenButton" to="UserInterface/Pause" method="_on_ToggleFullscreenButton_pressed"]
+[connection signal="pressed" from="UserInterface/Pause/VBoxContainer/ExitButton" to="UserInterface/Pause" method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]
