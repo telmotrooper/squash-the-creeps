@@ -49,7 +49,6 @@ transform = Transform( 0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985271, 0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
-visible = false
 shape = SubResource( 1 )
 
 [node name="MobDetector" type="Area" parent="."]
