@@ -30,7 +30,6 @@ func _physics_process(delta):
     $CollisionShape.global_transform.origin.z = $Pivot.global_transform.origin.z
     $CollisionShape.rotation.y = $Pivot.rotation.y
     
-    
     if Input.is_action_pressed("ui_sprint"): # Running.
       speed = 22
       $AnimationPlayer.playback_speed = 3.0
