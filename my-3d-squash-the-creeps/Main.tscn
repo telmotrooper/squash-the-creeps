@@ -99,11 +99,17 @@ collision_mask = 0
 [node name="CollisionShape" type="CollisionShape" parent="Map/Platform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.952113, 0 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/Platform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = ExtResource( 7 )
 material/0 = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Bridge" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.75822, -59 )
@@ -111,11 +117,17 @@ transform = Transform( 1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0
 [node name="CollisionShape" type="CollisionShape" parent="Map/Bridge"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 29.9, 0, 0, 0 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/Bridge"]
 transform = Transform( -0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
 material/0 = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Platform2" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.626 )
