@@ -6,6 +6,6 @@ It is based in the isometric 3D game of the same name implemented in the tutoria
 
 ## Download
 
-You can **[download here](https://github.com/telmotrooper/squash-the-creeps/releases/latest)** the latest version of the game for both Windows, Linux and Mac, thanks to the wonderful [Godot Export](https://github.com/firebelley/godot-export) GitHub Action.
+You can **[download here](https://github.com/telmotrooper/squash-the-creeps/releases/latest)** the latest version of the game for Windows, Linux and Mac, thanks to the wonderful [Godot Export](https://github.com/firebelley/godot-export) GitHub Action.
 
 <img src="screenshot.png" width="75%" height="75%" />
