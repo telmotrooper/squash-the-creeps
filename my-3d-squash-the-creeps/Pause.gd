@@ -1,6 +1,6 @@
 extends Control
 
-const sensitivity_text = "Mouse Sensitivity: %.1f"
+const sensitivity_text = "Mouse Sensitivity: %.2f"
 
 func _ready():
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % GameState.mouse_sensitivity
