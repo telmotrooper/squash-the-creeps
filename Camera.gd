@@ -14,8 +14,8 @@ func _ready():
 
 func _input(event):
   if event is InputEventMouseMotion:
-    horizontal -= event.relative.x * GameState.mouse_sensitivity
-    vertical -= event.relative.y * GameState.mouse_sensitivity
+    horizontal -= event.relative.x * Configuration.get_value("controls", "mouse_sensitivity")
+    vertical -= event.relative.y * Configuration.get_value("controls", "mouse_sensitivity")
 
 func _physics_process(delta):
   #print(vertical) # It's useful to print the current value when trying to find the proper values for 'min' and 'max'.

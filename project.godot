@@ -19,8 +19,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Hotkeys="*res://Hotkeys.gd"
+Configuration="*res://Configuration.gd"
 GameState="*res://GameState.tscn"
+Hotkeys="*res://Hotkeys.gd"
 
 [display]
 

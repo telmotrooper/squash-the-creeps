@@ -3,11 +3,11 @@ extends Control
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 
 func _ready():
-  $VBoxContainer/SensitivityLabel.text = sensitivity_text % GameState.mouse_sensitivity
-  $VBoxContainer/SensitivitySlider.value = GameState.mouse_sensitivity
+  $VBoxContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
+  $VBoxContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
 
 func _on_SensitivitySlider_value_changed(value):
-  GameState.mouse_sensitivity = value
+  Configuration.update_setting("controls", "mouse_sensitivity", value)
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % value
 
 
@@ -31,3 +31,4 @@ func _on_ExitButton_pressed():
 
 func _on_ToggleFullscreenButton_pressed():
   OS.window_fullscreen = !OS.window_fullscreen
+  Configuration.update_setting("display", "fullscreen", OS.window_fullscreen)
