@@ -8,6 +8,7 @@ func _ready():
 
 func _on_SensitivitySlider_value_changed(value):
   GameState.mouse_sensitivity = value
+  Configuration.update_setting("controls", "mouse_sensitivity", value)
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % value
 
 
