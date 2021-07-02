@@ -31,3 +31,4 @@ func _on_ExitButton_pressed():
 
 func _on_ToggleFullscreenButton_pressed():
   OS.window_fullscreen = !OS.window_fullscreen
+  Configuration.update_setting("display", "fullscreen", OS.window_fullscreen)
