@@ -7,6 +7,8 @@ func _ready():
   var load_file = config.load(file_path)
   
   if load_file != OK:
+    config.set_value("audio", "music_volume", 100)
+    config.set_value("audio", "sound_volume", 100)
     config.set_value("controls", "mouse_sensitivity", 0.5)
     config.set_value("display", "fullscreen", false)
     config.save(file_path)
