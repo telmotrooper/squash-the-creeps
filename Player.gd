@@ -10,7 +10,13 @@ export var bounce_impulse := 16.0
 var velocity = Vector3.ZERO
 
 func _physics_process(delta):  
+  if not $AnimationPlayer.is_playing():
+    $AnimationPlayer.play("float")
+  
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
+  
+  if Input.is_action_just_pressed("attack"):
+    $AnimationPlayer.play("spin-y")
   
   # Get direction vector based on input.
   var direction = Vector3(
@@ -68,4 +74,8 @@ func die():
   queue_free()
 
 func _on_MobDetector_body_entered(body):
-  die()
+  if $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing():
+    if body is Mob:
+      body.squash()
+  else:
+    die()

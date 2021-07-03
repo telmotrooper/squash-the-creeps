@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://art/player.glb" type="PackedScene" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -38,6 +38,22 @@ tracks/1/keys = {
 "values": [ Vector3( -9.551, 0, 0 ), Vector3( 0.622502, 0, 0 ), Vector3( 11.4967, 2.98079, -0.603191 ), Vector3( 0.582003, 0, 0 ), Vector3( -10.1282, 2.65537, -0.69615 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "spin-y"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 720, 0 ) ]
+}
+
 [node name="Player" type="KinematicBody"]
 collision_mask = 6
 script = ExtResource( 2 )
@@ -64,6 +80,7 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "float"
 anims/float = SubResource( 3 )
+anims/spin-y = SubResource( 4 )
 
 [node name="CameraPivot" type="Spatial" parent="."]
 script = ExtResource( 3 )
