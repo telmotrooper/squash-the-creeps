@@ -5,6 +5,11 @@ const sensitivity_text = "Mouse Sensitivity: %.2f"
 func _ready():
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
   $VBoxContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
+  
+  var music_bus_index = AudioServer.get_bus_index("Music")
+  var sound_bus_index = AudioServer.get_bus_index("Sound")
+  print(AudioServer.get_bus_volume_db(music_bus_index))
+  print(AudioServer.get_bus_volume_db(sound_bus_index))
 
 func _on_SensitivitySlider_value_changed(value):
   Configuration.update_setting("controls", "mouse_sensitivity", value)
