@@ -8,6 +8,12 @@ func _ready():
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
   $VBoxContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
   
+  $VBoxContainer/MusicVolumeLabel.text = music_volume_text % Configuration.get_value("audio", "music_volume")
+  $VBoxContainer/MusicVolumeSlider.value = Configuration.get_value("audio", "music_volume")
+  
+  $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
+  $VBoxContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
+  
   var music_bus_index = AudioServer.get_bus_index("Music")
   var sound_bus_index = AudioServer.get_bus_index("Sound")
   print(AudioServer.get_bus_volume_db(music_bus_index))
