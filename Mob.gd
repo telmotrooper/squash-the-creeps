@@ -13,6 +13,9 @@ func _physics_process(_delta):
 func initiliaze(start_position, player_position):
   translation = start_position
   look_at(player_position, Vector3.UP)
+  # Ignore height of player position, spawn looking straight.
+  rotation.x = 0
+  
   # Rotate between -45 degrees and 45 degrees.
   rotate_y(rand_range(-PI / 4.0, PI / 4.0))
   
