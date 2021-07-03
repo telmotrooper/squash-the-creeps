@@ -1,8 +1,5 @@
 extends Control
 
-const min_volume = -60
-const max_volume = 0
-
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
@@ -24,14 +21,12 @@ func _on_SensitivitySlider_value_changed(value):
 func _on_MusicVolumeSlider_value_changed(value):
   Configuration.update_setting("audio", "music_volume", value)
   $VBoxContainer/MusicVolumeLabel.text = music_volume_text % value
-  var music_bus_index = AudioServer.get_bus_index("Music")
-  AudioServer.set_bus_volume_db(music_bus_index, denormalize_volume(value))
+  Configuration.set_volume("Music", value)
 
 func _on_SoundVolumeSlider_value_changed(value):
   Configuration.update_setting("audio", "sound_volume", value)
   $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % value
-  var sound_bus_index = AudioServer.get_bus_index("Sound")
-  AudioServer.set_bus_volume_db(sound_bus_index, denormalize_volume(value))
+  Configuration.set_volume("Sound", value)
 
 func pause():
   get_tree().paused = not get_tree().paused
@@ -54,6 +49,3 @@ func _on_ExitButton_pressed():
 func _on_ToggleFullscreenButton_pressed():
   OS.window_fullscreen = !OS.window_fullscreen
   Configuration.update_setting("display", "fullscreen", OS.window_fullscreen)
-
-func denormalize_volume(volume: float):
-  return (max_volume - min_volume) * volume/100 + min_volume
