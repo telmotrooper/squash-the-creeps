@@ -8,4 +8,14 @@ It is based in the isometric 3D game of the same name implemented in the tutoria
 
 You can **[download here](https://github.com/telmotrooper/squash-the-creeps/releases/latest)** the latest version of the game for Windows, Linux and Mac, thanks to the wonderful [Godot Export](https://github.com/firebelley/godot-export) GitHub Action.
 
+## Screenshots
+
 <img src="screenshot.png" width="75%" height="75%" />
+
+## FAQ
+
+#### **Where are the settings stored?**
+
+* Windows: `%APPDATA%\Godot\app_userdata/Squash the Creeps/settings.cfg`
+* Linux: `~/.local/share/godot/app_userdata/Squash the Creeps/settings.cfg`
+* Mac: `~/Library/Application Support/Godot/app_userdata/Squash the Creeps/settings.cfg`
