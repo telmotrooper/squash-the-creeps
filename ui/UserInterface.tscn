@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Pause.gd" type="Script" id=2]
+[ext_resource path="res://ui/ScoreLabel.gd" type="Script" id=3]
+[ext_resource path="res://ui/FPSLabel.gd" type="Script" id=4]
+
+[node name="UserInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 25.0
+margin_top = 15.0
+margin_right = 121.0
+margin_bottom = 46.0
+text = "Score: 0"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPSLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -47.0
+margin_right = 88.0
+text = "FPS: 0"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+
+[node name="Label" type="Label" parent="Retry"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -15.5
+margin_bottom = 15.5
+text = "Press enter to retry"
+align = 1
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -139.0
+margin_top = -99.0
+margin_right = 139.0
+margin_bottom = 99.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="Pause/VBoxContainer"]
+margin_right = 278.0
+margin_bottom = 37.0
+text = "Resume"
+
+[node name="ToggleFullscreenButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 47.0
+margin_right = 278.0
+margin_bottom = 84.0
+text = "Toggle Fullscreen"
+
+[node name="SensitivityLabel" type="Label" parent="Pause/VBoxContainer"]
+margin_top = 94.0
+margin_right = 278.0
+margin_bottom = 125.0
+text = "Mouse Sensitivity: "
+
+[node name="SensitivitySlider" type="HSlider" parent="Pause/VBoxContainer"]
+margin_top = 135.0
+margin_right = 278.0
+margin_bottom = 151.0
+min_value = 0.05
+max_value = 1.0
+step = 0.05
+value = 0.1
+
+[node name="ExitButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 161.0
+margin_right = 278.0
+margin_bottom = 198.0
+text = "Exit"
+
+[connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
+[connection signal="pressed" from="Pause/VBoxContainer/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
