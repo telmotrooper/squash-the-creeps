@@ -74,10 +74,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -139.0
-margin_top = -99.0
-margin_right = 139.0
-margin_bottom = 99.0
+margin_left = -144.0
+margin_top = -166.0
+margin_right = 144.0
+margin_bottom = 166.0
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -85,38 +85,64 @@ __meta__ = {
 }
 
 [node name="ResumeButton" type="Button" parent="Pause/VBoxContainer"]
-margin_right = 278.0
+margin_right = 288.0
 margin_bottom = 37.0
 text = "Resume"
 
 [node name="ToggleFullscreenButton" type="Button" parent="Pause/VBoxContainer"]
 margin_top = 47.0
-margin_right = 278.0
+margin_right = 288.0
 margin_bottom = 84.0
 text = "Toggle Fullscreen"
 
 [node name="SensitivityLabel" type="Label" parent="Pause/VBoxContainer"]
 margin_top = 94.0
-margin_right = 278.0
+margin_right = 288.0
 margin_bottom = 125.0
 text = "Mouse Sensitivity: "
 
 [node name="SensitivitySlider" type="HSlider" parent="Pause/VBoxContainer"]
 margin_top = 135.0
-margin_right = 278.0
+margin_right = 288.0
 margin_bottom = 151.0
 min_value = 0.05
 max_value = 1.0
 step = 0.05
 value = 0.1
 
-[node name="ExitButton" type="Button" parent="Pause/VBoxContainer"]
+[node name="MusicVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
 margin_top = 161.0
-margin_right = 278.0
-margin_bottom = 198.0
+margin_right = 288.0
+margin_bottom = 192.0
+text = "Music Volume: "
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Pause/VBoxContainer"]
+margin_top = 202.0
+margin_right = 288.0
+margin_bottom = 218.0
+value = 100.0
+
+[node name="SoundVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
+margin_top = 228.0
+margin_right = 288.0
+margin_bottom = 259.0
+text = "Sound Volume: "
+
+[node name="SoundVolumeSlider" type="HSlider" parent="Pause/VBoxContainer"]
+margin_top = 269.0
+margin_right = 288.0
+margin_bottom = 285.0
+value = 100.0
+
+[node name="ExitButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 295.0
+margin_right = 288.0
+margin_bottom = 332.0
 text = "Exit"
 
 [connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

@@ -1,15 +1,32 @@
 extends Control
 
 const sensitivity_text = "Mouse Sensitivity: %.2f"
+const music_volume_text = "Music Volume: %d"
+const sound_volume_text = "Sound Volume: %d"
 
 func _ready():
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
   $VBoxContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
+  
+  $VBoxContainer/MusicVolumeLabel.text = music_volume_text % Configuration.get_value("audio", "music_volume")
+  $VBoxContainer/MusicVolumeSlider.value = Configuration.get_value("audio", "music_volume")
+  
+  $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
+  $VBoxContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
 
 func _on_SensitivitySlider_value_changed(value):
   Configuration.update_setting("controls", "mouse_sensitivity", value)
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % value
 
+func _on_MusicVolumeSlider_value_changed(value):
+  Configuration.update_setting("audio", "music_volume", value)
+  $VBoxContainer/MusicVolumeLabel.text = music_volume_text % value
+  Configuration.set_volume("Music", value)
+
+func _on_SoundVolumeSlider_value_changed(value):
+  Configuration.update_setting("audio", "sound_volume", value)
+  $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % value
+  Configuration.set_volume("Sound", value)
 
 func pause():
   get_tree().paused = not get_tree().paused
