@@ -19,3 +19,7 @@ You can **[download here](https://github.com/telmotrooper/squash-the-creeps/rele
 * Windows: `%APPDATA%\Godot\app_userdata/Squash the Creeps/settings.cfg`
 * Linux: `~/.local/share/godot/app_userdata/Squash the Creeps/settings.cfg`
 * Mac: `~/Library/Application Support/Godot/app_userdata/Squash the Creeps/settings.cfg`
+
+#### **I'm getting error "Mixed tabs and spaces in indentation"**
+
+If you get this error, go in the editor and click `Editor > Editor Settings... > General > Text Editor > Indent`, then change **Type** to `Spaces` and **Size** to `2`. Then close the project, reset the file changes with `git reset --hard` and reopen the project. You should now be able to edit the files without running into the error.
