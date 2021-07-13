@@ -1,4 +1,4 @@
 extends Label
 
 func _process(delta):
-  text = "FPS: 60"
+  text = "FPS: %s" % Engine.get_frames_per_second()
