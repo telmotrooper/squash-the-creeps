@@ -22,11 +22,14 @@ func _ready():
   if not config.has_section_key("controls", "mouse_sensitivity"):
     config.set_value("controls", "mouse_sensitivity", 0.5)
   
-  if not config.has_section_key("display", "fullscreen"):
-    config.set_value("display", "fullscreen", false)
+  if not config.has_section_key("graphics", "fullscreen"):
+    config.set_value("graphics", "fullscreen", false)
+  
+  if not config.has_section_key("graphics", "draw_distance"):
+    config.set_value("graphics", "draw_distance", 200)
   
   # Handle fullscreen
-  if config.get_value("display", "fullscreen") == true:
+  if config.get_value("graphics", "fullscreen") == true:
     OS.window_fullscreen = true
   
   # Handle music volume

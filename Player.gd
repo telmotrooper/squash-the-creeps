@@ -9,6 +9,9 @@ export var bounce_impulse := 16.0
 
 var velocity = Vector3.ZERO
 
+func _ready():
+  GameState.Player = self
+
 func _physics_process(delta):  
   if not $AnimationPlayer.is_playing():
     $AnimationPlayer.play("float")
@@ -79,3 +82,6 @@ func _on_MobDetector_body_entered(body):
       body.squash()
   else:
     die()
+
+func set_draw_distance(value: int):
+  $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value

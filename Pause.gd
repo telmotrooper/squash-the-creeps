@@ -1,10 +1,14 @@
 extends Control
 
+const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
 func _ready():
+  $VBoxContainer/DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
+  $VBoxContainer/DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
+  
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
   $VBoxContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
   
@@ -13,6 +17,11 @@ func _ready():
   
   $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
   $VBoxContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
+
+func _on_DrawDistanceSlider_value_changed(value):
+  Configuration.update_setting("graphics", "draw_distance", value)
+  $VBoxContainer/DrawDistanceLabel.text = draw_distance_text % value
+  GameState.Player.set_draw_distance(value)
 
 func _on_SensitivitySlider_value_changed(value):
   Configuration.update_setting("controls", "mouse_sensitivity", value)
