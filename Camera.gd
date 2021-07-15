@@ -11,6 +11,8 @@ func _ready():
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
   # Prevent camera from colliding with player.
   $Horizontal/Vertical/ClippedCamera.add_exception(get_parent())
+  # Fetch draw distance from configuration file.
+  $Horizontal/Vertical/ClippedCamera.far = Configuration.get_value("graphics", "draw_distance")
 
 func _input(event):
   if event is InputEventMouseMotion:
