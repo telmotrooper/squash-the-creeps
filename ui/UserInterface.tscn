@@ -120,10 +120,9 @@ text = "Draw Distance: "
 margin_top = 202.0
 margin_right = 288.0
 margin_bottom = 218.0
-min_value = 0.05
-max_value = 1.0
-step = 0.05
-value = 0.1
+min_value = 50.0
+max_value = 200.0
+value = 50.0
 
 [node name="MusicVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
 margin_top = 228.0
@@ -158,6 +157,7 @@ text = "Exit"
 [connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
