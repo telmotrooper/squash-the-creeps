@@ -82,3 +82,6 @@ func _on_MobDetector_body_entered(body):
       body.squash()
   else:
     die()
+
+func set_draw_distance(value: int):
+  $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value

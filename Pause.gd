@@ -25,6 +25,7 @@ func _on_DrawDistanceSlider_value_changed(value):
 func _on_SensitivitySlider_value_changed(value):
   Configuration.update_setting("controls", "mouse_sensitivity", value)
   $VBoxContainer/SensitivityLabel.text = sensitivity_text % value
+  GameState.Player.set_draw_distance(value)
 
 func _on_MusicVolumeSlider_value_changed(value):
   Configuration.update_setting("audio", "music_volume", value)

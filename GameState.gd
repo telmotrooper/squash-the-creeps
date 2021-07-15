@@ -1,4 +1,4 @@
 extends Node
 
-var Player: Node
 var Audio: Node
+var Player: Node
