@@ -30,7 +30,7 @@ func _physics_process(delta):
   # Rotate direction based on camera.
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
-  if direction != Vector3.ZERO: # Player is moving.
+  if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
     $Pivot.look_at(translation + direction, Vector3.UP)
     
@@ -48,6 +48,7 @@ func _physics_process(delta):
       speed = 14
       $AnimationPlayer.playback_speed = 2.25
   else:
+    speed = 14
     $AnimationPlayer.playback_speed = 1.0
   
   velocity.x = direction.x * speed
@@ -72,15 +73,18 @@ func _physics_process(delta):
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
   
-  if $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing():
+  if is_spinning():
     for mob in $SpinArea.get_overlapping_bodies():
       mob.squash()
+
+func is_spinning():
+  return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
 
 func die():
   emit_signal("hit")
   queue_free()
 
-func _on_MobDetector_body_entered(body):
+func _on_MobDetector_body_entered(_body):
     die()
 
 func set_draw_distance(value: int):
