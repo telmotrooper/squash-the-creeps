@@ -71,16 +71,16 @@ func _physics_process(delta):
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
+  
+  if $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing():
+    for mob in $SpinArea.get_overlapping_bodies():
+      mob.squash()
 
 func die():
   emit_signal("hit")
   queue_free()
 
 func _on_MobDetector_body_entered(body):
-  if $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing():
-    if body is Mob:
-      body.squash()
-  else:
     die()
 
 func set_draw_distance(value: int):
