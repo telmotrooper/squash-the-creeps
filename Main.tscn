@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Flag3DScene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://models/ufo/ufo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=14]
-[ext_resource path="res://shaders/Smoke/Smoke.tres" type="Material" id=15]
+[ext_resource path="res://shaders/Smoke/Smoke.tscn" type="PackedScene" id=15]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 30, 1, 30 )
@@ -69,12 +69,9 @@ _data = {
 material = ExtResource( 4 )
 size = Vector2( 500, 500 )
 
-[sub_resource type="PlaneMesh" id=12]
-material = ExtResource( 15 )
-size = Vector2( 4, 6 )
-
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
+spawn_mobs = false
 
 [node name="Flag3DScene" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031 )
@@ -279,15 +276,11 @@ material/0 = null
 [node name="Ufo" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1.26903, 0, -1.54582, 0, 2, 0, 1.54582, 0, 1.26903, 46.8177, 1.94913, -35.4631 )
 
-[node name="Smoke" type="MeshInstance" parent="."]
-transform = Transform( 0.92319, -0.384344, 1.68002e-08, 0, -4.37114e-08, -1, 0.384344, 0.92319, -4.03539e-08, 45.2004, 4.31112, -31.6553 )
-mesh = SubResource( 12 )
-material/0 = null
+[node name="Smoke" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45.8532, 4.2815, -31.9807 )
 
-[node name="Smoke2" type="MeshInstance" parent="."]
-transform = Transform( 0.92319, -0.384344, 1.68002e-08, 0, -4.37114e-08, -1, 0.384344, 0.92319, -4.03539e-08, 44.3407, 4.31112, -37.7678 )
-mesh = SubResource( 12 )
-material/0 = null
+[node name="Smoke2" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 46.7558, 4.2815, -39.0177 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
