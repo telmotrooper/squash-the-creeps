@@ -75,9 +75,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -144.0
-margin_top = -199.5
+margin_top = -243.5
 margin_right = 144.0
-margin_bottom = 199.5
+margin_bottom = 243.5
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -124,40 +124,58 @@ min_value = 100.0
 max_value = 500.0
 value = 100.0
 
-[node name="MusicVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
+[node name="GrassLabel" type="Label" parent="Pause/VBoxContainer"]
 margin_top = 228.0
 margin_right = 288.0
 margin_bottom = 259.0
+text = "Amount of Grass:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrassOptionButton" type="OptionButton" parent="Pause/VBoxContainer"]
+margin_top = 269.0
+margin_right = 288.0
+margin_bottom = 306.0
+text = "Maximum"
+items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "Very Low", null, false, 4, null, "None", null, false, 5, null ]
+selected = 0
+
+[node name="MusicVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
+margin_top = 316.0
+margin_right = 288.0
+margin_bottom = 347.0
 text = "Music Volume: "
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Pause/VBoxContainer"]
-margin_top = 269.0
+margin_top = 357.0
 margin_right = 288.0
-margin_bottom = 285.0
+margin_bottom = 373.0
 value = 100.0
 
 [node name="SoundVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
-margin_top = 295.0
+margin_top = 383.0
 margin_right = 288.0
-margin_bottom = 326.0
+margin_bottom = 414.0
 text = "Sound Volume: "
 
 [node name="SoundVolumeSlider" type="HSlider" parent="Pause/VBoxContainer"]
-margin_top = 336.0
+margin_top = 424.0
 margin_right = 288.0
-margin_bottom = 352.0
+margin_bottom = 440.0
 value = 100.0
 
 [node name="ExitButton" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 362.0
+margin_top = 450.0
 margin_right = 288.0
-margin_bottom = 399.0
+margin_bottom = 487.0
 text = "Exit"
 
 [connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
+[connection signal="item_selected" from="Pause/VBoxContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
 [connection signal="value_changed" from="Pause/VBoxContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

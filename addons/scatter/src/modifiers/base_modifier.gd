@@ -11,6 +11,7 @@ var display_name: String = "Base Modifier Name"
 var category: String = "None"
 var warning: String = ""
 var warning_ignore_no_transforms := false
+var warning_ignore_no_path := true
 
 
 func get_warning() -> String:
@@ -29,14 +30,14 @@ func process_transforms(transforms, global_seed) -> void:
 	_clear_warning()
 
 	var path = transforms.path
-	if path.curve.get_point_count() <= 1:
+	if path.curve.get_point_count() <= 1 and not warning_ignore_no_path:
 		warning += """The Scatter node 3D curve is empty.
 		You can draw one using the controls on top of the viewport."""
 		return
 
 	if transforms.list.empty() and not warning_ignore_no_transforms:
 		warning += """The list of transforms is empty.
-		Make sure you have a Distribute modifier at the begining of the stack.
+		Make sure you have a Distribute or Create modifier at the begining of the stack.
 		"""
 
 	_process_transforms(transforms, global_seed)

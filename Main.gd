@@ -4,6 +4,8 @@ export (PackedScene) var mob_scene = preload("res://Mob.tscn" )
 export var spawn_mobs := true
 
 func _ready():
+  GameState.Grass = $Map/Grass
+  
   if !spawn_mobs:
     $MobTimer.stop()
   randomize()

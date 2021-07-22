@@ -58,3 +58,23 @@ func _on_ExitButton_pressed():
 func _on_ToggleFullscreenButton_pressed():
   OS.window_fullscreen = !OS.window_fullscreen
   Configuration.update_setting("display", "fullscreen", OS.window_fullscreen)
+
+func _on_GrassOptionButton_item_selected(index):
+  print(index)
+  match index:
+    0: # Maximum
+      update_grass(1)
+    1: # High
+      update_grass(0.75)
+    2: # Medium
+      update_grass(0.5)
+    3: # Low
+      update_grass(0.25)
+    4: # Very Low
+      update_grass(0.1)
+    5: # None
+      update_grass(0)
+
+func update_grass(multiplier: float):
+  GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
+  GameState.Grass._do_update()

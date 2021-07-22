@@ -14,11 +14,14 @@ var initial_position: Vector3
 var initial_rotation: Vector3
 var initial_scale: Vector3
 
+var materials := []
+
 var _parent
 
 
 func _ready():
 	_parent = get_parent()
+	_restore_multimesh_materials()
 
 
 func _get_configuration_warning() -> String:
@@ -31,10 +34,18 @@ func _get_configuration_warning() -> String:
 	return ""
 
 
+func _get_property_list() -> Array:
+	return [{
+		"name": "materials",
+		"type": TYPE_ARRAY,
+		"usage": PROPERTY_USAGE_STORAGE
+	}]
+
+
 func _set(property, _value):
 	# Hack to detect if the node was just duplicated from the editor
 	if property == "transform":
-		call_deferred("_delete_multimesh")
+		call_deferred("delete_multimesh")
 	return false
 
 
@@ -99,14 +110,26 @@ func get_item_node():
 	return null
 
 
+func is_local() -> bool:
+	return not local_item_path.is_empty()
+
+
 func update_warning() -> void:
 	if is_inside_tree():
 		get_tree().emit_signal("node_configuration_warning_changed", self)
 
 
-func _delete_multimesh() -> void:
-	if has_node("MultiMeshInstance"):
-		get_node("MultiMeshInstance").queue_free()
+func get_multimesh_instance() -> MultiMeshInstance:
+	for c in get_children():
+		if c is MultiMeshInstance:
+			return c
+	return null
+
+
+func delete_multimesh() -> void:
+	var mmi = get_multimesh_instance()
+	if mmi:
+		mmi.queue_free()
 
 
 func _get_mesh_from_scene(node):
@@ -116,15 +139,39 @@ func _get_mesh_from_scene(node):
 	for c in node.get_children():
 		var res = _get_mesh_from_scene(c)
 		if res:
-			return res.duplicate()
+			return res#.duplicate()
 
 	return null
 
 
-func _save_initial_data(node) -> void:
-	initial_position = node.translation
-	initial_rotation = node.rotation
-	initial_scale = node.scale
+func _save_initial_data(mesh: MeshInstance) -> void:
+	if not mesh:
+		return
+
+	initial_position = mesh.translation
+	initial_rotation = mesh.rotation
+	initial_scale = mesh.scale
+
+	# Save the materials applied to the mesh instance, not on the mesh itself
+	# Needed for obj meshes with multiple surfaces
+	materials = []
+	for i in mesh.get_surface_material_count():
+		materials.append(mesh.get_surface_material(i))
+
+
+func _restore_multimesh_materials():
+	var mmi := get_multimesh_instance()
+	if not mmi:
+		return
+
+	var mesh: Mesh = mmi.multimesh.mesh
+	var surface_count = mesh.get_surface_count()
+
+	if not mesh or surface_count > materials.size():
+		return
+
+	for i in surface_count:
+		mesh.surface_set_material(i, materials[i])
 
 
 func _set_proportion(val):

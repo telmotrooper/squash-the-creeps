@@ -1,23 +1,26 @@
 tool
-extends "base_modifier.gd"
+extends "base_point_modifier.gd"
 
 
 export var override_global_seed := false
 export var custom_seed := 0
+export var filter_overlaps := false
 export var instance_count := 10
+
 
 var _rng: RandomNumberGenerator
 
 
 func _init() -> void:
-	display_name = "Distribute Inside (Random)"
-	category = "Distribute"
+	display_name = "Add Around Point (Random)"
+	category = "Create"
+	enabled = true
 	warning_ignore_no_transforms = true
-	warning_ignore_no_path = false
 
 
 func _process_transforms(transforms, global_seed) -> void:
-	transforms.resize(instance_count)
+	._process_transforms(transforms, global_seed)
+
 	_rng = RandomNumberGenerator.new()
 
 	if override_global_seed:
@@ -25,18 +28,27 @@ func _process_transforms(transforms, global_seed) -> void:
 	else:
 		_rng.set_seed(global_seed)
 
-	var center: Vector3 = transforms.path.center
-	var half_size: Vector3 = transforms.path.size * 0.5
-	var height: float = transforms.path.bounds_max.y
+	var size := bounds_max - bounds_min
+	var half_size := size * 0.5
+	var center := bounds_min + half_size
 
-	for i in transforms.list.size():
-		# Don't use a while just in case the user-provided path is invalid
-		# and no position ends up inside the path.
+	for i in instance_count:
 		for j in 100:
+			var inside = false
 			var pos = _random_vec3() * half_size + center
-			if transforms.path.is_point_inside(pos):
-				pos.y = height
-				transforms.list[i].origin = pos
+
+			for p in points:
+				if is_inside(pos, p):
+					var p_pos = t.xform_inv(p.get_global_transform().origin)
+					pos.y = p_pos.y
+					var t = Transform()
+					t.origin = pos
+					transforms.list.push_back(t)
+					inside = true
+					if filter_overlaps:
+						break
+
+			if inside:
 				break
 
 
