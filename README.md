@@ -16,7 +16,7 @@ You can **[download here](https://github.com/telmotrooper/squash-the-creeps/rele
 
 #### **Where are the settings stored?**
 
-* Windows: `%APPDATA%\Godot\app_userdata/Squash the Creeps/settings.cfg`
+* Windows: `%APPDATA%/Godot/app_userdata/Squash the Creeps/settings.cfg`
 * Linux: `~/.local/share/godot/app_userdata/Squash the Creeps/settings.cfg`
 * Mac: `~/Library/Application Support/Godot/app_userdata/Squash the Creeps/settings.cfg`
 
