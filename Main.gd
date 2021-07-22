@@ -5,6 +5,7 @@ export var spawn_mobs := true
 
 func _ready():
   GameState.Grass = $Map/Grass
+  GameState.update_grass()
   
   if !spawn_mobs:
     $MobTimer.stop()

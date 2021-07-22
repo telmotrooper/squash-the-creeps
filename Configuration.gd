@@ -28,6 +28,9 @@ func _ready():
   if not config.has_section_key("graphics", "draw_distance"):
     config.set_value("graphics", "draw_distance", 200)
   
+  if not config.has_section_key("graphics", "grass_amount"):
+    config.set_value("graphics", "grass_amount", 0)
+  
   # Handle fullscreen
   if config.get_value("graphics", "fullscreen") == true:
     OS.window_fullscreen = true

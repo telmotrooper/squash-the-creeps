@@ -6,6 +6,8 @@ const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
 func _ready():
+  $VBoxContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
+  
   $VBoxContainer/DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
   $VBoxContainer/DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
   
@@ -60,21 +62,4 @@ func _on_ToggleFullscreenButton_pressed():
   Configuration.update_setting("display", "fullscreen", OS.window_fullscreen)
 
 func _on_GrassOptionButton_item_selected(index):
-  print(index)
-  match index:
-    0: # Maximum
-      update_grass(1)
-    1: # High
-      update_grass(0.75)
-    2: # Medium
-      update_grass(0.5)
-    3: # Low
-      update_grass(0.25)
-    4: # Very Low
-      update_grass(0.1)
-    5: # None
-      update_grass(0)
-
-func update_grass(multiplier: float):
-  GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
-  GameState.Grass._do_update()
+  GameState.update_grass(index)
