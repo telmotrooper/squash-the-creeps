@@ -3,14 +3,14 @@
 [ext_resource path="res://models/spaceship/Ufo.material" type="Material" id=1]
 [ext_resource path="res://models/spaceship/UfoGlass.material" type="Material" id=2]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=1]
 radius = 1.56763
 
-[sub_resource type="CylinderShape" id=4]
+[sub_resource type="CylinderShape" id=2]
 radius = 2.65935
 height = 1.60431
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=3]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( -0.0251865, -0.0251865, -0.0132691, 0.0503731, 0.0503731, 0.0220605 ),
@@ -26,7 +26,7 @@ surfaces/0 = {
 "vertex_count": 960
 }
 
-[sub_resource type="ArrayMesh" id=2]
+[sub_resource type="ArrayMesh" id=4]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( -0.014456, -0.014456, 0.0176795, 0.0289121, 0.0289121, 0.0172626 ),
@@ -48,20 +48,20 @@ collision_mask = 3
 
 [node name="CapsuleCollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="CylinderCollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01659, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Models" type="Spatial" parent="."]
 
 [node name="Spaceship" type="MeshInstance" parent="Models"]
 transform = Transform( 100, 0, 0, 0, 0, 100, 0, -100, 0, 0, -0.705027, 2.07265e-07 )
-mesh = SubResource( 1 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Glass" type="MeshInstance" parent="Models"]
 transform = Transform( 100, 0, 0, 0, 0, 100, 0, -100, 0, 0, -1.59744, 2.07265e-07 )
-mesh = SubResource( 2 )
+mesh = SubResource( 4 )
 material/0 = null

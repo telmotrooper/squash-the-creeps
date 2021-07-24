@@ -5,10 +5,10 @@
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 2 )
-size = Vector2( 4, 6 )
+size = Vector2( 4, 4 )
 
 [node name="Smoke" type="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3, 1.31134e-07 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 8.74226e-08 )
 mesh = SubResource( 1 )
 material/0 = null
 script = ExtResource( 1 )
