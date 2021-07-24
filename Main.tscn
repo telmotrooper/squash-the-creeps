@@ -12,7 +12,7 @@
 [ext_resource path="res://Boundary.gd" type="Script" id=10]
 [ext_resource path="res://GodotPowerUp.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Flag3DScene.tscn" type="PackedScene" id=12]
-[ext_resource path="res://models/ufo/ufo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://models/spaceship/spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=14]
 [ext_resource path="res://shaders/Smoke/Smoke.tscn" type="PackedScene" id=15]
 
@@ -134,19 +134,19 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Platform3" type="StaticBody" parent="Map"]
+[node name="SmallPlatform" type="StaticBody" parent="Map"]
 transform = Transform( 0.0996611, 0, 0, 0, 1, 0, 0, 0, -0.225957, 23.1125, 0.291998, -44.0602 )
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/Platform3"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/Platform3"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 8 )
@@ -154,19 +154,19 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Platform4" type="StaticBody" parent="Map"]
+[node name="SmallPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 0.1, 8.74228e-08, 0, -8.74228e-09, 1, 0, 0, 0, -0.226, 23.1125, 0.291998, -64.2499 )
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/Platform4"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/Platform4"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 8 )
@@ -185,8 +185,7 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":-2438684795103704737,"state":8777286677172472146,"script":null)
 )
- ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
-)
+ ],"just_created":false,"undo_redo":null)
 
 
 [node name="ScatterItem" type="Spatial" parent="Map/Grass"]
@@ -245,7 +244,6 @@ transform = Transform( 0.271842, 0, -0.962342, 0, 1, 0, 0.962342, 0, 0.271842, -
 rotation_mode = 1
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.7
 autostart = true
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
@@ -276,14 +274,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941 )
 mesh = SubResource( 12 )
 material/0 = null
 
-[node name="Ufo" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1.26903, 0, -1.54582, 0, 2, 0, 1.54582, 0, 1.26903, 46.8177, 1.94913, -35.4631 )
+[node name="Spaceship" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0.0366802, 1.80064, 14.178 )
 
-[node name="Smoke" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45.8532, 4.2815, -31.9807 )
-
-[node name="Smoke2" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 46.7558, 4.2815, -39.0177 )
+[node name="Smoke" parent="Spaceship" instance=ExtResource( 15 )]
+transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

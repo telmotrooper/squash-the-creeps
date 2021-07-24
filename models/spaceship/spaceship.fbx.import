@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Ufo.fbx-d196682262f554873e18061a162668a0.scn"
+path="res://.import/spaceship.fbx-76a35e05d44204ffba128826805b7d65.scn"
 
 [deps]
 
-source_file="res://models/ufo/Ufo.fbx"
-dest_files=[ "res://.import/Ufo.fbx-d196682262f554873e18061a162668a0.scn" ]
+source_file="res://models/spaceship/spaceship.fbx"
+dest_files=[ "res://.import/spaceship.fbx-76a35e05d44204ffba128826805b7d65.scn" ]
 
 [params]
 
