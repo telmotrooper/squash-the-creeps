@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Ufo_UfoGlass_MetallicSmoothness.png-1d1ba838ab389e5d946ccb8ec7cb0e7b.s3tc.stex"
-path.etc2="res://.import/Ufo_UfoGlass_MetallicSmoothness.png-1d1ba838ab389e5d946ccb8ec7cb0e7b.etc2.stex"
+path.s3tc="res://.import/Ufo_Ufo_MetallicSmoothness.png-6decff0ff193b049228a4b775e107781.s3tc.stex"
+path.etc2="res://.import/Ufo_Ufo_MetallicSmoothness.png-6decff0ff193b049228a4b775e107781.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/ufo/Ufo_UfoGlass_MetallicSmoothness.png"
-dest_files=[ "res://.import/Ufo_UfoGlass_MetallicSmoothness.png-1d1ba838ab389e5d946ccb8ec7cb0e7b.s3tc.stex", "res://.import/Ufo_UfoGlass_MetallicSmoothness.png-1d1ba838ab389e5d946ccb8ec7cb0e7b.etc2.stex" ]
+source_file="res://models/spaceship/Ufo_Ufo_MetallicSmoothness.png"
+dest_files=[ "res://.import/Ufo_Ufo_MetallicSmoothness.png-6decff0ff193b049228a4b775e107781.s3tc.stex", "res://.import/Ufo_Ufo_MetallicSmoothness.png-6decff0ff193b049228a4b775e107781.etc2.stex" ]
 
 [params]
 

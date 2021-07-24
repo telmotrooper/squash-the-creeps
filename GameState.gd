@@ -4,7 +4,7 @@ var Audio: Node
 var Player: Node
 var Grass: Node
 
-const initial_grass = 4000
+const initial_grass = 3000
 
 func update_grass(index: int = -1):
   if index == -1: # If called with no index, set the one from the configuration file.
@@ -26,8 +26,6 @@ func grass_index_to_multiplier(index: int):
       multiplier = 0.5
     3: # Low
       multiplier = 0.25
-    4: # Very Low
-      multiplier = 0.1
-    5: # None
+    4: # None
       multiplier = 0
   return multiplier

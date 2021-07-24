@@ -138,7 +138,7 @@ margin_top = 269.0
 margin_right = 288.0
 margin_bottom = 306.0
 text = "Maximum"
-items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "Very Low", null, false, 4, null, "None", null, false, 5, null ]
+items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
 selected = 0
 
 [node name="MusicVolumeLabel" type="Label" parent="Pause/VBoxContainer"]
