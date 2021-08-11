@@ -24,7 +24,7 @@ config/name="Squash the Creeps"
 config/description="A 3D game where you dodge and jump on little aliens.
 
 This is the starter project for the video version of the First 3D Game tutorial published on the GDQuest YouTube channel."
-run/main_scene="res://Main.tscn"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
