@@ -3,6 +3,8 @@
 [ext_resource path="res://MenuButton.tscn" type="PackedScene" id=1]
 
 [node name="OptionsButton" instance=ExtResource( 1 )]
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 
 [node name="Label" parent="." index="0"]
+custom_colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
 text = "OPTIONS"
