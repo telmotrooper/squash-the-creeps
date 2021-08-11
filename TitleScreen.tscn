@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://logo.png" type="Texture" id=1]
 [ext_resource path="res://fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://buttons/OptionsButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://transitions/FadeIn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/TitleScreen.gd" type="Script" id=7]
+[ext_resource path="res://buttons/ExitButton.tscn" type="PackedScene" id=8]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -46,19 +47,24 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
-margin_top = 42.0
+margin_top = 2.0
 margin_right = 518.0
-margin_bottom = 102.0
+margin_bottom = 62.0
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
-margin_top = 122.0
+margin_top = 82.0
 margin_right = 518.0
-margin_bottom = 182.0
+margin_bottom = 142.0
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
-margin_top = 202.0
+margin_top = 162.0
 margin_right = 518.0
-margin_bottom = 262.0
+margin_bottom = 222.0
+
+[node name="ExitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 8 )]
+margin_top = 242.0
+margin_right = 518.0
+margin_bottom = 302.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_left = 522.0
@@ -89,3 +95,4 @@ __meta__ = {
 visible = false
 
 [connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_pressed"]
