@@ -54,6 +54,11 @@ func _input(event):
 func _on_ResumeButton_pressed():
   pause()
 
+func _on_MainMenuButton_pressed():
+  get_tree().change_scene("res://TitleScreen.tscn")
+  pause()
+  Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _on_ExitButton_pressed():
   get_tree().quit()
 

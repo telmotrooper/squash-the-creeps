@@ -165,6 +165,12 @@ margin_right = 288.0
 margin_bottom = 440.0
 value = 100.0
 
+[node name="TitleScreenButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 450.0
+margin_right = 288.0
+margin_bottom = 487.0
+text = "Return to Title Screen"
+
 [node name="ExitButton" type="Button" parent="Pause/VBoxContainer"]
 margin_top = 450.0
 margin_right = 288.0
@@ -178,4 +184,5 @@ text = "Exit"
 [connection signal="item_selected" from="Pause/VBoxContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
 [connection signal="value_changed" from="Pause/VBoxContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="pressed" from="Pause/VBoxContainer/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
