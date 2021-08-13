@@ -169,7 +169,7 @@ value = 100.0
 margin_top = 450.0
 margin_right = 288.0
 margin_bottom = 487.0
-text = "Back to Title Screen"
+text = "Return to Title Screen"
 
 [node name="ExitButton" type="Button" parent="Pause/VBoxContainer"]
 margin_top = 450.0
