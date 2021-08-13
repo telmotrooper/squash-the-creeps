@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://logo.png" type="Texture" id=1]
 [ext_resource path="res://fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=2]
@@ -11,6 +11,21 @@
 [ext_resource path="res://menu_env.tres" type="Environment" id=9]
 [ext_resource path="res://art/player.glb" type="PackedScene" id=10]
 [ext_resource path="res://models/spaceship/spaceship.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=3]
+resource_name = "menu_fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "rotating_skybox"
@@ -48,6 +63,9 @@ tracks/0/keys = {
 
 [node name="TitleScreen" type="Node"]
 script = ExtResource( 7 )
+
+[node name="AnimationPlayerMenu" type="AnimationPlayer" parent="."]
+anims/menu_fade_out = SubResource( 3 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -103,6 +121,7 @@ margin_right = 518.0
 margin_bottom = 302.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+self_modulate = Color( 1, 1, 1, 0.909091 )
 margin_left = 522.0
 margin_right = 1040.0
 margin_bottom = 304.0
@@ -156,5 +175,6 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5, 3.2, 9.3 )
 [node name="Character" parent="Spatial/Spaceship" instance=ExtResource( 10 )]
 transform = Transform( 0.666491, 0.00140924, 0.0152197, -0.00399043, 0.656847, 0.113927, -0.0147547, -0.113988, 0.656683, 0.0159607, 0.489539, -0.00129777 )
 
+[connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_pressed"]
