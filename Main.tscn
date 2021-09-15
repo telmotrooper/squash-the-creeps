@@ -185,7 +185,8 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
 )
- ],"just_created":false,"undo_redo":null)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
 
 
 [node name="ScatterItem" type="Spatial" parent="Map/Grass"]
