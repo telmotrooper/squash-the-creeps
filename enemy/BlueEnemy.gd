@@ -24,3 +24,4 @@ func _process(delta):
       print("PATROLLING")
     ALERT:
       print("ALERT")
+      initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
