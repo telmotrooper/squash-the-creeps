@@ -25,3 +25,6 @@ func _process(delta):
     ALERT:
       print("ALERT")
       initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
+
+func _on_VisibilityNotifier_screen_exited():
+  pass # Prevent "queue_free()" from parent.
