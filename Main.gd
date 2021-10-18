@@ -1,6 +1,6 @@
 extends Node
 
-export (PackedScene) var enemy_scene = preload("res://Enemy.tscn" )
+export (PackedScene) var enemy_scene = preload("res://enemy/Enemy.tscn" )
 export var spawn_enemies := true
 
 func _ready():

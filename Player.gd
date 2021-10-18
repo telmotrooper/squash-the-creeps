@@ -84,7 +84,7 @@ func die():
   emit_signal("hit")
   queue_free()
 
-func _on_enemyDetector_body_entered(_body):
+func _on_EnemyDetector_body_entered(_body):
     die()
 
 func set_draw_distance(value: int):
