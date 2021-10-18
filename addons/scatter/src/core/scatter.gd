@@ -8,7 +8,7 @@ export var global_seed := 0 setget _set_global_seed
 export var use_instancing := true setget _set_instancing
 export var disable_updates_in_game := true
 export var force_update_when_loaded := true
-
+export var make_children_unselectable := true
 
 var modifier_stack setget _set_modifier_stack
 var undo_redo setget _set_undo_redo
@@ -16,15 +16,11 @@ var undo_redo setget _set_undo_redo
 var _transforms
 var _items := []
 var _total_proportion: int
-var _was_duplicated := false
 
 
 func _ready() -> void:
-	if not modifier_stack:
-		modifier_stack = Scatter.ModifierStack.new()
-		modifier_stack.just_created = true
-
 	var _err = self.connect("curve_updated", self, "update")
+	_ensure_stack_exists()
 	_discover_items()
 
 	if force_update_when_loaded:
@@ -57,6 +53,7 @@ func _get_property_list() -> Array:
 		type = TYPE_OBJECT,
 		hint_string =  "ScatterModifierStack",
 	})
+
 	return list
 
 
@@ -67,25 +64,14 @@ func _get(property):
 
 
 func _set(property, value):
-	if property == "modifier_stack":
-		# TODO: This duplicate is there because I couldn't find a way to detect
-		# when a node is duplicated from the editor and I don't want multiple
-		# scatter nodes to share the same stack.
-		modifier_stack = value.duplicate(7)
-		call_deferred("clear")
-		return true
+	if not Engine.editor_hint:
+		return false
 
-	# For some reason, set_modifier_stack is not always called when duplicating
-	# a node, but other parameters like transforms are so we check that as well
+	# This is to detect when the node was duplicated from the editor.
 	if property == "transform":
-		if modifier_stack:
-			modifier_stack = modifier_stack.duplicate(7)
-		else:
-			modifier_stack = Scatter.ModifierStack.new()
-			modifier_stack.just_created = true
 		# Duplicate the curve item too. If someone want to share data, it has
 		# to be explicitely done by the user
-
+		call_deferred("_ensure_stack_exists")
 		call_deferred("_make_curve_unique")
 		call_deferred("clear")
 
@@ -199,6 +185,8 @@ func _get_or_create_instances_root(item):
 		root.set_name("Duplicates")
 		item.add_child(root)
 		root.set_owner(get_tree().get_edited_scene_root())
+		root.set_meta("_edit_group_", make_children_unselectable)
+		root.set_meta("_edit_lock_", true)
 	root.translation = Vector3.ZERO
 	return root
 
@@ -243,6 +231,7 @@ func _create_multimesh() -> void:
 		offset += count
 
 
+# TODO: Move this to scatter_item.gd?
 func _setup_multi_mesh(item, count):
 	var instance: MultiMeshInstance = item.get_multimesh_instance()
 	if not instance:
@@ -254,8 +243,9 @@ func _setup_multi_mesh(item, count):
 		instance.multimesh = MultiMesh.new()
 
 	instance.translation = Vector3.ZERO
+	item.update_shadows()
 
-	var mesh_instance: MeshInstance = item.get_mesh_instance()
+	var mesh_instance: MeshInstance = item.get_mesh_instance_copy()
 	if not mesh_instance:
 		_delete_multimeshes()
 		return
@@ -271,6 +261,11 @@ func _setup_multi_mesh(item, count):
 	instance.multimesh.transform_format = 1
 	instance.multimesh.instance_count = count
 	instance.material_override = mesh_instance.material_override
+
+	instance.set_meta("_edit_group_", make_children_unselectable)
+	instance.set_meta("_edit_lock_", true)
+
+	mesh_instance.queue_free()
 
 	return instance
 
@@ -322,6 +317,10 @@ func _set_instancing(val: bool) -> void:
 		_delete_duplicates()
 	else:
 		_delete_multimeshes()
+
+	for item in _items:
+		item.use_instancing = val
+
 	update()
 
 
@@ -334,8 +333,16 @@ func _set_modifier_stack(val) -> void:
 	if not val:
 		return
 
-	modifier_stack = Scatter.ModifierStack.new()
-	modifier_stack.stack = val.duplicate_stack()
+	if modifier_stack:
+		modifier_stack.queue_free()
+
+	if val.get_parent(): # Trying to reference an existing stack, unwanted.
+		modifier_stack = Scatter.ModifierStack.new()
+		modifier_stack.stack = val.duplicate_stack()
+	else:
+		modifier_stack = val
+
+	add_child(modifier_stack)
 
 	if not modifier_stack.is_connected("stack_changed", self, "update"):
 		modifier_stack.connect("stack_changed", self, "update")
@@ -344,6 +351,26 @@ func _set_modifier_stack(val) -> void:
 func _make_curve_unique() -> void:
 	curve = curve.duplicate(true)
 	_update_from_curve()
+
+
+func _ensure_stack_exists() -> void:
+	if modifier_stack:
+		var parent: Node = modifier_stack.get_parent()
+		if not parent:
+			add_child(modifier_stack)
+			return
+
+		if parent == self:
+			return
+
+		# Parent is another node, this an old reference
+		modifier_stack = modifier_stack.duplicate(7)
+		parent.remove_child(modifier_stack)
+		add_child(modifier_stack)
+	else:
+		modifier_stack = Scatter.ModifierStack.new()
+		modifier_stack.just_created = true
+		add_child(modifier_stack)
 
 
 func _reset_all_colliders(node) -> void:
