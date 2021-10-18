@@ -194,9 +194,15 @@ script = ExtResource( 5 )
 item_path = "res://art/grass/grass52.tscn"
 scale_modifier = 1.5
 materials = [ ExtResource( 7 ) ]
+merge_target_meshes = false
+cast_shadow = 1
 
 [node name="MultiMeshInstance" type="MultiMeshInstance" parent="Map/Grass/ScatterItem"]
 multimesh = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 0 )
@@ -244,7 +250,7 @@ curve = SubResource( 10 )
 transform = Transform( 0.271842, 0, -0.962342, 0, 1, 0, 0.962342, 0, 0.271842, -14.0931, 0, -15.9795 )
 rotation_mode = 1
 
-[node name="MobTimer" type="Timer" parent="."]
+[node name="EnemyTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
@@ -282,5 +288,5 @@ transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0
 transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]

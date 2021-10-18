@@ -63,19 +63,19 @@ func _physics_process(delta):
   
   for index in get_slide_count():
     var collision = get_slide_collision(index)
-    if collision.collider.is_in_group("mobs"):
-      var mob = collision.collider
+    if collision.collider.is_in_group("enemies"):
+      var enemy = collision.collider
       
       if Vector3.UP.dot(collision.normal) > 0.1:
-        mob.squash()
+        enemy.squash()
         velocity.y = bounce_impulse
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
   
   if is_spinning():
-    for mob in $SpinArea.get_overlapping_bodies():
-      mob.squash()
+    for enemy in $SpinArea.get_overlapping_bodies():
+      enemy.squash()
 
 func is_spinning():
   return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
@@ -84,7 +84,7 @@ func die():
   emit_signal("hit")
   queue_free()
 
-func _on_MobDetector_body_entered(_body):
+func _on_enemyDetector_body_entered(_body):
     die()
 
 func set_draw_distance(value: int):
