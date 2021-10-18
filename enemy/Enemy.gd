@@ -1,5 +1,5 @@
 extends KinematicBody
-class_name Mob
+class_name Enemy
 
 signal squashed
 

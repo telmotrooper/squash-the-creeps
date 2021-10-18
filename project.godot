@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody",
-"class": "Mob",
+"class": "Enemy",
 "language": "GDScript",
-"path": "res://Mob.gd"
+"path": "res://enemy/Enemy.gd"
 } ]
 _global_script_class_icons={
-"Mob": ""
+"Enemy": ""
 }
 
 [application]

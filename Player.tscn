@@ -69,13 +69,13 @@ transform = Transform( 0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985271, 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
 shape = SubResource( 1 )
 
-[node name="MobDetector" type="Area" parent="."]
+[node name="EnemyDetector" type="Area" parent="."]
 transform = Transform( 0.851164, 0, 0, 0, 0.851164, 0, 0, 0, 0.851164, 0, 0, 0 )
 monitorable = false
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape" type="CollisionShape" parent="MobDetector"]
+[node name="CollisionShape" type="CollisionShape" parent="EnemyDetector"]
 transform = Transform( 1, 0, 0, 0, 0.21875, 0, 0, 0, 1, 0, 0.225154, 0 )
 shape = SubResource( 2 )
 
@@ -104,4 +104,4 @@ collision_mask = 2
 transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.8, 0 )
 shape = SubResource( 5 )
 
-[connection signal="body_entered" from="MobDetector" to="." method="_on_MobDetector_body_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
