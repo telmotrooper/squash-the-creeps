@@ -12,7 +12,7 @@ var velocity = Vector3.ZERO
 func _ready():
   GameState.Player = self
 
-func _physics_process(delta):  
+func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
     $AnimationPlayer.play("float")
   

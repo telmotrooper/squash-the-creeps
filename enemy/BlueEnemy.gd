@@ -8,12 +8,16 @@ enum {
   ALERT
 }
 
-var state = IDLE
+var state = PATROLLING
+export var point1 = Vector3(-7, 0, -13)
+export var point2 = Vector3(7, 0, -13)
 
-func _ready():
-  pass
+var going_to = point1
 
 func _process(delta):
+  if going_to.distance_to(self.transform.origin) < 0.1:
+    going_to = point1 if going_to == point2 else point2
+
   if raycast.is_colliding():
     state = ALERT
   
@@ -21,9 +25,8 @@ func _process(delta):
     IDLE:
       print("IDLE")
     PATROLLING:
-      print("PATROLLING")
+      initiliaze(self.transform.origin, going_to, false)
     ALERT:
-      print("ALERT")
       if is_instance_valid(GameState.Player):
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
 

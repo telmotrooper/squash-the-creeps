@@ -289,7 +289,7 @@ transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0
 transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
 
 [node name="BlueEnemy1" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -12.7606 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
