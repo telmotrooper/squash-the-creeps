@@ -11,7 +11,7 @@ var velocity = Vector3.ZERO
 func _physics_process(_delta):
   move_and_slide(velocity, Vector3.UP)
 
-func initiliaze(start_position, player_position, rotate = true):
+func initiliaze(start_position, player_position, rotate = true, speed = null):
   translation = start_position
   look_at(player_position, Vector3.UP)
   # Ignore height of player position, spawn looking straight.
@@ -21,10 +21,12 @@ func initiliaze(start_position, player_position, rotate = true):
   if rotate:
     rotate_y(rand_range(-PI / 4.0, PI / 4.0))
   
-  var random_speed = rand_range(min_speed, max_speed)
-  velocity = Vector3.FORWARD * random_speed
+  if speed == null:
+    speed = rand_range(min_speed, max_speed)
+  
+  velocity = Vector3.FORWARD * speed
   velocity = velocity.rotated(Vector3.UP, rotation.y)
-  $AnimationPlayer.playback_speed = random_speed / min_speed
+  $AnimationPlayer.playback_speed = speed / min_speed
 
 func squash():
   emit_signal("squashed")

@@ -223,6 +223,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19 )
 size = 19.0
 
 [node name="Cylinders" type="Spatial" parent="."]
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="Cylinders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -16 )

@@ -12,6 +12,7 @@ var state = PATROLLING
 
 export var point1 = Vector3(-7, 0, 0)
 export var point2 = Vector3(7, 0, 0)
+export var patrolling_speed = 9
 
 var initial_position
 var global_point_1
@@ -47,7 +48,7 @@ func _process(delta):
       if going_to != null:
         if going_to.distance_to(self.transform.origin) < 0.1:
           going_to = global_point_1 if going_to == global_point_2 else global_point_2
-        initiliaze(self.transform.origin, going_to, false)
+        initiliaze(self.transform.origin, going_to, false, patrolling_speed)
     ALERT:
       if is_instance_valid(GameState.Player):
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
