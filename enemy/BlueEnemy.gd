@@ -24,7 +24,8 @@ func _process(delta):
       print("PATROLLING")
     ALERT:
       print("ALERT")
-      initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
+      if is_instance_valid(GameState.Player):
+        initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
 
 func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
