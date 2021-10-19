@@ -46,7 +46,7 @@ func _process(delta):
       pass
     PATROLLING:
       if going_to != null:
-        if going_to.distance_to(self.transform.origin) < 0.1:
+        if going_to.distance_to(self.transform.origin) < 0.2:
           going_to = global_point_1 if going_to == global_point_2 else global_point_2
         initiliaze(self.transform.origin, going_to, false, patrolling_speed)
     ALERT:
