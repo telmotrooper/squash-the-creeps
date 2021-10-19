@@ -9,23 +9,45 @@ enum {
 }
 
 var state = PATROLLING
-export var point1 = Vector3(-7, 0, -13)
-export var point2 = Vector3(7, 0, -13)
 
-var going_to = point1
+export var point1 = Vector3(-7, 0, 0)
+export var point2 = Vector3(7, 0, 0)
+
+var initial_position
+var global_point_1
+var global_point_2
+var going_to
+
+func _ready():
+  initial_position = Vector3(
+    self.global_transform.origin.x,
+    self.global_transform.origin.y,
+    self.global_transform.origin.z)
+  
+  global_point_1 = Vector3(
+    initial_position.x + point1.x,
+    initial_position.y + point1.y,
+    initial_position.z + point1.z)
+    
+  global_point_2 = Vector3(
+    initial_position.x + point2.x,
+    initial_position.y + point2.y,
+    initial_position.z + point2.z)
+  
+  going_to = global_point_1
 
 func _process(delta):
-  if going_to.distance_to(self.transform.origin) < 0.1:
-    going_to = point1 if going_to == point2 else point2
-
   if raycast.is_colliding():
     state = ALERT
   
   match state:
     IDLE:
-      print("IDLE")
+      pass
     PATROLLING:
-      initiliaze(self.transform.origin, going_to, false)
+      if going_to != null:
+        if going_to.distance_to(self.transform.origin) < 0.1:
+          going_to = global_point_1 if going_to == global_point_2 else global_point_2
+        initiliaze(self.transform.origin, going_to, false)
     ALERT:
       if is_instance_valid(GameState.Player):
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
