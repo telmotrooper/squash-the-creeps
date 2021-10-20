@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 
 signal hit
 

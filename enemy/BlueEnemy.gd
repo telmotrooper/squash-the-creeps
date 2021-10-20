@@ -1,7 +1,5 @@
 extends Enemy
 
-onready var raycast = $RayCast
-
 enum {
   IDLE,
   PATROLLING,
@@ -38,9 +36,6 @@ func _ready():
   going_to = global_point_1
 
 func _process(delta):
-  if raycast.is_colliding():
-    state = ALERT
-  
   match state:
     IDLE:
       pass
@@ -55,3 +50,7 @@ func _process(delta):
 
 func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
+
+func _on_PrismArea_body_entered(body):
+  if body is Player:
+    state = ALERT

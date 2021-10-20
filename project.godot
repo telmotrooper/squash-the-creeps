@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://enemy/Enemy.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
 } ]
 _global_script_class_icons={
-"Enemy": ""
+"Enemy": "",
+"Player": ""
 }
 
 [application]
@@ -115,6 +121,7 @@ attack={
 3d_physics/layer_2="Enemies"
 3d_physics/layer_3="World"
 3d_physics/layer_4="Item"
+3d_physics/layer_5="Detection Layer"
 3d_physics/layer_20="Boundary"
 
 [rendering]
