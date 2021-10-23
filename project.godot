@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemy/Enemy.gd"
 }, {
+"base": "ResourceFormatLoader",
+"class": "HTerrainDataLoader",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": "HTerrainDataSaver",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
+}, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
@@ -21,6 +31,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Enemy": "",
+"HTerrainDataLoader": "",
+"HTerrainDataSaver": "",
 "Player": ""
 }
 
@@ -47,7 +59,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/scatter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/scatter/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gdnative]
 
