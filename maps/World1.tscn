@@ -20,12 +20,13 @@ textures = [ [ ExtResource( 1 ) ], [ ExtResource( 2 ) ] ]
 [node name="Player" parent="." groups=[
 "players",
 ] instance=ExtResource( 7 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 83.968, 9.09119, 66.1121 )
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 83.968, 15.275, 66.1121 )
 collision_mask = 524302
 
 [node name="UserInterface" parent="." instance=ExtResource( 8 )]
 
 [node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 0, -256 )
 script = ExtResource( 3 )
 _terrain_data = ExtResource( 5 )
 chunk_size = 32
@@ -50,4 +51,4 @@ environment = ExtResource( 6 )
 [node name="EnemySpawns" type="Spatial" parent="."]
 
 [node name="BlueEnemy" parent="EnemySpawns" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9659, 11.8379, 83.2189 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9659, 11.3852, 83.2189 )
