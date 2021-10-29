@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://slot0_albedo_bump.packed_tex" type="Texture" id=1]
 [ext_resource path="res://slot0_normal_roughness.packed_tex" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/UserInterface.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemy/BlueEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/ball/ball.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 4 )
@@ -52,3 +53,8 @@ environment = ExtResource( 6 )
 
 [node name="BlueEnemy" parent="EnemySpawns" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9659, 11.3852, 83.2189 )
+
+[node name="Props" type="Spatial" parent="."]
+
+[node name="Ball" parent="Props" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90.5753, 14.6625, 68.5418 )
