@@ -138,7 +138,7 @@ margin_right = 1040.0
 margin_bottom = 560.0
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 2 )
-text = "PRE-ALPHA RELEASE
+text = "DEMO RELEASE
 DEVELOPED BY TELMO \"TROOPER\""
 __meta__ = {
 "_edit_use_anchors_": false
