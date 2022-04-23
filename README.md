@@ -23,3 +23,7 @@ You can **[download here](https://github.com/telmotrooper/squash-the-creeps/rele
 #### **I'm getting error "Mixed tabs and spaces in indentation"**
 
 If you get this error, go in the editor and click `Editor > Editor Settings... > General > Text Editor > Indent`, then change **Type** to `Spaces` and **Size** to `2`. Then close the project, reset the file changes with `git reset --hard` and reopen the project. You should now be able to edit the files without running into the error.
+
+#### **(MacOS) "Squash the Creeps.app" is damaged and can't be opened**
+
+The application is't signed, so you'll have to run to disable the checks running the following command `xattr -cr "Squash the Creeps.app"` in the folder where the game is.
