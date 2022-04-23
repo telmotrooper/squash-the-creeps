@@ -1,6 +1,6 @@
 extends Node
 
-var main_scene = load("res://TestMap.tscn")
+var main_scene = load("res://maps/TestMap.tscn")
 
 func _ready():
   $Spatial/AnimationPlayerSkybox.play("rotating_skybox")
