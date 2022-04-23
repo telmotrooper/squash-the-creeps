@@ -13,4 +13,4 @@ func _on_ExitButton_pressed():
   get_tree().quit()
 
 func _on_AnimationPlayerMenu_animation_finished(anim_name):
-  get_tree().change_scene("res://TestMap.tscn")
+  get_tree().change_scene("res://maps/TestMap.tscn")
