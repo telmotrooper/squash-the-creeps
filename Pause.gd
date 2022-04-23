@@ -8,6 +8,12 @@ const sound_volume_text = "Sound Volume: %d"
 func _ready():
   $VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
   
+  if (GameState.MapName): # TODO: Find a way to find option from label (maybe iterate through the items?)
+    if (GameState.MapName == 'TestMap'):
+      $VBoxContainer/HBoxContainer/RightContainer/MapOptionButton.select(0)
+    elif (GameState.MapName == 'World1'):
+      $VBoxContainer/HBoxContainer/RightContainer/MapOptionButton.select(1)
+  
   $VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
   $VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
   
@@ -68,3 +74,9 @@ func _on_ToggleFullscreenButton_pressed():
 
 func _on_GrassOptionButton_item_selected(index):
   GameState.update_grass(index)
+
+
+func _on_MapOptionButton_item_selected(index):
+  var map_name = $VBoxContainer/HBoxContainer/RightContainer/MapOptionButton.get_item_text(index)
+  GameState.change_map(map_name)
+  pause()

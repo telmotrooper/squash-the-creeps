@@ -3,6 +3,7 @@ extends Node
 var Audio: Node
 var Player: Node
 var Grass: Node
+var MapName
 
 const initial_grass = 3000
 
@@ -29,3 +30,7 @@ func grass_index_to_multiplier(index: int):
     4: # None
       multiplier = 0
   return multiplier
+
+func change_map(map_name: String):
+  GameState.MapName = map_name
+  get_tree().change_scene("res://maps/%s.tscn" % map_name)

@@ -169,6 +169,23 @@ margin_right = 280.0
 margin_bottom = 106.0
 value = 100.0
 
+[node name="MapLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 110.0
+margin_right = 280.0
+margin_bottom = 141.0
+text = "Map:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapOptionButton" type="OptionButton" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 145.0
+margin_right = 280.0
+margin_bottom = 182.0
+text = "TestMap"
+items = [ "TestMap", null, false, 0, null, "World1", null, false, 1, null ]
+selected = 0
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/VBoxContainer"]
 margin_top = 368.0
 margin_right = 570.0
@@ -196,5 +213,6 @@ text = "Exit"
 [connection signal="item_selected" from="Pause/VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
 [connection signal="value_changed" from="Pause/VBoxContainer/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/VBoxContainer/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="item_selected" from="Pause/VBoxContainer/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
 [connection signal="pressed" from="Pause/VBoxContainer/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

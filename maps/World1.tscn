@@ -19,9 +19,7 @@ textures = [ [ ExtResource( 1 ) ], [ ExtResource( 2 ) ] ]
 
 [node name="World1" type="Spatial"]
 
-[node name="Player" parent="." groups=[
-"players",
-] instance=ExtResource( 7 )]
+[node name="Player" parent="." groups=["players"] instance=ExtResource( 7 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 83.968, 15.275, 66.1121 )
 collision_mask = 524302
 
