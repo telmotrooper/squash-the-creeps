@@ -6,37 +6,37 @@ const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
 func _ready():
-  $VBoxContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
+  $VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
   
-  $VBoxContainer/DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
-  $VBoxContainer/DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
+  $VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
+  $VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
   
-  $VBoxContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
-  $VBoxContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
+  $VBoxContainer/HBoxContainer/LeftContainer/SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
+  $VBoxContainer/HBoxContainer/LeftContainer/SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
   
-  $VBoxContainer/MusicVolumeLabel.text = music_volume_text % Configuration.get_value("audio", "music_volume")
-  $VBoxContainer/MusicVolumeSlider.value = Configuration.get_value("audio", "music_volume")
+  $VBoxContainer/HBoxContainer/RightContainer/MusicVolumeLabel.text = music_volume_text % Configuration.get_value("audio", "music_volume")
+  $VBoxContainer/HBoxContainer/RightContainer/MusicVolumeSlider.value = Configuration.get_value("audio", "music_volume")
   
-  $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
-  $VBoxContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
+  $VBoxContainer/HBoxContainer/RightContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
+  $VBoxContainer/HBoxContainer/RightContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
 
 func _on_DrawDistanceSlider_value_changed(value):
   Configuration.update_setting("graphics", "draw_distance", value)
-  $VBoxContainer/DrawDistanceLabel.text = draw_distance_text % value
+  $VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceLabel.text = draw_distance_text % value
   GameState.Player.set_draw_distance(value)
 
 func _on_SensitivitySlider_value_changed(value):
   Configuration.update_setting("controls", "mouse_sensitivity", value)
-  $VBoxContainer/SensitivityLabel.text = sensitivity_text % value
+  $VBoxContainer/HBoxContainer/LeftContainer/SensitivityLabel.text = sensitivity_text % value
 
 func _on_MusicVolumeSlider_value_changed(value):
   Configuration.update_setting("audio", "music_volume", value)
-  $VBoxContainer/MusicVolumeLabel.text = music_volume_text % value
+  $VBoxContainer/HBoxContainer/RightContainer/MusicVolumeLabel.text = music_volume_text % value
   Configuration.set_volume("Music", value)
 
 func _on_SoundVolumeSlider_value_changed(value):
   Configuration.update_setting("audio", "sound_volume", value)
-  $VBoxContainer/SoundVolumeLabel.text = sound_volume_text % value
+  $VBoxContainer/HBoxContainer/RightContainer/SoundVolumeLabel.text = sound_volume_text % value
   Configuration.set_volume("Sound", value)
 
 func pause():
