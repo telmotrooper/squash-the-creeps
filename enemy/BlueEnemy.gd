@@ -35,7 +35,7 @@ func _ready():
   
   going_to = global_point_1
 
-func _process(delta):
+func _process(_delta):
   match state:
     IDLE:
       pass
