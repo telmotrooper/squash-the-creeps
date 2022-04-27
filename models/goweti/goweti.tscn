@@ -77,7 +77,7 @@ data = PoolVector3Array( -5.3, 0.25, -6.9702, 5.3, 0.25, 6.9702, 5.3, 0.25, -6.9
 
 [sub_resource type="Animation" id=10]
 resource_name = "MovePlatform"
-length = 4.0
+length = 6.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("FloatingPlatform:translation")
@@ -86,28 +86,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67009, -18.3774 ), Vector3( 0, 6.67, -40 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape3:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 6.67009, -18.3774 ), Vector3( 0, 6.67, -40 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -30 ) ]
 }
 
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("FloatingPlatform:translation")
+tracks/0/path = NodePath("FloatingPlatform/MeshInstance:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -119,7 +107,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67009, -18.3774 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape3:translation")
+tracks/1/path = NodePath("FloatingPlatform/CollisionShape:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -130,33 +118,60 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, 6.67009, -18.3774 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("FloatingPlatform:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
-[node name="goweti" type="StaticBody"]
+[node name="goweti" type="Spatial"]
 
-[node name="BaseCube" type="MeshInstance" parent="."]
+[node name="BaseCube" type="StaticBody" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="BaseCube"]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, 0 )
 mesh = SubResource( 2 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="BaseCube"]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, 0 )
 shape = SubResource( 7 )
 
-[node name="Ramp" type="MeshInstance" parent="."]
+[node name="Ramp" type="StaticBody" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="Ramp"]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.00221846, 3.64643, -0.0341988 )
 mesh = SubResource( 4 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="Ramp"]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.00221846, 3.64643, -0.0341988 )
 shape = SubResource( 8 )
 
-[node name="FloatingPlatform" type="MeshInstance" parent="."]
+[node name="FloatingPlatform" type="KinematicBody" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="FloatingPlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67009, -18.3774 )
 mesh = SubResource( 6 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="CollisionShape3" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="FloatingPlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67009, -18.3774 )
 shape = SubResource( 9 )
 
@@ -167,6 +182,8 @@ anims/RESET = SubResource( 11 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.5258, 0 )
+visible = false
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 17.3434, 43.3814 )
+visible = false
