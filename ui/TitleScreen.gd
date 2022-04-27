@@ -12,6 +12,6 @@ func _on_NewGameButton_pressed():
 func _on_ExitButton_pressed():
   get_tree().quit()
 
-func _on_AnimationPlayerMenu_animation_finished(anim_name):
+func _on_AnimationPlayerMenu_animation_finished(_anim_name):
   GameState.MapName = "TestMap"
   get_tree().change_scene("res://maps/%s.tscn" % GameState.MapName)
