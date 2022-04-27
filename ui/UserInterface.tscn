@@ -182,8 +182,8 @@ __meta__ = {
 margin_top = 145.0
 margin_right = 280.0
 margin_bottom = 182.0
-text = "TestMap"
-items = [ "TestMap", null, false, 0, null, "World1", null, false, 1, null ]
+text = "HeightMap"
+items = [ "HeightMap", null, false, 0, null, "TestMap", null, false, 1, null ]
 selected = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/VBoxContainer"]
