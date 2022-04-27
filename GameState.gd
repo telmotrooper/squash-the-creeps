@@ -36,4 +36,8 @@ func grass_index_to_multiplier(index: int):
 
 func change_map(map_name: String):
   GameState.MapName = map_name
-  get_tree().change_scene("res://maps/%s.tscn" % map_name)
+  var map_file = "res://maps/%s.tscn" % map_name
+  
+  var err = get_tree().change_scene(map_file)
+  if err:
+    print("Error: Unable to load map '%s'" % map_file)

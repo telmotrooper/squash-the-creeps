@@ -13,7 +13,9 @@ func _ready():
 
 func _unhandled_input(event):
   if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
-    get_tree().reload_current_scene()
+    var error = get_tree().reload_current_scene()
+    if (error):
+      print("Error: Unable to reload current scene.")
 
 func _on_EnemyTimer_timeout():
   var enemy = enemy_scene.instance()
