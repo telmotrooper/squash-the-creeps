@@ -1,6 +1,6 @@
 extends Node
 
-var main_scene = load("res://maps/TestMap.tscn")
+var main_scene: PackedScene = load("res://maps/TestMap.tscn")
 const MENU_FADE_OUT = "menu_fade_out"
 
 func _on_NewGameButton_pressed():
