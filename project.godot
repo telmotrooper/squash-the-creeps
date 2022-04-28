@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://enemy/Enemy.gd"
+"path": "res://enemy/enemy.gd"
 }, {
 "base": "ResourceFormatLoader",
 "class": "HTerrainDataLoader",
