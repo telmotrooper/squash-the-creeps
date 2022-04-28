@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://models/red_button/button_teamRed.gltf.glb" type="PackedScene" id=1]
+[ext_resource path="res://models/red_button/red_button.glb" type="PackedScene" id=1]
 
 [node name="RedButton" type="Spatial"]
 

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/button_teamRed.gltf.glb-b913de41363aceaedc9e2d630c885882.scn"
+path="res://.import/ball.glb-e154986a2903f8407ebe9a1e0ad74acb.scn"
 
 [deps]
 
-source_file="res://models/red_button/button_teamRed.gltf.glb"
-dest_files=[ "res://.import/button_teamRed.gltf.glb-b913de41363aceaedc9e2d630c885882.scn" ]
+source_file="res://models/ball/ball.glb"
+dest_files=[ "res://.import/ball.glb-e154986a2903f8407ebe9a1e0ad74acb.scn" ]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/custom_script=""
 nodes/storage=0
 nodes/use_legacy_names=false
 materials/location=1
-materials/storage=1
+materials/storage=0
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=true
