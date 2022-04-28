@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://shaders/Smoke/Smoke.gd" type="Script" id=1]
-[ext_resource path="res://shaders/Smoke/Smoke.tres" type="Material" id=2]
+[ext_resource path="res://shaders/smoke/Smoke.gd" type="Script" id=1]
+[ext_resource path="res://shaders/smoke/Smoke.tres" type="Material" id=2]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 2 )

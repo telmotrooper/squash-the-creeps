@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CasualDay4K.hdr-0d0c20c618d62327e34ac0346daaec4e.stex"
+path="res://.import/casual_day_4k.hdr-4ce1c962d90632ebcdc1c804a325fe67.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skyboxes/CasualDay4K.hdr"
-dest_files=[ "res://.import/CasualDay4K.hdr-0d0c20c618d62327e34ac0346daaec4e.stex" ]
+source_file="res://skyboxes/casual_day_4k.hdr"
+dest_files=[ "res://.import/casual_day_4k.hdr-4ce1c962d90632ebcdc1c804a325fe67.stex" ]
 
 [params]
 

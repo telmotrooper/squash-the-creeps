@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=2]
 
-[ext_resource path="res://shaders/StylizedWaterShader/StylizedWaterShader.shader" type="Shader" id=1]
+[ext_resource path="res://shaders/stylized_water_shader/StylizedWaterShader.shader" type="Shader" id=1]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 octaves = 2

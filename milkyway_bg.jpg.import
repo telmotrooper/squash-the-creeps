@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Milkyway_BG.jpg-68a9f2ca540a9dcae96ff6d07e59f8dc.stex"
+path="res://.import/milkyway_bg.jpg-c76f13da3ba33b25c46922174a6e5dfe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Milkyway_BG.jpg"
-dest_files=[ "res://.import/Milkyway_BG.jpg-68a9f2ca540a9dcae96ff6d07e59f8dc.stex" ]
+source_file="res://milkyway_bg.jpg"
+dest_files=[ "res://.import/milkyway_bg.jpg-c76f13da3ba33b25c46922174a6e5dfe.stex" ]
 
 [params]
 
