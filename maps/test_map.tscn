@@ -3,7 +3,7 @@
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=3]
-[ext_resource path="res://shaders/stylized_water_shader/StylizedWaterMaterial.tres" type="Material" id=4]
+[ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=4]
 [ext_resource path="res://maps/test_map.gd" type="Script" id=5]
 [ext_resource path="res://maps/boundary.gd" type="Script" id=6]
 [ext_resource path="res://default_env.tres" type="Environment" id=7]
@@ -15,7 +15,7 @@
 [ext_resource path="res://models/spaceship/spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://godot_power_up.tscn" type="PackedScene" id=15]
-[ext_resource path="res://shaders/smoke/Smoke.tscn" type="PackedScene" id=16]
+[ext_resource path="res://shaders/smoke/smoke.tscn" type="PackedScene" id=16]
 [ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=17]
 
 [sub_resource type="BoxShape" id=3]
