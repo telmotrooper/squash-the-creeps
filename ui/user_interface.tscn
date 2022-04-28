@@ -1,0 +1,220 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://ui/pause.gd" type="Script" id=2]
+[ext_resource path="res://ui/score_label.gd" type="Script" id=3]
+[ext_resource path="res://ui/fps_label.gd" type="Script" id=4]
+[ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
+
+[node name="UserInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 25.0
+margin_top = 15.0
+margin_right = 121.0
+margin_bottom = 46.0
+text = "Score: 0"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPSLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -47.0
+margin_right = 88.0
+text = "FPS: 0"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+
+[node name="Label" type="Label" parent="Retry"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -15.5
+margin_bottom = 15.5
+text = "Press enter to retry"
+align = 1
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BlackOverlay" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -285.0
+margin_top = -243.5
+margin_right = 285.0
+margin_bottom = 243.5
+custom_constants/separation = 10
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 82.0
+margin_right = 570.0
+margin_bottom = 119.0
+text = "Resume"
+
+[node name="ToggleFullscreenButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 129.0
+margin_right = 570.0
+margin_bottom = 166.0
+text = "Toggle Fullscreen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/VBoxContainer"]
+margin_top = 176.0
+margin_right = 570.0
+margin_bottom = 358.0
+custom_constants/separation = 10
+
+[node name="LeftContainer" type="VBoxContainer" parent="Pause/VBoxContainer/HBoxContainer"]
+margin_right = 280.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+
+[node name="SensitivityLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/LeftContainer"]
+margin_right = 280.0
+margin_bottom = 31.0
+text = "Mouse Sensitivity: "
+
+[node name="SensitivitySlider" type="HSlider" parent="Pause/VBoxContainer/HBoxContainer/LeftContainer"]
+margin_top = 35.0
+margin_right = 280.0
+margin_bottom = 51.0
+min_value = 0.05
+max_value = 1.0
+step = 0.05
+value = 0.1
+
+[node name="DrawDistanceLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/LeftContainer"]
+margin_top = 55.0
+margin_right = 280.0
+margin_bottom = 86.0
+text = "Draw Distance: "
+
+[node name="DrawDistanceSlider" type="HSlider" parent="Pause/VBoxContainer/HBoxContainer/LeftContainer"]
+margin_top = 90.0
+margin_right = 280.0
+margin_bottom = 106.0
+min_value = 100.0
+max_value = 500.0
+value = 100.0
+
+[node name="GrassLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/LeftContainer"]
+margin_top = 110.0
+margin_right = 280.0
+margin_bottom = 141.0
+text = "Amount of Grass:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrassOptionButton" type="OptionButton" parent="Pause/VBoxContainer/HBoxContainer/LeftContainer"]
+margin_top = 145.0
+margin_right = 280.0
+margin_bottom = 182.0
+text = "Maximum"
+items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
+selected = 0
+
+[node name="RightContainer" type="VBoxContainer" parent="Pause/VBoxContainer/HBoxContainer"]
+margin_left = 290.0
+margin_right = 570.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+
+[node name="MusicVolumeLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_right = 280.0
+margin_bottom = 31.0
+text = "Music Volume: "
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 35.0
+margin_right = 280.0
+margin_bottom = 51.0
+value = 100.0
+
+[node name="SoundVolumeLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 55.0
+margin_right = 280.0
+margin_bottom = 86.0
+text = "Sound Volume: "
+
+[node name="SoundVolumeSlider" type="HSlider" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 90.0
+margin_right = 280.0
+margin_bottom = 106.0
+value = 100.0
+
+[node name="MapLabel" type="Label" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 110.0
+margin_right = 280.0
+margin_bottom = 141.0
+text = "Map:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapOptionButton" type="OptionButton" parent="Pause/VBoxContainer/HBoxContainer/RightContainer"]
+margin_top = 145.0
+margin_right = 280.0
+margin_bottom = 182.0
+text = "height_map"
+items = [ "height_map", null, false, 0, null, "test_map", null, false, 1, null ]
+selected = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/VBoxContainer"]
+margin_top = 368.0
+margin_right = 570.0
+margin_bottom = 405.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+alignment = 1
+
+[node name="TitleScreenButton" type="Button" parent="Pause/VBoxContainer/HBoxContainer2"]
+margin_right = 277.0
+margin_bottom = 37.0
+text = "Return to Title Screen"
+
+[node name="ExitButton" type="Button" parent="Pause/VBoxContainer/HBoxContainer2"]
+margin_left = 287.0
+margin_right = 570.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Exit"
+
+[connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
+[connection signal="item_selected" from="Pause/VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
+[connection signal="value_changed" from="Pause/VBoxContainer/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="Pause/VBoxContainer/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="item_selected" from="Pause/VBoxContainer/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
+[connection signal="pressed" from="Pause/VBoxContainer/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
