@@ -2,10 +2,6 @@ extends Node
 
 var main_scene = load("res://maps/TestMap.tscn")
 
-func _ready():
-  $Spatial/AnimationPlayerSkybox.play("rotating_skybox")
-  $Spatial/AnimationPlayerSpaceship.play("flying_in_space")
-
 func _on_NewGameButton_pressed():
   $AnimationPlayerMenu.play("menu_fade_out")
 
