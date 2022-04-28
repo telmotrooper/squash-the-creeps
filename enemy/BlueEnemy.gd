@@ -18,8 +18,7 @@ var global_point_2
 var going_to
 
 func _ready():
-
-  self.connect("squashed", GameState.UserInterface.get_node("ScoreLabel"), "_on_Enemy_squashed")
+  ._ready()
   
   initial_position = Vector3(
     self.global_transform.origin.x,
