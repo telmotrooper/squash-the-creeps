@@ -2,7 +2,7 @@
 
 [ext_resource path="res://art/House In a Forest Loop.ogg" type="AudioStream" id=1]
 [ext_resource path="res://GameStateAudio.gd" type="Script" id=2]
-[ext_resource path="res://GameState.gd" type="Script" id=3]
+[ext_resource path="res://autoload/GameState.gd" type="Script" id=3]
 
 [node name="GameState" type="Node"]
 script = ExtResource( 3 )
