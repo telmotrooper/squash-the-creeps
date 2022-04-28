@@ -74,9 +74,6 @@ margin_left = -520.0
 margin_top = -280.0
 margin_right = 520.0
 margin_bottom = 280.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Logo" type="TextureRect" parent="Menu"]
 margin_right = 1040.0
