@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Ufo_UfoGlass_AlbedoTransparency.png-f2295ff46e31df586ce224c8ea710b88.s3tc.stex"
-path.etc2="res://.import/Ufo_UfoGlass_AlbedoTransparency.png-f2295ff46e31df586ce224c8ea710b88.etc2.stex"
+path.s3tc="res://.import/ufo_glass_metallic_smoothness.png-6ec6646bec45f49c3eb12fec45158565.s3tc.stex"
+path.etc2="res://.import/ufo_glass_metallic_smoothness.png-6ec6646bec45f49c3eb12fec45158565.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/spaceship/Ufo_UfoGlass_AlbedoTransparency.png"
-dest_files=[ "res://.import/Ufo_UfoGlass_AlbedoTransparency.png-f2295ff46e31df586ce224c8ea710b88.s3tc.stex", "res://.import/Ufo_UfoGlass_AlbedoTransparency.png-f2295ff46e31df586ce224c8ea710b88.etc2.stex" ]
+source_file="res://models/spaceship/ufo_glass_metallic_smoothness.png"
+dest_files=[ "res://.import/ufo_glass_metallic_smoothness.png-6ec6646bec45f49c3eb12fec45158565.s3tc.stex", "res://.import/ufo_glass_metallic_smoothness.png-6ec6646bec45f49c3eb12fec45158565.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

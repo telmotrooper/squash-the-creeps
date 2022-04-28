@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Ufo_UfoGlass_Normal.png-f591a5d8d8d0833b2c2441c9d1cb80f2.s3tc.stex"
-path.etc2="res://.import/Ufo_UfoGlass_Normal.png-f591a5d8d8d0833b2c2441c9d1cb80f2.etc2.stex"
+path.s3tc="res://.import/ufo_glass_normal.png-7fd49d0be9ac46b9cc5c997903e2304f.s3tc.stex"
+path.etc2="res://.import/ufo_glass_normal.png-7fd49d0be9ac46b9cc5c997903e2304f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/spaceship/Ufo_UfoGlass_Normal.png"
-dest_files=[ "res://.import/Ufo_UfoGlass_Normal.png-f591a5d8d8d0833b2c2441c9d1cb80f2.s3tc.stex", "res://.import/Ufo_UfoGlass_Normal.png-f591a5d8d8d0833b2c2441c9d1cb80f2.etc2.stex" ]
+source_file="res://models/spaceship/ufo_glass_normal.png"
+dest_files=[ "res://.import/ufo_glass_normal.png-7fd49d0be9ac46b9cc5c997903e2304f.s3tc.stex", "res://.import/ufo_glass_normal.png-7fd49d0be9ac46b9cc5c997903e2304f.etc2.stex" ]
 
 [params]
 

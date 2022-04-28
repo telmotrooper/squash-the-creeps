@@ -9,9 +9,9 @@ func _ready():
   $VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
   
   if (GameState.MapName): # TODO: Find a way to find option from label (maybe iterate through the items?)
-    if (GameState.MapName == 'HeightMap'):
+    if (GameState.MapName == 'height_map'):
       $VBoxContainer/HBoxContainer/RightContainer/MapOptionButton.select(0)
-    elif (GameState.MapName == 'TestMap'):
+    elif (GameState.MapName == 'test_map'):
       $VBoxContainer/HBoxContainer/RightContainer/MapOptionButton.select(1)
   
   $VBoxContainer/HBoxContainer/LeftContainer/DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
