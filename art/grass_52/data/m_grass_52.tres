@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=2]
 
-[ext_resource path="res://art/grass/data/s_grass.shader" type="Shader" id=1]
-[ext_resource path="res://art/grass/data/sprite_0052.png" type="Texture" id=2]
-[ext_resource path="res://art/grass/data/t_noise.png" type="Texture" id=3]
+[ext_resource path="res://art/grass_52/data/s_grass.shader" type="Shader" id=1]
+[ext_resource path="res://art/grass_52/data/sprite_0052.png" type="Texture" id=2]
+[ext_resource path="res://art/grass_52/data/t_noise.png" type="Texture" id=3]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.176471, 0.388235, 0.0901961, 1, 0.451898, 0.6, 0.174, 1 )
