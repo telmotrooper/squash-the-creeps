@@ -1,9 +1,10 @@
 extends Node
 
 var Audio: Node
-var Player: Node
+var Player: KinematicBody
 var Grass: Node
-var MapName
+var MapName: String
+var UserInterface: Control
 
 const initial_grass = 3000
 

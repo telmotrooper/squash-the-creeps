@@ -27,7 +27,6 @@ func _on_EnemyTimer_timeout():
   
   add_child(enemy)
   enemy.initiliaze(enemy_spawn_location.translation, player_position)
-  enemy.connect("squashed", $UserInterface/ScoreLabel, "_on_Enemy_squashed")
 
 func _on_Player_hit():
   $EnemyTimer.stop()
