@@ -40,7 +40,7 @@ func squash():
   $CollisionShape.disabled = true
   $AnimationPlayer.playback_speed = 1
   $AnimationPlayer.play("squash")
-  GameState.Audio.play("res://art/slime_jump.ogg")
+  GameState.play_audio("res://art/slime_jump.ogg")
 
 func _on_VisibilityNotifier_screen_exited():
   queue_free()

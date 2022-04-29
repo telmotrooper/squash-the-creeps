@@ -42,3 +42,7 @@ func change_map(map_name: String):
   var error = get_tree().change_scene(map_file)
   if error:
     print("Error: Unable to load map '%s'." % map_file)
+
+func play_audio(file):
+  $Audio/AudioStreamPlayer1.stream = load(file)
+  $Audio/AudioStreamPlayer1.play()
