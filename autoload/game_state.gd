@@ -1,6 +1,5 @@
 extends Node
 
-var Audio: Node
 var Player: KinematicBody
 var Grass: Node
 var MapName: String
