@@ -39,6 +39,6 @@ func change_map(map_name: String):
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
   
-  var err = get_tree().change_scene(map_file)
-  if err:
+  var error = get_tree().change_scene(map_file)
+  if error:
     print("Error: Unable to load map '%s'." % map_file)
