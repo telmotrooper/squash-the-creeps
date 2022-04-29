@@ -1,5 +1,6 @@
 extends Control
 
+const title_screen = "res://title_screen.tscn"
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
@@ -61,7 +62,7 @@ func _on_ResumeButton_pressed():
   pause()
 
 func _on_MainMenuButton_pressed():
-  var error = get_tree().change_scene("res://TitleScreen.tscn")
+  var error = get_tree().change_scene(title_screen)
   if (error):
     print("Error: Unable to load Title Screen.")
   

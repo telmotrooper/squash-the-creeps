@@ -3,7 +3,7 @@ class_name Enemy
 
 signal squashed
 
-var squash_sound = "res://art/slime_jump.ogg"
+const squash_sound = "res://art/slime_jump.ogg"
 export var min_speed := 10.0
 export var max_speed := 18.0
 
