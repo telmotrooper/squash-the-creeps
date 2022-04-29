@@ -9,7 +9,10 @@ export var max_speed := 18.0
 var velocity = Vector3.ZERO
 
 func _ready():
-  self.connect("squashed", GameState.UserInterface.get_node("ScoreLabel"), "_on_Enemy_squashed")
+  var error = self.connect("squashed", GameState.UserInterface.get_node("ScoreLabel"), "_on_Enemy_squashed")
+  
+  if error:
+    print("Error: Unable to connect signal 'squashed' to ScoreLabel.")
 
 func _physics_process(_delta):
   velocity = move_and_slide(velocity, Vector3.UP)

@@ -41,4 +41,4 @@ func change_map(map_name: String):
   
   var err = get_tree().change_scene(map_file)
   if err:
-    print("Error: Unable to load map '%s'" % map_file)
+    print("Error: Unable to load map '%s'." % map_file)

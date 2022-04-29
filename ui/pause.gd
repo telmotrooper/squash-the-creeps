@@ -63,7 +63,7 @@ func _on_ResumeButton_pressed():
 func _on_MainMenuButton_pressed():
   var error = get_tree().change_scene("res://TitleScreen.tscn")
   if (error):
-    print("Unable to load Title Screen.")
+    print("Error: Unable to load Title Screen.")
   
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
