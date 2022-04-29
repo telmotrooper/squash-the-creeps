@@ -50,6 +50,7 @@ config/icon="res://icon.png"
 Configuration="*res://autoload/configuration.gd"
 GameState="*res://autoload/game_state.tscn"
 Hotkeys="*res://autoload/hotkeys.gd"
+Utils="*res://autoload/utils.gd"
 
 [display]
 
