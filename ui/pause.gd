@@ -7,6 +7,8 @@ const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
 func _ready():
+  assert(ResourceLoader.exists(title_screen), "Error: File not found '%s'" % title_screen)
+  
   $VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
   
   if (GameState.MapName): # TODO: Find a way to find option from label (maybe iterate through the items?)
