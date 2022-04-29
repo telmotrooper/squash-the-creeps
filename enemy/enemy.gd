@@ -10,6 +10,7 @@ export var max_speed := 18.0
 var velocity = Vector3.ZERO
 
 func _ready():
+  Utils.exists(squash_sound)
   var error = self.connect("squashed", GameState.UserInterface, "_on_Enemy_squashed")
   
   if error:
