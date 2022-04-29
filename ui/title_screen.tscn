@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://menu_env.tres" type="Environment" id=1]
 [ext_resource path="res://ui/buttons/continue_button.tscn" type="PackedScene" id=2]
@@ -7,10 +7,40 @@
 [ext_resource path="res://ui/title_screen.gd" type="Script" id=5]
 [ext_resource path="res://logo.png" type="Texture" id=6]
 [ext_resource path="res://fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=7]
-[ext_resource path="res://transitions/fade_in.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/buttons/options_button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/buttons/new_game_button.tscn" type="PackedScene" id=10]
 [ext_resource path="res://art/player.glb" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "menu_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "menu_fade_out"
@@ -63,6 +93,9 @@ tracks/0/keys = {
 script = ExtResource( 5 )
 
 [node name="AnimationPlayerMenu" type="AnimationPlayer" parent="."]
+autoplay = "menu_fade_in"
+anims/RESET = SubResource( 4 )
+anims/menu_fade_in = SubResource( 5 )
 anims/menu_fade_out = SubResource( 1 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
@@ -140,9 +173,6 @@ DEVELOPED BY TELMO \"TROOPER\""
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="FadeIn" parent="." instance=ExtResource( 8 )]
-visible = false
 
 [node name="Spatial" type="Spatial" parent="."]
 
