@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
-[ext_resource path="res://ui/score_label.gd" type="Script" id=3]
 [ext_resource path="res://ui/fps_label.gd" type="Script" id=4]
 [ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
 
@@ -18,7 +17,6 @@ margin_top = 15.0
 margin_right = 121.0
 margin_bottom = 46.0
 text = "Score: 0"
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
