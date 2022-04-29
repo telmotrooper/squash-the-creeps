@@ -1,6 +1,6 @@
 extends Control
 
-const title_screen = "res://title_screen.tscn"
+const title_screen = "res://ui/title_screen.tscn"
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
