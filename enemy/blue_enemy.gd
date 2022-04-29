@@ -18,8 +18,6 @@ var global_point_2
 var going_to
 
 func _ready():
-  ._ready()
-  
   initial_position = Vector3(
     self.global_transform.origin.x,
     self.global_transform.origin.y,

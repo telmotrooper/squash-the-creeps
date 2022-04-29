@@ -3,13 +3,18 @@ class_name Enemy
 
 signal squashed
 
+const squash_sound = "res://art/slime_jump.ogg"
 export var min_speed := 10.0
 export var max_speed := 18.0
 
 var velocity = Vector3.ZERO
 
 func _ready():
-  self.connect("squashed", GameState.UserInterface.get_node("ScoreLabel"), "_on_Enemy_squashed")
+  Utils.exists(squash_sound)
+  var error = self.connect("squashed", GameState.UserInterface, "_on_Enemy_squashed")
+  
+  if error:
+    print("Error: Unable to connect signal 'squashed' to ScoreLabel.")
 
 func _physics_process(_delta):
   velocity = move_and_slide(velocity, Vector3.UP)
@@ -37,7 +42,7 @@ func squash():
   $CollisionShape.disabled = true
   $AnimationPlayer.playback_speed = 1
   $AnimationPlayer.play("squash")
-  GameState.Audio.play("res://art/slime_jump.ogg")
+  GameState.play_audio(squash_sound)
 
 func _on_VisibilityNotifier_screen_exited():
   queue_free()

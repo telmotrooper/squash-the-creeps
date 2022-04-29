@@ -1,6 +1,5 @@
 extends Node
 
-var Audio: Node
 var Player: KinematicBody
 var Grass: Node
 var MapName: String
@@ -38,7 +37,12 @@ func grass_index_to_multiplier(index: int):
 func change_map(map_name: String):
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
+  Utils.exists(map_file)
   
-  var err = get_tree().change_scene(map_file)
-  if err:
-    print("Error: Unable to load map '%s'" % map_file)
+  var error = get_tree().change_scene(map_file)
+  if error:
+    print("Error: Unable to load map '%s'." % map_file)
+
+func play_audio(file):
+  $Audio/AudioStreamPlayer1.stream = load(file)
+  $Audio/AudioStreamPlayer1.play()
