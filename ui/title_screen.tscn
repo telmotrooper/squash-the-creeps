@@ -203,5 +203,5 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5, 3.2, 9.3 )
 transform = Transform( 0.666491, 0.00140924, 0.0152197, -0.00399043, 0.656847, 0.113927, -0.0147547, -0.113988, 0.656683, 0.0159607, 0.489539, -0.00129777 )
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_Button_pressed" binds= [ "new_game" ]]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_Button_pressed" binds= [ "exit" ]]
