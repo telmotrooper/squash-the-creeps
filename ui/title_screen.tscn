@@ -90,7 +90,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "coming_in"
-length = 1.5
+length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Spaceship:translation")
 tracks/0/interp = 1
@@ -98,10 +98,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 5, 3.2, 30.3181 ), Vector3( 5, 3.8, 20.51 ), Vector3( 5, 3.2, 9.3 ) ]
+"values": [ Vector3( 5, 3.2, 30.3181 ), Vector3( 5, 3.2, 30.3181 ), Vector3( 5, 3.8, 20.51 ), Vector3( 5, 3.2, 9.3 ) ]
 }
 
 [sub_resource type="Animation" id=3]
