@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://menu_env.tres" type="Environment" id=1]
 [ext_resource path="res://ui/buttons/continue_button.tscn" type="PackedScene" id=2]
@@ -59,7 +59,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 length = 10.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("WorldEnvironment:environment:background_sky_rotation_degrees")
 tracks/0/interp = 1
@@ -71,6 +70,61 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -360, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spaceship:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5, 3.2, 9.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spaceship:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "coming_in"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spaceship:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 5, 3.2, 30.3181 ), Vector3( 5, 3.2, 30.3181 ), Vector3( 5, 3.2, 9.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spaceship:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.501, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -25, 0, 0 ), Vector3( -25, 0, 0 ), Vector3( -25, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 15, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -87,6 +141,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 5, 3.2, 9.3 ), Vector3( 5, 3.8, 9.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spaceship:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 
 [node name="TitleScreen" type="Node"]
@@ -189,8 +255,9 @@ playback_speed = 0.2
 anims/rotating_skybox = SubResource( 2 )
 
 [node name="AnimationPlayerSpaceship" type="AnimationPlayer" parent="Spatial"]
-autoplay = "flying_in_space"
-playback_speed = 0.8
+autoplay = "coming_in"
+anims/RESET = SubResource( 6 )
+anims/coming_in = SubResource( 7 )
 anims/flying_in_space = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
@@ -205,3 +272,4 @@ transform = Transform( 0.666491, 0.00140924, 0.0152197, -0.00399043, 0.656847, 0
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_Button_pressed" binds= [ "new_game" ]]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_Button_pressed" binds= [ "exit" ]]
+[connection signal="animation_finished" from="Spatial/AnimationPlayerSpaceship" to="." method="_on_AnimationPlayerSpaceship_animation_finished"]

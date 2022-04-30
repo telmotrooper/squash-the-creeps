@@ -14,3 +14,7 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name):
       GameState.change_map("test_map")
     elif button_pressed == "exit":
       get_tree().quit()
+
+func _on_AnimationPlayerSpaceship_animation_finished(anim_name):
+  if anim_name == "coming_in":
+    $Spatial/AnimationPlayerSpaceship.play("flying_in_space")
