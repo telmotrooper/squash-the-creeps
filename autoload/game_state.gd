@@ -46,3 +46,7 @@ func change_map(map_name: String):
 func play_audio(file):
   $Audio/AudioStreamPlayer1.stream = load(file)
   $Audio/AudioStreamPlayer1.play()
+
+func play_loaded_audio(stream):
+  $Audio/AudioStreamPlayer1.stream = stream
+  $Audio/AudioStreamPlayer1.play()
