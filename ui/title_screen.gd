@@ -4,6 +4,10 @@ const MENU_FADE_OUT = "menu_fade_out"
 var main_scene: PackedScene = load("res://maps/test_map.tscn")
 var button_pressed: String
 
+func _ready():
+  var version = Engine.get_version_info()
+  $Menu/VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d" % [version.major, version.minor, version.patch]
+
 func _on_Button_pressed(button_name):
   button_pressed = button_name
   $AnimationPlayerMenu.play(MENU_FADE_OUT)
