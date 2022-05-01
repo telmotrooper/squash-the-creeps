@@ -221,16 +221,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -182.5
-margin_top = -180.0
+margin_top = -188.5
 margin_right = 182.5
-margin_bottom = 180.0
+margin_bottom = 188.5
 custom_constants/separation = 20
 
-[node name="ControlsLabel" type="Label" parent="Pause/PauseControls"]
+[node name="TitleLabel" type="Label" parent="Pause/PauseControls"]
 margin_right = 365.0
-margin_bottom = 303.0
-text = "Controls:
-Walk – WASD
+margin_bottom = 31.0
+text = "Controls"
+align = 1
+
+[node name="ControlsLabel" type="Label" parent="Pause/PauseControls"]
+margin_top = 51.0
+margin_right = 365.0
+margin_bottom = 320.0
+text = "Walk – WASD
 Jump – Space
 Sprint – Shift
 Spin Attack – Left Mouse Click
@@ -240,9 +246,9 @@ Toggle Fullscreen – Alt+Enter
 Fast Forward – TAB"
 
 [node name="ControlsBackButton" type="Button" parent="Pause/PauseControls"]
-margin_top = 323.0
+margin_top = 340.0
 margin_right = 365.0
-margin_bottom = 360.0
+margin_bottom = 377.0
 text = "Back"
 
 [connection signal="pressed" from="Pause/MainPause/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
