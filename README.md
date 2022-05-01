@@ -26,6 +26,9 @@ You can **[download here](https://github.com/telmotrooper/squash-the-creeps/rele
 
 If you get this error, go in the editor and click `Editor > Editor Settings... > General > Text Editor > Indent`, then change **Type** to `Spaces` and **Size** to `2`. Then close the project, reset the file changes with `git reset --hard` and reopen the project. You should now be able to edit the files without running into the error.
 
+#### **I'm getting error "Unable to load addon script from path"**
+For some reason, the first time you open the project in Godot you'll get this error and the plugins used in the project will be disabled. You should be able to fix it just by running `git checkout HEAD project.godot` to reset the changes.
+
 #### **(MacOS) "Squash the Creeps.app" is damaged and can't be opened**
 
 The application is't signed, so you'll have to run to disable the checks running the following command `xattr -cr "Squash the Creeps.app"` in the folder where the game is.
