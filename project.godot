@@ -27,9 +27,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Squash the Creeps"
-config/description="A 3D game where you dodge and jump on little aliens.
+config/description="Squash the Creeps is a freeware game developed in the Godot Engine where you control a squid-like creature and squash incoming enemies.
 
-This is the starter project for the video version of the First 3D Game tutorial published on the GDQuest YouTube channel."
+It is based in the isometric 3D game of the same name implemented in the tutorial Create Your First Complete 3D Game with Godot by GDQuest."
 run/main_scene="res://ui/title_screen.tscn"
 config/icon="res://icon.png"
 
