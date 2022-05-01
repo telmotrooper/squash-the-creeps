@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemy/enemy.glb" type="PackedScene" id=1]
 [ext_resource path="res://enemy/enemy.gd" type="Script" id=2]
+[ext_resource path="res://art/slime_jump.ogg" type="AudioStream" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.20057, 1 )
@@ -80,6 +81,7 @@ tracks/2/keys = {
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 2 )
+squash_sound = ExtResource( 3 )
 
 [node name="Pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0 )

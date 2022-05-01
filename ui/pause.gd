@@ -1,14 +1,12 @@
 extends Control
 
-const title_screen = "res://ui/title_screen.tscn"
+export (PackedScene) var title_screen
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
 func _ready():
-  Utils.exists(title_screen)
-  
   $VBoxContainer/HBoxContainer/LeftContainer/GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
   
   if (GameState.MapName): # TODO: Find a way to find option from label (maybe iterate through the items?)
@@ -64,7 +62,7 @@ func _on_ResumeButton_pressed():
   pause()
 
 func _on_MainMenuButton_pressed():
-  var error = get_tree().change_scene(title_screen)
+  var error = get_tree().change_scene_to(title_screen)
   if (error):
     print("Error: Unable to load Title Screen.")
   

@@ -3,14 +3,13 @@ class_name Enemy
 
 signal squashed
 
-const squash_sound = "res://art/slime_jump.ogg"
+export (AudioStream) var squash_sound
 export var min_speed := 10.0
 export var max_speed := 18.0
 
 var velocity = Vector3.ZERO
 
 func _ready():
-  Utils.exists(squash_sound)
   var error = self.connect("squashed", GameState.UserInterface, "_on_Enemy_squashed")
   
   if error:
@@ -42,7 +41,7 @@ func squash():
   $CollisionShape.disabled = true
   $AnimationPlayer.playback_speed = 1
   $AnimationPlayer.play("squash")
-  GameState.play_audio(squash_sound)
+  GameState.play_loaded_audio(squash_sound)
 
 func _on_VisibilityNotifier_screen_exited():
   queue_free()
