@@ -1,19 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
-[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=4]
-[ext_resource path="res://hterrain_data/data.hterrain" type="Resource" id=5]
+[ext_resource path="res://models/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=6]
 [ext_resource path="res://player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemy/blue_enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/ball/ball.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=11]
-
-[sub_resource type="Resource" id=1]
-script = ExtResource( 4 )
-mode = 0
-textures = [ [ null ], [ null ] ]
 
 [node name="World1" type="Spatial"]
 
@@ -22,26 +15,6 @@ transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107,
 collision_mask = 524302
 
 [node name="UserInterface" parent="." instance=ExtResource( 8 )]
-
-[node name="HTerrain" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 0, -256 )
-script = ExtResource( 3 )
-_terrain_data = ExtResource( 5 )
-chunk_size = 32
-collision_enabled = true
-collision_layer = 4
-collision_mask = 0
-shader_type = "Classic4"
-custom_shader = null
-custom_globalmap_shader = null
-texture_set = SubResource( 1 )
-shader_params/u_ground_uv_scale_per_texture = Plane( 20, 20, 20, 20 )
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = false
-shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
-shader_params/u_globalmap_blend_start = null
-shader_params/u_globalmap_blend_distance = null
-shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 6 )
@@ -57,4 +30,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9659, 11.3852, 83.2189 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90.5753, 14.6625, 68.5418 )
 
 [node name="RedButton" parent="Props" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 94.3703, 12.3141, 56.0075 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9857, 5.44154, 79.3415 )
+
+[node name="HeightMap" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.935, 9.89507, 94.6744 )
+collision_layer = 4
+collision_mask = 0
