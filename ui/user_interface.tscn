@@ -84,12 +84,12 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Toggle Fullscreen"
 
-[node name="KeymapsButton" type="Button" parent="Pause/MainPause/HBoxContainer3"]
+[node name="ControlsButton" type="Button" parent="Pause/MainPause/HBoxContainer3"]
 margin_left = 287.0
 margin_right = 570.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
-text = "Keymaps"
+text = "Controls"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/MainPause"]
 margin_top = 176.0
@@ -214,7 +214,7 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Exit"
 
-[node name="PauseKeymaps" type="VBoxContainer" parent="Pause"]
+[node name="PauseControls" type="VBoxContainer" parent="Pause"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -226,7 +226,7 @@ margin_right = 182.5
 margin_bottom = 180.0
 custom_constants/separation = 20
 
-[node name="KeymapsLabel" type="Label" parent="Pause/PauseKeymaps"]
+[node name="ControlsLabel" type="Label" parent="Pause/PauseControls"]
 margin_right = 365.0
 margin_bottom = 303.0
 text = "Keymaps:
@@ -239,7 +239,7 @@ ESC – Pause
 Alt+Enter – Toggle Fullscreen
 TAB – Fast Forward"
 
-[node name="KeymapsBackButton" type="Button" parent="Pause/PauseKeymaps"]
+[node name="ControlsBackButton" type="Button" parent="Pause/PauseControls"]
 margin_top = 323.0
 margin_right = 365.0
 margin_bottom = 360.0
@@ -247,7 +247,7 @@ text = "Back"
 
 [connection signal="pressed" from="Pause/MainPause/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer3/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
-[connection signal="pressed" from="Pause/MainPause/HBoxContainer3/KeymapsButton" to="Pause" method="_on_KeymapsButton_pressed"]
+[connection signal="pressed" from="Pause/MainPause/HBoxContainer3/ControlsButton" to="Pause" method="_on_ControlsButton_pressed"]
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
 [connection signal="item_selected" from="Pause/MainPause/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
@@ -256,4 +256,4 @@ text = "Back"
 [connection signal="item_selected" from="Pause/MainPause/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="Pause/PauseKeymaps/KeymapsBackButton" to="Pause" method="_on_KeymapsBackButton_pressed"]
+[connection signal="pressed" from="Pause/PauseControls/ControlsBackButton" to="Pause" method="_on_ControlsBackButton_pressed"]

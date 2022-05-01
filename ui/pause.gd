@@ -86,11 +86,11 @@ func _on_MapOptionButton_item_selected(index):
   pause()
 
 
-func _on_KeymapsButton_pressed():
+func _on_ControlsButton_pressed():
   $MainPause.visible = false
-  $PauseKeymaps.visible = true
+  $PauseControls.visible = true
 
 
-func _on_KeymapsBackButton_pressed():
+func _on_ControlsBackButton_pressed():
   $MainPause.visible = true
-  $PauseKeymaps.visible = false
+  $PauseControls.visible = false
