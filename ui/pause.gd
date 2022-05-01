@@ -55,8 +55,12 @@ func pause():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
+  # TODO: Improve this when another menu page is needed.
   if event.is_action_pressed("pause"):
-    pause()
+    if $MainPause.visible:
+      pause()
+    else:
+      _on_ControlsBackButton_pressed()
 
 func _on_ResumeButton_pressed():
   pause()

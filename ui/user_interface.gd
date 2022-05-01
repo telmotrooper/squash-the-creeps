@@ -6,6 +6,10 @@ func _ready():
   # If every map is gonna have its own UserInterface instance,
   # we'll need a reference to the current one.
   GameState.UserInterface = self
+  
+  $Pause.visible = false
+  $Pause/MainPause.visible = true
+  $Pause/PauseControls.visible = false
 
 func _process(_delta):
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()

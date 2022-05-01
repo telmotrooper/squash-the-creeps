@@ -229,15 +229,15 @@ custom_constants/separation = 20
 [node name="ControlsLabel" type="Label" parent="Pause/PauseControls"]
 margin_right = 365.0
 margin_bottom = 303.0
-text = "Keymaps:
-WASD – Walk
-Space – Jump
-Shift – Sprint
-Left Mouse Click – Spin Attack
+text = "Controls:
+Walk – WASD
+Jump – Space
+Sprint – Shift
+Spin Attack – Left Mouse Click
 
-ESC – Pause
-Alt+Enter – Toggle Fullscreen
-TAB – Fast Forward"
+Pause – ESC
+Toggle Fullscreen – Alt+Enter
+Fast Forward – TAB"
 
 [node name="ControlsBackButton" type="Button" parent="Pause/PauseControls"]
 margin_top = 323.0
