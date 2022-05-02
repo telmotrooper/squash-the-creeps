@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://enemy/blue_enemy.gd" type="Script" id=1]
-[ext_resource path="res://enemy/enemy.glb" type="PackedScene" id=2]
-[ext_resource path="res://enemy/prism_area.tscn" type="PackedScene" id=3]
-[ext_resource path="res://art/slime_jump.ogg" type="AudioStream" id=4]
+[ext_resource path="res://art/slime_jump.ogg" type="AudioStream" id=1]
+[ext_resource path="res://entities/enemy/enemy.glb" type="PackedScene" id=2]
+[ext_resource path="res://entities/enemy/enemy.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.20057, 1 )
@@ -78,11 +77,11 @@ tracks/2/keys = {
 } ]
 }
 
-[node name="BlueEnemy" type="KinematicBody" groups=["enemies"]]
+[node name="Enemy" type="KinematicBody" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource( 1 )
-squash_sound = ExtResource( 4 )
+script = ExtResource( 3 )
+squash_sound = ExtResource( 1 )
 
 [node name="Pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0 )
@@ -92,21 +91,14 @@ transform = Transform( 1, 0, 0, 0, 0.996759, -0.080447, 0, 0.080447, 0.996759, 0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.54, 0, 0, 0, 1.5, 0, 0.671283, 0.295466 )
-visible = false
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
 transform = Transform( 1.21071, 0, 0, 0, 1, 0, 0, 0, 1.7127, 0, 0, 0.28548 )
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "float"
 anims/float = SubResource( 2 )
 anims/squash = SubResource( 3 )
 
-[node name="PrismArea" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3 )
-visible = false
-
 [connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
-[connection signal="body_entered" from="PrismArea" to="." method="_on_PrismArea_body_entered"]
