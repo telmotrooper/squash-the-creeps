@@ -16,7 +16,7 @@
 [ext_resource path="res://player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://godot_power_up.tscn" type="PackedScene" id=15]
 [ext_resource path="res://shaders/smoke/smoke.tscn" type="PackedScene" id=16]
-[ext_resource path="res://models/goweti/goweti_old.tscn" type="PackedScene" id=17]
+[ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=18]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -291,8 +291,8 @@ transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, 
 [node name="BlueEnemy1" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13 )
 
-[node name="goweti" parent="." instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.9551, -0.178398, 0.635979 )
+[node name="goweti" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9063, -0.311643, -0.580986 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
