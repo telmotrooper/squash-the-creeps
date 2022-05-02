@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Material"
@@ -21,17 +21,17 @@ surfaces/0 = {
 "vertex_count": 24
 }
 
-[sub_resource type="ConcavePolygonShape" id=7]
+[sub_resource type="ConcavePolygonShape" id=3]
 data = PoolVector3Array( 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
 resource_name = "Material.001"
 vertex_color_use_as_albedo = true
 params_cull_mode = 2
 albedo_color = Color( 0.59917, 0.384458, 0.906332, 1 )
 
-[sub_resource type="ArrayMesh" id=4]
-resource_name = "goweti_Cube001"
+[sub_resource type="ArrayMesh" id=5]
+resource_name = "goweti_Cube005"
 surfaces/0 = {
 "aabb": AABB( -5.3, -3.4, -5.75, 10.6, 6.8, 11.5 ),
 "array_data": PoolByteArray( 154, 153, 169, 192, 154, 153, 89, 192, 0, 0, 184, 64, 129, 0, 0, 127, 0, 54, 0, 60, 154, 153, 169, 192, 154, 153, 89, 192, 0, 0, 184, 64, 0, 129, 127, 63, 0, 48, 0, 52, 154, 153, 169, 192, 154, 153, 89, 192, 0, 0, 184, 64, 0, 0, 0, 127, 0, 54, 0, 0, 154, 153, 169, 192, 154, 153, 89, 64, 0, 0, 184, 64, 129, 0, 0, 127, 0, 57, 0, 60, 154, 153, 169, 192, 154, 153, 89, 64, 0, 0, 184, 64, 0, 0, 0, 127, 0, 57, 0, 0, 154, 153, 169, 192, 154, 153, 89, 64, 0, 0, 184, 64, 47, 127, 20, 83, 0, 57, 0, 60, 154, 153, 169, 192, 154, 153, 89, 192, 0, 0, 184, 192, 129, 0, 0, 127, 0, 54, 0, 58, 154, 153, 169, 192, 154, 153, 89, 192, 0, 0, 184, 192, 0, 129, 127, 63, 0, 48, 0, 56, 154, 153, 169, 192, 154, 153, 89, 192, 0, 0, 184, 192, 47, 127, 235, 83, 0, 54, 0, 58, 154, 153, 169, 64, 154, 153, 89, 192, 0, 0, 184, 64, 0, 129, 127, 63, 0, 54, 0, 52, 154, 153, 169, 64, 154, 153, 89, 192, 0, 0, 184, 64, 0, 0, 0, 127, 0, 54, 0, 52, 154, 153, 169, 64, 154, 153, 89, 192, 0, 0, 184, 64, 127, 0, 0, 127, 0, 54, 0, 52, 154, 153, 169, 64, 154, 153, 89, 64, 0, 0, 184, 64, 0, 0, 0, 127, 0, 57, 0, 52, 154, 153, 169, 64, 154, 153, 89, 64, 0, 0, 184, 64, 47, 127, 245, 84, 0, 57, 0, 52, 154, 153, 169, 64, 154, 153, 89, 64, 0, 0, 184, 64, 127, 0, 0, 127, 0, 57, 0, 52, 154, 153, 169, 64, 154, 153, 89, 192, 0, 0, 184, 192, 0, 129, 127, 63, 0, 54, 0, 56, 154, 153, 169, 64, 154, 153, 89, 192, 0, 0, 184, 192, 47, 127, 210, 78, 0, 54, 0, 56, 154, 153, 169, 64, 154, 153, 89, 192, 0, 0, 184, 192, 127, 0, 0, 127, 0, 54, 0, 56 ),
@@ -39,22 +39,22 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 24,
-"material": SubResource( 3 ),
+"material": SubResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 18
 }
 
-[sub_resource type="ConcavePolygonShape" id=8]
+[sub_resource type="ConcavePolygonShape" id=6]
 data = PoolVector3Array( 5.3, -3.4, 5.75, -5.3, 3.4, 5.75, 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, -5.3, -3.4, 5.75, -5.3, 3.4, 5.75, -5.3, -3.4, -5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, -3.4, -5.75, -5.3, -3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, 5.75, 5.3, 3.4, 5.75, 5.3, -3.4, -5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, -5.75, 5.3, 3.4, 5.75, -5.3, 3.4, 5.75, -5.3, -3.4, -5.75, 5.3, -3.4, -5.75, 5.3, 3.4, 5.75 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=7]
 resource_name = "Material.002"
 vertex_color_use_as_albedo = true
 params_cull_mode = 2
 albedo_color = Color( 0.906332, 0.692465, 0.279687, 1 )
 
-[sub_resource type="ArrayMesh" id=6]
+[sub_resource type="ArrayMesh" id=8]
 resource_name = "goweti_Cube002"
 surfaces/0 = {
 "aabb": AABB( -5.3, -0.25, -6.97025, 10.6, 0.50001, 13.9405 ),
@@ -63,7 +63,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": SubResource( 5 ),
+"material": SubResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -72,8 +72,59 @@ surfaces/0 = {
 [sub_resource type="ConcavePolygonShape" id=9]
 data = PoolVector3Array( -5.3, 0.25, -6.9702, 5.3, 0.25, 6.9702, 5.3, 0.25, -6.9702, -5.3, 0.25, -6.9702, -5.3, 0.25, 6.9702, 5.3, 0.25, 6.9702, -5.3, -0.25, 6.9702, 5.3, 0.25, 6.9702, -5.3, 0.25, 6.9702, -5.3, -0.25, 6.9702, 5.3, -0.25, 6.9702, 5.3, 0.25, 6.9702, 5.3, -0.25, 6.9702, 5.3, 0.25, -6.9702, 5.3, 0.25, 6.9702, 5.3, -0.25, 6.9702, 5.3, -0.25, -6.9702, 5.3, 0.25, -6.9702, 5.3, -0.25, -6.9702, -5.3, -0.25, 6.9702, -5.3, -0.25, -6.9702, 5.3, -0.25, -6.9702, 5.3, -0.25, 6.9702, -5.3, -0.25, 6.9702, -5.3, -0.25, -6.9702, -5.3, 0.25, 6.9702, -5.3, 0.25, -6.9702, -5.3, -0.25, -6.9702, -5.3, -0.25, 6.9702, -5.3, 0.25, 6.9702, 5.3, -0.25, -6.9702, -5.3, 0.25, -6.9702, 5.3, 0.25, -6.9702, 5.3, -0.25, -6.9702, -5.3, -0.25, -6.9702, -5.3, 0.25, -6.9702 )
 
-[sub_resource type="Animation" id=10]
-resource_name = "MovePlatform"
+[sub_resource type="ArrayMesh" id=10]
+resource_name = "goweti_Cube009"
+surfaces/0 = {
+"aabb": AABB( -1, -1, -1, 2.00001, 2.00001, 2 ),
+"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 0 ),
+"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": SubResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1 )
+
+[sub_resource type="ArrayMesh" id=12]
+resource_name = "goweti_Cube001"
+surfaces/0 = {
+"aabb": AABB( -5.3, -0.25, -6.97025, 10.6, 0.50001, 13.9405 ),
+"array_data": PoolByteArray( 154, 153, 169, 192, 0, 0, 128, 62, 69, 12, 223, 192, 0, 129, 127, 63, 0, 57, 0, 56, 154, 153, 169, 192, 0, 0, 128, 62, 69, 12, 223, 192, 0, 0, 0, 127, 0, 57, 0, 56, 154, 153, 169, 192, 0, 0, 128, 62, 69, 12, 223, 192, 127, 0, 0, 127, 0, 57, 0, 56, 154, 153, 169, 192, 0, 0, 128, 190, 69, 12, 223, 192, 0, 0, 0, 127, 0, 54, 0, 56, 154, 153, 169, 192, 0, 0, 128, 190, 69, 12, 223, 192, 0, 127, 129, 63, 0, 54, 0, 56, 154, 153, 169, 192, 0, 0, 128, 190, 69, 12, 223, 192, 127, 0, 0, 127, 0, 54, 0, 56, 154, 153, 169, 192, 0, 0, 128, 62, 69, 12, 223, 64, 0, 129, 127, 63, 0, 57, 0, 52, 154, 153, 169, 192, 0, 0, 128, 62, 69, 12, 223, 64, 127, 127, 0, 127, 0, 57, 0, 52, 154, 153, 169, 192, 0, 0, 128, 62, 69, 12, 223, 64, 127, 0, 0, 127, 0, 57, 0, 52, 154, 153, 169, 192, 0, 0, 128, 190, 69, 12, 223, 64, 127, 127, 0, 127, 0, 54, 0, 52, 154, 153, 169, 192, 0, 0, 128, 190, 69, 12, 223, 64, 0, 127, 129, 63, 0, 54, 0, 52, 154, 153, 169, 192, 0, 0, 128, 190, 69, 12, 223, 64, 127, 0, 0, 127, 0, 54, 0, 52, 154, 153, 169, 64, 0, 0, 128, 62, 69, 12, 223, 192, 129, 0, 0, 127, 0, 57, 0, 58, 154, 153, 169, 64, 0, 0, 128, 62, 69, 12, 223, 192, 0, 129, 127, 63, 0, 59, 0, 56, 154, 153, 169, 64, 0, 0, 128, 62, 69, 12, 223, 192, 0, 0, 0, 127, 0, 57, 0, 58, 154, 153, 169, 64, 0, 0, 128, 190, 69, 12, 223, 192, 129, 0, 0, 127, 0, 54, 0, 58, 154, 153, 169, 64, 0, 0, 128, 190, 69, 12, 223, 192, 0, 0, 0, 127, 0, 54, 0, 58, 154, 153, 169, 64, 0, 0, 128, 190, 69, 12, 223, 192, 0, 127, 129, 63, 0, 48, 0, 56, 154, 153, 169, 64, 0, 0, 128, 62, 69, 12, 223, 64, 129, 0, 0, 127, 0, 57, 0, 60, 154, 153, 169, 64, 0, 0, 128, 62, 69, 12, 223, 64, 0, 129, 127, 63, 0, 59, 0, 52, 154, 153, 169, 64, 0, 0, 128, 62, 69, 12, 223, 64, 127, 127, 0, 127, 0, 57, 0, 0, 154, 153, 169, 64, 0, 0, 128, 190, 69, 12, 223, 64, 129, 0, 0, 127, 0, 54, 0, 60, 154, 153, 169, 64, 0, 0, 128, 190, 69, 12, 223, 64, 127, 127, 0, 127, 0, 54, 0, 0, 154, 153, 169, 64, 0, 0, 128, 190, 69, 12, 223, 64, 0, 127, 129, 63, 0, 48, 0, 52 ),
+"array_index_data": PoolByteArray( 0, 0, 19, 0, 13, 0, 0, 0, 6, 0, 19, 0, 9, 0, 20, 0, 7, 0, 9, 0, 22, 0, 20, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 17, 0, 10, 0, 4, 0, 17, 0, 23, 0, 10, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 16, 0, 1, 0, 14, 0, 16, 0, 3, 0, 1, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": SubResource( 7 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( -5.3, 0.25, -6.9702, 5.3, 0.25, 6.9702, 5.3, 0.25, -6.9702, -5.3, 0.25, -6.9702, -5.3, 0.25, 6.9702, 5.3, 0.25, 6.9702, -5.3, -0.25, 6.9702, 5.3, 0.25, 6.9702, -5.3, 0.25, 6.9702, -5.3, -0.25, 6.9702, 5.3, -0.25, 6.9702, 5.3, 0.25, 6.9702, 5.3, -0.25, 6.9702, 5.3, 0.25, -6.9702, 5.3, 0.25, 6.9702, 5.3, -0.25, 6.9702, 5.3, -0.25, -6.9702, 5.3, 0.25, -6.9702, 5.3, -0.25, -6.9702, -5.3, -0.25, 6.9702, -5.3, -0.25, -6.9702, 5.3, -0.25, -6.9702, 5.3, -0.25, 6.9702, -5.3, -0.25, 6.9702, -5.3, -0.25, -6.9702, -5.3, 0.25, 6.9702, -5.3, 0.25, -6.9702, -5.3, -0.25, -6.9702, -5.3, -0.25, 6.9702, -5.3, 0.25, 6.9702, 5.3, -0.25, -6.9702, -5.3, 0.25, -6.9702, 5.3, 0.25, -6.9702, 5.3, -0.25, -6.9702, -5.3, -0.25, -6.9702, -5.3, 0.25, -6.9702 )
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FloatingPlatform:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 6.67009, -17.991 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "move_platform"
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -86,13 +137,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -30 ) ]
+"values": [ Vector3( 0, 6.67009, -17.991 ), Vector3( 0, 6.67, -40 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=16]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("FloatingPlatform/MeshInstance:translation")
+tracks/0/path = NodePath("FloatingPlatform001:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -101,87 +152,90 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67009, -18.3774 ) ]
+"values": [ Vector3( 0, 6.67009, -82.3179 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("FloatingPlatform/CollisionShape:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+
+[sub_resource type="Animation" id=17]
+resource_name = "move_platform"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FloatingPlatform001:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67009, -18.3774 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("FloatingPlatform:translation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 6.67009, -82.3179 ), Vector3( 0, 6.67, -57.318 ) ]
 }
 
 [node name="goweti" type="Spatial"]
 
-[node name="BaseCube" type="StaticBody" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="MeshInstance" type="MeshInstance" parent="BaseCube"]
+[node name="BaseCube" type="MeshInstance" parent="."]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, 0 )
 mesh = SubResource( 2 )
-skeleton = NodePath("../..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="BaseCube"]
-transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, 0 )
-shape = SubResource( 7 )
+[node name="BaseCube" type="StaticBody" parent="BaseCube"]
 
-[node name="Ramp" type="StaticBody" parent="."]
-collision_layer = 4
-collision_mask = 0
+[node name="shape0" type="CollisionShape" parent="BaseCube/BaseCube"]
+shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Ramp"]
+[node name="Ramp" type="MeshInstance" parent="."]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.00221846, 3.64643, -0.0341988 )
-mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+mesh = SubResource( 5 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Ramp"]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.00221846, 3.64643, -0.0341988 )
-shape = SubResource( 8 )
+[node name="Ramp" type="StaticBody" parent="Ramp"]
 
-[node name="FloatingPlatform" type="KinematicBody" parent="."]
-collision_layer = 4
-collision_mask = 0
+[node name="shape0" type="CollisionShape" parent="Ramp/Ramp"]
+shape = SubResource( 6 )
 
-[node name="MeshInstance" type="MeshInstance" parent="FloatingPlatform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67009, -18.3774 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../..")
+[node name="FloatingPlatform" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67009, -17.991 )
+mesh = SubResource( 8 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="FloatingPlatform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67009, -18.3774 )
+[node name="FloatingPlatform" type="KinematicBody" parent="FloatingPlatform"]
+
+[node name="shape0" type="CollisionShape" parent="FloatingPlatform/FloatingPlatform"]
 shape = SubResource( 9 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "MovePlatform"
-playback_process_mode = 0
-anims/MovePlatform = SubResource( 10 )
-anims/RESET = SubResource( 11 )
+[node name="BaseCube001" type="MeshInstance" parent="."]
+transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, -100.086 )
+mesh = SubResource( 10 )
+material/0 = null
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.5258, 0 )
-visible = false
+[node name="BaseCube002" type="StaticBody" parent="BaseCube001"]
+
+[node name="shape0" type="CollisionShape" parent="BaseCube001/BaseCube002"]
+shape = SubResource( 11 )
+
+[node name="FloatingPlatform001" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67009, -82.3179 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="FloatingPlatform001" type="KinematicBody" parent="FloatingPlatform001"]
+
+[node name="shape0" type="CollisionShape" parent="FloatingPlatform001/FloatingPlatform001"]
+shape = SubResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move_platform"
+playback_process_mode = 0
+anims/RESET = SubResource( 14 )
+anims/move_platform = SubResource( 15 )
+
+[node name="AnimationPlayer001" type="AnimationPlayer" parent="."]
+autoplay = "move_platform"
+playback_process_mode = 0
+anims/RESET = SubResource( 16 )
+anims/move_platform = SubResource( 17 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 17.3434, 43.3814 )
-visible = false
+transform = Transform( 1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 130.762, -49.6428 )
+far = 1000.0

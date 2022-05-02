@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -9,14 +9,15 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=7]
 [ext_resource path="res://materials/cyan.tres" type="Material" id=8]
 [ext_resource path="res://materials/green.tres" type="Material" id=9]
-[ext_resource path="res://enemy/blue_enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/enemy/blue_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://flag.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=12]
 [ext_resource path="res://models/spaceship/spaceship.tscn" type="PackedScene" id=13]
-[ext_resource path="res://player.tscn" type="PackedScene" id=14]
-[ext_resource path="res://godot_power_up.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://models/godot_power_up/godot_power_up.tscn" type="PackedScene" id=15]
 [ext_resource path="res://shaders/smoke/smoke.tscn" type="PackedScene" id=16]
-[ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=17]
+[ext_resource path="res://entities/enemy/enemy.tscn" type="PackedScene" id=17]
+[ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=18]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -73,6 +74,7 @@ size = Vector2( 500, 500 )
 
 [node name="TestMap" type="Node"]
 script = ExtResource( 5 )
+enemy_scene = ExtResource( 17 )
 spawn_enemies = false
 
 [node name="Flag3DScene" parent="." instance=ExtResource( 11 )]
@@ -291,8 +293,8 @@ transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, 
 [node name="BlueEnemy1" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13 )
 
-[node name="goweti" parent="." instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.9551, -0.178398, 0.635979 )
+[node name="goweti" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9063, -0.311643, -0.580986 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
