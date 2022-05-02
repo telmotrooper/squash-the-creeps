@@ -5,7 +5,6 @@ resource_name = "Material"
 vertex_color_use_as_albedo = true
 params_cull_mode = 2
 albedo_color = Color( 0, 0.52666, 0.0426852, 1 )
-roughness = 0.4
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "goweti_Cube"
@@ -30,7 +29,6 @@ resource_name = "Material.001"
 vertex_color_use_as_albedo = true
 params_cull_mode = 2
 albedo_color = Color( 0.59917, 0.384458, 0.906332, 1 )
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id=4]
 resource_name = "goweti_Cube001"
@@ -55,7 +53,6 @@ resource_name = "Material.002"
 vertex_color_use_as_albedo = true
 params_cull_mode = 2
 albedo_color = Color( 0.906332, 0.692465, 0.279687, 1 )
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "goweti_Cube002"
