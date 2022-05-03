@@ -7,6 +7,7 @@ func _ready():
   # we'll need a reference to the current one.
   GameState.UserInterface = self
   
+  get_tree().paused = false
   $Pause.visible = false
   $Pause/MainPause.visible = true
   $Pause/PauseControls.visible = false
