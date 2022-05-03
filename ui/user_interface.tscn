@@ -43,7 +43,6 @@ align = 1
 
 [node name="Pause" type="Control" parent="."]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -67,15 +66,15 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Pause/MainPause"]
-margin_top = 82.0
+margin_top = 58.0
 margin_right = 570.0
-margin_bottom = 119.0
+margin_bottom = 95.0
 text = "Resume"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 129.0
+margin_top = 105.0
 margin_right = 570.0
-margin_bottom = 166.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 
 [node name="ToggleFullscreenButton" type="Button" parent="Pause/MainPause/HBoxContainer3"]
@@ -92,9 +91,9 @@ size_flags_horizontal = 3
 text = "Controls"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 176.0
+margin_top = 152.0
 margin_right = 570.0
-margin_bottom = 358.0
+margin_bottom = 334.0
 custom_constants/separation = 10
 
 [node name="LeftContainer" type="VBoxContainer" parent="Pause/MainPause/HBoxContainer"]
@@ -193,10 +192,16 @@ text = "height_map"
 items = [ "height_map", null, false, 0, null, "test_map", null, false, 1, null ]
 selected = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 368.0
+[node name="ReloadMapButton" type="Button" parent="Pause/MainPause"]
+margin_top = 344.0
 margin_right = 570.0
-margin_bottom = 405.0
+margin_bottom = 381.0
+text = "Reload Map"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/MainPause"]
+margin_top = 391.0
+margin_right = 570.0
+margin_bottom = 428.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 alignment = 1
@@ -260,6 +265,7 @@ text = "Back"
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="item_selected" from="Pause/MainPause/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
+[connection signal="pressed" from="Pause/MainPause/ReloadMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Pause/PauseControls/ControlsBackButton" to="Pause" method="_on_ControlsBackButton_pressed"]

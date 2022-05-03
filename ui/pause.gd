@@ -98,3 +98,7 @@ func _on_ControlsButton_pressed():
 func _on_ControlsBackButton_pressed():
   $MainPause.visible = true
   $PauseControls.visible = false
+
+
+func _on_ReloadMapButton_pressed():
+  get_tree().reload_current_scene()

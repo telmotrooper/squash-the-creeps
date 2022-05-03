@@ -11,7 +11,7 @@
 [node name="World1" type="Spatial"]
 
 [node name="Player" parent="." groups=["players"] instance=ExtResource( 7 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 83.968, 15.275, 66.1121 )
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 83.968, -3.9119, 66.1121 )
 collision_mask = 524302
 
 [node name="UserInterface" parent="." instance=ExtResource( 8 )]
@@ -22,17 +22,15 @@ environment = ExtResource( 6 )
 [node name="EnemySpawns" type="Spatial" parent="."]
 
 [node name="BlueEnemy" parent="EnemySpawns" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9659, 11.3852, 83.2189 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.7793, -5.18382, 83.2189 )
 
 [node name="Props" type="Spatial" parent="."]
 
 [node name="Ball" parent="Props" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90.5753, 14.6625, 68.5418 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 174.437, 29.7845, 75.7972 )
 
 [node name="RedButton" parent="Props" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9857, 5.44154, 79.3415 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5938, -3.34139, 74.8626 )
 
 [node name="HeightMap" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.935, 9.89507, 94.6744 )
-collision_layer = 4
-collision_mask = 0
