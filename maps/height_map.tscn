@@ -22,7 +22,7 @@ environment = ExtResource( 6 )
 [node name="EnemySpawns" type="Spatial" parent="."]
 
 [node name="BlueEnemy" parent="EnemySpawns" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 107.866, -5.18382, 83.2189 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.7793, -5.18382, 83.2189 )
 
 [node name="Props" type="Spatial" parent="."]
 
