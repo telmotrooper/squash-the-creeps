@@ -3,6 +3,8 @@ class_name Enemy
 
 signal squashed
 
+var already_squashed := false
+
 export (AudioStream) var squash_sound
 export var min_speed := 10.0
 export var max_speed := 18.0
@@ -36,12 +38,14 @@ func initiliaze(start_position, player_position, rotate = true, speed = null):
   $AnimationPlayer.playback_speed = speed / min_speed
 
 func squash():
-  emit_signal("squashed") # Used to increase score.
-  velocity = Vector3.ZERO
-  $CollisionShape.disabled = true
-  $AnimationPlayer.playback_speed = 1
-  $AnimationPlayer.play("squash")
-  GameState.play_audio(squash_sound)
+  if !already_squashed:
+    already_squashed = true
+    emit_signal("squashed") # Used to increase score.
+    velocity = Vector3.ZERO
+    $CollisionShape.disabled = true
+    $AnimationPlayer.playback_speed = 1
+    $AnimationPlayer.play("squash")
+    GameState.play_audio(squash_sound)
 
 func _on_VisibilityNotifier_screen_exited():
   queue_free()
