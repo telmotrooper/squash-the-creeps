@@ -36,7 +36,7 @@ func initiliaze(start_position, player_position, rotate = true, speed = null):
   $AnimationPlayer.playback_speed = speed / min_speed
 
 func squash():
-  emit_signal("squashed")
+  emit_signal("squashed") # Used to increase score.
   velocity = Vector3.ZERO
   $CollisionShape.disabled = true
   $AnimationPlayer.playback_speed = 1
