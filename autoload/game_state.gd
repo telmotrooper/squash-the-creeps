@@ -43,10 +43,21 @@ func change_map(map_name: String):
   if error:
     print("Error: Unable to load map '%s'." % map_file)
 
-func play_audio(file):
-  $Audio/AudioStreamPlayer1.stream = load(file)
-  $Audio/AudioStreamPlayer1.play()
-
-func play_loaded_audio(stream):
-  $Audio/AudioStreamPlayer1.stream = stream
-  $Audio/AudioStreamPlayer1.play()
+func play_audio(stream):
+  if !$Audio/AudioStreamPlayer1.playing:
+    $Audio/AudioStreamPlayer1.stream = stream
+    $Audio/AudioStreamPlayer1.play()
+  elif !$Audio/AudioStreamPlayer2.playing:
+    $Audio/AudioStreamPlayer2.stream = stream
+    $Audio/AudioStreamPlayer2.play()
+  elif !$Audio/AudioStreamPlayer3.playing:
+    $Audio/AudioStreamPlayer3.stream = stream
+    $Audio/AudioStreamPlayer3.play()
+  elif !$Audio/AudioStreamPlayer4.playing:
+    $Audio/AudioStreamPlayer4.stream = stream
+    $Audio/AudioStreamPlayer4.play()
+  elif !$Audio/AudioStreamPlayer5.playing:
+    $Audio/AudioStreamPlayer5.stream = stream
+    $Audio/AudioStreamPlayer5.play()
+  else:
+    print("Error: No AudioStreamPlayer was available to play sound.")

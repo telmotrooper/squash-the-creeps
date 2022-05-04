@@ -15,3 +15,15 @@ bus = "Music"
 
 [node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="Audio"]
 bus = "Sound"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Audio"]
+bus = "Sound"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Audio"]
+bus = "Sound"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Audio"]
+bus = "Sound"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Audio"]
+bus = "Sound"

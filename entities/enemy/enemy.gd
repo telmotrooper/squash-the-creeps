@@ -41,7 +41,7 @@ func squash():
   $CollisionShape.disabled = true
   $AnimationPlayer.playback_speed = 1
   $AnimationPlayer.play("squash")
-  GameState.play_loaded_audio(squash_sound)
+  GameState.play_audio(squash_sound)
 
 func _on_VisibilityNotifier_screen_exited():
   queue_free()
