@@ -56,4 +56,8 @@ func denormalize_volume(volume: float):
 func set_volume(bus_name: String, volume: float):
   var bus_index = AudioServer.get_bus_index(bus_name)
   var volume_in_db = denormalize_volume(volume)
+  
+  if volume == 0:
+    volume_in_db = -80
+
   AudioServer.set_bus_volume_db(bus_index, volume_in_db)
