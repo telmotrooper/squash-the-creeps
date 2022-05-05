@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://menu_env.tres" type="Environment" id=1]
 [ext_resource path="res://ui/buttons/continue_button.tscn" type="PackedScene" id=2]
@@ -155,6 +155,37 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -9.8396, 1.32768, -0.348075 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "spin-y"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -9.84, 721.328, -0.348 ), Vector3( -9.8396, 1.32768, -0.348075 ) ]
+}
+
 [node name="TitleScreen" type="Node"]
 script = ExtResource( 5 )
 
@@ -270,6 +301,11 @@ anims/RESET = SubResource( 6 )
 anims/coming_in = SubResource( 7 )
 anims/flying_in_space = SubResource( 3 )
 
+[node name="AnimationPlayerAlien" type="AnimationPlayer" parent="Spatial"]
+root_node = NodePath("../Spaceship/Character")
+anims/RESET = SubResource( 9 )
+anims/spin-y = SubResource( 8 )
+
 [node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
 transform = Transform( -0.183013, 0.965926, -0.183013, 0.683013, 0.258819, 0.683013, 0.707107, 0, -0.707107, 0, 0, 0 )
 
@@ -282,4 +318,5 @@ transform = Transform( 0.666491, 0.00140924, 0.0152197, -0.00399043, 0.656847, 0
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_Button_pressed" binds= [ "new_game" ]]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_Button_pressed" binds= [ "exit" ]]
+[connection signal="gui_input" from="Menu/CenterRow/CenterContainer" to="." method="_on_CenterContainer_gui_input"]
 [connection signal="animation_finished" from="Spatial/AnimationPlayerSpaceship" to="." method="_on_AnimationPlayerSpaceship_animation_finished"]
