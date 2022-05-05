@@ -1,52 +1,35 @@
 extends Enemy
 
-enum {
-  IDLE,
-  PATROLLING,
-  ALERT
-}
+enum { PATROLLING, ALERT }
 
 var state = PATROLLING
 
-export var point1 = Vector3(-7, 0, 0)
-export var point2 = Vector3(7, 0, 0)
-export var patrolling_speed = 9
-
-var initial_position
-var global_point_1
-var global_point_2
-var going_to
+export var patrolling_speed = 4
+export (NodePath) var patrol_path
+var patrol_points
+var patrol_index = 0
 
 func _ready():
-  initial_position = Vector3(
-    self.global_transform.origin.x,
-    self.global_transform.origin.y,
-    self.global_transform.origin.z)
-  
-  global_point_1 = Vector3(
-    initial_position.x + point1.x,
-    initial_position.y + point1.y,
-    initial_position.z + point1.z)
-    
-  global_point_2 = Vector3(
-    initial_position.x + point2.x,
-    initial_position.y + point2.y,
-    initial_position.z + point2.z)
-  
-  going_to = global_point_1
+  if patrol_path:
+    patrol_points = get_node(patrol_path).curve.get_baked_points()
 
-func _process(_delta):
+func _physics_process(delta):
+  var position = self.transform.origin
+  
   match state:
-    IDLE:
-      pass
     PATROLLING:
-      if going_to != null:
-        if going_to.distance_to(self.transform.origin) < 0.2:
-          going_to = global_point_1 if going_to == global_point_2 else global_point_2
-        initiliaze(self.transform.origin, going_to, false, patrolling_speed)
+      if !patrol_path:
+        return
+      var target = patrol_points[patrol_index]
+      if position.distance_to(target) < 1:
+        patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
+        target = patrol_points[patrol_index]
+      velocity = (target - position).normalized() * patrolling_speed
+      velocity = move_and_slide(velocity)
+      look_at(transform.origin + velocity, Vector3.UP)
     ALERT:
       if is_instance_valid(GameState.Player):
-        initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
+        initiliaze(position, GameState.Player.transform.origin, false)
 
 func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
