@@ -9,7 +9,7 @@
 [ext_resource path="res://fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=7]
 [ext_resource path="res://ui/buttons/options_button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/buttons/new_game_button.tscn" type="PackedScene" id=10]
-[ext_resource path="res://art/player.glb" type="PackedScene" id=11]
+[ext_resource path="res://entities/player/player.glb" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=4]
 length = 0.001

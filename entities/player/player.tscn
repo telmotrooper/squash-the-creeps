@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://art/player.glb" type="PackedScene" id=1]
+[ext_resource path="res://entities/player/player.glb" type="PackedScene" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
 [ext_resource path="res://camera.gd" type="Script" id=3]
 
