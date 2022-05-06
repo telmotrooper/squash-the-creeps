@@ -2,7 +2,7 @@
 
 [ext_resource path="res://entities/player/player.glb" type="PackedScene" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
-[ext_resource path="res://camera.gd" type="Script" id=3]
+[ext_resource path="res://entities/player/camera.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 0.25
