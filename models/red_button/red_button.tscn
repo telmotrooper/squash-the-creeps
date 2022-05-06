@@ -1,8 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://models/red_button/red_button.glb" type="PackedScene" id=1]
+[ext_resource path="res://models/red_button/red_button.gd" type="Script" id=2]
+[ext_resource path="res://models/red_button/button_click.ogg" type="AudioStream" id=3]
 
-[node name="RedButton" type="Spatial"]
+[sub_resource type="CylinderShape" id=1]
+radius = 1.25
+height = 0.75
 
-[node name="button_teamRedgltf" parent="." instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=2]
+resource_name = "press"
+
+[node name="RedButton" type="StaticBody"]
+script = ExtResource( 2 )
+
+[node name="Model" parent="." instance=ExtResource( 1 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/press = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sound"

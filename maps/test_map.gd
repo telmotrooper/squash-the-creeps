@@ -31,3 +31,6 @@ func _on_EnemyTimer_timeout():
 func _on_Player_hit():
   $EnemyTimer.stop()
   $UserInterface/Retry.show()
+
+func _on_RedButton_pressed():
+  $Goweti/Manual/AnimationPlayer.play("move_platforms")
