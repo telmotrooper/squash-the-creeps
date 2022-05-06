@@ -34,5 +34,4 @@ func _on_Player_hit():
 
 
 func _on_RedButton_pressed():
-  $Goweti/AnimationPlayer.play("move_platform")
-  $Goweti/AnimationPlayer001.play("move_platform")
+  $Goweti/AnimationPlayer.play("move_platforms")

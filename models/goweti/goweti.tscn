@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Material"
@@ -122,9 +122,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 6.67009, -17.991 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("FloatingPlatform001:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 6.67009, -82.3179 ) ]
+}
 
 [sub_resource type="Animation" id=15]
-resource_name = "move_platform"
+resource_name = "move_platforms"
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -139,33 +151,13 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 6.67009, -17.991 ), Vector3( 0, 6.67, -40 ) ]
 }
-
-[sub_resource type="Animation" id=16]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("FloatingPlatform001:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 6.67009, -82.3179 ) ]
-}
-
-[sub_resource type="Animation" id=17]
-resource_name = "move_platform"
-length = 6.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("FloatingPlatform001:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("FloatingPlatform001:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -227,12 +219,7 @@ shape = SubResource( 13 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
 anims/RESET = SubResource( 14 )
-anims/move_platform = SubResource( 15 )
-
-[node name="AnimationPlayer001" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
-anims/RESET = SubResource( 16 )
-anims/move_platform = SubResource( 17 )
+anims/move_platforms = SubResource( 15 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 130.762, -49.6428 )
