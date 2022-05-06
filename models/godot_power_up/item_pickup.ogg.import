@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/item_pickup.ogg-2007160066b7eb3908b2911a5e86c3ac.oggstr"
+
+[deps]
+
+source_file="res://models/godot_power_up/item_pickup.ogg"
+dest_files=[ "res://.import/item_pickup.ogg-2007160066b7eb3908b2911a5e86c3ac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
