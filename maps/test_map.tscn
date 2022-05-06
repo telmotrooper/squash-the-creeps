@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -72,12 +72,6 @@ _data = {
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
 size = Vector2( 500, 500 )
-
-[sub_resource type="Curve3D" id=14]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 16.0157, 1.52588e-05, -5.01603, 0, 0, 0, 0, 0, 0, 7.9867, 0, -0.0380468, 0, 0, 0, 0, 0, 0, -7.91072, 0, 0.0154772, 0, 0, 0, 0, 0, 0, -15.9933, 1.52588e-05, -5.01603 ),
-"tilts": PoolRealArray( 0, 0, 0, 0 )
-}
 
 [node name="TestMap" type="Node"]
 script = ExtResource( 5 )
@@ -297,13 +291,8 @@ transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 16 )]
 transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
 
-[node name="BlueEnemy1" parent="." instance=ExtResource( 10 )]
+[node name="BlueEnemy" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13 )
-patrol_path = NodePath("../BlueEnemy1Path")
-
-[node name="BlueEnemy1Path" type="Path" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -13 )
-curve = SubResource( 14 )
 
 [node name="RedButton" parent="." instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 55.6152, 2.24891, -3.78947 )

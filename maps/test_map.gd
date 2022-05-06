@@ -34,6 +34,5 @@ func _on_Player_hit():
 
 
 func _on_RedButton_pressed():
-  print("red button pressed")
   $Goweti/AnimationPlayer.play("move_platform")
   $Goweti/AnimationPlayer001.play("move_platform")
