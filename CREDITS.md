@@ -6,3 +6,5 @@
 * [Grass sprites and shaders](https://github.com/HungryProton/scatter/tree/master/demos/assets) from the Scatter addon demo by [HungryProton](https://github.com/HungryProton) with assets from [textures.com](http://www.textures.com/) and [Kenney](https://kenney.nl/)
 * [Stylized water shader](https://github.com/paddy-exe/Godot-3D-Stylized-Water) by [paddy.exe](https://github.com/paddy-exe)
 * Model [Ufo](https://skfb.ly/6RROP) by [Batuhan13](https://sketchfab.com/Batuhan13), licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/)
+* Sound [button_click](https://freesound.org/people/LamaMakesMusic/sounds/403556/) by [LamaMakesMusic](https://freesound.org/people/LamaMakesMusic/)
+

@@ -120,7 +120,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67, -40 ) ]
+"values": [ Vector3( 0, 6.67, -41 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FloatingPlatform001:translation")
@@ -132,13 +132,12 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67, -57.318 ) ]
+"values": [ Vector3( 0, 6.67, -56 ) ]
 }
 
 [sub_resource type="Animation" id=15]
 resource_name = "move_platforms"
-length = 6.5
-loop = true
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FloatingPlatform:translation")
 tracks/0/interp = 1
@@ -146,10 +145,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 3.5 ),
-"transitions": PoolRealArray( 2, 2, 2 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67, -40 ), Vector3( 0, 6.67, -14 ), Vector3( 0, 6.67, -14 ) ]
+"values": [ Vector3( 0, 6.67, -41 ), Vector3( 0, 6.67, -14 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FloatingPlatform001:translation")
@@ -158,10 +157,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 3, 3.5 ),
-"transitions": PoolRealArray( 2, 2, 2 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 6.67, -57 ), Vector3( 0, 6.67, -83 ), Vector3( 0, 6.67, -83 ) ]
+"values": [ Vector3( 0, 6.67, -56 ), Vector3( 0, 6.67, -83 ) ]
 }
 
 [node name="goweti" type="Spatial"]
@@ -187,7 +186,7 @@ material/0 = null
 shape = SubResource( 6 )
 
 [node name="FloatingPlatform" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -40 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -41 )
 mesh = SubResource( 8 )
 material/0 = null
 
@@ -207,7 +206,7 @@ material/0 = null
 shape = SubResource( 11 )
 
 [node name="FloatingPlatform001" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -57.318 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -56 )
 mesh = SubResource( 12 )
 material/0 = null
 
