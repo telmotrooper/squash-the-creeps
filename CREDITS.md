@@ -7,4 +7,5 @@
 * [Stylized water shader](https://github.com/paddy-exe/Godot-3D-Stylized-Water) by [paddy.exe](https://github.com/paddy-exe)
 * Model [Ufo](https://skfb.ly/6RROP) by [Batuhan13](https://sketchfab.com/Batuhan13), licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/)
 * Sound [button_click](https://freesound.org/people/LamaMakesMusic/sounds/403556/) by [LamaMakesMusic](https://freesound.org/people/LamaMakesMusic/)
+* Sound [matrixxx_item](https://freesound.org/people/MATRIXXX_/sounds/523755/) by [MATRIXXX_](https://freesound.org/people/MATRIXXX_/)
 
