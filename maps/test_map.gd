@@ -33,4 +33,4 @@ func _on_Player_hit():
   $UserInterface/Retry.show()
 
 func _on_RedButton_pressed():
-  $Goweti/AnimationPlayer.play("move_platforms")
+  $Goweti/Manual/AnimationPlayer.play("move_platforms")
