@@ -32,6 +32,5 @@ func _on_Player_hit():
   $EnemyTimer.stop()
   $UserInterface/Retry.show()
 
-
 func _on_RedButton_pressed():
   $Goweti/AnimationPlayer.play("move_platforms")
