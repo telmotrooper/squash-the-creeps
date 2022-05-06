@@ -225,13 +225,11 @@ material/0 = null
 shape = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "move_platform"
 playback_process_mode = 0
 anims/RESET = SubResource( 14 )
 anims/move_platform = SubResource( 15 )
 
 [node name="AnimationPlayer001" type="AnimationPlayer" parent="."]
-autoplay = "move_platform"
 playback_process_mode = 0
 anims/RESET = SubResource( 16 )
 anims/move_platform = SubResource( 17 )

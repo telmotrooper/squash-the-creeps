@@ -78,6 +78,8 @@ func _physics_process(delta):
     for entity in $SpinArea.get_overlapping_bodies():
       if entity is Enemy:
         entity.squash()
+      elif entity is RedButton:
+        entity.press()
 
 func is_spinning():
   return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://entities/player/player.gd"
+}, {
+"base": "Spatial",
+"class": "RedButton",
+"language": "GDScript",
+"path": "res://models/red_button/red_button.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"Player": ""
+"Player": "",
+"RedButton": ""
 }
 
 [application]
@@ -123,6 +129,7 @@ attack={
 3d_physics/layer_3="World"
 3d_physics/layer_4="Item"
 3d_physics/layer_5="Detection Layer"
+3d_physics/layer_6="World Items"
 3d_physics/layer_20="Boundary"
 
 [rendering]

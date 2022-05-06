@@ -305,12 +305,13 @@ patrol_path = NodePath("../BlueEnemy1Path")
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -13 )
 curve = SubResource( 14 )
 
-[node name="goweti" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9063, -0.311643, -0.580986 )
-
 [node name="RedButton" parent="." instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 55.6152, 2.24891, -3.78947 )
+
+[node name="Goweti" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]
+[connection signal="pressed" from="RedButton" to="." method="_on_RedButton_pressed"]
