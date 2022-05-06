@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/milkyway_bg.jpg-c76f13da3ba33b25c46922174a6e5dfe.stex"
+path="res://.import/milkyway.jpg-6dc2e4cc84700edb879d5b0bba1e41f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://milkyway_bg.jpg"
-dest_files=[ "res://.import/milkyway_bg.jpg-c76f13da3ba33b25c46922174a6e5dfe.stex" ]
+source_file="res://skyboxes/milkyway.jpg"
+dest_files=[ "res://.import/milkyway.jpg-6dc2e4cc84700edb879d5b0bba1e41f9.stex" ]
 
 [params]
 
