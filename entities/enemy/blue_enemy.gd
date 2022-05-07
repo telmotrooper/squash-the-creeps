@@ -17,9 +17,9 @@ func _process(delta):
         get_parent().set_offset(get_parent().get_offset() + patrolling_speed * delta)
     ALERT:
       if get_parent() is PathFollow:
+        # Reset rotation, otherwise enemy won't be able to chase player.
         get_parent().rotation = Vector3.ZERO
       if is_instance_valid(GameState.Player):
-        # rotation is the problem
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
 
 func _on_VisibilityNotifier_screen_exited():
