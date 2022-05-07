@@ -76,7 +76,7 @@ size = Vector2( 500, 500 )
 
 [sub_resource type="Curve3D" id=14]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0475111, 0, -24.016, 0, 0, 0, 0, 0, 0, -24, 0, -24, 0, 0, 0, 0, 0, 0, -24, 0, -16, 0, 0, 0, 0, 0, 0, 24, 0, -16, 0, 0, 0, 0, 0, 0, 24, 0, -24, 0, 0, 0, 0, 0, 0, 0.0475111, 0, -24.016 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 0, -16, 0, -16, 0, 0, 0, 0, 0, 0, -16, 0, -8, 0, 0, 0, 0, 0, 0, 16, 0, -8, 0, 0, 0, 0, 0, 0, 16, 0, -16, 0, 0, 0, 0, 0, 0, 0, 0, -16 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
@@ -302,7 +302,8 @@ transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, 
 curve = SubResource( 14 )
 
 [node name="PathFollow" type="PathFollow" parent="BlueEnemyPath"]
-transform = Transform( 0.0010358, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.0010358, 0.0475111, 0, -24.016 )
+transform = Transform( 4.75508e-06, 0, -1, 0, 1, 0, 1, 0, 4.75508e-06, 0, 0, -16 )
+rotation_mode = 4
 
 [node name="BlueEnemy" parent="BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0 )
