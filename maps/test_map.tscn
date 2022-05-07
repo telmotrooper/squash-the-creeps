@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -73,6 +73,12 @@ _data = {
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
 size = Vector2( 500, 500 )
+
+[sub_resource type="Curve3D" id=14]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0362911, 0, -15.9185, 0, 0, 0, 0, 0, 0, -7.9254, 0, -15.9185, 0, 0, 0, 0, 0, 0, -15.9789, 0, -23.7529, 0, 0, 0, 0, 0, 0, -23.8679, 0, -23.7931, 0, 0, 0, 0, 0, 0, -24.1287, 0, -16.1426, 0, 0, 0, 0, 0, 0, -15.8785, 0, -8.18113, 0, 0, 0, 0, 0, 0, -7.94223, 0, -8.0699, 0, 0, 0, 0, 0, 0, -0.00270176, 0, -7.89938, 0, 0, 0, 0, 0, 0, -0.0245392, 0, -13.1129, 0, 0, 0, 0, 0, 0, -0.0362911, 0, -15.9185 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [node name="TestMap" type="Node"]
 script = ExtResource( 5 )
@@ -292,8 +298,14 @@ transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 16 )]
 transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
 
-[node name="BlueEnemy" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13 )
+[node name="BlueEnemyPath" type="Path" parent="."]
+curve = SubResource( 14 )
+
+[node name="PathFollow" type="PathFollow" parent="BlueEnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0362911, 0, -15.9185 )
+
+[node name="BlueEnemy" parent="BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="BlueEnemy2" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 73.4731, 0, -87.6483 )
