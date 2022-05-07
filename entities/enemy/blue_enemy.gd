@@ -9,7 +9,6 @@ enum {
 
 var state = PATROLLING
 
-
 func _process(delta):
   match state:
     PATROLLING:
