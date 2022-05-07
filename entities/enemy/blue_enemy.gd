@@ -9,6 +9,11 @@ enum {
 
 var state = PATROLLING
 
+func _ready():
+  if get_parent() is PathFollow:
+    # This will make the enemy look to the correct direction along the path.
+    get_parent().set_rotation_mode(4)
+
 func _process(delta):
   match state:
     PATROLLING:

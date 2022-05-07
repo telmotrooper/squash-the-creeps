@@ -302,7 +302,7 @@ transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, 
 curve = SubResource( 14 )
 
 [node name="PathFollow" type="PathFollow" parent="BlueEnemyPath"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0362911, 0, -15.9185 )
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -0.0362911, 0, -15.9185 )
 
 [node name="BlueEnemy" parent="BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
