@@ -76,8 +76,8 @@ size = Vector2( 500, 500 )
 
 [sub_resource type="Curve3D" id=14]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0362911, 0, -15.9185, 0, 0, 0, 0, 0, 0, -7.9254, 0, -15.9185, 0, 0, 0, 0, 0, 0, -15.9789, 0, -23.7529, 0, 0, 0, 0, 0, 0, -23.8679, 0, -23.7931, 0, 0, 0, 0, 0, 0, -24.1287, 0, -16.1426, 0, 0, 0, 0, 0, 0, -15.8785, 0, -8.18113, 0, 0, 0, 0, 0, 0, -7.94223, 0, -8.0699, 0, 0, 0, 0, 0, 0, -0.00270176, 0, -7.89938, 0, 0, 0, 0, 0, 0, -0.0245392, 0, -13.1129, 0, 0, 0, 0, 0, 0, -0.0362911, 0, -15.9185 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0475111, 0, -24.016, 0, 0, 0, 0, 0, 0, -24, 0, -24, 0, 0, 0, 0, 0, 0, -24, 0, -16, 0, 0, 0, 0, 0, 0, 24, 0, -16, 0, 0, 0, 0, 0, 0, 24, 0, -24, 0, 0, 0, 0, 0, 0, 0.0475111, 0, -24.016 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="TestMap" type="Node"]
@@ -302,10 +302,10 @@ transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, 
 curve = SubResource( 14 )
 
 [node name="PathFollow" type="PathFollow" parent="BlueEnemyPath"]
-transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -0.0362911, 0, -15.9185 )
+transform = Transform( 0.0010358, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.0010358, 0.0475111, 0, -24.016 )
 
 [node name="BlueEnemy" parent="BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+transform = Transform( -1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0 )
 
 [node name="BlueEnemy2" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 73.4731, 0, -87.6483 )
