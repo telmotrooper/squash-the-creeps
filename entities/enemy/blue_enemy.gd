@@ -1,50 +1,28 @@
 extends Enemy
 
+export var patrolling_speed = 9
+
 enum {
-  IDLE,
   PATROLLING,
   ALERT
 }
 
 var state = PATROLLING
 
-export var point1 = Vector3(-7, 0, 0)
-export var point2 = Vector3(7, 0, 0)
-export var patrolling_speed = 9
-
-var initial_position
-var global_point_1
-var global_point_2
-var going_to
-
 func _ready():
-  initial_position = Vector3(
-    self.global_transform.origin.x,
-    self.global_transform.origin.y,
-    self.global_transform.origin.z)
-  
-  global_point_1 = Vector3(
-    initial_position.x + point1.x,
-    initial_position.y + point1.y,
-    initial_position.z + point1.z)
-    
-  global_point_2 = Vector3(
-    initial_position.x + point2.x,
-    initial_position.y + point2.y,
-    initial_position.z + point2.z)
-  
-  going_to = global_point_1
+  if get_parent() is PathFollow:
+    # This will make the enemy look to the correct direction along the path.
+    get_parent().set_rotation_mode(4)
 
-func _process(_delta):
+func _process(delta):
   match state:
-    IDLE:
-      pass
     PATROLLING:
-      if going_to != null:
-        if going_to.distance_to(self.transform.origin) < 0.2:
-          going_to = global_point_1 if going_to == global_point_2 else global_point_2
-        initiliaze(self.transform.origin, going_to, false, patrolling_speed)
+      if get_parent() is PathFollow:
+        get_parent().set_offset(get_parent().get_offset() + patrolling_speed * delta)
     ALERT:
+      if get_parent() is PathFollow:
+        # Reset rotation, otherwise enemy won't be able to chase player.
+        get_parent().rotation = Vector3.ZERO
       if is_instance_valid(GameState.Player):
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
 

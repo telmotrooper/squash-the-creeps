@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -73,6 +73,36 @@ _data = {
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
 size = Vector2( 500, 500 )
+
+[sub_resource type="Curve3D" id=14]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 0, -16, 0, -16, 0, 0, 0, 0, 0, 0, -16, 0, -8, 0, 0, 0, 0, 0, 0, 16, 0, -8, 0, 0, 0, 0, 0, 0, 16, 0, -16, 0, 0, 0, 0, 0, 0, 0, 0, -16 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=15]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214, 0, 0, 0, 0, 0, 0, 6.67461, -6.10352e-05, -15.661, 0, 0, 0, 0, 0, 0, -9.46404, -3.05176e-05, -7.67662, 0, 0, 0, 0, 0, 0, -9.3791, 3.05176e-05, 8.20721, 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=16]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -2.63111, 0, 14.5864, 0, 0, 0, 0, 0, 0, -2.63111, 0, -9.41358, 0, 0, 0, 0, 0, 0, 13.3689, 0, -1.41358, 0, 0, 0, 0, 0, 0, 13.3689, 0, 14.5864, 0, 0, 0, 0, 0, 0, -2.63111, 0, 14.5864 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=17]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272, 0, 0, 0, 0, 0, 0, 10.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 18.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 1.40272, 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=18]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 23.8027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 23.9027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
 
 [node name="TestMap" type="Node"]
 script = ExtResource( 5 )
@@ -292,26 +322,64 @@ transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 16 )]
 transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
 
-[node name="BlueEnemy" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13 )
-
-[node name="BlueEnemy2" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 73.4731, 0, -87.6483 )
-
-[node name="BlueEnemy3" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45.9224, 0, -95.6009 )
-
-[node name="BlueEnemy4" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 61.8717, 0, -112.201 )
-
 [node name="RedButton" parent="." instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 55.6152, 2.24891, -3.78947 )
 
 [node name="Goweti" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
 
-[node name="PurpleEnemy" parent="." instance=ExtResource( 20 )]
-transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0.0674591, 5.49334, -102.397 )
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="BlueEnemyPath" type="Path" parent="Enemies"]
+curve = SubResource( 14 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath"]
+transform = Transform( 4.75508e-06, 0, -1, 0, 1, 0, 1, 0, 4.75508e-06, 0, 0, -16 )
+rotation_mode = 4
+
+[node name="BlueEnemy" parent="Enemies/BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath2" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.4163, 0, -88.0192 )
+curve = SubResource( 15 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath2"]
+transform = Transform( 0.60213, 3.05161e-06, 0.798398, -3.05161e-06, 1, -1.52073e-06, -0.798398, -1.52072e-06, 0.60213, 6.67461, 3.05176e-05, 8.29214 )
+
+[node name="BlueEnemy2" parent="Enemies/BlueEnemyPath2/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath3" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.6311, 0, -94.5864 )
+curve = SubResource( 16 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath3"]
+transform = Transform( 0.956603, 1.11376e-06, 0.291394, -1.11376e-06, 1, -1.65876e-07, -0.291394, -1.65866e-07, 0.956603, -2.63111, 0, 14.5864 )
+
+[node name="BlueEnemy3" parent="Enemies/BlueEnemyPath3/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath4" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9524, 0, -113.403 )
+curve = SubResource( 17 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath4"]
+transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2.04762, 0, 1.40272 )
+
+[node name="BlueEnemy4" parent="Enemies/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath5" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -119.803 )
+curve = SubResource( 18 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath5"]
+transform = Transform( -0.192319, 0, 0.981332, 0, 1, 0, -0.981332, 0, -0.192319, -21.9524, 0, 7.80272 )
+
+[node name="PurpleEnemy" parent="Enemies/BlueEnemyPath5/PathFollow" instance=ExtResource( 20 )]
+transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
+patrolling_speed = 18
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
