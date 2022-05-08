@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -95,6 +95,12 @@ _data = {
 [sub_resource type="Curve3D" id=17]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272, 0, 0, 0, 0, 0, 0, 10.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 18.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 1.40272, 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=18]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 23.8027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 23.9027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
@@ -352,7 +358,7 @@ curve = SubResource( 16 )
 transform = Transform( 0.956603, 1.11376e-06, 0.291394, -1.11376e-06, 1, -1.65876e-07, -0.291394, -1.65866e-07, 0.956603, -2.63111, 0, 14.5864 )
 
 [node name="BlueEnemy3" parent="Enemies/BlueEnemyPath3/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="BlueEnemyPath4" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9524, 0, -113.403 )
@@ -364,8 +370,16 @@ transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2
 [node name="BlueEnemy4" parent="Enemies/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
-[node name="PurpleEnemy" parent="Enemies" instance=ExtResource( 20 )]
-transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0.0674591, 5.49334, -102.397 )
+[node name="BlueEnemyPath5" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -119.803 )
+curve = SubResource( 18 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath5"]
+transform = Transform( -0.192319, 0, 0.981332, 0, 1, 0, -0.981332, 0, -0.192319, -21.9524, 0, 7.80272 )
+
+[node name="PurpleEnemy" parent="Enemies/BlueEnemyPath5/PathFollow" instance=ExtResource( 20 )]
+transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
+patrolling_speed = 18
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
