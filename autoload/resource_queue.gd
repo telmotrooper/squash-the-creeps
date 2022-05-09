@@ -144,7 +144,6 @@ func thread_func(_u):
 
     if should_exit:
       break
-      
     thread_process()
 
 

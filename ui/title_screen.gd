@@ -15,10 +15,10 @@ func _on_Button_pressed(button_name):
 func _on_AnimationPlayerMenu_animation_finished(anim_name):
   if anim_name == MENU_FADE_OUT:
     if button_pressed == "new_game":
+      GameState.MapName = "test_map"
       $"/root/Main".load_world(new_game_scene.get_path())
       #GameState.change_map("test_map")
     elif button_pressed == "exit":
-      print("Trying to quit game")
       get_tree().quit()
 
 func _on_AnimationPlayerSpaceship_animation_finished(anim_name):
