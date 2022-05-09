@@ -1,5 +1,6 @@
 extends Spatial
 
+export (PackedScene) var initial_scene
 onready var resource_queue = get_node("/root/ResourceQueue")
 
 enum LoadingStates {
@@ -16,6 +17,7 @@ var current_world = null
 var loading_world = null
 
 func load_world(scene_to_load):
+  print("Loading world: %s" % scene_to_load)
   # Remember which scene we're loading.
   loading_world = scene_to_load
   
@@ -30,7 +32,7 @@ func _ready():
   resource_queue.start()
   
   # Load our first scene.
-  load_world("res://ui/title_screen.tscn")
+  load_world(initial_scene.get_path())
 
 func _on_FadeToBlack_finished_fading():
   match loading_state:
@@ -72,7 +74,7 @@ func _on_FadeToBlack_finished_fading():
       # Nothing to do in all other states.
       pass
 
-func _process(delta):
+func _process(_delta):
   if loading_state == LoadingStates.LOADING:
     # We could do something with a progress bar here.
     

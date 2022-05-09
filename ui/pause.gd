@@ -66,9 +66,9 @@ func _on_ResumeButton_pressed():
   pause()
 
 func _on_MainMenuButton_pressed():
-  var error = get_tree().change_scene_to(title_screen)
-  if (error):
-    print("Error: Unable to load Title Screen.")
+  #var error = get_tree().change_scene_to(title_screen)
+  #if (error):
+  #  print("Error: Unable to load Title Screen.")
   
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
