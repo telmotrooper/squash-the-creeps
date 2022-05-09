@@ -66,6 +66,7 @@ func _on_ResumeButton_pressed():
   pause()
 
 func _on_MainMenuButton_pressed():
+  $"/root/Main".load_world("res://ui/title_screen.tscn")
   #var error = get_tree().change_scene_to(title_screen)
   #if (error):
   #  print("Error: Unable to load Title Screen.")
