@@ -8,7 +8,7 @@
 [ext_resource path="res://models/ball/ball.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=11]
 
-[node name="World1" type="Spatial"]
+[node name="HeightMap" type="Spatial"]
 
 [node name="Player" parent="." groups=["players"] instance=ExtResource( 7 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 83.968, -3.9119, 66.1121 )
