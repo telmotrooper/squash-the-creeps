@@ -17,7 +17,7 @@ var current_world = null
 var loading_world = null
 
 func load_world(scene_to_load):
-  print("Loading world: %s" % scene_to_load)
+  #print("Loading world: %s" % scene_to_load)
   # Remember which scene we're loading.
   loading_world = scene_to_load
   

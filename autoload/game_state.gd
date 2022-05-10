@@ -14,8 +14,9 @@ func update_grass(index: int = -1):
   var multiplier = grass_index_to_multiplier(index)
   
   if is_instance_valid(GameState.Grass):
-    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
-    GameState.Grass._do_update()
+    if not GameState.Grass.modifier_stack.stack.empty():
+      GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
+      GameState.Grass._do_update()
   
   Configuration.update_setting("graphics", "grass_amount", index)
 
@@ -35,7 +36,7 @@ func grass_index_to_multiplier(index: int):
   return multiplier
 
 func change_map(map_name: String):
-  print("[DEPRECATED] Changing to map %s" % map_name)
+  #print("[DEPRECATED] Changing to map %s" % map_name)
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
   #Utils.exists(map_file)
