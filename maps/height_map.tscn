@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://models/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=6]
@@ -7,6 +7,12 @@
 [ext_resource path="res://entities/enemy/blue_enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/ball/ball.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 14.082, 0, -0.909996, 0, 0, 0, 0, 0, 0, -10.7957, -7.62939e-06, 27.546, 0, 0, 0, 0, 0, 0, -22.403, -7.62939e-06, 53.9595, 0, 0, 0, 0, 0, 0, -6.018, 0, 58.69, 0, 0, 0, 0, 0, 0, 9.18201, 0, 33.39, 0, 0, 0, 0, 0, 0, 26.182, 0, 16.19, 0, 0, 0, 0, 0, 0, 35.882, 0, 6.49, 0, 0, 0, 0, 0, 0, 14.082, 0, -0.909996 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [node name="HeightMap" type="Spatial"]
 
@@ -21,8 +27,15 @@ environment = ExtResource( 6 )
 
 [node name="EnemySpawns" type="Spatial" parent="."]
 
-[node name="BlueEnemy" parent="EnemySpawns" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.7793, -5.18382, 83.2189 )
+[node name="BlueEnemyPath" type="Path" parent="EnemySpawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96.018, 0, 77.11 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="EnemySpawns/BlueEnemyPath"]
+transform = Transform( -0.956396, -2.107e-07, 0.292077, -3.42659e-07, 1, -4.00638e-07, -0.292077, -4.83251e-07, -0.956396, 14.082, 0, -0.909996 )
+
+[node name="BlueEnemy" parent="EnemySpawns/BlueEnemyPath/PathFollow" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="Props" type="Spatial" parent="."]
 
