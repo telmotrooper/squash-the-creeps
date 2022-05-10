@@ -42,7 +42,6 @@ func _on_FadeToBlack_finished_fading():
       
       # Remove our current world.
       if current_world:
-        print(current_world)
         $WorldScene.remove_child(current_world)
         if is_instance_valid(current_world):
           current_world.queue_free()
