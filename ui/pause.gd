@@ -102,6 +102,7 @@ func _on_ControlsBackButton_pressed():
 
 
 func _on_ReloadMapButton_pressed():
-  var error = get_tree().reload_current_scene()
-  if error:
-    print("Error: Unable to reload current scene.")
+  GameState.reload_current_scene()
+  #var error = get_tree().reload_current_scene()
+  #if error:
+  #  print("Error: Unable to reload current scene.")

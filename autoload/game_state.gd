@@ -64,3 +64,13 @@ func play_audio(stream):
     $Audio/AudioStreamPlayer5.play()
   else:
     print("Error: No AudioStreamPlayer was available to play sound.")
+
+func reload_current_scene():
+  var world_scene = $"/root/Main/WorldScene"
+  var my_current_scene = world_scene.get_child(0)
+  var file_path = my_current_scene.filename
+  world_scene.remove_child(my_current_scene)
+  my_current_scene.queue_free()
+  
+  var new_scene = load(file_path)
+  world_scene.add_child(new_scene.instance())
