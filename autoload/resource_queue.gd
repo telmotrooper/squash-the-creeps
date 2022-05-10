@@ -4,6 +4,7 @@ var thread
 var mutex
 var semaphore
 var exit_thread = false
+var start_called = false
 
 var time_max = 100 # Milliseconds.
 
@@ -149,6 +150,7 @@ func thread_func(_u):
 
 func start():
   exit_thread = false
+  start_called = true
   mutex = Mutex.new()
   semaphore = Semaphore.new()
   thread = Thread.new()
@@ -156,13 +158,14 @@ func start():
 
 # Triggered by calling "get_tree().quit()".
 func _exit_tree():
-  # Set exit condition to true.
-  mutex.lock()
-  exit_thread = true # Protect with Mutex.
-  mutex.unlock()
-
-  # Unblock by posting.
-  semaphore.post()
-
-  # Wait until it exits.
-  thread.wait_to_finish()
+  if start_called: # If a scene was started from the editor, "start" won't have been called.
+    # Set exit condition to true.
+    mutex.lock()
+    exit_thread = true # Protect with Mutex.
+    mutex.unlock()
+    
+    # Unblock by posting.
+    semaphore.post()
+    
+    # Wait until it exits.
+    thread.wait_to_finish()
