@@ -1,7 +1,6 @@
 extends Spatial
 
 export (PackedScene) var initial_scene
-onready var resource_queue = get_node("/root/ResourceQueue")
 
 enum LoadingStates {
   FADE_TO_BLACK_1,
@@ -17,7 +16,7 @@ var current_world = null
 var loading_world = null
 
 func _ready():
-  resource_queue.start()
+  ResourceQueue.start()
   
   # Load our first scene.
   load_world(initial_scene.get_path())
@@ -29,7 +28,7 @@ func load_world(scene_to_load):
   loading_world = scene_to_load
   
   # Start loading.
-  resource_queue.queue_resource(loading_world)
+  ResourceQueue.queue_resource(loading_world)
   
   # Fade to black, if we've already faded to black (startup) we get our signal immediately.
   loading_state = LoadingStates.FADE_TO_BLACK_1
@@ -81,7 +80,7 @@ func _process(_delta):
     # We could do something with a progress bar here.
     
     # Check if our resource is available.
-    var new_world = resource_queue.get_resource(loading_world)
+    var new_world = ResourceQueue.get_resource(loading_world)
     if new_world:
       # If we're finished, create a new instance.
       current_world = new_world.instance()
