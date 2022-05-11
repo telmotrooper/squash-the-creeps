@@ -16,6 +16,13 @@ var loading_state = LoadingStates.PLAYING
 var current_world = null
 var loading_world = null
 
+func _ready():
+  resource_queue.start()
+  
+  # Load our first scene.
+  load_world(initial_scene.get_path())
+
+
 func load_world(scene_to_load):
   #print("Loading world: %s" % scene_to_load)
   # Remember which scene we're loading.
@@ -27,12 +34,6 @@ func load_world(scene_to_load):
   # Fade to black, if we've already faded to black (startup) we get our signal immediately.
   loading_state = LoadingStates.FADE_TO_BLACK_1
   $FadeToBlack.is_faded = true
-
-func _ready():
-  resource_queue.start()
-  
-  # Load our first scene.
-  load_world(initial_scene.get_path())
 
 func _on_FadeToBlack_finished_fading():
   match loading_state:
