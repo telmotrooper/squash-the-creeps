@@ -47,19 +47,17 @@ func _on_FadeToBlack_finished_fading():
           current_world.queue_free()
         current_world = null
       
-      # Unhide our loading scene.
-      $LoadingScene.visible = true
-      
       # Fade to transparent.
       loading_state = LoadingStates.FADE_TO_LOADING
-      $FadeToBlack.is_faded = false
+      # This is where it goes to gray if we set "is_faded" to "false".
+      # Setting this variable starts processing in node FadeToBlack.
+      $FadeToBlack.is_faded = true
+      #$FadeToBlack.is_faded = false
     LoadingStates.FADE_TO_LOADING:
       # Simply change the state to loading.
       loading_state = LoadingStates.LOADING
       set_process(true)
     LoadingStates.FADE_TO_BLACK_2:
-      # Hide our loading scene.
-      $LoadingScene.visible = false
       
       # Add our new scene.
       $WorldScene.add_child(current_world)

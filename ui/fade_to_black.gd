@@ -8,6 +8,10 @@ var alpha = 1.0
 
 func set_is_faded(new_value: bool):
   is_faded = new_value
+  #if is_faded:
+  #  print("fading in")
+  #else:
+  #  print("fading out")
   set_process(true)
 
 func get_is_faded():
