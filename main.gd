@@ -33,6 +33,13 @@ func load_world(scene_to_load):
   # Fade to black, if we've already faded to black (startup) we get our signal immediately.
   loading_state = LoadingStates.FADE_TO_BLACK_1
   $FadeToBlack.is_faded = true
+  
+  if not ResourceLoader.has_cached(loading_world):
+    $ProgressBar.value = 0
+    $ProgressBar.visible = true
+    
+    while not ResourceQueue.is_ready(loading_world):
+      $ProgressBar.value = ResourceQueue.get_progress(loading_world) * 100
 
 func _on_FadeToBlack_finished_fading():
   match loading_state:
@@ -62,6 +69,9 @@ func _on_FadeToBlack_finished_fading():
       # Add our new scene.
       $WorldScene.add_child(current_world)
       $WorldScene.visible = true
+      
+      $ProgressBar.value = 100
+      $ProgressBar.visible = false
       
       # Fade to transparent.
       loading_state = LoadingStates.FADE_TO_WORLD
