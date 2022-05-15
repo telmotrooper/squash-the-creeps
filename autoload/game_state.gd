@@ -36,16 +36,10 @@ func grass_index_to_multiplier(index: int):
   return multiplier
 
 func change_map(map_name: String):
-  #print("[DEPRECATED] Changing to map %s" % map_name)
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
-  #Utils.exists(map_file)
-  
+  #Utils.exists(map_file) 
   $"/root/Main".load_world(map_file)
-  
-  #var error = get_tree().change_scene(map_file)
-  #if error:
-  #  print("Error: Unable to load map '%s'." % map_file)
 
 func play_audio(stream):
   if !$Audio/AudioStreamPlayer1.playing:
