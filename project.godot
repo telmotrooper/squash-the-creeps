@@ -36,7 +36,7 @@ config/name="Squash the Creeps"
 config/description="Squash the Creeps is a freeware game developed in the Godot Engine where you control a squid-like creature and squash incoming enemies.
 
 It is based in the isometric 3D game of the same name implemented in the tutorial Create Your First Complete 3D Game with Godot by GDQuest."
-run/main_scene="res://ui/title_screen.tscn"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -45,6 +45,7 @@ Configuration="*res://autoload/configuration.gd"
 GameState="*res://autoload/game_state.tscn"
 Hotkeys="*res://autoload/hotkeys.gd"
 Utils="*res://autoload/utils.gd"
+ResourceQueue="*res://autoload/resource_queue.gd"
 
 [display]
 

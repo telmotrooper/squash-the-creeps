@@ -12,5 +12,5 @@ func _process(_delta):
   elif Input.is_action_just_released("ui_fast_forward"):
     Engine.time_scale = 1
   
-  if get_node_or_null("/root/TitleScreen") and Input.is_action_just_pressed("ui_cancel"):
+  if get_node_or_null("/root/Main/WorldScene/TitleScreen") and Input.is_action_just_pressed("ui_cancel"):
     get_tree().quit()

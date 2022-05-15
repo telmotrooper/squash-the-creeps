@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
-[ext_resource path="res://ui/title_screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
 
 [node name="UserInterface" type="Control"]
@@ -46,7 +45,6 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-title_screen = ExtResource( 3 )
 
 [node name="BlackOverlay" type="ColorRect" parent="Pause"]
 anchor_right = 1.0

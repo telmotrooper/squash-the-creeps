@@ -66,9 +66,10 @@ func _on_ResumeButton_pressed():
   pause()
 
 func _on_MainMenuButton_pressed():
-  var error = get_tree().change_scene_to(title_screen)
-  if (error):
-    print("Error: Unable to load Title Screen.")
+  $"/root/Main".load_world("res://ui/title_screen.tscn")
+  #var error = get_tree().change_scene_to(title_screen)
+  #if (error):
+  #  print("Error: Unable to load Title Screen.")
   
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -101,6 +102,5 @@ func _on_ControlsBackButton_pressed():
 
 
 func _on_ReloadMapButton_pressed():
-  var error = get_tree().reload_current_scene()
-  if error:
-    print("Error: Unable to reload current scene.")
+  GameState.reload_current_scene()
+  pause()

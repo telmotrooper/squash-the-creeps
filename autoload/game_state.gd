@@ -14,8 +14,9 @@ func update_grass(index: int = -1):
   var multiplier = grass_index_to_multiplier(index)
   
   if is_instance_valid(GameState.Grass):
-    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
-    GameState.Grass._do_update()
+    if not GameState.Grass.modifier_stack.stack.empty():
+      GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
+      GameState.Grass._do_update()
   
   Configuration.update_setting("graphics", "grass_amount", index)
 
@@ -35,13 +36,16 @@ func grass_index_to_multiplier(index: int):
   return multiplier
 
 func change_map(map_name: String):
+  #print("[DEPRECATED] Changing to map %s" % map_name)
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
-  Utils.exists(map_file)
+  #Utils.exists(map_file)
   
-  var error = get_tree().change_scene(map_file)
-  if error:
-    print("Error: Unable to load map '%s'." % map_file)
+  $"/root/Main".load_world(map_file)
+  
+  #var error = get_tree().change_scene(map_file)
+  #if error:
+  #  print("Error: Unable to load map '%s'." % map_file)
 
 func play_audio(stream):
   if !$Audio/AudioStreamPlayer1.playing:
@@ -61,3 +65,8 @@ func play_audio(stream):
     $Audio/AudioStreamPlayer5.play()
   else:
     print("Error: No AudioStreamPlayer was available to play sound.")
+
+func reload_current_scene():
+  var Main = $"/root/Main"
+  var WorldScene = $"/root/Main/WorldScene"
+  Main.load_world(WorldScene.get_child(0).filename)

@@ -330,7 +330,7 @@ func _set_undo_redo(val) -> void:
 
 
 func _set_modifier_stack(val) -> void:
-	if not val:
+	if not is_instance_valid(val):
 		return
 
 	if modifier_stack:
