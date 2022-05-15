@@ -14,18 +14,19 @@ func _init() -> void:
 	category = "Edit"
 
 
-func _process_transforms(transforms, global_seed) -> void:
-	var texture = load(mask)
-	if not texture:
+func _process_transforms(transforms, _global_seed) -> void:
+	if not ResourceLoader.exists(mask):
 		warning += "The specified file " + mask + " could not be loaded"
 		return
+
+	var texture = load(mask)
 
 	if not texture is Texture:
 		warning += "The specified file is not a valid texture"
 		return
 
 	var image: Image = texture.get_data()
-	image.decompress()
+	var _err = image.decompress()
 	image.lock()
 
 	var width = image.get_width()

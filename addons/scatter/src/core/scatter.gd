@@ -9,9 +9,11 @@ export var use_instancing := true setget _set_instancing
 export var disable_updates_in_game := true
 export var force_update_when_loaded := true
 export var make_children_unselectable := true
+export var preview_count := -1
 
 var modifier_stack setget _set_modifier_stack
 var undo_redo setget _set_undo_redo
+var is_moving := false
 
 var _transforms
 var _items := []
@@ -22,6 +24,12 @@ func _ready() -> void:
 	var _err = self.connect("curve_updated", self, "update")
 	_ensure_stack_exists()
 	_discover_items()
+
+	if _items.empty():
+		var item = Scatter.ScatterItem.new()
+		add_child(item)
+		item.set_owner(get_tree().get_edited_scene_root())
+		item.set_name("ScatterItem")
 
 	if force_update_when_loaded:
 		yield(get_tree(), "idle_frame")
@@ -63,7 +71,7 @@ func _get(property):
 	return null
 
 
-func _set(property, value):
+func _set(property, _value):
 	if not Engine.editor_hint:
 		return false
 
@@ -96,8 +104,15 @@ func _do_update() -> void:
 
 	_discover_items()
 	if not _items.empty():
-		_transforms = Scatter.Transforms.new()
-		_transforms.set_path(self)
+		if not _transforms:
+			_transforms = Scatter.Transforms.new()
+			_transforms.set_path(self)
+
+		_transforms.clear()
+		if is_moving:
+			_transforms.max_count = preview_count
+		else:
+			_transforms.max_count = -1
 
 		if use_instancing:
 			modifier_stack.update(_transforms, global_seed)
@@ -204,8 +219,7 @@ func _create_instance(item, root):
 
 func _delete_duplicates():
 	for item in _items:
-		if item.has_node("Duplicates"):
-			item.get_node("Duplicates").queue_free()
+		item.delete_duplicates()
 
 
 func _create_multimesh() -> void:
@@ -330,7 +344,7 @@ func _set_undo_redo(val) -> void:
 
 
 func _set_modifier_stack(val) -> void:
-	if not is_instance_valid(val):
+	if not val or not is_instance_valid(val):
 		return
 
 	if modifier_stack:
