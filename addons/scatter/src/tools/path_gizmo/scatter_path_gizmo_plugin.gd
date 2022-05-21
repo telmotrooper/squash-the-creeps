@@ -14,7 +14,6 @@ var _namespace = load(_get_root_folder() + "/src/core/namespace.gd").new()
 var _axis_mesh: ArrayMesh
 var _selected
 var _old_position: Vector3
-var _cached_gizmo
 var _camera: Camera
 var _previous_state := PointState.new()
 var _is_forcing_projection := false
@@ -79,6 +78,7 @@ func set_handle(gizmo: EditorSpatialGizmo, index: int, camera: Camera, point: Ve
 	if not path:
 		return
 
+	path.is_moving = true
 	var local_pos
 
 	if options and options.snap_to_colliders():
@@ -134,6 +134,9 @@ func commit_handle(gizmo: EditorSpatialGizmo, index: int, restore, _cancel: bool
 	_undo.add_do_method(self, "_set_point", path, _get_point_data(path.curve, index))
 	_undo.commit_action()
 
+	path.is_moving = false
+	path.update()
+
 
 func redraw(gizmo: EditorSpatialGizmo):
 	if not gizmo:
@@ -148,11 +151,15 @@ func redraw(gizmo: EditorSpatialGizmo):
 		_draw_path(gizmo)
 		return
 
-	_cached_gizmo = gizmo
 	_draw_handles(gizmo)
 	_draw_path(gizmo)
 	if options and options.lock_to_plane():
 		_draw_grid(gizmo)
+
+
+func force_redraw():
+	if _selected and is_instance_valid(_selected):
+		_selected.update_gizmo()
 
 
 func create_custom_handle_material(name, icon: Texture, color := Color.white):
@@ -204,7 +211,9 @@ func set_selected(path) -> void:
 		path.connect("curve_changed", self, "_on_curve_changed")
 
 	_previous_state.point_count = _selected.curve.get_point_count()
-	_previous_state.position = _selected.curve.get_point_position(_previous_state.point_count - 1)
+	_previous_state.position = Vector3.ZERO
+	if _previous_state.point_count > 0:
+		_previous_state.position = _selected.curve.get_point_position(_previous_state.point_count - 1)
 
 
 func set_editor_camera(camera: Camera) -> void:
@@ -373,7 +382,7 @@ func _set_options(val) -> void:
 
 
 func _on_option_changed() -> void:
-	redraw(_cached_gizmo)
+	force_redraw()
 
 
 # Force the newly added points on the plane if the option is enabled
@@ -382,18 +391,25 @@ func _on_curve_changed() -> void:
 	if _is_forcing_projection:
 		return
 
+	var idx: int = -1
+
 	var current_count: int = _selected.curve.get_point_count()
-	var idx := current_count - 1
-	var current_position: Vector3 = _selected.curve.get_point_position(idx)
+	var current_position: Vector3 = Vector3.ZERO
+	if current_count > 0:
+		idx = current_count - 1
+		current_position = _selected.curve.get_point_position(idx)
 	var current_version = _undo.get_version()
 
 	var previous_count: int = _previous_state.point_count
 	var previous_pos: Vector3 = _previous_state.position
-	var previous_version: int = _previous_state.version
 
 	_previous_state.point_count = current_count
 	_previous_state.position = current_position
 	_previous_state.version = current_version
+
+	# There are no points in the curve, so nothing to do further.
+	if idx < 0:
+		return
 
 	# Ensure we're constrained by the plane
 	if not options:
@@ -433,4 +449,4 @@ func _on_curve_changed() -> void:
 func _on_color_changed() -> void:
 	create_custom_material("grid", options.get_grid_color())
 	create_custom_material("path", options.get_path_color())
-	redraw(_cached_gizmo)
+	force_redraw()

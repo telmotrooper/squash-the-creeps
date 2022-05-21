@@ -22,13 +22,13 @@ func _process_transforms(transforms, global_seed) -> void:
 	var half_size = size * 0.5
 	var height: float = transforms.path.bounds_max.y
 
-	var width: int = ceil(size.x / x_spacing)
-	var length: int = ceil(size.z / z_spacing)
+	var width := int(ceil(size.x / x_spacing))
+	var length := int(ceil(size.z / z_spacing))
 	var max_count: int = width * length
 	transforms.resize(max_count)
 
 	var t_index := 0
-	for i in max_count:
+	for i in transforms.list.size():
 		var pos = Vector3.ZERO
 		pos.x = (i % width) * x_spacing
 		pos.z = (i / width) * z_spacing
