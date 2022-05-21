@@ -5,6 +5,11 @@ var Grass: Node
 var MapName: String
 var UserInterface: Control
 
+# This variable is used to work around a bug in Scatter on which,
+# after "test_map" is reloaded, the modifiers are not re-inserted
+# and we end up without any grass.
+var ScatterModifierStackBackup: Array = []
+
 const initial_grass = 3000
 
 func update_grass(index: int = -1):
@@ -14,9 +19,19 @@ func update_grass(index: int = -1):
   var multiplier = grass_index_to_multiplier(index)
   
   if is_instance_valid(GameState.Grass):
-    if not GameState.Grass.modifier_stack.stack.empty():
-      GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
-      GameState.Grass._do_update()
+    # Backup modifier stack.
+    if not GameState.Grass.modifier_stack.stack.empty() and ScatterModifierStackBackup.empty():
+      for item in GameState.Grass.modifier_stack.stack:
+        ScatterModifierStackBackup.append(item.duplicate())
+
+    # Restore modifier stack.
+    if GameState.Grass.modifier_stack.stack.empty() and not ScatterModifierStackBackup.empty():
+      for item in ScatterModifierStackBackup:
+        GameState.Grass.modifier_stack.stack.append(item)
+    
+    # Update grass.
+    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
+    GameState.Grass._do_update()
   
   Configuration.update_setting("graphics", "grass_amount", index)
 
