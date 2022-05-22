@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://models/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
 [ext_resource path="res://maps/mountain_map.gd" type="Script" id=3]
 [ext_resource path="res://art/water-pour.ogg" type="AudioStream" id=4]
+[ext_resource path="res://maps/boundary.tscn" type="PackedScene" id=5]
 [ext_resource path="res://default_env.tres" type="Environment" id=6]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=8]
@@ -121,6 +122,9 @@ bus = "Sound"
 [node name="RetryCamera" type="Camera" parent="."]
 transform = Transform( -0.707107, 0.0568076, -0.704821, 0, 0.996768, 0.0803381, 0.707107, 0.0568076, -0.704821, 8.32897, 44.3172, 8.32897 )
 far = 200.0
+
+[node name="Boundary" parent="." instance=ExtResource( 5 )]
+transform = Transform( 15, 0, 0, 0, -0.2, -2.26494e-06, 0, 3.01992e-08, -15, 65, -60, 91 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]

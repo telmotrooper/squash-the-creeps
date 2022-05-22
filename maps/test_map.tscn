@@ -1,11 +1,11 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=3]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=4]
 [ext_resource path="res://maps/test_map.gd" type="Script" id=5]
-[ext_resource path="res://maps/boundary.gd" type="Script" id=6]
+[ext_resource path="res://maps/boundary.tscn" type="PackedScene" id=6]
 [ext_resource path="res://default_env.tres" type="Environment" id=7]
 [ext_resource path="res://materials/cyan.tres" type="Material" id=8]
 [ext_resource path="res://materials/green.tres" type="Material" id=9]
@@ -68,8 +68,6 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=11]
-
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
 size = Vector2( 500, 500 )
@@ -106,7 +104,7 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[node name="TestMap" type="Node"]
+[node name="TestMap" type="Spatial"]
 script = ExtResource( 5 )
 enemy_scene = ExtResource( 17 )
 spawn_enemies = false
@@ -295,20 +293,7 @@ autostart = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 7 )
 
-[node name="Boundary" type="Area" parent="."]
-transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -25, 0 )
-collision_layer = 524288
-collision_mask = 0
-script = ExtResource( 6 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Boundary"]
-transform = Transform( 30.1979, 0, 0, 0, 1, 0, 0, 0, 30.1979, 0, 0, 0 )
-shape = SubResource( 11 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Boundary"]
-visible = false
-mesh = SubResource( 4 )
-material/0 = null
+[node name="Boundary" parent="." instance=ExtResource( 6 )]
 
 [node name="GodotPowerUp" parent="." instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.775, 3.5, -118.736 )
@@ -390,5 +375,4 @@ far = 200.0
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
-[connection signal="body_entered" from="Boundary" to="Boundary" method="_on_Boundary_body_entered"]
 [connection signal="pressed" from="RedButton" to="." method="_on_RedButton_pressed"]
