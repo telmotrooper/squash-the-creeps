@@ -118,5 +118,9 @@ anims/drain_water = SubResource( 3 )
 stream = ExtResource( 4 )
 bus = "Sound"
 
+[node name="RetryCamera" type="Camera" parent="."]
+transform = Transform( -0.707107, 0.0568076, -0.704821, 0, 0.996768, 0.0803381, 0.707107, 0.0568076, -0.704821, 8.32897, 44.3172, 8.32897 )
+far = 200.0
+
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]

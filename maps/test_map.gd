@@ -4,6 +4,7 @@ export (PackedScene) var enemy_scene
 export var spawn_enemies := true
 
 func _ready():
+  GameState.RetryCamera = $RetryCamera
   GameState.Grass = $Map/Grass
   GameState.update_grass()
   
@@ -25,6 +26,7 @@ func _on_EnemyTimer_timeout():
 func _on_Player_hit():
   $EnemyTimer.stop()
   $UserInterface/Retry.show()
+  $RetryCamera.current = true
 
 func _on_RedButton_pressed():
   $Goweti/Manual/AnimationPlayer.play("move_platforms")
