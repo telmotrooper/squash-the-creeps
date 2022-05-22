@@ -25,8 +25,7 @@ func _on_EnemyTimer_timeout():
 
 func _on_Player_hit():
   $EnemyTimer.stop()
-  $UserInterface/Retry.show()
-  $RetryCamera.current = true
+  GameState.UserInterface.retry()
 
 func _on_RedButton_pressed():
   $Goweti/Manual/AnimationPlayer.play("move_platforms")

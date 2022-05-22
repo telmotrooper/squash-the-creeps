@@ -22,3 +22,7 @@ func _on_Enemy_squashed():
 func _unhandled_input(event):
   if $Retry.visible and event.is_action_pressed("ui_accept"):
     GameState.reload_current_scene()
+
+func retry():
+  $Retry.show()
+  GameState.RetryCamera.current = true
