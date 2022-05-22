@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://models/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://entities/enemy/blue_enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/ball/ball.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://maps/portal_placeholder.tscn" type="PackedScene" id=12]
+[ext_resource path="res://models/height_map/Material.material" type="Material" id=13]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -70,6 +72,10 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="CylinderShape" id=5]
+radius = 5.0
+height = 5.0
+
 [node name="MontainMap" type="Spatial"]
 script = ExtResource( 3 )
 drain_water_sound = ExtResource( 4 )
@@ -125,6 +131,23 @@ far = 200.0
 
 [node name="Boundary" parent="." instance=ExtResource( 5 )]
 transform = Transform( 15, 0, 0, 0, -0.2, -2.26494e-06, 0, 3.01992e-08, -15, 65, -60, 91 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6, -1.9, 24 )
+radius = 5.0
+height = 5.0
+material = ExtResource( 13 )
+
+[node name="PortalPlaceholder" parent="CSGCylinder" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52588e-05, 2.5, -0.00272942 )
+map_name = "test_map"
+
+[node name="StaticBody" type="StaticBody" parent="CSGCylinder"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGCylinder/StaticBody"]
+shape = SubResource( 5 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]

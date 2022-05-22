@@ -318,6 +318,7 @@ direction = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
 
 [node name="PortalPlaceholder" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.244789, -135.074 )
 map_name = "mountain_map"
 
 [node name="Enemies" type="Spatial" parent="."]
