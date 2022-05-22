@@ -62,14 +62,22 @@ func _physics_process(delta):
   # Assign move_and_slide to velocity prevents the velocity from accumulating.
   velocity = move_and_slide(velocity, Vector3.UP)
   
+  # Handling events related to colliding with nodes below player.
   for index in get_slide_count():
     var collision = get_slide_collision(index)
+    
     if collision.collider.is_in_group("enemies"):
       var enemy = collision.collider
       
       if Vector3.UP.dot(collision.normal) > 0.1:
         enemy.squash()
         velocity.y = bounce_impulse
+    
+    elif (collision.collider is RedButton and
+          collision.collider.direction == RedButton.Direction.FLOOR and
+          not collision.collider.is_pressed):
+      var red_button = collision.collider
+      red_button.press()
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
