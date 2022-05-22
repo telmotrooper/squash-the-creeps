@@ -55,7 +55,10 @@ func change_map(map_name: String):
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
   #Utils.exists(map_file) 
-  $"/root/Main".load_world(map_file)
+  if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
+    $"/root/Main".load_world(map_file)
+  else: # Game started through "Play Scene" in editor.
+    get_tree().change_scene(map_file)
 
 func play_audio(stream):
   if !$Audio/AudioStreamPlayer1.playing:
@@ -79,4 +82,7 @@ func play_audio(stream):
 func reload_current_scene():
   var Main = $"/root/Main"
   var WorldScene = $"/root/Main/WorldScene"
-  Main.load_world(WorldScene.get_child(0).filename)
+  if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
+    Main.load_world(WorldScene.get_child(0).filename)
+  else: # Game started through "Play Scene" in editor.
+    get_tree().reload_current_scene()
