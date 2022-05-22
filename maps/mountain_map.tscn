@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://models/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
+[ext_resource path="res://maps/mountain_map.gd" type="Script" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=6]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=8]
@@ -19,7 +20,39 @@ _data = {
 material = ExtResource( 2 )
 size = Vector2( 165, 165 )
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("WaterPlane:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 54.2274, -2.38324, 91.0514 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "drain_water"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("WaterPlane:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 54.2274, -2.38324, 91.0514 ), Vector3( 54.227, -8, 91.051 ) ]
+}
+
 [node name="MontainMap" type="Spatial"]
+script = ExtResource( 3 )
 
 [node name="Player" parent="." groups=["players"] instance=ExtResource( 7 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 57.6636, 2.1881, 39.8077 )
@@ -57,3 +90,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.935, 9.89507, 94.6744 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2274, -2.38324, 91.0514 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/drain_water = SubResource( 3 )
+
+[connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
