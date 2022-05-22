@@ -68,10 +68,11 @@ func _on_ResumeButton_pressed():
   pause()
 
 func _on_MainMenuButton_pressed():
-  $"/root/Main".load_world("res://ui/title_screen.tscn")
-  #var error = get_tree().change_scene_to(title_screen)
-  #if (error):
-  #  print("Error: Unable to load Title Screen.")
+  var title_screen = "res://ui/title_screen.tscn"
+  if is_instance_valid($"/root/Main"):
+    $"/root/Main".load_world(title_screen)
+  else:
+    get_tree().change_scene(title_screen)
   
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
