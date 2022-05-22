@@ -4,6 +4,7 @@ var Player: KinematicBody
 var Grass: Node
 var MapName: String
 var UserInterface: Control
+var RetryCamera: Camera # Camera to be used when player dies.
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
