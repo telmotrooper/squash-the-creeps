@@ -118,4 +118,5 @@ anims/drain_water = SubResource( 3 )
 stream = ExtResource( 4 )
 bus = "Sound"
 
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
