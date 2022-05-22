@@ -11,10 +11,6 @@ func _ready():
     $EnemyTimer.stop()
   randomize()
 
-func _unhandled_input(event):
-  if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
-    GameState.reload_current_scene()
-
 func _on_EnemyTimer_timeout():
   var enemy = enemy_scene.instance()
   

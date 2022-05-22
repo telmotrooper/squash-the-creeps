@@ -18,3 +18,7 @@ func _process(_delta):
 func _on_Enemy_squashed():
   score += 1
   $ScoreLabel.text = "Score: %s" % score
+
+func _unhandled_input(event):
+  if $Retry.visible and event.is_action_pressed("ui_accept"):
+    GameState.reload_current_scene()
