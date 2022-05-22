@@ -326,6 +326,7 @@ transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, 
 
 [node name="RedButton" parent="." instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 55.6152, 2.24891, -3.78947 )
+direction = 1
 
 [node name="Goweti" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
