@@ -38,7 +38,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "drain_water"
-length = 7.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("WaterPlane:translation")
 tracks/0/interp = 1
@@ -46,23 +46,26 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 7 ),
+"times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 54.2274, -2.38324, 91.0514 ), Vector3( 54.227, -8, 91.051 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
 "args": [  ],
-"method": "play_drain_water_sound"
+"method": "stop"
 } ]
 }
 
@@ -110,5 +113,9 @@ material/0 = null
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/drain_water = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sound"
 
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
