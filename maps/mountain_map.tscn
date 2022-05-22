@@ -133,7 +133,7 @@ far = 200.0
 transform = Transform( 15, 0, 0, 0, -0.2, -2.26494e-06, 0, 3.01992e-08, -15, 65, -60, 91 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6, -1.9, 24 )
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 55.2639, 3.8, 21.8429 )
 radius = 5.0
 height = 5.0
 material = ExtResource( 13 )
