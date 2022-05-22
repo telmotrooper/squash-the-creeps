@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -73,6 +73,11 @@ material = ExtResource( 4 )
 size = Vector2( 500, 500 )
 subdivide_width = 5
 subdivide_depth = 5
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CylinderShape" id=20]
 
 [sub_resource type="Curve3D" id=14]
 _data = {
@@ -316,6 +321,18 @@ direction = 1
 [node name="Goweti" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
 
+[node name="PortalPlaceholder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0, -135.074 )
+radius = 3.0
+material = SubResource( 19 )
+
+[node name="Area" type="Area" parent="PortalPlaceholder"]
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="PortalPlaceholder/Area"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
+shape = SubResource( 20 )
+
 [node name="Enemies" type="Spatial" parent="."]
 
 [node name="BlueEnemyPath" type="Path" parent="Enemies"]
@@ -358,14 +375,14 @@ transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2
 [node name="BlueEnemy4" parent="Enemies/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
-[node name="BlueEnemyPath5" type="Path" parent="Enemies"]
+[node name="PurpleEnemyPath" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -119.803 )
 curve = SubResource( 18 )
 
-[node name="PathFollow" type="PathFollow" parent="Enemies/BlueEnemyPath5"]
+[node name="PathFollow" type="PathFollow" parent="Enemies/PurpleEnemyPath"]
 transform = Transform( -0.192319, 0, 0.981332, 0, 1, 0, -0.981332, 0, -0.192319, -21.9524, 0, 7.80272 )
 
-[node name="PurpleEnemy" parent="Enemies/BlueEnemyPath5/PathFollow" instance=ExtResource( 20 )]
+[node name="PurpleEnemy" parent="Enemies/PurpleEnemyPath/PathFollow" instance=ExtResource( 20 )]
 transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
 patrolling_speed = 18
 
@@ -376,3 +393,4 @@ far = 200.0
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="pressed" from="RedButton" to="." method="_on_RedButton_pressed"]
+[connection signal="body_entered" from="PortalPlaceholder/Area" to="." method="_on_Portal_entered"]
