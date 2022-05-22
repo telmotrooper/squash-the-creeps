@@ -29,6 +29,3 @@ func _on_Player_hit():
 
 func _on_RedButton_pressed():
   $Goweti/Manual/AnimationPlayer.play("move_platforms")
-
-func _on_Portal_entered(body):
-  GameState.change_map("mountain_map")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=18]
 [ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy.tscn" type="PackedScene" id=20]
+[ext_resource path="res://maps/portal_placeholder.tscn" type="PackedScene" id=21]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -73,11 +74,6 @@ material = ExtResource( 4 )
 size = Vector2( 500, 500 )
 subdivide_width = 5
 subdivide_depth = 5
-
-[sub_resource type="SpatialMaterial" id=19]
-albedo_color = Color( 1, 0, 0, 1 )
-
-[sub_resource type="CylinderShape" id=20]
 
 [sub_resource type="Curve3D" id=14]
 _data = {
@@ -321,17 +317,8 @@ direction = 1
 [node name="Goweti" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
 
-[node name="PortalPlaceholder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0, -135.074 )
-radius = 3.0
-material = SubResource( 19 )
-
-[node name="Area" type="Area" parent="PortalPlaceholder"]
-monitorable = false
-
-[node name="CollisionShape" type="CollisionShape" parent="PortalPlaceholder/Area"]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
-shape = SubResource( 20 )
+[node name="PortalPlaceholder" parent="." instance=ExtResource( 21 )]
+map_name = "mountain_map"
 
 [node name="Enemies" type="Spatial" parent="."]
 
@@ -393,4 +380,3 @@ far = 200.0
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="pressed" from="RedButton" to="." method="_on_RedButton_pressed"]
-[connection signal="body_entered" from="PortalPlaceholder/Area" to="." method="_on_Portal_entered"]
