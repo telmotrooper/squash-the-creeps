@@ -31,4 +31,4 @@ For some reason, the first time you open the project in Godot you'll get this er
 
 #### **(MacOS) "Squash the Creeps.app" is damaged and can't be opened**
 
-The application is't signed, so you'll have to run to disable the checks running the following command `xattr -cr "Squash the Creeps.app"` in the folder where the game is.
+The application isn't signed, so you'll have to run to disable the checks running the following command `xattr -cr "Squash the Creeps.app"` in the folder where the game is.
