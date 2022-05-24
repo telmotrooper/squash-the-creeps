@@ -21,6 +21,7 @@ func _process(delta):
       if get_parent() is PathFollow:
         get_parent().set_offset(get_parent().get_offset() + patrolling_speed * delta)
     ALERT:
+      $ExclamationMark.visible = true
       $AlertTimer.start()
       set_process(false)
     CHASING:
@@ -38,5 +39,6 @@ func _on_PrismArea_body_entered(_body):
     state = ALERT
 
 func _on_AlertTimer_timeout():
+  $ExclamationMark.visible = false
   state = CHASING
   set_process(true)
