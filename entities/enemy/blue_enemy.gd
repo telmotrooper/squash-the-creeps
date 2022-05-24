@@ -4,7 +4,8 @@ export var patrolling_speed = 9
 
 enum {
   PATROLLING,
-  ALERT
+  ALERT,
+  CHASING
 }
 
 var state = PATROLLING
@@ -20,6 +21,10 @@ func _process(delta):
       if get_parent() is PathFollow:
         get_parent().set_offset(get_parent().get_offset() + patrolling_speed * delta)
     ALERT:
+      $ExclamationMark.visible = true
+      $AlertTimer.start()
+      set_process(false)
+    CHASING:
       if get_parent() is PathFollow:
         # Reset rotation, otherwise enemy won't be able to chase player.
         get_parent().rotation = Vector3.ZERO
@@ -29,6 +34,11 @@ func _process(delta):
 func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
 
-func _on_PrismArea_body_entered(body):
-  if body is Player:
+func _on_PrismArea_body_entered(_body):
+  if state != CHASING:
     state = ALERT
+
+func _on_AlertTimer_timeout():
+  $ExclamationMark.visible = false
+  state = CHASING
+  set_process(true)
