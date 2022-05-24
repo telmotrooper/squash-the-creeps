@@ -4,7 +4,7 @@
 
 It is based in the isometric 3D game of the same name implemented in the tutorial [Create Your First Complete 3D Game with Godot](https://youtu.be/YiE9tcoCfhE) by [GDQuest](https://www.gdquest.com/).
 
-Assets used are listed under [CREDITS](CREDITS.md).
+Assets used are listed under [CREDITS](repo/CREDITS.md).
 
 ## Download
 
@@ -12,7 +12,11 @@ You can **[download here](https://github.com/telmotrooper/squash-the-creeps/rele
 
 ## Screenshots
 
-<img src="screenshot.png" width="75%" height="75%" />
+<p float="left">
+<img src="repo/screenshot_menu.jpg" width="30%" />
+<img src="repo/screenshot_ingame.jpg" width="30%" />
+<img src="repo/screenshot_ingame2.jpg" width="30%" />
+</p>
 
 ## FAQ
 
