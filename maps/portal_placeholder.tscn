@@ -6,11 +6,13 @@
 albedo_color = Color( 0.639216, 0.141176, 0.141176, 1 )
 
 [sub_resource type="CylinderShape" id=20]
+height = 1.0
 
 [node name="PortalPlaceholder" type="CSGCylinder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0, -135.074 )
 radius = 3.0
-height = 0.5
+height = 0.25
+sides = 12
 material = SubResource( 19 )
 script = ExtResource( 1 )
 

@@ -139,7 +139,7 @@ height = 5.0
 material = ExtResource( 13 )
 
 [node name="PortalPlaceholder" parent="CSGCylinder" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52588e-05, 2.5, -0.00272942 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52588e-05, 2.6, -0.00272751 )
 map_name = "test_map"
 
 [node name="StaticBody" type="StaticBody" parent="CSGCylinder"]
