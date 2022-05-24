@@ -30,5 +30,4 @@ func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
 
 func _on_PrismArea_body_entered(body):
-  if body is Player:
-    state = ALERT
+  state = ALERT
