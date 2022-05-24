@@ -13,9 +13,9 @@ You can **[download here](https://github.com/telmotrooper/squash-the-creeps/rele
 ## Screenshots
 
 <p float="left">
-<img src="repo/screenshot_menu.jpg" width="33%" />
-<img src="repo/screenshot_ingame.jpg" width="33%" />
-<img src="repo/screenshot_ingame2.jpg" width="33%" />
+<img src="repo/screenshot_menu.jpg" width="30%" />
+<img src="repo/screenshot_ingame.jpg" width="30%" />
+<img src="repo/screenshot_ingame2.jpg" width="30%" />
 </p>
 
 ## FAQ
