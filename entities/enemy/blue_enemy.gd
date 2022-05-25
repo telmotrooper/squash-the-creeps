@@ -28,7 +28,7 @@ func _process(delta):
       if get_parent() is PathFollow:
         # Reset rotation, otherwise enemy won't be able to chase player.
         get_parent().rotation = Vector3.ZERO
-      if is_instance_valid(GameState.Player):
+      if is_instance_valid(GameState.Player) and not already_squashed:
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false, chasing_speed)
 
 func _on_VisibilityNotifier_screen_exited():
