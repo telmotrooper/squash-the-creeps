@@ -38,6 +38,11 @@ func _on_PrismArea_body_entered(_body):
   if state != CHASING:
     state = ALERT
 
+func squash():
+  # When squashed, always hide exclamation mark.
+  $ExclamationMark.visible = false
+  .squash()
+
 func _on_AlertTimer_timeout():
   $ExclamationMark.visible = false
   state = CHASING
