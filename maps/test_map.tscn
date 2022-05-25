@@ -20,7 +20,7 @@
 [ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=18]
 [ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy.tscn" type="PackedScene" id=20]
-[ext_resource path="res://maps/portal_placeholder.tscn" type="PackedScene" id=21]
+[ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=21]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )

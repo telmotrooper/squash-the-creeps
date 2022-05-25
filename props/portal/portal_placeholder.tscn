@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://maps/portal_placeholder.gd" type="Script" id=1]
+[ext_resource path="res://props/portal/portal_placeholder.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=19]
 albedo_color = Color( 0.639216, 0.141176, 0.141176, 1 )
@@ -23,5 +23,8 @@ monitorable = false
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 3, 0, 0, 0, 0.25, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 20 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Sound"
 
 [connection signal="body_entered" from="Area" to="." method="_on_Portal_entered"]
