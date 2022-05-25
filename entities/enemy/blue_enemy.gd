@@ -1,7 +1,7 @@
 extends Enemy
 
 export var patrolling_speed = 9
-
+export var chasing_speed = 13
 enum {
   PATROLLING,
   ALERT,
@@ -29,7 +29,7 @@ func _process(delta):
         # Reset rotation, otherwise enemy won't be able to chase player.
         get_parent().rotation = Vector3.ZERO
       if is_instance_valid(GameState.Player):
-        initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
+        initiliaze(self.transform.origin, GameState.Player.transform.origin, false, chasing_speed)
 
 func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
