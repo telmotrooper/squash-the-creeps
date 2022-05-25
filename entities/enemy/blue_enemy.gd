@@ -1,7 +1,7 @@
 extends Enemy
 
 export var patrolling_speed = 9
-
+export var chasing_speed = 13
 enum {
   PATROLLING,
   ALERT,
@@ -28,8 +28,8 @@ func _process(delta):
       if get_parent() is PathFollow:
         # Reset rotation, otherwise enemy won't be able to chase player.
         get_parent().rotation = Vector3.ZERO
-      if is_instance_valid(GameState.Player):
-        initiliaze(self.transform.origin, GameState.Player.transform.origin, false)
+      if is_instance_valid(GameState.Player) and not already_squashed:
+        initiliaze(self.transform.origin, GameState.Player.transform.origin, false, chasing_speed)
 
 func _on_VisibilityNotifier_screen_exited():
   pass # Prevent "queue_free()" from parent.
@@ -37,6 +37,11 @@ func _on_VisibilityNotifier_screen_exited():
 func _on_PrismArea_body_entered(_body):
   if state != CHASING:
     state = ALERT
+
+func squash():
+  # When squashed, always hide exclamation mark.
+  $ExclamationMark.visible = false
+  .squash()
 
 func _on_AlertTimer_timeout():
   $ExclamationMark.visible = false
