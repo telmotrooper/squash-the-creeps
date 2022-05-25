@@ -18,6 +18,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 func _on_FloatingPlatformTimer_timeout():
   if direction == MOVING_CLOSER:
     $AnimationPlayer.play("move_platforms")
+    direction = MOVING_AWAY
   else: # MOVING_AWAY
     $AnimationPlayer.play_backwards("move_platforms")
-  direction = !direction
+    direction = MOVING_CLOSER
