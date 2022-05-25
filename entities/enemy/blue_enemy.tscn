@@ -79,13 +79,13 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
 params_billboard_mode = 1
 albedo_texture = ExtResource( 5 )
 
 [sub_resource type="QuadMesh" id=5]
-material = SubResource( 4 )
+material = SubResource( 6 )
 size = Vector2( 1.5, 1.5 )
 
 [node name="BlueEnemy" type="KinematicBody" groups=["enemies"]]

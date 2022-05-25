@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://entities/enemy/blue_enemy.gd" type="Script" id=1]
 [ext_resource path="res://entities/enemy/purple_enemy.glb" type="PackedScene" id=2]
 [ext_resource path="res://entities/enemy/prism_area.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/slime_jump.ogg" type="AudioStream" id=4]
+[ext_resource path="res://entities/enemy/exclamation_mark.png" type="Texture" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.20057, 1 )
@@ -78,6 +79,15 @@ tracks/2/keys = {
 } ]
 }
 
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+params_billboard_mode = 1
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
+size = Vector2( 1.5, 1.5 )
+
 [node name="PurpleEnemy" type="KinematicBody" groups=["enemies"]]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 collision_layer = 2
@@ -100,16 +110,26 @@ shape = SubResource( 1 )
 transform = Transform( 1.21071, 0, 0, 0, 1, 0, 0, 0, 1.7127, 0, 0, 0.28548 )
 visible = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "float"
+anims/float = SubResource( 2 )
+anims/squash = SubResource( 3 )
+
 [node name="PrismArea" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3 )
 visible = false
 monitoring = false
 monitorable = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "float"
-anims/float = SubResource( 2 )
-anims/squash = SubResource( 3 )
+[node name="AlertTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ExclamationMark" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0 )
+visible = false
+mesh = SubResource( 5 )
+material/0 = null
 
 [connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
 [connection signal="body_entered" from="PrismArea" to="." method="_on_PrismArea_body_entered"]
+[connection signal="timeout" from="AlertTimer" to="." method="_on_AlertTimer_timeout"]
