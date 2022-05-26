@@ -2,6 +2,9 @@ extends CSGCylinder
 
 export var map_name: String
 
+func _ready():
+  $Label3D.text = map_name
+
 func _on_Portal_entered(_body):
   #$AudioStreamPlayer.play()
   GameState.Player.get_node("EffectsAnimationPlayer").play("shrink")

@@ -32,6 +32,7 @@ bump_strength = 4.0
 noise = SubResource( 5 )
 
 [resource]
+render_priority = -1
 shader = ExtResource( 1 )
 shader_param/speed = 0.021
 shader_param/color = Color( 0.0352941, 0.658824, 0.929412, 0.635294 )

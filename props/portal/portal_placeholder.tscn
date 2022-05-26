@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://props/portal/portal_placeholder.gd" type="Script" id=1]
+[ext_resource path="res://fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=2]
 
 [sub_resource type="SpatialMaterial" id=19]
 albedo_color = Color( 0.639216, 0.141176, 0.141176, 1 )
@@ -26,5 +27,12 @@ shape = SubResource( 20 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = "Sound"
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2, 0 )
+pixel_size = 0.025
+billboard = 2
+text = "Portal"
+font = ExtResource( 2 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Portal_entered"]
