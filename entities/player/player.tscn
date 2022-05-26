@@ -108,7 +108,7 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="Character" parent="Pivot" instance=ExtResource( 1 )]
-transform = Transform( 0.999737, 0.00211386, 0.0228295, -0.00598565, 0.985271, 0.17089, -0.0221321, -0.170982, 0.985025, 0.0239411, 0.734308, -0.00194665 )
+transform = Transform( 0.999737, 0.00211385, 0.0228296, -0.00598565, 0.985271, 0.17089, -0.0221321, -0.170982, 0.985025, 0.0239411, 0.734308, -0.00194665 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
@@ -155,14 +155,9 @@ monitorable = false
 transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.8, 0 )
 shape = SubResource( 5 )
 
-[node name="DashAvailableTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="DashDurationTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
-[connection signal="timeout" from="DashAvailableTimer" to="." method="_on_DashAvailableTimer_timeout"]
 [connection signal="timeout" from="DashDurationTimer" to="." method="_on_DashDurationTimer_timeout"]

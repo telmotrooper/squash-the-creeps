@@ -55,14 +55,14 @@ func _physics_process(delta):
     speed = 14
     $AnimationPlayer.playback_speed = 1.0
   
+  if is_on_floor():
+    dash_available = true
+  
   if dash_available and !is_on_floor() and Input.is_action_just_pressed("ui_sprint"):
     if $DashDurationTimer.is_stopped():
       is_dashing = true
-      $DashDurationTimer.start()
-      
-    if $DashAvailableTimer.is_stopped():
       dash_available = false
-      $DashAvailableTimer.start()
+      $DashDurationTimer.start()
 
   if is_dashing:
     speed = 150
@@ -119,6 +119,3 @@ func set_draw_distance(value: int):
 
 func _on_DashDurationTimer_timeout():
   is_dashing = false
-
-func _on_DashAvailableTimer_timeout():
-  dash_available = true
