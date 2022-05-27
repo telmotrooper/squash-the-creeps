@@ -115,18 +115,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031 )
 
 [node name="Map" type="Spatial" parent="."]
 
-[node name="Platform1" type="StaticBody" parent="Map"]
+[node name="GreenPlatform" type="StaticBody" parent="Map"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/Platform1"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.952113, 0 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/Platform1"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 9 )
@@ -152,25 +152,49 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Platform2" type="StaticBody" parent="Map"]
+[node name="BluePlatform" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.626 )
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/Platform2"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/BluePlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/Platform2"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/BluePlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="FloatingBluePlatform" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8, 49.2458, -75.826 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/FloatingBluePlatform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/FloatingBluePlatform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706 )
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GodotPowerUp2" parent="Map/FloatingBluePlatform" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -12.2606 )
 
 [node name="SmallPlatform" type="StaticBody" parent="Map"]
 transform = Transform( 0.0996611, 0, 0, 0, 1, 0, 0, 0, -0.225957, 23.1125, 0.291998, -44.0602 )
@@ -247,7 +271,6 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0
 shadow_enabled = true
 
 [node name="Player" parent="." groups=["players"] instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127, 0.835 )
 collision_mask = 524302
 
 [node name="CameraPivot" type="Spatial" parent="."]
