@@ -7,11 +7,17 @@ export var speed := 14.0
 export var jump_impulse := 25.0
 export var fall_acceleration := 75.0
 export var bounce_impulse := 16.0
+export var dash_duration := 0.2
+export var dash_speed := 150
 
 var velocity = Vector3.ZERO
 
+var dash_available := true
+var is_dashing := false
+
 func _ready():
   GameState.Player = self
+  $DashDurationTimer.wait_time = dash_duration
 
 func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
@@ -51,6 +57,19 @@ func _physics_process(delta):
   else:
     speed = 14
     $AnimationPlayer.playback_speed = 1.0
+  
+  if GameState.upgrades["mid_air_dash"]:
+    if is_on_floor():
+      dash_available = true
+    
+    if dash_available and !is_on_floor() and Input.is_action_just_pressed("ui_sprint"):
+      if $DashDurationTimer.is_stopped():
+        is_dashing = true
+        dash_available = false
+        $DashDurationTimer.start()
+
+    if is_dashing:
+      speed = dash_speed
   
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
@@ -101,3 +120,6 @@ func _on_EnemyDetector_body_entered(_body):
 
 func set_draw_distance(value: int):
   $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value
+
+func _on_DashDurationTimer_timeout():
+  is_dashing = false

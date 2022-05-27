@@ -27,6 +27,9 @@ func _ready():
   $MainPause/HBoxContainer/RightContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
   $MainPause/HBoxContainer/RightContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
 
+  $MainPause/UpgradesContainer/HBoxContainer/MidAirDashCheckButton.pressed = Configuration.get_value("debug", "mid_air_dash")
+  GameState.upgrades["mid_air_dash"] = Configuration.get_value("debug", "mid_air_dash")
+
 func _on_DrawDistanceSlider_value_changed(value):
   Configuration.update_setting("graphics", "draw_distance", value)
   $MainPause/HBoxContainer/LeftContainer/DrawDistanceLabel.text = draw_distance_text % value
@@ -107,3 +110,8 @@ func _on_ControlsBackButton_pressed():
 func _on_ReloadMapButton_pressed():
   GameState.reload_current_scene()
   pause()
+
+
+func _on_MidAirDashCheckButton_toggled(button_pressed: bool):
+  Configuration.update_setting("debug", "mid_air_dash", button_pressed)
+  GameState.upgrades["mid_air_dash"] = button_pressed

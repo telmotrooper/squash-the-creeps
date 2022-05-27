@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/player/player.glb" type="PackedScene" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -9,6 +9,21 @@ height = 0.25
 
 [sub_resource type="CylinderShape" id=2]
 radius = 1.4
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "float"
@@ -93,7 +108,7 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="Character" parent="Pivot" instance=ExtResource( 1 )]
-transform = Transform( 0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985271, 0.17089, -0.0221321, -0.170982, 0.985025, 0.0239411, 0.734308, -0.00194665 )
+transform = Transform( 0.999737, 0.00211385, 0.0228296, -0.00598565, 0.985271, 0.17089, -0.0221321, -0.170982, 0.985025, 0.0239411, 0.734308, -0.00194665 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
@@ -111,6 +126,7 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "float"
+anims/RESET = SubResource( 8 )
 anims/float = SubResource( 3 )
 anims/spin-y = SubResource( 4 )
 
@@ -139,4 +155,9 @@ monitorable = false
 transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.8, 0 )
 shape = SubResource( 5 )
 
+[node name="DashDurationTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="timeout" from="DashDurationTimer" to="." method="_on_DashDurationTimer_timeout"]
