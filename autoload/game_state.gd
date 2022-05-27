@@ -7,6 +7,7 @@ var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
 var upgrades = {
+  "double_jump": false,
   "mid_air_dash": false
 }
 

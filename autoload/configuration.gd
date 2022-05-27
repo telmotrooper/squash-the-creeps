@@ -31,6 +31,9 @@ func _ready():
   if not config.has_section_key("graphics", "grass_amount"):
     config.set_value("graphics", "grass_amount", 0)
     
+  if not config.has_section_key("debug", "double_jump"):
+    config.set_value("debug", "double_jump", false)
+  
   if not config.has_section_key("debug", "mid_air_dash"):
     config.set_value("debug", "mid_air_dash", false)
   
