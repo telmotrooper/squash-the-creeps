@@ -199,11 +199,31 @@ margin_bottom = 359.0
 margin_right = 570.0
 margin_bottom = 40.0
 
-[node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
+[node name="DoubleJumpContainer" type="HBoxContainer" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
+margin_right = 244.0
+margin_bottom = 40.0
+
+[node name="DoubleJumpCheckButton" type="CheckButton" parent="Pause/MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
 margin_right = 76.0
 margin_bottom = 40.0
 
-[node name="MidAirDashLabel" type="Label" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
+[node name="DoubleJumpLabel" type="Label" parent="Pause/MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
+margin_left = 80.0
+margin_top = 4.0
+margin_right = 244.0
+margin_bottom = 35.0
+text = "Double Jump"
+
+[node name="MidAirDashContainer" type="HBoxContainer" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
+margin_left = 248.0
+margin_right = 486.0
+margin_bottom = 40.0
+
+[node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
+margin_right = 76.0
+margin_bottom = 40.0
+
+[node name="MidAirDashLabel" type="Label" parent="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
 margin_left = 80.0
 margin_top = 4.0
 margin_right = 238.0
@@ -283,7 +303,8 @@ text = "Back"
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="item_selected" from="Pause/MainPause/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
-[connection signal="toggled" from="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
+[connection signal="toggled" from="Pause/MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton" to="Pause" method="_on_DoubleJumpCheckButton_toggled"]
+[connection signal="toggled" from="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
 [connection signal="pressed" from="Pause/MainPause/ReloadMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

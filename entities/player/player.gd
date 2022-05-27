@@ -12,6 +12,8 @@ export var dash_speed := 150
 
 var velocity = Vector3.ZERO
 
+var is_jumping := false
+
 var dash_available := true
 var is_dashing := false
 
@@ -76,6 +78,13 @@ func _physics_process(delta):
   
   if is_on_floor() and Input.is_action_pressed("jump"):
     velocity.y += jump_impulse
+    is_jumping = true
+  elif is_on_floor():
+    is_jumping = false
+    
+  if GameState.upgrades["double_jump"]:
+    if is_jumping and velocity.y <= 0 and Input.is_action_just_pressed("jump"):
+      velocity.y += jump_impulse * 1.5
   
   velocity.y -= fall_acceleration * delta
   # Assign move_and_slide to velocity prevents the velocity from accumulating.

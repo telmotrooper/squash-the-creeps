@@ -27,8 +27,11 @@ func _ready():
   $MainPause/HBoxContainer/RightContainer/SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
   $MainPause/HBoxContainer/RightContainer/SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
 
-  $MainPause/UpgradesContainer/HBoxContainer/MidAirDashCheckButton.pressed = Configuration.get_value("debug", "mid_air_dash")
+  $MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton.pressed = Configuration.get_value("debug", "mid_air_dash")
   GameState.upgrades["mid_air_dash"] = Configuration.get_value("debug", "mid_air_dash")
+  
+  $MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton.pressed = Configuration.get_value("debug", "double_jump")
+  GameState.upgrades["double_jump"] = Configuration.get_value("debug", "double_jump")
 
 func _on_DrawDistanceSlider_value_changed(value):
   Configuration.update_setting("graphics", "draw_distance", value)
@@ -115,3 +118,7 @@ func _on_ReloadMapButton_pressed():
 func _on_MidAirDashCheckButton_toggled(button_pressed: bool):
   Configuration.update_setting("debug", "mid_air_dash", button_pressed)
   GameState.upgrades["mid_air_dash"] = button_pressed
+
+func _on_DoubleJumpCheckButton_toggled(button_pressed):
+  Configuration.update_setting("debug", "double_jump", button_pressed)
+  GameState.upgrades["double_jump"] = button_pressed
