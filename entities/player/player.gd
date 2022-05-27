@@ -7,6 +7,8 @@ export var speed := 14.0
 export var jump_impulse := 25.0
 export var fall_acceleration := 75.0
 export var bounce_impulse := 16.0
+export var dash_duration := 0.2
+export var dash_speed := 150
 
 var velocity = Vector3.ZERO
 
@@ -15,6 +17,7 @@ var is_dashing := false
 
 func _ready():
   GameState.Player = self
+  $DashDurationTimer.wait_time = dash_duration
 
 func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
@@ -66,7 +69,7 @@ func _physics_process(delta):
         $DashDurationTimer.start()
 
     if is_dashing:
-      speed = 150
+      speed = dash_speed
   
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
