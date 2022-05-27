@@ -99,26 +99,22 @@ func _on_MapOptionButton_item_selected(index):
   GameState.change_map(map_name)
   pause()
 
-
 func _on_ControlsButton_pressed():
   $MainPause.visible = false
   $PauseControls.visible = true
-
 
 func _on_ControlsBackButton_pressed():
   $MainPause.visible = true
   $PauseControls.visible = false
 
-
 func _on_ReloadMapButton_pressed():
   GameState.reload_current_scene()
   pause()
 
+func _on_DoubleJumpCheckButton_toggled(button_pressed):
+  Configuration.update_setting("debug", "double_jump", button_pressed)
+  GameState.upgrades["double_jump"] = button_pressed
 
 func _on_MidAirDashCheckButton_toggled(button_pressed: bool):
   Configuration.update_setting("debug", "mid_air_dash", button_pressed)
   GameState.upgrades["mid_air_dash"] = button_pressed
-
-func _on_DoubleJumpCheckButton_toggled(button_pressed):
-  Configuration.update_setting("debug", "double_jump", button_pressed)
-  GameState.upgrades["double_jump"] = button_pressed
