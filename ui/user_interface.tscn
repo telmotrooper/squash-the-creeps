@@ -200,8 +200,9 @@ margin_right = 570.0
 margin_bottom = 40.0
 
 [node name="DoubleJumpContainer" type="HBoxContainer" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
-margin_right = 244.0
+margin_right = 283.0
 margin_bottom = 40.0
+size_flags_horizontal = 3
 
 [node name="DoubleJumpCheckButton" type="CheckButton" parent="Pause/MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
 margin_right = 76.0
@@ -215,9 +216,10 @@ margin_bottom = 35.0
 text = "Double Jump"
 
 [node name="MidAirDashContainer" type="HBoxContainer" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
-margin_left = 248.0
-margin_right = 486.0
+margin_left = 287.0
+margin_right = 570.0
 margin_bottom = 40.0
+size_flags_horizontal = 3
 
 [node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
 margin_right = 76.0
