@@ -55,17 +55,18 @@ func _physics_process(delta):
     speed = 14
     $AnimationPlayer.playback_speed = 1.0
   
-  if is_on_floor():
-    dash_available = true
-  
-  if dash_available and !is_on_floor() and Input.is_action_just_pressed("ui_sprint"):
-    if $DashDurationTimer.is_stopped():
-      is_dashing = true
-      dash_available = false
-      $DashDurationTimer.start()
+  if GameState.upgrades["mid_air_dash"]:
+    if is_on_floor():
+      dash_available = true
+    
+    if dash_available and !is_on_floor() and Input.is_action_just_pressed("ui_sprint"):
+      if $DashDurationTimer.is_stopped():
+        is_dashing = true
+        dash_available = false
+        $DashDurationTimer.start()
 
-  if is_dashing:
-    speed = 150
+    if is_dashing:
+      speed = 150
   
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed

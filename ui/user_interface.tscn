@@ -64,15 +64,15 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Pause/MainPause"]
-margin_top = 58.0
+margin_top = 33.0
 margin_right = 570.0
-margin_bottom = 95.0
+margin_bottom = 70.0
 text = "Resume"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 105.0
+margin_top = 80.0
 margin_right = 570.0
-margin_bottom = 142.0
+margin_bottom = 117.0
 size_flags_horizontal = 3
 
 [node name="ToggleFullscreenButton" type="Button" parent="Pause/MainPause/HBoxContainer3"]
@@ -89,9 +89,9 @@ size_flags_horizontal = 3
 text = "Controls"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 152.0
+margin_top = 127.0
 margin_right = 570.0
-margin_bottom = 334.0
+margin_bottom = 309.0
 custom_constants/separation = 10
 
 [node name="LeftContainer" type="VBoxContainer" parent="Pause/MainPause/HBoxContainer"]
@@ -190,16 +190,36 @@ text = "mountain_map"
 items = [ "mountain_map", null, false, 0, null, "test_map", null, false, 1, null ]
 selected = 0
 
-[node name="ReloadMapButton" type="Button" parent="Pause/MainPause"]
-margin_top = 344.0
+[node name="UpgradesContainer" type="VBoxContainer" parent="Pause/MainPause"]
+margin_top = 319.0
 margin_right = 570.0
-margin_bottom = 381.0
+margin_bottom = 359.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/MainPause/UpgradesContainer"]
+margin_right = 570.0
+margin_bottom = 40.0
+
+[node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
+margin_right = 76.0
+margin_bottom = 40.0
+
+[node name="MidAirDashLabel" type="Label" parent="Pause/MainPause/UpgradesContainer/HBoxContainer"]
+margin_left = 80.0
+margin_top = 4.0
+margin_right = 238.0
+margin_bottom = 35.0
+text = "Mid-Air Dash"
+
+[node name="ReloadMapButton" type="Button" parent="Pause/MainPause"]
+margin_top = 369.0
+margin_right = 570.0
+margin_bottom = 406.0
 text = "Reload Map"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 391.0
+margin_top = 416.0
 margin_right = 570.0
-margin_bottom = 428.0
+margin_bottom = 453.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 alignment = 1
@@ -263,6 +283,7 @@ text = "Back"
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="item_selected" from="Pause/MainPause/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
+[connection signal="toggled" from="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
 [connection signal="pressed" from="Pause/MainPause/ReloadMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

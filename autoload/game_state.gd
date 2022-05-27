@@ -6,6 +6,10 @@ var MapName: String
 var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
+var upgrades = {
+  "mid_air_dash": false
+}
+
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
 # and we end up without any grass.
