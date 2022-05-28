@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "RedButton",
 "language": "GDScript",
-"path": "res://models/red_button/red_button.gd"
+"path": "res://props/red_button/red_button.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",

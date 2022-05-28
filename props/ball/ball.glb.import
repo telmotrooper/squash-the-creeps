@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/red_button.glb-312f736f5c03091f64ba67f6e0e63807.scn"
+path="res://.import/ball.glb-d46d30d528cbb149edb3e64df3420bb1.scn"
 
 [deps]
 
-source_file="res://models/red_button/red_button.glb"
-dest_files=[ "res://.import/red_button.glb-312f736f5c03091f64ba67f6e0e63807.scn" ]
+source_file="res://props/ball/ball.glb"
+dest_files=[ "res://.import/ball.glb-d46d30d528cbb149edb3e64df3420bb1.scn" ]
 
 [params]
 

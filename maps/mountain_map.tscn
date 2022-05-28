@@ -9,8 +9,8 @@
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/enemy/blue_enemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://models/ball/ball.tscn" type="PackedScene" id=10]
-[ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://props/ball/ball.tscn" type="PackedScene" id=10]
+[ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=12]
 [ext_resource path="res://models/height_map/Material.material" type="Material" id=13]
 

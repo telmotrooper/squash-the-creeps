@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://models/spaceship/ufo.material" type="Material" id=1]
-[ext_resource path="res://models/spaceship/ufo_glass.material" type="Material" id=2]
+[ext_resource path="res://props/spaceship/ufo.material" type="Material" id=1]
+[ext_resource path="res://props/spaceship/ufo_glass.material" type="Material" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.56763
