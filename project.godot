@@ -37,7 +37,7 @@ config/description="Squash the Creeps is a freeware game developed in the Godot 
 
 It is based in the isometric 3D game of the same name implemented in the tutorial Create Your First Complete 3D Game with Godot by GDQuest."
 run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
 
 [autoload]
 
