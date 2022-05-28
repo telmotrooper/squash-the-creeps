@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://art/slime_jump.ogg" type="AudioStream" id=1]
+[ext_resource path="res://entities/enemy/slime_jump.ogg" type="AudioStream" id=1]
 [ext_resource path="res://entities/enemy/enemy.glb" type="PackedScene" id=2]
 [ext_resource path="res://entities/enemy/enemy.gd" type="Script" id=3]
 

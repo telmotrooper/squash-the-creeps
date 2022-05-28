@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/slime_jump.ogg-5102436c4a684b98ee8b514319fcd384.oggstr"
+
+[deps]
+
+source_file="res://entities/enemy/slime_jump.ogg"
+dest_files=[ "res://.import/slime_jump.ogg-5102436c4a684b98ee8b514319fcd384.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
