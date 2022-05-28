@@ -1,4 +1,4 @@
-# <img src="icon.png" width="40px" height="40px"/> Squash the Creeps 
+# <img src="assets/icon.png" width="40px" height="40px"/> Squash the Creeps 
 
 **Squash the Creeps** is a freeware game developed in the [Godot Engine](https://godotengine.org/) where you control a squid-like creature and squash incoming enemies.
 

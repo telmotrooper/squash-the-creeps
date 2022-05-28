@@ -3,7 +3,7 @@
 [ext_resource path="res://entities/enemy/blue_enemy.gd" type="Script" id=1]
 [ext_resource path="res://entities/enemy/purple_enemy.glb" type="PackedScene" id=2]
 [ext_resource path="res://entities/enemy/prism_area.tscn" type="PackedScene" id=3]
-[ext_resource path="res://art/slime_jump.ogg" type="AudioStream" id=4]
+[ext_resource path="res://entities/enemy/slime_jump.ogg" type="AudioStream" id=4]
 [ext_resource path="res://entities/enemy/exclamation_mark.png" type="Texture" id=5]
 
 [sub_resource type="BoxShape" id=1]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://art/house_in_a_forest_loop.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=1]
 [ext_resource path="res://autoload/game_state.gd" type="Script" id=3]
 
 [node name="GameState" type="Node"]

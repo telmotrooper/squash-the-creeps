@@ -10,15 +10,15 @@
 [ext_resource path="res://materials/cyan.tres" type="Material" id=8]
 [ext_resource path="res://materials/green.tres" type="Material" id=9]
 [ext_resource path="res://entities/enemy/blue_enemy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://flag.tscn" type="PackedScene" id=11]
+[ext_resource path="res://props/flag/flag.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=12]
-[ext_resource path="res://models/spaceship/spaceship.tscn" type="PackedScene" id=13]
+[ext_resource path="res://props/spaceship/spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
-[ext_resource path="res://models/godot_power_up/godot_power_up.tscn" type="PackedScene" id=15]
+[ext_resource path="res://props/godot_power_up/godot_power_up.tscn" type="PackedScene" id=15]
 [ext_resource path="res://shaders/smoke/smoke.tscn" type="PackedScene" id=16]
 [ext_resource path="res://entities/enemy/enemy.tscn" type="PackedScene" id=17]
-[ext_resource path="res://models/goweti/goweti.tscn" type="PackedScene" id=18]
-[ext_resource path="res://models/red_button/red_button.tscn" type="PackedScene" id=19]
+[ext_resource path="res://maps/models/goweti/goweti.tscn" type="PackedScene" id=18]
+[ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy.tscn" type="PackedScene" id=20]
 [ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=21]
 
@@ -51,7 +51,7 @@ surfaces/0 = {
 "vertex_count": 30
 }
 
-[sub_resource type="MultiMesh" id=13]
+[sub_resource type="MultiMesh" id=19]
 transform_format = 1
 instance_count = 3000
 visible_instance_count = 3000
@@ -253,14 +253,14 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics
 
 [node name="ScatterItem" type="Spatial" parent="Map/Grass"]
 script = ExtResource( 3 )
-item_path = "res://art/grass_52/grass_52.tscn"
+item_path = "res://assets/grass_52/grass_52.tscn"
 scale_modifier = 1.5
 materials = [ ExtResource( 1 ) ]
 merge_target_meshes = false
 cast_shadow = 1
 
 [node name="MultiMeshInstance" type="MultiMeshInstance" parent="Map/Grass/ScatterItem"]
-multimesh = SubResource( 13 )
+multimesh = SubResource( 19 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
