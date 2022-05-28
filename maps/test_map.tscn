@@ -243,12 +243,11 @@ __meta__ = {
 "_editor_description_": "One of the most simple setup. The Scatter node have a ScatterItem child. This child tells you what scene to scatter around.
 The parent node have a stack of modifiers. First randomly distribute points, the second moves them around randomly. You can add as many modifier as you want in any order, but make sure to start with a \"Distribute\" modifier."
 }
-modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":3000,"_rng":Object(RandomNumberGenerator,"seed":7796409484863506231,"state":1715213465578901578,"script":null)
+modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":3000,"_rng":Object(RandomNumberGenerator,"seed":7796409484863506231,"state":1715213465578901578,"script":null)
 )
-, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
+, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
 )
- ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
-)
+ ],"just_created":false,"undo_redo":null)
 
 
 [node name="ScatterItem" type="Spatial" parent="Map/Grass"]
@@ -326,12 +325,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.775,
 [node name="WaterPlane" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941 )
 mesh = SubResource( 12 )
-
-[node name="Spaceship" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1.40736, 0.518979, 0, -0.518979, 1.40736, 0, 0, 0, 1.5, 0.0366802, 1.80064, 14.178 )
-
-[node name="Smoke" parent="Spaceship" instance=ExtResource( 16 )]
-transform = Transform( 0.625493, 1.00824e-08, 0.230657, 0.230657, -2.73412e-08, -0.625493, 0, 0.666667, -2.91409e-08, -1.55931, 1.13631, -0.690165 )
+material/0 = null
 
 [node name="RedButton" parent="." instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 55.6152, 2.24891, -3.78947 )
@@ -400,6 +394,13 @@ far = 200.0
 
 [node name="Goweti" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.906, -0.312, -0.581 )
+
+[node name="Spaceship" parent="." instance=ExtResource( 13 )]
+transform = Transform( 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.0325634, 1.3, 14.1493 )
+
+[node name="Smoke" parent="Spaceship" instance=ExtResource( 16 )]
+transform = Transform( 0.939693, 1.49503e-08, 0.34202, 0.34202, -4.10753e-08, -0.939693, 0, 1, -4.37113e-08, -2.43791, 2.20846, -1.00656 )
+skeleton = NodePath("")
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
