@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/height_map.glb-7571c7c10aab8dd624b61b6b0ecfd0d1.scn"
+path="res://.import/height_map.glb-b5a120dd6221f310f0f10eb308d255a7.scn"
 
 [deps]
 
-source_file="res://models/height_map/height_map.glb"
-dest_files=[ "res://.import/height_map.glb-7571c7c10aab8dd624b61b6b0ecfd0d1.scn" ]
+source_file="res://maps/models/height_map/height_map.glb"
+dest_files=[ "res://.import/height_map.glb-b5a120dd6221f310f0f10eb308d255a7.scn" ]
 
 [params]
 

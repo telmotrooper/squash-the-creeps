@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/goweti.glb-192a64404a25a254285c222019979096.scn"
+path="res://.import/goweti.glb-a0e393cfaadbbb439637514e5c4c2bec.scn"
 
 [deps]
 
-source_file="res://models/goweti/goweti.glb"
-dest_files=[ "res://.import/goweti.glb-192a64404a25a254285c222019979096.scn" ]
+source_file="res://maps/models/goweti/goweti.glb"
+dest_files=[ "res://.import/goweti.glb-a0e393cfaadbbb439637514e5c4c2bec.scn" ]
 
 [params]
 
