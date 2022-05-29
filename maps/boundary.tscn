@@ -21,6 +21,5 @@ shape = SubResource( 11 )
 [node name="MeshInstance" type="MeshInstance" parent="."]
 visible = false
 mesh = SubResource( 4 )
-material/0 = null
 
 [connection signal="body_entered" from="." to="." method="_on_Boundary_body_entered"]
