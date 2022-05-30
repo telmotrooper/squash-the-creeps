@@ -50,5 +50,5 @@ func squash():
 func _on_VisibilityNotifier_screen_exited():
   queue_free()
 
-func kill():
+func kill(): # Triggered by animation "squash'.
   queue_free()
