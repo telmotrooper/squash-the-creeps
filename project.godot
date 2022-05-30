@@ -9,10 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Enemy",
+"class": "BlueEnemy",
+"language": "GDScript",
+"path": "res://entities/enemy/blue_enemy/blue_enemy.gd"
+}, {
 "base": "KinematicBody",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://entities/enemy/enemy.gd"
+"path": "res://entities/enemy/base/enemy.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://props/red_button/red_button.gd"
 } ]
 _global_script_class_icons={
+"BlueEnemy": "",
 "Enemy": "",
 "Player": "",
 "RedButton": ""
