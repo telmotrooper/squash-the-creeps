@@ -420,6 +420,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
 [node name="YellowEnemy" parent="Enemies/YellowEnemyPath2/PathFollow" instance=ExtResource( 23 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0 )
 
+[node name="YellowEnemyPath3" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0 )
+curve = SubResource( 20 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/YellowEnemyPath3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
+
+[node name="YellowEnemy" parent="Enemies/YellowEnemyPath3/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0 )
+
 [node name="RetryCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
 far = 200.0
