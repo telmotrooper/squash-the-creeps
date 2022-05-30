@@ -19,7 +19,7 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name):
       if is_instance_valid($"/root/Main"):
         $"/root/Main".load_world(new_game_scene.get_path())
       else:
-        get_tree().change_scene(new_game_scene.get_path())
+        var _error = get_tree().change_scene(new_game_scene.get_path())
     elif button_pressed == "exit":
       get_tree().quit()
 

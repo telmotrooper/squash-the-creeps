@@ -63,7 +63,7 @@ func change_map(map_name: String):
   if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
     $"/root/Main".load_world(map_file)
   else: # Game started through "Play Scene" in editor.
-    get_tree().change_scene(map_file)
+    var _error = get_tree().change_scene(map_file)
 
 func play_audio(stream):
   if !$Audio/AudioStreamPlayer1.playing:
@@ -90,4 +90,4 @@ func reload_current_scene():
   if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
     Main.load_world(WorldScene.get_child(0).filename)
   else: # Game started through "Play Scene" in editor.
-    get_tree().reload_current_scene()
+    var _error = get_tree().reload_current_scene()

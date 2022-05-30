@@ -78,7 +78,7 @@ func _on_MainMenuButton_pressed():
   if is_instance_valid($"/root/Main"):
     $"/root/Main".load_world(title_screen)
   else:
-    get_tree().change_scene(title_screen)
+    var _error = get_tree().change_scene(title_screen)
   
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
