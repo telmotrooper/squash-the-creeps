@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/purple_enemy.glb-42d657c38fba38a371c2c3d7803c0ef0.scn"
+path="res://.import/purple_enemy.glb-038da9bfb38d63725ca36049c6c8f5c3.scn"
 
 [deps]
 
-source_file="res://entities/enemy/purple_enemy.glb"
-dest_files=[ "res://.import/purple_enemy.glb-42d657c38fba38a371c2c3d7803c0ef0.scn" ]
+source_file="res://entities/enemy/purple_enemy/purple_enemy.glb"
+dest_files=[ "res://.import/purple_enemy.glb-038da9bfb38d63725ca36049c6c8f5c3.scn" ]
 
 [params]
 
