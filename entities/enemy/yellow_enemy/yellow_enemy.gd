@@ -10,6 +10,7 @@ func kill(): # Do not kill, just hide.
   $AnimationPlayer.play("RESET")
 
 func _on_RespawnTimer_timeout():
+  already_squashed = false
   self.visible = true
   $CollisionShape.disabled = false
   $AnimationPlayer.play("float")
