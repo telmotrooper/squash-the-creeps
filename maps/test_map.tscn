@@ -244,7 +244,7 @@ __meta__ = {
 "_editor_description_": "One of the most simple setup. The Scatter node have a ScatterItem child. This child tells you what scene to scatter around.
 The parent node have a stack of modifiers. First randomly distribute points, the second moves them around randomly. You can add as many modifier as you want in any order, but make sure to start with a \"Distribute\" modifier."
 }
-modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":3000,"_rng":Object(RandomNumberGenerator,"seed":7796409484863506231,"state":1715213465578901578,"script":null)
+modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":3000,"_rng":Object(RandomNumberGenerator,"seed":7796409484863506231,"state":1715213465578901578,"script":null)
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
 )
@@ -323,6 +323,9 @@ transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -18.6, 0 )
 
 [node name="GodotPowerUp" parent="." instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.775, 3.5, -118.736 )
+
+[node name="GodotPowerUp2" parent="." instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -78.925, 8.6, -0.235997 )
 
 [node name="WaterPlane" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941 )
