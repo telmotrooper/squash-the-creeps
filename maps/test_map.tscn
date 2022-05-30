@@ -408,7 +408,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 7.73305 )
 offset = 15.9
 
 [node name="YellowEnemy" parent="Enemies/YellowEnemyPath/PathFollow" instance=ExtResource( 23 )]
-transform = Transform( -1.25, 0, -1.09278e-07, 0, 1, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
 
 [node name="YellowEnemyPath2" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 0, 0 )
@@ -418,7 +418,7 @@ curve = SubResource( 20 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
 
 [node name="YellowEnemy" parent="Enemies/YellowEnemyPath2/PathFollow" instance=ExtResource( 23 )]
-transform = Transform( -1.25, 0, -1.09278e-07, 0, 1, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
 
 [node name="YellowEnemyPath3" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0 )
@@ -428,7 +428,7 @@ curve = SubResource( 20 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
 
 [node name="YellowEnemy" parent="Enemies/YellowEnemyPath3/PathFollow" instance=ExtResource( 23 )]
-transform = Transform( -1.25, 0, -1.09278e-07, 0, 1, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
 
 [node name="RetryCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
