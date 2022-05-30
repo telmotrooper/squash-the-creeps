@@ -127,6 +127,7 @@ material = SubResource( 6 )
 size = Vector2( 1.5, 1.5 )
 
 [node name="YellowEnemy" type="KinematicBody" groups=["enemies"]]
+transform = Transform( 1.25, 0, 0, 0, 1, 0, 0, 0, 1.25, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
