@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://entities/enemy/purple_enemy/purple_enemy.tscn" type="PackedScene" id=20]
 [ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=21]
 [ext_resource path="res://maps/models/beach_island/beach_island.tscn" type="PackedScene" id=22]
+[ext_resource path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" type="PackedScene" id=23]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -104,6 +105,12 @@ _data = {
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 23.8027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 23.9027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=20]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.2, 0, -8, 0, 0, 0, 0, 0, 0, -0.2, 0, 8, 0, 0, 0, 0, 0, 0, -0.2, 0, -8 ),
+"tilts": PoolRealArray( 0, 0, 0 )
 }
 
 [node name="TestMap" type="Spatial"]
@@ -391,6 +398,27 @@ transform = Transform( -0.192319, 0, 0.981332, 0, 1, 0, -0.981332, 0, -0.192319,
 [node name="PurpleEnemy" parent="Enemies/PurpleEnemyPath/PathFollow" instance=ExtResource( 20 )]
 transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
 patrolling_speed = 18
+
+[node name="YellowEnemyPath" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+curve = SubResource( 20 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/YellowEnemyPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 7.73305 )
+offset = 15.9
+
+[node name="YellowEnemy" parent="Enemies/YellowEnemyPath/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0 )
+
+[node name="YellowEnemyPath2" type="Path" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 0, 0 )
+curve = SubResource( 20 )
+
+[node name="PathFollow" type="PathFollow" parent="Enemies/YellowEnemyPath2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
+
+[node name="YellowEnemy" parent="Enemies/YellowEnemyPath2/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0 )
 
 [node name="RetryCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
