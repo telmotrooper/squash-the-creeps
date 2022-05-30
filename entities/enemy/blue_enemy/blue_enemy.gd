@@ -1,4 +1,5 @@
 extends Enemy
+class_name BlueEnemy
 
 export var patrolling_speed = 9
 export var chasing_speed = 13

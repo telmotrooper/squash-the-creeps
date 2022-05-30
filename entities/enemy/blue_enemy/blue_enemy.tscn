@@ -125,7 +125,6 @@ one_shot = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0 )
 visible = false
 mesh = SubResource( 5 )
-material/0 = null
 
 [connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
 [connection signal="body_entered" from="PrismArea" to="." method="_on_PrismArea_body_entered"]
