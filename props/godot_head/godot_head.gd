@@ -14,7 +14,7 @@ func _ready():
 
 func _on_GodotPowerUp_body_entered(_body):
   GameState.godot_heads_collected[id] = true
-
+  GameState.UserInterface.increase_counter()
   $AudioStreamPlayer.play()
   $CollisionShape.disabled = true
   self.visible = false

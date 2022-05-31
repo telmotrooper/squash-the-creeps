@@ -15,9 +15,14 @@ func _ready():
 func _process(_delta):
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()
 
+func increase_counter():
+  score +=1
+  $ScoreLabel.text = "x %s" % score
+
 func _on_Enemy_squashed():
-  score += 1
-  $ScoreLabel.text = "Score: %s" % score
+  pass
+#  score += 1
+#  $ScoreLabel.text = "Score: %s" % score
 
 func _unhandled_input(event):
   if $Retry.visible and event.is_action_pressed("ui_accept"):
