@@ -11,6 +11,8 @@ var upgrades = {
   "mid_air_dash": false
 }
 
+var godot_heads_collected = {}
+
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
 # and we end up without any grass.

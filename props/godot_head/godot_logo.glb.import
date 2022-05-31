@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/godot_logo.glb-ed8fa0bc17379c5257246f7fd2ddd3ff.scn"
+path="res://.import/godot_logo.glb-a3b7703e199fc92451af5fc4e64fd402.scn"
 
 [deps]
 
-source_file="res://props/godot_power_up/godot_logo.glb"
-dest_files=[ "res://.import/godot_logo.glb-ed8fa0bc17379c5257246f7fd2ddd3ff.scn" ]
+source_file="res://props/godot_head/godot_logo.glb"
+dest_files=[ "res://.import/godot_logo.glb-a3b7703e199fc92451af5fc4e64fd402.scn" ]
 
 [params]
 
