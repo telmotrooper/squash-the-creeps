@@ -11,6 +11,8 @@ var upgrades = {
   "mid_air_dash": false
 }
 
+var godot_heads_counter = 0
+
 var godot_heads_collected = {
   "TestMap_FloatingGodotHead": false,
   "TestMap_GrassGodotHead": false,
