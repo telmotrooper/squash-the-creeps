@@ -11,7 +11,11 @@ var upgrades = {
   "mid_air_dash": false
 }
 
-var godot_heads_collected = {}
+var godot_heads_collected = {
+  "TestMap_FloatingGodotHead": false,
+  "TestMap_GrassGodotHead": false,
+  "TestMap_BeachGodotHead": false
+}
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
