@@ -12,7 +12,7 @@ var upgrades = {
 }
 
 var godot_heads_counter = 0
-var total_godot_heads_in_stage = 0
+var total_godot_heads_in_map = 0
 
 var godot_heads_collected = {
   "TestMap": {
@@ -38,10 +38,10 @@ func count_godot_heads(map_name):
     total += 1
   
   godot_heads_counter = collected
-  total_godot_heads_in_stage = total
+  total_godot_heads_in_map = total
   
   if is_instance_valid(UserInterface):
-    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_stage]
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_map]
 
 func collect_godot_head(map_name, id):
   GameState.godot_heads_collected[map_name][id] = true
