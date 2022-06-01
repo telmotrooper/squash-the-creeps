@@ -39,7 +39,9 @@ func count_godot_heads(map_name):
   
   godot_heads_counter = collected
   total_godot_heads_in_stage = total
-  update_godot_head_counter()
+  
+  if is_instance_valid(UserInterface):
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_stage]
 
 func collect_godot_head(map_name, id):
   GameState.godot_heads_collected[map_name][id] = true
@@ -54,10 +56,6 @@ func register_godot_head(map_name, id):
     GameState.godot_heads_collected[map_name][id] = false
   
   count_godot_heads(map_name)
-
-func update_godot_head_counter():
-  if is_instance_valid(UserInterface):
-    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_stage]
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted

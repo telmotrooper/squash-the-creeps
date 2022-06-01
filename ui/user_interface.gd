@@ -11,7 +11,7 @@ func _ready():
   $Pause/PauseControls.visible = false
   
   # Update Godot Heads counter
-  GameState.update_godot_head_counter()
+  GameState.count_godot_heads(owner.name)
 
 func _process(_delta):
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()
