@@ -25,27 +25,36 @@ var godot_heads_collected = {
    }
  }
 
-#func temp():
-#  var x = Array(all_godot_heads_collected.keys())
+var initial_godot_heads_collected = var2bytes(godot_heads_collected)
+
+func count_godot_heads(map_name):
+  var collected = 0
+  var total = 0
+  
+  for entry in godot_heads_collected[map_name]:
+    if godot_heads_collected[map_name][entry]:
+      collected += 1
+    total += 1
+  
+  godot_heads_counter = collected
+  total_godot_heads_in_stage = total
+  update_godot_head_counter()
 
 func collect_godot_head(map_name, id):
 #  print("'%s' collected." % id)
   GameState.godot_heads_collected[map_name][id] = true
   godot_heads_counter += 1
-  update_godot_head_counter()
-  
-#  for key in all_godot_heads_collected.keys():
-#    print("%s | %s" % [key, all_godot_heads_collected[key]])
+  count_godot_heads(map_name)
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
     godot_heads_collected[map_name] = {}
   
   if not id in godot_heads_collected[map_name]:
-#    print("Registering '%s' in GameState." % id)
+    print("Registering '%s' in GameState." % id)
     GameState.godot_heads_collected[map_name][id] = false
-    total_godot_heads_in_stage += 1
-    update_godot_head_counter()
+  
+  count_godot_heads(map_name)
 
 func update_godot_head_counter():
   if is_instance_valid(UserInterface):
