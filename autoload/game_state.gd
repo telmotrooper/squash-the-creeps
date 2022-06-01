@@ -12,12 +12,51 @@ var upgrades = {
 }
 
 var godot_heads_counter = 0
+var total_godot_heads_in_map = 0
 
 var godot_heads_collected = {
-  "TestMap_FloatingGodotHead": false,
-  "TestMap_GrassGodotHead": false,
-  "TestMap_BeachGodotHead": false
-}
+  "TestMap": {
+    "FloatingGodotHead": false,
+    "GrassGodotHead": false,
+    "BeachGodotHead": false,
+   },
+  "MontainMap": {
+    "GodotHead": false
+   }
+ }
+
+# Backup this value so it can be used to start a new game.
+var initial_godot_heads_collected = var2bytes(godot_heads_collected)
+
+func count_godot_heads(map_name):
+  var collected = 0
+  var total = 0
+  
+  for entry in godot_heads_collected[map_name]:
+    if godot_heads_collected[map_name][entry]:
+      collected += 1
+    total += 1
+  
+  godot_heads_counter = collected
+  total_godot_heads_in_map = total
+  
+  if is_instance_valid(UserInterface):
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_map]
+
+func collect_godot_head(map_name, id):
+  GameState.godot_heads_collected[map_name][id] = true
+  count_godot_heads(map_name)
+
+func register_godot_head(map_name, id):
+  if not map_name in godot_heads_collected:
+    print("Warning: Update GameState to include '%s'." % map_name)
+    godot_heads_collected[map_name] = {}
+  
+  if not id in godot_heads_collected[map_name]:
+    print("Warning: Update GameState to include '%s'." % id)
+    GameState.godot_heads_collected[map_name][id] = false
+  
+  count_godot_heads(map_name)
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
