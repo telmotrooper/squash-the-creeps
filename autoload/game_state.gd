@@ -12,12 +12,30 @@ var upgrades = {
 }
 
 var godot_heads_counter = 0
+var godot_heads_in_stage = 0
 
 var godot_heads_collected = {
   "TestMap_FloatingGodotHead": false,
   "TestMap_GrassGodotHead": false,
   "TestMap_BeachGodotHead": false
 }
+
+func collect_godot_head(id):
+  print("'%s' collected." % id)
+  GameState.godot_heads_collected[id] = true
+  godot_heads_counter += 1
+  update_godot_head_counter()
+
+func register_godot_head(id):
+  if not id in godot_heads_collected:
+    print("Registering '%s' in GameState." % id)
+    GameState.godot_heads_collected[id] = false
+    godot_heads_in_stage += 1
+    update_godot_head_counter()
+
+func update_godot_head_counter():
+  if is_instance_valid(UserInterface):
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, godot_heads_in_stage]
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
