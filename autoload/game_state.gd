@@ -25,6 +25,7 @@ var godot_heads_collected = {
    }
  }
 
+# Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
 func count_godot_heads(map_name):
@@ -41,9 +42,7 @@ func count_godot_heads(map_name):
   update_godot_head_counter()
 
 func collect_godot_head(map_name, id):
-#  print("'%s' collected." % id)
   GameState.godot_heads_collected[map_name][id] = true
-  godot_heads_counter += 1
   count_godot_heads(map_name)
 
 func register_godot_head(map_name, id):
