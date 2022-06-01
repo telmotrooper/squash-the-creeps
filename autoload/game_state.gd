@@ -12,30 +12,44 @@ var upgrades = {
 }
 
 var godot_heads_counter = 0
-var godot_heads_in_stage = 0
+var total_godot_heads_in_stage = 0
 
 var godot_heads_collected = {
-  "TestMap_FloatingGodotHead": false,
-  "TestMap_GrassGodotHead": false,
-  "TestMap_BeachGodotHead": false
-}
+  "TestMap": {
+    "FloatingGodotHead": false,
+    "GrassGodotHead": false,
+    "BeachGodotHead": false,
+   },
+  "MontainMap": {
+    "GodotHead": false
+   }
+ }
 
-func collect_godot_head(id):
-  print("'%s' collected." % id)
-  GameState.godot_heads_collected[id] = true
+#func temp():
+#  var x = Array(all_godot_heads_collected.keys())
+
+func collect_godot_head(map_name, id):
+#  print("'%s' collected." % id)
+  GameState.godot_heads_collected[map_name][id] = true
   godot_heads_counter += 1
   update_godot_head_counter()
+  
+#  for key in all_godot_heads_collected.keys():
+#    print("%s | %s" % [key, all_godot_heads_collected[key]])
 
-func register_godot_head(id):
-  if not id in godot_heads_collected:
-    print("Registering '%s' in GameState." % id)
-    GameState.godot_heads_collected[id] = false
-    godot_heads_in_stage += 1
+func register_godot_head(map_name, id):
+  if not map_name in godot_heads_collected:
+    godot_heads_collected[map_name] = {}
+  
+  if not id in godot_heads_collected[map_name]:
+#    print("Registering '%s' in GameState." % id)
+    GameState.godot_heads_collected[map_name][id] = false
+    total_godot_heads_in_stage += 1
     update_godot_head_counter()
 
 func update_godot_head_counter():
   if is_instance_valid(UserInterface):
-    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, godot_heads_in_stage]
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_stage]
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted

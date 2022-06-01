@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://maps/models/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=12]
 [ext_resource path="res://maps/models/height_map/Material.material" type="Material" id=13]
+[ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -147,6 +148,9 @@ collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="CSGCylinder/StaticBody"]
 shape = SubResource( 5 )
+
+[node name="GodotHead" parent="." instance=ExtResource( 14 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 33.6, 116.8 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
