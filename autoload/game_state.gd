@@ -49,10 +49,11 @@ func collect_godot_head(map_name, id):
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
+    print("Warning: Update GameState to include '%s'." % map_name)
     godot_heads_collected[map_name] = {}
   
   if not id in godot_heads_collected[map_name]:
-    print("Registering '%s' in GameState." % id)
+    print("Warning: Update GameState to include '%s'." % id)
     GameState.godot_heads_collected[map_name][id] = false
   
   count_godot_heads(map_name)

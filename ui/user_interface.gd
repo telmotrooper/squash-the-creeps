@@ -10,7 +10,6 @@ func _ready():
   $Pause/MainPause.visible = true
   $Pause/PauseControls.visible = false
   
-  # Update Godot Heads counter
   GameState.count_godot_heads(owner.name)
 
 func _process(_delta):
