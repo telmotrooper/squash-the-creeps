@@ -80,15 +80,16 @@ margin_top = 80.0
 margin_right = 570.0
 margin_bottom = 117.0
 size_flags_horizontal = 3
+custom_constants/separation = 10
 
 [node name="ToggleFullscreenButton" type="Button" parent="Pause/MainPause/HBoxContainer3"]
-margin_right = 283.0
+margin_right = 280.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Toggle Fullscreen"
 
 [node name="ControlsButton" type="Button" parent="Pause/MainPause/HBoxContainer3"]
-margin_left = 287.0
+margin_left = 290.0
 margin_right = 570.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
