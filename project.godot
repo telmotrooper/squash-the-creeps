@@ -77,6 +77,9 @@ LAYER=false
 scene={
 "materials/storage": 0
 }
+ogg_vorbis={
+"loop": false
+}
 
 [input]
 
