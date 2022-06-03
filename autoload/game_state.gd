@@ -25,12 +25,14 @@ var godot_heads_collected = {
    }
 }
 
+var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
 
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
 func calculate_progress(): # TODO: Data structure doesn't make sense if it's calculated every time.
+  global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
   progress = {}
   var text = ""
   
@@ -40,8 +42,13 @@ func calculate_progress(): # TODO: Data structure doesn't make sense if it's cal
     for entry in godot_heads_collected[map_name]:
       if godot_heads_collected[map_name][entry]:
         progress[map_name].collected += 1
+        global_progress.collected += 1
       progress[map_name].total += 1
+      global_progress.total += 1
+    progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
     text += "%d/%d    " % [progress[map_name].collected, progress[map_name].total]
+  
+  global_progress.percentage = float(global_progress.collected) / global_progress.total
   
   if is_instance_valid(UserInterface):
     UserInterface.get_node("%World1Progress").text = text #"%s" % progress
