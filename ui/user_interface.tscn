@@ -293,10 +293,11 @@ margin_bottom = 119.0
 text = "Resume"
 
 [node name="ProgressButton" type="Button" parent="Pause/PauseMenu"]
+unique_name_in_owner = true
 margin_top = 129.0
 margin_right = 570.0
 margin_bottom = 166.0
-text = "Check Progress"
+text = "Progress: 0.00%"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu"]
 margin_top = 176.0

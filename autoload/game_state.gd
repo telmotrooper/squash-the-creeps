@@ -51,6 +51,7 @@ func calculate_progress(): # TODO: Data structure doesn't make sense if it's cal
   global_progress.percentage = float(global_progress.collected) / global_progress.total
   
   if is_instance_valid(UserInterface):
+    UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
     UserInterface.get_node("%World1Progress").text = text #"%s" % progress
 
 func count_godot_heads(map_name):
