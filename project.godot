@@ -72,6 +72,15 @@ singletons=[  ]
 window=false
 LAYER=false
 
+[importer_defaults]
+
+scene={
+"materials/storage": 0
+}
+ogg_vorbis={
+"loop": false
+}
+
 [input]
 
 move_left={

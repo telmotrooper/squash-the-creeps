@@ -4,8 +4,7 @@ extends Spatial
 
 func _process(_delta):
   if Input.is_action_just_pressed("ui_toggle_fullscreen"):
-    OS.window_fullscreen = !OS.window_fullscreen
-    Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
+    toggle_fullscreen()
 
   if Input.is_action_just_pressed("ui_fast_forward"):
     Engine.time_scale = 2.25
@@ -14,3 +13,7 @@ func _process(_delta):
   
   if get_node_or_null("/root/Main/WorldScene/TitleScreen") and Input.is_action_just_pressed("ui_cancel"):
     get_tree().quit()
+
+func toggle_fullscreen():
+  OS.window_fullscreen = !OS.window_fullscreen
+  Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
