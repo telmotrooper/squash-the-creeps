@@ -46,7 +46,7 @@ func calculate_progress(): # TODO: Data structure doesn't make sense if it's cal
       progress[map_name].total += 1
       global_progress.total += 1
     progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
-    text += "%d/%d    " % [progress[map_name].collected, progress[map_name].total]
+    text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
   
