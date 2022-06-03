@@ -1,6 +1,5 @@
 extends Control
 
-export (PackedScene) var title_screen
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
@@ -68,10 +67,7 @@ func _input(event):
     if $PauseMenu.visible:
       pause()
     else:
-      # Open pause menu and close submenus.
-      $PauseMenu.visible = true
-      for submenu in $Submenus.get_children():
-        submenu.visible = false
+      return_to_pause_menu()
 
 func _on_ResumeButton_pressed():
   pause()
@@ -102,29 +98,22 @@ func _on_MapOptionButton_item_selected(index):
   GameState.change_map(map_name)
   pause()
 
+func return_to_pause_menu():
+  $PauseMenu.visible = true
+  for submenu in $Submenus.get_children():
+    submenu.visible = false
+
 func _on_ControlsButton_pressed():
   $PauseMenu.visible = false
   get_node("%Controls").visible = true
-
-func _on_ControlsBackButton_pressed():
-  $PauseMenu.visible = true
-  get_node("%Controls").visible = false
 
 func _on_SettingsButton_pressed():
   $PauseMenu.visible = false
   get_node("%Settings").visible = true
 
-func _on_SettingsBackButton_pressed():
-  $PauseMenu.visible = true
-  get_node("%Settings").visible = false
-
 func _on_ProgressButton_pressed():
   $PauseMenu.visible = false
   get_node("%Progress").visible = true
-
-func _on_ProgressBackButton_pressed():
-  $PauseMenu.visible = true
-  get_node("%Progress").visible = false
 
 func _on_ReloadMapButton_pressed():
   GameState.reload_current_scene()

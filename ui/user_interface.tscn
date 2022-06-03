@@ -215,7 +215,7 @@ Pause – ESC
 Toggle Fullscreen – Alt+Enter
 Fast Forward – TAB"
 
-[node name="ControlsBackButton" type="Button" parent="Pause/Submenus/Controls"]
+[node name="BackButton" type="Button" parent="Pause/Submenus/Controls"]
 margin_top = 340.0
 margin_right = 365.0
 margin_bottom = 377.0
@@ -345,7 +345,7 @@ text = "mountain_map"
 items = [ "mountain_map", null, false, 0, null, "test_map", null, false, 1, null ]
 selected = 0
 
-[node name="SettingsBackButton" type="Button" parent="Pause/Submenus/Settings"]
+[node name="BackButton" type="Button" parent="Pause/Submenus/Settings"]
 margin_top = 192.0
 margin_right = 515.0
 margin_bottom = 229.0
@@ -381,7 +381,7 @@ margin_top = 49.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="ProgressBackButton" type="Button" parent="Pause/Submenus/Progress"]
+[node name="BackButton" type="Button" parent="Pause/Submenus/Progress"]
 margin_top = 104.0
 margin_right = 700.0
 margin_bottom = 141.0
@@ -397,12 +397,12 @@ text = "Back"
 [connection signal="pressed" from="Pause/PauseMenu/ReloadMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="Pause/Submenus/Controls/ControlsBackButton" to="Pause" method="_on_ControlsBackButton_pressed"]
+[connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
 [connection signal="item_selected" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="item_selected" from="Pause/Submenus/Settings/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
-[connection signal="pressed" from="Pause/Submenus/Settings/SettingsBackButton" to="Pause" method="_on_SettingsBackButton_pressed"]
-[connection signal="pressed" from="Pause/Submenus/Progress/ProgressBackButton" to="Pause" method="_on_ProgressBackButton_pressed"]
+[connection signal="pressed" from="Pause/Submenus/Settings/BackButton" to="Pause" method="return_to_pause_menu"]
+[connection signal="pressed" from="Pause/Submenus/Progress/BackButton" to="Pause" method="return_to_pause_menu"]
