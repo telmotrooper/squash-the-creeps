@@ -67,6 +67,9 @@ func _input(event):
       pause()
     else:
       return_to_pause_menu()
+  
+  if get_tree().paused and Input.is_action_just_pressed("ui_toggle_fullscreen"):
+    Hotkeys.toggle_fullscreen()
 
 func _on_ResumeButton_pressed():
   pause()
