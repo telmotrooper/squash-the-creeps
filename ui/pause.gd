@@ -105,7 +105,7 @@ func open_submenu(node_path):
   $PauseMenu.visible = false
   get_node(node_path).visible = true
 
-func _on_ReloadMapButton_pressed():
+func _on_RestartMapButton_pressed():
   GameState.reload_current_scene()
   pause()
 

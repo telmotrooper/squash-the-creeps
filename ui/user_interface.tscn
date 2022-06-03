@@ -101,37 +101,36 @@ text = "Back"
 
 [node name="Settings" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -257.5
+margin_left = -300.0
 margin_top = -114.5
-margin_right = 257.5
+margin_right = 280.0
 margin_bottom = 114.5
 custom_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/Submenus/Settings"]
-margin_right = 515.0
+margin_right = 580.0
 margin_bottom = 182.0
 custom_constants/separation = 10
 
 [node name="LeftContainer" type="VBoxContainer" parent="Pause/Submenus/Settings/HBoxContainer"]
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 182.0
 size_flags_horizontal = 3
 
 [node name="SensitivityLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 31.0
 text = "Mouse Sensitivity: 0.50"
 
 [node name="SensitivitySlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
 margin_top = 35.0
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 51.0
 min_value = 0.05
 max_value = 1.0
@@ -141,14 +140,14 @@ value = 0.1
 [node name="DrawDistanceLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
 margin_top = 55.0
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 86.0
 text = "Draw Distance: 500"
 
 [node name="DrawDistanceSlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
 margin_top = 90.0
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 106.0
 min_value = 100.0
 max_value = 500.0
@@ -156,7 +155,7 @@ value = 100.0
 
 [node name="GrassLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
 margin_top = 110.0
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 141.0
 text = "Amount of Grass:"
 __meta__ = {
@@ -166,48 +165,48 @@ __meta__ = {
 [node name="GrassOptionButton" type="OptionButton" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
 margin_top = 145.0
-margin_right = 274.0
+margin_right = 285.0
 margin_bottom = 182.0
 text = "Maximum"
 items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
 selected = 0
 
 [node name="RightContainer" type="VBoxContainer" parent="Pause/Submenus/Settings/HBoxContainer"]
-margin_left = 284.0
-margin_right = 515.0
+margin_left = 295.0
+margin_right = 580.0
 margin_bottom = 182.0
 size_flags_horizontal = 3
 
 [node name="MusicVolumeLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_right = 231.0
+margin_right = 285.0
 margin_bottom = 31.0
 text = "Music Volume: 100"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
 unique_name_in_owner = true
 margin_top = 35.0
-margin_right = 231.0
+margin_right = 285.0
 margin_bottom = 51.0
 value = 100.0
 
 [node name="SoundVolumeLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
 unique_name_in_owner = true
 margin_top = 55.0
-margin_right = 231.0
+margin_right = 285.0
 margin_bottom = 86.0
 text = "Sound Volume: 100"
 
 [node name="SoundVolumeSlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
 unique_name_in_owner = true
 margin_top = 90.0
-margin_right = 231.0
+margin_right = 285.0
 margin_bottom = 106.0
 value = 100.0
 
 [node name="MapLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
 margin_top = 110.0
-margin_right = 231.0
+margin_right = 285.0
 margin_bottom = 141.0
 text = "Map:"
 __meta__ = {
@@ -217,7 +216,7 @@ __meta__ = {
 [node name="MapOptionButton" type="OptionButton" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
 unique_name_in_owner = true
 margin_top = 145.0
-margin_right = 231.0
+margin_right = 285.0
 margin_bottom = 182.0
 text = "mountain_map"
 items = [ "mountain_map", null, false, 0, null, "test_map", null, false, 1, null ]
@@ -225,7 +224,7 @@ selected = 0
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Settings"]
 margin_top = 192.0
-margin_right = 515.0
+margin_right = 580.0
 margin_bottom = 229.0
 text = "Back"
 
@@ -267,6 +266,7 @@ text = "Back"
 
 [node name="PauseMenu" type="VBoxContainer" parent="Pause"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -360,11 +360,11 @@ margin_right = 238.0
 margin_bottom = 35.0
 text = "Mid-Air Dash"
 
-[node name="ReloadMapButton" type="Button" parent="Pause/PauseMenu"]
+[node name="RestartMapButton" type="Button" parent="Pause/PauseMenu"]
 margin_top = 320.0
 margin_right = 570.0
 margin_bottom = 357.0
-text = "Reload Map"
+text = "Restart Map"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu"]
 margin_top = 367.0
@@ -403,6 +403,7 @@ text = "Exit"
 [connection signal="pressed" from="Pause/PauseMenu/SettingsButton" to="Pause" method="open_submenu" binds= [ "%Settings" ]]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton" to="Pause" method="_on_DoubleJumpCheckButton_toggled"]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
-[connection signal="pressed" from="Pause/PauseMenu/ReloadMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_RestartMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
