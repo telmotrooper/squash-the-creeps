@@ -72,6 +72,12 @@ singletons=[  ]
 window=false
 LAYER=false
 
+[importer_defaults]
+
+scene={
+"materials/storage": 0
+}
+
 [input]
 
 move_left={
