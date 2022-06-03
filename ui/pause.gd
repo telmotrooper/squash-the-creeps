@@ -62,7 +62,6 @@ func pause():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-  # TODO: Improve this when another menu page is needed.
   if event.is_action_pressed("pause"):
     if $PauseMenu.visible:
       pause()
@@ -91,7 +90,6 @@ func _on_ToggleFullscreenButton_pressed():
 
 func _on_GrassOptionButton_item_selected(index):
   GameState.update_grass(index)
-
 
 func _on_MapOptionButton_item_selected(index):
   var map_name = get_node("%MapOptionButton").get_item_text(index)
