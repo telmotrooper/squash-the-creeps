@@ -101,6 +101,7 @@ text = "Back"
 
 [node name="Settings" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -258,6 +259,13 @@ margin_top = 49.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="World1Progress" type="Label" parent="Pause/Submenus/Progress/TabContainer/World 1"]
+unique_name_in_owner = true
+margin_right = 40.0
+margin_bottom = 31.0
+text = "Hello, World!
+Hello, World!"
+
 [node name="BackButton" type="Button" parent="Pause/Submenus/Progress"]
 margin_top = 104.0
 margin_right = 700.0
@@ -403,7 +411,7 @@ text = "Exit"
 [connection signal="pressed" from="Pause/PauseMenu/SettingsButton" to="Pause" method="open_submenu" binds= [ "%Settings" ]]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton" to="Pause" method="_on_DoubleJumpCheckButton_toggled"]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
-[connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_RestartMapButton_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
