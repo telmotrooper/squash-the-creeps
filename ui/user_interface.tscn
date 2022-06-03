@@ -70,15 +70,21 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Pause/MainPause"]
-margin_top = 33.0
+margin_top = 82.0
 margin_right = 570.0
-margin_bottom = 70.0
+margin_bottom = 119.0
 text = "Resume"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 80.0
+[node name="ProgressButton" type="Button" parent="Pause/MainPause"]
+margin_top = 129.0
 margin_right = 570.0
-margin_bottom = 117.0
+margin_bottom = 166.0
+text = "Check Progress"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Pause/MainPause"]
+margin_top = 176.0
+margin_right = 570.0
+margin_bottom = 213.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
@@ -95,112 +101,16 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Controls"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 127.0
+[node name="SettingsButton" type="Button" parent="Pause/MainPause"]
+margin_top = 223.0
 margin_right = 570.0
-margin_bottom = 309.0
-custom_constants/separation = 10
-
-[node name="LeftContainer" type="VBoxContainer" parent="Pause/MainPause/HBoxContainer"]
-margin_right = 280.0
-margin_bottom = 182.0
-size_flags_horizontal = 3
-
-[node name="SensitivityLabel" type="Label" parent="Pause/MainPause/HBoxContainer/LeftContainer"]
-margin_right = 280.0
-margin_bottom = 31.0
-text = "Mouse Sensitivity: "
-
-[node name="SensitivitySlider" type="HSlider" parent="Pause/MainPause/HBoxContainer/LeftContainer"]
-margin_top = 35.0
-margin_right = 280.0
-margin_bottom = 51.0
-min_value = 0.05
-max_value = 1.0
-step = 0.05
-value = 0.1
-
-[node name="DrawDistanceLabel" type="Label" parent="Pause/MainPause/HBoxContainer/LeftContainer"]
-margin_top = 55.0
-margin_right = 280.0
-margin_bottom = 86.0
-text = "Draw Distance: "
-
-[node name="DrawDistanceSlider" type="HSlider" parent="Pause/MainPause/HBoxContainer/LeftContainer"]
-margin_top = 90.0
-margin_right = 280.0
-margin_bottom = 106.0
-min_value = 100.0
-max_value = 500.0
-value = 100.0
-
-[node name="GrassLabel" type="Label" parent="Pause/MainPause/HBoxContainer/LeftContainer"]
-margin_top = 110.0
-margin_right = 280.0
-margin_bottom = 141.0
-text = "Amount of Grass:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GrassOptionButton" type="OptionButton" parent="Pause/MainPause/HBoxContainer/LeftContainer"]
-margin_top = 145.0
-margin_right = 280.0
-margin_bottom = 182.0
-text = "Maximum"
-items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
-selected = 0
-
-[node name="RightContainer" type="VBoxContainer" parent="Pause/MainPause/HBoxContainer"]
-margin_left = 290.0
-margin_right = 570.0
-margin_bottom = 182.0
-size_flags_horizontal = 3
-
-[node name="MusicVolumeLabel" type="Label" parent="Pause/MainPause/HBoxContainer/RightContainer"]
-margin_right = 280.0
-margin_bottom = 31.0
-text = "Music Volume: "
-
-[node name="MusicVolumeSlider" type="HSlider" parent="Pause/MainPause/HBoxContainer/RightContainer"]
-margin_top = 35.0
-margin_right = 280.0
-margin_bottom = 51.0
-value = 100.0
-
-[node name="SoundVolumeLabel" type="Label" parent="Pause/MainPause/HBoxContainer/RightContainer"]
-margin_top = 55.0
-margin_right = 280.0
-margin_bottom = 86.0
-text = "Sound Volume: "
-
-[node name="SoundVolumeSlider" type="HSlider" parent="Pause/MainPause/HBoxContainer/RightContainer"]
-margin_top = 90.0
-margin_right = 280.0
-margin_bottom = 106.0
-value = 100.0
-
-[node name="MapLabel" type="Label" parent="Pause/MainPause/HBoxContainer/RightContainer"]
-margin_top = 110.0
-margin_right = 280.0
-margin_bottom = 141.0
-text = "Map:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MapOptionButton" type="OptionButton" parent="Pause/MainPause/HBoxContainer/RightContainer"]
-margin_top = 145.0
-margin_right = 280.0
-margin_bottom = 182.0
-text = "mountain_map"
-items = [ "mountain_map", null, false, 0, null, "test_map", null, false, 1, null ]
-selected = 0
+margin_bottom = 260.0
+text = "Settings"
 
 [node name="UpgradesContainer" type="VBoxContainer" parent="Pause/MainPause"]
-margin_top = 319.0
+margin_top = 270.0
 margin_right = 570.0
-margin_bottom = 359.0
+margin_bottom = 310.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/MainPause/UpgradesContainer"]
 margin_right = 570.0
@@ -240,15 +150,15 @@ margin_bottom = 35.0
 text = "Mid-Air Dash"
 
 [node name="ReloadMapButton" type="Button" parent="Pause/MainPause"]
-margin_top = 369.0
+margin_top = 320.0
 margin_right = 570.0
-margin_bottom = 406.0
+margin_bottom = 357.0
 text = "Reload Map"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/MainPause"]
-margin_top = 416.0
+margin_top = 367.0
 margin_right = 570.0
-margin_bottom = 453.0
+margin_bottom = 404.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 alignment = 1
@@ -303,18 +213,166 @@ margin_right = 365.0
 margin_bottom = 377.0
 text = "Back"
 
+[node name="Settings" type="VBoxContainer" parent="Pause"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.5
+margin_top = -114.5
+margin_right = 257.5
+margin_bottom = 114.5
+custom_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/Settings"]
+margin_right = 515.0
+margin_bottom = 182.0
+custom_constants/separation = 10
+
+[node name="LeftContainer" type="VBoxContainer" parent="Pause/Settings/HBoxContainer"]
+margin_right = 274.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+
+[node name="SensitivityLabel" type="Label" parent="Pause/Settings/HBoxContainer/LeftContainer"]
+unique_name_in_owner = true
+margin_right = 274.0
+margin_bottom = 31.0
+text = "Mouse Sensitivity: 0.50"
+
+[node name="SensitivitySlider" type="HSlider" parent="Pause/Settings/HBoxContainer/LeftContainer"]
+unique_name_in_owner = true
+margin_top = 35.0
+margin_right = 274.0
+margin_bottom = 51.0
+min_value = 0.05
+max_value = 1.0
+step = 0.05
+value = 0.1
+
+[node name="DrawDistanceLabel" type="Label" parent="Pause/Settings/HBoxContainer/LeftContainer"]
+unique_name_in_owner = true
+margin_top = 55.0
+margin_right = 274.0
+margin_bottom = 86.0
+text = "Draw Distance: 500"
+
+[node name="DrawDistanceSlider" type="HSlider" parent="Pause/Settings/HBoxContainer/LeftContainer"]
+unique_name_in_owner = true
+margin_top = 90.0
+margin_right = 274.0
+margin_bottom = 106.0
+min_value = 100.0
+max_value = 500.0
+value = 100.0
+
+[node name="GrassLabel" type="Label" parent="Pause/Settings/HBoxContainer/LeftContainer"]
+margin_top = 110.0
+margin_right = 274.0
+margin_bottom = 141.0
+text = "Amount of Grass:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrassOptionButton" type="OptionButton" parent="Pause/Settings/HBoxContainer/LeftContainer"]
+unique_name_in_owner = true
+margin_top = 145.0
+margin_right = 274.0
+margin_bottom = 182.0
+text = "Maximum"
+items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
+selected = 0
+
+[node name="RightContainer" type="VBoxContainer" parent="Pause/Settings/HBoxContainer"]
+margin_left = 284.0
+margin_right = 515.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+
+[node name="MusicVolumeLabel" type="Label" parent="Pause/Settings/HBoxContainer/RightContainer"]
+unique_name_in_owner = true
+margin_right = 231.0
+margin_bottom = 31.0
+text = "Music Volume: 100"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Pause/Settings/HBoxContainer/RightContainer"]
+unique_name_in_owner = true
+margin_top = 35.0
+margin_right = 231.0
+margin_bottom = 51.0
+value = 100.0
+
+[node name="SoundVolumeLabel" type="Label" parent="Pause/Settings/HBoxContainer/RightContainer"]
+unique_name_in_owner = true
+margin_top = 55.0
+margin_right = 231.0
+margin_bottom = 86.0
+text = "Sound Volume: 100"
+
+[node name="SoundVolumeSlider" type="HSlider" parent="Pause/Settings/HBoxContainer/RightContainer"]
+unique_name_in_owner = true
+margin_top = 90.0
+margin_right = 231.0
+margin_bottom = 106.0
+value = 100.0
+
+[node name="MapLabel" type="Label" parent="Pause/Settings/HBoxContainer/RightContainer"]
+margin_top = 110.0
+margin_right = 231.0
+margin_bottom = 141.0
+text = "Map:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapOptionButton" type="OptionButton" parent="Pause/Settings/HBoxContainer/RightContainer"]
+unique_name_in_owner = true
+margin_top = 145.0
+margin_right = 231.0
+margin_bottom = 182.0
+text = "mountain_map"
+items = [ "mountain_map", null, false, 0, null, "test_map", null, false, 1, null ]
+selected = 0
+
+[node name="SettingsBackButton" type="Button" parent="Pause/Settings"]
+margin_top = 192.0
+margin_right = 515.0
+margin_bottom = 229.0
+text = "Back"
+
+[node name="ProgressPause" type="VBoxContainer" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.5
+margin_top = -20.0
+margin_right = 36.5
+margin_bottom = 20.0
+
+[node name="ProgressBackButton" type="Button" parent="Pause/ProgressPause"]
+margin_right = 73.0
+margin_bottom = 37.0
+text = "Back"
+
 [connection signal="pressed" from="Pause/MainPause/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Pause/MainPause/ProgressButton" to="Pause" method="_on_ProgressButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer3/ToggleFullscreenButton" to="Pause" method="_on_ToggleFullscreenButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer3/ControlsButton" to="Pause" method="_on_ControlsButton_pressed"]
-[connection signal="value_changed" from="Pause/MainPause/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
-[connection signal="value_changed" from="Pause/MainPause/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
-[connection signal="item_selected" from="Pause/MainPause/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
-[connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
-[connection signal="value_changed" from="Pause/MainPause/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
-[connection signal="item_selected" from="Pause/MainPause/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
+[connection signal="pressed" from="Pause/MainPause/SettingsButton" to="Pause" method="_on_SettingsButton_pressed"]
 [connection signal="toggled" from="Pause/MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton" to="Pause" method="_on_DoubleJumpCheckButton_toggled"]
 [connection signal="toggled" from="Pause/MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
 [connection signal="pressed" from="Pause/MainPause/ReloadMapButton" to="Pause" method="_on_ReloadMapButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/MainPause/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Pause/PauseControls/ControlsBackButton" to="Pause" method="_on_ControlsBackButton_pressed"]
+[connection signal="value_changed" from="Pause/Settings/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
+[connection signal="value_changed" from="Pause/Settings/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
+[connection signal="item_selected" from="Pause/Settings/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
+[connection signal="value_changed" from="Pause/Settings/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="Pause/Settings/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="item_selected" from="Pause/Settings/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
+[connection signal="pressed" from="Pause/Settings/SettingsBackButton" to="Pause" method="_on_SettingsBackButton_pressed"]
+[connection signal="pressed" from="Pause/ProgressPause/ProgressBackButton" to="Pause" method="_on_ProgressBackButton_pressed"]

@@ -7,8 +7,11 @@ func _ready():
   
   get_tree().paused = false
   $Pause.visible = false
+  
   $Pause/MainPause.visible = true
   $Pause/PauseControls.visible = false
+  $Pause/Settings.visible = false
+  $Pause/ProgressPause.visible = false
   
   GameState.count_godot_heads(owner.name)
 
