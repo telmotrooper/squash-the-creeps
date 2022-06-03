@@ -8,10 +8,11 @@ func _ready():
   get_tree().paused = false
   $Pause.visible = false
   
-  $Pause/MainPause.visible = true
-  $Pause/PauseControls.visible = false
-  $Pause/Settings.visible = false
-  $Pause/ProgressPause.visible = false
+  $Pause/PauseMenu.visible = true
+
+  # Guarantee all submenus are initially closed.  
+  for submenu in $Pause/Submenus.get_children():
+    submenu.visible = false
   
   GameState.count_godot_heads(owner.name)
 

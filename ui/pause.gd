@@ -27,10 +27,10 @@ func _ready():
   get_node("%SoundVolumeLabel").text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
   get_node("%SoundVolumeSlider").value = Configuration.get_value("audio", "sound_volume")
 
-  $MainPause/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton.pressed = Configuration.get_value("debug", "mid_air_dash")
+  get_node("%MidAirDashCheckButton").pressed = Configuration.get_value("debug", "mid_air_dash")
   GameState.upgrades["mid_air_dash"] = Configuration.get_value("debug", "mid_air_dash")
   
-  $MainPause/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton.pressed = Configuration.get_value("debug", "double_jump")
+  get_node("%DoubleJumpCheckButton").pressed = Configuration.get_value("debug", "double_jump")
   GameState.upgrades["double_jump"] = Configuration.get_value("debug", "double_jump")
 
 func _on_DrawDistanceSlider_value_changed(value):
@@ -65,7 +65,7 @@ func pause():
 func _input(event):
   # TODO: Improve this when another menu page is needed.
   if event.is_action_pressed("pause"):
-    if $MainPause.visible:
+    if $PauseMenu.visible:
       pause()
     else: # Close any submenu open.
       _on_ControlsBackButton_pressed()
@@ -102,28 +102,28 @@ func _on_MapOptionButton_item_selected(index):
   pause()
 
 func _on_ControlsButton_pressed():
-  $MainPause.visible = false
-  $PauseControls.visible = true
+  $PauseMenu.visible = false
+  get_node("%Controls").visible = true
 
 func _on_ControlsBackButton_pressed():
-  $MainPause.visible = true
-  $PauseControls.visible = false
+  $PauseMenu.visible = true
+  get_node("%Controls").visible = false
 
 func _on_SettingsButton_pressed():
-  $MainPause.visible = false
-  $Settings.visible = true
+  $PauseMenu.visible = false
+  get_node("%Settings").visible = true
 
 func _on_SettingsBackButton_pressed():
-  $MainPause.visible = true
-  $Settings.visible = false
+  $PauseMenu.visible = true
+  get_node("%Settings").visible = false
 
 func _on_ProgressButton_pressed():
-  $MainPause.visible = false
-  $ProgressPause.visible = true
+  $PauseMenu.visible = false
+  get_node("%Progress").visible = true
 
 func _on_ProgressBackButton_pressed():
-  $MainPause.visible = true
-  $ProgressPause.visible = false
+  $PauseMenu.visible = true
+  get_node("%Progress").visible = false
 
 func _on_ReloadMapButton_pressed():
   GameState.reload_current_scene()
