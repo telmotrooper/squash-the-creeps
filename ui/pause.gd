@@ -67,10 +67,11 @@ func _input(event):
   if event.is_action_pressed("pause"):
     if $PauseMenu.visible:
       pause()
-    else: # Close any submenu open.
-      _on_ControlsBackButton_pressed()
-      _on_SettingsBackButton_pressed()
-      _on_ProgressBackButton_pressed()
+    else:
+      # Open pause menu and close submenus.
+      $PauseMenu.visible = true
+      for submenu in $Submenus.get_children():
+        submenu.visible = false
 
 func _on_ResumeButton_pressed():
   pause()
