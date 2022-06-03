@@ -101,17 +101,9 @@ func return_to_pause_menu():
   for submenu in $Submenus.get_children():
     submenu.visible = false
 
-func _on_ControlsButton_pressed():
+func open_submenu(node_path):
   $PauseMenu.visible = false
-  get_node("%Controls").visible = true
-
-func _on_SettingsButton_pressed():
-  $PauseMenu.visible = false
-  get_node("%Settings").visible = true
-
-func _on_ProgressButton_pressed():
-  $PauseMenu.visible = false
-  get_node("%Progress").visible = true
+  get_node(node_path).visible = true
 
 func _on_ReloadMapButton_pressed():
   GameState.reload_current_scene()
