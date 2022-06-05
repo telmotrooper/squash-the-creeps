@@ -15,6 +15,7 @@ func _ready():
     submenu.visible = false
   
   GameState.count_godot_heads(owner.name)
+  GameState.generate_progress_report()
 
 func _process(_delta):
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()
