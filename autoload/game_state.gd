@@ -51,7 +51,10 @@ func initialize_progress():
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
-func generate_progress_report():
+func generate_progress_report(current_map):
+  # This function reads the "progress" dictionary and updates the "Progress" menu accordingly.
+  # If current map is provided, we also update the HUD with map-specific progress.
+  
   assert(is_instance_valid(UserInterface))
 
   var text = ""
@@ -62,9 +65,9 @@ func generate_progress_report():
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
   UserInterface.get_node("%World1Progress").text = text #"%s" % progress
-
-func count_godot_heads(map_name):
-  UserInterface.get_node("ScoreLabel").text = "%s / %s" % [progress[map_name].collected, progress[map_name].total]
+  
+  if current_map:
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
 
 func collect_godot_head(map_name, id):
   GameState.godot_heads_collected[map_name][id] = true
@@ -75,8 +78,7 @@ func collect_godot_head(map_name, id):
   
   progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
   global_progress.percentage = float(global_progress.collected) / global_progress.total
-  generate_progress_report()
-  count_godot_heads(map_name)
+  generate_progress_report(map_name)
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
