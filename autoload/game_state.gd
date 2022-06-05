@@ -65,23 +65,10 @@ func generate_progress_report():
   UserInterface.get_node("%World1Progress").text = text #"%s" % progress
 
 func count_godot_heads(map_name):
-  var collected = 0
-  var total = 0
-  
-  for entry in godot_heads_collected[map_name]:
-    if godot_heads_collected[map_name][entry]:
-      collected += 1
-    total += 1
-  
-  godot_heads_counter = collected
-  total_godot_heads_in_map = total
-  
-  if is_instance_valid(UserInterface):
-    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_map]
+  UserInterface.get_node("ScoreLabel").text = "%s / %s" % [progress[map_name].collected, progress[map_name].total]
 
 func collect_godot_head(map_name, id):
   GameState.godot_heads_collected[map_name][id] = true
-  count_godot_heads(map_name)
   
   # Update progress.
   progress[map_name].collected += 1
@@ -90,6 +77,7 @@ func collect_godot_head(map_name, id):
   progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
   global_progress.percentage = float(global_progress.collected) / global_progress.total
   generate_progress_report()
+  count_godot_heads(map_name)
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
