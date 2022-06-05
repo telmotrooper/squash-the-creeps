@@ -31,13 +31,15 @@ var progress = {}
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
-func calculate_progress(): # TODO: Data structure doesn't make sense if it's calculated every time.
+func initialize(): # Used in "New Game".
+  godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
+  initialize_progress()
+
+func initialize_progress():
   global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
   progress = {}
-  var text = ""
   
   for map_name in godot_heads_collected:
-    text += map_name + ": "
     progress[map_name] = { "collected": 0, "total": 0 }
     for entry in godot_heads_collected[map_name]:
       if godot_heads_collected[map_name][entry]:
@@ -46,34 +48,37 @@ func calculate_progress(): # TODO: Data structure doesn't make sense if it's cal
       progress[map_name].total += 1
       global_progress.total += 1
     progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
-    text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
-  
-  if is_instance_valid(UserInterface):
-    UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
-    UserInterface.get_node("%World1Progress").text = text #"%s" % progress
 
-func count_godot_heads(map_name):
-  var collected = 0
-  var total = 0
+func generate_progress_report(current_map):
+  # This function reads the "progress" dictionary and updates the "Progress" menu accordingly.
+  # If current map is provided, we also update the HUD with map-specific progress.
   
-  for entry in godot_heads_collected[map_name]:
-    if godot_heads_collected[map_name][entry]:
-      collected += 1
-    total += 1
+  assert(is_instance_valid(UserInterface))
+
+  var text = ""
   
-  godot_heads_counter = collected
-  total_godot_heads_in_map = total
+  for map_name in godot_heads_collected:
+    text += map_name + ": "
+    text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
   
-  if is_instance_valid(UserInterface):
-    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_map]
+  UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
+  UserInterface.get_node("%World1Progress").text = text #"%s" % progress
   
-  calculate_progress()
+  if current_map:
+    UserInterface.get_node("ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
 
 func collect_godot_head(map_name, id):
   GameState.godot_heads_collected[map_name][id] = true
-  count_godot_heads(map_name)
+  
+  # Update progress.
+  progress[map_name].collected += 1
+  global_progress.collected += 1
+  
+  progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
+  global_progress.percentage = float(global_progress.collected) / global_progress.total
+  generate_progress_report(map_name)
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
@@ -83,8 +88,6 @@ func register_godot_head(map_name, id):
   if not id in godot_heads_collected[map_name]:
     print("Warning: Update GameState to include '%s'." % id)
     GameState.godot_heads_collected[map_name][id] = false
-  
-  count_godot_heads(map_name)
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
