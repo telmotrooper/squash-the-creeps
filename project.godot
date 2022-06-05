@@ -72,6 +72,10 @@ singletons=[  ]
 window=false
 LAYER=false
 
+[gui]
+
+theme/custom_font="res://assets/fonts/montserrat_semi_bold_24.tres"
+
 [importer_defaults]
 
 scene={
