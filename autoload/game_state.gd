@@ -58,7 +58,6 @@ func generate_progress_report():
   
   for map_name in godot_heads_collected:
     text += map_name + ": "
-    progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
     text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
