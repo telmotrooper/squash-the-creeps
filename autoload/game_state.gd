@@ -64,7 +64,7 @@ func generate_progress_report(current_map):
     text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
-  UserInterface.get_node("%World1Progress").text = text #"%s" % progress
+  UserInterface.get_node("%World1Progress").text = text
   
   if current_map:
     UserInterface.get_node("ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
