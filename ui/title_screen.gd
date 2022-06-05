@@ -18,9 +18,7 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name):
       GameState.MapName = "test_map"
       if is_instance_valid($"/root/Main"):
         $"/root/Main".load_world(new_game_scene.get_path())
-        # Clean up collectables.
-        GameState.godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
-        GameState.calculate_progress()
+        GameState.initialize()
       else:
         var _error = get_tree().change_scene(new_game_scene.get_path())
     elif button_pressed == "exit":

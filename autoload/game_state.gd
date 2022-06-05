@@ -31,6 +31,10 @@ var progress = {}
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
+func initialize(): # Used in "New Game".
+  godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
+  calculate_progress()
+
 func calculate_progress(): # TODO: Data structure doesn't make sense if it's calculated every time.
   global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
   progress = {}
