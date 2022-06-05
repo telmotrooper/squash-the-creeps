@@ -82,8 +82,6 @@ func register_godot_head(map_name, id):
   if not id in godot_heads_collected[map_name]:
     print("Warning: Update GameState to include '%s'." % id)
     GameState.godot_heads_collected[map_name][id] = false
-  
-  count_godot_heads(map_name)
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
