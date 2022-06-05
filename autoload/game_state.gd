@@ -68,12 +68,11 @@ func count_godot_heads(map_name):
   
   if is_instance_valid(UserInterface):
     UserInterface.get_node("ScoreLabel").text = "%s / %s" % [godot_heads_counter, total_godot_heads_in_map]
-  
-  calculate_progress()
 
 func collect_godot_head(map_name, id):
   GameState.godot_heads_collected[map_name][id] = true
   count_godot_heads(map_name)
+  calculate_progress()
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
