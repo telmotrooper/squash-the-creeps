@@ -11,3 +11,5 @@
 * Sound [Water Pour](https://freesound.org/people/JohnsonBrandEditing/sounds/173930/) by [JohnsonBrandEditing](https://freesound.org/people/JohnsonBrandEditing/)
 * Icon [Critical free icon](https://www.flaticon.com/free-icon/critical_7037197) by [Febrian Hidayat](https://www.flaticon.com/authors/febrian-hidayat)
 * Material [Ground 033](https://ambientcg.com/view?id=Ground033) by [ambientCG](https://ambientcg.com/)
+* [Red Gem](https://sketchfab.com/3d-models/red-gem-3dcfeb2d4d9c4f37bf0c1cd57bad5a29) by [bang_m](https://sketchfab.com/bang_m)
+* [Game sound, high pitched ping, plonky synth](https://www.zapsplat.com/music/game-sound-high-pitched-ping-plonky-synth/) by [ZapSplat](https://www.zapsplat.com/)
