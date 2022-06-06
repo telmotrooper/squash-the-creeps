@@ -52,6 +52,9 @@ func initialize_progress():
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
 func generate_progress_report(current_map):
+  if progress.empty(): # Useful when starting map from editor.
+    initialize_progress()
+  
   # This function reads the "progress" dictionary and updates the "Progress" menu accordingly.
   # If current map is provided, we also update the HUD with map-specific progress.
   
