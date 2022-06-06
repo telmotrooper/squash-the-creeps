@@ -18,7 +18,7 @@ func _physics_process(delta):
     t += delta * 0.25
     self.global_transform.origin = gem_position.linear_interpolate(player_position, t)
     
-    if distance <= 0.8 or t >= 1.0:
+    if distance <= 1 or t >= 1.0:
       GameState.play_audio(collected_sound)
       queue_free()
 

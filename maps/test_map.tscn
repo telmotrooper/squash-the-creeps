@@ -452,7 +452,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
 transform = Transform( 1.65158, 0, 0, 0, -0.2, 0, 0, 0, 1.65158, 0, 4.6, 0 )
 
 [node name="RedGem" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6, 0.6, -4.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2, 0.0999999, -23.4 )
+
+[node name="RedGem2" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8, 0.0999999, -18.2 )
+
+[node name="RedGem3" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6, 4.4, -14.2 )
+
+[node name="RedGem4" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8, 4.4, -9.3 )
+
+[node name="RedGem5" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1, 4.4, 4.7 )
+
+[node name="RedGem6" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8, 4.4, 14.3 )
+
+[node name="RedGem7" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6, 4.4, 18.2 )
+
+[node name="RedGem8" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4, 4.4, 15.3 )
+
+[node name="RedGem9" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.2, 4.4, 3.1 )
+
+[node name="RedGem10" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4, 4.4, -9.9 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
