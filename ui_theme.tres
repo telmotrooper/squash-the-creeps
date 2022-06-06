@@ -1,3 +1,5 @@
 [gd_resource type="Theme" format=2]
 
 [resource]
+HBoxContainer/constants/separation = 10
+VBoxContainer/constants/separation = 10

@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://menu_env.tres" type="Environment" id=1]
+[ext_resource path="res://ui/menu_env.tres" type="Environment" id=1]
 [ext_resource path="res://ui/buttons/continue_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/buttons/exit_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/title_screen.gd" type="Script" id=5]
