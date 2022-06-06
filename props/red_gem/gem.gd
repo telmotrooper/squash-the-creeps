@@ -1,6 +1,8 @@
 extends RigidBody
 class_name Gem
 
+export (AudioStream) var collected_sound
+
 var follow_player := false
 var t := 0.0
 
@@ -17,6 +19,7 @@ func _physics_process(delta):
     self.global_transform.origin = gem_position.linear_interpolate(player_position, t)
     
     if distance <= 0.8 or t >= 1.0:
+      GameState.play_audio(collected_sound)
       queue_free()
 
 func _on_GrabArea_body_entered(_body):

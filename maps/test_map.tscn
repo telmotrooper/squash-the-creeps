@@ -452,7 +452,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
 transform = Transform( 1.65158, 0, 0, 0, -0.2, 0, 0, 0, 1.65158, 0, 4.6, 0 )
 
 [node name="RedGem" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6, 4, -4.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6, 0.6, -4.5 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
