@@ -18,7 +18,6 @@ func _ready():
   
   GameState.generate_progress_report(owner.name)
   get_node("%GemLabel").text = "%d" % GameState.amount_of_gems
-  $AnimationPlayer.play("HIDDEN")
 
 func _process(_delta):
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()

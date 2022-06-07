@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/crystal green.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=3]
-resource_name = "HIDDEN"
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD:rect_position")
@@ -23,7 +23,8 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -110 ) ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
+resource_name = "VISIBLE"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD:rect_position")
@@ -61,8 +62,8 @@ theme = ExtResource( 1 )
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/HIDDEN = SubResource( 3 )
-anims/RESET = SubResource( 1 )
+anims/RESET = SubResource( 3 )
+anims/VISIBLE = SubResource( 4 )
 anims/hide_hud = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -70,8 +71,9 @@ wait_time = 2.0
 one_shot = true
 
 [node name="HUD" type="Control" parent="."]
+margin_top = -110.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = -70.0
 
 [node name="ScoreSprite" type="Sprite" parent="HUD"]
 position = Vector2( 10, 10 )
