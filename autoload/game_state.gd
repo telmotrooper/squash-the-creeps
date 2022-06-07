@@ -81,6 +81,7 @@ func generate_progress_report(current_map):
     UserInterface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
 
 func collect_godot_head(map_name, id):
+  UserInterface.show_hud()
   GameState.godot_heads_collected[map_name][id] = true
   
   # Update progress.
