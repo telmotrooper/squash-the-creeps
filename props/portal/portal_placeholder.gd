@@ -20,3 +20,5 @@ func _on_Portal_entered(_body):
     #$AudioStreamPlayer.play()
     GameState.Player.get_node("EffectsAnimationPlayer").play("shrink")
     GameState.change_map(map_name)
+  else:
+    GameState.UserInterface.show_hud()

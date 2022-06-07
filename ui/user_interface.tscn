@@ -3,7 +3,7 @@
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
 [ext_resource path="res://assets/godot_logo.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/fonts/montserrat_extra_bold_24_with_outline.tres" type="DynamicFont" id=4]
 [ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
 [ext_resource path="res://assets/crystal green.png" type="Texture" id=6]
 
