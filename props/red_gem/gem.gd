@@ -20,6 +20,7 @@ func _physics_process(delta):
     
     if distance <= 1 or t >= 1.0:
       GameState.play_audio(collected_sound)
+      GameState.add_gems(5)
       queue_free()
 
 func _on_GrabArea_body_entered(_body):

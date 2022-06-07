@@ -11,8 +11,10 @@ var upgrades = {
   "mid_air_dash": false
 }
 
-var godot_heads_counter = 0
-var total_godot_heads_in_map = 0
+var amount_of_gems := 0
+
+var godot_heads_counter := 0
+var total_godot_heads_in_map := 0
 
 var godot_heads_collected = {
   "TestMap": {
@@ -31,9 +33,14 @@ var progress = {}
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
+func add_gems(amount: int):
+  amount_of_gems += amount
+  UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
+
 func initialize(): # Used in "New Game".
   godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
   initialize_progress()
+  amount_of_gems = 0
 
 func initialize_progress():
   global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
