@@ -1,5 +1,7 @@
 extends Control
 
+var hud_visible := false
+
 func _ready():
   # If every map is gonna have its own UserInterface instance,
   # we'll need a reference to the current one.
@@ -15,6 +17,7 @@ func _ready():
     submenu.visible = false
   
   GameState.generate_progress_report(owner.name)
+  get_node("%GemLabel").text = "%d" % GameState.amount_of_gems
 
 func _process(_delta):
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()
@@ -26,3 +29,14 @@ func _unhandled_input(event):
 func retry():
   $Retry.show()
   GameState.RetryCamera.current = true
+
+func show_hud():
+  $HUDTimer.start()
+  if not hud_visible:
+    $HUDAnimationPlayer.play_backwards("hide_hud")
+    hud_visible = true
+
+func hide_hud(): # Triggered by HUDTimer.
+  if hud_visible:
+    $HUDAnimationPlayer.play("hide_hud")
+    hud_visible = false

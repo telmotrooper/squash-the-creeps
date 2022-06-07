@@ -1,10 +1,59 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
 [ext_resource path="res://assets/godot_logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=4]
 [ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
+[ext_resource path="res://assets/crystal green.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=3]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -110 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "VISIBLE"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "hide_hud"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -110 ) ]
+}
 
 [node name="UserInterface" type="Control"]
 anchor_right = 1.0
@@ -12,27 +61,16 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 5 )
 
-[node name="ScoreSprite" type="Sprite" parent="."]
-position = Vector2( 10, 10 )
-scale = Vector2( 0.0816667, 0.0816667 )
-texture = ExtResource( 3 )
-centered = false
+[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+unique_name_in_owner = true
+anims/RESET = SubResource( 3 )
+anims/VISIBLE = SubResource( 4 )
+anims/hide_hud = SubResource( 2 )
 
-[node name="ScoreLabel" type="Label" parent="."]
-margin_left = 65.0
-margin_top = 20.0
-margin_bottom = 30.0
-custom_fonts/font = ExtResource( 4 )
-text = "0 / 0"
-
-[node name="FPSLabel" type="Label" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = -47.0
-margin_right = 88.0
-custom_fonts/font = ExtResource( 4 )
-text = "FPS: 0"
+[node name="HUDTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="Retry" type="ColorRect" parent="."]
 visible = false
@@ -391,6 +429,51 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Exit"
 
+[node name="HUD" type="Control" parent="."]
+margin_top = -110.0
+margin_right = 40.0
+margin_bottom = -70.0
+
+[node name="ScoreSprite" type="Sprite" parent="HUD"]
+position = Vector2( 10, 10 )
+scale = Vector2( 0.0816667, 0.0816667 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+margin_left = 65.0
+margin_top = 20.0
+margin_right = 121.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 4 )
+text = "0 / 0"
+
+[node name="CrystalGreen" type="Sprite" parent="HUD"]
+position = Vector2( 10, 60 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="GemLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+margin_left = 65.0
+margin_top = 70.0
+margin_right = 81.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+
+[node name="FPSLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -47.0
+margin_right = 104.0
+custom_fonts/font = ExtResource( 4 )
+text = "FPS: 0"
+
+[connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]

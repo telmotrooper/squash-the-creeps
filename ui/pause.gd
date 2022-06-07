@@ -55,9 +55,11 @@ func pause():
   get_tree().paused = not get_tree().paused
   visible = get_tree().paused
   if visible:
+    get_parent().show_hud()
     GameState.get_node("BGM").volume_db = GameState.get_node("BGM").volume_db - 10
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
   else:
+    get_parent().hide_hud()
     GameState.get_node("BGM").volume_db = GameState.get_node("BGM").volume_db + 10
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
