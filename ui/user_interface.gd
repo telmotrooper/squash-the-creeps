@@ -31,12 +31,12 @@ func retry():
   GameState.RetryCamera.current = true
 
 func show_hud():
-  $Timer.start()
+  $HUDTimer.start()
   if not hud_visible:
-    $AnimationPlayer.play_backwards("hide_hud")
+    $HUDAnimationPlayer.play_backwards("hide_hud")
     hud_visible = true
 
-func _on_Timer_timeout():
+func hide_hud(): # Triggered by HUDTimer.
   if hud_visible:
-    $AnimationPlayer.play("hide_hud")
+    $HUDAnimationPlayer.play("hide_hud")
     hud_visible = false

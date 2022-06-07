@@ -61,58 +61,16 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 5 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+unique_name_in_owner = true
 anims/RESET = SubResource( 3 )
 anims/VISIBLE = SubResource( 4 )
 anims/hide_hud = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="HUDTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
-[node name="HUD" type="Control" parent="."]
-margin_top = -110.0
-margin_right = 40.0
-margin_bottom = -70.0
-
-[node name="ScoreSprite" type="Sprite" parent="HUD"]
-position = Vector2( 10, 10 )
-scale = Vector2( 0.0816667, 0.0816667 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="ScoreLabel" type="Label" parent="HUD"]
-unique_name_in_owner = true
-margin_left = 65.0
-margin_top = 20.0
-margin_right = 121.0
-margin_bottom = 51.0
-custom_fonts/font = ExtResource( 4 )
-text = "0 / 0"
-
-[node name="CrystalGreen" type="Sprite" parent="HUD"]
-position = Vector2( 10, 60 )
-scale = Vector2( 0.16, 0.16 )
-texture = ExtResource( 6 )
-centered = false
-
-[node name="GemLabel" type="Label" parent="HUD"]
-unique_name_in_owner = true
-margin_left = 65.0
-margin_top = 70.0
-margin_right = 81.0
-margin_bottom = 101.0
-custom_fonts/font = ExtResource( 4 )
-text = "0"
-
-[node name="FPSLabel" type="Label" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = -47.0
-margin_right = 88.0
-custom_fonts/font = ExtResource( 4 )
-text = "FPS: 0"
 
 [node name="Retry" type="ColorRect" parent="."]
 visible = false
@@ -471,7 +429,51 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Exit"
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="HUD" type="Control" parent="."]
+margin_top = -110.0
+margin_right = 40.0
+margin_bottom = -70.0
+
+[node name="ScoreSprite" type="Sprite" parent="HUD"]
+position = Vector2( 10, 10 )
+scale = Vector2( 0.0816667, 0.0816667 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+margin_left = 65.0
+margin_top = 20.0
+margin_right = 121.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 4 )
+text = "0 / 0"
+
+[node name="CrystalGreen" type="Sprite" parent="HUD"]
+position = Vector2( 10, 60 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="GemLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+margin_left = 65.0
+margin_top = 70.0
+margin_right = 81.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+
+[node name="FPSLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -47.0
+margin_right = 104.0
+custom_fonts/font = ExtResource( 4 )
+text = "FPS: 0"
+
+[connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
