@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://props/portal/portal_placeholder.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=3]
 
 [sub_resource type="SpatialMaterial" id=19]
 albedo_color = Color( 0.639216, 0.141176, 0.141176, 1 )
@@ -105,6 +106,13 @@ pixel_size = 0.025
 billboard = 2
 text = "Portal"
 font = ExtResource( 2 )
+
+[node name="RequirementLabel" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
+pixel_size = 0.025
+billboard = 2
+text = "X Godot Heads required"
+font = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "up_and_down"
