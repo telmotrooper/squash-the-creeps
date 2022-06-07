@@ -34,6 +34,7 @@ var progress = {}
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
 func add_gems(amount: int):
+  UserInterface.show_hud()
   amount_of_gems += amount
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
 

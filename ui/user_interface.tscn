@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
@@ -7,19 +7,79 @@
 [ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
 [ext_resource path="res://assets/crystal green.png" type="Texture" id=6]
 
+[sub_resource type="Animation" id=3]
+resource_name = "HIDDEN"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -110 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "hide_hud"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -110 ) ]
+}
+
 [node name="UserInterface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 5 )
 
-[node name="ScoreSprite" type="Sprite" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/HIDDEN = SubResource( 3 )
+anims/RESET = SubResource( 1 )
+anims/hide_hud = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ScoreSprite" type="Sprite" parent="HUD"]
 position = Vector2( 10, 10 )
 scale = Vector2( 0.0816667, 0.0816667 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="HUD"]
 unique_name_in_owner = true
 margin_left = 65.0
 margin_top = 20.0
@@ -28,16 +88,18 @@ margin_bottom = 51.0
 custom_fonts/font = ExtResource( 4 )
 text = "0 / 0"
 
-[node name="CrystalGreen" type="Sprite" parent="."]
+[node name="CrystalGreen" type="Sprite" parent="HUD"]
 position = Vector2( 10, 60 )
 scale = Vector2( 0.16, 0.16 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="GemLabel" type="Label" parent="."]
+[node name="GemLabel" type="Label" parent="HUD"]
 unique_name_in_owner = true
 margin_left = 65.0
 margin_top = 70.0
+margin_right = 81.0
+margin_bottom = 101.0
 custom_fonts/font = ExtResource( 4 )
 text = "0"
 
@@ -407,6 +469,7 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Exit"
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
