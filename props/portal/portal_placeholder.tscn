@@ -111,7 +111,7 @@ font = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
 pixel_size = 0.025
 billboard = 2
-text = "X Godot Heads required"
+text = "Godot Heads x 1"
 font = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -6,10 +6,8 @@ export var godot_heads_required: int
 func _ready():
   $Label3D.text = map_name
   
-  if godot_heads_required > 1:
-    $RequirementLabel.text = "%d Godot Heads required" % godot_heads_required
-  elif godot_heads_required == 1:
-    $RequirementLabel.text = "%d Godot Head required" % godot_heads_required
+  if godot_heads_required >= 1:
+    $RequirementLabel.text = "Godot Heads x %d" % godot_heads_required
   else:
     $RequirementLabel.text = ""
 
