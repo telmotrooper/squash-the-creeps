@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://maps/models/beach_island/beach_island.tscn" type="PackedScene" id=22]
 [ext_resource path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" type="PackedScene" id=23]
 [ext_resource path="res://props/red_gem/red_gem.tscn" type="PackedScene" id=24]
+[ext_resource path="res://props/green_gem/green_gem.tscn" type="PackedScene" id=25]
+[ext_resource path="res://props/purple_gem/purple_gem.tscn" type="PackedScene" id=26]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -454,34 +456,55 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
 transform = Transform( 1.65158, 0, 0, 0, -0.2, 0, 0, 0, 1.65158, 0, 4.6, 0 )
 
 [node name="RedGem" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2, 0.0999999, -23.4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7966, 0.0999999, -24.3178 )
 
 [node name="RedGem2" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8, 0.0999999, -18.2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541 )
 
 [node name="RedGem3" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6, 4.4, -14.2 )
 
 [node name="RedGem4" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8, 4.4, -9.3 )
-
-[node name="RedGem5" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1, 4.4, 4.7 )
 
-[node name="RedGem6" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8, 4.4, 14.3 )
-
-[node name="RedGem7" parent="." instance=ExtResource( 24 )]
+[node name="RedGem5" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6, 4.4, 18.2 )
 
-[node name="RedGem8" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4, 4.4, 15.3 )
-
-[node name="RedGem9" parent="." instance=ExtResource( 24 )]
+[node name="RedGem6" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.2, 4.4, 3.1 )
 
-[node name="RedGem10" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4, 4.4, -9.9 )
+[node name="GreenGem" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8488, 0.630445, -22.1003 )
+
+[node name="GreenGem2" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7925, 4.80123, -9.28174 )
+
+[node name="GreenGem3" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8218, 4.80123, 14.1548 )
+
+[node name="GreenGem4" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4741, 4.80123, 15.3021 )
+
+[node name="GreenGem5" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4686, 4.80123, -9.84657 )
+
+[node name="PurpleGem" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7919, 0.765488, -26.3931 )
+
+[node name="PurpleGem2" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6563, 0.765488, -22.3548 )
+
+[node name="PurpleGem3" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.9057, 4.78817, -6.11813 )
+
+[node name="PurpleGem4" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.9785, 4.78817, 8.40171 )
+
+[node name="PurpleGem5" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.7708, 4.78817, 8.34994 )
+
+[node name="PurpleGem6" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5914, 4.78817, -5.55913 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]

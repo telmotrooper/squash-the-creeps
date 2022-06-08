@@ -14,3 +14,4 @@
 * [Red Gem](https://sketchfab.com/3d-models/red-gem-3dcfeb2d4d9c4f37bf0c1cd57bad5a29) by [bang_m](https://sketchfab.com/bang_m)
 * [Game sound, high pitched ping, plonky synth](https://www.zapsplat.com/music/game-sound-high-pitched-ping-plonky-synth/) by [ZapSplat](https://www.zapsplat.com/)
 * [FANTASY-crystal-set](https://opengameart.org/content/fantasy-crystal-set) by [Melissa Krautheim](https://opengameart.org/users/melle)
+* [Gem](https://sketchfab.com/3d-models/gem-638e3c18ad2f4b0a919ce2d94ce0d795) by [Multipainkiller Studio](https://sketchfab.com/Multipainkiller_Studio)
