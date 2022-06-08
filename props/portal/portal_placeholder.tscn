@@ -104,6 +104,8 @@ bus = "Sound"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 pixel_size = 0.025
 billboard = 2
+render_priority = 1
+outline_render_priority = 0
 text = "Portal"
 font = ExtResource( 2 )
 
@@ -111,6 +113,8 @@ font = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
 pixel_size = 0.025
 billboard = 2
+render_priority = 1
+outline_render_priority = 0
 text = "Godot Heads x 1"
 font = ExtResource( 3 )
 
