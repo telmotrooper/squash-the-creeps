@@ -106,7 +106,7 @@ pixel_size = 0.025
 billboard = 2
 render_priority = 1
 outline_render_priority = 0
-text = "Portal"
+text = "Map Name"
 font = ExtResource( 2 )
 
 [node name="RequirementLabel" type="Label3D" parent="."]

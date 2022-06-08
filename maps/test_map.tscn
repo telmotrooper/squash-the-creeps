@@ -345,6 +345,7 @@ direction = 1
 
 [node name="PortalPlaceholder" parent="." instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -135.074 )
+label = "Mountain Map"
 map_name = "mountain_map"
 godot_heads_required = 2
 
