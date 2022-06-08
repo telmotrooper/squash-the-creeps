@@ -175,9 +175,9 @@ func play_audio(stream):
     print("Error: No AudioStreamPlayer was available to play sound.")
 
 func reload_current_scene():
-  var Main = $"/root/Main"
-  var WorldScene = $"/root/Main/WorldScene"
-  if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
+  var Main = get_node_or_null("/root/Main")
+  if is_instance_valid(Main): # Game started normally, use background loading.
+    var WorldScene = $"/root/Main/WorldScene"
     Main.load_world(WorldScene.get_child(0).filename)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().reload_current_scene()
