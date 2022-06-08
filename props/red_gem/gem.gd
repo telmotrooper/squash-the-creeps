@@ -2,6 +2,7 @@ extends RigidBody
 class_name Gem
 
 export (AudioStream) var collected_sound
+export var gem_value := 3
 
 var follow_player := false
 var t := 0.0
@@ -20,7 +21,7 @@ func _physics_process(delta):
     
     if distance <= 1 or t >= 1.0:
       GameState.play_audio(collected_sound)
-      GameState.add_gems(5)
+      GameState.add_gems(gem_value)
       queue_free()
 
 func _on_GrabArea_body_entered(_body):
