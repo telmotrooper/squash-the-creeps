@@ -142,6 +142,7 @@ script = ExtResource( 3 )
 [node name="Vertical" type="Spatial" parent="CameraPivot/Horizontal"]
 
 [node name="ClippedCamera" type="ClippedCamera" parent="CameraPivot/Horizontal/Vertical"]
+unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10 )
 current = true
 process_mode = 1
