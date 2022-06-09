@@ -41,8 +41,8 @@ surfaces/0 = {
 "vertex_count": 18
 }
 
-[sub_resource type="ConcavePolygonShape" id=6]
-data = PoolVector3Array( 5.3, -3.4, 5.75, -5.3, 3.4, 5.75, 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, -5.3, -3.4, 5.75, -5.3, 3.4, 5.75, -5.3, -3.4, -5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, -3.4, -5.75, -5.3, -3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, 5.75, 5.3, 3.4, 5.75, 5.3, -3.4, -5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, -5.75, 5.3, 3.4, 5.75, -5.3, 3.4, 5.75, -5.3, -3.4, -5.75, 5.3, -3.4, -5.75, 5.3, 3.4, 5.75 )
+[sub_resource type="ConvexPolygonShape" id=20]
+points = PoolVector3Array( 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75 )
 
 [sub_resource type="SpatialMaterial" id=7]
 resource_name = "Material.002"
@@ -174,8 +174,8 @@ mesh = SubResource( 5 )
 
 [node name="Ramp" type="StaticBody" parent="Ramp"]
 
-[node name="shape0" type="CollisionShape" parent="Ramp/Ramp"]
-shape = SubResource( 6 )
+[node name="CollisionShape" type="CollisionShape" parent="Ramp/Ramp"]
+shape = SubResource( 20 )
 
 [node name="FloatingPlatform" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -32 )
