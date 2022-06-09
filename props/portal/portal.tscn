@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://props/portal/portal_placeholder.gd" type="Script" id=1]
+[ext_resource path="res://props/portal/portal.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_24_with_outline.tres" type="DynamicFont" id=3]
 
@@ -81,7 +81,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6, 0 ), Vector3( 0, 6.2, 0 ), Vector3( 0, 6, 0 ), Vector3( 0, 5.8, 0 ), Vector3( 0, 6, 0 ) ]
 }
 
-[node name="PortalPlaceholder" type="CSGCylinder"]
+[node name="Portal" type="CSGCylinder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0, -135.074 )
 radius = 3.0
 height = 0.25

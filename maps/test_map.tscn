@@ -19,7 +19,7 @@
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy/purple_enemy.tscn" type="PackedScene" id=20]
-[ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=21]
+[ext_resource path="res://props/portal/portal.tscn" type="PackedScene" id=21]
 [ext_resource path="res://maps/models/beach_island/beach_island.tscn" type="PackedScene" id=22]
 [ext_resource path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" type="PackedScene" id=23]
 [ext_resource path="res://props/red_gem/red_gem.tscn" type="PackedScene" id=24]
@@ -375,6 +375,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 8 )
 
+[node name="Portal" parent="Map/BluePlatform" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448 )
+label = "Mountain Map"
+map_name = "mountain_map"
+godot_heads_required = 2
+
 [node name="FloatingBluePlatform" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8, 49.2458, -75.826 )
 collision_layer = 4
@@ -481,12 +487,6 @@ transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -18.6, 0 )
 [node name="WaterPlane" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941 )
 mesh = SubResource( 12 )
-
-[node name="PortalPlaceholder" parent="." instance=ExtResource( 21 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -135.074 )
-label = "Mountain Map"
-map_name = "mountain_map"
-godot_heads_required = 2
 
 [node name="Enemies" type="Spatial" parent="."]
 
