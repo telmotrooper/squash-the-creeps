@@ -106,7 +106,7 @@ extents = Vector3( 5.3, 0.25, 7 )
 [sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../FloatingPlatform:translation")
+tracks/0/path = NodePath("../FloatingPlatform1:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -118,7 +118,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67, -32 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../FloatingPlatform001:translation")
+tracks/1/path = NodePath("../FloatingPlatform1:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -133,7 +133,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=15]
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("../FloatingPlatform:translation")
+tracks/0/path = NodePath("../FloatingPlatform1:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -145,7 +145,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67009, -13.991 ), Vector3( 0, 6.67, -32 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../FloatingPlatform001:translation")
+tracks/1/path = NodePath("../FloatingPlatform1:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -159,13 +159,13 @@ tracks/1/keys = {
 
 [node name="Goweti" type="Spatial"]
 
-[node name="GreenPlatform" type="MeshInstance" parent="."]
+[node name="GreenPlatform1" type="MeshInstance" parent="."]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, 0 )
 mesh = SubResource( 2 )
 
-[node name="BaseCube" type="StaticBody" parent="GreenPlatform"]
+[node name="BaseCube" type="StaticBody" parent="GreenPlatform1"]
 
-[node name="shape0" type="CollisionShape" parent="GreenPlatform/BaseCube"]
+[node name="shape0" type="CollisionShape" parent="GreenPlatform1/BaseCube"]
 shape = SubResource( 16 )
 
 [node name="Ramp" type="MeshInstance" parent="."]
@@ -177,46 +177,42 @@ mesh = SubResource( 5 )
 [node name="CollisionShape" type="CollisionShape" parent="Ramp/Ramp"]
 shape = SubResource( 20 )
 
-[node name="FloatingPlatform" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -32 )
+[node name="FloatingPlatform1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -47 )
 mesh = SubResource( 8 )
 
-[node name="FloatingPlatform" type="KinematicBody" parent="FloatingPlatform"]
+[node name="FloatingPlatform" type="KinematicBody" parent="FloatingPlatform1"]
 
-[node name="shape0" type="CollisionShape" parent="FloatingPlatform/FloatingPlatform"]
+[node name="shape0" type="CollisionShape" parent="FloatingPlatform1/FloatingPlatform"]
 shape = SubResource( 18 )
 
-[node name="BaseCube001" type="MeshInstance" parent="."]
+[node name="GreenPlatform2" type="MeshInstance" parent="."]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, -100.086 )
 mesh = SubResource( 10 )
 
-[node name="BaseCube002" type="StaticBody" parent="BaseCube001"]
+[node name="BaseCube002" type="StaticBody" parent="GreenPlatform2"]
 
-[node name="shape0" type="CollisionShape" parent="BaseCube001/BaseCube002"]
+[node name="shape0" type="CollisionShape" parent="GreenPlatform2/BaseCube002"]
 shape = SubResource( 17 )
 
-[node name="FloatingPlatform001" type="MeshInstance" parent="."]
+[node name="FloatingPlatform2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -47 )
 mesh = SubResource( 12 )
 
-[node name="FloatingPlatform001" type="KinematicBody" parent="FloatingPlatform001"]
+[node name="FloatingPlatform001" type="KinematicBody" parent="FloatingPlatform2"]
 
-[node name="shape0" type="CollisionShape" parent="FloatingPlatform001/FloatingPlatform001"]
+[node name="shape0" type="CollisionShape" parent="FloatingPlatform2/FloatingPlatform001"]
 shape = SubResource( 19 )
 
 [node name="Manual" type="Node" parent="."]
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Manual"]
-root_node = NodePath("../../GreenPlatform")
+root_node = NodePath("../../GreenPlatform1")
 autoplay = "RESET"
 playback_process_mode = 0
 anims/RESET = SubResource( 14 )
 anims/move_platforms = SubResource( 15 )
-
-[node name="Camera" type="Camera" parent="Manual"]
-transform = Transform( 1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 130.762, -49.6428 )
-far = 1000.0
 
 [node name="FloatingPlatformTimer" type="Timer" parent="Manual"]
 wait_time = 2.0

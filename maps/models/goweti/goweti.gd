@@ -1,9 +1,5 @@
 extends Node
 
-# If re-importing from Blender, remember to "Clear inheritance" and make the
-# floating platforms of type "KinematicBody". Also, adjust the "move_platforms"
-# animation and make "RESET" go to meeting position.
-
 enum { MOVING_CLOSER, MOVING_AWAY }
 
 var direction := MOVING_AWAY
