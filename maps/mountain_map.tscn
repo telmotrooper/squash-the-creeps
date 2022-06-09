@@ -11,7 +11,7 @@
 [ext_resource path="res://entities/enemy/blue_enemy/blue_enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://props/ball/ball.tscn" type="PackedScene" id=10]
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=11]
-[ext_resource path="res://props/portal/portal_placeholder.tscn" type="PackedScene" id=12]
+[ext_resource path="res://props/portal/portal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://maps/models/height_map/Material.material" type="Material" id=13]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=14]
 
@@ -138,7 +138,7 @@ radius = 5.0
 height = 5.0
 material = ExtResource( 13 )
 
-[node name="PortalPlaceholder" parent="CSGCylinder" instance=ExtResource( 12 )]
+[node name="Portal" parent="CSGCylinder" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52588e-05, 2.6, -0.00272751 )
 label = "Test Map"
 map_name = "test_map"
