@@ -14,10 +14,14 @@ func _ready():
 
 func _on_Portal_entered(_body):
   if GameState.global_progress.collected >= godot_heads_required:
-    $AnimationPlayer.play("shrink")
+    $LabelAnimationPlayer.play("shrink")
     $RequirementLabel.visible = false
     #$AudioStreamPlayer.play()
     GameState.Player.get_node("EffectsAnimationPlayer").play("shrink")
     GameState.change_map(map_name)
   else:
     GameState.UserInterface.show_hud()
+
+func _on_DetectArea_body_entered(_body):
+  if GameState.global_progress.collected >= godot_heads_required:
+    $RequirementAnimationPlayer.play("fade_out")
