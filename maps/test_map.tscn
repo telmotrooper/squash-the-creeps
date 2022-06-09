@@ -207,7 +207,7 @@ surfaces/0 = {
 [sub_resource type="Animation" id=32]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../../FloatingPlatform:translation")
+tracks/0/path = NodePath("../../Goweti/FloatingPlatform:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -219,7 +219,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67, -32 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../FloatingPlatform2:translation")
+tracks/1/path = NodePath("../../Goweti/FloatingPlatform2:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -234,7 +234,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=33]
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("../../FloatingPlatform:translation")
+tracks/0/path = NodePath("../../Goweti/FloatingPlatform:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -246,7 +246,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67, -32 ), Vector3( 0, 6.67, -14 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../FloatingPlatform2:translation")
+tracks/1/path = NodePath("../../Goweti/FloatingPlatform2:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -295,8 +295,7 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
 )
- ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
-)
+ ],"just_created":false,"undo_redo":null)
 
 
 [node name="ScatterItem" type="Spatial" parent="Map/GreenPlatform/GreenPlatformGrass"]
@@ -400,6 +399,15 @@ shape = SubResource( 3 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 8 )
 
+[node name="BeachIsland" parent="Map" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
+
+[node name="Boundary" parent="Map/BeachIsland" instance=ExtResource( 6 )]
+transform = Transform( 1.65158, 0, 0, 0, -0.2, 0, 0, 0, 1.65158, 0, 4.6, 0 )
+
+[node name="BeachGodotHead" parent="Map/BeachIsland" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.0961, 16.9, 0.464002 )
+
 [node name="Player" parent="." groups=["players"] instance=ExtResource( 14 )]
 collision_mask = 524302
 
@@ -420,9 +428,6 @@ transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -18.6, 0 )
 
 [node name="GrassGodotHead" parent="." instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.775, 3.5, -118.736 )
-
-[node name="BeachGodotHead" parent="." instance=ExtResource( 15 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -78.925, 8.6, -0.235997 )
 
 [node name="WaterPlane" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941 )
@@ -533,12 +538,6 @@ transform = Transform( 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.
 transform = Transform( 0.939693, 1.49503e-08, 0.34202, 0.34202, -4.10753e-08, -0.939693, 0, 1, -4.37113e-08, -2.43791, 2.20846, -1.00656 )
 skeleton = NodePath("")
 
-[node name="BeachIsland" parent="." instance=ExtResource( 22 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
-
-[node name="Boundary" parent="BeachIsland" instance=ExtResource( 6 )]
-transform = Transform( 1.65158, 0, 0, 0, -0.2, 0, 0, 0, 1.65158, 0, 4.6, 0 )
-
 [node name="RedGem" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7966, 0.0999999, -24.3178 )
 
@@ -590,41 +589,50 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.7708, 4.78817, 8.34994 )
 [node name="PurpleGem6" parent="." instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5914, 4.78817, -5.55913 )
 
-[node name="Goweti" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
-
-[node name="GreenPlatform1" type="StaticBody" parent="Goweti"]
-transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, 0 )
+[node name="GreenPlatform1" type="StaticBody" parent="."]
+transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, 0 )
 collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape" type="CollisionShape" parent="Goweti/GreenPlatform1"]
+[node name="CollisionShape" type="CollisionShape" parent="GreenPlatform1"]
 shape = SubResource( 21 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Goweti/GreenPlatform1"]
+[node name="MeshInstance" type="MeshInstance" parent="GreenPlatform1"]
 mesh = SubResource( 22 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../Goweti")
 
-[node name="GreenPlatform2" type="StaticBody" parent="Goweti"]
-transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 0, 0, -100.086 )
+[node name="GreenPlatform2" type="StaticBody" parent="."]
+transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, -100.086 )
 collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape" type="CollisionShape" parent="Goweti/GreenPlatform2"]
+[node name="CollisionShape" type="CollisionShape" parent="GreenPlatform2"]
 shape = SubResource( 23 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Goweti/GreenPlatform2"]
+[node name="MeshInstance" type="MeshInstance" parent="GreenPlatform2"]
 mesh = SubResource( 24 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../Goweti")
 
-[node name="Ramp" type="StaticBody" parent="Goweti"]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.00221846, 3.64643, -0.0341988 )
+[node name="Ramp" type="StaticBody" parent="."]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 60.9978, 3.64643, -0.0341988 )
 collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape" type="CollisionShape" parent="Goweti/Ramp"]
+[node name="CollisionShape" type="CollisionShape" parent="Ramp"]
 shape = SubResource( 25 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Goweti/Ramp"]
+[node name="MeshInstance" type="MeshInstance" parent="Ramp"]
 mesh = SubResource( 27 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../Goweti")
+
+[node name="Goweti" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 
 [node name="FloatingPlatform" type="KinematicBody" parent="Goweti"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -32 )
@@ -652,7 +660,7 @@ skeleton = NodePath("../..")
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Goweti/Manual"]
-root_node = NodePath("../../GreenPlatform1/MeshInstance")
+root_node = NodePath("../../../GreenPlatform1/MeshInstance")
 autoplay = "RESET"
 playback_process_mode = 0
 anims/RESET = SubResource( 32 )
