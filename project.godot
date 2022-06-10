@@ -77,6 +77,7 @@ singletons=[  ]
 
 window=false
 LAYER=false
+grid=false
 
 [gui]
 

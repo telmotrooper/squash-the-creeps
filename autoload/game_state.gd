@@ -23,7 +23,8 @@ var godot_heads_collected = {
     "BeachGodotHead": false,
    },
   "MontainMap": {
-    "GodotHead": false
+    "GodotHead": false,
+    "GodotHead2": false
    }
 }
 
