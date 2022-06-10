@@ -535,7 +535,6 @@ shape = SubResource( 25 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform2/Ramp"]
 mesh = SubResource( 27 )
-skeleton = NodePath("../../MovingPlatforms")
 
 [node name="RedButton" parent="Map/GreenPlatform2/Ramp" instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 5.3, -1.1, 3.4 )
