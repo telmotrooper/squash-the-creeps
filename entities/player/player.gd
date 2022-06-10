@@ -60,8 +60,7 @@ func _physics_process(delta):
     else: # Walking.
       speed = walk_speed
       $AnimationPlayer.playback_speed = 2.25
-  else:
-    speed = walk_speed
+  else: # Idle
     $AnimationPlayer.playback_speed = 1.0
   
   if GameState.upgrades["mid_air_dash"]:
