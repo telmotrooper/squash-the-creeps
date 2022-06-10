@@ -153,5 +153,8 @@ shape = SubResource( 5 )
 [node name="GodotHead" parent="." instance=ExtResource( 14 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 33.6, 116.8 )
 
+[node name="GodotHead2" parent="." instance=ExtResource( 14 )]
+transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 179.809, 33.6, 68.9833 )
+
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
