@@ -108,11 +108,11 @@ func _physics_process(delta):
         enemy.squash()
         velocity.y = bounce_impulse
     
-    elif (collision.collider is RedButton and
-          collision.collider.direction == RedButton.Direction.FLOOR and
-          not collision.collider.is_pressed):
+    elif collision.collider is RedButton:
       var red_button = collision.collider
-      red_button.press()
+      
+      if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
+        red_button.press()
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
