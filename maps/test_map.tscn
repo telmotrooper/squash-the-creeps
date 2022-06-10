@@ -207,7 +207,7 @@ surfaces/0 = {
 [sub_resource type="Animation" id=32]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../../../Goweti/FloatingPlatform:translation")
+tracks/0/path = NodePath("../../../Goweti/MovingPlatform:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -219,7 +219,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67, -32 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../../Goweti/FloatingPlatform2:translation")
+tracks/1/path = NodePath("../../../Goweti/MovingPlatform2:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -234,7 +234,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=33]
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("../../../Goweti/FloatingPlatform:translation")
+tracks/0/path = NodePath("../../../Goweti/MovingPlatform:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -246,7 +246,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 6.67, -32 ), Vector3( 0, 6.67, -14 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../../Goweti/FloatingPlatform2:translation")
+tracks/1/path = NodePath("../../../Goweti/MovingPlatform2:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -450,6 +450,44 @@ transform = Transform( 1.65158, 0, 0, 0, -0.2, 0, 0, 0, 1.65158, 0, 4.6, 0 )
 [node name="BeachGodotHead" parent="Map/BeachIsland" instance=ExtResource( 15 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.0961, 16.9, 0.464002 )
 
+[node name="Gems" type="Spatial" parent="Map/BeachIsland"]
+
+[node name="RedGem" parent="Map/BeachIsland/Gems" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25001, 13.7, -15.07 )
+
+[node name="RedGem2" parent="Map/BeachIsland/Gems" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.75, 13.7, 3.83 )
+
+[node name="RedGem3" parent="Map/BeachIsland/Gems" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25001, 13.7, 17.33 )
+
+[node name="RedGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35, 13.7, 2.23 )
+
+[node name="GreenGem" parent="Map/BeachIsland/Gems" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0575, 14.1012, -10.1517 )
+
+[node name="GreenGem2" parent="Map/BeachIsland/Gems" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0282, 14.1012, 13.2848 )
+
+[node name="GreenGem3" parent="Map/BeachIsland/Gems" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62411, 14.1012, 14.4321 )
+
+[node name="GreenGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6186, 14.1012, -10.7166 )
+
+[node name="PurpleGem" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9443, 14.0882, -6.98813 )
+
+[node name="PurpleGem2" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8715, 14.0882, 7.53171 )
+
+[node name="PurpleGem3" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
+
+[node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
+
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, 0 )
 collision_layer = 4
@@ -585,42 +623,6 @@ transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
 far = 200.0
 
-[node name="RedGem3" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6, 4.4, -14.2 )
-
-[node name="RedGem4" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1, 4.4, 4.7 )
-
-[node name="RedGem5" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6, 4.4, 18.2 )
-
-[node name="RedGem6" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.2, 4.4, 3.1 )
-
-[node name="GreenGem2" parent="." instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7925, 4.80123, -9.28174 )
-
-[node name="GreenGem3" parent="." instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8218, 4.80123, 14.1548 )
-
-[node name="GreenGem4" parent="." instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4741, 4.80123, 15.3021 )
-
-[node name="GreenGem5" parent="." instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4686, 4.80123, -9.84657 )
-
-[node name="PurpleGem3" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.9057, 4.78817, -6.11813 )
-
-[node name="PurpleGem4" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.9785, 4.78817, 8.40171 )
-
-[node name="PurpleGem5" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.7708, 4.78817, 8.34994 )
-
-[node name="PurpleGem6" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5914, 4.78817, -5.55913 )
-
 [node name="GreenPlatform3" type="StaticBody" parent="."]
 transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, -100.086 )
 collision_layer = 4
@@ -641,31 +643,31 @@ transform = Transform( -1.74846e-09, 0, 0.04, 0, 4, 0, -0.04, 0, -1.74846e-09, 0
 [node name="Goweti" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 
-[node name="FloatingPlatform" type="KinematicBody" parent="Goweti"]
+[node name="MovingPlatform" type="KinematicBody" parent="Goweti"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -32 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="Goweti/FloatingPlatform"]
+[node name="CollisionShape" type="CollisionShape" parent="Goweti/MovingPlatform"]
 shape = SubResource( 28 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Goweti/FloatingPlatform"]
+[node name="MeshInstance" type="MeshInstance" parent="Goweti/MovingPlatform"]
 mesh = SubResource( 29 )
 skeleton = NodePath("../..")
 
-[node name="FloatingPlatform2" type="KinematicBody" parent="Goweti"]
+[node name="MovingPlatform2" type="KinematicBody" parent="Goweti"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -47 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="Goweti/FloatingPlatform2"]
+[node name="CollisionShape" type="CollisionShape" parent="Goweti/MovingPlatform2"]
 shape = SubResource( 30 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Goweti/FloatingPlatform2"]
+[node name="MeshInstance" type="MeshInstance" parent="Goweti/MovingPlatform2"]
 mesh = SubResource( 31 )
 skeleton = NodePath("../..")
 
@@ -679,11 +681,11 @@ playback_process_mode = 0
 anims/RESET = SubResource( 32 )
 anims/move_platforms = SubResource( 33 )
 
-[node name="FloatingPlatformTimer" type="Timer" parent="Goweti/Manual"]
+[node name="MovingPlatformTimer" type="Timer" parent="Goweti/Manual"]
 wait_time = 2.0
 one_shot = true
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="animation_finished" from="Goweti/Manual/AnimationPlayer" to="Goweti/Manual" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="Goweti/Manual/FloatingPlatformTimer" to="Goweti/Manual" method="_on_FloatingPlatformTimer_timeout"]
+[connection signal="timeout" from="Goweti/Manual/MovingPlatformTimer" to="Goweti/Manual" method="_on_FloatingPlatformTimer_timeout"]

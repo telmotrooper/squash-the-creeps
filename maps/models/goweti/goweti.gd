@@ -9,7 +9,7 @@ func move_platforms():
 
 func _on_AnimationPlayer_animation_finished(anim_name: String):
   if anim_name == "move_platforms":
-    $FloatingPlatformTimer.start()
+    $MovingPlatformTimer.start()
 
 func _on_FloatingPlatformTimer_timeout():
   if direction == MOVING_AWAY:
