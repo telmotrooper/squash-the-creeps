@@ -16,3 +16,4 @@
 * [FANTASY-crystal-set](https://opengameart.org/content/fantasy-crystal-set) by [Melissa Krautheim](https://opengameart.org/users/melle)
 * [Gem](https://sketchfab.com/3d-models/gem-638e3c18ad2f4b0a919ce2d94ce0d795) by [Multipainkiller Studio](https://sketchfab.com/Multipainkiller_Studio)
 * [Gemstone](https://sketchfab.com/3d-models/gemstone-216c3f967e0f4895a9faf6fec328024d) by [glorysun](https://sketchfab.com/glorysun)
+* [Cardboard burning 2](https://freesound.org/people/raremess/sounds/222557/) by [raremess](https://freesound.org/people/raremess/)

@@ -9,4 +9,4 @@ func _on_Player_hit():
   GameState.UserInterface.retry()
 
 func _on_RedButton_pressed():
-  $Goweti/Manual.move_platforms()
+  $Map/MovingPlatforms/Manual.move_platforms()

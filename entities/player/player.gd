@@ -3,7 +3,9 @@ class_name Player
 
 signal hit
 
-export var speed := 14.0
+export var walk_speed := 14.0
+export var run_speed := 22.0
+
 export var jump_impulse := 25.0
 export var fall_acceleration := 75.0
 export var bounce_impulse := 16.0
@@ -11,6 +13,7 @@ export var dash_duration := 0.2
 export var dash_speed := 150
 
 var velocity = Vector3.ZERO
+var speed = 0
 
 var is_jumping := false
 var is_double_jumping := false
@@ -52,13 +55,12 @@ func _physics_process(delta):
     $CollisionShape.rotation.y = $Pivot.rotation.y
     
     if Input.is_action_pressed("sprint"): # Running.
-      speed = 22
+      speed = run_speed
       $AnimationPlayer.playback_speed = 3.0
     else: # Walking.
-      speed = 14
+      speed = walk_speed
       $AnimationPlayer.playback_speed = 2.25
-  else:
-    speed = 14
+  else: # Idle
     $AnimationPlayer.playback_speed = 1.0
   
   if GameState.upgrades["mid_air_dash"]:
@@ -106,11 +108,11 @@ func _physics_process(delta):
         enemy.squash()
         velocity.y = bounce_impulse
     
-    elif (collision.collider is RedButton and
-          collision.collider.direction == RedButton.Direction.FLOOR and
-          not collision.collider.is_pressed):
+    elif collision.collider is RedButton:
       var red_button = collision.collider
-      red_button.press()
+      
+      if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
+        red_button.press()
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
