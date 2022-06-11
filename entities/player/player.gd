@@ -11,6 +11,7 @@ export var fall_acceleration := 75.0
 export var bounce_impulse := 16.0
 export var dash_duration := 0.2
 export var dash_speed := 150
+export var bounce_cap := 87
 
 var velocity = Vector3.ZERO
 var speed = 0
@@ -123,6 +124,10 @@ func _physics_process(delta):
         entity.squash()
       elif entity is RedButton:
         entity.press()
+  
+  # Prevent the player from going too high when bouncing off a slope.
+  if velocity.y > bounce_cap:
+    velocity.y = bounce_cap
 
 func is_spinning():
   return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
