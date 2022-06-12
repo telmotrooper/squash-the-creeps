@@ -58,7 +58,9 @@ func _physics_process(delta):
     $CollisionShape.global_transform.origin.z = $Pivot.global_transform.origin.z
     $CollisionShape.rotation.y = $Pivot.rotation.y
     
-    if Input.is_action_pressed("sprint"): # Running.
+    if is_dashing:
+      $AnimationPlayer.playback_speed = 1.0
+    elif Input.is_action_pressed("sprint"): # Running.
       speed = run_speed
       $AnimationPlayer.playback_speed = 3.0
     else: # Walking.
@@ -73,6 +75,7 @@ func _physics_process(delta):
     
     if dash_available and !is_on_floor() and Input.is_action_just_pressed("sprint"):
       if $DashDurationTimer.is_stopped():
+        $AnimationPlayer.play("dash")
         is_dashing = true
         dash_available = false
         $DashDurationTimer.start()
