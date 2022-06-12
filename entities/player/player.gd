@@ -11,6 +11,10 @@ export var fall_acceleration := 75.0
 export var bounce_impulse := 16.0
 export var dash_duration := 0.2
 export var dash_speed := 150
+export var bounce_cap := 87
+
+# Starts as "forward", might behave weird depending on spawn direction.
+var last_direction := Vector3(0,0,-1)
 
 var velocity = Vector3.ZERO
 var speed = 0
@@ -27,11 +31,9 @@ func _ready():
 
 func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
-    $AnimationPlayer.play("float")
+    $AnimationPlayer.play("float") # Idle animation.
   
-  var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
-  
-  if Input.is_action_just_pressed("attack"):
+  if Input.is_action_just_pressed("attack") and not is_dashing:
     $AnimationPlayer.play("spin-y")
   
   # Get direction vector based on input.
@@ -41,10 +43,12 @@ func _physics_process(delta):
       Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
   
   # Rotate direction based on camera.
+  var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
+    last_direction = direction
     $Pivot.look_at(translation + direction, Vector3.UP)
     
     # Move origin of CollisionShape (x,z) to origin of Pivot, so we can rotate it properly.
@@ -75,6 +79,9 @@ func _physics_process(delta):
 
     if is_dashing:
       speed = dash_speed
+  
+  if direction.x == 0 and direction.z == 0 and is_dashing:
+    direction = last_direction
   
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
@@ -123,6 +130,10 @@ func _physics_process(delta):
         entity.squash()
       elif entity is RedButton:
         entity.press()
+  
+  # Prevent the player from going too high when bouncing off a slope.
+  if velocity.y > bounce_cap:
+    velocity.y = bounce_cap
 
 func is_spinning():
   return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()

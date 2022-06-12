@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -74,22 +74,18 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=21]
+[sub_resource type="BoxShape" id=35]
+extents = Vector3( 3, 1, 7 )
 
-[sub_resource type="ArrayMesh" id=22]
-resource_name = "goweti_Cube"
-surfaces/0 = {
-"aabb": AABB( -1, -1, -1, 2.00001, 2.00001, 2 ),
-"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 0 ),
-"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
-"index_count": 36,
-"material": ExtResource( 9 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
+[sub_resource type="CubeMesh" id=34]
+size = Vector3( 6, 2, 14 )
+
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 25, 0.5, 25 )
+
+[sub_resource type="CubeMesh" id=36]
+material = ExtResource( 9 )
+size = Vector3( 50, 1, 50 )
 
 [sub_resource type="ConvexPolygonShape" id=25]
 points = PoolVector3Array( 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75 )
@@ -329,7 +325,7 @@ skeleton = NodePath("")
 [node name="Gems" type="Spatial" parent="Map/GreenPlatform"]
 
 [node name="RedGem" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7966, 0.0999999, -24.3178 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0256, 0.0999999, -26.1378 )
 
 [node name="RedGem2" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541 )
@@ -402,6 +398,48 @@ transform = Transform( -0.192319, 0, 0.981332, 0, 1, 0, -0.981332, 0, -0.192319,
 transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
 patrolling_speed = 18
 
+[node name="SmallPlatform" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -44 )
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform"]
+shape = SubResource( 35 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform"]
+mesh = SubResource( 34 )
+material/0 = ExtResource( 8 )
+
+[node name="GreenGem" parent="Map/SmallPlatform" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
+
+[node name="GreenGem2" parent="Map/SmallPlatform" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5 )
+
+[node name="SmallPlatform2" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -65 )
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform2"]
+shape = SubResource( 35 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform2"]
+mesh = SubResource( 34 )
+material/0 = ExtResource( 8 )
+
+[node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
+
+[node name="GreenGem2" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5 )
+
 [node name="FloatingBluePlatform" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8, 49.2458, -75.826 )
 collision_layer = 4
@@ -431,36 +469,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.28504 )
 
 [node name="PurpleGem3" parent="Map/FloatingBluePlatform" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.309 )
-
-[node name="SmallPlatform" type="StaticBody" parent="Map"]
-transform = Transform( 0.0996611, 0, 0, 0, 1, 0, 0, 0, -0.225957, 23, -1, -44 )
-collision_layer = 4
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform"]
-mesh = SubResource( 4 )
-material/0 = ExtResource( 8 )
-
-[node name="SmallPlatform2" type="StaticBody" parent="Map"]
-transform = Transform( 0.1, 8.74228e-08, 0, -8.74228e-09, 1, 0, 0, 0, -0.226, 23, -1, -64 )
-collision_layer = 4
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform2"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform2"]
-mesh = SubResource( 4 )
-material/0 = ExtResource( 8 )
 
 [node name="BeachIsland" parent="Map" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
@@ -510,21 +518,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
-transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform2"]
-shape = SubResource( 21 )
+shape = SubResource( 37 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform2"]
-mesh = SubResource( 22 )
+mesh = SubResource( 36 )
 skeleton = NodePath("../../MovingPlatforms")
 
 [node name="Ramp" type="StaticBody" parent="Map/GreenPlatform2"]
-transform = Transform( -0.04, 0, -6.03984e-09, 0, 4, 0, 6.03984e-09, 0, -0.04, -8.82149e-05, 14.5857, -0.00136795 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.0022049, 3.64643, -0.0341987 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
