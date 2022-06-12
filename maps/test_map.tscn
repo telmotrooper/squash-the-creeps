@@ -80,22 +80,12 @@ extents = Vector3( 3, 1, 7 )
 [sub_resource type="CubeMesh" id=34]
 size = Vector3( 6, 2, 14 )
 
-[sub_resource type="BoxShape" id=21]
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 25, 0.5, 25 )
 
-[sub_resource type="ArrayMesh" id=22]
-resource_name = "goweti_Cube"
-surfaces/0 = {
-"aabb": AABB( -1, -1, -1, 2.00001, 2.00001, 2 ),
-"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 0 ),
-"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
-"index_count": 36,
-"material": ExtResource( 9 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
+[sub_resource type="CubeMesh" id=36]
+material = ExtResource( 9 )
+size = Vector3( 50, 1, 50 )
 
 [sub_resource type="ConvexPolygonShape" id=25]
 points = PoolVector3Array( 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75 )
@@ -335,7 +325,7 @@ skeleton = NodePath("")
 [node name="Gems" type="Spatial" parent="Map/GreenPlatform"]
 
 [node name="RedGem" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7966, 0.0999999, -24.3178 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0256, 0.0999999, -26.1378 )
 
 [node name="RedGem2" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541 )
@@ -528,21 +518,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
-transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform2"]
-shape = SubResource( 21 )
+shape = SubResource( 37 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform2"]
-mesh = SubResource( 22 )
+mesh = SubResource( 36 )
 skeleton = NodePath("../../MovingPlatforms")
 
 [node name="Ramp" type="StaticBody" parent="Map/GreenPlatform2"]
-transform = Transform( -0.04, 0, -6.03984e-09, 0, 4, 0, 6.03984e-09, 0, -0.04, -8.82149e-05, 14.5857, -0.00136795 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.0022049, 3.64643, -0.0341987 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
