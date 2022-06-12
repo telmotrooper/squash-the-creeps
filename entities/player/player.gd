@@ -33,7 +33,7 @@ func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
     $AnimationPlayer.play("float") # Idle animation.
   
-  if Input.is_action_just_pressed("attack"):
+  if Input.is_action_just_pressed("attack") and not is_dashing:
     $AnimationPlayer.play("spin-y")
   
   # Get direction vector based on input.
