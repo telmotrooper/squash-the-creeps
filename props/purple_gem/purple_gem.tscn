@@ -14,7 +14,7 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource( 2 )
 collected_sound = ExtResource( 3 )
-gem_value = 10
+gem_value = 5
 
 [node name="purple_gem" parent="." instance=ExtResource( 1 )]
 

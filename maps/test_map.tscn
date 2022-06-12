@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -73,6 +73,12 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 7.80272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 23.8027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 23.9027, 0, 0, 0, 0, 0, 0, -21.9524, 0, 7.80272 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="BoxShape" id=35]
+extents = Vector3( 3, 1, 7 )
+
+[sub_resource type="CubeMesh" id=34]
+size = Vector3( 6, 2, 14 )
 
 [sub_resource type="BoxShape" id=21]
 
@@ -402,6 +408,48 @@ transform = Transform( -0.192319, 0, 0.981332, 0, 1, 0, -0.981332, 0, -0.192319,
 transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
 patrolling_speed = 18
 
+[node name="SmallPlatform" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -44 )
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform"]
+shape = SubResource( 35 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform"]
+mesh = SubResource( 34 )
+material/0 = ExtResource( 8 )
+
+[node name="GreenGem" parent="Map/SmallPlatform" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
+
+[node name="GreenGem2" parent="Map/SmallPlatform" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5 )
+
+[node name="SmallPlatform2" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -65 )
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform2"]
+shape = SubResource( 35 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform2"]
+mesh = SubResource( 34 )
+material/0 = ExtResource( 8 )
+
+[node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
+
+[node name="GreenGem2" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5 )
+
 [node name="FloatingBluePlatform" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8, 49.2458, -75.826 )
 collision_layer = 4
@@ -431,36 +479,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.28504 )
 
 [node name="PurpleGem3" parent="Map/FloatingBluePlatform" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.309 )
-
-[node name="SmallPlatform" type="StaticBody" parent="Map"]
-transform = Transform( 0.0996611, 0, 0, 0, 1, 0, 0, 0, -0.225957, 23, -1, -44 )
-collision_layer = 4
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform"]
-mesh = SubResource( 4 )
-material/0 = ExtResource( 8 )
-
-[node name="SmallPlatform2" type="StaticBody" parent="Map"]
-transform = Transform( 0.1, 8.74228e-08, 0, -8.74228e-09, 1, 0, 0, 0, -0.226, 23, -1, -64 )
-collision_layer = 4
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/SmallPlatform2"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform2"]
-mesh = SubResource( 4 )
-material/0 = ExtResource( 8 )
 
 [node name="BeachIsland" parent="Map" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999 )
