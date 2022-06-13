@@ -142,9 +142,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -186.0
-margin_top = -188.5
+margin_top = -195.5
 margin_right = 186.0
-margin_bottom = 188.5
+margin_bottom = 195.5
 
 [node name="TitleLabel" type="Label" parent="Pause/Submenus/Controls"]
 margin_right = 372.0
@@ -161,9 +161,9 @@ Jump – Space
 Sprint – Shift
 Spin Attack – Left Mouse Click
 
+Show HUD – TAB
 Pause – ESC
-Toggle Fullscreen – Alt+Enter
-Fast Forward – TAB"
+Toggle Fullscreen – Alt+Enter"
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Controls"]
 margin_top = 320.0
