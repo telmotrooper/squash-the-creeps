@@ -28,6 +28,8 @@ var godot_heads_collected = {
    }
 }
 
+var gems_collected = {}
+
 var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
 
@@ -40,6 +42,7 @@ func add_gems(amount: int):
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
 
 func initialize(): # Used in "New Game".
+  gems_collected = {}
   godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
   initialize_progress()
   amount_of_gems = 0
