@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://entities/enemy/blue_enemy/blue_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://props/flag/flag.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=15]
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
@@ -582,6 +583,20 @@ transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2
 [node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
+[node name="GreenPlatform4" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, 0 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform4"]
+shape = SubResource( 37 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform4"]
+mesh = SubResource( 36 )
+skeleton = NodePath("../../MovingPlatforms")
+
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
 [node name="YellowEnemyPath" type="Path" parent="Map/EnemyBridge"]
@@ -677,6 +692,48 @@ mesh = SubResource( 12 )
 [node name="RetryCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
 far = 200.0
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0 )
+use_collision = true
+collision_layer = 4
+width = 20.0
+height = 20.0
+depth = 20.0
+material = ExtResource( 8 )
+
+[node name="Label3D" type="Label3D" parent="CSGBox"]
+transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
+text = "Hold \"JUMP\" after hitting an enemy
+to go higher."
+font = ExtResource( 13 )
+
+[node name="RedGem" parent="CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5 )
+
+[node name="RedGem2" parent="CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5 )
+
+[node name="RedGem3" parent="CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0 )
+
+[node name="PurpleGem" parent="CSGBox" instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0 )
+
+[node name="GreenGem" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3 )
+
+[node name="GreenGem2" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3 )
+
+[node name="GreenGem3" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
+
+[node name="GreenGem4" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
+
+[node name="YellowEnemy" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
