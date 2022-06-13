@@ -12,6 +12,7 @@
 [ext_resource path="res://entities/enemy/blue_enemy/blue_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://props/flag/flag.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=15]
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
@@ -109,23 +110,6 @@ surfaces/0 = {
 "vertex_count": 18
 }
 
-[sub_resource type="BoxShape" id=23]
-
-[sub_resource type="ArrayMesh" id=24]
-resource_name = "goweti_Cube009"
-surfaces/0 = {
-"aabb": AABB( -1, -1, -1, 2.00001, 2.00001, 2 ),
-"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 0 ),
-"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
-"index_count": 36,
-"material": ExtResource( 9 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-
 [sub_resource type="Curve3D" id=15]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214, 0, 0, 0, 0, 0, 0, 6.67461, -6.10352e-05, -15.661, 0, 0, 0, 0, 0, 0, -9.46404, -3.05176e-05, -7.67662, 0, 0, 0, 0, 0, 0, -9.3791, 3.05176e-05, 8.20721, 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214 ),
@@ -143,6 +127,10 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272, 0, 0, 0, 0, 0, 0, 10.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 18.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 1.40272, 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="CubeMesh" id=38]
+material = ExtResource( 9 )
+size = Vector3( 50, 1, 50 )
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -504,8 +492,45 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 [node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
-[node name="GreenPlatform2" type="StaticBody" parent="Map"]
+[node name="GreenPlatform1" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform1"]
+shape = SubResource( 37 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform1"]
+mesh = SubResource( 36 )
+skeleton = NodePath("../../MovingPlatforms")
+
+[node name="Ramp" type="StaticBody" parent="Map/GreenPlatform1"]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.0022049, 3.64643, -0.0341987 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform1/Ramp"]
+shape = SubResource( 25 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform1/Ramp"]
+mesh = SubResource( 27 )
+
+[node name="RedButton" parent="Map/GreenPlatform1/Ramp" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 5.3, -1.1, 3.4 )
+direction = 1
+
+[node name="Label3D" type="Label3D" parent="Map/GreenPlatform1/Ramp"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 7.8, -3.1, 3.3 )
+text = "Press \"ATTACK\" to
+press a wall button."
+font = ExtResource( 13 )
+
+[node name="GreenPlatform2" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
@@ -518,69 +543,52 @@ shape = SubResource( 37 )
 mesh = SubResource( 36 )
 skeleton = NodePath("../../MovingPlatforms")
 
-[node name="Ramp" type="StaticBody" parent="Map/GreenPlatform2"]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.0022049, 3.64643, -0.0341987 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
+[node name="GrassGodotHead" parent="Map/GreenPlatform2" instance=ExtResource( 15 )]
+transform = Transform( -4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, 0.774998, 3.5, -18.772 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform2/Ramp"]
-shape = SubResource( 25 )
+[node name="BlueEnemyPath2" type="Path" parent="Map/GreenPlatform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4163, 0, 11.9448 )
+curve = SubResource( 15 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform2/Ramp"]
-mesh = SubResource( 27 )
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/BlueEnemyPath2"]
+transform = Transform( 0.60213, 3.05161e-06, 0.798398, -3.05161e-06, 1, -1.52073e-06, -0.798398, -1.52072e-06, 0.60213, 6.67461, 3.05176e-05, 8.29214 )
 
-[node name="RedButton" parent="Map/GreenPlatform2/Ramp" instance=ExtResource( 19 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 5.3, -1.1, 3.4 )
-direction = 1
+[node name="BlueEnemy2" parent="Map/GreenPlatform2/BlueEnemyPath2/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath3" type="Path" parent="Map/GreenPlatform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3689, 0, 5.3776 )
+curve = SubResource( 16 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/BlueEnemyPath3"]
+transform = Transform( 0.956603, 1.11376e-06, 0.291394, -1.11376e-06, 1, -1.65876e-07, -0.291394, -1.65866e-07, 0.956603, -2.63111, 0, 14.5864 )
+
+[node name="BlueEnemy3" parent="Map/GreenPlatform2/BlueEnemyPath3/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath4" type="Path" parent="Map/GreenPlatform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0476, 0, -13.439 )
+curve = SubResource( 17 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/BlueEnemyPath4"]
+transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2.04762, 0, 1.40272 )
+
+[node name="BlueEnemy4" parent="Map/GreenPlatform2/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="GreenPlatform3" type="StaticBody" parent="Map"]
-transform = Transform( 25, 0, 0, 0, 0.25, 0, 0, 0, 25, 61, 0, -100.086 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, 0 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform3"]
-shape = SubResource( 23 )
+shape = SubResource( 37 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform3"]
-mesh = SubResource( 24 )
+mesh = SubResource( 38 )
 skeleton = NodePath("../../MovingPlatforms")
-
-[node name="GrassGodotHead" parent="Map/GreenPlatform3" instance=ExtResource( 15 )]
-transform = Transform( -1.74846e-09, 0, 0.04, 0, 4, 0, -0.04, 0, -1.74846e-09, 0.0309999, 14, -0.746 )
-
-[node name="BlueEnemyPath2" type="Path" parent="Map/GreenPlatform3"]
-transform = Transform( 0.04, 0, 0, 0, 4, 0, 0, 0, 0.04, 0.496652, 0, 0.482672 )
-curve = SubResource( 15 )
-
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform3/BlueEnemyPath2"]
-transform = Transform( 0.60213, 3.05161e-06, 0.798398, -3.05161e-06, 1, -1.52073e-06, -0.798398, -1.52072e-06, 0.60213, 6.67461, 3.05176e-05, 8.29214 )
-
-[node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-
-[node name="BlueEnemyPath3" type="Path" parent="Map/GreenPlatform3"]
-transform = Transform( 0.04, 0, 0, 0, 4, 0, 0, 0, 0.04, -0.734756, 0, 0.219984 )
-curve = SubResource( 16 )
-
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform3/BlueEnemyPath3"]
-transform = Transform( 0.956603, 1.11376e-06, 0.291394, -1.11376e-06, 1, -1.65876e-07, -0.291394, -1.65866e-07, 0.956603, -2.63111, 0, 14.5864 )
-
-[node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
-
-[node name="BlueEnemyPath4" type="Path" parent="Map/GreenPlatform3"]
-transform = Transform( 0.04, 0, 0, 0, 4, 0, 0, 0, 0.04, -0.601904, 0, -0.53268 )
-curve = SubResource( 17 )
-
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform3/BlueEnemyPath4"]
-transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2.04762, 0, 1.40272 )
-
-[node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
@@ -650,7 +658,7 @@ skeleton = NodePath("../..")
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
-root_node = NodePath("../../../GreenPlatform2/MeshInstance")
+root_node = NodePath("../../../GreenPlatform1/MeshInstance")
 autoplay = "RESET"
 playback_process_mode = 0
 anims/RESET = SubResource( 32 )
@@ -678,7 +686,49 @@ mesh = SubResource( 12 )
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
 far = 200.0
 
-[connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0 )
+use_collision = true
+collision_layer = 4
+width = 20.0
+height = 20.0
+depth = 20.0
+material = ExtResource( 8 )
+
+[node name="Label3D" type="Label3D" parent="CSGBox"]
+transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
+text = "Hold \"JUMP\" while jumping
+over an enemy to go higher."
+font = ExtResource( 13 )
+
+[node name="RedGem" parent="CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5 )
+
+[node name="RedGem2" parent="CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5 )
+
+[node name="RedGem3" parent="CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0 )
+
+[node name="PurpleGem" parent="CSGBox" instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0 )
+
+[node name="GreenGem" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3 )
+
+[node name="GreenGem2" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3 )
+
+[node name="GreenGem3" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
+
+[node name="GreenGem4" parent="CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
+
+[node name="YellowEnemy" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
+
+[connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
