@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
@@ -55,6 +55,37 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -110 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AllGodotHeadsCollected:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "show_all_godot_heads_collected"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AllGodotHeadsCollected:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="UserInterface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -89,6 +120,7 @@ align = 1
 
 [node name="Pause" type="Control" parent="."]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -110,9 +142,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -186.0
-margin_top = -188.5
+margin_top = -195.5
 margin_right = 186.0
-margin_bottom = 188.5
+margin_bottom = 195.5
 
 [node name="TitleLabel" type="Label" parent="Pause/Submenus/Controls"]
 margin_right = 372.0
@@ -129,9 +161,9 @@ Jump – Space
 Sprint – Shift
 Spin Attack – Left Mouse Click
 
+Show HUD – TAB
 Pause – ESC
-Toggle Fullscreen – Alt+Enter
-Fast Forward – TAB"
+Toggle Fullscreen – Alt+Enter"
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Controls"]
 margin_top = 320.0
@@ -472,6 +504,22 @@ margin_top = -47.0
 margin_right = 104.0
 custom_fonts/font = ExtResource( 4 )
 text = "FPS: 0"
+
+[node name="AllGodotHeadsCollected" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -183.5
+margin_top = -150.0
+margin_right = 183.5
+custom_fonts/font = ExtResource( 4 )
+text = "100% Godot Heads collected"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/show_all_godot_heads_collected = SubResource( 6 )
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]

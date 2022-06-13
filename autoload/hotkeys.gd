@@ -6,10 +6,13 @@ func _process(_delta):
   if Input.is_action_just_pressed("ui_toggle_fullscreen"):
     toggle_fullscreen()
 
-  if Input.is_action_just_pressed("ui_fast_forward"):
-    Engine.time_scale = 2.25
-  elif Input.is_action_just_released("ui_fast_forward"):
-    Engine.time_scale = 1
+#  if Input.is_action_just_pressed("ui_fast_forward"):
+#    Engine.time_scale = 2.25
+#  elif Input.is_action_just_released("ui_fast_forward"):
+#    Engine.time_scale = 1
+  
+  if Input.is_action_just_pressed("show_hud") and is_instance_valid(GameState.UserInterface):
+    GameState.UserInterface.show_hud()
   
   if get_node_or_null("/root/Main/WorldScene/TitleScreen") and Input.is_action_just_pressed("ui_cancel"):
     get_tree().quit()
