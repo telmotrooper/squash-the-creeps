@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -12,10 +12,8 @@
 [ext_resource path="res://entities/enemy/blue_enemy/blue_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://props/flag/flag.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/user_interface.tscn" type="PackedScene" id=12]
-[ext_resource path="res://props/spaceship/spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=15]
-[ext_resource path="res://shaders/smoke/smoke.tscn" type="PackedScene" id=16]
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy/purple_enemy.tscn" type="PackedScene" id=20]
@@ -312,16 +310,6 @@ __meta__ = {
 [node name="Flag" parent="Map/GreenPlatform" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031 )
 
-[node name="Spaceship" parent="Map/GreenPlatform" instance=ExtResource( 13 )]
-transform = Transform( 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.0325634, 1.3, 14.1493 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Smoke" parent="Map/GreenPlatform/Spaceship" instance=ExtResource( 16 )]
-transform = Transform( 0.939693, 1.49503e-08, 0.34202, 0.34202, -4.10753e-08, -0.939693, 0, 1, -4.37113e-08, -2.43791, 2.20846, -1.00656 )
-skeleton = NodePath("")
-
 [node name="Gems" type="Spatial" parent="Map/GreenPlatform"]
 
 [node name="RedGem" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
@@ -381,11 +369,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 8 )
 
-[node name="Portal" parent="Map/BluePlatform" instance=ExtResource( 21 )]
+[node name="ExitPortal" parent="Map/BluePlatform" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448 )
-label = "Mountain Map"
-map_name = "mountain_map"
-godot_heads_required = 2
+label = "Exit"
+map_name = "hub_1"
 
 [node name="PurpleEnemyPath" type="Path" parent="Map/BluePlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -9.177 )

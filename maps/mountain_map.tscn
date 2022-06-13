@@ -138,10 +138,10 @@ radius = 5.0
 height = 5.0
 material = ExtResource( 13 )
 
-[node name="Portal" parent="CSGCylinder" instance=ExtResource( 12 )]
+[node name="ExitPortal" parent="CSGCylinder" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52588e-05, 2.6, -0.00272751 )
-label = "Test Map"
-map_name = "test_map"
+label = "Exit"
+map_name = "hub_1"
 
 [node name="StaticBody" type="StaticBody" parent="CSGCylinder"]
 collision_layer = 4
