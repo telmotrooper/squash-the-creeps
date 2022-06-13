@@ -81,9 +81,8 @@ radius = 5.0
 script = ExtResource( 3 )
 drain_water_sound = ExtResource( 4 )
 
-[node name="Player" parent="." groups=["players"] instance=ExtResource( 7 )]
+[node name="Player" parent="." instance=ExtResource( 7 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 57.6636, 2.1881, 39.8077 )
-collision_mask = 524302
 
 [node name="UserInterface" parent="." instance=ExtResource( 8 )]
 

@@ -660,8 +660,7 @@ anims/move_platforms = SubResource( 33 )
 wait_time = 2.0
 one_shot = true
 
-[node name="Player" parent="." groups=["players"] instance=ExtResource( 14 )]
-collision_mask = 524302
+[node name="Player" parent="." instance=ExtResource( 14 )]
 
 [node name="UserInterface" parent="." instance=ExtResource( 12 )]
 
