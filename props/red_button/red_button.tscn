@@ -47,8 +47,8 @@ surfaces/0 = {
 }
 
 [sub_resource type="CylinderShape" id=6]
-radius = 1.25
 height = 0.75
+radius = 1.25
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -82,6 +82,7 @@ tracks/0/keys = {
 }
 
 [node name="RedButton" type="StaticBody"]
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="red_button" type="Spatial" parent="."]
@@ -89,11 +90,9 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Cover" type="MeshInstance" parent="red_button"]
 mesh = SubResource( 8 )
-material/0 = null
 
 [node name="Button" type="MeshInstance" parent="red_button"]
 mesh = SubResource( 9 )
-material/0 = null
 
 [node name="ButtonCollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
