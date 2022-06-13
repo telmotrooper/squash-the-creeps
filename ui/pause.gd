@@ -8,11 +8,13 @@ const sound_volume_text = "Sound Volume: %d"
 func _ready():
   get_node("%GrassOptionButton").select(Configuration.get_value("graphics", "grass_amount"))
   
-  if (GameState.MapName): # TODO: Find a way to find option from label (maybe iterate through the items?)
-    if (GameState.MapName == 'height_map'):
+  if GameState.MapName: # TODO: Find a way to find option from label (maybe iterate through the items?)
+    if GameState.MapName == 'hub_1':
       get_node("%MapOptionButton").select(0)
     elif (GameState.MapName == 'test_map'):
       get_node("%MapOptionButton").select(1)
+    elif (GameState.MapName == 'mountain_map'):
+      get_node("%MapOptionButton").select(2)
   
   get_node("%DrawDistanceLabel").text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
   get_node("%DrawDistanceSlider").value = Configuration.get_value("graphics", "draw_distance")

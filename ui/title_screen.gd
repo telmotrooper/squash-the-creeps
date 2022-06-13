@@ -15,7 +15,7 @@ func _on_Button_pressed(button_name):
 func _on_AnimationPlayerMenu_animation_finished(anim_name):
   if anim_name == MENU_FADE_OUT:
     if button_pressed == "new_game":
-      GameState.MapName = "test_map"
+      GameState.MapName = "hub_1"
       if is_instance_valid($"/root/Main"):
         $"/root/Main".load_world(new_game_scene.get_path())
         GameState.initialize()
