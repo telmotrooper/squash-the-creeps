@@ -704,8 +704,8 @@ material = ExtResource( 8 )
 
 [node name="Label3D" type="Label3D" parent="CSGBox"]
 transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
-text = "Hold \"JUMP\" after hitting an enemy
-to go higher."
+text = "Hold \"JUMP\" while jumping
+over an enemy to go higher."
 font = ExtResource( 13 )
 
 [node name="RedGem" parent="CSGBox" instance=ExtResource( 24 )]
