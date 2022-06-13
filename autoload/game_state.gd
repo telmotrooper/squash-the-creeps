@@ -79,9 +79,9 @@ func generate_progress_report(current_map):
   UserInterface.get_node("%World1Progress").text = text
   
   if current_map and progress.has(current_map):
-    UserInterface.get_node("%ScoreLabel").text = "%s / %s (Total: %s)" % [progress[current_map].collected, progress[current_map].total, global_progress.collected]
+    UserInterface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
   else:
-    UserInterface.get_node("%ScoreLabel").text = "0 / 0 (Total: %s)" % global_progress.collected
+    UserInterface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
 
 func collect_godot_head(map_name, id):
   UserInterface.show_hud()
@@ -90,6 +90,9 @@ func collect_godot_head(map_name, id):
   # Update progress.
   progress[map_name].collected += 1
   global_progress.collected += 1
+  
+  if progress[map_name].collected == progress[map_name].total:
+    UserInterface.show_all_godot_heads_collected()
   
   progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
   global_progress.percentage = float(global_progress.collected) / global_progress.total

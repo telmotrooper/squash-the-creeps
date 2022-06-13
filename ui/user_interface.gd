@@ -40,3 +40,6 @@ func hide_hud(): # Triggered by HUDTimer.
   if hud_visible:
     $HUDAnimationPlayer.play("hide_hud")
     hud_visible = false
+
+func show_all_godot_heads_collected():
+  $AnimationPlayer.play("show_all_godot_heads_collected")
