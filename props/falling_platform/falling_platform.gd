@@ -1,8 +1,17 @@
 extends CSGBox
 
-func _on_DetectArea_body_entered(_body):
-  $Timer.start()
+signal body_entered
 
-func _on_Timer_timeout():
-#  $AnimationPlayer.play("fall")
-  print("%s - fall" % get_path())
+var falling := false
+var speed := 20
+var lower_limit := -10
+
+func _physics_process(delta):
+  if falling:
+    self.global_transform.origin.y -= delta * speed  
+
+  if self.global_transform.origin.y < lower_limit:
+    queue_free()
+
+func _on_DetectArea_body_entered(_body):
+  emit_signal("body_entered")

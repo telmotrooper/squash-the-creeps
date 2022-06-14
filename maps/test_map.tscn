@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=15]
-[ext_resource path="res://props/falling_platform/falling_platform.tscn" type="PackedScene" id=16]
+[ext_resource path="res://props/falling_platform/falling_bridge.tscn" type="PackedScene" id=16]
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy/purple_enemy.tscn" type="PackedScene" id=20]
@@ -669,58 +669,7 @@ anims/move_platforms = SubResource( 33 )
 wait_time = 2.0
 one_shot = true
 
-[node name="FallingBridge" type="Spatial" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 157.5, 9.5, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="FallingPlatform" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-
-[node name="FallingPlatform2" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
-
-[node name="FallingPlatform3" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
-
-[node name="FallingPlatform4" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
-
-[node name="FallingPlatform5" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
-
-[node name="FallingPlatform6" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0 )
-
-[node name="FallingPlatform7" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
-
-[node name="FallingPlatform8" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0 )
-
-[node name="FallingPlatform9" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
-
-[node name="FallingPlatform10" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 0 )
-
-[node name="FallingPlatform11" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0 )
-
-[node name="FallingPlatform12" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 0 )
-
-[node name="FallingPlatform13" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
-
-[node name="FallingPlatform14" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, 0 )
-
-[node name="FallingPlatform15" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 0 )
-
-[node name="FallingPlatform16" parent="Map/FallingBridge" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, 0 )
+[node name="FallingBridge" parent="Map" instance=ExtResource( 16 )]
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 

@@ -17,9 +17,6 @@ depth = 6.0
 material = SubResource( 39 )
 script = ExtResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="DetectArea" type="Area" parent="."]
 collision_layer = 16
 
@@ -27,5 +24,4 @@ collision_layer = 16
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379825, 0 )
 shape = SubResource( 40 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="DetectArea" to="." method="_on_DetectArea_body_entered"]
