@@ -14,7 +14,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.15
 
 [node name="Platforms" type="Spatial" parent="."]
 
