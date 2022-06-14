@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=15]
+[ext_resource path="res://props/falling_platform/falling_bridge.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" type="DynamicFont" id=17]
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy/purple_enemy.tscn" type="PackedScene" id=20]
@@ -234,14 +236,69 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 6.67, -47 ), Vector3( 0, 6.67, -66 ) ]
 }
 
-[sub_resource type="SpatialMaterial" id=39]
-albedo_color = Color( 0.454902, 0.458824, 0.360784, 1 )
-
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
 size = Vector2( 500, 500 )
 subdivide_width = 5
 subdivide_depth = 5
+
+[sub_resource type="BoxShape" id=39]
+extents = Vector3( 10, 2, 10 )
+
+[sub_resource type="Animation" id=40]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SprintTutorial/SprintLabel3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SprintTutorial/SprintLabel3D:outline_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "show_sprint_label"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SprintTutorial/SprintLabel3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SprintTutorial/SprintLabel3D:outline_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="TestMap" type="Spatial"]
 script = ExtResource( 5 )
@@ -671,154 +728,7 @@ anims/move_platforms = SubResource( 33 )
 wait_time = 2.0
 one_shot = true
 
-[node name="FallingBridge" type="Spatial" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 157.5, 9.5, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CSGBox" type="CSGBox" parent="Map/FallingBridge"]
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox2" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox3" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox4" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox5" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox6" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox7" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox8" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox9" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox10" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox11" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox12" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox13" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox14" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox15" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
-
-[node name="CSGBox16" type="CSGBox" parent="Map/FallingBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
+[node name="FallingBridge" parent="Map" instance=ExtResource( 16 )]
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 
@@ -847,7 +757,7 @@ height = 20.0
 depth = 20.0
 material = ExtResource( 8 )
 
-[node name="Label3D" type="Label3D" parent="CSGBox"]
+[node name="JumpLabel3D" type="Label3D" parent="CSGBox"]
 transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
 text = "Hold \"JUMP\" while jumping
 over an enemy to go higher."
@@ -877,6 +787,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
 [node name="GreenGem4" parent="CSGBox" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
 
+[node name="SprintTutorial" type="Area" parent="CSGBox"]
+unique_name_in_owner = true
+collision_layer = 16
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGBox/SprintTutorial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
+shape = SubResource( 39 )
+
+[node name="SprintLabel3D" type="Label3D" parent="CSGBox/SprintTutorial"]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.5, 12.5, -7.5 )
+billboard = 2
+modulate = Color( 1, 1, 1, 0 )
+outline_modulate = Color( 0, 0, 0, 0 )
+text = "Sometimes you'll have to be fast,
+press SHIFT to sprint."
+font = ExtResource( 17 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGBox/SprintTutorial"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 40 )
+anims/show_sprint_label = SubResource( 41 )
+
 [node name="CSGBox2" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0 )
 use_collision = true
@@ -896,3 +828,4 @@ transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="body_entered" from="CSGBox/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
