@@ -4,7 +4,7 @@ signal body_entered
 
 var falling := false
 var speed := 20
-var lower_limit := -10
+var lower_limit := 5
 
 func _physics_process(delta):
   if falling:
