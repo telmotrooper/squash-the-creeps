@@ -1,6 +1,6 @@
 extends Spatial
 
-const ZOOM_STEP = 0.1
+const ZOOM_STEP := 0.5
 
 var horizontal := 0
 var vertical := 0
@@ -8,6 +8,7 @@ var v_min := -70 # Looking up
 var v_max := 12 # Look down
 var h_acceleration := 10
 var v_acceleration := 10
+var default_camera_zoom := 10
 
 func _ready():
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -17,13 +18,14 @@ func _ready():
   $Horizontal/Vertical/ClippedCamera.far = Configuration.get_value("graphics", "draw_distance")
 
 func _input(event):
+  print(get_node("%ClippedCamera").translation.z)
   if event is InputEventMouseMotion:
     horizontal -= event.relative.x * Configuration.get_value("controls", "mouse_sensitivity")
     vertical -= event.relative.y * Configuration.get_value("controls", "mouse_sensitivity")
   elif event.is_action_pressed("zoom_in"):
-    print("zooming in")
+    get_node("%ClippedCamera").translation.z -= ZOOM_STEP
   elif event.is_action_pressed("zoom_out"):
-    print("zooming out")
+    get_node("%ClippedCamera").translation.z += ZOOM_STEP
 
 func _physics_process(delta):
   #print(vertical) # It's useful to print the current value when trying to find the proper values for 'min' and 'max'.
