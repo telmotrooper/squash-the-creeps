@@ -236,12 +236,6 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 6.67, -47 ), Vector3( 0, 6.67, -66 ) ]
 }
 
-[sub_resource type="PlaneMesh" id=12]
-material = ExtResource( 4 )
-size = Vector2( 500, 500 )
-subdivide_width = 5
-subdivide_depth = 5
-
 [sub_resource type="BoxShape" id=39]
 extents = Vector3( 10, 2, 10 )
 
@@ -299,6 +293,12 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
+
+[sub_resource type="PlaneMesh" id=12]
+material = ExtResource( 4 )
+size = Vector2( 500, 500 )
+subdivide_width = 5
+subdivide_depth = 5
 
 [node name="TestMap" type="Spatial"]
 script = ExtResource( 5 )
@@ -728,6 +728,79 @@ anims/move_platforms = SubResource( 33 )
 wait_time = 2.0
 one_shot = true
 
+[node name="CSGBox" type="CSGBox" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0 )
+use_collision = true
+collision_layer = 4
+width = 20.0
+height = 20.0
+depth = 20.0
+material = ExtResource( 8 )
+
+[node name="JumpLabel3D" type="Label3D" parent="Map/CSGBox"]
+transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
+text = "Hold \"JUMP\" while jumping
+over an enemy to go higher."
+font = ExtResource( 13 )
+
+[node name="RedGem" parent="Map/CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5 )
+
+[node name="RedGem2" parent="Map/CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5 )
+
+[node name="RedGem3" parent="Map/CSGBox" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0 )
+
+[node name="PurpleGem" parent="Map/CSGBox" instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0 )
+
+[node name="GreenGem" parent="Map/CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3 )
+
+[node name="GreenGem2" parent="Map/CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3 )
+
+[node name="GreenGem3" parent="Map/CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
+
+[node name="GreenGem4" parent="Map/CSGBox" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
+
+[node name="SprintTutorial" type="Area" parent="Map/CSGBox"]
+unique_name_in_owner = true
+collision_layer = 16
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/CSGBox/SprintTutorial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
+shape = SubResource( 39 )
+
+[node name="SprintLabel3D" type="Label3D" parent="Map/CSGBox/SprintTutorial"]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.5, 12.5, -7.5 )
+billboard = 2
+modulate = Color( 1, 1, 1, 0 )
+outline_modulate = Color( 0, 0, 0, 0 )
+text = "Sometimes you'll have to be fast,
+press SHIFT to sprint."
+font = ExtResource( 17 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/CSGBox/SprintTutorial"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 40 )
+anims/show_sprint_label = SubResource( 41 )
+
+[node name="CSGBox2" type="CSGBox" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0 )
+use_collision = true
+collision_layer = 4
+width = 20.0
+height = 20.0
+depth = 20.0
+material = ExtResource( 8 )
+
+[node name="BridgeGodotHead" parent="Map/CSGBox2" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
+
 [node name="FallingBridge" parent="Map" instance=ExtResource( 16 )]
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
@@ -748,84 +821,11 @@ mesh = SubResource( 12 )
 transform = Transform( 1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4 )
 far = 200.0
 
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 20.0
-height = 20.0
-depth = 20.0
-material = ExtResource( 8 )
-
-[node name="JumpLabel3D" type="Label3D" parent="CSGBox"]
-transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
-text = "Hold \"JUMP\" while jumping
-over an enemy to go higher."
-font = ExtResource( 13 )
-
-[node name="RedGem" parent="CSGBox" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5 )
-
-[node name="RedGem2" parent="CSGBox" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5 )
-
-[node name="RedGem3" parent="CSGBox" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0 )
-
-[node name="PurpleGem" parent="CSGBox" instance=ExtResource( 26 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0 )
-
-[node name="GreenGem" parent="CSGBox" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3 )
-
-[node name="GreenGem2" parent="CSGBox" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3 )
-
-[node name="GreenGem3" parent="CSGBox" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
-
-[node name="GreenGem4" parent="CSGBox" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
-
-[node name="SprintTutorial" type="Area" parent="CSGBox"]
-unique_name_in_owner = true
-collision_layer = 16
-
-[node name="CollisionShape" type="CollisionShape" parent="CSGBox/SprintTutorial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
-shape = SubResource( 39 )
-
-[node name="SprintLabel3D" type="Label3D" parent="CSGBox/SprintTutorial"]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.5, 12.5, -7.5 )
-billboard = 2
-modulate = Color( 1, 1, 1, 0 )
-outline_modulate = Color( 0, 0, 0, 0 )
-text = "Sometimes you'll have to be fast,
-press SHIFT to sprint."
-font = ExtResource( 17 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGBox/SprintTutorial"]
-root_node = NodePath("../..")
-anims/RESET = SubResource( 40 )
-anims/show_sprint_label = SubResource( 41 )
-
-[node name="CSGBox2" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 20.0
-height = 20.0
-depth = 20.0
-material = ExtResource( 8 )
-
-[node name="BridgeGodotHead" parent="CSGBox2" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
-
 [node name="YellowEnemy" parent="." instance=ExtResource( 23 )]
 transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
 
 [connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
+[connection signal="body_entered" from="Map/CSGBox/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="body_entered" from="CSGBox/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
