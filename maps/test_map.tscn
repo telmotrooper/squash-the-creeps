@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=15]
+[ext_resource path="res://props/falling_platform/falling_platform.tscn" type="PackedScene" id=16]
 [ext_resource path="res://maps/models/goweti/goweti.gd" type="Script" id=18]
 [ext_resource path="res://props/red_button/red_button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemy/purple_enemy/purple_enemy.tscn" type="PackedScene" id=20]
@@ -233,9 +234,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, 6.67, -47 ), Vector3( 0, 6.67, -66 ) ]
 }
-
-[sub_resource type="SpatialMaterial" id=39]
-albedo_color = Color( 0.454902, 0.458824, 0.360784, 1 )
 
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
@@ -677,148 +675,52 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CSGBox" type="CSGBox" parent="Map/FallingBridge"]
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
+[node name="FallingPlatform" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 
-[node name="CSGBox2" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform2" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox3" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform3" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox4" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform4" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox5" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform5" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox6" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform6" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox7" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform7" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox8" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform8" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox9" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform9" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox10" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform10" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox11" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform11" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox12" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform12" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox13" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform13" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox14" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform14" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox15" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform15" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
-[node name="CSGBox16" type="CSGBox" parent="Map/FallingBridge"]
+[node name="FallingPlatform16" parent="Map/FallingBridge" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, 0 )
-use_collision = true
-collision_layer = 4
-width = 1.5
-height = 1.0
-depth = 6.0
-material = SubResource( 39 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 
