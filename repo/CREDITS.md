@@ -1,4 +1,4 @@
-# Assets
+# Third Party Assets
 
 ## 3D Models
 
