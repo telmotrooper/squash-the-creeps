@@ -12,10 +12,3 @@ func _ready():
 
 func _on_Player_hit():
   GameState.UserInterface.retry()
-
-func _on_crash_sound_finished():
-  $MusicTimer.start()
-
-func _on_MusicTimer_timeout():
-  pass
-#  GameState.play_music(map_music)

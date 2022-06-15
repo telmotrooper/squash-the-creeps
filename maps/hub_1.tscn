@@ -74,10 +74,4 @@ far = 200.0
 stream = ExtResource( 12 )
 bus = "Sound"
 
-[node name="MusicTimer" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_crash_sound_finished"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="timeout" from="MusicTimer" to="." method="_on_MusicTimer_timeout"]
