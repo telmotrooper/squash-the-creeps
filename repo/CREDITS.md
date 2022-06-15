@@ -35,6 +35,8 @@
 
 ## Others
 
+* Skybox [Anime Starry Night](https://sketchfab.com/3d-models/anime-starry-night-db0952ccd1ee4c77a1a07709b3d4f4f0) by [fangzhangmnm](https://sketchfab.com/fangzhangmnm), licensed under (CC BY 4.0)
+
 * Skyboxes [4K Sky Series HDRi free Texture](https://www.cgtrader.com/free-3d-models/textures/natural/hdri-freebie-series) by [avianx](https://www.cgtrader.com/avianx), licensed under CGTrader Royalty Free License
 
 * [Grass sprites and shaders](https://github.com/HungryProton/scatter/tree/master/demos/assets) from the Scatter addon demo by [HungryProton](https://github.com/HungryProton) (MIT License) with assets from [textures.com](http://www.textures.com/) (Textures.com License) and [Kenney](https://kenney.nl/) (CC0 1.0)
