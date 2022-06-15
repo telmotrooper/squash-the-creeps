@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/models/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://maps/hub_1.gd" type="Script" id=10]
 [ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" type="AudioStream" id=12]
+[ext_resource path="res://maps/hub_1_night.tres" type="Environment" id=13]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -21,6 +22,8 @@ subdivide_depth = 5
 
 [node name="Hub1" type="Spatial"]
 script = ExtResource( 10 )
+day_environment = ExtResource( 4 )
+night_environment = ExtResource( 13 )
 map_music = ExtResource( 11 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -38,7 +41,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.6, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 12 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 4 )
+environment = ExtResource( 13 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 8.26409, 4.15341, 11.1241 )
