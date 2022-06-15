@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://props/green_gem/green_gem.tscn" type="PackedScene" id=25]
 [ext_resource path="res://props/purple_gem/purple_gem.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=27]
+[ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=28]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -825,6 +826,11 @@ far = 200.0
 
 [node name="YellowEnemy" parent="." instance=ExtResource( 23 )]
 transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+autoplay = true
+bus = "Music"
 
 [connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
