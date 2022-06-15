@@ -10,7 +10,7 @@
 [ext_resource path="res://props/portal/portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://maps/boundary.tscn" type="PackedScene" id=9]
 [ext_resource path="res://maps/hub_1.gd" type="Script" id=10]
-[ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" type="AudioStream" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -75,3 +75,4 @@ stream = ExtResource( 12 )
 bus = "Sound"
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

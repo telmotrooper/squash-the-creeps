@@ -19,3 +19,4 @@
 * [Cardboard burning 2](https://freesound.org/people/raremess/sounds/222557/) by [raremess](https://freesound.org/people/raremess/)
 * Music [Badass Space Explorer](https://soundcloud.com/supergamemusic/badassspaceexplorer) by [Fabian Gremper, SUPER GAME MUSIC](https://www.supergamemusic.com/)
 * Sound [CarStartSkidCrash](https://freesound.org/people/musicmasta1/sounds/131385/) by [musicmasta1](https://freesound.org/people/musicmasta1/)
+* Sound [Ambience, Seaside Waves, Close, A](https://freesound.org/people/InspectorJ/sounds/400632/) by [InspectorJ](https://freesound.org/people/InspectorJ/)

@@ -46,6 +46,7 @@ func add_gems(amount: int):
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
 
 func initialize(): # Used in "New Game".
+  new_game = true
   gems_collected = {}
   godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
   initialize_progress()
