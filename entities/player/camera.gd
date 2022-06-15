@@ -4,10 +4,10 @@ const ZOOM_STEP := 0.5
 var min_zoom := 9
 var max_zoom := 18
 
-var horizontal := 0
-var vertical := 0
-var v_min := -70 # Looking up
-var v_max := 12 # Look down
+var horizontal: float = 0
+var vertical: float = 0
+var v_min: float = -70 # Looking up
+var v_max: float = 12 # Look down
 var h_acceleration := 10
 var v_acceleration := 10
 
