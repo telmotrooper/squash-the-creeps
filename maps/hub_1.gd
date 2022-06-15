@@ -9,6 +9,7 @@ func _ready():
     GameState.new_game = false
   else:
     GameState.play_music(map_music)
+    $Spaceship/Smoke.queue_free()
   
   GameState.RetryCamera = $RetryCamera
 
