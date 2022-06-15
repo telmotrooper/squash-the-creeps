@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/models/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://maps/boundary.tscn" type="PackedScene" id=9]
 [ext_resource path="res://maps/hub_1.gd" type="Script" id=10]
 [ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" type="AudioStream" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -69,4 +70,14 @@ transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -8.2956, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.32, 48.54 )
 far = 200.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Sound"
+
+[node name="MusicTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_crash_sound_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="timeout" from="MusicTimer" to="." method="_on_MusicTimer_timeout"]

@@ -6,6 +6,9 @@ var MapName: String
 var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
+# Used to decide whether to play crash sound in Hub 1.
+var new_game := true
+
 var upgrades = {
   "double_jump": false,
   "mid_air_dash": false
@@ -187,6 +190,9 @@ func play_audio(stream):
 func play_music(stream):
   $BGM.stream = stream
   $BGM.play()
+
+func stop_music():
+  $BGM.stop()
 
 func reload_current_scene():
   var Main = get_node_or_null("/root/Main")
