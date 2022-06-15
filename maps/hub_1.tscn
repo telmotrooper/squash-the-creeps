@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/models/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://props/portal/portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://maps/boundary.tscn" type="PackedScene" id=9]
 [ext_resource path="res://maps/hub_1.gd" type="Script" id=10]
+[ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=11]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -19,6 +20,7 @@ subdivide_depth = 5
 
 [node name="Hub1" type="Spatial"]
 script = ExtResource( 10 )
+map_music = ExtResource( 11 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 39.4168, -76.0941 )

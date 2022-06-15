@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://ui/menu_env.tres" type="Environment" id=1]
 [ext_resource path="res://ui/buttons/continue_button.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ui/title_screen.gd" type="Script" id=5]
 [ext_resource path="res://assets/logo.png" type="Texture" id=6]
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_24.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/Super Game Music - Badass Space Explorer (Loop).ogg" type="AudioStream" id=8]
 [ext_resource path="res://ui/buttons/options_button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/buttons/new_game_button.tscn" type="PackedScene" id=10]
 [ext_resource path="res://entities/player/player.glb" type="PackedScene" id=11]
@@ -191,6 +192,7 @@ tracks/0/keys = {
 [node name="TitleScreen" type="Node"]
 script = ExtResource( 5 )
 new_game_scene = ExtResource( 4 )
+menu_music = ExtResource( 8 )
 
 [node name="AnimationPlayerMenu" type="AnimationPlayer" parent="."]
 autoplay = "menu_fade_in"

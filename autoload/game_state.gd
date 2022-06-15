@@ -184,6 +184,10 @@ func play_audio(stream):
   else:
     print("Error: No AudioStreamPlayer was available to play sound.")
 
+func play_music(stream):
+  $BGM.stream = stream
+  $BGM.play()
+
 func reload_current_scene():
   var Main = get_node_or_null("/root/Main")
   if is_instance_valid(Main): # Game started normally, use background loading.
