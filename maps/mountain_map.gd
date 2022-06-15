@@ -1,8 +1,10 @@
 extends Spatial
 
+export (AudioStream) var map_music
 export (AudioStream) var drain_water_sound
 
 func _ready():
+  GameState.play_music(map_music)
   GameState.RetryCamera = $RetryCamera
 
 func _on_RedButton_pressed():

@@ -2,9 +2,11 @@ extends Node
 
 const MENU_FADE_OUT = "menu_fade_out"
 export (PackedScene) var new_game_scene
+export (AudioStream) var menu_music
 var button_pressed: String
 
 func _ready():
+  GameState.play_music(menu_music)
   var version = Engine.get_version_info()
   $Menu/VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d" % [version.major, version.minor, version.patch]
 

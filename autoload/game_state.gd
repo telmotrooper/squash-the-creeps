@@ -6,6 +6,9 @@ var MapName: String
 var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
+# Used to decide whether to play crash sound in Hub 1.
+var new_game := true
+
 var upgrades = {
   "double_jump": false,
   "mid_air_dash": false
@@ -43,6 +46,7 @@ func add_gems(amount: int):
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
 
 func initialize(): # Used in "New Game".
+  new_game = true
   gems_collected = {}
   godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
   initialize_progress()
@@ -183,6 +187,13 @@ func play_audio(stream):
     $Audio/AudioStreamPlayer5.play()
   else:
     print("Error: No AudioStreamPlayer was available to play sound.")
+
+func play_music(stream):
+  $BGM.stream = stream
+  $BGM.play()
+
+func stop_music():
+  $BGM.stop()
 
 func reload_current_scene():
   var Main = get_node_or_null("/root/Main")

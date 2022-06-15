@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/models/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://props/portal/portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://maps/boundary.tscn" type="PackedScene" id=9]
 [ext_resource path="res://maps/hub_1.gd" type="Script" id=10]
+[ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" type="AudioStream" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -19,6 +21,7 @@ subdivide_depth = 5
 
 [node name="Hub1" type="Spatial"]
 script = ExtResource( 10 )
+map_music = ExtResource( 11 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 39.4168, -76.0941 )
@@ -67,4 +70,9 @@ transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -8.2956, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.32, 48.54 )
 far = 200.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Sound"
+
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

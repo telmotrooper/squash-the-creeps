@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/131385__musicmasta1__carstartskidcrash.ogg-02cdefe291410ce46ad525656750fc08.oggstr"
+
+[deps]
+
+source_file="res://assets/131385__musicmasta1__carstartskidcrash.ogg"
+dest_files=[ "res://.import/131385__musicmasta1__carstartskidcrash.ogg-02cdefe291410ce46ad525656750fc08.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
