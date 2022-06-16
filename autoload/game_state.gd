@@ -189,8 +189,11 @@ func play_audio(stream):
     print("Error: No AudioStreamPlayer was available to play sound.")
 
 func play_music(stream):
-  $BGM.stream = stream
-  $BGM.play()
+  if $BGM.stream != stream:
+    $BGM.stream = stream
+    $BGM.play()
+  elif not $BGM.playing:
+    $BGM.play()
 
 func stop_music():
   $BGM.stop()
