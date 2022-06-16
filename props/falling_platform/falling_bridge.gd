@@ -8,7 +8,8 @@ func _ready():
     platforms.append(platform)
 
 func _on_FallingPlatform_body_entered():
-  $Timer.start()
+  if $Timer.is_stopped():
+    $Timer.start()
 
 func _on_Timer_timeout():
   if index < platforms.size():
