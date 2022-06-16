@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/height_map.glb-b5a120dd6221f310f0f10eb308d255a7.scn"
+path="res://.import/beach_island.glb-c28f30ba630094ce8f58ab9bce4a7b2b.scn"
 
 [deps]
 
-source_file="res://maps/models/height_map/height_map.glb"
-dest_files=[ "res://.import/height_map.glb-b5a120dd6221f310f0f10eb308d255a7.scn" ]
+source_file="res://maps/extras/beach_island/beach_island.glb"
+dest_files=[ "res://.import/beach_island.glb-c28f30ba630094ce8f58ab9bce4a7b2b.scn" ]
 
 [params]
 

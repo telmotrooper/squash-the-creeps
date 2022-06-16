@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/beach_island.glb-724fb32caed4a90f6971a8984ed3ced6.scn"
+path="res://.import/hollow_cylinder.glb-5cf68b07bf52e5201a37fac0f28eff16.scn"
 
 [deps]
 
-source_file="res://maps/models/beach_island/beach_island.glb"
-dest_files=[ "res://.import/beach_island.glb-724fb32caed4a90f6971a8984ed3ced6.scn" ]
+source_file="res://maps/extras/hollow_cylinder.glb"
+dest_files=[ "res://.import/hollow_cylinder.glb-5cf68b07bf52e5201a37fac0f28eff16.scn" ]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/custom_script=""
 nodes/storage=0
 nodes/use_legacy_names=false
 materials/location=1
-materials/storage=1
+materials/storage=0
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=4286

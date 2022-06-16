@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/hollow_cylinder.glb-68bb43820346e15c0bc4f792ce6e139c.scn"
+path="res://.import/beach_island_hub.glb-bdbab4843ee041953b2475a5d29a454b.scn"
 
 [deps]
 
-source_file="res://maps/models/hollow_cylinder.glb"
-dest_files=[ "res://.import/hollow_cylinder.glb-68bb43820346e15c0bc4f792ce6e139c.scn" ]
+source_file="res://maps/extras/beach_island_hub/beach_island_hub.glb"
+dest_files=[ "res://.import/beach_island_hub.glb-bdbab4843ee041953b2475a5d29a454b.scn" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/beach_island_hub.glb-1801769369772c6c0faeadcf65c0a1fc.scn"
+path="res://.import/height_map.glb-30c00a211baf4d6dd99e2d32fcd59fb9.scn"
 
 [deps]
 
-source_file="res://maps/models/beach_island_hub/beach_island_hub.glb"
-dest_files=[ "res://.import/beach_island_hub.glb-1801769369772c6c0faeadcf65c0a1fc.scn" ]
+source_file="res://maps/extras/height_map/height_map.glb"
+dest_files=[ "res://.import/height_map.glb-30c00a211baf4d6dd99e2d32fcd59fb9.scn" ]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/custom_script=""
 nodes/storage=0
 nodes/use_legacy_names=false
 materials/location=1
-materials/storage=0
+materials/storage=1
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=4286

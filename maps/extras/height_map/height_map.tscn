@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://maps/models/height_map/height_map.glb" type="PackedScene" id=1]
+[ext_resource path="res://maps/extras/height_map/height_map.glb" type="PackedScene" id=1]
 
 [node name="height_map" instance=ExtResource( 1 )]
 
