@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/beach_island_hub.glb-1801769369772c6c0faeadcf65c0a1fc.scn"
+path="res://.import/beach_island_hub.glb-bdbab4843ee041953b2475a5d29a454b.scn"
 
 [deps]
 
-source_file="res://maps/models/beach_island_hub/beach_island_hub.glb"
-dest_files=[ "res://.import/beach_island_hub.glb-1801769369772c6c0faeadcf65c0a1fc.scn" ]
+source_file="res://maps/extras/beach_island_hub/beach_island_hub.glb"
+dest_files=[ "res://.import/beach_island_hub.glb-bdbab4843ee041953b2475a5d29a454b.scn" ]
 
 [params]
 
