@@ -32,6 +32,7 @@
 
 * Sound [Cardboard burning 2](https://freesound.org/people/raremess/sounds/222557/) by [raremess](https://freesound.org/people/raremess/), licensed under (CC0 1.0)
 
+* Sound [UI alert, warm musical finish, complete, success tone 4](https://www.zapsplat.com/music/ui-alert-warm-musical-finish-complete-success-tone-4/) by [ZapSplat](https://www.zapsplat.com/), licensed under ZapSplat Standard License
 
 ## Others
 
