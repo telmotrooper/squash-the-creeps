@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -80,7 +80,11 @@ _data = {
 [sub_resource type="BoxShape" id=35]
 extents = Vector3( 3, 1, 7 )
 
+[sub_resource type="SpatialMaterial" id=42]
+albedo_color = Color( 0.219608, 0.360784, 0.780392, 1 )
+
 [sub_resource type="CubeMesh" id=34]
+material = SubResource( 42 )
 size = Vector3( 6, 2, 14 )
 
 [sub_resource type="BoxShape" id=37]
@@ -449,7 +453,6 @@ shape = SubResource( 35 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform"]
 mesh = SubResource( 34 )
-material/0 = ExtResource( 8 )
 
 [node name="GreenGem" parent="Map/SmallPlatform" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
@@ -470,7 +473,6 @@ shape = SubResource( 35 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/SmallPlatform2"]
 mesh = SubResource( 34 )
-material/0 = ExtResource( 8 )
 
 [node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
