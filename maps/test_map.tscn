@@ -440,7 +440,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5 )
 
 [node name="SmallPlatform2" parent="Map" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -65 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -2, -65 )
+move_y = 1.0
 
 [node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
