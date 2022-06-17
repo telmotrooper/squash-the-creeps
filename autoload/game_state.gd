@@ -14,8 +14,6 @@ var upgrades = {
   "mid_air_dash": false
 }
 
-var amount_of_gems := 0
-
 var godot_heads_counter := 0
 var total_godot_heads_in_map := 0
 
@@ -31,6 +29,8 @@ var godot_heads_collected = {
     "GodotHead2": false
    }
 }
+
+var amount_of_gems := 0
 
 var gems_collected = {}
 
@@ -114,6 +114,13 @@ func register_godot_head(map_name, id):
   if not id in godot_heads_collected[map_name]:
     print("Warning: Update GameState to include '%s'." % id)
     GameState.godot_heads_collected[map_name][id] = false
+
+func register_gem(map_name: String, path: NodePath, gem_value: int):
+  if not map_name in gems_collected:
+    gems_collected[map_name] = {}
+  
+  if not path in gems_collected[map_name]:
+    gems_collected[map_name][path] = { "collected": false, "value": gem_value }
 
 # This variable is used to work around a bug in Scatter on which,
 # after "test_map" is reloaded, the modifiers are not re-inserted

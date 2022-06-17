@@ -8,7 +8,9 @@ var follow_player := false
 var t := 0.0
 
 func _ready():
-  if GameState.gems_collected.has(get_path()):
+  GameState.register_gem(owner.name, get_path(), gem_value)
+
+  if GameState.gems_collected[owner.name][get_path()].collected:
     queue_free()
 
 # https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html
@@ -24,7 +26,7 @@ func _physics_process(delta):
     self.global_transform.origin = gem_position.linear_interpolate(player_position, t)
     
     if distance <= 1 or t >= 1.0:
-      GameState.gems_collected[get_path()] = true
+      GameState.gems_collected[owner.name][get_path()].collected = true
       GameState.play_audio(collected_sound)
       GameState.add_gems(gem_value)
       queue_free()
