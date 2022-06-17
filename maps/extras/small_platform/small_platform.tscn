@@ -20,6 +20,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+move_y = -4.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 35 )
