@@ -21,7 +21,7 @@ _global_script_classes=[ {
 }, {
 "base": "RigidBody",
 "class": "Gem",
-"language": "GDScript",
+"language": "",
 "path": "res://props/red_gem/gem.gd"
 }, {
 "base": "KinematicBody",
