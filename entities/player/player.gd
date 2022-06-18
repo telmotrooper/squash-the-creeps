@@ -92,7 +92,7 @@ func _physics_process(delta):
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
-  elif is_on_floor(): # Reset jumps.
+  elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset jumps.
     is_jumping = false
     is_double_jumping = false
   elif GameState.upgrades["double_jump"]:
