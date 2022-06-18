@@ -89,10 +89,10 @@ func _physics_process(delta):
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
   
-  if is_on_floor() and Input.is_action_pressed("jump"):
-    velocity.y = jump_impulse
+  if not is_jumping and Input.is_action_pressed("jump"):
+    velocity.y += jump_impulse
     is_jumping = true
-  elif is_on_floor():
+  elif is_on_floor(): # Reset jumps.
     is_jumping = false
     is_double_jumping = false
     
