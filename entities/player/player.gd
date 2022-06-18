@@ -89,8 +89,13 @@ func _physics_process(delta):
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
   
-  if not is_jumping and Input.is_action_pressed("jump"):
+  if is_on_floor() and get_slide_collision(0).collider is Enemy and Input.is_action_pressed("jump"):
+    print("bounce")
     velocity.y += jump_impulse
+    is_jumping = true
+  elif not is_jumping and Input.is_action_pressed("jump"):
+    print("jump")
+    velocity.y = jump_impulse
     is_jumping = true
   elif is_on_floor(): # Reset jumps.
     is_jumping = false
@@ -100,6 +105,7 @@ func _physics_process(delta):
         and velocity.y <= 20 # Only allow double jump after player slows down a bit.
         and Input.is_action_just_pressed("jump")):
       is_double_jumping = true
+      print("double jump")
       velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
   
   velocity.y -= fall_acceleration * delta
