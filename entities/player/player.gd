@@ -89,10 +89,7 @@ func _physics_process(delta):
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
   
-  if is_on_floor() and get_slide_collision(0).collider is Enemy and Input.is_action_pressed("jump"):
-    velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".
-    is_jumping = true
-  elif not is_jumping and Input.is_action_just_pressed("jump"):
+  if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
   elif is_on_floor(): # Reset jumps.
@@ -118,6 +115,9 @@ func _physics_process(delta):
       
       if Vector3.UP.dot(collision.normal) > 0.1:
         enemy.squash()
+        if Input.is_action_pressed("jump"):
+          velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".
+          is_jumping = true
     
     elif collision.collider is RedButton:
       var red_button = collision.collider
