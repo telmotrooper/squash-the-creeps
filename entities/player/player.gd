@@ -95,8 +95,7 @@ func _physics_process(delta):
   elif is_on_floor(): # Reset jumps.
     is_jumping = false
     is_double_jumping = false
-    
-  if GameState.upgrades["double_jump"]:
+  elif GameState.upgrades["double_jump"]:
     if (is_jumping and not is_double_jumping
         and velocity.y <= 20 # Only allow double jump after player slows down a bit.
         and Input.is_action_just_pressed("jump")):
