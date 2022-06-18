@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/purple_gem.glb-f25b5ff54764620593716a8c5efde638.scn"
+path="res://.import/pier.glb-9d7ad12460eecd8576114e67b1cb8953.scn"
 
 [deps]
 
-source_file="res://props/purple_gem/purple_gem.glb"
-dest_files=[ "res://.import/purple_gem.glb-f25b5ff54764620593716a8c5efde638.scn" ]
+source_file="res://maps/extras/pier/pier.glb"
+dest_files=[ "res://.import/pier.glb-9d7ad12460eecd8576114e67b1cb8953.scn" ]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/custom_script=""
 nodes/storage=0
 nodes/use_legacy_names=false
 materials/location=1
-materials/storage=1
+materials/storage=0
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=4286

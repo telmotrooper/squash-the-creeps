@@ -12,6 +12,8 @@
 
 * [Gemstone](https://sketchfab.com/3d-models/gemstone-216c3f967e0f4895a9faf6fec328024d) by [glorysun](https://sketchfab.com/glorysun), licensed under (CC BY 4.0)
 
+* [Pier](https://sketchfab.com/3d-models/pier-47c481a8ef544a36ab341084938c9d46) by [daggafiya24](https://sketchfab.com/daggafiya24), licensed under (CC BY 4.0)
+
 ## Sounds and Music
 
 * Music [Badass Space Explorer](https://soundcloud.com/supergamemusic/badassspaceexplorer) by [Fabian Gremper (SUPER GAME MUSIC)](https://www.supergamemusic.com/), licensed under (CC BY 4.0)

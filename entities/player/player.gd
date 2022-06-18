@@ -90,7 +90,7 @@ func _physics_process(delta):
   velocity.z = direction.z * speed
   
   if is_on_floor() and Input.is_action_pressed("jump"):
-    velocity.y += jump_impulse
+    velocity.y = jump_impulse
     is_jumping = true
   elif is_on_floor():
     is_jumping = false
@@ -98,10 +98,10 @@ func _physics_process(delta):
     
   if GameState.upgrades["double_jump"]:
     if (is_jumping and not is_double_jumping
-        and velocity.y <= 1 # Can't double jump if still going up.
+        and velocity.y <= 20 # Only allow double jump after player slows down a bit.
         and Input.is_action_just_pressed("jump")):
       is_double_jumping = true
-      velocity.y += jump_impulse * 1.5
+      velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
   
   velocity.y -= fall_acceleration * delta
   # Assign move_and_slide to velocity prevents the velocity from accumulating.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://maps/extras/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://maps/extras/height_map/Material.material" type="Material" id=13]
 [ext_resource path="res://props/godot_head/godot_head.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=15]
+[ext_resource path="res://props/purple_gem/purple_gem.tscn" type="PackedScene" id=16]
+[ext_resource path="res://props/red_gem/red_gem.tscn" type="PackedScene" id=17]
+[ext_resource path="res://props/green_gem/green_gem.tscn" type="PackedScene" id=18]
+[ext_resource path="res://maps/extras/pier/pier.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -156,6 +160,20 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 33
 
 [node name="GodotHead2" parent="." instance=ExtResource( 14 )]
 transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 179.809, 33.6, 68.9833 )
+
+[node name="RedGem" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1, 2.6, 57.8 )
+
+[node name="PurpleGem" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -1.9, 51.8 )
+
+[node name="GreenGem" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104, -0.9, 40.9 )
+
+[node name="LakeGems" type="Spatial" parent="."]
+
+[node name="Pier" parent="." instance=ExtResource( 19 )]
+transform = Transform( -0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 55.2444, -4.9, 79.45 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
