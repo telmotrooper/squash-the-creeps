@@ -89,14 +89,13 @@ func _physics_process(delta):
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
   
-  if is_on_floor() and Input.is_action_pressed("jump"):
+  if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
-  elif is_on_floor():
+  elif is_on_floor(): # Reset jumps.
     is_jumping = false
     is_double_jumping = false
-    
-  if GameState.upgrades["double_jump"]:
+  elif GameState.upgrades["double_jump"]:
     if (is_jumping and not is_double_jumping
         and velocity.y <= 20 # Only allow double jump after player slows down a bit.
         and Input.is_action_just_pressed("jump")):
@@ -116,7 +115,9 @@ func _physics_process(delta):
       
       if Vector3.UP.dot(collision.normal) > 0.1:
         enemy.squash()
-        velocity.y = bounce_impulse
+        if Input.is_action_pressed("jump"):
+          velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".
+          is_jumping = true
     
     elif collision.collider is RedButton:
       var red_button = collision.collider
