@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("GodotHeadsAudioStreamPlayer")
+tracks/1/path = NodePath("AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -101,7 +101,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("GodotHeadsAudioStreamPlayer:stream")
+tracks/2/path = NodePath("AudioStreamPlayer:stream")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -127,18 +127,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("../GemsAudioStreamPlayer:stream")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 8 ) ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "show_all_gems_collected"
@@ -156,7 +144,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.9 ), Color( 1, 1, 1, 0.9 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("../GemsAudioStreamPlayer")
+tracks/1/path = NodePath("../AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -170,7 +158,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../GemsAudioStreamPlayer:stream")
+tracks/2/path = NodePath("../AudioStreamPlayer:stream")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -636,11 +624,7 @@ root_node = NodePath("../GodotHeadsAnimationPlayer")
 anims/RESET = SubResource( 7 )
 anims/show_all_gems_collected = SubResource( 8 )
 
-[node name="GodotHeadsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-bus = "Sound"
-
-[node name="GemsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "Sound"
 

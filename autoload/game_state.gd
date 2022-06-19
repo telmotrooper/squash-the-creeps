@@ -118,8 +118,6 @@ func collect_godot_head(map_name, id):
     UserInterface.show_all_godot_heads_collected()
   
   generate_progress_report(map_name)
-  
-  print(progress)
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
