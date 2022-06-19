@@ -37,6 +37,7 @@ var gems_collected = {}
 var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
 
+var global_gem_progress = { "collected": 0, "total": 90+9, "percentage": 0.0 }
 var gem_progress = {
   "TestMap": { "collected": 0, "total": 90, "percentage": 0.0 },
   "MontainMap": { "collected": 0, "total": 9, "percentage": 0.0 }
@@ -47,8 +48,12 @@ var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
 func collect_gem(map_name: String, path: NodePath):
   gems_collected[map_name][path].collected = true
+  
   gem_progress[map_name].collected += gems_collected[map_name][path].value
+  global_gem_progress.collected += gems_collected[map_name][path].value
+  
   gem_progress[map_name].percentage = float(gem_progress[map_name].collected) / gem_progress[map_name].total
+  global_gem_progress.percentage = float(global_gem_progress.collected) / global_gem_progress.total
   
   if gem_progress[map_name].percentage == 1.0:
     UserInterface.show_all_gems_collected()
