@@ -12,30 +12,26 @@ func _ready():
   if load_file != OK:
     config.save(file_path)
   
-  # Set default values if missing
-  if not config.has_section_key("audio", "music_volume"):
-    config.set_value("audio", "music_volume", 80)
+  var defaults = {
+    "audio": {
+      "music_volume": 80,
+      "sound_volume": 80
+    },
+    "controls": {
+      "mouse_sensitivity": 0.5
+    },
+    "graphics": {
+      "fullscreen": false,
+      "draw_distance": 200,
+      "grass_amount": 0
+    },
+    "debug": {
+      "double_jump": false,
+      "mid_air_dash": false
+    }
+  }
   
-  if not config.has_section_key("audio", "sound_volume"):
-    config.set_value("audio", "sound_volume", 80)
-  
-  if not config.has_section_key("controls", "mouse_sensitivity"):
-    config.set_value("controls", "mouse_sensitivity", 0.5)
-  
-  if not config.has_section_key("graphics", "fullscreen"):
-    config.set_value("graphics", "fullscreen", false)
-  
-  if not config.has_section_key("graphics", "draw_distance"):
-    config.set_value("graphics", "draw_distance", 200)
-  
-  if not config.has_section_key("graphics", "grass_amount"):
-    config.set_value("graphics", "grass_amount", 0)
-    
-  if not config.has_section_key("debug", "double_jump"):
-    config.set_value("debug", "double_jump", false)
-  
-  if not config.has_section_key("debug", "mid_air_dash"):
-    config.set_value("debug", "mid_air_dash", false)
+  set_default_values(defaults)
   
   # Handle fullscreen
   if config.get_value("graphics", "fullscreen") == true:
@@ -67,3 +63,9 @@ func set_volume(bus_name: String, volume: float):
     volume_in_db = -80
 
   AudioServer.set_bus_volume_db(bus_index, volume_in_db)
+
+func set_default_values(defaults: Dictionary):
+  for section in defaults:
+    for key in defaults[section]:
+      if not config.has_section_key(section, key):
+        config.set_value(section, key, defaults[section][key])
