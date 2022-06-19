@@ -30,12 +30,11 @@ var godot_heads_collected = {
    }
 }
 
-var amount_of_gems := 0
-
-var gems_collected = {}
-
 var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
+
+var amount_of_gems := 0
+var gems_collected = {}
 
 var global_gem_progress = { "collected": 0, "total": 90+9, "percentage": 0.0 }
 var gem_progress = {
@@ -47,6 +46,11 @@ var gem_progress = {
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 var initial_gem_progress = var2bytes(gem_progress)
 var initial_global_gem_progress = var2bytes(global_gem_progress)
+
+func calculate_overall_progress(): # Currently gems and godot heads have the same weight.
+  var collected = global_progress.collected + global_gem_progress.collected
+  var total = global_progress.total + global_gem_progress.total
+  return float(collected) / total
 
 func collect_gem(map_name: String, path: NodePath):
   gems_collected[map_name][path].collected = true
@@ -63,6 +67,7 @@ func collect_gem(map_name: String, path: NodePath):
   UserInterface.show_hud()
   amount_of_gems += gems_collected[map_name][path].value
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
+  generate_progress_report(map_name)
 
 func initialize(): # Used in "New Game".
   new_game = true
@@ -104,7 +109,9 @@ func generate_progress_report(current_map):
     text += map_name + ": "
     text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
   
-  UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
+  var overall_progress = calculate_overall_progress()
+  
+  UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text
   
   if current_map and progress.has(current_map):
