@@ -51,7 +51,7 @@ func collect_gem(map_name: String, path: NodePath):
   gem_progress[map_name].percentage = float(gem_progress[map_name].collected) / gem_progress[map_name].total
   
   if gem_progress[map_name].percentage == 1.0:
-    print ("100% gems collected")
+    UserInterface.show_all_gems_collected()
   
   UserInterface.show_hud()
   amount_of_gems += gems_collected[map_name][path].value
@@ -111,11 +111,12 @@ func collect_godot_head(map_name, id):
   progress[map_name].collected += 1
   global_progress.collected += 1
   
-  if progress[map_name].collected == progress[map_name].total:
-    UserInterface.show_all_godot_heads_collected()
-  
   progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
   global_progress.percentage = float(global_progress.collected) / global_progress.total
+  
+  if progress[map_name].percentage == 1.0:
+    UserInterface.show_all_godot_heads_collected()
+  
   generate_progress_report(map_name)
   
   print(progress)

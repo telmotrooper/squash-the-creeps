@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/path = NodePath("GodotHeadsAudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -101,7 +101,76 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer:stream")
+tracks/2/path = NodePath("GodotHeadsAudioStreamPlayer:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../AllGemsCollected:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../GemsAudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 8 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "show_all_gems_collected"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../AllGemsCollected:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.9 ), Color( 1, 1, 1, 0.9 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../GemsAudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../GemsAudioStreamPlayer:stream")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -543,12 +612,35 @@ margin_top = -150.0
 margin_right = 183.5
 custom_fonts/font = ExtResource( 4 )
 text = "100% Godot Heads collected"
+align = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AllGemsCollected" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -183.5
+margin_top = -110.0
+margin_right = 183.5
+custom_fonts/font = ExtResource( 4 )
+text = "100% gems collected"
+align = 1
+
+[node name="GodotHeadsAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 5 )
 anims/show_all_godot_heads_collected = SubResource( 6 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="GemsAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../GodotHeadsAnimationPlayer")
+anims/RESET = SubResource( 7 )
+anims/show_all_gems_collected = SubResource( 8 )
+
+[node name="GodotHeadsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "Sound"
+
+[node name="GemsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "Sound"
 

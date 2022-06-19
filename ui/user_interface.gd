@@ -42,4 +42,7 @@ func hide_hud(): # Triggered by HUDTimer.
     hud_visible = false
 
 func show_all_godot_heads_collected():
-  $AnimationPlayer.play("show_all_godot_heads_collected")
+  $GodotHeadsAnimationPlayer.play("show_all_godot_heads_collected")
+
+func show_all_gems_collected():
+  $GemsAnimationPlayer.play("show_all_gems_collected")
