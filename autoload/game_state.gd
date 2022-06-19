@@ -106,8 +106,10 @@ func generate_progress_report(current_map):
   var text = ""
   
   for map_name in godot_heads_collected:
-    text += map_name + ": "
-    text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
+    text += map_name + ": \n"
+    text += "%d/%d (%.2f%%)   \n" % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
+    
+    text += "%d/%d (%.2f%%)   \n\n" % [gem_progress[map_name].collected, gem_progress[map_name].total, gem_progress[map_name].percentage * 100]
   
   var overall_progress = calculate_overall_progress()
   
