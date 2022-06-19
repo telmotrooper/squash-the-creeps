@@ -26,9 +26,8 @@ func _physics_process(delta):
     self.global_transform.origin = gem_position.linear_interpolate(player_position, t)
     
     if distance <= 1 or t >= 1.0:
-      GameState.gems_collected[owner.name][get_path()].collected = true
+      GameState.collect_gem(owner.name, get_path())
       GameState.play_audio(collected_sound)
-      GameState.add_gems(gem_value)
       queue_free()
 
 func _on_GrabArea_body_entered(_body):

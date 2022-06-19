@@ -40,9 +40,11 @@ var progress = {}
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
-func add_gems(amount: int):
+func collect_gem(map_name: String, path: NodePath):
+  gems_collected[map_name][path].collected = true
+  
   UserInterface.show_hud()
-  amount_of_gems += amount
+  amount_of_gems += gems_collected[map_name][path].value
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
 
 func initialize(): # Used in "New Game".
