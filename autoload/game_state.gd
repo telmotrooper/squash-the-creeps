@@ -45,6 +45,8 @@ var gem_progress = {
 
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
+var initial_gem_progress = var2bytes(gem_progress)
+var initial_global_gem_progress = var2bytes(global_gem_progress)
 
 func collect_gem(map_name: String, path: NodePath):
   gems_collected[map_name][path].collected = true
@@ -65,7 +67,9 @@ func collect_gem(map_name: String, path: NodePath):
 func initialize(): # Used in "New Game".
   new_game = true
   gems_collected = {}
-  godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
+  godot_heads_collected = bytes2var(initial_godot_heads_collected)
+  gem_progress = bytes2var(initial_gem_progress)
+  global_gem_progress = bytes2var(initial_global_gem_progress)
   initialize_progress()
   amount_of_gems = 0
 
