@@ -14,10 +14,10 @@ func _ready():
   
   # Set default values if missing
   if not config.has_section_key("audio", "music_volume"):
-    config.set_value("audio", "music_volume", 100)
+    config.set_value("audio", "music_volume", 80)
   
   if not config.has_section_key("audio", "sound_volume"):
-    config.set_value("audio", "sound_volume", 100)
+    config.set_value("audio", "sound_volume", 80)
   
   if not config.has_section_key("controls", "mouse_sensitivity"):
     config.set_value("controls", "mouse_sensitivity", 0.5)
