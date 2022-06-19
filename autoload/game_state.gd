@@ -37,11 +37,21 @@ var gems_collected = {}
 var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
 
+var gem_progress = {
+  "TestMap": { "collected": 0, "total": 90, "percentage": 0.0 },
+  "MontainMap": { "collected": 0, "total": 9, "percentage": 0.0 }
+}
+
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 
 func collect_gem(map_name: String, path: NodePath):
   gems_collected[map_name][path].collected = true
+  gem_progress[map_name].collected += gems_collected[map_name][path].value
+  gem_progress[map_name].percentage = float(gem_progress[map_name].collected) / gem_progress[map_name].total
+  
+  if gem_progress[map_name].percentage == 1.0:
+    print ("100% gems collected")
   
   UserInterface.show_hud()
   amount_of_gems += gems_collected[map_name][path].value
@@ -107,6 +117,8 @@ func collect_godot_head(map_name, id):
   progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
   global_progress.percentage = float(global_progress.collected) / global_progress.total
   generate_progress_report(map_name)
+  
+  print(progress)
 
 func register_godot_head(map_name, id):
   if not map_name in godot_heads_collected:
