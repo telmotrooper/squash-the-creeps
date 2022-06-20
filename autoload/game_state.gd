@@ -98,13 +98,17 @@ func generate_progress_report(current_map):
   
   assert(is_instance_valid(UserInterface))
 
-  var text = ""
+  var text := ""
   
   for map_name in godot_heads_collected:
-    text += map_name + ": \n"
-    text += "• Godot Heads: %d/%d (%.2f%%)   \n" % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
+    var map_progress = progress[map_name].percentage * 0.5 + gem_progress[map_name].percentage * 0.5
+    text += map_name + " (%.2f%%)\n" % [map_progress * 100]
+    text += "• Godot Heads: %d/%d\n" % [progress[map_name].collected, progress[map_name].total]
     
-    text += "• Gems: %d/%d (%.2f%%)   \n\n" % [gem_progress[map_name].collected, gem_progress[map_name].total, gem_progress[map_name].percentage * 100]
+    text += "• Gems: %d/%d\n\n" % [gem_progress[map_name].collected, gem_progress[map_name].total]
+  
+  # Remove last two new lines.
+  text = text.substr(0, text.length() - 2)
   
   var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
   
