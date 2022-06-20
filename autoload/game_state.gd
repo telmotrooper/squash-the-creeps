@@ -102,7 +102,7 @@ func generate_progress_report(current_map):
   
   for map_name in godot_heads_collected:
     var map_progress = progress[map_name].percentage * 0.5 + gem_progress[map_name].percentage * 0.5
-    text += map_name + " (%.2f%%)\n" % [map_progress * 100]
+    text += map_name + " (%.f%%)\n" % [map_progress * 100]
     text += "• Godot Heads: %d/%d\n" % [progress[map_name].collected, progress[map_name].total]
     
     text += "• Gems: %d/%d\n\n" % [gem_progress[map_name].collected, gem_progress[map_name].total]
@@ -112,7 +112,7 @@ func generate_progress_report(current_map):
   
   var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
   
-  UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [overall_progress * 100]
+  UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text
   
   if current_map and progress.has(current_map):
