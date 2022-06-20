@@ -30,25 +30,46 @@ var godot_heads_collected = {
    }
 }
 
-var amount_of_gems := 0
-
-var gems_collected = {}
-
 var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
 
+var amount_of_gems := 0
+var gems_collected = {}
+
+var global_gem_progress = { "collected": 0, "total": 90+9, "percentage": 0.0 }
+var gem_progress = {
+  "TestMap": { "collected": 0, "total": 90, "percentage": 0.0 },
+  "MontainMap": { "collected": 0, "total": 9, "percentage": 0.0 }
+}
+
 # Backup this value so it can be used to start a new game.
 var initial_godot_heads_collected = var2bytes(godot_heads_collected)
+var initial_gem_progress = var2bytes(gem_progress)
+var initial_global_gem_progress = var2bytes(global_gem_progress)
 
-func add_gems(amount: int):
+func collect_gem(map_name: String, path: NodePath):
+  gems_collected[map_name][path].collected = true
+  
+  gem_progress[map_name].collected += gems_collected[map_name][path].value
+  global_gem_progress.collected += gems_collected[map_name][path].value
+  
+  gem_progress[map_name].percentage = float(gem_progress[map_name].collected) / gem_progress[map_name].total
+  global_gem_progress.percentage = float(global_gem_progress.collected) / global_gem_progress.total
+  
+  if gem_progress[map_name].percentage == 1.0:
+    UserInterface.show_all_gems_collected()
+  
   UserInterface.show_hud()
-  amount_of_gems += amount
+  amount_of_gems += gems_collected[map_name][path].value
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
+  generate_progress_report(map_name)
 
 func initialize(): # Used in "New Game".
   new_game = true
   gems_collected = {}
-  godot_heads_collected = bytes2var(GameState.initial_godot_heads_collected)
+  godot_heads_collected = bytes2var(initial_godot_heads_collected)
+  gem_progress = bytes2var(initial_gem_progress)
+  global_gem_progress = bytes2var(initial_global_gem_progress)
   initialize_progress()
   amount_of_gems = 0
 
@@ -77,13 +98,21 @@ func generate_progress_report(current_map):
   
   assert(is_instance_valid(UserInterface))
 
-  var text = ""
+  var text := ""
   
   for map_name in godot_heads_collected:
-    text += map_name + ": "
-    text += "%d/%d (%.2f%%)   " % [progress[map_name].collected, progress[map_name].total, progress[map_name].percentage * 100]
+    var map_progress = progress[map_name].percentage * 0.5 + gem_progress[map_name].percentage * 0.5
+    text += map_name + " (%.f%%)\n" % [map_progress * 100]
+    text += "• Godot Heads: %d/%d\n" % [progress[map_name].collected, progress[map_name].total]
+    
+    text += "• Gems: %d/%d\n\n" % [gem_progress[map_name].collected, gem_progress[map_name].total]
   
-  UserInterface.get_node("%ProgressButton").text = "Progress: %.2f%%" % [global_progress.percentage * 100]
+  # Remove last two new lines.
+  text = text.substr(0, text.length() - 2)
+  
+  var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
+  
+  UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text
   
   if current_map and progress.has(current_map):
@@ -99,11 +128,12 @@ func collect_godot_head(map_name, id):
   progress[map_name].collected += 1
   global_progress.collected += 1
   
-  if progress[map_name].collected == progress[map_name].total:
-    UserInterface.show_all_godot_heads_collected()
-  
   progress[map_name].percentage = float(progress[map_name].collected) / progress[map_name].total
   global_progress.percentage = float(global_progress.collected) / global_progress.total
+  
+  if progress[map_name].percentage == 1.0:
+    UserInterface.show_all_godot_heads_collected()
+  
   generate_progress_report(map_name)
 
 func register_godot_head(map_name, id):
