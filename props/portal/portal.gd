@@ -7,12 +7,12 @@ export var godot_heads_required: int
 func _ready():
   $Label3D.text = label if label else map_name
   
-  if godot_heads_required >= 1:
+  if godot_heads_required >= 1 and not GameState.portal_unlocked.has(get_path()):
     $RequirementLabel.text = "Godot Heads x %d" % godot_heads_required
   else:
     $RequirementLabel.text = ""
   
-  if godot_heads_required > 0 and GameState.global_progress.collected >= godot_heads_required:
+  if godot_heads_required > 0 and GameState.global_progress.collected >= godot_heads_required and not GameState.portal_unlocked.has(get_path()):
     var child_camera = get_node_or_null("Camera")
   
     if is_instance_valid(child_camera): # Cutscene
@@ -23,6 +23,7 @@ func _ready():
       timer = get_tree().create_timer(2, false)
       yield(timer, "timeout")
       GameState.Player.get_node("%ClippedCamera").make_current()
+      GameState.portal_unlocked[get_path()] = true
 
 func _on_Portal_entered(_body):
   if GameState.global_progress.collected >= godot_heads_required:
@@ -35,5 +36,5 @@ func _on_Portal_entered(_body):
     GameState.UserInterface.show_hud()
 
 func _on_DetectArea_body_entered(_body):
-  if GameState.global_progress.collected >= godot_heads_required:
+  if GameState.global_progress.collected >= godot_heads_required and not GameState.portal_unlocked.has(get_path()):
     $RequirementAnimationPlayer.play("fade_out")

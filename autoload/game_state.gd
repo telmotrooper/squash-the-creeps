@@ -14,6 +14,8 @@ var upgrades = {
   "mid_air_dash": false
 }
 
+var portal_unlocked = {}
+
 var godot_heads_counter := 0
 var total_godot_heads_in_map := 0
 
