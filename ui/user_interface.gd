@@ -42,7 +42,17 @@ func hide_hud(): # Triggered by HUDTimer.
     hud_visible = false
 
 func show_all_godot_heads_collected():
-  $GodotHeadsAnimationPlayer.play("show_all_godot_heads_collected")
+  if $AnnouncementAnimationPlayer.is_playing():
+    # If another announcement is underway, wait 5 seconds.
+    var timer = get_tree().create_timer(5, false)
+    yield(timer, "timeout")
+  $Announcement.text = "100% Godot Heads collected"
+  $AnnouncementAnimationPlayer.play("show_all_godot_heads_collected")
 
 func show_all_gems_collected():
-  $GemsAnimationPlayer.play("show_all_gems_collected")
+  if $AnnouncementAnimationPlayer.is_playing():
+    # If another announcement is underway, wait 5 seconds.
+    var timer = get_tree().create_timer(5, false)
+    yield(timer, "timeout")
+  $Announcement.text = "100% gems collected"
+  $AnnouncementAnimationPlayer.play("show_all_godot_heads_collected")
