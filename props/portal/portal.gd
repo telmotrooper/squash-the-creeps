@@ -11,6 +11,18 @@ func _ready():
     $RequirementLabel.text = "Godot Heads x %d" % godot_heads_required
   else:
     $RequirementLabel.text = ""
+  
+  if godot_heads_required > 0 and GameState.global_progress.collected >= godot_heads_required:
+    var child_camera = get_node_or_null("Camera")
+  
+    if is_instance_valid(child_camera): # Cutscene
+      child_camera.make_current()
+      var timer = get_tree().create_timer(1, false)
+      yield(timer, "timeout")
+      $RequirementAnimationPlayer.play("fade_out")
+      timer = get_tree().create_timer(2, false)
+      yield(timer, "timeout")
+      GameState.Player.get_node("%ClippedCamera").make_current()
 
 func _on_Portal_entered(_body):
   if GameState.global_progress.collected >= godot_heads_required:
