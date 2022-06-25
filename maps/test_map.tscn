@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://assets/house_in_a_forest_loop.ogg" type="AudioStream" id=27]
 [ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=28]
 [ext_resource path="res://maps/extras/small_platform/small_platform.tscn" type="PackedScene" id=29]
+[ext_resource path="res://materials/gradient_blue.tres" type="Material" id=30]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -71,6 +72,17 @@ _data = {
 }
 
 [sub_resource type="BoxShape" id=5]
+
+[sub_resource type="Gradient" id=42]
+colors = PoolColorArray( 0, 1, 0.952941, 1, 0.133333, 0.294118, 0.917647, 1 )
+
+[sub_resource type="GradientTexture2D" id=43]
+gradient = SubResource( 42 )
+fill_from = Vector2( 0.0833333, 0.94375 )
+fill_to = Vector2( 0.554167, 0.635417 )
+
+[sub_resource type="SpatialMaterial" id=44]
+albedo_texture = SubResource( 43 )
 
 [sub_resource type="Curve3D" id=18]
 _data = {
@@ -335,7 +347,8 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
 )
- ],"just_created":false,"undo_redo":null)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
 
 
 [node name="ScatterItem" type="Spatial" parent="Map/GreenPlatform/GreenPlatformGrass"]
@@ -394,9 +407,9 @@ transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 29.9, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/Bridge"]
-transform = Transform( -0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -0.2, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 30 )
 
 [node name="BluePlatform" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.626 )
@@ -413,7 +426,7 @@ shape = SubResource( 3 )
 [node name="MeshInstance" type="MeshInstance" parent="Map/BluePlatform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706 )
 mesh = SubResource( 4 )
-material/0 = ExtResource( 8 )
+material/0 = SubResource( 44 )
 
 [node name="ExitPortal" parent="Map/BluePlatform" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448 )

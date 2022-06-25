@@ -16,7 +16,7 @@ func _ready():
     # This will make the enemy look to the correct direction along the path.
     get_parent().set_rotation_mode(4)
 
-func _process(delta):
+func _physics_process(delta):
   match state:
     PATROLLING:
       if get_parent() is PathFollow:
@@ -24,7 +24,7 @@ func _process(delta):
     ALERT:
       $ExclamationMark.visible = true
       $AlertTimer.start()
-      set_process(false)
+      set_physics_process(false)
     CHASING:
       if get_parent() is PathFollow:
         # Reset rotation, otherwise enemy won't be able to chase player.
@@ -47,4 +47,4 @@ func squash():
 func _on_AlertTimer_timeout():
   $ExclamationMark.visible = false
   state = CHASING
-  set_process(true)
+  set_physics_process(true)
