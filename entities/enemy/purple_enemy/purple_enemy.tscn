@@ -91,7 +91,7 @@ size = Vector2( 1.5, 1.5 )
 [node name="PurpleEnemy" type="KinematicBody" groups=["enemies"]]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 collision_layer = 2
-collision_mask = 5
+collision_mask = 524293
 script = ExtResource( 1 )
 squash_sound = ExtResource( 3 )
 
@@ -128,7 +128,6 @@ one_shot = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0 )
 visible = false
 mesh = SubResource( 5 )
-material/0 = null
 
 [connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
 [connection signal="body_entered" from="PrismArea" to="." method="_on_PrismArea_body_entered"]
