@@ -8,10 +8,16 @@ var already_squashed := false
 export (AudioStream) var squash_sound
 export var min_speed := 10.0
 export var max_speed := 18.0
+export var affected_by_gravity := true
 
 var velocity = Vector3.ZERO
 
 func _physics_process(_delta):
+  if affected_by_gravity:
+    if not is_on_floor():
+      velocity.y = -10
+    else:
+      velocity.y = 0
   velocity = move_and_slide(velocity, Vector3.UP)
 
 func initiliaze(start_position, player_position, rotate = true, speed = null):

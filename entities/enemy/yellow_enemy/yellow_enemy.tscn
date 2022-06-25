@@ -132,6 +132,7 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
 squash_sound = ExtResource( 3 )
+affected_by_gravity = false
 patrolling_speed = 6
 
 [node name="Pivot" type="Spatial" parent="."]
