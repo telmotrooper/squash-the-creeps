@@ -106,6 +106,7 @@ transform = Transform( -0.956396, -2.107e-07, 0.292077, -3.42659e-07, 1, -4.0063
 
 [node name="BlueEnemy" parent="EnemySpawns/BlueEnemyPath/PathFollow" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+affected_by_gravity = false
 
 [node name="Props" type="Spatial" parent="."]
 
@@ -162,13 +163,13 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 33
 transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 179.809, 33.6, 68.9833 )
 
 [node name="RedGem" parent="." instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1, 2.6, 57.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1, -2, 57.8 )
 
 [node name="PurpleGem" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -1.9, 51.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -2, 51.8 )
 
 [node name="GreenGem" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104, -0.9, 40.9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104, -2, 40.9 )
 
 [node name="LakeGems" type="Spatial" parent="."]
 
