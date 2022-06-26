@@ -117,7 +117,9 @@ func _physics_process(delta):
         enemy.squash()
         if Input.is_action_pressed("jump"):
           velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".
-          is_jumping = true
+        else:
+          velocity.y = jump_impulse
+        is_jumping = true
     
     elif collision.collider is RedButton:
       var red_button = collision.collider
