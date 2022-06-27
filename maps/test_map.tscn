@@ -146,7 +146,7 @@ size = Vector3( 50, 1, 50 )
 
 [sub_resource type="Curve3D" id=20]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.2, 0, -8, 0, 0, 0, 0, 0, 0, -0.2, 0, 8, 0, 0, 0, 0, 0, 0, -0.2, 0, -8 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.2, 0, -6, 0, 0, 0, 0, 0, 0, -0.2, 0, 6, 0, 0, 0, 0, 0, 0, -0.2, 0, -6 ),
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
@@ -639,23 +639,23 @@ skeleton = NodePath("../../MovingPlatforms")
 
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
-[node name="YellowEnemyPath" type="Path" parent="Map/EnemyBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
-curve = SubResource( 20 )
-
-[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 7.73305 )
-offset = 15.9
-
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath/PathFollow" instance=ExtResource( 23 )]
-transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
-
-[node name="YellowEnemyPath2" type="Path" parent="Map/EnemyBridge"]
+[node name="YellowEnemyPath1" type="Path" parent="Map/EnemyBridge"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 0, 0 )
 curve = SubResource( 20 )
 
+[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
+
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+
+[node name="YellowEnemyPath2" type="Path" parent="Map/EnemyBridge"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+curve = SubResource( 20 )
+
 [node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.2, 0, 5.81199 )
+offset = 11.8
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow" instance=ExtResource( 23 )]
 transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
@@ -665,7 +665,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0 )
 curve = SubResource( 20 )
 
 [node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow" instance=ExtResource( 23 )]
 transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
