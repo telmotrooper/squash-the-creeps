@@ -9,12 +9,21 @@ enum {
 
 var state = PATROLLING
 
+var velocity = Vector3.ZERO
+
 func _ready():
   if get_parent() is PathFollow:
     # This will make the enemy look to the correct direction along the path.
     get_parent().set_rotation_mode(4)
 
 func _physics_process(delta):
+  if not is_on_floor():
+    velocity.y = -10
+  else:
+    velocity.y = 0
+  
+  velocity = move_and_slide(velocity, Vector3.UP)
+  
   match state:
     PATROLLING:
       if get_parent() is PathFollow:
