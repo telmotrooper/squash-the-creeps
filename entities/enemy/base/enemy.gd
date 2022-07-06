@@ -44,8 +44,5 @@ func squash():
     $AnimationPlayer.play("squash")
     GameState.play_audio(squash_sound)
 
-func _on_VisibilityNotifier_screen_exited():
-  queue_free()
-
 func kill(): # Triggered by animation "squash'.
   queue_free()
