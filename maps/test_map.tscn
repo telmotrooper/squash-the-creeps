@@ -124,7 +124,7 @@ surfaces/0 = {
 
 [sub_resource type="Curve3D" id=45]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0343094, 9.53674e-07, -10.0255, 0, 0, 0, 0, 0, 0, 0.0343094, 9.53674e-07, 9.06223, 0, 0, 0, 0, 0, 0, 0.0343094, 9.53674e-07, -10.0255 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, -10 ),
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
@@ -583,11 +583,11 @@ press a wall button."
 font = ExtResource( 13 )
 
 [node name="GooMonsterPath" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 3, -4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.8, 0 )
 curve = SubResource( 45 )
 
 [node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath"]
-transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0.0343094, 9.53674e-07, -10.0255 )
+transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, -10 )
 
 [node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath/PathFollow" instance=ExtResource( 31 )]
 
