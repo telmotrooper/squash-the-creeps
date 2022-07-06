@@ -132,7 +132,7 @@ func _physics_process(delta):
   
   if is_spinning():
     for entity in $SpinArea.get_overlapping_bodies():
-      if entity is Enemy:
+      if entity.is_in_group("enemies"):
         entity.squash()
       elif entity is RedButton:
         entity.press()
