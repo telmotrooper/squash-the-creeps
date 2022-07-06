@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -120,6 +120,12 @@ surfaces/0 = {
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 18
+}
+
+[sub_resource type="Curve3D" id=45]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0343094, 9.53674e-07, -10.0255, 0, 0, 0, 0, 0, 0, 0.0343094, 9.53674e-07, 9.06223, 0, 0, 0, 0, 0, 0, 0.0343094, 9.53674e-07, -10.0255 ),
+"tilts": PoolRealArray( 0, 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=15]
@@ -576,6 +582,15 @@ text = "Press \"ATTACK\" to
 press a wall button."
 font = ExtResource( 13 )
 
+[node name="GooMonsterPath" type="Path" parent="Map/GreenPlatform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 3, -4 )
+curve = SubResource( 45 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath"]
+transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0.0343094, 9.53674e-07, -10.0255 )
+
+[node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath/PathFollow" instance=ExtResource( 31 )]
+
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
 collision_layer = 4
@@ -818,9 +833,6 @@ transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
 stream = ExtResource( 28 )
 autoplay = true
 bus = "Music"
-
-[node name="GooMonster" parent="." instance=ExtResource( 31 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38478, -4.04313 )
 
 [connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
