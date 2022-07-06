@@ -1,8 +1,6 @@
 extends KinematicBody
 class_name Enemy
 
-signal squashed
-
 var already_squashed := false
 
 export (AudioStream) var squash_sound
@@ -40,7 +38,6 @@ func initiliaze(start_position, player_position, rotate = true, speed = null):
 func squash():
   if !already_squashed:
     already_squashed = true
-    emit_signal("squashed") # Used to increase score.
     velocity = Vector3.ZERO
     $CollisionShape.disabled = true
     $AnimationPlayer.playback_speed = 1

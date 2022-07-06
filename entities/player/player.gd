@@ -149,7 +149,7 @@ func die():
   queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
-    die()
+  die()
 
 func set_draw_distance(value: int):
   $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value
