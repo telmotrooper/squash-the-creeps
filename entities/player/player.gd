@@ -117,7 +117,9 @@ func _physics_process(delta):
         enemy.squash()
         if Input.is_action_pressed("jump"):
           velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".
-          is_jumping = true
+        else:
+          velocity.y = jump_impulse
+        is_jumping = true
     
     elif collision.collider is RedButton:
       var red_button = collision.collider
@@ -130,7 +132,7 @@ func _physics_process(delta):
   
   if is_spinning():
     for entity in $SpinArea.get_overlapping_bodies():
-      if entity is Enemy:
+      if entity.is_in_group("enemies"):
         entity.squash()
       elif entity is RedButton:
         entity.press()
@@ -147,7 +149,7 @@ func die():
   queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
-    die()
+  die()
 
 func set_draw_distance(value: int):
   $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value

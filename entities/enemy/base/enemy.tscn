@@ -93,12 +93,7 @@ transform = Transform( 0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985272, 0
 transform = Transform( 1, 0, 0, 0, 0.54, 0, 0, 0, 1.5, 0, 0.671283, 0.295466 )
 shape = SubResource( 1 )
 
-[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
-transform = Transform( 1.21071, 0, 0, 0, 1, 0, 0, 0, 1.7127, 0, 0, 0.28548 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "float"
 anims/float = SubResource( 2 )
 anims/squash = SubResource( 3 )
-
-[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]

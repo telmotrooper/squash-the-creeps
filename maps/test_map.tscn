@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://addons/scatter/demos/assets/grass/data/m_grass_52.tres" type="Material" id=1]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=28]
 [ext_resource path="res://maps/extras/small_platform/small_platform.tscn" type="PackedScene" id=29]
 [ext_resource path="res://materials/gradient_blue.tres" type="Material" id=30]
+[ext_resource path="res://entities/goo_monster/goo_monster.tscn" type="PackedScene" id=31]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )
@@ -121,6 +122,12 @@ surfaces/0 = {
 "vertex_count": 18
 }
 
+[sub_resource type="Curve3D" id=45]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, -10 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
+
 [sub_resource type="Curve3D" id=15]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214, 0, 0, 0, 0, 0, 0, 6.67461, -6.10352e-05, -15.661, 0, 0, 0, 0, 0, 0, -9.46404, -3.05176e-05, -7.67662, 0, 0, 0, 0, 0, 0, -9.3791, 3.05176e-05, 8.20721, 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214 ),
@@ -145,7 +152,7 @@ size = Vector3( 50, 1, 50 )
 
 [sub_resource type="Curve3D" id=20]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.2, 0, -8, 0, 0, 0, 0, 0, 0, -0.2, 0, 8, 0, 0, 0, 0, 0, 0, -0.2, 0, -8 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.2, 0, -6, 0, 0, 0, 0, 0, 0, -0.2, 0, 6, 0, 0, 0, 0, 0, 0, -0.2, 0, -6 ),
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
@@ -347,8 +354,7 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics_interpolation_mode":0,"unique_name_in_owner":false,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 180, 0 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":5570693362334884271,"state":3772973385647095650,"script":null)
 )
- ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
-)
+ ],"just_created":false,"undo_redo":null)
 
 
 [node name="ScatterItem" type="Spatial" parent="Map/GreenPlatform/GreenPlatformGrass"]
@@ -576,6 +582,15 @@ text = "Press \"ATTACK\" to
 press a wall button."
 font = ExtResource( 13 )
 
+[node name="GooMonsterPath" type="Path" parent="Map/GreenPlatform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.8, 0 )
+curve = SubResource( 45 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath"]
+transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, -10 )
+
+[node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath/PathFollow" instance=ExtResource( 31 )]
+
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
 collision_layer = 4
@@ -639,23 +654,23 @@ skeleton = NodePath("../../MovingPlatforms")
 
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
-[node name="YellowEnemyPath" type="Path" parent="Map/EnemyBridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
-curve = SubResource( 20 )
-
-[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 7.73305 )
-offset = 15.9
-
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath/PathFollow" instance=ExtResource( 23 )]
-transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
-
-[node name="YellowEnemyPath2" type="Path" parent="Map/EnemyBridge"]
+[node name="YellowEnemyPath1" type="Path" parent="Map/EnemyBridge"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 0, 0 )
 curve = SubResource( 20 )
 
+[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
+
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+
+[node name="YellowEnemyPath2" type="Path" parent="Map/EnemyBridge"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+curve = SubResource( 20 )
+
 [node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.2, 0, 5.81199 )
+offset = 11.8
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow" instance=ExtResource( 23 )]
 transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
@@ -665,7 +680,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0 )
 curve = SubResource( 20 )
 
 [node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge/YellowEnemyPath3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow" instance=ExtResource( 23 )]
 transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
