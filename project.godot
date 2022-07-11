@@ -172,5 +172,4 @@ zoom_out={
 [rendering]
 
 threads/thread_model=2
-gles3/shaders/shader_compilation_mode=0
 quality/filters/msaa=3
