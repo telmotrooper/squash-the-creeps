@@ -26,6 +26,7 @@ func _ready():
       "grass_amount": 0
     },
     "debug": {
+      "body_slam": false,
       "double_jump": false,
       "mid_air_dash": false
     }

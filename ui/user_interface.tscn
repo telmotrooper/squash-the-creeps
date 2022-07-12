@@ -389,22 +389,22 @@ margin_bottom = 243.5
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Pause/PauseMenu"]
-margin_top = 82.0
+margin_top = 57.0
 margin_right = 570.0
-margin_bottom = 119.0
+margin_bottom = 94.0
 text = "Resume"
 
 [node name="ProgressButton" type="Button" parent="Pause/PauseMenu"]
 unique_name_in_owner = true
-margin_top = 129.0
+margin_top = 104.0
 margin_right = 570.0
-margin_bottom = 166.0
+margin_bottom = 141.0
 text = "Progress: 0.00%"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu"]
-margin_top = 176.0
+margin_top = 151.0
 margin_right = 570.0
-margin_bottom = 213.0
+margin_bottom = 188.0
 size_flags_horizontal = 3
 
 [node name="ToggleFullscreenButton" type="Button" parent="Pause/PauseMenu/HBoxContainer"]
@@ -421,15 +421,15 @@ size_flags_horizontal = 3
 text = "Controls"
 
 [node name="SettingsButton" type="Button" parent="Pause/PauseMenu"]
-margin_top = 223.0
+margin_top = 198.0
 margin_right = 570.0
-margin_bottom = 260.0
+margin_bottom = 235.0
 text = "Settings"
 
 [node name="UpgradesContainer" type="VBoxContainer" parent="Pause/PauseMenu"]
-margin_top = 270.0
+margin_top = 245.0
 margin_right = 570.0
-margin_bottom = 310.0
+margin_bottom = 335.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer"]
 margin_right = 570.0
@@ -470,16 +470,37 @@ margin_right = 246.0
 margin_bottom = 35.0
 text = "Mid-Air Dash"
 
-[node name="RestartMapButton" type="Button" parent="Pause/PauseMenu"]
-margin_top = 320.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer"]
+margin_top = 50.0
 margin_right = 570.0
-margin_bottom = 357.0
+margin_bottom = 90.0
+
+[node name="BodySlamContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2"]
+margin_right = 218.0
+margin_bottom = 40.0
+
+[node name="BodySlamCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer"]
+unique_name_in_owner = true
+margin_right = 76.0
+margin_bottom = 40.0
+
+[node name="BodySlamLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer"]
+margin_left = 86.0
+margin_top = 4.0
+margin_right = 218.0
+margin_bottom = 35.0
+text = "Body Slam"
+
+[node name="RestartMapButton" type="Button" parent="Pause/PauseMenu"]
+margin_top = 345.0
+margin_right = 570.0
+margin_bottom = 382.0
 text = "Restart Map"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu"]
-margin_top = 367.0
+margin_top = 392.0
 margin_right = 570.0
-margin_bottom = 404.0
+margin_bottom = 429.0
 size_flags_horizontal = 3
 alignment = 1
 
@@ -575,6 +596,7 @@ bus = "Sound"
 [connection signal="pressed" from="Pause/PauseMenu/SettingsButton" to="Pause" method="open_submenu" binds= [ "%Settings" ]]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton" to="Pause" method="_on_DoubleJumpCheckButton_toggled"]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
+[connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer/BodySlamCheckButton" to="Pause" method="_on_BodySlamCheckButton_toggled"]
 [connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_RestartMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]

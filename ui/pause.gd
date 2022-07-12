@@ -33,6 +33,9 @@ func _ready():
   
   get_node("%DoubleJumpCheckButton").pressed = Configuration.get_value("debug", "double_jump")
   GameState.upgrades["double_jump"] = Configuration.get_value("debug", "double_jump")
+  
+  get_node("%BodySlamCheckButton").pressed = Configuration.get_value("debug", "body_slam")
+  GameState.upgrades["body_slam"] = Configuration.get_value("debug", "body_slam")
 
 func _on_DrawDistanceSlider_value_changed(value):
   Configuration.update_setting("graphics", "draw_distance", value)
@@ -123,3 +126,7 @@ func _on_DoubleJumpCheckButton_toggled(button_pressed):
 func _on_MidAirDashCheckButton_toggled(button_pressed: bool):
   Configuration.update_setting("debug", "mid_air_dash", button_pressed)
   GameState.upgrades["mid_air_dash"] = button_pressed
+
+func _on_BodySlamCheckButton_toggled(button_pressed):
+  Configuration.update_setting("debug", "body_slam", button_pressed)
+  GameState.upgrades["body_slam"] = button_pressed

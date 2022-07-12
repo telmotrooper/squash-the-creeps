@@ -10,6 +10,7 @@ var RetryCamera: Camera # Camera to be used when player dies.
 var new_game := true
 
 var upgrades = {
+  "body_slam": false,
   "double_jump": false,
   "mid_air_dash": false
 }
