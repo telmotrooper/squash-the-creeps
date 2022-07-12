@@ -92,15 +92,18 @@ func _physics_process(delta):
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
-  elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset jumps.
+  elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset both jumps.
     is_jumping = false
     is_double_jumping = false
-  elif GameState.upgrades["double_jump"]:
-    if (is_jumping and not is_double_jumping
+  elif is_on_floor() and get_slide_collision(0).collider is Enemy: # Reset double jump.
+    is_double_jumping = false
+  elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
         and velocity.y <= 20 # Only allow double jump after player slows down a bit.
         and Input.is_action_just_pressed("jump")):
-      is_double_jumping = true
-      velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
+    is_double_jumping = true
+    velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
+  elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
+    velocity.y = -30
   
   velocity.y -= fall_acceleration * delta
   # Assign move_and_slide to velocity prevents the velocity from accumulating.
