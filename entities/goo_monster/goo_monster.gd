@@ -18,7 +18,7 @@ func _ready():
 
 func _physics_process(delta):
   if not is_on_floor():
-    velocity.y = -10
+    velocity.y = -20
   else:
     velocity.y = 0
   

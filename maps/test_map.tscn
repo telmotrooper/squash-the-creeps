@@ -601,6 +601,16 @@ offset = 20.0
 
 [node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath2/PathFollow" instance=ExtResource( 31 )]
 
+[node name="GooMonsterPath3" type="Path" parent="Map/GreenPlatform1"]
+transform = Transform( -0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 115.654, 12.5175, 0 )
+curve = SubResource( 45 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath3"]
+transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, 9.97867 )
+offset = 20.0
+
+[node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath3/PathFollow" instance=ExtResource( 31 )]
+
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
 collision_layer = 4
