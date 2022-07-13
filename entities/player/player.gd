@@ -136,8 +136,10 @@ func _physics_process(delta):
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
         red_button.press()
     
-    elif is_body_slamming and collision.collider.is_in_group("breakable"):
-      print("break")
+    elif is_body_slamming and collision.collider.is_in_group("breakable_floor"):
+      var parent = collision.collider.get_parent()
+      if parent.get_class() == "MeshInstance":
+        parent.queue_free()
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
