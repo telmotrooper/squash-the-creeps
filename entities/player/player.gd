@@ -25,6 +25,8 @@ var is_double_jumping := false
 var dash_available := true
 var is_dashing := false
 
+var is_body_slamming := false
+
 func _ready():
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
@@ -89,6 +91,9 @@ func _physics_process(delta):
   velocity.x = direction.x * speed
   velocity.z = direction.z * speed
   
+  if is_on_floor():
+    is_body_slamming = false
+  
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
@@ -103,6 +108,7 @@ func _physics_process(delta):
     is_double_jumping = true
     velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
   elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
+    is_body_slamming = true
     velocity.y = -30
   
   velocity.y -= fall_acceleration * delta
@@ -129,6 +135,9 @@ func _physics_process(delta):
       
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
         red_button.press()
+    
+    elif is_body_slamming and collision.collider.is_in_group("breakable"):
+      print("break")
   
   # Rotate character vertically alongside a jump.
   $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
