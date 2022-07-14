@@ -114,7 +114,7 @@ affected_by_gravity = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 174.437, 29.7845, 75.7972 )
 
 [node name="RedButton" parent="Props" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5938, -3.34139, 74.8626 )
+transform = Transform( 0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 64.9038, -3.24139, 85.0633 )
 
 [node name="HeightMap" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.935, 9.89507, 94.6744 )
