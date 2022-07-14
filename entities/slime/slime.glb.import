@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/goo_monster.glb-11a4f5e703d89f2a0e7aff68fdba5f85.scn"
+path="res://.import/slime.glb-cc40c5adb6d1f6b0c7a1e75d7e15f1a5.scn"
 
 [deps]
 
-source_file="res://entities/goo_monster/goo_monster.glb"
-dest_files=[ "res://.import/goo_monster.glb-11a4f5e703d89f2a0e7aff68fdba5f85.scn" ]
+source_file="res://entities/slime/slime.glb"
+dest_files=[ "res://.import/slime.glb-cc40c5adb6d1f6b0c7a1e75d7e15f1a5.scn" ]
 
 [params]
 
