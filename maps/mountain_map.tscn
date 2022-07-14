@@ -170,11 +170,26 @@ transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 1
 [node name="RedGem" parent="LakeGems" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1, -5.5, 57.8 )
 
+[node name="RedGem2" parent="LakeGems" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.7, -4.1, 119 )
+
 [node name="PurpleGem" parent="LakeGems" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -5.8, 51.8 )
 
 [node name="GreenGem" parent="LakeGems" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104, -5.8, 40.9 )
+
+[node name="GreenGem2" parent="LakeGems" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.2, -3.2, 117.1 )
+
+[node name="GreenGem3" parent="LakeGems" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.7, -3.2, 126.6 )
+
+[node name="GreenGem4" parent="LakeGems" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2, -3.2, 120.8 )
+
+[node name="GreenGem5" parent="LakeGems" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4, -3.2, 111 )
 
 [node name="Pier" parent="." instance=ExtResource( 19 )]
 transform = Transform( -0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 55.2444, -4.9, 79.45 )
