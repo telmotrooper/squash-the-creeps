@@ -27,6 +27,9 @@ var is_dashing := false
 
 var is_body_slamming := false
 
+var just_thrown_back := false
+var being_thrown_back := false
+
 func _ready():
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
@@ -88,11 +91,22 @@ func _physics_process(delta):
   if direction.x == 0 and direction.z == 0 and is_dashing:
     direction = last_direction
   
-  velocity.x = direction.x * speed
-  velocity.z = direction.z * speed
+  if just_thrown_back: # If just thrown back, throw player up.
+    velocity.y = jump_impulse
+    just_thrown_back = false
+  
+  if being_thrown_back:
+    velocity.x = -last_direction.x * 20
+    velocity.z = -last_direction.z * 20
+#    being_thrown_back = false
+  else:
+    # Move player.
+    velocity.x = direction.x * speed
+    velocity.z = direction.z * speed
   
   if is_on_floor():
     is_body_slamming = false
+#    being_thrown_back = false
   
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
@@ -162,8 +176,9 @@ func die():
   emit_signal("hit")
   queue_free()
 
-func _on_EnemyDetector_body_entered(_body):
-  die()
+func _on_EnemyDetector_body_entered(_body): # hurt
+  just_thrown_back = true
+  being_thrown_back = true
 
 func set_draw_distance(value: int):
   $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value

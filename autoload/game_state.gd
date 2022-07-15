@@ -54,7 +54,7 @@ func _ready() -> void:
   var fallback_scene = "res://maps/test_map.tscn"
   var current_scene = get_tree().get_current_scene().get_name()
   # If scene with no camera loaded, load fallback scene.
-  if current_scene != "Main" and not is_instance_valid(get_viewport().get_camera()):
+  if current_scene == "Player" or (current_scene != "Main" and not is_instance_valid(get_viewport().get_camera())):
     print("Scene \"%s\" has no default camera, loading fallback scene at \"%s\"." % [current_scene, fallback_scene])
     var _error = get_tree().change_scene(fallback_scene)
 
