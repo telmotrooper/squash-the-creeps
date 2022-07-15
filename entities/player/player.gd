@@ -53,7 +53,10 @@ func _physics_process(delta):
 
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
-    last_direction = direction
+    
+    if not being_thrown_back: # Last direction is used for throw back.
+      last_direction = direction
+    
     $Pivot.look_at(translation + direction, Vector3.UP)
     
     # Move origin of CollisionShape (x,z) to origin of Pivot, so we can rotate it properly.
