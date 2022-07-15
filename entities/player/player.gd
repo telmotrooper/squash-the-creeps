@@ -125,7 +125,7 @@ func _physics_process(delta):
     is_jumping = false
     is_double_jumping = false
     var safe_position = (
-      is_instance_valid($RayCasts/RayCast.get_collider()) and
+      $RayCasts/RayCast.is_colliding() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
