@@ -11,6 +11,6 @@ func get_visible():
 
 func _on_Boundary_body_entered(body):
   if body is Player:
-    get_tree().call_group("players", "die")
+    get_tree().call_group("players", "move_to_last_safe_position")
   elif body is Enemy:
     body.kill()

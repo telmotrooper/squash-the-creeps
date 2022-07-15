@@ -19,6 +19,8 @@ export var throw_back_speed := 20
 # Starts as "forward", might behave weird depending on spawn direction.
 var last_direction := Vector3(0,0,-1)
 
+var last_safe_position := Vector3(0,0,0)
+
 var velocity = Vector3.ZERO
 var speed = 0
 
@@ -121,6 +123,13 @@ func _physics_process(delta):
   elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset both jumps.
     is_jumping = false
     is_double_jumping = false
+    var safe_position = (
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
+    )
+    if safe_position:
+      last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
   elif is_on_floor() and get_slide_collision(0).collider is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
@@ -193,3 +202,6 @@ func set_draw_distance(value: int):
 
 func _on_DashDurationTimer_timeout():
   is_dashing = false
+
+func move_to_last_safe_position():
+  global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
