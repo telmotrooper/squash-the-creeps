@@ -1,5 +1,8 @@
 extends KinematicBody
 
+var already_squashed := false
+
+export (AudioStream) var squash_sound
 export var patrolling_speed = 4
 
 enum {
@@ -32,8 +35,11 @@ func _physics_process(delta):
       set_physics_process(false)
 
 func squash():
-  $AnimationPlayer.play("squash")
-  state = DYING
+  if !already_squashed:
+    already_squashed = true
+    $AnimationPlayer.play("squash")
+    state = DYING
+    GameState.play_audio(squash_sound)
 
 func kill(): # Triggered by animation "squash'.
   queue_free()

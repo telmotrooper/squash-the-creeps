@@ -30,7 +30,7 @@
 [ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=28]
 [ext_resource path="res://maps/extras/small_platform/small_platform.tscn" type="PackedScene" id=29]
 [ext_resource path="res://materials/gradient_blue.tres" type="Material" id=30]
-[ext_resource path="res://entities/goo_monster/goo_monster.tscn" type="PackedScene" id=31]
+[ext_resource path="res://entities/slime/slime.tscn" type="PackedScene" id=31]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 30, 1, 30 )

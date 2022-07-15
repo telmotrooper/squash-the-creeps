@@ -13,6 +13,9 @@ export var dash_duration := 0.2
 export var dash_speed := 150
 export var bounce_cap := 87
 
+export var throw_back_y_impulse := 25
+export var throw_back_speed := 20
+
 # Starts as "forward", might behave weird depending on spawn direction.
 var last_direction := Vector3(0,0,-1)
 
@@ -26,6 +29,9 @@ var dash_available := true
 var is_dashing := false
 
 var is_body_slamming := false
+
+var just_thrown_back := false
+var being_thrown_back := false
 
 func _ready():
   GameState.Player = self
@@ -50,7 +56,10 @@ func _physics_process(delta):
 
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
-    last_direction = direction
+    
+    if not being_thrown_back: # Last direction is used for throw back.
+      last_direction = direction
+    
     $Pivot.look_at(translation + direction, Vector3.UP)
     
     # Move origin of CollisionShape (x,z) to origin of Pivot, so we can rotate it properly.
@@ -81,6 +90,7 @@ func _physics_process(delta):
         is_dashing = true
         dash_available = false
         $DashDurationTimer.start()
+        being_thrown_back = false # Dash cancels throw back.
 
     if is_dashing:
       speed = dash_speed
@@ -88,8 +98,19 @@ func _physics_process(delta):
   if direction.x == 0 and direction.z == 0 and is_dashing:
     direction = last_direction
   
-  velocity.x = direction.x * speed
-  velocity.z = direction.z * speed
+  if just_thrown_back: # If just thrown back, throw player up.
+    velocity.y = throw_back_y_impulse
+    just_thrown_back = false
+  elif is_on_floor():
+    being_thrown_back = false
+  
+  if being_thrown_back:
+    is_jumping = true
+    velocity.x = -last_direction.x * throw_back_speed
+    velocity.z = -last_direction.z * throw_back_speed
+  else: # Move player.
+    velocity.x = direction.x * speed
+    velocity.z = direction.z * speed
   
   if is_on_floor():
     is_body_slamming = false
@@ -107,6 +128,7 @@ func _physics_process(delta):
         and Input.is_action_just_pressed("jump")):
     is_double_jumping = true
     velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
+    being_thrown_back = false # Double jump cancels throw back.
   elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
     is_body_slamming = true
     velocity.y = -30
@@ -162,8 +184,9 @@ func die():
   emit_signal("hit")
   queue_free()
 
-func _on_EnemyDetector_body_entered(_body):
-  die()
+func _on_EnemyDetector_body_entered(_body): # hurt
+  just_thrown_back = true
+  being_thrown_back = true
 
 func set_draw_distance(value: int):
   $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value
