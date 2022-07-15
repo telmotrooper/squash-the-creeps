@@ -27,7 +27,7 @@ var godot_heads_collected = {
     "BeachGodotHead": false,
     "BridgeGodotHead": false
    },
-  "MontainMap": {
+  "LakeMap": {
     "GodotHead": false,
     "GodotHead2": false
    }
@@ -42,7 +42,7 @@ var gems_collected = {}
 var global_gem_progress = { "collected": 0, "total": 90+16, "percentage": 0.0 }
 var gem_progress = {
   "TestMap": { "collected": 0, "total": 90, "percentage": 0.0 },
-  "MontainMap": { "collected": 0, "total": 16, "percentage": 0.0 }
+  "LakeMap": { "collected": 0, "total": 16, "percentage": 0.0 }
 }
 
 # Backup this value so it can be used to start a new game.

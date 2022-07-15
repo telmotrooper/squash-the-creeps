@@ -2,7 +2,7 @@
 
 [ext_resource path="res://maps/extras/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
-[ext_resource path="res://maps/mountain_map.gd" type="Script" id=3]
+[ext_resource path="res://maps/lake_map.gd" type="Script" id=3]
 [ext_resource path="res://assets/water-pour.ogg" type="AudioStream" id=4]
 [ext_resource path="res://maps/extras/boundary.tscn" type="PackedScene" id=5]
 [ext_resource path="res://default_env.tres" type="Environment" id=6]
@@ -82,7 +82,7 @@ tracks/1/keys = {
 height = 5.0
 radius = 5.0
 
-[node name="MontainMap" type="Spatial"]
+[node name="LakeMap" type="Spatial"]
 script = ExtResource( 3 )
 map_music = ExtResource( 15 )
 drain_water_sound = ExtResource( 4 )
