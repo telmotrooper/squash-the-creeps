@@ -13,6 +13,9 @@ export var dash_duration := 0.2
 export var dash_speed := 150
 export var bounce_cap := 87
 
+export var throw_back_y_impulse := 25
+export var throw_back_speed := 20
+
 # Starts as "forward", might behave weird depending on spawn direction.
 var last_direction := Vector3(0,0,-1)
 
@@ -96,15 +99,15 @@ func _physics_process(delta):
     direction = last_direction
   
   if just_thrown_back: # If just thrown back, throw player up.
-    velocity.y = jump_impulse
+    velocity.y = throw_back_y_impulse
     just_thrown_back = false
   elif is_on_floor():
     being_thrown_back = false
   
   if being_thrown_back:
     is_jumping = true
-    velocity.x = -last_direction.x * 20
-    velocity.z = -last_direction.z * 20
+    velocity.x = -last_direction.x * throw_back_speed
+    velocity.z = -last_direction.z * throw_back_speed
   else: # Move player.
     velocity.x = direction.x * speed
     velocity.z = direction.z * speed
