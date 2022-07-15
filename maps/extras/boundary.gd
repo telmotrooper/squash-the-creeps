@@ -1,5 +1,6 @@
 tool
 extends Area
+class_name Boundary
 
 export (bool) var mesh_visible setget set_visible, get_visible
 
