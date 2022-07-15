@@ -94,13 +94,13 @@ func _physics_process(delta):
   if just_thrown_back: # If just thrown back, throw player up.
     velocity.y = jump_impulse
     just_thrown_back = false
+  elif is_on_floor():
+    being_thrown_back = false
   
   if being_thrown_back:
     velocity.x = -last_direction.x * 20
     velocity.z = -last_direction.z * 20
-#    being_thrown_back = false
-  else:
-    # Move player.
+  else: # Move player.
     velocity.x = direction.x * speed
     velocity.z = direction.z * speed
   
