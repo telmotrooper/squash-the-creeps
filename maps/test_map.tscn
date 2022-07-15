@@ -451,6 +451,7 @@ transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0
 patrolling_speed = 18
 
 [node name="SmallPlatform" parent="Map" instance=ExtResource( 29 )]
+collision_layer = 64
 
 [node name="GreenGem3" parent="Map/SmallPlatform" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5 )
@@ -460,6 +461,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5 )
 
 [node name="SmallPlatform2" parent="Map" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -5, -65 )
+collision_layer = 64
 move_y = 4.0
 
 [node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource( 25 )]
@@ -710,7 +712,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 
 [node name="MovingPlatform" type="KinematicBody" parent="Map/MovingPlatforms"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -32 )
-collision_layer = 4
+collision_layer = 64
 __meta__ = {
 "_edit_group_": true
 }
@@ -724,7 +726,7 @@ skeleton = NodePath("../..")
 
 [node name="MovingPlatform2" type="KinematicBody" parent="Map/MovingPlatforms"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -47 )
-collision_layer = 4
+collision_layer = 64
 __meta__ = {
 "_edit_group_": true
 }

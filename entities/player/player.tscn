@@ -118,7 +118,7 @@ tracks/0/keys = {
 [sub_resource type="CylinderShape" id=5]
 
 [node name="Player" type="KinematicBody" groups=["players"]]
-collision_mask = 524302
+collision_mask = 524366
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
