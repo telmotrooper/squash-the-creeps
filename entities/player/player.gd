@@ -102,6 +102,7 @@ func _physics_process(delta):
     being_thrown_back = false
   
   if being_thrown_back:
+    is_jumping = true
     velocity.x = -last_direction.x * 20
     velocity.z = -last_direction.z * 20
   else: # Move player.
@@ -124,6 +125,7 @@ func _physics_process(delta):
         and Input.is_action_just_pressed("jump")):
     is_double_jumping = true
     velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
+    being_thrown_back = false # Double jump cancels throw back.
   elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
     is_body_slamming = true
     velocity.y = -30
