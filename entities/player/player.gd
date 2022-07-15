@@ -12,6 +12,7 @@ export var bounce_impulse := 16.0
 export var dash_duration := 0.2
 export var dash_speed := 150
 export var bounce_cap := 87
+export var body_slam_speed := 30
 
 export var throw_back_y_impulse := 25
 export var throw_back_speed := 20
@@ -140,7 +141,7 @@ func _physics_process(delta):
     being_thrown_back = false # Double jump cancels throw back.
   elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
     is_body_slamming = true
-    velocity.y = -30
+    velocity.y = -body_slam_speed
   
   velocity.y -= fall_acceleration * delta
   # Assign move_and_slide to velocity prevents the velocity from accumulating.
