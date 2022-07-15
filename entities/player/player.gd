@@ -87,6 +87,7 @@ func _physics_process(delta):
         is_dashing = true
         dash_available = false
         $DashDurationTimer.start()
+        being_thrown_back = false # Dash cancels throw back.
 
     if is_dashing:
       speed = dash_speed
@@ -109,7 +110,6 @@ func _physics_process(delta):
   
   if is_on_floor():
     is_body_slamming = false
-#    being_thrown_back = false
   
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
