@@ -3,6 +3,8 @@ class_name Player
 
 signal hit
 
+export (AudioStream) var hurt_sound
+
 export var walk_speed := 14.0
 export var run_speed := 22.0
 
@@ -206,6 +208,9 @@ func die():
   queue_free()
 
 func _on_EnemyDetector_body_entered(_body): # hurt
+  if not $AudioStreamPlayer.playing:
+    $AudioStreamPlayer.stream = hurt_sound
+    $AudioStreamPlayer.play()
   just_thrown_back = true
   being_thrown_back = true
 
