@@ -312,9 +312,9 @@ tracks/1/keys = {
 
 [sub_resource type="PlaneMesh" id=12]
 material = ExtResource( 4 )
-size = Vector2( 500, 500 )
-subdivide_width = 5
-subdivide_depth = 5
+size = Vector2( 1000, 1000 )
+subdivide_width = 10
+subdivide_depth = 10
 
 [node name="TestMap" type="Spatial"]
 script = ExtResource( 5 )

@@ -34,7 +34,7 @@ noise = SubResource( 5 )
 [resource]
 render_priority = -1
 shader = ExtResource( 1 )
-shader_param/speed = 0.021
+shader_param/speed = 0.01
 shader_param/color = Color( 0.0352941, 0.658824, 0.929412, 0.635294 )
 shader_param/deep_water = Color( 0.14902, 0.329412, 0.501961, 1 )
 shader_param/beer_law_factor = 0.016
