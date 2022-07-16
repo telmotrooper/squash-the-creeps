@@ -174,8 +174,10 @@ func _physics_process(delta):
       if parent.get_class() == "MeshInstance":
         parent.queue_free()
   
-  # Rotate character vertically alongside a jump.
-  $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
+  # Rotate character vertically alongside a fall.
+  var rotation_x = PI / 6.0 * velocity.y / jump_impulse
+  if rotation_x > -1.25: # Prevent rotating 360 degrees.
+    $Pivot.rotation.x = rotation_x
   
   if is_spinning():
     for entity in $SpinArea.get_overlapping_bodies():
