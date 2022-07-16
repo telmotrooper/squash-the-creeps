@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg-243d31595e4634a6505ea6cbcdbb25ea.oggstr"
+
+[deps]
+
+source_file="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg"
+dest_files=[ "res://.import/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg-243d31595e4634a6505ea6cbcdbb25ea.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

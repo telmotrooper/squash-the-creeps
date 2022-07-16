@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://entities/player/player.glb" type="PackedScene" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/camera.gd" type="Script" id=3]
+[ext_resource path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 0.25
@@ -120,6 +121,7 @@ tracks/0/keys = {
 [node name="Player" type="KinematicBody" groups=["players"]]
 collision_mask = 524366
 script = ExtResource( 2 )
+hurt_sound = ExtResource( 4 )
 
 [node name="Pivot" type="Spatial" parent="."]
 
@@ -177,6 +179,10 @@ shape = SubResource( 5 )
 process_mode = 0
 wait_time = 0.2
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sound"
 
 [node name="RayCasts" type="Spatial" parent="."]
 
