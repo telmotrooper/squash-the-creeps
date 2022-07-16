@@ -184,25 +184,29 @@ one_shot = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.3, -1.1 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
-collision_mask = 4
+collision_mask = 36
+collide_with_areas = true
 
 [node name="RayCast2" type="RayCast" parent="RayCasts"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.3, -1.1 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
-collision_mask = 4
+collision_mask = 36
+collide_with_areas = true
 
 [node name="RayCast3" type="RayCast" parent="RayCasts"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.3, 1.8 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
-collision_mask = 4
+collision_mask = 36
+collide_with_areas = true
 
 [node name="RayCast4" type="RayCast" parent="RayCasts"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.3, 1.8 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
-collision_mask = 4
+collision_mask = 36
+collide_with_areas = true
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="timeout" from="DashDurationTimer" to="." method="_on_DashDurationTimer_timeout"]

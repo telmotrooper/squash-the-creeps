@@ -177,6 +177,7 @@ body_slam={
 3d_physics/layer_3="World (Static)"
 3d_physics/layer_4="Item"
 3d_physics/layer_5="Detection Layer"
+3d_physics/layer_6="Water"
 3d_physics/layer_7="World (Dynamic)"
 3d_physics/layer_20="Boundary"
 

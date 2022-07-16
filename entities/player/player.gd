@@ -39,6 +39,11 @@ var being_thrown_back := false
 func _ready():
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
+  
+  # Initial position will always be considered a safe position, even if the raycasts do not indicate it.
+  last_safe_position = Vector3(
+    global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
+  )
 
 func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
@@ -124,13 +129,15 @@ func _physics_process(delta):
   elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset both jumps.
     is_jumping = false
     is_double_jumping = false
-    var safe_position = (
+
+    var safe_position_condition = (
       $RayCasts/RayCast.is_colliding() and
+      not $RayCasts/RayCast.get_collider().get_collision_layer_bit(GameState.collision_layers["Water"]) and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
     )
-    if safe_position:
+    if safe_position_condition:
       last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
   elif is_on_floor() and get_slide_collision(0).collider is Enemy: # Reset double jump.
     is_double_jumping = false

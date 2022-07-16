@@ -50,9 +50,19 @@ var initial_godot_heads_collected = var2bytes(godot_heads_collected)
 var initial_gem_progress = var2bytes(gem_progress)
 var initial_global_gem_progress = var2bytes(global_gem_progress)
 
+var collision_layers = {}
+
 func _ready() -> void:
   var fallback_scene = "res://maps/test_map.tscn"
   var current_scene = get_tree().get_current_scene().get_name()
+  
+  # List named collision layers for easy access.
+  for i in range(1, 33):
+    var property_path = "layer_names/3d_physics/layer_%d" % i
+    var layer_name = ProjectSettings.get_setting(property_path)
+    if layer_name != "":
+      collision_layers[layer_name] = i - 1
+
   # If scene with no camera loaded, load fallback scene.
   if current_scene == "Player" or (current_scene != "Main" and not is_instance_valid(get_viewport().get_camera())):
     print("Scene \"%s\" has no default camera, loading fallback scene at \"%s\"." % [current_scene, fallback_scene])
