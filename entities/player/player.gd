@@ -12,12 +12,15 @@ export var bounce_impulse := 16.0
 export var dash_duration := 0.2
 export var dash_speed := 150
 export var bounce_cap := 87
+export var body_slam_speed := 30
 
 export var throw_back_y_impulse := 25
 export var throw_back_speed := 20
 
 # Starts as "forward", might behave weird depending on spawn direction.
 var last_direction := Vector3(0,0,-1)
+
+var last_safe_position := Vector3(0,0,0)
 
 var velocity = Vector3.ZERO
 var speed = 0
@@ -36,6 +39,11 @@ var being_thrown_back := false
 func _ready():
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
+  
+  # Initial position will always be considered a safe position, even if the raycasts do not indicate it.
+  last_safe_position = Vector3(
+    global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
+  )
 
 func _physics_process(delta):
   if not $AnimationPlayer.is_playing():
@@ -121,6 +129,17 @@ func _physics_process(delta):
   elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset both jumps.
     is_jumping = false
     is_double_jumping = false
+
+    var safe_position_condition = (
+      $RayCasts/RayCast.is_colliding() and
+      not $RayCasts/RayCast.get_collider().get_collision_layer_bit(GameState.collision_layers["Water"]) and
+      not $RayCasts/RayCast.get_collider().is_in_group("breakable_floor") and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
+    )
+    if safe_position_condition:
+      last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
   elif is_on_floor() and get_slide_collision(0).collider is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
@@ -131,7 +150,7 @@ func _physics_process(delta):
     being_thrown_back = false # Double jump cancels throw back.
   elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
     is_body_slamming = true
-    velocity.y = -30
+    velocity.y = -body_slam_speed
   
   velocity.y -= fall_acceleration * delta
   # Assign move_and_slide to velocity prevents the velocity from accumulating.
@@ -163,8 +182,10 @@ func _physics_process(delta):
       if parent.get_class() == "MeshInstance":
         parent.queue_free()
   
-  # Rotate character vertically alongside a jump.
-  $Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
+  # Rotate character vertically alongside a fall.
+  var rotation_x = PI / 6.0 * velocity.y / jump_impulse
+  if rotation_x > -1.25: # Prevent rotating 360 degrees.
+    $Pivot.rotation.x = rotation_x
   
   if is_spinning():
     for entity in $SpinArea.get_overlapping_bodies():
@@ -193,3 +214,6 @@ func set_draw_distance(value: int):
 
 func _on_DashDurationTimer_timeout():
   is_dashing = false
+
+func move_to_last_safe_position():
+  global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)

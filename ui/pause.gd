@@ -13,7 +13,7 @@ func _ready():
       get_node("%MapOptionButton").select(0)
     elif (GameState.MapName == 'test_map'):
       get_node("%MapOptionButton").select(1)
-    elif (GameState.MapName == 'mountain_map'):
+    elif (GameState.MapName == 'lake_map'):
       get_node("%MapOptionButton").select(2)
   
   get_node("%DrawDistanceLabel").text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")

@@ -10,7 +10,7 @@ extents = Vector3( 0.75, 0.5, 3 )
 
 [node name="FallingPlatform" type="CSGBox"]
 use_collision = true
-collision_layer = 4
+collision_layer = 64
 width = 1.5
 height = 1.0
 depth = 6.0

@@ -320,7 +320,7 @@ margin_top = 175.0
 margin_right = 285.0
 margin_bottom = 212.0
 text = "hub_1"
-items = [ "hub_1", null, false, 0, null, "test_map", null, false, 1, null, "mountain_map", null, false, 2, null ]
+items = [ "hub_1", null, false, 0, null, "test_map", null, false, 1, null, "lake_map", null, false, 2, null ]
 selected = 0
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Settings"]

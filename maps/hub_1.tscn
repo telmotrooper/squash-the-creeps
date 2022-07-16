@@ -77,13 +77,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85, 2.48, -6.46 )
 label = "Test Map"
 map_name = "test_map"
 
-[node name="PortalMountainMap" parent="." instance=ExtResource( 8 )]
+[node name="PortalLakeMap" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73, 3.04, -6.46 )
-label = "Mountain Map"
-map_name = "mountain_map"
+label = "Lake Map"
+map_name = "lake_map"
 godot_heads_required = 2
 
-[node name="Camera" type="Camera" parent="PortalMountainMap"]
+[node name="Camera" type="Camera" parent="PortalLakeMap"]
 transform = Transform( 0.6482, 0.266946, -0.713146, 0, 0.936538, 0.350566, 0.76147, -0.227237, 0.607064, -8.86963, 6.53239, 6.91475 )
 
 [node name="Boundary" parent="." instance=ExtResource( 9 )]
