@@ -36,6 +36,8 @@
 
 * Sound [UI alert, warm musical finish, complete, success tone 4](https://www.zapsplat.com/music/ui-alert-warm-musical-finish-complete-success-tone-4/) by [ZapSplat](https://www.zapsplat.com/), licensed under ZapSplat Standard License
 
+* Sound [Cartoon character, high pitched vocalisation, ouch or ohh as if sudden pain 2](https://www.zapsplat.com/music/cartoon-character-high-pitched-vocalisation-ouch-or-ohh-as-if-sudden-pain-2/) by [ZapSplat](https://www.zapsplat.com/), licensed under ZapSplat Standard License
+
 ## Others
 
 * Skybox [Anime Starry Night](https://sketchfab.com/3d-models/anime-starry-night-db0952ccd1ee4c77a1a07709b3d4f4f0) by [fangzhangmnm](https://sketchfab.com/fangzhangmnm), licensed under (CC BY 4.0)
