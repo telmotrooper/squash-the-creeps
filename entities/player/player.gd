@@ -133,6 +133,7 @@ func _physics_process(delta):
     var safe_position_condition = (
       $RayCasts/RayCast.is_colliding() and
       not $RayCasts/RayCast.get_collider().get_collision_layer_bit(GameState.collision_layers["Water"]) and
+      not $RayCasts/RayCast.get_collider().is_in_group("breakable_floor") and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
