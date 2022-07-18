@@ -80,6 +80,32 @@ tracks/1/keys = {
 "method": "stop"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("LakeWaterPlane")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LakeWaterPlane/WaterBoundary:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="CylinderShape" id=5]
 height = 5.0
@@ -204,6 +230,47 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4, -3.2, 111 )
 
 [node name="Pier" parent="." instance=ExtResource( 19 )]
 transform = Transform( -0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 55.2444, -4.9, 79.45 )
+
+[node name="Tunnel" type="Spatial" parent="."]
+
+[node name="TunnelGodotHead" parent="Tunnel" instance=ExtResource( 14 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 23.3843, -32.6, 143.378 )
+
+[node name="PurpleGem" parent="Tunnel" instance=ExtResource( 16 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 34.1956, -37, 137.014 )
+
+[node name="PurpleGem2" parent="Tunnel" instance=ExtResource( 16 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 30.7422, -37, 132.784 )
+
+[node name="PurpleGem3" parent="Tunnel" instance=ExtResource( 16 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 29.182, -37, 142.396 )
+
+[node name="PurpleGem4" parent="Tunnel" instance=ExtResource( 16 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 25.0285, -37, 137.135 )
+
+[node name="RedGem" parent="Tunnel" instance=ExtResource( 17 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 41.6606, -37, 129.868 )
+
+[node name="RedGem2" parent="Tunnel" instance=ExtResource( 17 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 38.8967, -37, 126.574 )
+
+[node name="RedGem3" parent="Tunnel" instance=ExtResource( 17 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 38.725, -37, 132.592 )
+
+[node name="RedGem4" parent="Tunnel" instance=ExtResource( 17 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 35.8958, -36.8, 128.875 )
+
+[node name="GreenGem" parent="Tunnel" instance=ExtResource( 18 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 29.8644, -36.3, 156.204 )
+
+[node name="GreenGem2" parent="Tunnel" instance=ExtResource( 18 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 29.6354, -36.3, 149.086 )
+
+[node name="GreenGem3" parent="Tunnel" instance=ExtResource( 18 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 11.9949, -36.3, 134.908 )
+
+[node name="GreenGem4" parent="Tunnel" instance=ExtResource( 18 )]
+transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 18.619, -36.3, 136.268 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]

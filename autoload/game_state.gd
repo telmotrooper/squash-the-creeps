@@ -29,7 +29,8 @@ var godot_heads_collected = {
    },
   "LakeMap": {
     "GodotHead": false,
-    "GodotHead2": false
+    "GodotHead2": false,
+    "TunnelGodotHead": false
    }
 }
 
@@ -39,10 +40,10 @@ var progress = {}
 var amount_of_gems := 0
 var gems_collected = {}
 
-var global_gem_progress = { "collected": 0, "total": 90+16, "percentage": 0.0 }
+var global_gem_progress = { "collected": 0, "total": 90+52, "percentage": 0.0 }
 var gem_progress = {
   "TestMap": { "collected": 0, "total": 90, "percentage": 0.0 },
-  "LakeMap": { "collected": 0, "total": 16, "percentage": 0.0 }
+  "LakeMap": { "collected": 0, "total": 52, "percentage": 0.0 }
 }
 
 # Backup this value so it can be used to start a new game.
@@ -79,6 +80,9 @@ func collect_gem(map_name: String, path: NodePath):
   
   if gem_progress[map_name].percentage == 1.0:
     UserInterface.show_all_gems_collected()
+  
+  if gem_progress[map_name].percentage > 1.0:
+    print("Player has more gems than expected for this map.")
   
   UserInterface.show_hud()
   amount_of_gems += gems_collected[map_name][path].value
