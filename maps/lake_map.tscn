@@ -80,6 +80,20 @@ tracks/1/keys = {
 "method": "stop"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("LakeWaterPlane")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [sub_resource type="CylinderShape" id=5]
 height = 5.0
