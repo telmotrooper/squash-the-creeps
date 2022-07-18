@@ -29,7 +29,8 @@ var godot_heads_collected = {
    },
   "LakeMap": {
     "GodotHead": false,
-    "GodotHead2": false
+    "GodotHead2": false,
+    "TunnelGodotHead": false
    }
 }
 
