@@ -12,3 +12,7 @@ func _on_RedButton_pressed():
 
 func _on_Player_hit():
   GameState.UserInterface.retry()
+
+func _on_Area_body_entered(body):
+  get_node("%TunnelFloatingParticles").emitting = true
+  print("Emitting particles.")
