@@ -13,16 +13,24 @@ func _on_RedButton_pressed():
 func _on_Player_hit():
   GameState.UserInterface.retry()
 
+func emit_particles(value: bool):
+  get_node("%TunnelFloatingParticles").emitting = value
+  get_node("%TunnelFloatingParticles").visible = value
+
 func _on_AreaToStartParticles_body_entered(_body):
-  get_node("%TunnelFloatingParticles").emitting = true
-  print("Emitting particles.")
+  emit_particles(true)
+
+func _on_AreaToStopParticles_body_entered(player):
+  if player.is_on_floor():
+    emit_particles(false)
+
+func _on_AreaToStopParticles_body_exited(player):
+  if player.is_on_floor():
+    emit_particles(false)
 
 func _on_AreaToMakePlayerFloat_body_entered(_body):
-  print("entered")
   if get_node("%TunnelFloatingParticles").emitting:
     GameState.Player.floating = true
 
 func _on_AreaToMakePlayerFloat_body_exited(_body):
-  print("exitted")
-  get_node("%TunnelFloatingParticles").emitting = false
   GameState.Player.floating = false
