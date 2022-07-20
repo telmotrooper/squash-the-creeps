@@ -38,6 +38,8 @@ var is_body_slamming := false
 var just_thrown_back := false
 var being_thrown_back := false
 
+var floating := false
+
 func _ready():
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
@@ -154,7 +156,11 @@ func _physics_process(delta):
     is_body_slamming = true
     velocity.y = -body_slam_speed
   
-  velocity.y -= fall_acceleration * delta
+  if floating:
+    velocity.y = 10
+  else: # Apply gravity.
+    velocity.y -= fall_acceleration * delta
+  
   # Assign move_and_slide to velocity prevents the velocity from accumulating.
   velocity = move_and_slide(velocity, Vector3.UP)
   

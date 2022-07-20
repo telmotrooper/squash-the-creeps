@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://maps/extras/height_map/height_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=2]
@@ -132,6 +132,9 @@ gravity = Vector3( 0, 0.5, 0 )
 
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 20, 10, 14 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 10, 18, 9 )
 
 [node name="LakeMap" type="Spatial"]
 script = ExtResource( 3 )
@@ -304,15 +307,26 @@ lifetime = 5.25
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 9 )
 
-[node name="Area" type="Area" parent="Tunnel"]
+[node name="AreaToStartParticles" type="Area" parent="Tunnel"]
 transform = Transform( 0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 26.6827, -30.5, 133.329 )
 collision_layer = 16
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="Tunnel/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Tunnel/AreaToStartParticles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40001, 0, 3.3 )
 shape = SubResource( 10 )
 
+[node name="AreaToMakePlayerFloat" type="Area" parent="Tunnel"]
+transform = Transform( 0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 52.152, -28.4, 117.405 )
+collision_layer = 16
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Tunnel/AreaToMakePlayerFloat"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.4, 0 )
+shape = SubResource( 11 )
+
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
-[connection signal="body_entered" from="Tunnel/Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_entered" from="Tunnel/AreaToStartParticles" to="." method="_on_AreaToStartParticles_body_entered"]
+[connection signal="body_entered" from="Tunnel/AreaToMakePlayerFloat" to="." method="_on_AreaToMakePlayerFloat_body_entered"]
+[connection signal="body_exited" from="Tunnel/AreaToMakePlayerFloat" to="." method="_on_AreaToMakePlayerFloat_body_exited"]
