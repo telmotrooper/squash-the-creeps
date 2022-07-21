@@ -79,7 +79,7 @@ tracks/2/keys = {
 
 [node name="Enemy" type="KinematicBody" groups=["enemies"]]
 collision_layer = 2
-collision_mask = 524293
+collision_mask = 524357
 script = ExtResource( 1 )
 squash_sound = ExtResource( 3 )
 

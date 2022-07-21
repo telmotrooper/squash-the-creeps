@@ -584,34 +584,34 @@ text = "Press \"ATTACK\" to
 press a wall button."
 font = ExtResource( 13 )
 
-[node name="GooMonsterPath" type="Path" parent="Map/GreenPlatform1"]
+[node name="SlimePath" type="Path" parent="Map/GreenPlatform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.8, 0 )
 curve = SubResource( 45 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath"]
 transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, -10 )
 
-[node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath/PathFollow" instance=ExtResource( 31 )]
+[node name="Slime" parent="Map/GreenPlatform1/SlimePath/PathFollow" instance=ExtResource( 31 )]
 
-[node name="GooMonsterPath2" type="Path" parent="Map/GreenPlatform1"]
+[node name="SlimePath2" type="Path" parent="Map/GreenPlatform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5176, 2.8, 0 )
 curve = SubResource( 45 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath2"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath2"]
 transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, 9.97867 )
 offset = 20.0
 
-[node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath2/PathFollow" instance=ExtResource( 31 )]
+[node name="Slime" parent="Map/GreenPlatform1/SlimePath2/PathFollow" instance=ExtResource( 31 )]
 
-[node name="GooMonsterPath3" type="Path" parent="Map/GreenPlatform1"]
+[node name="SlimePath3" type="Path" parent="Map/GreenPlatform1"]
 transform = Transform( -0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 115.654, 12.5175, 0 )
 curve = SubResource( 45 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/GooMonsterPath3"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath3"]
 transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, 9.97867 )
 offset = 20.0
 
-[node name="GooMonster" parent="Map/GreenPlatform1/GooMonsterPath3/PathFollow" instance=ExtResource( 31 )]
+[node name="Slime" parent="Map/GreenPlatform1/SlimePath3/PathFollow" instance=ExtResource( 31 )]
 
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
