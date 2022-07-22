@@ -547,6 +547,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 [node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
+[node name="BeachIsland2" parent="Map" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759 )
+
+[node name="TotemGodotHead" parent="Map/BeachIsland2" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 35.6944, 0 )
+
 [node name="GreenPlatform1" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 collision_layer = 4
@@ -707,6 +713,40 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow" instance=ExtResource( 23 )]
 transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
 
+[node name="EnemyBridge2" type="Spatial" parent="Map"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -80, 0, 85 )
+
+[node name="YellowEnemyPath1" type="Path" parent="Map/EnemyBridge2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 10, 0 )
+curve = SubResource( 20 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge2/YellowEnemyPath1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
+
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath1/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+
+[node name="YellowEnemyPath2" type="Path" parent="Map/EnemyBridge2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 5, 0 )
+curve = SubResource( 20 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge2/YellowEnemyPath2"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.2, 0, 5.81199 )
+offset = 11.8
+
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath2/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+
+[node name="YellowEnemyPath3" type="Path" parent="Map/EnemyBridge2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0 )
+curve = SubResource( 20 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/EnemyBridge2/YellowEnemyPath3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6 )
+
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath3/PathFollow" instance=ExtResource( 23 )]
+transform = Transform( -1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0 )
+
 [node name="MovingPlatforms" type="Spatial" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
 
@@ -855,6 +895,15 @@ transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
 stream = ExtResource( 28 )
 autoplay = true
 bus = "Music"
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80.3714, 4.87784, 62.328 )
+material_override = ExtResource( 8 )
+use_collision = true
+collision_layer = 4
+width = 10.0
+height = 30.0
+depth = 10.0
 
 [connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
