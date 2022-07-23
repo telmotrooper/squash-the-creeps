@@ -23,8 +23,8 @@ jobs:
       uses: firebelley/godot-export@v3.0.0
       with:
         # Defining all the required inputs.
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.5/rc6/Godot_v3.5-rc6_linux_headless.64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.5/rc6/Godot_v3.5-rc6_export_templates.tpz
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.5/rc7/Godot_v3.5-rc7_linux_headless.64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.5/rc7/Godot_v3.5-rc7_export_templates.tpz
         relative_project_path: ./
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
