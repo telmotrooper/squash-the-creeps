@@ -8,7 +8,7 @@ var button_pressed: String
 func _ready():
   GameState.play_music(menu_music)
   var version = Engine.get_version_info()
-  $Menu/VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d" % [version.major, version.minor, version.patch]
+  get_node("%VersionLabel").text = "DEMO RELEASE – GODOT %d.%d.%d" % [version.major, version.minor, version.patch]
 
 func _on_Button_pressed(button_name):
   button_pressed = button_name
