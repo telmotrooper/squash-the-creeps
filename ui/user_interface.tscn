@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/pause.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_24_with_outline.tres" type="DynamicFont" id=4]
 [ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
 [ext_resource path="res://assets/crystal green.png" type="Texture" id=6]
+[ext_resource path="res://ui/settings.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=3]
@@ -201,133 +202,8 @@ margin_right = 575.0
 margin_bottom = 425.0
 text = "Back"
 
-[node name="Settings" type="VBoxContainer" parent="Pause/Submenus"]
-unique_name_in_owner = true
+[node name="Settings" parent="Pause/Submenus" instance=ExtResource( 7 )]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -290.0
-margin_top = -129.5
-margin_right = 290.0
-margin_bottom = 129.5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause/Submenus/Settings"]
-margin_right = 580.0
-margin_bottom = 212.0
-
-[node name="LeftContainer" type="VBoxContainer" parent="Pause/Submenus/Settings/HBoxContainer"]
-margin_right = 285.0
-margin_bottom = 212.0
-size_flags_horizontal = 3
-
-[node name="SensitivityLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
-unique_name_in_owner = true
-margin_right = 285.0
-margin_bottom = 31.0
-text = "Mouse Sensitivity: 0.50"
-
-[node name="SensitivitySlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
-unique_name_in_owner = true
-margin_top = 41.0
-margin_right = 285.0
-margin_bottom = 57.0
-min_value = 0.05
-max_value = 1.0
-step = 0.05
-value = 0.1
-
-[node name="DrawDistanceLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
-unique_name_in_owner = true
-margin_top = 67.0
-margin_right = 285.0
-margin_bottom = 98.0
-text = "Draw Distance: 500"
-
-[node name="DrawDistanceSlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
-unique_name_in_owner = true
-margin_top = 108.0
-margin_right = 285.0
-margin_bottom = 124.0
-min_value = 100.0
-max_value = 500.0
-value = 100.0
-
-[node name="GrassLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
-margin_top = 134.0
-margin_right = 285.0
-margin_bottom = 165.0
-text = "Amount of Grass:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GrassOptionButton" type="OptionButton" parent="Pause/Submenus/Settings/HBoxContainer/LeftContainer"]
-unique_name_in_owner = true
-margin_top = 175.0
-margin_right = 285.0
-margin_bottom = 212.0
-text = "Maximum"
-items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
-selected = 0
-
-[node name="RightContainer" type="VBoxContainer" parent="Pause/Submenus/Settings/HBoxContainer"]
-margin_left = 295.0
-margin_right = 580.0
-margin_bottom = 212.0
-size_flags_horizontal = 3
-
-[node name="MusicVolumeLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
-unique_name_in_owner = true
-margin_right = 285.0
-margin_bottom = 31.0
-text = "Music Volume: 100"
-
-[node name="MusicVolumeSlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
-unique_name_in_owner = true
-margin_top = 41.0
-margin_right = 285.0
-margin_bottom = 57.0
-value = 100.0
-
-[node name="SoundVolumeLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
-unique_name_in_owner = true
-margin_top = 67.0
-margin_right = 285.0
-margin_bottom = 98.0
-text = "Sound Volume: 100"
-
-[node name="SoundVolumeSlider" type="HSlider" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
-unique_name_in_owner = true
-margin_top = 108.0
-margin_right = 285.0
-margin_bottom = 124.0
-value = 100.0
-
-[node name="MapLabel" type="Label" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
-margin_top = 134.0
-margin_right = 285.0
-margin_bottom = 165.0
-text = "Map:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MapOptionButton" type="OptionButton" parent="Pause/Submenus/Settings/HBoxContainer/RightContainer"]
-unique_name_in_owner = true
-margin_top = 175.0
-margin_right = 285.0
-margin_bottom = 212.0
-text = "hub_1"
-items = [ "hub_1", null, false, 0, null, "test_map", null, false, 1, null, "lake_map", null, false, 2, null ]
-selected = 0
-
-[node name="BackButton" type="Button" parent="Pause/Submenus/Settings"]
-margin_top = 222.0
-margin_right = 580.0
-margin_bottom = 259.0
-text = "Back"
 
 [node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
@@ -582,13 +458,6 @@ bus = "Sound"
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
-[connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/SensitivitySlider" to="Pause" method="_on_SensitivitySlider_value_changed"]
-[connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/DrawDistanceSlider" to="Pause" method="_on_DrawDistanceSlider_value_changed"]
-[connection signal="item_selected" from="Pause/Submenus/Settings/HBoxContainer/LeftContainer/GrassOptionButton" to="Pause" method="_on_GrassOptionButton_item_selected"]
-[connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/RightContainer/MusicVolumeSlider" to="Pause" method="_on_MusicVolumeSlider_value_changed"]
-[connection signal="value_changed" from="Pause/Submenus/Settings/HBoxContainer/RightContainer/SoundVolumeSlider" to="Pause" method="_on_SoundVolumeSlider_value_changed"]
-[connection signal="item_selected" from="Pause/Submenus/Settings/HBoxContainer/RightContainer/MapOptionButton" to="Pause" method="_on_MapOptionButton_item_selected"]
-[connection signal="pressed" from="Pause/Submenus/Settings/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="pressed" from="Pause/Submenus/Progress/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="pressed" from="Pause/PauseMenu/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/ProgressButton" to="Pause" method="open_submenu" binds= [ "%Progress" ]]
