@@ -251,7 +251,7 @@ margin_top = 97.0
 margin_right = 518.0
 margin_bottom = 157.0
 
-[node name="OptionsButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource( 9 )]
+[node name="SettingsButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource( 9 )]
 margin_top = 177.0
 margin_right = 518.0
 margin_bottom = 237.0
@@ -299,6 +299,7 @@ __meta__ = {
 }
 
 [node name="Settings" parent="Control" instance=ExtResource( 13 )]
+unique_name_in_owner = true
 
 [node name="Spatial" type="Spatial" parent="."]
 
@@ -336,6 +337,7 @@ transform = Transform( 1, 0, 0, 0, 0.987688, 0.156434, 0, -0.156434, 0.987688, 0
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_Button_pressed" binds= [ "new_game" ]]
+[connection signal="pressed" from="Control/Menu/CenterRow/Buttons/SettingsButton" to="." method="_on_Button_pressed" binds= [ "settings" ]]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/ExitButton" to="." method="_on_Button_pressed" binds= [ "exit" ]]
 [connection signal="gui_input" from="Control/Menu/CenterRow/CenterContainer" to="." method="_on_CenterContainer_gui_input"]
 [connection signal="animation_finished" from="Spatial/AnimationPlayerSpaceship" to="." method="_on_AnimationPlayerSpaceship_animation_finished"]

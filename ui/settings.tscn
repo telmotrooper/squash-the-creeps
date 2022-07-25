@@ -3,7 +3,6 @@
 [ext_resource path="res://ui/settings.gd" type="Script" id=1]
 
 [node name="Settings" type="VBoxContainer"]
-unique_name_in_owner = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
