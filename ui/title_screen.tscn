@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://ui/menu_env.tres" type="Environment" id=1]
 [ext_resource path="res://ui/buttons/continue_button.tscn" type="PackedScene" id=2]
@@ -43,6 +43,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "menu_fade_in_fast"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -199,6 +214,7 @@ menu_music = ExtResource( 8 )
 autoplay = "menu_fade_in"
 anims/RESET = SubResource( 4 )
 anims/menu_fade_in = SubResource( 5 )
+anims/menu_fade_in_fast = SubResource( 10 )
 anims/menu_fade_out = SubResource( 1 )
 
 [node name="Control" type="Control" parent="."]

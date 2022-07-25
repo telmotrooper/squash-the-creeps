@@ -40,4 +40,5 @@ func _on_CenterContainer_gui_input(event: InputEvent):
     $Spatial/AnimationPlayerAlien.play("spin_y")
 
 func _on_Settings_back_button_pressed():
-  print("hello")
+  get_node("%Settings").visible = false
+  $AnimationPlayerMenu.play("menu_fade_in_fast")
