@@ -203,6 +203,7 @@ margin_bottom = 425.0
 text = "Back"
 
 [node name="Settings" parent="Pause/Submenus" instance=ExtResource( 7 )]
+unique_name_in_owner = true
 visible = false
 
 [node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]

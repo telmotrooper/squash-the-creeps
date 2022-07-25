@@ -5,6 +5,8 @@ const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
+signal back_button_pressed
+
 func _ready():
   get_node("%GrassOptionButton").select(Configuration.get_value("graphics", "grass_amount"))
 
@@ -47,3 +49,6 @@ func _on_SoundVolumeSlider_value_changed(value):
   Configuration.update_setting("audio", "sound_volume", value)
   get_node("%SoundVolumeLabel").text = sound_volume_text % value
   Configuration.set_volume("Sound", value)
+
+func _on_BackButton_pressed():
+  emit_signal("back_button_pressed")

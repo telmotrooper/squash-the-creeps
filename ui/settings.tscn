@@ -133,3 +133,4 @@ text = "Back"
 [connection signal="value_changed" from="HBoxContainer/LeftContainer/DrawDistanceSlider" to="." method="_on_DrawDistanceSlider_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/RightContainer/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/RightContainer/SoundVolumeSlider" to="." method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

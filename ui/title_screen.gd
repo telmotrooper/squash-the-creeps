@@ -38,3 +38,6 @@ func _on_AnimationPlayerSpaceship_animation_finished(anim_name):
 func _on_CenterContainer_gui_input(event: InputEvent):
   if event is InputEventMouseButton and event.button_index == 1 and $Spatial/AnimationPlayerSpaceship.current_animation == "flying_in_space":
     $Spatial/AnimationPlayerAlien.play("spin_y")
+
+func _on_Settings_back_button_pressed():
+  print("hello")
