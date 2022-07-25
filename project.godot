@@ -93,6 +93,7 @@ grid=false
 
 [gui]
 
+theme/custom="res://ui_theme.tres"
 theme/custom_font="res://assets/fonts/montserrat_semi_bold_24.tres"
 
 [importer_defaults]
@@ -173,6 +174,11 @@ zoom_out={
 body_slam={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+print_screen={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
