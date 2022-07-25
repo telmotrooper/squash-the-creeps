@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+export (bool) var is_title_screen = false
+
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
 const music_volume_text = "Music Volume: %d"
@@ -8,6 +10,10 @@ const sound_volume_text = "Sound Volume: %d"
 signal back_button_pressed
 
 func _ready():
+  if is_title_screen:
+    get_node("%MapLabel").visible = false
+    get_node("%MapOptionButton").visible = false
+  
   get_node("%GrassOptionButton").select(Configuration.get_value("graphics", "grass_amount"))
 
   if GameState.MapName: # TODO: Find a way to find option from label (maybe iterate through the items?)

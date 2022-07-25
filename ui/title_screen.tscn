@@ -316,6 +316,7 @@ __meta__ = {
 
 [node name="Settings" parent="Control" instance=ExtResource( 13 )]
 unique_name_in_owner = true
+is_title_screen = true
 
 [node name="Spatial" type="Spatial" parent="."]
 

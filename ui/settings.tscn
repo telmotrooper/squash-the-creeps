@@ -106,6 +106,7 @@ margin_bottom = 106.0
 value = 100.0
 
 [node name="MapLabel" type="Label" parent="HBoxContainer/RightContainer"]
+unique_name_in_owner = true
 margin_top = 110.0
 margin_right = 288.0
 margin_bottom = 141.0
