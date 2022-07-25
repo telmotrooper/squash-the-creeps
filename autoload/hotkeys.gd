@@ -11,6 +11,11 @@ func _process(_delta):
 #  elif Input.is_action_just_released("ui_fast_forward"):
 #    Engine.time_scale = 1
   
+  if Input.is_action_just_pressed("print_screen"):
+    var screenshot = get_viewport().get_texture().get_data()
+    screenshot.flip_y()
+    screenshot.save_png("user://squash_%s.png" % OS.get_unix_time())
+  
   if Input.is_action_just_pressed("show_hud") and is_instance_valid(GameState.UserInterface):
     GameState.UserInterface.show_hud()
   
