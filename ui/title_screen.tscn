@@ -244,58 +244,58 @@ texture = ExtResource( 6 )
 stretch_mode = 4
 
 [node name="CenterRow" type="HBoxContainer" parent="Control/Menu"]
-margin_top = 187.0
+margin_top = 193.0
 margin_right = 1040.0
-margin_bottom = 521.0
+margin_bottom = 509.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Control/Menu/CenterRow"]
-margin_right = 518.0
-margin_bottom = 334.0
+margin_right = 515.0
+margin_bottom = 316.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
 
 [node name="NewGameButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource( 10 )]
-margin_top = 17.0
-margin_right = 518.0
-margin_bottom = 77.0
+margin_top = 8.0
+margin_right = 515.0
+margin_bottom = 68.0
 
 [node name="ContinueButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
-margin_top = 97.0
-margin_right = 518.0
-margin_bottom = 157.0
+margin_top = 88.0
+margin_right = 515.0
+margin_bottom = 148.0
 
 [node name="SettingsButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource( 9 )]
-margin_top = 177.0
-margin_right = 518.0
-margin_bottom = 237.0
+margin_top = 168.0
+margin_right = 515.0
+margin_bottom = 228.0
 
 [node name="ExitButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
-margin_top = 257.0
-margin_right = 518.0
-margin_bottom = 317.0
+margin_top = 248.0
+margin_right = 515.0
+margin_bottom = 308.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/Menu/CenterRow"]
 self_modulate = Color( 1, 1, 1, 0.909091 )
-margin_left = 522.0
+margin_left = 525.0
 margin_right = 1040.0
-margin_bottom = 334.0
+margin_bottom = 316.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="Control/Menu/CenterRow/CenterContainer"]
-margin_left = 259.0
-margin_top = 167.0
-margin_right = 259.0
-margin_bottom = 167.0
+margin_left = 257.0
+margin_top = 158.0
+margin_right = 257.0
+margin_bottom = 158.0
 
 [node name="VersionLabel" type="Label" parent="Control/Menu"]
 unique_name_in_owner = true
-margin_top = 525.0
+margin_top = 519.0
 margin_right = 1040.0
-margin_bottom = 556.0
+margin_bottom = 550.0
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 7 )
 text = "DEMO RELEASE"
@@ -316,6 +316,7 @@ __meta__ = {
 
 [node name="Settings" parent="Control" instance=ExtResource( 13 )]
 unique_name_in_owner = true
+visible = false
 is_title_screen = true
 
 [node name="Spatial" type="Spatial" parent="."]
