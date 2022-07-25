@@ -52,11 +52,6 @@ func _on_ToggleFullscreenButton_pressed():
   OS.window_fullscreen = !OS.window_fullscreen
   Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
 
-func _on_MapOptionButton_item_selected(index):
-  var map_name = get_node("%MapOptionButton").get_item_text(index)
-  GameState.change_map(map_name)
-  pause()
-
 func return_to_pause_menu():
   $PauseMenu.visible = true
   for submenu in $Submenus.get_children():

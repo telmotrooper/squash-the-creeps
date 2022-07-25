@@ -8,6 +8,7 @@ const music_volume_text = "Music Volume: %d"
 const sound_volume_text = "Sound Volume: %d"
 
 signal back_button_pressed
+signal unpause
 
 func _ready():
   if is_title_screen:
@@ -58,6 +59,11 @@ func _on_SoundVolumeSlider_value_changed(value):
 
 func _on_GrassOptionButton_item_selected(index):
   GameState.update_grass(index)
+
+func _on_MapOptionButton_item_selected(index):
+  var map_name = get_node("%MapOptionButton").get_item_text(index)
+  GameState.change_map(map_name)
+  emit_signal("unpause")
 
 func _on_BackButton_pressed():
   emit_signal("back_button_pressed")
