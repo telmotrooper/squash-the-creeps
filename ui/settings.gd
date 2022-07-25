@@ -56,5 +56,8 @@ func _on_SoundVolumeSlider_value_changed(value):
   get_node("%SoundVolumeLabel").text = sound_volume_text % value
   Configuration.set_volume("Sound", value)
 
+func _on_GrassOptionButton_item_selected(index):
+  GameState.update_grass(index)
+
 func _on_BackButton_pressed():
   emit_signal("back_button_pressed")
