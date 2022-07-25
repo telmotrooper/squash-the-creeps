@@ -459,6 +459,7 @@ bus = "Sound"
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
+[connection signal="back_button_pressed" from="Pause/Submenus/Settings" to="Pause" method="return_to_pause_menu"]
 [connection signal="pressed" from="Pause/Submenus/Progress/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="pressed" from="Pause/PauseMenu/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/ProgressButton" to="Pause" method="open_submenu" binds= [ "%Progress" ]]
