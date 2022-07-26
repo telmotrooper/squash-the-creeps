@@ -65,5 +65,9 @@ func _on_MapOptionButton_item_selected(index):
   GameState.change_map(map_name)
   emit_signal("unpause")
 
+func _on_ToggleFullscreenButton_pressed():
+  OS.window_fullscreen = !OS.window_fullscreen
+  Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
+
 func _on_BackButton_pressed():
   emit_signal("back_button_pressed")

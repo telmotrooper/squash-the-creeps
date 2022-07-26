@@ -48,10 +48,6 @@ func _on_MainMenuButton_pressed():
 func _on_ExitButton_pressed():
   get_tree().quit()
 
-func _on_ToggleFullscreenButton_pressed():
-  OS.window_fullscreen = !OS.window_fullscreen
-  Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
-
 func return_to_pause_menu():
   $PauseMenu.visible = true
   for submenu in $Submenus.get_children():
