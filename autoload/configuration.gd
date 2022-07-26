@@ -6,31 +6,31 @@ onready var config = ConfigFile.new()
 const min_volume = -60
 const max_volume = 0
 
+const defaults: Dictionary = {
+  "audio": {
+    "music_volume": 80,
+    "sound_volume": 80
+  },
+  "controls": {
+    "mouse_sensitivity": 0.5
+  },
+  "graphics": {
+    "fullscreen": false,
+    "draw_distance": 200,
+    "grass_amount": 0
+  },
+  "debug": {
+    "body_slam": false,
+    "double_jump": false,
+    "mid_air_dash": false
+  }
+}
+
 func _ready():
   var load_file = config.load(file_path)
   
   if load_file != OK:
     config.save(file_path)
-  
-  var defaults = {
-    "audio": {
-      "music_volume": 80,
-      "sound_volume": 80
-    },
-    "controls": {
-      "mouse_sensitivity": 0.5
-    },
-    "graphics": {
-      "fullscreen": false,
-      "draw_distance": 200,
-      "grass_amount": 0
-    },
-    "debug": {
-      "body_slam": false,
-      "double_jump": false,
-      "mid_air_dash": false
-    }
-  }
   
   set_default_values(defaults)
   
@@ -69,4 +69,10 @@ func set_default_values(defaults: Dictionary):
   for section in defaults:
     for key in defaults[section]:
       if not config.has_section_key(section, key):
+        config.set_value(section, key, defaults[section][key])
+
+func reset_settings():
+  for section in defaults:
+    if section != "debug": # For now we don't reset player upgrades.
+      for key in defaults[section]:
         config.set_value(section, key, defaults[section][key])

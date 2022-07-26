@@ -10,11 +10,14 @@ const sound_volume_text = "Sound Volume: %d"
 signal back_button_pressed
 signal unpause
 
-func _ready():
+func _ready() -> void:
   if is_title_screen:
     get_node("%MapLabel").visible = false
     get_node("%MapOptionButton").visible = false
   
+  refresh_values()
+
+func refresh_values() -> void:
   get_node("%GrassOptionButton").select(Configuration.get_value("graphics", "grass_amount"))
 
   if GameState.MapName: # TODO: Find a way to find option from label (maybe iterate through the items?)
@@ -71,3 +74,10 @@ func _on_ToggleFullscreenButton_pressed():
 
 func _on_BackButton_pressed():
   emit_signal("back_button_pressed")
+
+func _on_ResetButton_pressed() -> void:
+  $ConfirmationDialog.popup_centered()
+
+func _on_ConfirmationDialog_confirmed() -> void:
+  Configuration.reset_settings()
+  refresh_values()
