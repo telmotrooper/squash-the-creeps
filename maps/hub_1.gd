@@ -6,10 +6,9 @@ export (AudioStream) var map_music
 
 func _ready():
   GameState.stop_music()
-  if GameState.new_game:
+  if GameState.hub_1_at_night:
     $WorldEnvironment.environment = night_environment
     $AudioStreamPlayer.play() # Crash sound.
-    GameState.new_game = false
   else:
     $WorldEnvironment.environment = day_environment
     GameState.play_music(map_music)

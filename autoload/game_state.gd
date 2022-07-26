@@ -6,8 +6,7 @@ var MapName: String
 var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
-# Used to decide whether to play crash sound in Hub 1.
-var new_game := true
+var hub_1_at_night := true
 
 var upgrades = {
   "body_slam": false,
@@ -91,7 +90,7 @@ func collect_gem(map_name: String, path: NodePath):
   generate_progress_report(map_name)
 
 func initialize(): # Used in "New Game".
-  new_game = true
+  hub_1_at_night = true
   gems_collected = {}
   godot_heads_collected = bytes2var(initial_godot_heads_collected)
   gem_progress = bytes2var(initial_gem_progress)
