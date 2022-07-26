@@ -166,26 +166,40 @@ anchor_bottom = 1.0
 
 [node name="Controls" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -287.5
-margin_top = -212.5
-margin_right = 287.5
-margin_bottom = 212.5
+margin_left = -350.0
+margin_top = -175.0
+margin_right = 350.0
+margin_bottom = 175.0
 
-[node name="TitleLabel" type="Label" parent="Pause/Submenus/Controls"]
-margin_right = 575.0
-margin_bottom = 31.0
-text = "Controls"
-align = 1
+[node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Controls"]
+margin_right = 700.0
+margin_bottom = 303.0
+rect_min_size = Vector2( 700, 0 )
+tab_align = 0
+__meta__ = {
+"_editor_description_": ""
+}
 
-[node name="ControlsLabel" type="Label" parent="Pause/Submenus/Controls"]
-margin_top = 41.0
+[node name="Controls" type="Tabs" parent="Pause/Submenus/Controls/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 49.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 0, 250 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Controls/TabContainer/Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="World1Progress" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer"]
 margin_right = 575.0
-margin_bottom = 378.0
+margin_bottom = 337.0
 text = "Walk – WASD
 Jump – Space
 Sprint – Shift
@@ -198,9 +212,9 @@ Pause – ESC
 Toggle Fullscreen – Alt+Enter"
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Controls"]
-margin_top = 388.0
-margin_right = 575.0
-margin_bottom = 425.0
+margin_top = 313.0
+margin_right = 700.0
+margin_bottom = 350.0
 text = "Back"
 
 [node name="Settings" parent="Pause/Submenus" instance=ExtResource( 7 )]
@@ -256,6 +270,7 @@ text = "Back"
 
 [node name="PauseMenu" type="VBoxContainer" parent="Pause"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
