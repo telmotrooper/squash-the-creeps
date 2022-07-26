@@ -136,7 +136,7 @@ margin_top = 222.0
 margin_right = 580.0
 margin_bottom = 259.0
 size_flags_horizontal = 3
-text = "Reset to Default"
+text = "Reset to Defaults"
 
 [node name="BackButton" type="Button" parent="."]
 margin_top = 269.0
@@ -145,12 +145,12 @@ margin_bottom = 306.0
 text = "Back"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-visible = true
 margin_top = 316.0
 margin_right = 580.0
 margin_bottom = 408.0
 window_title = "Confirmation"
-dialog_text = "Are you sure you want to reset the settings?"
+dialog_text = "Are you sure you want to reset the settings to their default values?"
+dialog_autowrap = true
 
 [connection signal="value_changed" from="HBoxContainer/LeftContainer/SensitivitySlider" to="." method="_on_SensitivitySlider_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/LeftContainer/DrawDistanceSlider" to="." method="_on_DrawDistanceSlider_value_changed"]
