@@ -197,9 +197,10 @@ rect_min_size = Vector2( 0, 250 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="World1Progress" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer"]
-margin_right = 575.0
+[node name="Text" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer"]
+margin_right = 680.0
 margin_bottom = 337.0
+size_flags_horizontal = 3
 text = "Walk – WASD
 Jump – Space
 Sprint – Shift
