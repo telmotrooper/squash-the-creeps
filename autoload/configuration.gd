@@ -70,3 +70,9 @@ func set_default_values(defaults: Dictionary):
     for key in defaults[section]:
       if not config.has_section_key(section, key):
         config.set_value(section, key, defaults[section][key])
+
+func reset_settings():
+  for section in defaults:
+    if section != "debug": # For now we don't reset player upgrades.
+      for key in defaults[section]:
+        config.set_value(section, key, defaults[section][key])
