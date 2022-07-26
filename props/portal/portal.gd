@@ -26,6 +26,7 @@ func _ready():
       GameState.portal_unlocked[get_path()] = true
 
 func _on_Portal_entered(_body):
+  GameState.hub_1_at_night = false
   if requirement_met():
     $LabelAnimationPlayer.play("shrink")
     $RequirementLabel.visible = false

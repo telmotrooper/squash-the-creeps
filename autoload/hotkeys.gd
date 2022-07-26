@@ -2,7 +2,9 @@ extends Spatial
 
 # Actions defined in "Project > Project Settings... > Input Map".
 
-func _process(_delta):
+var title_screen: Node
+
+func _process(_delta: float) -> void:
   if Input.is_action_just_pressed("ui_toggle_fullscreen"):
     toggle_fullscreen()
 
@@ -19,9 +21,11 @@ func _process(_delta):
   if Input.is_action_just_pressed("show_hud") and is_instance_valid(GameState.UserInterface):
     GameState.UserInterface.show_hud()
   
-  if get_node_or_null("/root/Main/WorldScene/TitleScreen") and Input.is_action_just_pressed("ui_cancel"):
+  title_screen = get_node_or_null("/root/Main/WorldScene/TitleScreen")
+  
+  if title_screen and not title_screen.submenu_open and Input.is_action_just_pressed("ui_cancel"):
     get_tree().quit()
 
-func toggle_fullscreen():
+func toggle_fullscreen() -> void:
   OS.window_fullscreen = !OS.window_fullscreen
   Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
