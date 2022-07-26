@@ -71,3 +71,9 @@ func _on_ToggleFullscreenButton_pressed():
 
 func _on_BackButton_pressed():
   emit_signal("back_button_pressed")
+
+func _on_ResetButton_pressed() -> void:
+  $ConfirmationDialog.popup_centered()
+
+func _on_ConfirmationDialog_confirmed() -> void:
+  print("reset settings")
