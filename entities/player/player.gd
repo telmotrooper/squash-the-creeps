@@ -152,7 +152,7 @@ func _physics_process(delta):
     is_double_jumping = true
     velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
     being_thrown_back = false # Double jump cancels throw back.
-  elif GameState.upgrades["body_slam"] and is_double_jumping and Input.is_action_just_pressed("body_slam"):
+  elif GameState.upgrades["body_slam"] and is_double_jumping and not is_body_slamming and Input.is_action_just_pressed("body_slam"):
     is_body_slamming = true
     velocity.y = -body_slam_speed
   
