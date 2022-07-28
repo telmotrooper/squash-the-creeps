@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/extras/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" type="AudioStream" id=12]
 [ext_resource path="res://maps/hub_1_night.tres" type="Environment" id=13]
+[ext_resource path="res://entities/player/player.glb" type="PackedScene" id=14]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -75,6 +76,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Player:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CutsceneSpaceship:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CutsceneSpaceship/CutscenePlayer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "spaceship_fall"
@@ -124,6 +161,30 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Player:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CutsceneSpaceship/CutscenePlayer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -219,6 +280,9 @@ far = 500.0
 
 [node name="CutsceneSpaceship" parent="Cutscene" instance=ExtResource( 6 )]
 transform = Transform( 0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CutscenePlayer" parent="Cutscene/CutsceneSpaceship" instance=ExtResource( 14 )]
+transform = Transform( -0.164781, -0.310046, -0.936333, -0.0537377, 0.950722, -0.305354, 0.984865, 0, -0.173322, -0.0746751, 1.31173, 0.0307178 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
