@@ -125,23 +125,23 @@ items = [ "hub_1", null, false, 0, null, "test_map", null, false, 1, null, "lake
 selected = 0
 
 [node name="ToggleFullscreenButton" type="Button" parent="."]
-visible = false
-margin_right = 580.0
-margin_bottom = 37.0
-size_flags_horizontal = 3
-text = "Toggle Fullscreen"
-
-[node name="ResetButton" type="Button" parent="."]
 margin_top = 222.0
 margin_right = 580.0
 margin_bottom = 259.0
 size_flags_horizontal = 3
-text = "Reset to Defaults"
+text = "Toggle Fullscreen"
 
-[node name="BackButton" type="Button" parent="."]
+[node name="ResetButton" type="Button" parent="."]
 margin_top = 269.0
 margin_right = 580.0
 margin_bottom = 306.0
+size_flags_horizontal = 3
+text = "Reset to Defaults"
+
+[node name="BackButton" type="Button" parent="."]
+margin_top = 316.0
+margin_right = 580.0
+margin_bottom = 353.0
 text = "Back"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
