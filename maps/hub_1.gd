@@ -8,7 +8,7 @@ func _ready() -> void:
   GameState.stop_music()
   if GameState.hub_1_at_night:
     $WorldEnvironment.environment = night_environment
-    $AudioStreamPlayer.play() # Crash sound.
+#    $AudioStreamPlayer.play() # Crash sound.
   else:
     $WorldEnvironment.environment = day_environment
     GameState.play_music(map_music)
