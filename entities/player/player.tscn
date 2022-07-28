@@ -12,10 +12,13 @@ height = 0.25
 height = 0.3
 radius = 1.2
 
+[sub_resource type="CylinderShape" id=5]
+height = 1.0
+
 [sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Model:rotation_degrees")
+tracks/0/path = NodePath("ModelPivot/Model:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -31,7 +34,7 @@ tracks/0/keys = {
 resource_name = "dash"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Model:rotation_degrees")
+tracks/0/path = NodePath("ModelPivot/Model:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -47,7 +50,7 @@ tracks/0/keys = {
 resource_name = "float"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Model:translation")
+tracks/0/path = NodePath("ModelPivot/Model:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -59,7 +62,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0.1, 0 ), Vector3( 0, 0.4, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Model:rotation_degrees")
+tracks/1/path = NodePath("ModelPivot/Model:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -75,7 +78,7 @@ tracks/1/keys = {
 resource_name = "spin-y"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/path = NodePath("ModelPivot:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -90,7 +93,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Model:scale")
+tracks/0/path = NodePath("ModelPivot/Model:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -105,7 +108,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "shrink"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Model:scale")
+tracks/0/path = NodePath("ModelPivot/Model:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -117,19 +120,30 @@ tracks/0/keys = {
 "values": [ Vector3( 1, 0.999999, 0.999999 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="CylinderShape" id=5]
-height = 1.0
-
 [node name="Player" type="KinematicBody" groups=["players"]]
 collision_mask = 524366
 script = ExtResource( 2 )
 hurt_sound = ExtResource( 4 )
 
-[node name="Pivot" type="Spatial" parent="."]
+[node name="ModelPivot" type="Spatial" parent="."]
 transform = Transform( -1, 0, -2.38498e-08, 0, 1, 0, 2.38498e-08, 0, -1, 0, 0, 0 )
 
-[node name="Model" parent="Pivot" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.240163, 0 )
+[node name="Model" parent="ModelPivot" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.325, 0 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+script = ExtResource( 3 )
+
+[node name="Horizontal" type="Spatial" parent="CameraPivot"]
+
+[node name="Vertical" type="Spatial" parent="CameraPivot/Horizontal"]
+
+[node name="ClippedCamera" type="ClippedCamera" parent="CameraPivot/Horizontal/Vertical"]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10 )
+current = true
+process_mode = 1
+collision_mask = 5
 
 [node name="PlayerCollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0, 0 )
@@ -147,6 +161,14 @@ __meta__ = {
 [node name="CollisionShape" type="CollisionShape" parent="EnemyDetector"]
 shape = SubResource( 2 )
 
+[node name="SpinArea" type="Area" parent="."]
+collision_mask = 34
+monitorable = false
+
+[node name="SpinCollisionShape" type="CollisionShape" parent="SpinArea"]
+transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0, 0 )
+shape = SubResource( 5 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "float"
 anims/RESET = SubResource( 8 )
@@ -157,28 +179,6 @@ anims/spin-y = SubResource( 4 )
 [node name="EffectsAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 6 )
 anims/shrink = SubResource( 7 )
-
-[node name="CameraPivot" type="Spatial" parent="."]
-script = ExtResource( 3 )
-
-[node name="Horizontal" type="Spatial" parent="CameraPivot"]
-
-[node name="Vertical" type="Spatial" parent="CameraPivot/Horizontal"]
-
-[node name="ClippedCamera" type="ClippedCamera" parent="CameraPivot/Horizontal/Vertical"]
-unique_name_in_owner = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10 )
-current = true
-process_mode = 1
-collision_mask = 5
-
-[node name="SpinArea" type="Area" parent="."]
-collision_mask = 34
-monitorable = false
-
-[node name="SpinCollisionShape" type="CollisionShape" parent="SpinArea"]
-transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0, 0 )
-shape = SubResource( 5 )
 
 [node name="DashDurationTimer" type="Timer" parent="."]
 process_mode = 0
@@ -192,28 +192,28 @@ bus = "Sound"
 [node name="RayCasts" type="Spatial" parent="."]
 
 [node name="RayCast" type="RayCast" parent="RayCasts"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.3, -1.1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, -1.1 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
 collision_mask = 36
 collide_with_areas = true
 
 [node name="RayCast2" type="RayCast" parent="RayCasts"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.3, -1.1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.75, -1.1 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
 collision_mask = 36
 collide_with_areas = true
 
 [node name="RayCast3" type="RayCast" parent="RayCasts"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.3, 1.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.75, 1.8 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
 collision_mask = 36
 collide_with_areas = true
 
 [node name="RayCast4" type="RayCast" parent="RayCasts"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.3, 1.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, 1.8 )
 enabled = true
 cast_to = Vector3( 0, -3, 0 )
 collision_mask = 36

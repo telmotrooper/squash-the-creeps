@@ -72,7 +72,7 @@ func _physics_process(delta):
     if not being_thrown_back: # Last direction is used for throw back.
       last_direction = direction
     
-    $Pivot.look_at(translation + direction, Vector3.UP)
+    $ModelPivot.look_at(translation + direction, Vector3.UP)
     
     if is_dashing:
       $AnimationPlayer.playback_speed = 1.0
@@ -186,7 +186,7 @@ func _physics_process(delta):
   # Rotate character vertically alongside a fall.
   var rotation_x = PI / 6.0 * velocity.y / jump_impulse
   if rotation_x > -1.25: # Prevent rotating 360 degrees.
-    $Pivot.rotation.x = rotation_x
+    $ModelPivot.rotation.x = rotation_x
   
   if is_spinning():
     for entity in $SpinArea.get_overlapping_bodies():
