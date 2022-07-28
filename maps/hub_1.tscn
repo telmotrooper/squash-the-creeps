@@ -74,7 +74,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../Player:visible")
@@ -269,13 +269,11 @@ shape = SubResource( 3 )
 [node name="Cutscene" type="Spatial" parent="."]
 
 [node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
-autoplay = "spaceship_fall"
 anims/RESET = SubResource( 5 )
 anims/spaceship_fall = SubResource( 4 )
 
 [node name="CutsceneCamera" type="Camera" parent="Cutscene"]
 transform = Transform( 0.23677, -0.0405325, 0.97072, 0, 0.999129, 0.0417187, -0.971566, -0.00987775, 0.236564, 34.901, 14.1118, 17.1519 )
-current = true
 far = 500.0
 
 [node name="CutsceneSpaceship" parent="Cutscene" instance=ExtResource( 6 )]

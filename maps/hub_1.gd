@@ -6,9 +6,13 @@ export (AudioStream) var map_music
 
 func _ready() -> void:
   GameState.stop_music()
+  
+  if not GameState.intro_cutscene_played:
+    $Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
+    GameState.intro_cutscene_played = true
+  
   if GameState.hub_1_at_night:
     $WorldEnvironment.environment = night_environment
-#    $AudioStreamPlayer.play() # Crash sound.
   else:
     $WorldEnvironment.environment = day_environment
     GameState.play_music(map_music)
