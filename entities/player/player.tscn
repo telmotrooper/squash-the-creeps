@@ -9,12 +9,13 @@
 height = 0.25
 
 [sub_resource type="CylinderShape" id=2]
-radius = 1.4
+height = 0.3
+radius = 1.2
 
 [sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Character:rotation_degrees")
+tracks/0/path = NodePath("Pivot/Model:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,7 +31,7 @@ tracks/0/keys = {
 resource_name = "dash"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Character:rotation_degrees")
+tracks/0/path = NodePath("Pivot/Model:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -46,7 +47,7 @@ tracks/0/keys = {
 resource_name = "float"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Character:translation")
+tracks/0/path = NodePath("Pivot/Model:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -58,7 +59,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0.478475, 0 ), Vector3( 0.0319214, 0.819586, -0.00259554 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Character:rotation_degrees")
+tracks/1/path = NodePath("Pivot/Model:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -89,7 +90,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Character:scale")
+tracks/0/path = NodePath("Pivot/Model:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -104,7 +105,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "shrink"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Character:scale")
+tracks/0/path = NodePath("Pivot/Model:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -117,6 +118,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CylinderShape" id=5]
+height = 1.0
 
 [node name="Player" type="KinematicBody" groups=["players"]]
 collision_mask = 524366
@@ -125,21 +127,23 @@ hurt_sound = ExtResource( 4 )
 
 [node name="Pivot" type="Spatial" parent="."]
 
-[node name="Character" parent="Pivot" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.0205931, 0.698532, -0.00167443 )
+[node name="Model" parent="Pivot" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.425, 0, 0.785568, 0.44 )
+[node name="PlayerCollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="EnemyDetector" type="Area" parent="."]
-transform = Transform( 0.851164, 0, 0, 0, 0.851164, 0, 0, 0, 0.851164, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0 )
 collision_layer = 0
 collision_mask = 2
 monitorable = false
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="EnemyDetector"]
-transform = Transform( 1, 0, 0, 0, 0.21875, 0, 0, 0, 1, 0, 0.225154, 0 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -172,7 +176,7 @@ collision_mask = 34
 monitorable = false
 
 [node name="SpinCollisionShape" type="CollisionShape" parent="SpinArea"]
-transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.8, 0 )
+transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="DashDurationTimer" type="Timer" parent="."]
