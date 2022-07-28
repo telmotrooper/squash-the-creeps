@@ -56,7 +56,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.3, 0.9 ),
 "transitions": PoolRealArray( 0.3, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0.478475, 0 ), Vector3( 0.0319214, 0.819586, -0.00259554 ) ]
+"values": [ Vector3( 0, 0.1, 0 ), Vector3( 0, 0.4, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Model:rotation_degrees")
@@ -126,9 +126,10 @@ script = ExtResource( 2 )
 hurt_sound = ExtResource( 4 )
 
 [node name="Pivot" type="Spatial" parent="."]
+transform = Transform( -1, 0, -2.38498e-08, 0, 1, 0, 2.38498e-08, 0, -1, 0, 0, 0 )
 
 [node name="Model" parent="Pivot" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.240163, 0 )
 
 [node name="PlayerCollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0, 0 )
