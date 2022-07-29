@@ -34,3 +34,8 @@ func _on_Player_hit() -> void:
 
 func _on_AudioStreamPlayer_finished() -> void:
   GameState.play_music(map_music)
+
+
+func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
+  var new_dialog = Dialogic.start("Spaceship")
+  add_child(new_dialog)
