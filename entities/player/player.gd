@@ -19,6 +19,8 @@ export var body_slam_speed := 30
 export var throw_back_y_impulse := 25
 export var throw_back_speed := 20
 
+export var paused := false
+
 # Starts as "forward", might behave weird depending on spawn direction.
 var last_direction := Vector3(0,0,-1)
 
@@ -50,6 +52,9 @@ func _ready():
   )
 
 func _physics_process(delta):
+  if paused: # Used to prevent movement during a cutscene.
+    return
+  
   if not $AnimationPlayer.is_playing():
     $AnimationPlayer.play("float") # Idle animation.
   

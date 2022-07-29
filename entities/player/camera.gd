@@ -21,6 +21,9 @@ func _ready():
   $Horizontal/Vertical/ClippedCamera.far = Configuration.get_value("graphics", "draw_distance")
 
 func _input(event):
+  if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
+    return
+  
   var zoom = get_node("%ClippedCamera").translation.z  
 
   if event is InputEventMouseMotion:

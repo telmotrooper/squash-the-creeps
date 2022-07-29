@@ -190,6 +190,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Player:paused")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Hub1" type="Spatial"]
 script = ExtResource( 10 )
@@ -221,7 +233,7 @@ __meta__ = {
 }
 
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 5 )]
-transform = Transform( 0.939693, 1.49503e-08, 0.34202, 0.34202, -4.10753e-08, -0.939693, 0, 1, -4.37113e-08, -2.43791, 2.20846, -1.00656 )
+transform = Transform( -0.926113, 0.0143195, 0.376974, -0.337077, 0.417283, -0.843952, -0.16939, -0.908664, -0.381625, -2.43791, 2.20846, -1.00656 )
 skeleton = NodePath("")
 
 [node name="UserInterface" parent="." instance=ExtResource( 7 )]
@@ -245,6 +257,7 @@ transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -8.2956, 0 )
 
 [node name="RetryCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.32, 48.54 )
+current = true
 far = 200.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
