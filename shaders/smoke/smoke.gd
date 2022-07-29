@@ -9,3 +9,6 @@ func _process(_delta):
     var copy_of_camera_position = current_camera.global_transform.origin
     copy_of_camera_position.y = 100
     look_at(copy_of_camera_position, Vector3.UP)
+
+func play_sound():
+  $AudioStreamPlayer3D.play()

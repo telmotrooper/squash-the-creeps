@@ -16,5 +16,4 @@ script = ExtResource( 1 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )
 unit_db = 30.0
-autoplay = true
 bus = "Sound"
