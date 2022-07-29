@@ -126,7 +126,6 @@ script = ExtResource( 2 )
 hurt_sound = ExtResource( 4 )
 
 [node name="ModelPivot" type="Spatial" parent="."]
-transform = Transform( -1, 0, -2.38498e-08, 0, 1, 0, 2.38498e-08, 0, -1, 0, 0, 0 )
 
 [node name="Model" parent="ModelPivot" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.325, 0 )
