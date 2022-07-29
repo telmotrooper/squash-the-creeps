@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/extras/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" type="AudioStream" id=12]
 [ext_resource path="res://maps/hub_1_night.tres" type="Environment" id=13]
 [ext_resource path="res://entities/player/player.glb" type="PackedScene" id=14]
+[ext_resource path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" type="AudioStream" id=15]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -216,6 +217,23 @@ tracks/7/keys = {
 "method": "play_sound"
 } ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath("CutsceneAudioStreamPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 4.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 1.0 ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
 
 [node name="Hub1" type="Spatial"]
 script = ExtResource( 10 )
@@ -291,6 +309,10 @@ shape = SubResource( 3 )
 [node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
 anims/RESET = SubResource( 5 )
 anims/spaceship_fall = SubResource( 4 )
+
+[node name="CutsceneAudioStreamPlayer" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource( 15 )
+bus = "Sound"
 
 [node name="CutsceneCamera" type="Camera" parent="Cutscene"]
 transform = Transform( 0.23677, -0.0405325, 0.97072, 0, 0.999129, 0.0417187, -0.971566, -0.00987775, 0.236564, 34.901, 14.1118, 17.1519 )
