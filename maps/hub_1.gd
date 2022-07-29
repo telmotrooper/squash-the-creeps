@@ -7,9 +7,14 @@ export (AudioStream) var map_music
 func _ready() -> void:
   GameState.stop_music()
   
-  if not GameState.intro_cutscene_played:
+  # The player start the map paused, until we verify
+  # whether the intro cutscene should be played.
+  if GameState.intro_cutscene_played:
+    $Player.paused = false
+  else: # Play cutscene.
     $Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
     GameState.intro_cutscene_played = true
+  
   
   if GameState.hub_1_at_night:
     $WorldEnvironment.environment = night_environment
@@ -17,8 +22,6 @@ func _ready() -> void:
     $WorldEnvironment.environment = day_environment
     GameState.play_music(map_music)
     $Spaceship/Smoke.queue_free()
-  
-  GameState.RetryCamera = $RetryCamera
 
 func _on_Player_hit() -> void:
   GameState.UserInterface.retry()
