@@ -4,6 +4,10 @@ export (Environment) var day_environment
 export (Environment) var night_environment
 export (AudioStream) var map_music
 
+# Notice that the Player node has been put by the end of the tree
+# to prevent a bug where the camera (related to the CutsceneAnimationPlayer)
+# where restarting the map makes sets the wrong current camera.
+
 func _ready() -> void:
   GameState.stop_music()
   
