@@ -4,7 +4,7 @@
 			"character": "character-1659098059.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "The ship is completely busted... [pause=1]I won't be able to get out of here easily.  [pause=1][speed=5]Where [pause=1][wave amp=25 freq=2][b]IS[/b][/wave] [pause=1]here [pause=1]though?"
+			"text": "The ship is completely busted..[pause=0.5].[pause=0.5] [pause=0.5]I won't be able to get out of here easily.  [pause=1][speed=5]Where [pause=0.5][wave amp=25 freq=2][b]IS[/b][/wave] [pause=0.5]here [pause=0.5]though?"
 		}
 	],
 	"metadata": {
