@@ -198,10 +198,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 tracks/7/type = "method"
 tracks/7/path = NodePath("../Spaceship/Smoke")
@@ -262,7 +262,7 @@ __meta__ = {
 }
 
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 5 )]
-transform = Transform( -0.822386, 0.400055, 0.404521, -0.299324, 0.300419, -0.905624, -0.483825, -0.865855, -0.127314, -2.43791, 2.20846, -1.00656 )
+transform = Transform( -0.229578, -0.971801, 0.0538188, -0.0835594, -0.0354119, -0.995874, 0.969697, -0.233128, -0.0730734, -2.43791, 2.20846, -1.00656 )
 skeleton = NodePath("")
 
 [node name="UserInterface" parent="." instance=ExtResource( 7 )]
