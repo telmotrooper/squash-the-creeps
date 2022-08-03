@@ -797,7 +797,7 @@ anims/move_platforms = SubResource( 33 )
 wait_time = 2.0
 one_shot = true
 
-[node name="CSGBox" type="CSGBox" parent="Map"]
+[node name="BlueCube" type="CSGBox" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0 )
 use_collision = true
 collision_layer = 4
@@ -806,45 +806,45 @@ height = 20.0
 depth = 20.0
 material = ExtResource( 8 )
 
-[node name="JumpLabel3D" type="Label3D" parent="Map/CSGBox"]
+[node name="JumpLabel3D" type="Label3D" parent="Map/BlueCube"]
 transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
 text = "Hold \"JUMP\" while jumping
 over an enemy to go higher."
 font = ExtResource( 13 )
 
-[node name="RedGem" parent="Map/CSGBox" instance=ExtResource( 24 )]
+[node name="RedGem" parent="Map/BlueCube" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5 )
 
-[node name="RedGem2" parent="Map/CSGBox" instance=ExtResource( 24 )]
+[node name="RedGem2" parent="Map/BlueCube" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5 )
 
-[node name="RedGem3" parent="Map/CSGBox" instance=ExtResource( 24 )]
+[node name="RedGem3" parent="Map/BlueCube" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0 )
 
-[node name="PurpleGem" parent="Map/CSGBox" instance=ExtResource( 26 )]
+[node name="PurpleGem" parent="Map/BlueCube" instance=ExtResource( 26 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0 )
 
-[node name="GreenGem" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3 )
 
-[node name="GreenGem2" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem2" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3 )
 
-[node name="GreenGem3" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem3" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
 
-[node name="GreenGem4" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem4" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
 
-[node name="SprintTutorial" type="Area" parent="Map/CSGBox"]
+[node name="SprintTutorial" type="Area" parent="Map/BlueCube"]
 unique_name_in_owner = true
 collision_layer = 16
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/CSGBox/SprintTutorial"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/BlueCube/SprintTutorial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
 shape = SubResource( 39 )
 
-[node name="SprintLabel3D" type="Label3D" parent="Map/CSGBox/SprintTutorial"]
+[node name="SprintLabel3D" type="Label3D" parent="Map/BlueCube/SprintTutorial"]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.5, 12.5, -7.5 )
 billboard = 2
 modulate = Color( 1, 1, 1, 0 )
@@ -853,12 +853,12 @@ text = "Sometimes you'll have to be fast,
 press SHIFT to sprint."
 font = ExtResource( 17 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/CSGBox/SprintTutorial"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/BlueCube/SprintTutorial"]
 root_node = NodePath("../..")
 anims/RESET = SubResource( 40 )
 anims/show_sprint_label = SubResource( 41 )
 
-[node name="CSGBox2" type="CSGBox" parent="Map"]
+[node name="BlueCube2" type="CSGBox" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0 )
 use_collision = true
 collision_layer = 4
@@ -867,7 +867,7 @@ height = 20.0
 depth = 20.0
 material = ExtResource( 8 )
 
-[node name="BridgeGodotHead" parent="Map/CSGBox2" instance=ExtResource( 15 )]
+[node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
 
 [node name="FallingBridge" parent="Map" instance=ExtResource( 16 )]
@@ -907,5 +907,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 9.9, 63 )
 [connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
-[connection signal="body_entered" from="Map/CSGBox/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
+[connection signal="body_entered" from="Map/BlueCube/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
