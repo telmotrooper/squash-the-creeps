@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1659098059.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The ship is completely busted..[pause=0.5].[pause=0.5] [pause=0.5]I won't be able to get out of here easily. [pause=1][speed=5]Where [pause=0.25][wave amp=25 freq=2][b]IS[/b][/wave] [pause=0.25]here [pause=0.25]though?"
+		},
+		{
+			"emit_signal": "",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1659098205.json",
+		"name": "Spaceship"
+	}
+}
