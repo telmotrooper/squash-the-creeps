@@ -548,10 +548,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 [node name="FoliagePlant8" parent="Map/BeachIsland" instance=ExtResource( 32 )]
 transform = Transform( 0.954334, 0.298741, 0, -0.298741, 0.954334, 0, 0, 0, 1, 23.8857, 10.059, -2.49402 )
 
-[node name="BeachIsland2" parent="Map" instance=ExtResource( 22 )]
+[node name="PalmTreeBeachIsland" parent="Map" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759 )
 
-[node name="TotemGodotHead" parent="Map/BeachIsland2" instance=ExtResource( 15 )]
+[node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098 )
+
+[node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 35.6944, 0 )
 
 [node name="GreenPlatform1" type="CSGBox" parent="Map"]
@@ -900,9 +903,6 @@ transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0 )
 stream = ExtResource( 28 )
 autoplay = true
 bus = "Music"
-
-[node name="PalmTree" parent="." instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 9.9, 63 )
 
 [connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
