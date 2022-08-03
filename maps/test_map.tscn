@@ -545,8 +545,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 [node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
-[node name="FoliagePlant8" parent="Map/BeachIsland" instance=ExtResource( 32 )]
+[node name="Props" type="Spatial" parent="Map/BeachIsland"]
+
+[node name="FoliagePlant" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
 transform = Transform( 0.954334, 0.298741, 0, -0.298741, 0.954334, 0, 0, 0, 1, 23.8857, 10.059, -2.49402 )
+
+[node name="FoliagePlant2" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.986363, 0.164583, 0, -0.164583, 0.986363, 0, 0, 0, 1, 16.1197, 12.0579, 6.10835 )
+
+[node name="FoliagePlant3" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.119062, 0.992887, 0, 0, 0, 1, 0.577538, 13.7211, -0.395428 )
+
+[node name="FoliagePlant4" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.112881, 0.941341, -0.318016, 0.0378638, 0.315754, 0.948085, 0.577538, 10.6109, 17.7934 )
+
+[node name="FoliagePlant5" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.949716, -0.313114, 0, 0.313114, 0.949716, 0, 0, 0, 1, -13.1941, 10.4794, 5.59452 )
+
+[node name="FoliagePlant6" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.115964, 0.967048, 0.226651, -0.0269857, -0.225039, 0.973976, -10.1768, 10.4834, -10.1844 )
+
+[node name="FoliagePlant7" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.110968, 0.925385, 0.362422, -0.0431508, -0.359844, 0.932014, 6.64685, 11.0762, -16.4952 )
 
 [node name="PalmTreeBeachIsland" parent="Map" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759 )
@@ -556,6 +576,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098 )
 
 [node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 35.6944, 0 )
+
+[node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 6.58969, 13.8456, -2.09302 )
+
+[node name="FoliagePlant2" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 5.87474, 13.8456, 2.40438 )
+
+[node name="FoliagePlant3" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 2.47056, 13.8456, 0.595779 )
 
 [node name="GreenPlatform1" type="CSGBox" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 0 )
@@ -688,6 +717,32 @@ transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2
 
 [node name="BlueEnemy4" parent="Map/GreenPlatform2/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Spatial" type="Spatial" parent="Map/GreenPlatform2"]
+
+[node name="FoliagePlant" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1122, 0.459839, 0 )
+
+[node name="FoliagePlant2" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70905, 0.459839, 13.1691 )
+
+[node name="FoliagePlant3" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97467, 0.459839, 6.54948 )
+
+[node name="FoliagePlant4" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.06, 0.459839, 20.2818 )
+
+[node name="FoliagePlant5" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0572, 0.459839, -7.46893 )
+
+[node name="FoliagePlant6" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39832, 0.459839, -14.9648 )
+
+[node name="FoliagePlant7" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1006, 0.459839, 8.20314 )
+
+[node name="FoliagePlant8" parent="Map/GreenPlatform2/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52028, 0.459839, -20.0867 )
 
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
