@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/extras/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://maps/hub_1_night.tres" type="Environment" id=13]
 [ext_resource path="res://entities/player/player.glb" type="PackedScene" id=14]
 [ext_resource path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" type="AudioStream" id=15]
+[ext_resource path="res://props/foliage_plant/FoliagePlant.tscn" type="PackedScene" id=16]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -266,7 +267,7 @@ __meta__ = {
 }
 
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 5 )]
-transform = Transform( -0.822386, 0.400055, 0.404521, -0.299324, 0.300419, -0.905624, -0.483825, -0.865855, -0.127314, -2.43791, 2.20846, -1.00656 )
+transform = Transform( -0.822386, 0.400056, 0.404521, -0.299324, 0.300419, -0.905624, -0.483825, -0.865855, -0.127314, -2.43791, 2.20846, -1.00656 )
 skeleton = NodePath("")
 
 [node name="UserInterface" parent="." instance=ExtResource( 7 )]
@@ -326,6 +327,24 @@ transform = Transform( 0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 0
 
 [node name="CutscenePlayer" parent="Cutscene/CutsceneSpaceship" instance=ExtResource( 14 )]
 transform = Transform( -0.164781, -0.310046, -0.936333, -0.0537377, 0.950722, -0.305354, 0.984865, 0, -0.173322, -0.0746751, 1.31173, 0.0307178 )
+
+[node name="FoliagePlant" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.901, 2.518, 8.046 )
+
+[node name="FoliagePlant2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79975, 3.24816, 0.730998 )
+
+[node name="FoliagePlant3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22504, 2.73275, 11.1118 )
+
+[node name="FoliagePlant4" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4217, 2.06138, -12.4055 )
+
+[node name="FoliagePlant5" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0881, 2.39351, -11.8747 )
+
+[node name="FoliagePlant6" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5983, 2.83187, 3.71417 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
