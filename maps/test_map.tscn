@@ -31,6 +31,7 @@
 [ext_resource path="res://maps/extras/small_platform/small_platform.tscn" type="PackedScene" id=29]
 [ext_resource path="res://materials/gradient_blue.tres" type="Material" id=30]
 [ext_resource path="res://entities/slime/slime.tscn" type="PackedScene" id=31]
+[ext_resource path="res://props/foliage_plant/FoliagePlant.tscn" type="PackedScene" id=32]
 [ext_resource path="res://maps/extras/palm_tree/palm_tree.tscn" type="PackedScene" id=33]
 
 [sub_resource type="BoxShape" id=3]
@@ -92,13 +93,6 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=37]
-extents = Vector3( 25, 0.5, 25 )
-
-[sub_resource type="CubeMesh" id=36]
-material = ExtResource( 9 )
-size = Vector3( 50, 1, 50 )
-
 [sub_resource type="ConvexPolygonShape" id=25]
 points = PoolVector3Array( 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75 )
 
@@ -129,6 +123,13 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 25, 0.5, 25 )
+
+[sub_resource type="CubeMesh" id=36]
+material = ExtResource( 9 )
+size = Vector3( 50, 1, 50 )
+
 [sub_resource type="Curve3D" id=15]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214, 0, 0, 0, 0, 0, 0, 6.67461, -6.10352e-05, -15.661, 0, 0, 0, 0, 0, 0, -9.46404, -3.05176e-05, -7.67662, 0, 0, 0, 0, 0, 0, -9.3791, 3.05176e-05, 8.20721, 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214 ),
@@ -146,10 +147,6 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272, 0, 0, 0, 0, 0, 0, 10.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 18.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 1.40272, 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="CubeMesh" id=38]
-material = ExtResource( 9 )
-size = Vector3( 50, 1, 50 )
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -327,23 +324,23 @@ shadow_enabled = true
 
 [node name="Map" type="Spatial" parent="."]
 
-[node name="GreenPlatform" type="StaticBody" parent="Map"]
+[node name="GreenPlatform1" type="StaticBody" parent="Map"]
 collision_layer = 4
 collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.952113, 0 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 9 )
 
-[node name="GreenPlatformGrass" type="Path" parent="Map/GreenPlatform"]
+[node name="GreenPlatformGrass" type="Path" parent="Map/GreenPlatform1"]
 unique_name_in_owner = true
 curve = SubResource( 6 )
 script = ExtResource( 2 )
@@ -358,7 +355,7 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"physics
  ],"just_created":false,"undo_redo":null)
 
 
-[node name="ScatterItem" type="Spatial" parent="Map/GreenPlatform/GreenPlatformGrass"]
+[node name="ScatterItem" type="Spatial" parent="Map/GreenPlatform1/GreenPlatformGrass"]
 script = ExtResource( 3 )
 item_path = "res://assets/grass_52/grass_52.tscn"
 scale_modifier = 1.5
@@ -366,41 +363,41 @@ materials = [ ExtResource( 1 ) ]
 merge_target_meshes = false
 cast_shadow = 1
 
-[node name="MultiMeshInstance" type="MultiMeshInstance" parent="Map/GreenPlatform/GreenPlatformGrass/ScatterItem"]
+[node name="MultiMeshInstance" type="MultiMeshInstance" parent="Map/GreenPlatform1/GreenPlatformGrass/ScatterItem"]
 multimesh = SubResource( 19 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Flag" parent="Map/GreenPlatform" instance=ExtResource( 11 )]
+[node name="Flag" parent="Map/GreenPlatform1" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031 )
 
-[node name="Gems" type="Spatial" parent="Map/GreenPlatform"]
+[node name="Gems" type="Spatial" parent="Map/GreenPlatform1"]
 
-[node name="RedGem" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
+[node name="RedGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0256, 0.0999999, -26.1378 )
 
-[node name="RedGem2" parent="Map/GreenPlatform/Gems" instance=ExtResource( 24 )]
+[node name="RedGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541 )
 
-[node name="GreenGem" parent="Map/GreenPlatform/Gems" instance=ExtResource( 25 )]
+[node name="GreenGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8488, 0.630445, -22.1003 )
 
-[node name="PurpleGem" parent="Map/GreenPlatform/Gems" instance=ExtResource( 26 )]
+[node name="PurpleGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7919, 0.765488, -26.3931 )
 
-[node name="PurpleGem2" parent="Map/GreenPlatform/Gems" instance=ExtResource( 26 )]
+[node name="PurpleGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6563, 0.765488, -22.3548 )
 
-[node name="BlueEnemyPath" type="Path" parent="Map/GreenPlatform"]
+[node name="BlueEnemyPath" type="Path" parent="Map/GreenPlatform1"]
 curve = SubResource( 14 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform/BlueEnemyPath"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/BlueEnemyPath"]
 transform = Transform( 4.75508e-06, 0, -1, 0, 1, 0, 1, 0, 4.75508e-06, 0, 0, -16 )
 rotation_mode = 4
 
-[node name="BlueEnemy" parent="Map/GreenPlatform/BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
+[node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0 )
 
 [node name="Bridge" type="StaticBody" parent="Map"]
@@ -548,127 +545,161 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 [node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
-[node name="BeachIsland2" parent="Map" instance=ExtResource( 22 )]
+[node name="Props" type="Spatial" parent="Map/BeachIsland"]
+
+[node name="FoliagePlant" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.954334, 0.298741, 0, -0.298741, 0.954334, 0, 0, 0, 1, 23.8857, 10.059, -2.49402 )
+
+[node name="FoliagePlant2" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.986363, 0.164583, 0, -0.164583, 0.986363, 0, 0, 0, 1, 16.1197, 12.0579, 6.10835 )
+
+[node name="FoliagePlant3" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.119062, 0.992887, 0, 0, 0, 1, 0.577538, 13.7211, -0.395428 )
+
+[node name="FoliagePlant4" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.112881, 0.941341, -0.318016, 0.0378638, 0.315754, 0.948085, 0.577538, 10.6109, 17.7934 )
+
+[node name="FoliagePlant5" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.949716, -0.313114, 0, 0.313114, 0.949716, 0, 0, 0, 1, -13.1941, 10.4794, 5.59452 )
+
+[node name="FoliagePlant6" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.115964, 0.967048, 0.226651, -0.0269857, -0.225039, 0.973976, -10.1768, 10.4834, -10.1844 )
+
+[node name="FoliagePlant7" parent="Map/BeachIsland/Props" instance=ExtResource( 32 )]
+transform = Transform( 0.992887, -0.119062, 0, 0.110968, 0.925385, 0.362422, -0.0431508, -0.359844, 0.932014, 6.64685, 11.0762, -16.4952 )
+
+[node name="PalmTreeBeachIsland" parent="Map" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759 )
 
-[node name="TotemGodotHead" parent="Map/BeachIsland2" instance=ExtResource( 15 )]
+[node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098 )
+
+[node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 35.6944, 0 )
 
-[node name="GreenPlatform1" type="StaticBody" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
+[node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 6.58969, 13.8456, -2.09302 )
+
+[node name="FoliagePlant2" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 5.87474, 13.8456, 2.40438 )
+
+[node name="FoliagePlant3" parent="Map/PalmTreeBeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 2.47056, 13.8456, 0.595779 )
+
+[node name="GreenPlatform2" type="CSGBox" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 0 )
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+width = 100.0
+height = 1.0
+depth = 50.0
+material = ExtResource( 9 )
+
+[node name="Ramp" type="StaticBody" parent="Map/GreenPlatform2"]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -25.0022, 3.64643, -0.0341987 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform1"]
-shape = SubResource( 37 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform1"]
-mesh = SubResource( 36 )
-skeleton = NodePath("../../MovingPlatforms")
-
-[node name="Ramp" type="StaticBody" parent="Map/GreenPlatform1"]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.0022049, 3.64643, -0.0341987 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform1/Ramp"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform2/Ramp"]
 shape = SubResource( 25 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform1/Ramp"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform2/Ramp"]
 mesh = SubResource( 27 )
 
-[node name="RedButton" parent="Map/GreenPlatform1/Ramp" instance=ExtResource( 19 )]
+[node name="RedButton" parent="Map/GreenPlatform2/Ramp" instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 5.3, -1.1, 3.4 )
 direction = 1
 
-[node name="Label3D" type="Label3D" parent="Map/GreenPlatform1/Ramp"]
+[node name="Label3D" type="Label3D" parent="Map/GreenPlatform2/Ramp"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 7.8, -3.1, 3.3 )
 text = "Press \"ATTACK\" to
 press a wall button."
 font = ExtResource( 13 )
 
-[node name="SlimePath" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.8, 0 )
+[node name="SlimePath" type="Path" parent="Map/GreenPlatform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0 )
 curve = SubResource( 45 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/SlimePath"]
 transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, -10 )
 
-[node name="Slime" parent="Map/GreenPlatform1/SlimePath/PathFollow" instance=ExtResource( 31 )]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow" instance=ExtResource( 31 )]
 
-[node name="SlimePath2" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5176, 2.8, 0 )
+[node name="SlimePath2" type="Path" parent="Map/GreenPlatform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5176, 2.8, 0 )
 curve = SubResource( 45 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath2"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/SlimePath2"]
 transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, 9.97867 )
 offset = 20.0
 
-[node name="Slime" parent="Map/GreenPlatform1/SlimePath2/PathFollow" instance=ExtResource( 31 )]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow" instance=ExtResource( 31 )]
 
-[node name="SlimePath3" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( -0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 115.654, 12.5175, 0 )
+[node name="SlimePath3" type="Path" parent="Map/GreenPlatform2"]
+transform = Transform( -0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 90.654, 12.5175, 0 )
 curve = SubResource( 45 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath3"]
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/SlimePath3"]
 transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, 9.97867 )
 offset = 20.0
 
-[node name="Slime" parent="Map/GreenPlatform1/SlimePath3/PathFollow" instance=ExtResource( 31 )]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow" instance=ExtResource( 31 )]
 
-[node name="GreenPlatform2" type="StaticBody" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Props" type="Spatial" parent="Map/GreenPlatform2"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform2"]
-shape = SubResource( 37 )
+[node name="FoliagePlant" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1691, 0.657533, -3.19401 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform2"]
-mesh = SubResource( 36 )
-skeleton = NodePath("../../MovingPlatforms")
+[node name="FoliagePlant2" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3508, 0.657533, 14.6727 )
 
-[node name="GrassGodotHead" parent="Map/GreenPlatform2" instance=ExtResource( 15 )]
-transform = Transform( -4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, 0.774998, 3.5, -18.772 )
+[node name="FoliagePlant3" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8013, 0.657533, 5.29685 )
 
-[node name="BlueEnemyPath2" type="Path" parent="Map/GreenPlatform2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4163, 0, 11.9448 )
-curve = SubResource( 15 )
+[node name="FoliagePlant4" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7966, 0.657533, -18.9896 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/BlueEnemyPath2"]
-transform = Transform( 0.60213, 3.05161e-06, 0.798398, -3.05161e-06, 1, -1.52073e-06, -0.798398, -1.52072e-06, 0.60213, 6.67461, 3.05176e-05, 8.29214 )
+[node name="FoliagePlant5" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78354, 0.657533, -3.74691 )
 
-[node name="BlueEnemy2" parent="Map/GreenPlatform2/BlueEnemyPath2/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+[node name="FoliagePlant6" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5296, 0.657533, -17.9681 )
 
-[node name="BlueEnemyPath3" type="Path" parent="Map/GreenPlatform2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3689, 0, 5.3776 )
-curve = SubResource( 16 )
+[node name="FoliagePlant7" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3915, 0.657533, 13.4889 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/BlueEnemyPath3"]
-transform = Transform( 0.956603, 1.11376e-06, 0.291394, -1.11376e-06, 1, -1.65876e-07, -0.291394, -1.65866e-07, 0.956603, -2.63111, 0, 14.5864 )
+[node name="FoliagePlant8" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34264, 0.657533, 19.1331 )
 
-[node name="BlueEnemy3" parent="Map/GreenPlatform2/BlueEnemyPath3/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+[node name="FoliagePlant9" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6831, 0.657533, -7.62557 )
 
-[node name="BlueEnemyPath4" type="Path" parent="Map/GreenPlatform2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0476, 0, -13.439 )
-curve = SubResource( 17 )
+[node name="FoliagePlant10" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8484, 0.657533, 2.50677 )
 
-[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform2/BlueEnemyPath4"]
-transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2.04762, 0, 1.40272 )
+[node name="FoliagePlant11" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5673, 0.657533, -12.773 )
 
-[node name="BlueEnemy4" parent="Map/GreenPlatform2/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+[node name="FoliagePlant12" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27011, 0.657533, -14.5014 )
+
+[node name="FoliagePlant13" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7385, 0.657533, -14.5014 )
+
+[node name="FoliagePlant14" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.696, 0.657533, 12.3598 )
+
+[node name="FoliagePlant15" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8737, 0.657533, 20.5638 )
+
+[node name="FoliagePlant16" parent="Map/GreenPlatform2/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6651, 0.657533, 18.9823 )
 
 [node name="GreenPlatform3" type="StaticBody" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
@@ -678,8 +709,67 @@ __meta__ = {
 shape = SubResource( 37 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform3"]
-mesh = SubResource( 38 )
+mesh = SubResource( 36 )
 skeleton = NodePath("../../MovingPlatforms")
+
+[node name="GrassGodotHead" parent="Map/GreenPlatform3" instance=ExtResource( 15 )]
+transform = Transform( -4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, 0.774998, 3.5, -18.772 )
+
+[node name="BlueEnemyPath2" type="Path" parent="Map/GreenPlatform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4163, 0, 11.9448 )
+curve = SubResource( 15 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform3/BlueEnemyPath2"]
+transform = Transform( 0.60213, 3.05161e-06, 0.798398, -3.05161e-06, 1, -1.52073e-06, -0.798398, -1.52072e-06, 0.60213, 6.67461, 3.05176e-05, 8.29214 )
+
+[node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath3" type="Path" parent="Map/GreenPlatform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3689, 0, 5.3776 )
+curve = SubResource( 16 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform3/BlueEnemyPath3"]
+transform = Transform( 0.956603, 1.11376e-06, 0.291394, -1.11376e-06, 1, -1.65876e-07, -0.291394, -1.65866e-07, 0.956603, -2.63111, 0, 14.5864 )
+
+[node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlueEnemyPath4" type="Path" parent="Map/GreenPlatform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0476, 0, -13.439 )
+curve = SubResource( 17 )
+
+[node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform3/BlueEnemyPath4"]
+transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2.04762, 0, 1.40272 )
+
+[node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Spatial" type="Spatial" parent="Map/GreenPlatform3"]
+
+[node name="FoliagePlant" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1122, 0.459839, 0 )
+
+[node name="FoliagePlant2" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70905, 0.459839, 13.1691 )
+
+[node name="FoliagePlant3" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97467, 0.459839, 6.54948 )
+
+[node name="FoliagePlant4" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.06, 0.459839, 20.2818 )
+
+[node name="FoliagePlant5" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0572, 0.459839, -7.46893 )
+
+[node name="FoliagePlant6" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39832, 0.459839, -14.9648 )
+
+[node name="FoliagePlant7" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1006, 0.459839, 8.20314 )
+
+[node name="FoliagePlant8" parent="Map/GreenPlatform3/Spatial" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52028, 0.459839, -20.0867 )
 
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
@@ -783,7 +873,6 @@ skeleton = NodePath("../..")
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
-root_node = NodePath("../../../GreenPlatform1/MeshInstance")
 autoplay = "RESET"
 playback_process_mode = 0
 anims/RESET = SubResource( 32 )
@@ -793,7 +882,7 @@ anims/move_platforms = SubResource( 33 )
 wait_time = 2.0
 one_shot = true
 
-[node name="CSGBox" type="CSGBox" parent="Map"]
+[node name="BlueCube" type="CSGBox" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0 )
 use_collision = true
 collision_layer = 4
@@ -802,45 +891,45 @@ height = 20.0
 depth = 20.0
 material = ExtResource( 8 )
 
-[node name="JumpLabel3D" type="Label3D" parent="Map/CSGBox"]
+[node name="JumpLabel3D" type="Label3D" parent="Map/BlueCube"]
 transform = Transform( -3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3 )
 text = "Hold \"JUMP\" while jumping
 over an enemy to go higher."
 font = ExtResource( 13 )
 
-[node name="RedGem" parent="Map/CSGBox" instance=ExtResource( 24 )]
+[node name="RedGem" parent="Map/BlueCube" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5 )
 
-[node name="RedGem2" parent="Map/CSGBox" instance=ExtResource( 24 )]
+[node name="RedGem2" parent="Map/BlueCube" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5 )
 
-[node name="RedGem3" parent="Map/CSGBox" instance=ExtResource( 24 )]
+[node name="RedGem3" parent="Map/BlueCube" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0 )
 
-[node name="PurpleGem" parent="Map/CSGBox" instance=ExtResource( 26 )]
+[node name="PurpleGem" parent="Map/BlueCube" instance=ExtResource( 26 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0 )
 
-[node name="GreenGem" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3 )
 
-[node name="GreenGem2" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem2" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3 )
 
-[node name="GreenGem3" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem3" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2 )
 
-[node name="GreenGem4" parent="Map/CSGBox" instance=ExtResource( 25 )]
+[node name="GreenGem4" parent="Map/BlueCube" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2 )
 
-[node name="SprintTutorial" type="Area" parent="Map/CSGBox"]
+[node name="SprintTutorial" type="Area" parent="Map/BlueCube"]
 unique_name_in_owner = true
 collision_layer = 16
 
-[node name="CollisionShape" type="CollisionShape" parent="Map/CSGBox/SprintTutorial"]
+[node name="CollisionShape" type="CollisionShape" parent="Map/BlueCube/SprintTutorial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
 shape = SubResource( 39 )
 
-[node name="SprintLabel3D" type="Label3D" parent="Map/CSGBox/SprintTutorial"]
+[node name="SprintLabel3D" type="Label3D" parent="Map/BlueCube/SprintTutorial"]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.5, 12.5, -7.5 )
 billboard = 2
 modulate = Color( 1, 1, 1, 0 )
@@ -849,12 +938,12 @@ text = "Sometimes you'll have to be fast,
 press SHIFT to sprint."
 font = ExtResource( 17 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/CSGBox/SprintTutorial"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/BlueCube/SprintTutorial"]
 root_node = NodePath("../..")
 anims/RESET = SubResource( 40 )
 anims/show_sprint_label = SubResource( 41 )
 
-[node name="CSGBox2" type="CSGBox" parent="Map"]
+[node name="BlueCube2" type="CSGBox" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0 )
 use_collision = true
 collision_layer = 4
@@ -863,7 +952,7 @@ height = 20.0
 depth = 20.0
 material = ExtResource( 8 )
 
-[node name="BridgeGodotHead" parent="Map/CSGBox2" instance=ExtResource( 15 )]
+[node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
 
 [node name="FallingBridge" parent="Map" instance=ExtResource( 16 )]
@@ -897,11 +986,8 @@ stream = ExtResource( 28 )
 autoplay = true
 bus = "Music"
 
-[node name="PalmTree" parent="." instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 9.9, 63 )
-
-[connection signal="pressed" from="Map/GreenPlatform1/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
+[connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
-[connection signal="body_entered" from="Map/CSGBox/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
+[connection signal="body_entered" from="Map/BlueCube/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
