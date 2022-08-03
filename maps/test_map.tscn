@@ -31,6 +31,7 @@
 [ext_resource path="res://maps/extras/small_platform/small_platform.tscn" type="PackedScene" id=29]
 [ext_resource path="res://materials/gradient_blue.tres" type="Material" id=30]
 [ext_resource path="res://entities/slime/slime.tscn" type="PackedScene" id=31]
+[ext_resource path="res://props/foliage_plant/FoliagePlant.tscn" type="PackedScene" id=32]
 [ext_resource path="res://maps/extras/palm_tree/palm_tree.tscn" type="PackedScene" id=33]
 
 [sub_resource type="BoxShape" id=3]
@@ -92,13 +93,6 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=37]
-extents = Vector3( 25, 0.5, 25 )
-
-[sub_resource type="CubeMesh" id=36]
-material = ExtResource( 9 )
-size = Vector3( 50, 1, 50 )
-
 [sub_resource type="ConvexPolygonShape" id=25]
 points = PoolVector3Array( 5.3, 3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75 )
 
@@ -129,6 +123,13 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 25, 0.5, 25 )
+
+[sub_resource type="CubeMesh" id=36]
+material = ExtResource( 9 )
+size = Vector3( 50, 1, 50 )
+
 [sub_resource type="Curve3D" id=15]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214, 0, 0, 0, 0, 0, 0, 6.67461, -6.10352e-05, -15.661, 0, 0, 0, 0, 0, 0, -9.46404, -3.05176e-05, -7.67662, 0, 0, 0, 0, 0, 0, -9.3791, 3.05176e-05, 8.20721, 0, 0, 0, 0, 0, 0, 6.67461, 3.05176e-05, 8.29214 ),
@@ -146,10 +147,6 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272, 0, 0, 0, 0, 0, 0, 10.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 18.0476, 0, 9.40272, 0, 0, 0, 0, 0, 0, 26.0476, 0, 1.40272, 0, 0, 0, 0, 0, 0, 2.04762, 0, 1.40272 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="CubeMesh" id=38]
-material = ExtResource( 9 )
-size = Vector3( 50, 1, 50 )
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -548,28 +545,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994 )
 [node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913 )
 
+[node name="FoliagePlant8" parent="Map/BeachIsland" instance=ExtResource( 32 )]
+transform = Transform( 0.954334, 0.298741, 0, -0.298741, 0.954334, 0, 0, 0, 1, 23.8857, 10.059, -2.49402 )
+
 [node name="BeachIsland2" parent="Map" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759 )
 
 [node name="TotemGodotHead" parent="Map/BeachIsland2" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 35.6944, 0 )
 
-[node name="GreenPlatform1" type="StaticBody" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0 )
+[node name="GreenPlatform1" type="CSGBox" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 0 )
+use_collision = true
 collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform1"]
-shape = SubResource( 37 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform1"]
-mesh = SubResource( 36 )
-skeleton = NodePath("../../MovingPlatforms")
+collision_mask = 0
+width = 100.0
+height = 1.0
+depth = 50.0
+material = ExtResource( 9 )
 
 [node name="Ramp" type="StaticBody" parent="Map/GreenPlatform1"]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.0022049, 3.64643, -0.0341987 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -25.0022, 3.64643, -0.0341987 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
@@ -592,7 +588,7 @@ press a wall button."
 font = ExtResource( 13 )
 
 [node name="SlimePath" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.8, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0 )
 curve = SubResource( 45 )
 
 [node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath"]
@@ -601,7 +597,7 @@ transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, -10
 [node name="Slime" parent="Map/GreenPlatform1/SlimePath/PathFollow" instance=ExtResource( 31 )]
 
 [node name="SlimePath2" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5176, 2.8, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5176, 2.8, 0 )
 curve = SubResource( 45 )
 
 [node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath2"]
@@ -611,7 +607,7 @@ offset = 20.0
 [node name="Slime" parent="Map/GreenPlatform1/SlimePath2/PathFollow" instance=ExtResource( 31 )]
 
 [node name="SlimePath3" type="Path" parent="Map/GreenPlatform1"]
-transform = Transform( -0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 115.654, 12.5175, 0 )
+transform = Transform( -0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 90.654, 12.5175, 0 )
 curve = SubResource( 45 )
 
 [node name="PathFollow" type="PathFollow" parent="Map/GreenPlatform1/SlimePath3"]
@@ -619,6 +615,29 @@ transform = Transform( 1, 0, 0, 0, 1, -5.69725e-13, 0, 5.69725e-13, 1, 0, 0, 9.9
 offset = 20.0
 
 [node name="Slime" parent="Map/GreenPlatform1/SlimePath3/PathFollow" instance=ExtResource( 31 )]
+
+[node name="Props" type="Spatial" parent="Map/GreenPlatform1"]
+
+[node name="FoliagePlant" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1691, 0.657533, -3.19401 )
+
+[node name="FoliagePlant2" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3508, 0.657533, 14.6727 )
+
+[node name="FoliagePlant3" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8013, 0.657533, 5.29685 )
+
+[node name="FoliagePlant4" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7966, 0.657533, -18.9896 )
+
+[node name="FoliagePlant5" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78354, 0.657533, -3.74691 )
+
+[node name="FoliagePlant6" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5296, 0.657533, -17.9681 )
+
+[node name="FoliagePlant7" parent="Map/GreenPlatform1/Props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3915, 0.657533, 13.4889 )
 
 [node name="GreenPlatform2" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964 )
@@ -666,20 +685,6 @@ transform = Transform( 0.854641, 0, -0.519218, 0, 1, 0, 0.519218, 0, 0.854641, 2
 
 [node name="BlueEnemy4" parent="Map/GreenPlatform2/BlueEnemyPath4/PathFollow" instance=ExtResource( 10 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-
-[node name="GreenPlatform3" type="StaticBody" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, 0 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Map/GreenPlatform3"]
-shape = SubResource( 37 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Map/GreenPlatform3"]
-mesh = SubResource( 38 )
-skeleton = NodePath("../../MovingPlatforms")
 
 [node name="EnemyBridge" type="Spatial" parent="Map"]
 
@@ -783,7 +788,6 @@ skeleton = NodePath("../..")
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
-root_node = NodePath("../../../GreenPlatform1/MeshInstance")
 autoplay = "RESET"
 playback_process_mode = 0
 anims/RESET = SubResource( 32 )
