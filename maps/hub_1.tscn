@@ -255,6 +255,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.6, 0 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 13 )
 
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 12 )
+paused = true
+
 [node name="Spaceship" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 8.155, 4.044, 11.033 )
 __meta__ = {
@@ -262,7 +266,7 @@ __meta__ = {
 }
 
 [node name="Smoke" parent="Spaceship" instance=ExtResource( 5 )]
-transform = Transform( -0.229578, -0.971801, 0.0538188, -0.0835594, -0.0354119, -0.995874, 0.969697, -0.233128, -0.0730734, -2.43791, 2.20846, -1.00656 )
+transform = Transform( -0.822386, 0.400055, 0.404521, -0.299324, 0.300419, -0.905624, -0.483825, -0.865855, -0.127314, -2.43791, 2.20846, -1.00656 )
 skeleton = NodePath("")
 
 [node name="UserInterface" parent="." instance=ExtResource( 7 )]
@@ -280,7 +284,6 @@ godot_heads_required = 2
 
 [node name="Camera" type="Camera" parent="PortalLakeMap"]
 transform = Transform( 0.6482, 0.266946, -0.713146, 0, 0.936538, 0.350566, 0.76147, -0.227237, 0.607064, -8.86963, 6.53239, 6.91475 )
-current = true
 
 [node name="Boundary" parent="." instance=ExtResource( 9 )]
 transform = Transform( -9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -8.2956, 0 )
@@ -324,10 +327,6 @@ transform = Transform( 0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 0
 [node name="CutscenePlayer" parent="Cutscene/CutsceneSpaceship" instance=ExtResource( 14 )]
 transform = Transform( -0.164781, -0.310046, -0.936333, -0.0537377, 0.950722, -0.305354, 0.984865, 0, -0.173322, -0.0746751, 1.31173, 0.0307178 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 12 )
-paused = true
-
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="animation_finished" from="Cutscene/CutsceneAnimationPlayer" to="." method="_on_CutsceneAnimationPlayer_animation_finished"]
-[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
