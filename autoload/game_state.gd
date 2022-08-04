@@ -124,7 +124,7 @@ func initialize_progress() -> void:
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
-func generate_progress_report(current_map) -> void:
+func generate_progress_report(current_map: String) -> void:
   if progress.empty(): # Useful when starting map from editor.
     initialize_progress()
   
@@ -155,7 +155,7 @@ func generate_progress_report(current_map) -> void:
   else:
     UserInterface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
 
-func collect_godot_head(map_name, id) -> void:
+func collect_godot_head(map_name: String, id: String) -> void:
   UserInterface.show_hud()
   GameState.godot_heads_collected[map_name][id] = true
   
@@ -171,7 +171,7 @@ func collect_godot_head(map_name, id) -> void:
   
   generate_progress_report(map_name)
 
-func register_godot_head(map_name, id) -> void:
+func register_godot_head(map_name: String, id: String) -> void:
   if not map_name in godot_heads_collected:
     print("Warning: Update GameState to include '%s'." % map_name)
     godot_heads_collected[map_name] = {}
@@ -234,7 +234,7 @@ func change_map(map_name: String) -> void:
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().change_scene(map_file)
 
-func play_audio(stream) -> void:
+func play_audio(stream: AudioStream) -> void:
   if !$Audio/AudioStreamPlayer1.playing:
     $Audio/AudioStreamPlayer1.stream = stream
     $Audio/AudioStreamPlayer1.play()
@@ -253,7 +253,7 @@ func play_audio(stream) -> void:
   else:
     print("Error: No AudioStreamPlayer was available to play sound.")
 
-func play_music(stream) -> void:
+func play_music(stream: AudioStream) -> void:
   if $BGM.stream != stream:
     $BGM.stream = stream
     $BGM.play()
