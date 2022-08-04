@@ -3,8 +3,8 @@ extends Node
 var file_path = "user://settings.cfg"
 onready var config = ConfigFile.new()
 
-const min_volume = -60
-const max_volume = 0
+const min_volume := -60
+const max_volume := 0
 
 const defaults: Dictionary = {
   "audio": {
@@ -46,11 +46,11 @@ func _ready() -> void:
   var sound_volume = config.get_value("audio", "sound_volume")
   set_volume("Sound", sound_volume)
 
-func update_setting(section, key, value) -> void:
+func update_setting(section: String, key: String, value) -> void:
   config.set_value(section, key, value)
   config.save(file_path)
 
-func get_value(section, key):
+func get_value(section: String, key: String):
   return config.get_value(section, key)
 
 func denormalize_volume(volume: float) -> float:
