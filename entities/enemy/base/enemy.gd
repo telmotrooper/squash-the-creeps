@@ -10,7 +10,7 @@ export var affected_by_gravity := true
 
 var velocity = Vector3.ZERO
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
   if affected_by_gravity:
     if not is_on_floor():
       velocity.y = -10
@@ -18,7 +18,7 @@ func _physics_process(_delta):
       velocity.y = 0
   velocity = move_and_slide(velocity, Vector3.UP)
 
-func initiliaze(start_position, player_position, rotate = true, speed = null):
+func initiliaze(start_position: Vector3, player_position: Vector3, rotate = true, speed = null) -> void:
   translation = start_position
   look_at(player_position, Vector3.UP)
   # Ignore height of player position, spawn looking straight.
@@ -35,7 +35,7 @@ func initiliaze(start_position, player_position, rotate = true, speed = null):
   velocity = velocity.rotated(Vector3.UP, rotation.y)
   $AnimationPlayer.playback_speed = speed / min_speed
 
-func squash():
+func squash() -> void:
   if !already_squashed:
     already_squashed = true
     velocity = Vector3.ZERO
@@ -44,5 +44,5 @@ func squash():
     $AnimationPlayer.play("squash")
     GameState.play_audio(squash_sound)
 
-func kill(): # Triggered by animation "squash'.
+func kill() -> void: # Triggered by animation "squash'.
   queue_free()
