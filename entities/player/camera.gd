@@ -13,14 +13,14 @@ var v_acceleration := 10
 
 #var default_camera_zoom := 10
 
-func _ready():
+func _ready() -> void:
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
   # Prevent camera from colliding with player.
   $Horizontal/Vertical/ClippedCamera.add_exception(get_parent())
   # Fetch draw distance from configuration file.
   $Horizontal/Vertical/ClippedCamera.far = Configuration.get_value("graphics", "draw_distance")
 
-func _input(event):
+func _input(event: InputEvent) -> void:
   if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
     return
   
@@ -34,7 +34,7 @@ func _input(event):
   elif event.is_action_pressed("zoom_out") and zoom < max_zoom:
     get_node("%ClippedCamera").translation.z += ZOOM_STEP
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
   # print(vertical) # It's useful to print the current value when trying to find the proper values for 'min' and 'max'.
   
   # Lock "vertical" position in range [v_min, v_max].

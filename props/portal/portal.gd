@@ -4,7 +4,7 @@ export var label: String
 export var map_name: String
 export var godot_heads_required: int
 
-func _ready():
+func _ready() -> void:
   $Label3D.text = label if label else map_name
   
   if godot_heads_required >= 1 and portal_locked():
@@ -25,7 +25,7 @@ func _ready():
       GameState.Player.get_node("%ClippedCamera").make_current()
       GameState.portal_unlocked[get_path()] = true
 
-func _on_Portal_entered(_body):
+func _on_Portal_entered(_body: Node) -> void:
   GameState.hub_1_at_night = false
   if requirement_met():
     $LabelAnimationPlayer.play("shrink")
@@ -36,12 +36,12 @@ func _on_Portal_entered(_body):
   else:
     GameState.UserInterface.show_hud()
 
-func _on_DetectArea_body_entered(_body):
+func _on_DetectArea_body_entered(_body: Node) -> void:
   if requirement_met() and portal_locked():
     $RequirementAnimationPlayer.play("fade_out")
 
-func requirement_met():
+func requirement_met() -> bool:
   return GameState.global_progress.collected >= godot_heads_required
 
-func portal_locked():
+func portal_locked() -> bool:
   return not GameState.portal_unlocked.has(get_path())

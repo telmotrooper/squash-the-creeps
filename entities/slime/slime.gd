@@ -15,12 +15,12 @@ var state = PATROLLING
 
 var velocity = Vector3.ZERO
 
-func _ready():
+func _ready() -> void:
   if get_parent() is PathFollow:
     # This will make the enemy look to the correct direction along the path.
     get_parent().set_rotation_mode(4)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
   if not is_on_floor():
     velocity.y = -20
   else:
@@ -35,12 +35,12 @@ func _physics_process(delta):
     DYING:
       set_physics_process(false)
 
-func squash():
+func squash() -> void:
   if !already_squashed:
     already_squashed = true
     $AnimationPlayer.play("squash")
     state = DYING
     GameState.play_audio(squash_sound)
 
-func kill(): # Triggered by animation "squash'.
+func kill() -> void: # Triggered by animation "squash'.
   queue_free()

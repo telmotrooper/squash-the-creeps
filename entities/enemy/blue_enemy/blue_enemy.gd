@@ -1,8 +1,8 @@
 extends Enemy
 class_name BlueEnemy
 
-export var patrolling_speed = 9
-export var chasing_speed = 13
+export var patrolling_speed := 9
+export var chasing_speed := 13
 enum {
   PATROLLING,
   ALERT,
@@ -11,12 +11,12 @@ enum {
 
 var state = PATROLLING
 
-func _ready():
+func _ready() -> void:
   if get_parent() is PathFollow:
     # This will make the enemy look to the correct direction along the path.
     get_parent().set_rotation_mode(4)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
   match state:
     PATROLLING:
       if get_parent() is PathFollow:
@@ -32,19 +32,19 @@ func _physics_process(delta):
       if is_instance_valid(GameState.Player) and not already_squashed:
         initiliaze(self.transform.origin, GameState.Player.transform.origin, false, chasing_speed)
 
-func _on_VisibilityNotifier_screen_exited():
+func _on_VisibilityNotifier_screen_exited() -> void:
   pass # Prevent "queue_free()" from parent.
 
-func _on_PrismArea_body_entered(_body):
+func _on_PrismArea_body_entered(_body: Node) -> void:
   if state != CHASING:
     state = ALERT
 
-func squash():
+func squash() -> void:
   # When squashed, always hide exclamation mark.
   $ExclamationMark.visible = false
   .squash()
 
-func _on_AlertTimer_timeout():
+func _on_AlertTimer_timeout() -> void:
   $ExclamationMark.visible = false
   state = CHASING
   set_physics_process(true)
