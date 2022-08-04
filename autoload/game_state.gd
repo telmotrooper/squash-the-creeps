@@ -55,6 +55,13 @@ var intro_cutscene_played := false
 
 var collision_layers = {}
 
+# This variable is used to work around a bug in Scatter on which,
+# after "test_map" is reloaded, the modifiers are not re-inserted
+# and we end up without any grass.
+var ScatterModifierStackBackup: Array = []
+
+const initial_grass = 3000
+
 func _ready() -> void:
   var fallback_scene = "res://maps/test_map.tscn"
   var current_scene = get_tree().get_current_scene().get_name()
@@ -71,7 +78,7 @@ func _ready() -> void:
     print("Scene \"%s\" has no default camera, loading fallback scene at \"%s\"." % [current_scene, fallback_scene])
     var _error = get_tree().change_scene(fallback_scene)
 
-func collect_gem(map_name: String, path: NodePath):
+func collect_gem(map_name: String, path: NodePath) -> void:
   gems_collected[map_name][path].collected = true
   
   gem_progress[map_name].collected += gems_collected[map_name][path].value
@@ -91,7 +98,7 @@ func collect_gem(map_name: String, path: NodePath):
   UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
   generate_progress_report(map_name)
 
-func initialize(): # Used in "New Game".
+func initialize() -> void: # Used in "New Game".
   intro_cutscene_played = false
   hub_1_at_night = true
   gems_collected = {}
@@ -101,7 +108,7 @@ func initialize(): # Used in "New Game".
   initialize_progress()
   amount_of_gems = 0
 
-func initialize_progress():
+func initialize_progress() -> void:
   global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
   progress = {}
   
@@ -117,7 +124,7 @@ func initialize_progress():
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
-func generate_progress_report(current_map):
+func generate_progress_report(current_map) -> void:
   if progress.empty(): # Useful when starting map from editor.
     initialize_progress()
   
@@ -148,7 +155,7 @@ func generate_progress_report(current_map):
   else:
     UserInterface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
 
-func collect_godot_head(map_name, id):
+func collect_godot_head(map_name, id) -> void:
   UserInterface.show_hud()
   GameState.godot_heads_collected[map_name][id] = true
   
@@ -164,7 +171,7 @@ func collect_godot_head(map_name, id):
   
   generate_progress_report(map_name)
 
-func register_godot_head(map_name, id):
+func register_godot_head(map_name, id) -> void:
   if not map_name in godot_heads_collected:
     print("Warning: Update GameState to include '%s'." % map_name)
     godot_heads_collected[map_name] = {}
@@ -173,21 +180,14 @@ func register_godot_head(map_name, id):
     print("Warning: Update GameState to include '%s'." % id)
     GameState.godot_heads_collected[map_name][id] = false
 
-func register_gem(map_name: String, path: NodePath, gem_value: int):
+func register_gem(map_name: String, path: NodePath, gem_value: int) -> void:
   if not map_name in gems_collected:
     gems_collected[map_name] = {}
   
   if not path in gems_collected[map_name]:
     gems_collected[map_name][path] = { "collected": false, "value": gem_value }
 
-# This variable is used to work around a bug in Scatter on which,
-# after "test_map" is reloaded, the modifiers are not re-inserted
-# and we end up without any grass.
-var ScatterModifierStackBackup: Array = []
-
-const initial_grass = 3000
-
-func update_grass(index: int = -1):
+func update_grass(index: int = -1) -> void:
   if index == -1: # If called with no index, set the one from the configuration file.
     index = Configuration.get_value("graphics", "grass_amount")
     
@@ -210,7 +210,7 @@ func update_grass(index: int = -1):
   
   Configuration.update_setting("graphics", "grass_amount", index)
 
-func grass_index_to_multiplier(index: int):
+func grass_index_to_multiplier(index: int) -> float:
   var multiplier = 1
   match index:
     0: # Maximum
@@ -225,7 +225,7 @@ func grass_index_to_multiplier(index: int):
       multiplier = 0
   return multiplier
 
-func change_map(map_name: String):
+func change_map(map_name: String) -> void:
   GameState.MapName = map_name
   var map_file = "res://maps/%s.tscn" % map_name
   #Utils.exists(map_file) 
@@ -234,7 +234,7 @@ func change_map(map_name: String):
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().change_scene(map_file)
 
-func play_audio(stream):
+func play_audio(stream) -> void:
   if !$Audio/AudioStreamPlayer1.playing:
     $Audio/AudioStreamPlayer1.stream = stream
     $Audio/AudioStreamPlayer1.play()
@@ -253,17 +253,17 @@ func play_audio(stream):
   else:
     print("Error: No AudioStreamPlayer was available to play sound.")
 
-func play_music(stream):
+func play_music(stream) -> void:
   if $BGM.stream != stream:
     $BGM.stream = stream
     $BGM.play()
   elif not $BGM.playing:
     $BGM.play()
 
-func stop_music():
+func stop_music() -> void:
   $BGM.stop()
 
-func reload_current_scene():
+func reload_current_scene() -> void:
   var Main = get_node_or_null("/root/Main")
   if is_instance_valid(Main): # Game started normally, use background loading.
     var WorldScene = $"/root/Main/WorldScene"
