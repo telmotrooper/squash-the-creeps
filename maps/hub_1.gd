@@ -39,14 +39,7 @@ func _on_AudioStreamPlayer_finished() -> void:
 
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
-  var new_dialog = Dialogic.start("Spaceship")
+  var new_dialog = Dialogic.start("Intro")
   add_child(new_dialog)
   yield(new_dialog, "dialogic_signal")
   GameState.Player.paused = false
-
-
-func _on_SpaceshipArea_body_entered(_player: Node) -> void:
-  get_node("%SpaceshipLabel3D").visible = true
-
-func _on_SpaceshipArea_body_exited(_player: Node) -> void:
-  get_node("%SpaceshipLabel3D").visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://shaders/stylized_water/stylized_water_material.tres" type="Material" id=1]
 [ext_resource path="res://maps/extras/beach_island_hub/beach_island_hub.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" type="AudioStream" id=15]
 [ext_resource path="res://props/foliage_plant/FoliagePlant.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" type="DynamicFont" id=17]
+[ext_resource path="res://props/spaceship/spaceship_hub.gd" type="Script" id=18]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -266,6 +267,7 @@ paused = true
 
 [node name="Spaceship" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 8.155, 4.044, 11.033 )
+script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -368,7 +370,7 @@ transform = Transform( 0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 0
 transform = Transform( -0.164781, -0.310046, -0.936333, -0.0537377, 0.950722, -0.305354, 0.984865, 0, -0.173322, -0.0746751, 1.31173, 0.0307178 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="body_entered" from="Spaceship/SpaceshipArea" to="." method="_on_SpaceshipArea_body_entered"]
-[connection signal="body_exited" from="Spaceship/SpaceshipArea" to="." method="_on_SpaceshipArea_body_exited"]
+[connection signal="body_entered" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_entered"]
+[connection signal="body_exited" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_exited"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="animation_finished" from="Cutscene/CutsceneAnimationPlayer" to="." method="_on_CutsceneAnimationPlayer_animation_finished"]
