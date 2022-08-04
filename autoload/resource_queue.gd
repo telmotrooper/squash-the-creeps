@@ -11,23 +11,23 @@ var time_max = 100 # Milliseconds.
 var queue = []
 var pending = {}
 
-func _lock(_caller):
+func _lock(_caller) -> void:
   mutex.lock()
 
 
-func _unlock(_caller):
+func _unlock(_caller) -> void:
   mutex.unlock()
 
 
-func _post(_caller):
+func _post(_caller) -> void:
   semaphore.post()
 
 
-func _wait(_caller):
+func _wait(_caller) -> void:
   semaphore.wait()
 
 
-func queue_resource(path, p_in_front = false):
+func queue_resource(path, p_in_front = false) -> void:
   _lock("queue_resource")
   if path in pending:
     _unlock("queue_resource")
@@ -50,7 +50,7 @@ func queue_resource(path, p_in_front = false):
     return
 
 
-func cancel_resource(path):
+func cancel_resource(path) -> void:
   _lock("cancel_resource")
   if path in pending:
     if pending[path] is ResourceInteractiveLoader:
@@ -59,7 +59,7 @@ func cancel_resource(path):
   _unlock("cancel_resource")
 
 
-func get_progress(path):
+func get_progress(path) -> float:
   _lock("get_progress")
   var ret = -1
   if path in pending:
@@ -71,7 +71,7 @@ func get_progress(path):
   return ret
 
 
-func is_ready(path):
+func is_ready(path) -> bool:
   var ret
   _lock("is_ready")
   if path in pending:
@@ -93,7 +93,7 @@ func _wait_for_resource(res, path):
     _unlock("wait_for_resource")
 
 
-func get_resource(path):
+func get_resource(path) -> Resource:
   _lock("get_resource")
   if path in pending:
     if pending[path] is ResourceInteractiveLoader:
@@ -117,7 +117,7 @@ func get_resource(path):
     return ResourceLoader.load(path)
 
 
-func thread_process():
+func thread_process() -> void:
   _wait("thread_process")
   _lock("process")
 
@@ -137,7 +137,7 @@ func thread_process():
   _unlock("process")
 
 
-func thread_func(_u):
+func thread_func(_u) -> void:
   while true:
     mutex.lock()
     var should_exit = exit_thread # Protect with Mutex.
@@ -148,7 +148,7 @@ func thread_func(_u):
     thread_process()
 
 
-func start():
+func start() -> void:
   exit_thread = false
   start_called = true
   mutex = Mutex.new()
@@ -157,7 +157,7 @@ func start():
   thread.start(self, "thread_func", 0)
 
 # Triggered by calling "get_tree().quit()".
-func _exit_tree():
+func _exit_tree() -> void:
   if start_called: # If a scene was started from the editor, "start" won't have been called.
     # Set exit condition to true.
     mutex.lock()
