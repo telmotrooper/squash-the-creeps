@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://maps/small_platform.gd" type="Script" id=2]
+[ext_resource path="res://maps/extras/small_platform/small_platform.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=35]
 extents = Vector3( 3, 1, 7 )

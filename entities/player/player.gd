@@ -42,7 +42,7 @@ var being_thrown_back := false
 
 var floating := false
 
-func _ready():
+func _ready() -> void:
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
   
@@ -51,7 +51,7 @@ func _ready():
     global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
   )
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
   if paused: # Used to prevent movement during a cutscene.
     return
   
@@ -204,25 +204,25 @@ func _physics_process(delta):
   if velocity.y > bounce_cap:
     velocity.y = bounce_cap
 
-func is_spinning():
+func is_spinning() -> bool:
   return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
 
-func die():
+func die() -> void:
   emit_signal("hit")
   queue_free()
 
-func _on_EnemyDetector_body_entered(_body): # hurt
+func _on_EnemyDetector_body_entered(_body: Node) -> void: # hurt
   if not $AudioStreamPlayer.playing:
     $AudioStreamPlayer.stream = hurt_sound
     $AudioStreamPlayer.play()
   just_thrown_back = true
   being_thrown_back = true
 
-func set_draw_distance(value: int):
+func set_draw_distance(value: int) -> void:
   $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value
 
-func _on_DashDurationTimer_timeout():
+func _on_DashDurationTimer_timeout() -> void:
   is_dashing = false
 
-func move_to_last_safe_position():
+func move_to_last_safe_position() -> void:
   global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)

@@ -1,6 +1,6 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
   get_node("%MidAirDashCheckButton").pressed = Configuration.get_value("debug", "mid_air_dash")
   GameState.upgrades["mid_air_dash"] = Configuration.get_value("debug", "mid_air_dash")
   
@@ -10,7 +10,7 @@ func _ready():
   get_node("%BodySlamCheckButton").pressed = Configuration.get_value("debug", "body_slam")
   GameState.upgrades["body_slam"] = Configuration.get_value("debug", "body_slam")
 
-func pause():
+func pause() -> void:
   get_tree().paused = not get_tree().paused
   visible = get_tree().paused
   if visible:
@@ -22,7 +22,7 @@ func pause():
     GameState.get_node("BGM").volume_db = GameState.get_node("BGM").volume_db + 10
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _input(event):
+func _input(event: InputEvent) -> void:
   if event.is_action_pressed("pause"):
     if $PauseMenu.visible:
       pause()
@@ -32,10 +32,10 @@ func _input(event):
   if get_tree().paused and Input.is_action_just_pressed("ui_toggle_fullscreen"):
     Hotkeys.toggle_fullscreen()
 
-func _on_ResumeButton_pressed():
+func _on_ResumeButton_pressed() -> void:
   pause()
 
-func _on_MainMenuButton_pressed():
+func _on_MainMenuButton_pressed() -> void:
   var title_screen = "res://ui/title_screen.tscn"
   if is_instance_valid($"/root/Main"):
     $"/root/Main".load_world(title_screen)
@@ -45,30 +45,30 @@ func _on_MainMenuButton_pressed():
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _on_ExitButton_pressed():
+func _on_ExitButton_pressed() -> void:
   get_tree().quit()
 
-func return_to_pause_menu():
+func return_to_pause_menu() -> void:
   $PauseMenu.visible = true
   for submenu in $Submenus.get_children():
     submenu.visible = false
 
-func open_submenu(node_path):
+func open_submenu(node_path: NodePath) -> void:
   $PauseMenu.visible = false
   get_node(node_path).visible = true
 
-func _on_RestartMapButton_pressed():
+func _on_RestartMapButton_pressed() -> void:
   GameState.reload_current_scene()
   pause()
 
-func _on_DoubleJumpCheckButton_toggled(button_pressed):
+func _on_DoubleJumpCheckButton_toggled(button_pressed: bool) -> void:
   Configuration.update_setting("debug", "double_jump", button_pressed)
   GameState.upgrades["double_jump"] = button_pressed
 
-func _on_MidAirDashCheckButton_toggled(button_pressed: bool):
+func _on_MidAirDashCheckButton_toggled(button_pressed: bool) -> void:
   Configuration.update_setting("debug", "mid_air_dash", button_pressed)
   GameState.upgrades["mid_air_dash"] = button_pressed
 
-func _on_BodySlamCheckButton_toggled(button_pressed):
+func _on_BodySlamCheckButton_toggled(button_pressed: bool) -> void:
   Configuration.update_setting("debug", "body_slam", button_pressed)
   GameState.upgrades["body_slam"] = button_pressed
