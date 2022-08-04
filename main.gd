@@ -15,14 +15,14 @@ var loading_state = LoadingStates.PLAYING
 var current_world = null
 var loading_world = null
 
-func _ready():
+func _ready() -> void:
   ResourceQueue.start()
   
   # Load our first scene.
   load_world(initial_scene.get_path())
 
 
-func load_world(scene_to_load):
+func load_world(scene_to_load: NodePath) -> void:
   # Remember which scene we're loading.
   loading_world = scene_to_load
   
@@ -40,7 +40,7 @@ func load_world(scene_to_load):
     while not ResourceQueue.is_ready(loading_world):
       $ProgressBar.value = ResourceQueue.get_progress(loading_world) * 100
 
-func _on_FadeToBlack_finished_fading():
+func _on_FadeToBlack_finished_fading() -> void:
   match loading_state:
     LoadingStates.FADE_TO_BLACK_1:
       # Hide our world scene.
@@ -82,7 +82,7 @@ func _on_FadeToBlack_finished_fading():
       # Nothing to do in all other states.
       pass
 
-func _process(_delta):
+func _process(_delta: float) -> void:
   if loading_state == LoadingStates.LOADING:
     # We could do something with a progress bar here.
     
