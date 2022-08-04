@@ -12,6 +12,8 @@ func _ready() -> void:
   GameState.stop_music()
   GameState.play_music(map_music)
   
+  get_node("%SpaceshipLabel3D").visible = false
+  
   # The player start the map paused, until we verify
   # whether the intro cutscene should be played.
   if GameState.intro_cutscene_played:
@@ -37,7 +39,7 @@ func _on_AudioStreamPlayer_finished() -> void:
 
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
-  var new_dialog = Dialogic.start("Spaceship")
+  var new_dialog = Dialogic.start("Intro")
   add_child(new_dialog)
   yield(new_dialog, "dialogic_signal")
   GameState.Player.paused = false

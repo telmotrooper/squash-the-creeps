@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1659098059.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It isn't going anywhere soon..."
+		},
+		{
+			"emit_signal": "",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1659581718.json",
+		"name": "BrokenSpaceship"
+	}
+}
