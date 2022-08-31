@@ -225,9 +225,11 @@ func _on_DashDurationTimer_timeout() -> void:
   is_dashing = false
 
 func move_to_last_safe_position() -> void:
+  paused = true
   var fade_to_black = get_node_or_null("/root/Main/FadeToBlack")
   if fade_to_black:
     fade_to_black.set_is_faded(true)
     yield(fade_to_black, "finished_fading")
     fade_to_black.set_is_faded(false)
   global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
+  paused = false
