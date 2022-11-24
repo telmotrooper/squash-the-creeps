@@ -42,6 +42,8 @@
 
 ## Others
 
+* Skybox [Sky Pano - Milkyway](https://sketchfab.com/3d-models/sky-pano-milkyway-0016725c047a4ea18cd0b5e5ef2fe441) by [MozillaHubs](https://sketchfab.com/3d-models/sky-pano-milkyway-0016725c047a4ea18cd0b5e5ef2fe441) licensed under CC Attribution-NonCommercial-ShareAlikeCC.
+
 * Skybox [Anime Starry Night](https://sketchfab.com/3d-models/anime-starry-night-db0952ccd1ee4c77a1a07709b3d4f4f0) by [fangzhangmnm](https://sketchfab.com/fangzhangmnm), licensed under (CC BY 4.0)
 
 * Skyboxes [4K Sky Series HDRi free Texture](https://www.cgtrader.com/free-3d-models/textures/natural/hdri-freebie-series) by [avianx](https://www.cgtrader.com/avianx), licensed under CGTrader Royalty Free License
