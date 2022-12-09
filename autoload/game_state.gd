@@ -7,6 +7,7 @@ var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
 var hub_1_at_night := true
+var camera_distance := 10
 
 var upgrades = {
   "body_slam": false,
@@ -107,6 +108,7 @@ func initialize() -> void: # Used in "New Game".
   global_gem_progress = bytes2var(initial_global_gem_progress)
   initialize_progress()
   amount_of_gems = 0
+  camera_distance = 10
 
 func initialize_progress() -> void:
   global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
