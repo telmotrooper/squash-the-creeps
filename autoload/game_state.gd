@@ -150,6 +150,7 @@ func generate_progress_report(current_map: String) -> void:
   var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
   
   if overall_progress == 1:
+    # TODO: Display something cool when this happens.
     print("100% achieved")
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
