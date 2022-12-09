@@ -20,9 +20,9 @@ const defaults: Dictionary = {
     "grass_amount": 0
   },
   "debug": {
-    "body_slam": false,
-    "double_jump": false,
-    "mid_air_dash": false
+    "body_slam": true,
+    "double_jump": true,
+    "mid_air_dash": true
   }
 }
 

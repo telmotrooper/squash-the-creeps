@@ -7,6 +7,7 @@ var UserInterface: Control
 var RetryCamera: Camera # Camera to be used when player dies.
 
 var hub_1_at_night := true
+var camera_distance := 10
 
 var upgrades = {
   "body_slam": false,
@@ -107,6 +108,7 @@ func initialize() -> void: # Used in "New Game".
   global_gem_progress = bytes2var(initial_global_gem_progress)
   initialize_progress()
   amount_of_gems = 0
+  camera_distance = 10
 
 func initialize_progress() -> void:
   global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
@@ -146,6 +148,10 @@ func generate_progress_report(current_map: String) -> void:
   text = text.substr(0, text.length() - 2)
   
   var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
+  
+  if overall_progress == 1:
+    # TODO: Display something cool when this happens.
+    print("100% achieved")
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text

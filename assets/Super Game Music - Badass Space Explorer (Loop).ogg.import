@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Super Game Music - Badass Space Explorer (Loop).ogg-
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
