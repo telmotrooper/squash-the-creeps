@@ -34,7 +34,8 @@ func _physics_process(delta: float) -> void:
   match state:
     PATROLLING:
       if get_parent() is PathFollow3D:
-        get_parent().set_offset(get_parent().get_offset() + patrolling_speed * delta)
+        get_parent().set_h_offset(get_parent().h_offset + patrolling_speed * delta)
+        get_parent().set_v_offset(get_parent().v_offset + patrolling_speed * delta)
     DYING:
       set_physics_process(false)
 
