@@ -956,6 +956,7 @@ material = ExtResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
 
 [node name="FallingBridge" parent="Map" instance=ExtResource( 16 )]
+unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 
