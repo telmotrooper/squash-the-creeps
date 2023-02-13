@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" path="res://props/flag/flag.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://ui/user_interface.tscn" id="12"]
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48.tres" id="13"]
-[ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://props/godot_head/godot_head.tscn" id="15"]
 [ext_resource type="PackedScene" path="res://props/falling_platform/falling_bridge.tscn" id="16"]
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" id="17"]
@@ -909,6 +909,8 @@ unique_name_in_owner = true
 [node name="UserInterface" parent="." instance=ExtResource("12")]
 layout_mode = 3
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("7")
@@ -935,6 +937,7 @@ stream = ExtResource("28")
 autoplay = true
 bus = &"Music"
 
+[connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
 [connection signal="body_entered" from="Map/BlueCube/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]

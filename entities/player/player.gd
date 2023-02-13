@@ -3,7 +3,7 @@ class_name Player
 
 signal hit
 
-@export (AudioStream) var hurt_sound
+@export var hurt_sound: AudioStream
 
 @export var walk_speed := 14.0
 @export var run_speed := 22.0
@@ -26,7 +26,7 @@ var last_direction := Vector3(0,0,-1)
 
 var last_safe_position := Vector3(0,0,0)
 
-var velocity = Vector3.ZERO
+#var velocity = Vector3.ZERO
 var speed = 0
 
 var is_jumping := false
