@@ -80,15 +80,15 @@ func _physics_process(delta: float) -> void:
     $ModelPivot.look_at(position + direction, Vector3.UP)
     
     if is_dashing:
-      $AnimationPlayer.playback_speed = 1.0
+      $AnimationPlayer.speed_scale = 1.0
     elif Input.is_action_pressed("sprint"): # Running.
       speed = run_speed
-      $AnimationPlayer.playback_speed = 3.0
+      $AnimationPlayer.speed_scale = 3.0
     else: # Walking.
       speed = walk_speed
-      $AnimationPlayer.playback_speed = 2.25
+      $AnimationPlayer.speed_scale = 2.25
   else: # Idle
-    $AnimationPlayer.playback_speed = 1.0
+    $AnimationPlayer.speed_scale = 1.0
   
   if GameState.upgrades["mid_air_dash"]:
     if is_on_floor():
@@ -128,7 +128,7 @@ func _physics_process(delta: float) -> void:
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
-  elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset both jumps.
+  elif is_on_floor() and not get_slide_collision(0).get_collider() is Enemy: # Reset both jumps.
     is_jumping = false
     is_double_jumping = false
 
@@ -169,7 +169,7 @@ func _physics_process(delta: float) -> void:
   for index in get_slide_collision_count():
     var collision = get_slide_collision(index)
     
-    if collision.collider.is_in_group("enemies"):
+    if collision.get_collider().is_in_group("enemies"):
       var enemy = collision.collider
       
       if Vector3.UP.dot(collision.normal) > 0.1:
@@ -180,7 +180,7 @@ func _physics_process(delta: float) -> void:
           velocity.y = jump_impulse
         is_jumping = true
     
-    elif collision.collider is RedButton:
+    elif collision.get_collider() is RedButton:
       var red_button = collision.collider
       
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
