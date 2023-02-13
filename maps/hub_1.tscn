@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="1"]
 [ext_resource type="PackedScene" path="res://maps/extras/beach_island_hub/beach_island_hub.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="3"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="4"]
 [ext_resource type="PackedScene" path="res://shaders/smoke/smoke.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://props/spaceship/spaceship.tscn" id="6"]
@@ -296,6 +296,8 @@ font = ExtResource("17")
 [node name="UserInterface" parent="." instance=ExtResource("7")]
 layout_mode = 3
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PortalTestMap" parent="." instance=ExtResource("8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85, 2.48, -6.46)
