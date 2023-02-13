@@ -19,13 +19,13 @@ func _ready() -> void:
     
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
   # Prevent camera from colliding with player.
-  $Horizontal/Vertical/Camera3D.add_exception(get_parent())
+#  $Horizontal/Vertical/Camera3D.add_exception(get_parent())
   # Fetch draw distance from configuration file.
   $Horizontal/Vertical/Camera3D.far = Configuration.get_value("graphics", "draw_distance")
 
 func _input(event: InputEvent) -> void:
-  if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
-    return
+#  if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
+#    return
   
   var zoom = get_node("%Camera3D").position.z
 

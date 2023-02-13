@@ -1,5 +1,6 @@
 shader_type spatial;
-render_mode specular_phong, cull_disabled;
+//render_mode specular_phong, cull_disabled;
+render_mode cull_disabled;
 
 uniform float speed: hint_range(-1, 1) = 0.0;
 
