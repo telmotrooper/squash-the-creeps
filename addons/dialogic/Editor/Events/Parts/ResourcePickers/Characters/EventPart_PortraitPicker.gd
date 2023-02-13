@@ -1,16 +1,16 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
-export (bool) var allow_dont_change := true
-export (bool) var allow_definition := true
+@export (bool) var allow_dont_change := true
+@export (bool) var allow_definition := true
 
 ## node references
-onready var picker_menu = $HBox/MenuButton
-onready var preview = $Preview/PreviewContainer
-onready var preview_title = preview.get_node("VBox/Title")
-onready var preview_texture = preview.get_node("VBox/TextureRect")
+@onready var picker_menu = $HBox/MenuButton
+@onready var preview = $Preview/PreviewContainer
+@onready var preview_title = preview.get_node("VBox/Title")
+@onready var preview_texture = preview.get_node("VBox/TextureRect")
 var current_hovered = null
 
 var character_data = null
@@ -23,12 +23,12 @@ var portrait_icon
 
 # used to connect the signals
 func _ready():
-	picker_menu.get_popup().connect("index_pressed", self, '_on_PickerMenu_selected')
-	picker_menu.get_popup().connect("gui_input", self, "popup_gui_input")
-	picker_menu.get_popup().connect("mouse_exited", self, "mouse_exited_popup")
-	picker_menu.get_popup().connect("popup_hide", self, "mouse_exited_popup")
+	picker_menu.get_popup().connect("index_pressed",Callable(self,'_on_PickerMenu_selected'))
+	picker_menu.get_popup().connect("gui_input",Callable(self,"popup_gui_input"))
+	picker_menu.get_popup().connect("mouse_exited",Callable(self,"mouse_exited_popup"))
+	picker_menu.get_popup().connect("popup_hide",Callable(self,"mouse_exited_popup"))
 	
-	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
+	picker_menu.connect("about_to_popup",Callable(self,"_on_PickerMenu_about_to_show"))
 	preview_title.set('custom_fonts/font', get_font("title", "EditorFonts"))
 	preview.set('custom_styles/panel', get_stylebox("panel", "PopupMenu"))
 
@@ -40,7 +40,7 @@ func _ready():
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	allow_dont_change = event_data['event_id'] != 'dialogic_002' or (event_data['event_id'] == 'dialogic_002' and int(event_data.get('type', 0)) == 2)
 	
@@ -50,7 +50,7 @@ func load_data(data:Dictionary):
 		$HBox/Label.text = "with portrait"
 	
 	# Now update the ui nodes to display the data. 
-	if event_data.get('portrait', '').empty():
+	if event_data.get('portrait', '').is_empty():
 		# if this is a text/question event or character event in update mode 
 		if allow_dont_change:
 			picker_menu.text = "(Don't change)"
@@ -139,7 +139,7 @@ func popup_gui_input(event):
 					return
 			
 			## show the preview
-			preview.rect_position.x = picker_menu.get_popup().rect_size.x + 130
+			preview.position.x = picker_menu.get_popup().size.x + 130
 			var current = character_data['portraits'][current_hovered + idx_add]
 			preview_title.text = '  ' + current['name']
 			preview_title.icon = null
@@ -152,7 +152,7 @@ func popup_gui_input(event):
 					preview_title.icon = get_icon("PackedScene", "EditorIcons")
 					return
 				else:
-					preview_title.icon = get_icon("Sprite", "EditorIcons")
+					preview_title.icon = get_icon("Sprite2D", "EditorIcons")
 					preview_texture.expand = true
 					preview_texture.texture = load(current['path'])
 			else:
@@ -165,6 +165,6 @@ func mouse_exited_popup():
 	current_hovered = null
 
 
-func show_scene_preview(path:String, preview:Texture, user_data):
+func show_scene_preview(path:String, preview:Texture2D, user_data):
 	if preview:
 		preview_texture.texture = preview

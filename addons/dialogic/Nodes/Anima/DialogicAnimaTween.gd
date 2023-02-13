@@ -16,12 +16,12 @@ var _fake_property: Dictionary = {}
 var _callbacks := {}
 
 func _ready():
-	connect("tween_started", self, '_on_tween_started')
-	connect("tween_step", self, '_on_tween_step_with_easing')
-	connect("tween_step", self, '_on_tween_step_with_easing_callback')
-	connect("tween_step", self, '_on_tween_step_with_easing_funcref')
-	connect("tween_step", self, '_on_tween_step_without_easing')
-	connect("tween_completed", self, '_on_tween_completed')
+	connect("tween_started",Callable(self,'_on_tween_started'))
+	connect("step_finished",Callable(self,'_on_tween_step_with_easing'))
+	connect("step_finished",Callable(self,'_on_tween_step_with_easing_callback'))
+	connect("step_finished",Callable(self,'_on_tween_step_with_easing_funcref'))
+	connect("step_finished",Callable(self,'_on_tween_step_without_easing'))
+	connect("finished",Callable(self,'_on_tween_completed'))
 	
 
 func play(node, animation_name, duration):
@@ -43,7 +43,7 @@ func play(node, animation_name, duration):
 		var easing_points
 
 		if animation_data.has('easing'):
-			if animation_data.easing is FuncRef:
+			if animation_data.easing is Callable:
 				easing_points = animation_data.easing
 			else:
 				easing_points = get_easing_points(animation_data.easing)
@@ -59,7 +59,7 @@ func play(node, animation_name, duration):
 			animation_data._use_step_callback = '_on_tween_step_with_easing'
 		elif easing_points is String:
 			animation_data._use_step_callback = '_on_tween_step_with_easing_callback'
-		elif easing_points is FuncRef:
+		elif easing_points is Callable:
 			animation_data._use_step_callback = '_on_tween_step_with_easing_funcref'
 		else:
 			animation_data._use_step_callback = '_on_tween_step_without_easing'
@@ -71,8 +71,8 @@ func play(node, animation_name, duration):
 	if not started:
 		printerr('something went wrong while trying to start the tween')
 	
-	if is_connected("tween_all_completed", self, 'finished_once'): disconnect("tween_all_completed", self, 'finished_once')
-	connect('tween_all_completed', self, 'finished_once', [node, animation_name, duration])
+	if is_connected("tween_all_completed",Callable(self,'finished_once')): disconnect("tween_all_completed",Callable(self,'finished_once'))
+	connect('tween_all_completed',Callable(self,'finished_once').bind(node, animation_name, duration))
 
 func finished_once(node, animation, duration):
 	loop -= 1
@@ -81,37 +81,37 @@ func finished_once(node, animation, duration):
 	else:
 		emit_signal('finished_animation')
 
-# Given an array of frames generates the animation data using relative end value
+# Given an array of sprite_frames generates the animation data using relative end value
 #
-# frames = [{
+# sprite_frames = [{
 #	percentage = the percentage of the animation
 #	to = the relative end value
 #	easing_points = the easing points for the bezier curver (optional)
 # }]
 #
-func add_relative_frames(data: Dictionary, property: String, frames: Array) -> float:
-	return _add_frames(data, property, frames, true)
+func add_relative_frames(data: Dictionary, property: String, sprite_frames: Array) -> float:
+	return _add_frames(data, property, sprite_frames, true)
 
 #
-# Given an array of frames generates the animation data using absolute end value
+# Given an array of sprite_frames generates the animation data using absolute end value
 #
-# frames = [{
+# sprite_frames = [{
 #	percentage = the percentage of the animation
 #	to = the relative end value
 #	easing_points = the easing points for the bezier curver (optional)
 # }]
 #
-func add_frames(data: Dictionary, property: String, frames: Array) -> float:
-	return _add_frames(data, property, frames)
+func add_frames(data: Dictionary, property: String, sprite_frames: Array) -> float:
+	return _add_frames(data, property, sprite_frames)
 
 
-func _add_frames(data: Dictionary, property: String, frames: Array, relative: bool = false) -> float:
+func _add_frames(data: Dictionary, property: String, sprite_frames: Array, relative: bool = false) -> float:
 	var duration: float = data.duration if data.has('duration') else 0.0
 	var _wait_time: float = data._wait_time if data.has('_wait_time') else 0.0
 	var last_duration := 0.0
 
 	var keys_to_ignore = ['duration', '_wait_time']
-	for frame in frames:
+	for frame in sprite_frames:
 		var percentage = frame.percentage if frame.has('percentage') else 100.0
 		percentage /= 100.0
 
@@ -242,14 +242,14 @@ func _get_animation_data_index(key: NodePath) -> int:
 	return int(s.replace('_fake_property:p', '')) - 1
 
 func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float) -> float:
-	var q0 = p0.linear_interpolate(p1, t)
-	var q1 = p1.linear_interpolate(p2, t)
-	var q2 = p2.linear_interpolate(p3, t)
+	var q0 = p0.lerp(p1, t)
+	var q1 = p1.lerp(p2, t)
+	var q2 = p2.lerp(p3, t)
 
-	var r0 = q0.linear_interpolate(q1, t)
-	var r1 = q1.linear_interpolate(q2, t)
+	var r0 = q0.lerp(q1, t)
+	var r1 = q1.lerp(q2, t)
 
-	var s = r0.linear_interpolate(r1, t)
+	var s = r0.lerp(r1, t)
 
 	return s.y
 
@@ -295,7 +295,7 @@ func _do_calculate_from_to(node: Node, animation_data: Dictionary) -> void:
 		animation_data.__to = to
 
 	if animation_data.has('pivot'):
-		if node is Spatial:
+		if node is Node3D:
 			printerr('3D Pivot not supported yet')
 		else:
 			DialogicAnimaPropertiesHelper.set_2D_pivot(animation_data.node, animation_data.pivot)
@@ -312,13 +312,13 @@ func _maybe_calculate_relative_value(relative, value, current_node_value):
 	return value + current_node_value
 
 func _maybe_convert_from_deg_to_rad(node: Node, animation_data: Dictionary, value):
-	if not node is Spatial or animation_data.property.find('rotation') < 0:
+	if not node is Node3D or animation_data.property.find('rotation') < 0:
 		return value
 
 	if value is Vector3:
-		return Vector3(deg2rad(value.x), deg2rad(value.y), deg2rad(value.z))
+		return Vector3(deg_to_rad(value.x), deg_to_rad(value.y), deg_to_rad(value.z))
 
-	return deg2rad(value)
+	return deg_to_rad(value)
 
 func _on_animation_with_key(index: int, elapsed: float) -> void:
 	var animation_data = _animation_data[index]
@@ -413,7 +413,7 @@ func _on_tween_started(_ignore, key) -> void:
 
 	var should_trigger_on_started: bool = animation_data.has('_is_first_frame') and animation_data._is_first_frame and animation_data.has('on_started')
 	if should_trigger_on_started:
-		var fn: FuncRef
+		var fn: Callable
 		var args: Array = []
 		if animation_data.on_started is Array:
 			fn = animation_data.on_started[0]

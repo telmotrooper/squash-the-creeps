@@ -1,5 +1,5 @@
 func generate_animation(anima_tween: Tween, data: Dictionary) -> void:
-	var frames = [
+	var sprite_frames = [
 		{ percentage = 0, to = 0 },
 		{ percentage = 10, to = -10 },
 		{ percentage = 20, to = +20 },
@@ -13,4 +13,4 @@ func generate_animation(anima_tween: Tween, data: Dictionary) -> void:
 		{ percentage = 100, to = +10 },
 	]
 
-	anima_tween.add_relative_frames(data, "y", frames)
+	anima_tween.add_relative_frames(data, "y", sprite_frames)

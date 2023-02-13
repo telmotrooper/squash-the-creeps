@@ -1,20 +1,20 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
 var Scatter = preload("../core/namespace.gd").new()
 
-export(String, "Node") var node_name
-export var radius := 1.0
+@export var node_name # (String, "Node")
+@export var radius := 1.0
 
 
 var points := []
 var bounds_min: Vector3
 var bounds_max: Vector3
-var t: Transform
+var t: Transform3D
 
 
-func _init() -> void:
+func _init():
 	display_name = "(Virtual) Base Point Modifier"
 	enabled = false
 	warning_ignore_no_path = true
@@ -29,7 +29,7 @@ func is_inside_any(pos: Vector3) -> bool:
 
 
 func is_inside(pos: Vector3, p) -> bool:
-	var point_pos = t.xform_inv(p.get_global_transform().origin)
+	var point_pos = p.get_global_transform().origin * t
 	pos.y = 0.0
 	point_pos.y = 0.0
 
@@ -40,7 +40,7 @@ func is_inside(pos: Vector3, p) -> bool:
 
 
 func _process_transforms(transforms, _global_seed) -> void:
-	if node_name.empty():
+	if node_name.is_empty():
 		warning += "You must select a node for this modifier to work."
 		_notify_warning_changed()
 		return
@@ -72,7 +72,7 @@ func _update_bounds() -> void:
 	for i in points.size():
 		var p = points[i]
 		var r = p.radius * radius
-		var pos = t.xform_inv(p.get_global_transform().origin)
+		var pos = p.get_global_transform().origin * t
 		var pmin = pos - Vector3(r, 0.0, r)
 		var pmax = pos + Vector3(r, 0.0, r)
 

@@ -1,21 +1,21 @@
-tool
+@tool
 extends "base_point_modifier.gd"
 
 
-export(String, "Curve") var falloff
-export var ignore_height := true
-export var override_global_seed := false
-export var custom_seed := 0
+@export var falloff # (String, "Curve")
+@export var ignore_height := true
+@export var override_global_seed := false
+@export var custom_seed := 0
 
 var _rng: RandomNumberGenerator
 
 
-func _init() -> void:
+func _init():
 	display_name = "Remove Around Point"
 	category = "Remove"
 	enabled = true
 
-	if falloff.empty():
+	if falloff.is_empty():
 		var curve = Curve.new()
 		curve.add_point(Vector2(0, 0))
 		curve.add_point(Vector2(1, 0))
@@ -24,7 +24,7 @@ func _init() -> void:
 
 
 func _process_transforms(transforms, global_seed) -> void:
-	._process_transforms(transforms, global_seed)
+	super._process_transforms(transforms, global_seed)
 
 	var global_transform = transforms.path.global_transform
 	var pos: Vector3
@@ -39,7 +39,7 @@ func _process_transforms(transforms, global_seed) -> void:
 	var curve: Curve = Scatter.Util.string_to_curve(falloff)
 
 	while i < transforms.list.size():
-		pos = global_transform.xform(transforms.list[i].origin)
+		pos = global_transform * transforms.list[i].origin
 		for p in points:
 			var exclude_pos = p.get_global_transform().origin
 			if ignore_height:
@@ -54,7 +54,7 @@ func _process_transforms(transforms, global_seed) -> void:
 				var random_value := _rng.randf()
 
 				if random_value > falloff_value:
-					transforms.list.remove(i)
+					transforms.list.remove_at(i)
 					i -= 1
 					break
 		i += 1

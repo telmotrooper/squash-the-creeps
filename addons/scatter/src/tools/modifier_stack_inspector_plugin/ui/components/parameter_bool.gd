@@ -1,14 +1,14 @@
-tool
+@tool
 extends "base_parameter.gd"
 
 
-onready var _label: Label = $Label
-onready var _check_box: CheckBox = $CheckBox
+@onready var _label: Label = $Label
+@onready var _check_box: CheckBox = $CheckBox
 
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
-	_check_box.connect("toggled", self, "_on_value_changed")
+	_check_box.connect("toggled",Callable(self,"_on_value_changed"))
 
 
 func set_parameter_name(text: String) -> void:
@@ -20,4 +20,4 @@ func get_value() -> bool:
 
 
 func _set_value(val: bool) -> void:
-	_check_box.pressed = val
+	_check_box.button_pressed = val

@@ -1,6 +1,6 @@
 extends Node
 
-export (AudioStream) var map_music
+@export (AudioStream) var map_music
 
 func _ready() -> void:
   GameState.play_music(map_music)

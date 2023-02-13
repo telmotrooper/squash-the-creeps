@@ -1,15 +1,15 @@
-tool
+@tool
 extends "base_modifier.gd"
 
-export var override_global_seed := false
-export var custom_seed := 0
-export var distribution_radius := 1.0
-export var distribution_retries := 20
+@export var override_global_seed := false
+@export var custom_seed := 0
+@export var distribution_radius := 1.0
+@export var distribution_retries := 20
 
 var _sampler = preload("../common/poisson_disc_sampling.gd").new()
 
 
-func _init() -> void:
+func _init():
 	display_name = "Distribute Inside (Poisson)"
 	category = "Distribute"
 	warning_ignore_no_transforms = true
@@ -25,8 +25,8 @@ func _process_transforms(transforms, global_seed) -> void:
 		_sampler.rng.set_seed(global_seed)
 
 	var rect_pos = Vector2(transforms.path.bounds_min.x, transforms.path.bounds_min.z)
-	var rect_size = Vector2(transforms.path.size.x, transforms.path.size.z)
-	var bounds = Rect2(rect_pos, rect_size)
+	var size = Vector2(transforms.path.size.x, transforms.path.size.z)
+	var bounds = Rect2(rect_pos, size)
 	var retries = distribution_retries
 	if transforms.max_count >= 0:
 		retries = 1

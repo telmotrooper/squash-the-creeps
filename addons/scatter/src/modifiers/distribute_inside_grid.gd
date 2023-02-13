@@ -1,12 +1,12 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var x_spacing := 2.0
-export var z_spacing := 2.0
+@export var x_spacing := 2.0
+@export var z_spacing := 2.0
 
 
-func _init() -> void:
+func _init():
 	display_name = "Distribute Inside (Grid)"
 	category = "Distribute"
 	warning_ignore_no_transforms = true
@@ -40,6 +40,6 @@ func _process_transforms(transforms, global_seed) -> void:
 			t_index += 1
 
 	if t_index < max_count:
-		transforms.remove(max_count - t_index)
+		transforms.remove_at(max_count - t_index)
 
 	shuffle(transforms.list, global_seed)

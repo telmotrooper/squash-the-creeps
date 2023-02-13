@@ -20,7 +20,7 @@ static func get_node_by_class_path(node: Node, class_path: Array) -> Node:
 	var max_ = class_path.size()-1
 	
 	while stack:
-		#remove first entry from array
+		#remove_at first entry from array
 		var d = depths.pop_front()
 		var n = stack.pop_front()
 		

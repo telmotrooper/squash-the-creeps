@@ -1,9 +1,9 @@
-tool
+@tool
 extends Control
 
 
-export var modifiers_popup: NodePath
-export var root: NodePath
+@export var modifiers_popup: NodePath
+@export var root: NodePath
 
 var _modifiers_popup: PopupPanel
 var _root: Control
@@ -18,7 +18,7 @@ func _ready():
 	_root = get_node(root)
 
 	# warning-ignore:return_value_discarded
-	_modifiers_popup.connect("add_modifier", self, "_on_add_modifier")
+	_modifiers_popup.connect("add_modifier",Callable(self,"_on_add_modifier"))
 
 	_is_ready = true
 	rebuild_ui()
@@ -39,14 +39,14 @@ func rebuild_ui() -> void:
 	_validate_stack_connections()
 	_clear()
 	for m in _modifier_stack.stack:
-		var ui = _modifier_panel.instance()
+		var ui = _modifier_panel.instantiate()
 		_root.add_child(ui)
 		ui.set_root(_scatter)
 		ui.create_ui_for(m)
-		ui.connect("move_up", self, "_on_move_up", [m])
-		ui.connect("move_down", self, "_on_move_down", [m])
-		ui.connect("remove_modifier", self, "_on_remove", [m])
-		ui.connect("value_changed", self, "_on_value_changed")
+		ui.connect("move_up",Callable(self,"_on_move_up").bind(m))
+		ui.connect("move_down",Callable(self,"_on_move_down").bind(m))
+		ui.connect("remove_modifier",Callable(self,"_on_remove").bind(m))
+		ui.connect("value_changed",Callable(self,"_on_value_changed"))
 
 
 func _clear() -> void:
@@ -62,10 +62,10 @@ func _validate_stack_connections() -> void:
 		return
 
 	if _modifier_stack:
-		_modifier_stack.disconnect("stack_changed", self, "_on_stack_changed")
+		_modifier_stack.disconnect("stack_changed",Callable(self,"_on_stack_changed"))
 
 	_modifier_stack = _scatter.modifier_stack
-	_modifier_stack.connect("stack_changed", self, "_on_stack_changed")
+	_modifier_stack.connect("stack_changed",Callable(self,"_on_stack_changed"))
 
 	if _modifier_stack.just_created:
 		_on_load_preset("default")
@@ -102,7 +102,7 @@ func _on_move_down(m) -> void:
 
 
 func _on_remove(m) -> void:
-	_modifier_stack.remove(m)
+	_modifier_stack.remove_at(m)
 
 
 func _on_value_changed() -> void:
@@ -134,12 +134,12 @@ func _on_save_preset(preset_name) -> void:
 
 func _on_load_preset(preset_name) -> void:
 	var preset_path = _get_root_folder() + "/presets/" + preset_name + ".tscn"
-	var preset = load(preset_path).instance()
+	var preset = load(preset_path).instantiate()
 	if not preset:
 		return
 
 	_modifier_stack = preset.modifier_stack.duplicate(7)
-	_modifier_stack.connect("stack_changed", self, "_on_stack_changed")
+	_modifier_stack.connect("stack_changed",Callable(self,"_on_stack_changed"))
 	_scatter.modifier_stack = _modifier_stack
 	rebuild_ui()
 	_scatter.update()
@@ -148,4 +148,4 @@ func _on_load_preset(preset_name) -> void:
 
 func _on_delete_preset(preset_name) -> void:
 	var dir = Directory.new()
-	dir.remove(_get_root_folder() + "/presets/" + preset_name + ".tscn")
+	dir.remove_at(_get_root_folder() + "/presets/" + preset_name + ".tscn")

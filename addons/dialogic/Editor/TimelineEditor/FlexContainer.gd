@@ -1,8 +1,8 @@
-tool
+@tool
 extends Container
 
 # The flow container will fit as many children in a row as it can
-# using their minimum size, and will then continue on the next row.
+# using their minimum size, and will then continue checked the next row.
 # Does not use SIZE_EXPAND flags of children.
 
 # TODO: half-respect vertical SIZE_EXPAND flags by expanding the child to match
@@ -11,15 +11,15 @@ extends Container
 # TODO: Can we find a way to intuitively use a child's horizontal SIZE_EXPAND
 #       flag?
 
-export var horizontal_margin: float = 5
-export var vertical_margin: float = 5
+@export var horizontal_margin: float = 5
+@export var vertical_margin: float = 5
 
 # Used to make our parent re-evaluate our size when we have to create more or
 # less rows to fit in all the children.
 var _reported_height_at_last_minimum_size_call: float = 0
 
 
-func _init() -> void:
+func _init():
 	size_flags_horizontal = SIZE_EXPAND_FILL
 
 
@@ -57,7 +57,7 @@ func _notification(what):
 func _calculate_layout(apply: bool) -> float:
 	var child_position: Vector2 = Vector2(0, 0)
 	var row_height: float = 0
-	var container_width: float = rect_size.x
+	var container_width: float = size.x
 	var num_children_in_current_row: float = 0
 	
 	for child in get_children():
@@ -91,8 +91,8 @@ func _calculate_layout(apply: bool) -> float:
 
 func _make_parent_reevaluate_our_size():
 	# Hacky solution. Once there is a function for this, use it.
-	rect_min_size = Vector2(0, 20000)
-	rect_min_size = Vector2(0, 0)
+	custom_minimum_size = Vector2(0, 20000)
+	custom_minimum_size = Vector2(0, 0)
 
 
 # Code by https://github.com/Wcubed/horizontal_flow_container

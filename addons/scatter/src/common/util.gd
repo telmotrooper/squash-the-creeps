@@ -24,15 +24,17 @@ static func curve_to_string(curve: Curve) -> String:
 		"res": curve.get_bake_resolution(),
 	}
 
-	return JSON.print(dict)
+	return JSON.stringify(dict)
 
 
 static func string_to_curve(string: String) -> Curve:
 	var curve = Curve.new()
-	if not string or string.empty():
+	if not string or string.is_empty():
 		return curve
 
-	var json_result = JSON.parse(string)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(string)
+	var json_result = test_json_conv.get_data()
 	if json_result.error != OK:
 		return curve
 
@@ -63,14 +65,14 @@ static func create_mesh_from(mesh_instances: Array) -> Mesh:
 
 			for j in length:
 				var pos: Vector3 = arrays[ArrayMesh.ARRAY_VERTEX][j]
-				pos = mi.transform.xform(pos)
+				pos = mi.transform * pos
 				arrays[ArrayMesh.ARRAY_VERTEX][j] = pos
 
 			array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 
-			# Retrieve the material on the MeshInstance first, if none is defined,
+			# Retrieve the material checked the MeshInstance3D first, if none is defined,
 			# use the one from the mesh resource.
-			var material = mi.get_surface_material(i)
+			var material = mi.get_surface_override_material(i)
 			if not material:
 				 material = mesh.surface_get_material(i)
 			array_mesh.surface_set_material(total_surfaces, material)

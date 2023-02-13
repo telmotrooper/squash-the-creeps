@@ -1,22 +1,22 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
 
-export var override_global_seed := false
-export var custom_seed := 0
+@export var override_global_seed := false
+@export var custom_seed := 0
 
-export var threshold := 0.0
-export var invert := false
-export var local := false
+@export var threshold := 0.0
+@export var reverse := false
+@export var local := false
 
-export var octaves := 3
-export var period := 64.0
-export var persistence := 0.5
-export var lacunarity := 2.0
+@export var octaves := 3
+@export var period := 64.0
+@export var persistence := 0.5
+@export var lacunarity := 2.0
 
 
-func _init() -> void:
+func _init():
 	display_name = "Remove From noise"
 	category = "Remove"
 
@@ -36,9 +36,9 @@ func _process_transforms(transforms, global_seed) -> void:
 		if local:
 			n = noise.get_noise_3dv(transform.origin)
 		else:
-			n = noise.get_noise_3dv(global_transform.xform(transform.origin))
+			n = noise.get_noise_3dv(global_transform * transform.origin)
 
-		if (invert and n < threshold) or (not invert and n >= threshold):
+		if (reverse and n < threshold) or (not reverse and n >= threshold):
 			list.push_back(transform)
 
 	transforms.list = list

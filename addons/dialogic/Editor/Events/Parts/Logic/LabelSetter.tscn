@@ -7,27 +7,27 @@
 [node name="AnchorSetter" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -723.0
-margin_bottom = -573.0
+offset_right = -723.0
+offset_bottom = -573.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NameInput" parent="." instance=ExtResource( 1 )]
-margin_right = 130.0
-margin_bottom = 27.0
+offset_right = 130.0
+offset_bottom = 27.0
 
 [node name="Label" parent="." instance=ExtResource( 3 )]
-margin_left = 134.0
-margin_top = 6.0
-margin_right = 182.0
-margin_bottom = 20.0
+offset_left = 134.0
+offset_top = 6.0
+offset_right = 182.0
+offset_bottom = 20.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " is here"
 
-[node name="NewIdButton" type="ToolButton" parent="."]
-margin_left = 186.0
-margin_right = 198.0
-margin_bottom = 27.0
-hint_tooltip = "Change to a new unique ID. Only do this if you have a duplicate id in this timeline!"
+[node name="NewIdButton" type="Button" parent="."]
+offset_left = 186.0
+offset_right = 198.0
+offset_bottom = 27.0
+tooltip_text = "Change to a new unique ID. Only do this if you have a duplicate id in this timeline!"

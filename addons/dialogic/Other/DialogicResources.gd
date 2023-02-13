@@ -1,4 +1,4 @@
-tool
+@tool
 class_name DialogicResources
 
 ## This class is used by the DialogicEditor to access the resources files
@@ -21,9 +21,11 @@ static func load_json(path: String, default: Dictionary={}) -> Dictionary:
 		return default
 	var data_text: String = file.get_as_text()
 	file.close()
-	if data_text.empty():
+	if data_text.is_empty():
 		return default
-	var data_parse: JSONParseResult = JSON.parse(data_text)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(data_text)
+	var data_parse: JSON = test_json_conv.get_data()
 	if data_parse.error != OK:
 		return default
 	
@@ -39,7 +41,7 @@ static func set_json(path: String, data: Dictionary):
 	var file = File.new()
 	var err = file.open(path, File.WRITE)
 	if err == OK:
-		file.store_line(JSON.print(data, '\t', true))
+		file.store_line(JSON.stringify(data, '\t', true))
 		file.close()
 	return err
 
@@ -113,7 +115,7 @@ static func listdir(path: String) -> Array:
 	var dir := Directory.new()
 	var err = dir.open(path)
 	if err == OK:
-		dir.list_dir_begin()
+		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir() and not file_name.begins_with("."):
@@ -134,7 +136,7 @@ static func create_empty_file(path):
 
 static func remove_file(path: String):
 	var dir = Directory.new()
-	var _err = dir.remove(path)
+	var _err = dir.remove_at(path)
 	
 	if _err != OK:
 		print("[D] There was an error when deleting file at {filepath}. Error: {error}".format(
@@ -331,7 +333,7 @@ static func get_saves_folders() -> Array:
 		print("[D] Error: Failed to access working directory.")
 		return []
 	
-	directory.list_dir_begin()
+	directory.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 	var file_name = directory.get_next()
 	while file_name != "":
 		if directory.current_is_dir() and not file_name.begins_with("."):
@@ -363,12 +365,12 @@ static func remove_save_folder(save_name: String) -> void:
 		print("[D] Error: Failed to access save folder '"+save_name+"'.")
 		return
 	
-	directory.list_dir_begin()
+	directory.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 	var file_name = directory.get_next()
 	while file_name != "":
-		directory.remove(file_name)
+		directory.remove_at(file_name)
 		file_name = directory.get_next()
-	directory.remove(WORKING_DIR+"/"+save_name)
+	directory.remove_at(WORKING_DIR+"/"+save_name)
 
 # reset the definitions and state of the given save folder (or default)
 static func reset_save(save_name: String = '') -> void:

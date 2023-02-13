@@ -1,15 +1,15 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
-export (String) var default_text = "Select Definition"
+@export (String) var default_text = "Select Definition"
 
 ## node references
-onready var picker_menu = $HBox/MenuButton
+@onready var picker_menu = $HBox/MenuButton
 
 # used to connect the signals
 func _ready():
-	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
+	picker_menu.connect("about_to_popup",Callable(self,"_on_PickerMenu_about_to_show"))
 	
 	# themeing
 	picker_menu.custom_icon_modulation = get_color("font_color", "Editor")
@@ -18,7 +18,7 @@ func _ready():
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	select_definition_by_id(data['definition'])
@@ -35,7 +35,7 @@ func select_definition_by_id(id):
 	else:
 		picker_menu.text = default_text
 
-# when an index is selected on one of the menus.
+# when an index is selected checked one of the menus.
 func _on_PickerMenu_selected(index, menu):
 	var text = menu.get_item_text(index)
 	var metadata = menu.get_item_metadata(index)
@@ -73,7 +73,7 @@ func build_PickerMenuFolder(menu:PopupMenu, folder_structure:Dictionary, current
 			menu.set_item_metadata(index, {'file':file})
 			index += 1
 	
-	if not menu.is_connected("index_pressed", self, "_on_PickerMenu_selected"):
-		menu.connect("index_pressed", self, '_on_PickerMenu_selected', [menu])
+	if not menu.is_connected("index_pressed",Callable(self,"_on_PickerMenu_selected")):
+		menu.connect("index_pressed",Callable(self,'_on_PickerMenu_selected').bind(menu))
 	
 	return current_folder_name

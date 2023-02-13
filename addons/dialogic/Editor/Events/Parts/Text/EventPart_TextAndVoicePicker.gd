@@ -1,20 +1,20 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-onready var text_editor = $VBoxContainer/TextEditor
-onready var voice_editor = $VBoxContainer/VoiceEditor
+@onready var text_editor = $VBoxContainer/TextEditor
+@onready var voice_editor = $VBoxContainer/VoiceEditor
 
 
 func _ready() -> void:
-	text_editor.connect("data_changed", self, "_on_text_editor_data_changed")
-	voice_editor.connect("data_changed", self, "_on_voice_editor_data_changed")
+	text_editor.connect("data_changed",Callable(self,"_on_text_editor_data_changed"))
+	voice_editor.connect("data_changed",Callable(self,"_on_voice_editor_data_changed"))
 	voice_editor.visible = use_voices()
 	voice_editor.editor_reference = editor_reference
 	voice_editor.repopulate()
 
 
 func load_data(data):
-	.load_data(data)
+	super.load_data(data)
 	
 	text_editor.load_data(data)
 	voice_editor.visible = use_voices()

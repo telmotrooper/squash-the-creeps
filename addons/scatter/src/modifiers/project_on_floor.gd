@@ -1,60 +1,60 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var ray_length := 10.0
-export var ray_offset := 1.0
-export var remove_points_on_miss := true
-export var align_with_floor_normal := false
-export var invert_ray_direction := false
-export var floor_direction := Vector3.DOWN
-export(float, 0.0, 1.0) var max_slope = 1.0
-export(String, "bitmask") var mask = "1048575"
+@export var ray_length := 10.0
+@export var ray_offset := 1.0
+@export var remove_points_on_miss := true
+@export var align_with_floor_normal := false
+@export var invert_ray_direction := false
+@export var floor_direction := Vector3.DOWN
+@export var max_slope = 1.0 # (float, 0.0, 1.0)
+@export var mask = "1048575" # (String, "bitmask")
 
 
-func _init() -> void:
+func _init():
 	display_name = "Project On Floor"
 	category = "Edit"
 
 
 func _process_transforms(transforms, _seed) -> void:
-	if transforms.list.empty():
+	if transforms.list.is_empty():
 		return
 
 	var path = transforms.path
-	if not path or not path.get_world():
+	if not path or not path.get_world_3d():
 		return
 
-	var space_state = path.get_world().get_direct_space_state()
+	var space_state = path.get_world_3d().get_direct_space_state()
 	var hit
 	var d: float
-	var t: Transform
+	var t: Transform3D
 	var i := 0
 
 	while i < transforms.list.size():
 		t = transforms.list[i]
 		hit = _project_on_floor(t.origin, path, space_state)
 
-		if hit != null and not hit.empty():
+		if hit != null and not hit.is_empty():
 			d = abs(Vector3.UP.dot(hit.normal))
 			if d < (1.0 - max_slope):
-				transforms.list.remove(i)
+				transforms.list.remove_at(i)
 				continue
 
 			if align_with_floor_normal:
-				var gt: Transform = transforms.path.get_global_transform()
-				t = _align_with(t, gt.basis.xform_inv(hit.normal))
+				var gt: Transform3D = transforms.path.get_global_transform()
+				t = _align_with(t, hit.normal * gt.basis)
 
 			t.origin = path.to_local(hit.position)
 			transforms.list[i] = t
 
 		elif remove_points_on_miss:
-			transforms.list.remove(i)
+			transforms.list.remove_at(i)
 			continue
 
 		i += 1
 
-	if transforms.list.empty():
+	if transforms.list.is_empty():
 		warning += """All the transforms have been removed. Possible reasons: \n
 		+ There is no collider close enough to the path.
 		+ The Ray length is not long enough.
@@ -79,7 +79,7 @@ func _project_on_floor(pos, path, space_state):
 	return space_state.intersect_ray(start, end, [], int(mask))
 
 
-func _align_with(t: Transform, normal: Vector3) -> Transform:
+func _align_with(t: Transform3D, normal: Vector3) -> Transform3D:
 	var n1 = t.basis.y.normalized()
 	var n2 = normal.normalized()
 

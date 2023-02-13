@@ -1,12 +1,12 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
-export(String, "Audio", "Background", "Scene", "Resource") var Mode = "Background"
+@export var Mode = "Background" # (String, "Audio", "Background", "Scene", "Resource")
 
 ## node references
-onready var file_button = $FileButton
-onready var clear_button = $ClearButton
+@onready var file_button = $FileButton
+@onready var clear_button = $ClearButton
 
 # until we change the background color of the pickers, the color should ignore the theme
 var default_color = Color('ccced3')
@@ -14,9 +14,9 @@ var default_color = Color('ccced3')
 # used to connect the signals
 func _ready():
 	editor_reference = find_parent("EditorView")
-	file_button.connect("pressed", self, "_on_FileButton_pressed")
-	clear_button.connect('pressed', self, "_on_ClearButton_pressed")
-	file_button.add_color_override("font_color", default_color) #get_color("mono_color", "Editor"))
+	file_button.connect("pressed",Callable(self,"_on_FileButton_pressed"))
+	clear_button.connect('pressed',Callable(self,"_on_ClearButton_pressed"))
+	file_button.add_theme_color_override("font_color", default_color) #get_color("mono_color", "Editor"))
 	clear_button.icon = get_icon("Reload", "EditorIcons")
 	$FileButton/icon2.texture = get_icon("GuiSliderGrabber", "EditorIcons")
 	match Mode:
@@ -38,7 +38,7 @@ func _ready():
 func load_data(event_data:Dictionary):
 	
 	# first update the event_data
-	.load_data(event_data)
+	super.load_data(event_data)
 	
 	# then the ui
 	var path
@@ -46,25 +46,25 @@ func load_data(event_data:Dictionary):
 	match Mode:
 		"Audio":
 			path = event_data['file']
-			if path.empty():
+			if path.is_empty():
 				file_button.text = 'nothing (will stop previous)'
 		"Background":
 			path = event_data['background']
-			if path.empty():
+			if path.is_empty():
 				file_button.text = 'nothing (will hide previous)'
 		"Scene":
-			path = event_data['change_scene']
-			if path.empty():
+			path = event_data['change_scene_to_file']
+			if path.is_empty():
 				file_button.text = 'a yet to be selected scene'
 		"Resource":
 			path = event_data['resource_file']
-			if path.empty():
+			if path.is_empty():
 				file_button.text = 'a yet to be selected resource'
-	if file_button.text.empty():
+	if file_button.text.is_empty():
 		file_button.text = path.get_file()
-		file_button.hint_tooltip = path
+		file_button.tooltip_text = path
 	
-	clear_button.visible = !path.empty()
+	clear_button.visible = !path.is_empty()
 
 func _on_FileButton_pressed():
 	match Mode:
@@ -86,13 +86,13 @@ func _on_file_selected(path, target):
 		"Background":
 			event_data['background'] = path
 		"Scene":
-			event_data['change_scene'] = path
+			event_data['change_scene_to_file'] = path
 		"Resource":
 			event_data['resource_file'] = path
 	
 	clear_button.visible = true
 	file_button.text = path.get_file()
-	file_button.hint_tooltip = path
+	file_button.tooltip_text = path
 	
 	# informs the parent about the changes!
 	data_changed()
@@ -106,7 +106,7 @@ func _on_ClearButton_pressed():
 			event_data['background'] = ""
 			file_button.text = 'nothing (will hide previous)'
 		"Scene":
-			event_data['change_scene'] = ""
+			event_data['change_scene_to_file'] = ""
 			file_button.text = 'a yet to be selected scene'
 		"Resource":
 			event_data['resource_file'] = ""

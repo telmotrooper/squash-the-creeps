@@ -1,14 +1,14 @@
-tool
-extends WindowDialog
+@tool
+extends Window
 
 
 signal load_preset
 signal delete_preset
 
 
-onready var _no_presets: Label = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/NoPresets
-onready var _root: VBoxContainer = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PresetsRoot
-onready var _confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
+@onready var _no_presets: Label = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/NoPresets
+@onready var _root: VBoxContainer = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PresetsRoot
+@onready var _confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 
 var _selected: String
 var _selected_ui: Node
@@ -16,7 +16,7 @@ var _selected_ui: Node
 
 func _ready():
 	_rebuild_ui()
-	connect("about_to_show", self, "_rebuild_ui")
+	connect("about_to_popup",Callable(self,"_rebuild_ui"))
 
 
 func _rebuild_ui():
@@ -25,18 +25,18 @@ func _rebuild_ui():
 	_root.visible = false
 
 	var presets = _find_all_presets()
-	if presets.empty():
+	if presets.is_empty():
 		_no_presets.visible = true
 		return
 
 	_no_presets.visible = false
 	_root.visible = true
 	for p in presets:
-		var ui = preload("./preset.tscn").instance()
+		var ui = preload("./preset.tscn").instantiate()
 		_root.add_child(ui)
 		ui.set_preset_name(p)
-		ui.connect("load_preset", self, "_on_load_preset", [p])
-		ui.connect("delete_preset", self, "_on_delete_preset", [p, ui])
+		ui.connect("load_preset",Callable(self,"_on_load_preset").bind(p))
+		ui.connect("delete_preset",Callable(self,"_on_delete_preset").bind(p, ui))
 
 
 func _find_all_presets() -> Array:
@@ -44,7 +44,7 @@ func _find_all_presets() -> Array:
 	var res := []
 	var dir = Directory.new()
 	dir.open(root)
-	dir.list_dir_begin(true, true)
+	dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	while true:
 		var file = dir.get_next()
@@ -79,7 +79,7 @@ func _on_delete_preset(preset_name, ui) -> void:
 
 func _on_delete_preset_confirmed():
 	var dir = Directory.new()
-	dir.remove(_get_root_folder() + "/presets/" + _selected + ".tscn")
+	dir.remove_at(_get_root_folder() + "/presets/" + _selected + ".tscn")
 	_selected_ui.queue_free()
 
 

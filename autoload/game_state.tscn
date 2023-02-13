@@ -6,7 +6,7 @@
 script = ExtResource( 3 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
+process_mode = 2
 autoplay = true
 bus = "Music"
 

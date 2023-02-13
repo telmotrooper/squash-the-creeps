@@ -1,4 +1,4 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 ## BEFORE EDITING THIS MAKE SURE YOU HAVE CREATED A UNIQUE SCRIPT!!!
@@ -7,18 +7,18 @@ extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 ## node references
 # e.g. 
-onready var input_field = $Box/InputField
+@onready var input_field = $Box/InputField
 
 # used to connect the signals
 func _ready():
 	# e.g. 
-	input_field.connect("text_changed", self, "_on_InputField_text_changed")
+	input_field.connect("text_changed",Callable(self,"_on_InputField_text_changed"))
 	pass
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	# e.g. 

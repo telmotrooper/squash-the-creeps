@@ -1,31 +1,31 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
 ## node references
-onready var title_input = $Title/Input
-onready var title_check = $Title/Check
-onready var text_input = $Text/Input
-onready var text_check = $Text/Check
-onready var extra_input = $Extra/Input
-onready var extra_check = $Extra/Check
+@onready var title_input = $Title/Input
+@onready var title_check = $Title/Check
+@onready var text_input = $Text/Input
+@onready var text_check = $Text/Check
+@onready var extra_input = $Extra/Input
+@onready var extra_check = $Extra/Check
 
 # used to connect the signals
 func _ready():
-	title_input.connect("text_changed", self, "_on_TitleField_text_changed")
-	text_input.connect("text_changed", self, "_on_TextField_text_changed")
-	extra_input.connect("text_changed", self, "_on_ExtraField_text_changed")
+	title_input.connect("text_changed",Callable(self,"_on_TitleField_text_changed"))
+	text_input.connect("text_changed",Callable(self,"_on_TextField_text_changed"))
+	extra_input.connect("text_changed",Callable(self,"_on_ExtraField_text_changed"))
 	
-	title_check.connect("toggled", self, "_on_TitleCheck_toggled")
-	text_check.connect("toggled", self, "_on_TextCheck_toggled")
-	extra_check.connect("toggled", self, "_on_ExtraCheck_toggled")
+	title_check.connect("toggled",Callable(self,"_on_TitleCheck_toggled"))
+	text_check.connect("toggled",Callable(self,"_on_TextCheck_toggled"))
+	extra_check.connect("toggled",Callable(self,"_on_ExtraCheck_toggled"))
 
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	emit_signal("request_set_body_enabled", event_data['glossary_id'] != '')
 	
@@ -49,22 +49,22 @@ func load_data(data:Dictionary):
 	
 	# Now update the ui nodes to display the data. 
 	if event_data['title'] == "[No Change]":
-		title_check.pressed = true
+		title_check.button_pressed = true
 		title_input.text = ""
 	else:
-		title_check.pressed = false
+		title_check.button_pressed = false
 		title_input.text = event_data['title']
 	if event_data['text'] == "[No Change]":
-		text_check.pressed = true
+		text_check.button_pressed = true
 		text_input.text = ""
 	else:
-		text_check.pressed = false
+		text_check.button_pressed = false
 		text_input.text = event_data['text']
 	if event_data['extra'] == "[No Change]":
-		extra_check.pressed = true
+		extra_check.button_pressed = true
 		extra_input.text = ""
 	else:
-		extra_check.pressed = false
+		extra_check.button_pressed = false
 		extra_input.text = event_data['extra']
 	
 

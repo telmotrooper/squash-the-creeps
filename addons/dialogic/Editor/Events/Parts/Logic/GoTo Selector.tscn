@@ -5,8 +5,8 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn" type="PackedScene" id=3]
 
 [node name="GoTo Selector" type="HBoxContainer"]
-margin_right = 129.0
-margin_bottom = 22.0
+offset_right = 129.0
+offset_bottom = 22.0
 size_flags_vertical = 4
 script = ExtResource( 1 )
 __meta__ = {
@@ -14,10 +14,10 @@ __meta__ = {
 }
 
 [node name="Label" parent="." instance=ExtResource( 3 )]
-margin_right = 31.0
+offset_right = 31.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "label"
 
 [node name="MenuButton" parent="." instance=ExtResource( 2 )]
-margin_left = 35.0
-margin_right = 129.0
+offset_left = 35.0
+offset_right = 129.0

@@ -3,7 +3,7 @@
 [ext_resource path="res://maps/extras/height_map/height_map.glb" type="PackedScene" id=1]
 [ext_resource path="res://maps/extras/height_map/height_map.gd" type="Script" id=2]
 
-[node name="HeightMap" type="Spatial"]
+[node name="HeightMap" type="Node3D"]
 script = ExtResource( 2 )
 
 [node name="height_map" parent="." instance=ExtResource( 1 )]

@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-export (PackedScene) var initial_scene
+@export (PackedScene) var initial_scene
 
 enum LoadingStates {
   FADE_TO_BLACK_1,
@@ -90,7 +90,7 @@ func _process(_delta: float) -> void:
     var new_world = ResourceQueue.get_resource(loading_world)
     if new_world:
       # If we're finished, create a new instance.
-      current_world = new_world.instance()
+      current_world = new_world.instantiate()
       
       # Fade to black.
       loading_state = LoadingStates.FADE_TO_BLACK_2

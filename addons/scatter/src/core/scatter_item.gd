@@ -1,20 +1,20 @@
-tool
-extends Spatial
+@tool
+extends Node3D
 
 
 const Util = preload("../common/util.gd")
 
-export var proportion := 100 setget _set_proportion
-export var local_item_path: NodePath setget _set_local_path
-export(String, FILE) var item_path setget _set_path
-export var scale_modifier := 1.0 setget _set_scale_modifier
-export var ignore_initial_position := true setget _set_ignore_pos
-export var ignore_initial_rotation := true setget _set_ignore_rot
-export var ignore_initial_scale := true setget _set_ignore_scale
+@export var proportion := 100 : set = _set_proportion
+@export var local_item_path: NodePath : set = _set_local_path
+@export var item_path setget _set_path # (String, FILE)
+@export var scale_modifier := 1.0 : set = _set_scale_modifier
+@export var ignore_initial_position := true : set = _set_ignore_pos
+@export var ignore_initial_rotation := true : set = _set_ignore_rot
+@export var ignore_initial_scale := true : set = _set_ignore_scale
 
-var use_instancing := true setget _set_use_instancing
-var merge_target_meshes := false setget _set_merge_target_meshes
-var cast_shadow := 1 setget _set_cast_shadow
+var use_instancing := true : set = _set_use_instancing
+var merge_target_meshes := false : set = _set_merge_target_meshes
+var cast_shadow := 1 : set = _set_cast_shadow
 
 var initial_position: Vector3
 var initial_rotation: Vector3
@@ -31,12 +31,12 @@ func _ready():
 	use_instancing = _parent.use_instancing
 
 
-func _get_configuration_warning() -> String:
-	if local_item_path.is_empty() and item_path.empty():
+func _get_configuration_warnings() -> String:
+	if local_item_path.is_empty() and item_path.is_empty():
 		return """ No source Node found! You need either ONE of the following:
 
-			- If the Node you want to scatter is in this scene, fill the 'Local Item Path' variable.
-			- If your Node is in another scene, fill the 'Item Path' variable.
+			- If the Node you want to scatter is in this scene, fill the 'Local Item Path3D' variable.
+			- If your Node is in another scene, fill the 'Item Path3D' variable.
 		"""
 	return ""
 
@@ -86,7 +86,7 @@ func update():
 		_parent.update()
 
 
-func get_mesh_instance_copy() -> MeshInstance:
+func get_mesh_instance_copy() -> MeshInstance3D:
 	var root = null
 	var local_root = false
 
@@ -97,7 +97,7 @@ func get_mesh_instance_copy() -> MeshInstance:
 	if item_path:
 		var scene = load(item_path)
 		if scene:
-			root = scene.instance()
+			root = scene.instantiate()
 
 	if root:
 		var mesh = _get_mesh_from_scene(root)
@@ -109,7 +109,7 @@ func get_mesh_instance_copy() -> MeshInstance:
 
 	# Nothing found, print the relevant warning in the console.
 	if local_item_path:
-		printerr("Warning: ", name, "/local_item_path - ", local_item_path, " is not a valid MeshInstance")
+		printerr("Warning: ", name, "/local_item_path - ", local_item_path, " is not a valid MeshInstance3D")
 	if item_path:
 		printerr("Warning: ", item_path, " is not a valid scene file")
 
@@ -131,7 +131,7 @@ func get_item_node():
 	if item_path:
 		var scene = load(item_path)
 		if scene:
-			var node = scene.instance()
+			var node = scene.instantiate()
 			_save_initial_data(node)
 			return node
 
@@ -153,16 +153,16 @@ func update_warning() -> void:
 		get_tree().emit_signal("node_configuration_warning_changed", self)
 
 
-func get_multimesh_instance() -> MultiMeshInstance:
+func get_multimesh_instance() -> MultiMeshInstance3D:
 	for c in get_children():
-		if c is MultiMeshInstance:
+		if c is MultiMeshInstance3D:
 			return c
 	return null
 
 
 func delete_multimesh() -> void:
 	for c in get_children():
-		if c is MultiMeshInstance:
+		if c is MultiMeshInstance3D:
 			c.queue_free()
 
 
@@ -173,7 +173,7 @@ func delete_duplicates() -> void:
 
 
 func update_shadows() -> void:
-	var mmi: MultiMeshInstance = get_multimesh_instance()
+	var mmi: MultiMeshInstance3D = get_multimesh_instance()
 	if not mmi:
 		return
 
@@ -187,9 +187,9 @@ func _get_mesh_from_scene(node):
 	return _get_first_mesh_from_scene(node)
 
 
-# Finds the first MeshInstance in the given hierarchy and returns it.
+# Finds the first MeshInstance3D in the given hierarchy and returns it.
 func _get_first_mesh_from_scene(node):
-	if node is MeshInstance:
+	if node is MeshInstance3D:
 		return node.duplicate()
 
 	for c in node.get_children():
@@ -204,10 +204,10 @@ func _get_first_mesh_from_scene(node):
 # from all of them
 func _get_merged_mesh_from(node):
 	var instances = _get_all_mesh_instances_from(node)
-	if not instances or instances.empty():
+	if not instances or instances.is_empty():
 		return null
 
-	var mesh_instance := MeshInstance.new()
+	var mesh_instance := MeshInstance3D.new()
 	mesh_instance.mesh = Util.create_mesh_from(instances)
 
 	return mesh_instance
@@ -215,7 +215,7 @@ func _get_merged_mesh_from(node):
 
 func _get_all_mesh_instances_from(node) -> Array:
 	var res = []
-	if node is MeshInstance:
+	if node is MeshInstance3D:
 		res.push_back(node)
 
 	for c in node.get_children():
@@ -224,19 +224,19 @@ func _get_all_mesh_instances_from(node) -> Array:
 	return res
 
 
-func _save_initial_data(mesh: MeshInstance) -> void:
+func _save_initial_data(mesh: MeshInstance3D) -> void:
 	if not mesh:
 		return
 
-	initial_position = mesh.translation
+	initial_position = mesh.position
 	initial_rotation = mesh.rotation
 	initial_scale = mesh.scale
 
-	# Save the materials applied to the mesh instance, not on the mesh itself
+	# Save the materials applied to the mesh instance, not checked the mesh itself
 	# Needed for obj meshes with multiple surfaces
 	materials = []
-	for i in mesh.get_surface_material_count():
-		materials.append(mesh.get_surface_material(i))
+	for i in mesh.get_surface_override_material_count():
+		materials.append(mesh.get_surface_override_material(i))
 
 
 func _restore_multimesh_materials() -> void:
@@ -296,7 +296,7 @@ func _set_ignore_scale(val: bool) -> void:
 
 func _set_use_instancing(val: bool) -> void:
 	use_instancing = val
-	property_list_changed_notify()
+	notify_property_list_changed()
 
 
 func _set_cast_shadow(val: int) -> void:

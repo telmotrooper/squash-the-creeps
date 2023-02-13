@@ -4,8 +4,8 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn" type="PackedScene" id=2]
 
 [node name="OperationPicker" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 size_flags_vertical = 4
 script = ExtResource( 1 )
 __meta__ = {

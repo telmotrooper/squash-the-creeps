@@ -1,11 +1,11 @@
-tool
+@tool
 extends Node
 
 
 signal stack_changed
 
 
-export var stack := []
+@export var stack := []
 var just_created := false
 var undo_redo: UndoRedo
 
@@ -43,7 +43,7 @@ func move_up(modifier) -> void:
 		return
 
 	var restore = duplicate_stack()
-	stack.remove(index)
+	stack.remove_at(index)
 	stack.insert(index - 1, modifier)
 	_create_undo_action("Moved Modifier Up", restore)
 
@@ -57,14 +57,14 @@ func move_down(modifier) -> void:
 		return
 
 	var restore = duplicate_stack()
-	stack.remove(index)
+	stack.remove_at(index)
 	stack.insert(index + 1, modifier)
 	_create_undo_action("Moved Modifier Down", restore)
 
 	emit_signal("stack_changed")
 
 
-func remove(modifier) -> void:
+func remove_at(modifier) -> void:
 	if stack.has(modifier):
 		var restore = duplicate_stack()
 		stack.erase(modifier)

@@ -15,21 +15,21 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape3D" id=2]
 height = 2.0
 
-[node name="GodotHead" type="Area"]
+[node name="GodotHead" type="Area3D"]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 2 )
 
-[node name="Pivot" type="Spatial" parent="."]
+[node name="Pivot" type="Node3D" parent="."]
 
 [node name="godot_logo" parent="Pivot" instance=ExtResource( 1 )]
 
@@ -37,8 +37,8 @@ script = ExtResource( 2 )
 autoplay = "rotate"
 anims/rotate = SubResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 2, 0, 0, 0, -5.24537e-08, 1.2, 0, -2.1, -9.17939e-08, 0, 0, 0 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D( 2, 0, 0, 0, -5.24537e-08, 1.2, 0, -2.1, -9.17939e-08, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,4 +1,4 @@
-tool
+@tool
 extends CheckBox
 
 var current_piece
@@ -9,7 +9,7 @@ func _ready():
 	# Gotta love the nodes system some times
 	# Praise the paths (っ´ω`c)♡
 	current_piece = get_parent().get_parent().get_parent().get_parent()
-	connect("toggled", self, "_on_VisibleToggle_toggled")
+	connect("toggled",Callable(self,"_on_VisibleToggle_toggled"))
 
 
 func disabled():
@@ -19,7 +19,7 @@ func disabled():
 
 func set_visible(visible: bool):
 	pressed = visible
-	var current_rect_size = current_piece.get("rect_size")
+	var current_rect_size = current_piece.get("size")
 	if visible:
 		current_piece.get_node("PanelContainer/VBoxContainer/Header/Preview").hide()
 		
@@ -39,7 +39,7 @@ func set_visible(visible: bool):
 				index += 1
 			if "preview" in current_piece:
 				current_piece.get_node("PanelContainer/VBoxContainer/Header/Preview").text = current_piece.preview
-			current_piece.set("rect_size", Vector2(current_rect_size.x,0))
+			current_piece.set("size", Vector2(current_rect_size.x,0))
 	release_focus()
 
 

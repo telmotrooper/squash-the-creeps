@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
-export (AudioStream) var map_music
-export (AudioStream) var drain_water_sound
+@export (AudioStream) var map_music
+@export (AudioStream) var drain_water_sound
 
 func _ready() -> void:
   GameState.play_music(map_music)

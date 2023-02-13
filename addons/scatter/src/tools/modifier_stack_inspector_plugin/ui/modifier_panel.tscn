@@ -1,19 +1,19 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/scatter/src/tools/modifier_stack_inspector_plugin/ui/modifier_panel.gd" type="Script" id=1]
-[ext_resource path="res://addons/scatter/icons/right.svg" type="Texture" id=2]
-[ext_resource path="res://addons/scatter/icons/up.svg" type="Texture" id=3]
+[ext_resource path="res://addons/scatter/icons/right.svg" type="Texture2D" id=2]
+[ext_resource path="res://addons/scatter/icons/up.svg" type="Texture2D" id=3]
 [ext_resource path="res://addons/scatter/src/tools/modifier_stack_inspector_plugin/ui/toggle_button.gd" type="Script" id=4]
-[ext_resource path="res://addons/scatter/icons/close.svg" type="Texture" id=5]
-[ext_resource path="res://addons/scatter/icons/down.svg" type="Texture" id=6]
-[ext_resource path="res://addons/scatter/icons/enabled.svg" type="Texture" id=7]
-[ext_resource path="res://addons/scatter/icons/disabled.svg" type="Texture" id=8]
-[ext_resource path="res://addons/scatter/icons/warning.svg" type="Texture" id=9]
+[ext_resource path="res://addons/scatter/icons/close.svg" type="Texture2D" id=5]
+[ext_resource path="res://addons/scatter/icons/down.svg" type="Texture2D" id=6]
+[ext_resource path="res://addons/scatter/icons/enabled.svg" type="Texture2D" id=7]
+[ext_resource path="res://addons/scatter/icons/disabled.svg" type="Texture2D" id=8]
+[ext_resource path="res://addons/scatter/icons/warning.svg" type="Texture2D" id=9]
 
 [node name="ModifierPanel" type="Control"]
 anchor_right = 1.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 0, 34 )
+offset_bottom = 34.0
+custom_minimum_size = Vector2( 0, 34 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,31 +31,31 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 34.0
+offset_bottom = 34.0
 mouse_filter = 2
 size_flags_vertical = 4
-custom_constants/margin_right = 6
-custom_constants/margin_top = 6
-custom_constants/margin_left = 6
-custom_constants/margin_bottom = 6
+custom_constants/offset_right = 6
+custom_constants/offset_top = 6
+custom_constants/offset_left = 6
+custom_constants/offset_bottom = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 1018.0
-margin_bottom = 28.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1018.0
+offset_bottom = 28.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1012.0
-margin_bottom = 22.0
+offset_right = 1012.0
+offset_bottom = 22.0
 size_flags_vertical = 0
 
 [node name="Expand" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 28.0
-margin_bottom = 22.0
+offset_right = 28.0
+offset_bottom = 22.0
 focus_mode = 0
 mouse_filter = 1
 toggle_mode = true
@@ -66,72 +66,72 @@ default_icon = ExtResource( 2 )
 pressed_icon = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 32.0
-margin_top = 4.0
-margin_right = 980.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 80, 0 )
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 980.0
+offset_bottom = 18.0
+custom_minimum_size = Vector2( 80, 0 )
 size_flags_horizontal = 3
 text = "Modifier Name"
 clip_text = true
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 984.0
-margin_right = 1012.0
-margin_bottom = 22.0
+offset_left = 984.0
+offset_right = 1012.0
+offset_bottom = 22.0
 custom_constants/separation = 0
 
 [node name="EditButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 visible = false
-margin_right = 84.0
-margin_bottom = 22.0
+offset_right = 84.0
+offset_bottom = 22.0
 custom_constants/separation = 0
 
 [node name="MoveUp" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons/EditButtons"]
-margin_right = 28.0
-margin_bottom = 22.0
+offset_right = 28.0
+offset_bottom = 22.0
 focus_mode = 0
 mouse_filter = 1
 size_flags_vertical = 4
 icon = ExtResource( 3 )
 
 [node name="MoveDown" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons/EditButtons"]
-margin_left = 28.0
-margin_right = 56.0
-margin_bottom = 22.0
+offset_left = 28.0
+offset_right = 56.0
+offset_bottom = 22.0
 focus_mode = 0
 mouse_filter = 1
 size_flags_vertical = 4
 icon = ExtResource( 6 )
 
 [node name="Remove" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons/EditButtons"]
-margin_left = 56.0
-margin_right = 84.0
-margin_bottom = 22.0
+offset_left = 56.0
+offset_right = 84.0
+offset_bottom = 22.0
 focus_mode = 0
 mouse_filter = 1
 size_flags_vertical = 4
 icon = ExtResource( 5 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
-margin_right = 28.0
-margin_bottom = 22.0
+offset_right = 28.0
+offset_bottom = 22.0
 custom_constants/separation = 0
 
 [node name="Warning" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons/HBoxContainer"]
 visible = false
-margin_right = 28.0
-margin_bottom = 22.0
-hint_tooltip = "There are issues with this modifier configuration, click this warning icon for more details."
+offset_right = 28.0
+offset_bottom = 22.0
+tooltip_text = "There are issues with this modifier configuration, click this warning icon for more details."
 mouse_filter = 1
 size_flags_horizontal = 0
 icon = ExtResource( 9 )
 flat = true
 
 [node name="Enable" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons/HBoxContainer"]
-margin_right = 28.0
-margin_bottom = 22.0
-hint_tooltip = "Enable or Disable the modifier.
+offset_right = 28.0
+offset_bottom = 22.0
+tooltip_text = "Enable or Disable the modifier.
 If a modifier is disabled, it will stay in the stack but wont contribute to the final result."
 mouse_filter = 1
 size_flags_vertical = 4
@@ -145,13 +145,13 @@ pressed_icon = ExtResource( 7 )
 
 [node name="Parameters" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 visible = false
-margin_top = 26.0
-margin_right = 1012.0
-margin_bottom = 26.0
+offset_top = 26.0
+offset_right = 1012.0
+offset_bottom = 26.0
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
-margin_right = 83.0
-margin_bottom = 58.0
+offset_right = 83.0
+offset_bottom = 58.0
 window_title = "Warning"
 __meta__ = {
 "_edit_use_anchors_": false

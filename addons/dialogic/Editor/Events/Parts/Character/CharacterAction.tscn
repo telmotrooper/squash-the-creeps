@@ -6,24 +6,24 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/Character/PositionPicker.tscn" type="PackedScene" id=4]
 
 [node name="CharacterAction" type="HBoxContainer"]
-margin_right = 454.0
-margin_bottom = 30.0
+offset_right = 454.0
+offset_bottom = 30.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ActionTypePicker" parent="." instance=ExtResource( 1 )]
-margin_top = 4.0
-margin_bottom = 26.0
+offset_top = 4.0
+offset_bottom = 26.0
 
 [node name="CharacterAndPortraitPicker" parent="." instance=ExtResource( 3 )]
-margin_left = 98.0
-margin_right = 193.0
-margin_bottom = 30.0
+offset_left = 98.0
+offset_right = 193.0
+offset_bottom = 30.0
 size_flags_vertical = 4
 
 [node name="PositionPicker" parent="." instance=ExtResource( 4 )]
-margin_left = 197.0
-margin_right = 471.0
+offset_left = 197.0
+offset_right = 471.0
 size_flags_vertical = 4

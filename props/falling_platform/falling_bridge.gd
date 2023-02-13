@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var platforms := []
 var index := 0

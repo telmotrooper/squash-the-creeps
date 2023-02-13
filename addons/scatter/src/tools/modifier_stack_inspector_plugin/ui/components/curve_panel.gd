@@ -1,29 +1,29 @@
 # warning-ignore-all:return_value_discarded
 
-tool
+@tool
 extends Control
 
 
 signal curve_updated
 
 
-export var grid_color := Color(1, 1, 1, 0.2)
-export var grid_color_sub := Color(1, 1, 1, 0.1)
-export var curve_color := Color(1, 1, 1, 0.9)
-export var point_color := Color.white
-export var selected_point_color := Color.orange
-export var point_radius := 4.0
-export var text_color := Color(0.9, 0.9, 0.9)
-export var columns := 4
-export var rows := 2
-export var dynamic_row_count := true
+@export var grid_color := Color(1, 1, 1, 0.2)
+@export var grid_color_sub := Color(1, 1, 1, 0.1)
+@export var curve_color := Color(1, 1, 1, 0.9)
+@export var point_color := Color.WHITE
+@export var selected_point_color := Color.ORANGE
+@export var point_radius := 4.0
+@export var text_color := Color(0.9, 0.9, 0.9)
+@export var columns := 4
+@export var rows := 2
+@export var dynamic_row_count := true
 
 var curve: Curve
 var gt: Transform2D
 
-var _hover_point := -1 setget set_hover
-var _selected_point := -1 setget set_selected_point
-var _selected_tangent := -1 setget set_selected_tangent
+var _hover_point := -1 : set = set_hover
+var _selected_point := -1 : set = set_selected_point
+var _selected_tangent := -1 : set = set_selected_tangent
 var _dragging := false
 var _hover_radius := 50.0 # Squared
 var _tangents_length := 30.0
@@ -31,14 +31,14 @@ var _font: Font
 
 
 func _ready() -> void:
-	#rect_min_size.y *= EditorUtil.get_editor_scale()
+	#custom_minimum_size.y *= EditorUtil.get_editor_scale()
 	var plugin := EditorPlugin.new()
 	var theme := plugin.get_editor_interface().get_base_control().get_theme()
 	_font = theme.get_font("Main", "EditorFonts")
 	plugin.queue_free()
 
 	update()
-	connect("resized", self, "_on_resized")
+	connect("resized",Callable(self,"_on_resized"))
 
 
 func set_curve(c: Curve) -> void:
@@ -59,12 +59,12 @@ func _gui_input(event) -> void:
 		if event.doubleclick:
 			add_point(_to_curve_space(event.position))
 
-		elif event.pressed and event.button_index == BUTTON_MIDDLE:
+		elif event.pressed and event.button_index == MOUSE_BUTTON_MIDDLE:
 			var i = get_point_at(event.position)
 			if i != -1:
 				remove_point(i)
 
-		elif event.pressed and event.button_index == BUTTON_LEFT:
+		elif event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			set_selected_tangent(get_tangent_at(event.position))
 
 			if _selected_tangent == -1:
@@ -195,10 +195,10 @@ func _draw() -> void:
 		return
 
 	var text_height = _font.get_height()
-	var min_outer := Vector2(0, rect_size.y)
-	var max_outer := Vector2(rect_size.x, 0)
-	var min_inner := Vector2(text_height, rect_size.y - text_height)
-	var max_inner := Vector2(rect_size.x - text_height, text_height)
+	var min_outer := Vector2(0, size.y)
+	var max_outer := Vector2(size.x, 0)
+	var min_inner := Vector2(text_height, size.y - text_height)
+	var max_inner := Vector2(size.x - text_height, text_height)
 
 	var width: float = max_inner.x - min_inner.x
 	var height: float = max_inner.y - min_inner.y
@@ -221,7 +221,7 @@ func _draw() -> void:
 	for i in columns + 1:
 		var x = width * (i * x_offset) + min_inner.x
 		draw_line(Vector2(x, max_outer.y), Vector2(x, min_outer.y), grid_color_sub)
-		draw_string(_font, Vector2(x + margin, min_outer.y - margin), String(stepify(i * x_offset, 0.01)), text_color)
+		draw_string(_font, Vector2(x + margin, min_outer.y - margin), String(snapped(i * x_offset, 0.01)), text_color)
 
 	## Horizontal lines
 	var y_offset = 1.0 / rows
@@ -230,7 +230,7 @@ func _draw() -> void:
 		var y = height * (i * y_offset) + min_inner.y
 		draw_line(Vector2(min_outer.x, y), Vector2(max_outer.x, y), grid_color_sub)
 		var y_value = i * ((curve_max - curve_min) / rows) + curve_min
-		draw_string(_font, Vector2(min_inner.x + margin, y - margin), String(stepify(y_value, 0.01)), text_color)
+		draw_string(_font, Vector2(min_inner.x + margin, y - margin), String(snapped(y_value, 0.01)), text_color)
 
 	# Plot curve
 	var steps = 100
@@ -243,11 +243,11 @@ func _draw() -> void:
 	var b_y: float
 
 	a = curve.interpolate_baked(0.0)
-	a_y = range_lerp(a, curve_min, curve_max, min_inner.y, max_inner.y)
+	a_y = remap(a, curve_min, curve_max, min_inner.y, max_inner.y)
 
 	for i in steps - 1:
 		b = curve.interpolate_baked((i + 1) * offset)
-		b_y = range_lerp(b, curve_min, curve_max, min_inner.y, max_inner.y)
+		b_y = remap(b, curve_min, curve_max, min_inner.y, max_inner.y)
 		draw_line(Vector2(min_inner.x + x_offset * i, a_y), Vector2(min_inner.x + x_offset * (i + 1), b_y), curve_color)
 		a_y = b_y
 
@@ -280,15 +280,15 @@ func _draw() -> void:
 
 func _to_view_space(pos: Vector2) -> Vector2:
 	var h = _font.get_height()
-	pos.x = range_lerp(pos.x, 0.0, 1.0, h, rect_size.x - h)
-	pos.y = range_lerp(pos.y, curve.get_min_value(), curve.get_max_value(), rect_size.y - h, h)
+	pos.x = remap(pos.x, 0.0, 1.0, h, size.x - h)
+	pos.y = remap(pos.y, curve.get_min_value(), curve.get_max_value(), size.y - h, h)
 	return pos
 
 
 func _to_curve_space(pos: Vector2) -> Vector2:
 	var h = _font.get_height()
-	pos.x = range_lerp(pos.x, h, rect_size.x - h, 0.0, 1.0)
-	pos.y = range_lerp(pos.y, rect_size.y - h, h, curve.get_min_value(), curve.get_max_value())
+	pos.x = remap(pos.x, h, size.x - h, 0.0, 1.0)
+	pos.y = remap(pos.y, size.y - h, h, curve.get_min_value(), curve.get_max_value())
 	return pos
 
 
@@ -326,4 +326,4 @@ func set_selected_tangent(val: int) -> void:
 
 func _on_resized() -> void:
 	if dynamic_row_count:
-		rows = (int(rect_size.y / rect_min_size.y) + 1) * 2
+		rows = (int(size.y / custom_minimum_size.y) + 1) * 2

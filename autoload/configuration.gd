@@ -1,7 +1,7 @@
 extends Node
 
 var file_path = "user://settings.cfg"
-onready var config = ConfigFile.new()
+@onready var config = ConfigFile.new()
 
 const min_volume := -60
 const max_volume := 0
@@ -36,7 +36,7 @@ func _ready() -> void:
   
   # Handle fullscreen
   if config.get_value("graphics", "fullscreen") == true:
-    OS.window_fullscreen = true
+    get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
   
   # Handle music volume
   var music_volume = config.get_value("audio", "music_volume")

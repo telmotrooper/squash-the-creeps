@@ -1,4 +1,4 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
@@ -7,20 +7,20 @@ var enable_icon
 var disable_icon
 
 ## node references
-onready var positions_container = $HBox/PositionsContainer
-onready var enable_position = $HBox/EnablePosition
+@onready var positions_container = $HBox/PositionsContainer
+@onready var enable_position = $HBox/EnablePosition
 # used to connect the signals
 func _ready():
 	for p in positions_container.get_children():
-		p.connect('pressed', self, "position_button_pressed", [p.name])
-	enable_position.connect('toggled', self, 'on_EnablePosition_toggled')
+		p.connect('pressed',Callable(self,"position_button_pressed").bind(p.name))
+	enable_position.connect('toggled',Callable(self,'on_EnablePosition_toggled'))
 	enable_icon = get_icon("Edit", "EditorIcons")
 	disable_icon = get_icon("Reload", "EditorIcons")
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	if data.get('type', 0) == 0:
 		$HBox/Label.text = 'at position'
@@ -30,7 +30,7 @@ func load_data(data:Dictionary):
 		else:
 			$HBox/Label.text = 'to position'
 	
-	enable_position.pressed = data.get('change_position', false) or data.get('type', 0) != 2
+	enable_position.button_pressed = data.get('change_position', false) or data.get('type', 0) != 2
 	enable_position.visible = data.get('type', 0) == 2
 	enable_position.icon = enable_icon if not enable_position.pressed else disable_icon
 	positions_container.visible = enable_position.pressed
@@ -53,7 +53,7 @@ func position_button_pressed(name):
 	var selected_index = name.split('-')[1]
 	var button = positions_container.get_node('position-' + selected_index)
 	button.set('self_modulate', get_character_color())
-	button.pressed = true
+	button.button_pressed = true
 	
 	event_data['position'][selected_index] = true
 	
@@ -66,7 +66,7 @@ func clear_all_positions():
 		event_data['position'][str(i)] = false
 	for p in positions_container.get_children():
 		p.set('self_modulate', default_icon_color)
-		p.pressed = false
+		p.button_pressed = false
 
 
 func check_active_position(active_color = Color("#ffffff")):
@@ -74,7 +74,7 @@ func check_active_position(active_color = Color("#ffffff")):
 	var index = 0
 	for p in positions_container.get_children():
 		if event_data['position'][str(index)]:
-			p.pressed = true
+			p.button_pressed = true
 			p.set('self_modulate', get_character_color())
 		index += 1
 

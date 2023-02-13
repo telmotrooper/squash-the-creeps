@@ -1,11 +1,11 @@
-tool
-extends Spatial
+@tool
+extends Node3D
 
 
 signal parameter_changed
 
 
-export var radius := 1.0 setget set_radius
+@export var radius := 1.0 : set = set_radius
 
 
 func _ready():

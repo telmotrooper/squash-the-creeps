@@ -1,32 +1,32 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 signal audio_loaded
 
-export (String) var event_name = "Audio Event"
+@export (String) var event_name = "Audio Event"
 
 ## node references
-onready var file_picker := $VBox/AudioFilePicker
+@onready var file_picker := $VBox/AudioFilePicker
 
-onready var volume_input := $VBox/adv_settings/AudioVolume/VBox/Volume
-onready var region_group := $VBox/adv_settings/AudioRegion
-onready var start_at_input := $VBox/adv_settings/AudioRegion/VBox/HBox/StartAt
-onready var stop_at_input := $VBox/adv_settings/AudioRegion/VBox/HBox/StopAt
-onready var bus_selector := $VBox/adv_settings/AudioBus/VBox/BusSelector
+@onready var volume_input := $VBox/adv_settings/AudioVolume/VBox/Volume
+@onready var region_group := $VBox/adv_settings/AudioRegion
+@onready var start_at_input := $VBox/adv_settings/AudioRegion/VBox/HBox/StartAt
+@onready var stop_at_input := $VBox/adv_settings/AudioRegion/VBox/HBox/StopAt
+@onready var bus_selector := $VBox/adv_settings/AudioBus/VBox/BusSelector
 
 # used to connect the signals
 func _ready():
 	
 	# signals
-	file_picker.connect("data_changed", self, '_on_FilePicker_data_changed')
-	bus_selector.connect("item_selected", self, "_on_BusSelector_item_selected")
-	volume_input.connect("value_changed", self, "_on_Volume_value_changed")
-	start_at_input.connect("value_changed", self, "_on_StartAt_value_changed")
-	stop_at_input.connect("value_changed", self, "_on_StopAt_value_changed")
+	file_picker.connect("data_changed",Callable(self,'_on_FilePicker_data_changed'))
+	bus_selector.connect("item_selected",Callable(self,"_on_BusSelector_item_selected"))
+	volume_input.connect("value_changed",Callable(self,"_on_Volume_value_changed"))
+	start_at_input.connect("value_changed",Callable(self,"_on_StartAt_value_changed"))
+	stop_at_input.connect("value_changed",Callable(self,"_on_StopAt_value_changed"))
 	
 	# AudioBusPicker update
-	AudioServer.connect("bus_layout_changed", self, "update_bus_selector")
+	AudioServer.connect("bus_layout_changed",Callable(self,"update_bus_selector"))
 	update_bus_selector()
 	
 	# file picker is here only used for text voice 
@@ -35,7 +35,7 @@ func _ready():
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	file_picker.load_data(data)
 	

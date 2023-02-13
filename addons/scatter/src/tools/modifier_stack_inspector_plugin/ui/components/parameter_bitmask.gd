@@ -1,13 +1,13 @@
-tool
+@tool
 extends "base_parameter.gd"
 
 
-onready var _label: Label = $Label
-onready var _grid_1: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer1
-onready var _grid_2: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer2
-onready var _grid_3: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/GridContainer3
-onready var _grid_4: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/GridContainer4
-onready var _menu_button: MenuButton = $MarginContainer/HBoxContainer/MenuButton
+@onready var _label: Label = $Label
+@onready var _grid_1: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer1
+@onready var _grid_2: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer2
+@onready var _grid_3: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/GridContainer3
+@onready var _grid_4: Control = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/GridContainer4
+@onready var _menu_button: MenuButton = $MarginContainer/HBoxContainer/MenuButton
 
 var _buttons: Array
 var _popup: PopupMenu
@@ -18,7 +18,7 @@ func _ready() -> void:
 	_buttons = []
 	var grids = [_grid_1, _grid_2, _grid_3, _grid_4]
 
-	# Disable the extra layers if we're on 3.3
+	# Disable the extra layers if we're checked 3.3
 	if not ProjectSettings.has_setting("layer_names/3d_physics/layer_21"):
 		_layer_count = 20
 
@@ -31,7 +31,7 @@ func _ready() -> void:
 					continue
 				_buttons.push_front(c)
 				c.focus_mode = Control.FOCUS_NONE
-				c.connect("pressed", self, "_on_button_pressed")
+				c.connect("pressed",Callable(self,"_on_button_pressed"))
 
 	_popup = _menu_button.get_popup()
 	_popup.clear()
@@ -42,14 +42,14 @@ func _ready() -> void:
 			_popup.add_separator("", 100 + i)
 
 		layer_name = ProjectSettings.get_setting("layer_names/3d_physics/layer_" + String(i + 1))
-		if layer_name.empty():
+		if layer_name.is_empty():
 			layer_name = "Layer " + String(i + 1)
 		_popup.add_check_item(layer_name, _layer_count - 1 - i)
 
 	_sync_popup_state()
 
 	# warning-ignore:return_value_discarded
-	_popup.connect("id_pressed", self, "_on_id_pressed")
+	_popup.connect("id_pressed",Callable(self,"_on_id_pressed"))
 
 
 func set_parameter_name(text: String) -> void:
@@ -66,7 +66,7 @@ func _set_value(val: String) -> void:
 		binary_string = binary_string.substr(length - _layer_count, length)
 
 	for i in _layer_count:
-		_buttons[i].pressed = binary_string[i] == "1"
+		_buttons[i].button_pressed = binary_string[i] == "1"
 
 	_sync_popup_state()
 
@@ -80,7 +80,7 @@ func get_value() -> String:
 	return String(val)
 
 
-func _dec2bin(var value: int) -> String:
+func _dec2bin(value: int) -> String:
 	if value == 0:
 		return "0"
 
@@ -94,7 +94,7 @@ func _dec2bin(var value: int) -> String:
 	return binary_string
 
 
-func _bin2dec(var binary_string: String) -> int:
+func _bin2dec(binary_string: String) -> int:
 	var decimal_value = 0
 	var count = binary_string.length() - 1
 
@@ -122,7 +122,7 @@ func _on_button_pressed() -> void:
 func _on_id_pressed(id: int) -> void:
 	var idx = _popup.get_item_index(id)
 	var checked = not _popup.is_item_checked(idx)
-	_buttons[id].pressed = checked
+	_buttons[id].button_pressed = checked
 	_popup.set_item_checked(idx, checked)
 	_on_button_pressed()
 

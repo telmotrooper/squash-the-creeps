@@ -5,7 +5,7 @@ var _ui: Control
 
 
 func _init():
-	_ui = preload("./ui/stack_panel.tscn").instance()
+	_ui = preload("./ui/stack_panel.tscn").instantiate()
 	add_child(_ui)
 	set_bottom_editor(_ui)
 

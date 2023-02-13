@@ -59,13 +59,13 @@ static func parse_text_lines(unparsed_dialog_script: Dictionary, preview:bool = 
 	# Parsing
 	for event in unparsed_dialog_script['events']:
 		if event.has('text') and event.has('character') and event.has('portrait'):
-			if event['text'].empty() and remove_empty_messages:
+			if event['text'].is_empty() and remove_empty_messages:
 				pass
 			elif '\n' in event['text'] and preview == false and split_new_lines:
 				var lines = event['text'].split('\n')
 				var counter = 0 
 				for line in lines:
-					if not line.empty():
+					if not line.is_empty():
 						var n_event = {
 							'event_id':'dialogic_001',
 							'text': line,
@@ -109,7 +109,7 @@ static func parse_branches(current_dialog, dialog_script: Dictionary) -> Diction
 		return dialog_script
 
 	var parser_queue = [] # This saves the last question opened, and it gets removed once it was consumed by a endbranch event
-	var event_idx: int = 0 # The current id for jumping later on
+	var event_idx: int = 0 # The current id for jumping later checked
 	var question_idx: int = 0 # identifying the questions to assign options to it
 	for event in dialog_script['events']:
 		if event['event_id'] == 'dialogic_011':

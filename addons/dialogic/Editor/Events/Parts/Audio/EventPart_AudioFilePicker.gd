@@ -1,28 +1,28 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
 ## node references
-onready var file_picker = $FilePicker
-onready var preview_button = $ButtonPreviewPlay
-onready var audio_preview = $AudioPreview
+@onready var file_picker = $FilePicker
+@onready var preview_button = $ButtonPreviewPlay
+@onready var audio_preview = $AudioPreview
 
 # used to connect the signals
 func _ready():
-	file_picker.connect("data_changed", self, "_on_FilePicker_data_changed")
-	preview_button.connect("pressed", self, "_on_PreviewButton_pressed")
-	audio_preview.connect("finished", self, '_on_AudioPreview_finished')
+	file_picker.connect("data_changed",Callable(self,"_on_FilePicker_data_changed"))
+	preview_button.connect("pressed",Callable(self,"_on_PreviewButton_pressed"))
+	audio_preview.connect("finished",Callable(self,'_on_AudioPreview_finished'))
 	preview_button.icon = get_icon("Play", "EditorIcons")
 	
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	file_picker.load_data(event_data)
-	preview_button.visible = !event_data['file'].empty()
+	preview_button.visible = !event_data['file'].is_empty()
 
 # has to return the wanted preview, only useful for body parts
 func get_preview():
@@ -32,7 +32,7 @@ func get_preview():
 func _on_FilePicker_data_changed(data):
 	event_data = data
 	
-	preview_button.visible = !event_data['file'].empty()
+	preview_button.visible = !event_data['file'].is_empty()
 	# informs the parent about the changes!
 	data_changed()
 

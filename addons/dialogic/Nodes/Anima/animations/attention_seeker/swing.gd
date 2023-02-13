@@ -1,5 +1,5 @@
 func generate_animation(anima_tween: Tween, data: Dictionary) -> void:
-	var frames = [
+	var sprite_frames = [
 		{ percentage = 0, from = 0 },
 		{ percentage = 20, to = 15 },
 		{ percentage = 40, to = -10 },
@@ -9,4 +9,4 @@ func generate_animation(anima_tween: Tween, data: Dictionary) -> void:
 	]
 
 	DialogicAnimaPropertiesHelper.set_2D_pivot(data.node, DialogicAnimaPropertiesHelper.PIVOT.TOP_CENTER)
-	anima_tween.add_frames(data, "rotation", frames)
+	anima_tween.add_frames(data, "rotation", sprite_frames)

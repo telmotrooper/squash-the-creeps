@@ -1,4 +1,4 @@
-extends CSGBox
+extends CSGBox3D
 
 signal body_entered
 

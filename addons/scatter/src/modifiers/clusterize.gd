@@ -1,15 +1,15 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export(String, "Texture") var mask
-export var mask_scale := Vector2.ONE
-export var mask_offset := Vector2.ZERO
-export var rotation := 0.0
-export(float, 0.0, 1.0) var remove_below = 0.1
+@export var mask # (String, "Texture2D")
+@export var mask_scale := Vector2.ONE
+@export var mask_offset := Vector2.ZERO
+@export var rotation := 0.0
+@export var remove_below = 0.1 # (float, 0.0, 1.0)
 
 
-func _init() -> void:
+func _init():
 	display_name = "Clusterize"
 	category = "Edit"
 
@@ -21,19 +21,19 @@ func _process_transforms(transforms, _global_seed) -> void:
 
 	var texture = load(mask)
 
-	if not texture is Texture:
+	if not texture is Texture2D:
 		warning += "The specified file is not a valid texture"
 		return
 
 	var image: Image = texture.get_data()
 	var _err = image.decompress()
-	image.lock()
+	false # image.lock() # TODOConverter40, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 
 	var width = image.get_width()
 	var height = image.get_height()
 	var i = 0
 	var count = transforms.list.size()
-	var angle = deg2rad(rotation)
+	var angle = deg_to_rad(rotation)
 
 	while i < count:
 		var t = transforms.list[i]
@@ -46,7 +46,7 @@ func _process_transforms(transforms, _global_seed) -> void:
 
 		var level = _get_pixel(image, x, y)
 		if level < remove_below:
-			transforms.list.remove(i)
+			transforms.list.remove_at(i)
 			count -= 1
 			continue
 
@@ -58,7 +58,7 @@ func _process_transforms(transforms, _global_seed) -> void:
 		transforms.list[i] = t
 		i += 1
 
-	image.unlock()
+	false # image.unlock() # TODOConverter40, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 
 
 func _get_pixel(image: Image, x: float, y: float) -> float:

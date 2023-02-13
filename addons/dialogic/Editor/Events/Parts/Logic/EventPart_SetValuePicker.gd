@@ -1,31 +1,31 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
 ## node references
-onready var input_feature = $HBox/InputValue
-onready var input_field = $HBox/InputValue/InputField
-onready var definition_picker = $HBox/DefinitionPicker
-onready var operation_picker = $HBox/OperationPicker
+@onready var input_feature = $HBox/InputValue
+@onready var input_field = $HBox/InputValue/InputField
+@onready var definition_picker = $HBox/DefinitionPicker
+@onready var operation_picker = $HBox/OperationPicker
 
-onready var random_enabled_button = $HBox/RandomEnabled
-onready var random_features = $HBox/RandomValue
-onready var random_lower_limit = $HBox/RandomValue/LowerLimit
-onready var random_upper_limit = $HBox/RandomValue/UpperLimit
+@onready var random_enabled_button = $HBox/RandomEnabled
+@onready var random_features = $HBox/RandomValue
+@onready var random_lower_limit = $HBox/RandomValue/LowerLimit
+@onready var random_upper_limit = $HBox/RandomValue/UpperLimit
 
 # used to connect the signals
 func _ready():
-	input_field.connect("text_changed", self, "_on_InputField_text_changed")
-	definition_picker.connect("data_changed", self, "_on_DefintionPicker_data_changed")
-	operation_picker.connect("data_changed", self, "_on_OperationPicker_data_changed")
+	input_field.connect("text_changed",Callable(self,"_on_InputField_text_changed"))
+	definition_picker.connect("data_changed",Callable(self,"_on_DefintionPicker_data_changed"))
+	operation_picker.connect("data_changed",Callable(self,"_on_OperationPicker_data_changed"))
 	
 	random_enabled_button.icon = get_icon("MaterialPreviewCube", "EditorIcons")
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	input_field.text = event_data['set_value']
@@ -81,7 +81,7 @@ func _on_OperationPicker_data_changed(data):
 func switch_random_features(enabled):
 	random_features.visible = enabled
 	input_feature.visible = !enabled
-	random_enabled_button.pressed = enabled
+	random_enabled_button.button_pressed = enabled
 	event_data['set_random'] = enabled
 
 

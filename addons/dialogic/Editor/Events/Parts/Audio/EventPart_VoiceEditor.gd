@@ -1,8 +1,8 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 
-export(PackedScene) var audio_picker
+@export var audio_picker: PackedScene
 
 #onready var voices_container = $List/VoicesList
 #onready var label_container = $List/Label
@@ -10,7 +10,7 @@ var audio_lines = 1 # how many lines does the text event has
 
 
 func load_data(data):
-	.load_data(data)
+	super.load_data(data)
 	
 	update_data()
 
@@ -26,10 +26,10 @@ func repopulate() -> void:
 		label.size_flags_vertical = 0
 		$List.add_child(label)
 		
-		var a_picker = audio_picker.instance()
+		var a_picker = audio_picker.instantiate()
 		a_picker.editor_reference = editor_reference
 		a_picker.event_name = "voice line"
-		a_picker.connect("data_changed", self, "_on_audio_picker_audio_loaded", [i])
+		a_picker.connect("data_changed",Callable(self,"_on_audio_picker_audio_loaded").bind(i))
 		$List.add_child(a_picker)
 		
 		#loaded data 

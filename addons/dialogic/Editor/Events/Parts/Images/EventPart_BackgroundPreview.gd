@@ -1,10 +1,10 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
 ## node references
-onready var texture_rect = $Box/TextureRect
+@onready var texture_rect = $Box/TextureRect
 
 # used to connect the signals
 func _ready():
@@ -13,7 +13,7 @@ func _ready():
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	if event_data['background']:
@@ -31,7 +31,7 @@ func load_data(data:Dictionary):
 func get_preview():
 	return ''
 
-func show_scene_preview(path:String, preview:Texture, user_data):
+func show_scene_preview(path:String, preview:Texture2D, user_data):
 	if preview:
 		texture_rect.texture = preview
 		emit_signal("request_set_body_enabled", true)

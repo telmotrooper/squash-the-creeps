@@ -1,5 +1,5 @@
-tool
-extends EditorSpatialGizmoPlugin
+@tool
+extends EditorNode3DGizmoPlugin
 
 
 var Scatter = load(_get_root_folder() + "/src/core/namespace.gd").new()
@@ -20,16 +20,16 @@ func has_gizmo(node):
 	return node is Scatter.Point
 
 
-func redraw(gizmo: EditorSpatialGizmo):
+func redraw(gizmo: EditorNode3DGizmo):
 	_gizmo = gizmo
 	if not gizmo:
 		return
 
 	gizmo.clear()
-	var point = gizmo.get_spatial_node()
+	var point = gizmo.get_node_3d()
 	_update_current(point)
 
-	var lines = PoolVector3Array()
+	var lines = PackedVector3Array()
 	var steps = 32
 	var step_angle = 2 * PI / steps
 	var radius = point.radius
@@ -63,11 +63,11 @@ func _update_current(point) -> void:
 		return
 
 	if _selected and is_instance_valid(_selected):
-		if _selected.is_connected("parameter_changed", self, "_on_parameter_changed"):
-			_selected.disconnect("parameter_changed", self, "_on_parameter_changed")
+		if _selected.is_connected("parameter_changed",Callable(self,"_on_parameter_changed")):
+			_selected.disconnect("parameter_changed",Callable(self,"_on_parameter_changed"))
 
 	_selected = point
-	_selected.connect("parameter_changed", self, "_on_parameter_changed")
+	_selected.connect("parameter_changed",Callable(self,"_on_parameter_changed"))
 
 
 func _on_parameter_changed() -> void:

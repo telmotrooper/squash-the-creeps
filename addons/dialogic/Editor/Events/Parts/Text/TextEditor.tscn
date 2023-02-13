@@ -18,16 +18,16 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="TextEditor" type="HBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextEdit" type="TextEdit" parent="."]
-margin_right = 17.0
-margin_bottom = 40.0
+offset_right = 17.0
+offset_bottom = 40.0
 size_flags_vertical = 3
 custom_colors/member_variable_color = Color( 0, 0, 0, 1 )
 custom_colors/function_color = Color( 0, 0, 0, 1 )
@@ -36,7 +36,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/number_color = Color( 0, 0, 0, 1 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-syntax_highlighting = true
+syntax_highlighter = true
 show_line_numbers = true
 smooth_scrolling = true
 wrap_enabled = true

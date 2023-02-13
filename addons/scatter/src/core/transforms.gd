@@ -1,19 +1,19 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 
 var list := []
-var path setget set_path
+var path : set = set_path
 var max_count := -1
 
 
 func add(count: int) -> void:
 	for i in count:
-		var t := Transform()
+		var t := Transform3D()
 		list.push_back(t)
 
 
-func remove(count: int) -> void:
+func remove_at(count: int) -> void:
 	count = int(max(count, 0)) # Prevent using a negative number
 	var new_size = max(list.size() - count, 0)
 	list.resize(new_size)
@@ -27,12 +27,12 @@ func resize(count: int) -> void:
 	if count > size:
 		add(count - size)
 	else:
-		remove(size - count)
+		remove_at(size - count)
 
 
 func clear() -> void:
 	list = []
 
 
-func set_path(p: Path) -> void:
+func set_path(p: Path3D) -> void:
 	path = p

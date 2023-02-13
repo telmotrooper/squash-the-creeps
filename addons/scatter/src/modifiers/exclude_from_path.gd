@@ -1,17 +1,17 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export(String, "Node") var path_name
-export(float, 0.0, 1.0) var strength = 1.0
-export var override_global_seed := false
-export var custom_seed := 0
+@export var path_name # (String, "Node")
+@export var strength = 1.0 # (float, 0.0, 1.0)
+@export var override_global_seed := false
+@export var custom_seed := 0
 
 var _rng: RandomNumberGenerator
 
 
-func _init() -> void:
-	display_name = "Remove From Path"
+func _init():
+	display_name = "Remove From Path3D"
 	category = "Remove"
 
 
@@ -35,12 +35,12 @@ func _process_transforms(transforms, global_seed) -> void:
 		_rng.set_seed(global_seed)
 
 	while i < transforms.list.size():
-		pos = global_transform.xform(transforms.list[i].origin)
+		pos = global_transform * transforms.list[i].origin
 		for p in paths:
-			if p.is_point_inside(p.global_transform.xform_inv(pos)):
+			if p.is_point_inside(pos * p.global_transform):
 				var random_value := _rng.randf()
 				if random_value < strength:
-					transforms.list.remove(i)
+					transforms.list.remove_at(i)
 					i -= 1
 					break
 		i += 1
@@ -48,11 +48,11 @@ func _process_transforms(transforms, global_seed) -> void:
 
 func _get_paths_recursive(root) -> Array:
 	var res = []
-	if root is Path:
+	if root is Path3D:
 		res.push_back(root)
 
 	for c in root.get_children():
-		if c is Path:
+		if c is Path3D:
 			res += _get_paths_recursive(c)
 
 	return res

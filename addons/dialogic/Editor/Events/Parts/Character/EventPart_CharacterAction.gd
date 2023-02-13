@@ -1,4 +1,4 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 ## has an event_data variable that stores the current data!!!
@@ -8,23 +8,23 @@ var leave_icon = load("res://addons/dialogic/Images/Event Icons/character-leave.
 var update_icon = load("res://addons/dialogic/Images/Event Icons/character.svg")
 
 ## node references
-onready var action_picker = $ActionTypePicker
-onready var character_portrait_picker = $CharacterAndPortraitPicker
-onready var position_picker = $PositionPicker
+@onready var action_picker = $ActionTypePicker
+@onready var character_portrait_picker = $CharacterAndPortraitPicker
+@onready var position_picker = $PositionPicker
 
 # used to connect the signals
 func _ready():
-	action_picker.connect("about_to_show", self, "_on_ActionTypePicker_about_to_show")
-	action_picker.get_popup().connect('index_pressed', self, "_on_ActionTypePicker_index_pressed")
-	character_portrait_picker.connect('data_changed', self, "_on_CharacterAndPortraitPicker_data_changed")
-	position_picker.connect('data_changed', self, "_on_PositionPicker_data_changed")
+	action_picker.connect("about_to_popup",Callable(self,"_on_ActionTypePicker_about_to_show"))
+	action_picker.get_popup().connect('index_pressed',Callable(self,"_on_ActionTypePicker_index_pressed"))
+	character_portrait_picker.connect('data_changed',Callable(self,"_on_CharacterAndPortraitPicker_data_changed"))
+	position_picker.connect('data_changed',Callable(self,"_on_PositionPicker_data_changed"))
 	
 	
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	match int(data.get('type', 0)):

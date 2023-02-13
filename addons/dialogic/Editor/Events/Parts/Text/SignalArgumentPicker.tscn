@@ -5,8 +5,8 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn" type="PackedScene" id=3]
 
 [node name="SignalArgumentPicker" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 size_flags_vertical = 6
 script = ExtResource( 2 )
 __meta__ = {
@@ -14,19 +14,19 @@ __meta__ = {
 }
 
 [node name="HBox" type="HBoxContainer" parent="."]
-margin_top = 6.0
-margin_right = 361.0
-margin_bottom = 33.0
+offset_top = 6.0
+offset_right = 361.0
+offset_bottom = 33.0
 size_flags_vertical = 6
 
 [node name="Label" parent="HBox" instance=ExtResource( 3 )]
-margin_top = 6.0
-margin_right = 227.0
-margin_bottom = 20.0
+offset_top = 6.0
+offset_right = 227.0
+offset_bottom = 20.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "'dialogic_signal' with the argument  "
 
 [node name="InputField" parent="HBox" instance=ExtResource( 1 )]
-margin_left = 231.0
-margin_right = 361.0
-margin_bottom = 27.0
+offset_left = 231.0
+offset_right = 361.0
+offset_bottom = 27.0

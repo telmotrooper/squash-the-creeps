@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="FontFile" id=1]
 
 [node name="MenuButton" type="Button"]
-margin_right = 1040.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 360, 60 )
+offset_right = 1040.0
+offset_bottom = 20.0
+custom_minimum_size = Vector2( 360, 60 )
 flat = true
 
 [node name="Label" type="Label" parent="."]

@@ -5,16 +5,16 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn" type="PackedScene" id=3]
 
 [node name="TimelinePicker" type="HBoxContainer"]
-margin_right = 119.0
-margin_bottom = 20.0
+offset_right = 119.0
+offset_bottom = 20.0
 size_flags_vertical = 6
 script = ExtResource( 1 )
 
 [node name="Label" parent="." instance=ExtResource( 3 )]
-margin_right = 87.0
+offset_right = 87.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Start timeline"
 
 [node name="MenuButton" parent="." instance=ExtResource( 2 )]
-margin_left = 91.0
-margin_right = 185.0
+offset_left = 91.0
+offset_right = 185.0

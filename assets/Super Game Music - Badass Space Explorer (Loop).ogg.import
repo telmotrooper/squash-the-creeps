@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Super Game Music - Badass Space Explorer (Loop).ogg-7576957a32072b0db6f0cf9296d7067a.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://06xd1n8w0all"
+path="res://.godot/imported/Super Game Music - Badass Space Explorer (Loop).ogg-7576957a32072b0db6f0cf9296d7067a.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/Super Game Music - Badass Space Explorer (Loop).ogg"
-dest_files=[ "res://.import/Super Game Music - Badass Space Explorer (Loop).ogg-7576957a32072b0db6f0cf9296d7067a.oggstr" ]
+dest_files=["res://.godot/imported/Super Game Music - Badass Space Explorer (Loop).ogg-7576957a32072b0db6f0cf9296d7067a.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,33 +1,33 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
-onready var enabled_view = $HBox/Values
-onready var definition_picker = $HBox/Values/DefinitionPicker
-onready var condition_type_picker = $HBox/Values/ConditionTypePicker
-onready var value_input = $HBox/Values/Value
+@onready var enabled_view = $HBox/Values
+@onready var definition_picker = $HBox/Values/DefinitionPicker
+@onready var condition_type_picker = $HBox/Values/ConditionTypePicker
+@onready var value_input = $HBox/Values/Value
 
-onready var optional_view = $HBox/HasCondition
-onready var use_condition_check = $HBox/HasCondition/UseCondition
+@onready var optional_view = $HBox/HasCondition
+@onready var use_condition_check = $HBox/HasCondition/UseCondition
 
 # used to connect the signals
 func _ready():
-	definition_picker.connect("data_changed", self, '_on_DefinitionPicker_data_changed')
+	definition_picker.connect("data_changed",Callable(self,'_on_DefinitionPicker_data_changed'))
 	
-	condition_type_picker.connect("data_changed", self, '_on_ConditionTypePicker_data_changed')
+	condition_type_picker.connect("data_changed",Callable(self,'_on_ConditionTypePicker_data_changed'))
 	
-	value_input.connect("text_changed", self, "_on_Value_text_changed")
+	value_input.connect("text_changed",Callable(self,"_on_Value_text_changed"))
 
-	use_condition_check.connect("toggled", self, "_on_UseCondition_toggled")
+	use_condition_check.connect("toggled",Callable(self,"_on_UseCondition_toggled"))
 	
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
-	# Loading the data on the selectors
+	# Loading the data checked the selectors
 	definition_picker.load_data(data)
 	condition_type_picker.load_data(data)
 	value_input.text = data['value']
@@ -35,10 +35,10 @@ func load_data(data:Dictionary):
 	if data['event_id'] == 'dialogic_011':
 		optional_view.show()
 		if data['definition'] == '': # Checking if definition is selected
-			use_condition_check.pressed = false
+			use_condition_check.button_pressed = false
 			enabled_view.hide()
 		else:
-			use_condition_check.pressed = true
+			use_condition_check.button_pressed = true
 			enabled_view.show()
 	else:
 		optional_view.hide()

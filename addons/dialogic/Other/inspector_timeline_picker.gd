@@ -20,7 +20,7 @@ func parse_property(object, type, path, hint, hint_text, usage):
 			var picker = TimelinePicker.new()
 			picker.editor_inspector_plugin = self
 			add_property_editor(path, picker)
-			# Inform the editor to remove the default property editor for
+			# Inform the editor to remove_at the default property editor for
 			# this property type.
 			return true
 		return false

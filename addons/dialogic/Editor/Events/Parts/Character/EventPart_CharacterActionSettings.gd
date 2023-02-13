@@ -1,4 +1,4 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
@@ -7,26 +7,26 @@ var disable_icon = null
 
 
 ## node references
-onready var animation_picker = $Animation/AnimationPicker
-onready var animation_length = $Animation/AnimationLength
-onready var z_index_enable = $Positioning/EnableZIndex
-onready var z_index = $Positioning/Z_Index
-onready var mirrored_checkbox = $Positioning/Mirrored
-onready var mirrored_checkbox_enable = $Positioning/EnableMirrored
-onready var animation_repeat = $Animation/Repeat
-onready var animation_wait_checkbox = $Animation/WaitForAnimation
+@onready var animation_picker = $Animation/AnimationPicker
+@onready var animation_length = $Animation/AnimationLength
+@onready var z_index_enable = $Positioning/EnableZIndex
+@onready var z_index = $Positioning/Z_Index
+@onready var mirrored_checkbox = $Positioning/Mirrored
+@onready var mirrored_checkbox_enable = $Positioning/EnableMirrored
+@onready var animation_repeat = $Animation/Repeat
+@onready var animation_wait_checkbox = $Animation/WaitForAnimation
 
 # used to connect the signals
 func _ready():
-	animation_picker.connect("about_to_show", self, "_on_AnimationPicker_about_to_show")
-	animation_picker.get_popup().connect("index_pressed", self, "_on_AnimationPicker_index_pressed")
-	animation_length.connect("value_changed", self, "_on_AnimationLength_value_changed")
-	z_index.connect("value_changed", self, "_on_ZIndex_value_changed")
-	z_index_enable.connect("toggled", self, "_on_ZIndexEnable_toggled")
-	mirrored_checkbox.connect('toggled', self, "_on_Mirrored_toggled")
-	mirrored_checkbox_enable.connect('toggled', self, "_on_MirroredEnabled_toggled")
-	animation_repeat.connect("value_changed", self, '_on_Repeat_value_changed')
-	animation_wait_checkbox.connect('toggled', self, 'on_WaitForAnimation_toggled')
+	animation_picker.connect("about_to_popup",Callable(self,"_on_AnimationPicker_about_to_show"))
+	animation_picker.get_popup().connect("index_pressed",Callable(self,"_on_AnimationPicker_index_pressed"))
+	animation_length.connect("value_changed",Callable(self,"_on_AnimationLength_value_changed"))
+	z_index.connect("value_changed",Callable(self,"_on_ZIndex_value_changed"))
+	z_index_enable.connect("toggled",Callable(self,"_on_ZIndexEnable_toggled"))
+	mirrored_checkbox.connect('toggled',Callable(self,"_on_Mirrored_toggled"))
+	mirrored_checkbox_enable.connect('toggled',Callable(self,"_on_MirroredEnabled_toggled"))
+	animation_repeat.connect("value_changed",Callable(self,'_on_Repeat_value_changed'))
+	animation_wait_checkbox.connect('toggled',Callable(self,'on_WaitForAnimation_toggled'))
 	enable_icon = get_icon("Edit", "EditorIcons")
 	disable_icon = get_icon("Reload", "EditorIcons")
 
@@ -34,7 +34,7 @@ func _ready():
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	$Positioning.visible = event_data.get('type',0) != 1
@@ -53,17 +53,17 @@ func load_data(data:Dictionary):
 	animation_repeat.value = event_data.get('animation_repeat', 1)
 	animation_repeat.visible = int(data.get('type', 0)) == 2
 	$Animation/Label3.visible = int(data.get('type', 0)) == 2
-	animation_wait_checkbox.pressed = event_data.get('animation_wait', false)
+	animation_wait_checkbox.button_pressed = event_data.get('animation_wait', false)
 	
 	z_index.value = int(event_data.get('z_index', 0))
-	mirrored_checkbox.pressed = event_data.get('mirror_portrait', false)
+	mirrored_checkbox.button_pressed = event_data.get('mirror_portrait', false)
 	
 	# if the event is in UPDATE mode show the enablers
 	z_index_enable.visible = int(data.get('type', 0)) == 2
 	mirrored_checkbox_enable.visible = int(data.get('type', 0)) == 2
 	
-	z_index_enable.pressed = data.get('change_z_index', false) or int(data.get('type', 0)) != 2
-	mirrored_checkbox_enable.pressed = data.get('change_mirror_portrait', false) or int(data.get('type', 0)) != 2
+	z_index_enable.button_pressed = data.get('change_z_index', false) or int(data.get('type', 0)) != 2
+	mirrored_checkbox_enable.button_pressed = data.get('change_mirror_portrait', false) or int(data.get('type', 0)) != 2
 	
 	z_index.visible = z_index_enable.pressed
 	mirrored_checkbox.visible = mirrored_checkbox_enable.pressed

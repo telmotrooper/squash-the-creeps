@@ -1,18 +1,18 @@
-tool
+@tool
 extends Button
 
 
-onready var _popup = $ModifiersPopup
+@onready var _popup = $ModifiersPopup
 var _modifiers := []
 
 
 func _ready() -> void:
-	_popup.connect("hide", self, "_on_popup_closed")
+	_popup.connect("hide",Callable(self,"_on_popup_closed"))
 
 
 func _toggled(button_pressed):
 	if button_pressed:
-		_popup.rect_position = rect_global_position + Vector2(0.0, rect_size.y)
+		_popup.position = global_position + Vector2(0.0, size.y)
 		_popup.popup()
 
 

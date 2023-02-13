@@ -1,15 +1,15 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var override_global_seed := false
-export var custom_seed := 0
-export var instance_count := 10
+@export var override_global_seed := false
+@export var custom_seed := 0
+@export var instance_count := 10
 
 var _rng: RandomNumberGenerator
 
 
-func _init() -> void:
+func _init():
 	display_name = "Distribute Inside (Random)"
 	category = "Distribute"
 	warning_ignore_no_transforms = true

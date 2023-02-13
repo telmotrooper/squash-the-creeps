@@ -1,24 +1,24 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 
 ## node references
-onready var character_picker = $HBox/CharacterPicker
-onready var portrait_picker = $HBox/PortraitPicker
-onready var definition_picker = $HBox/DefinitionPicker
+@onready var character_picker = $HBox/CharacterPicker
+@onready var portrait_picker = $HBox/PortraitPicker
+@onready var definition_picker = $HBox/DefinitionPicker
 
 # used to connect the signals
 func _ready():
 	if DialogicUtil.get_character_list().size() == 0:
 		hide()
-	character_picker.connect("data_changed", self, "_on_CharacterPicker_data_changed")
-	portrait_picker.connect("data_changed", self, "_on_PortraitPicker_data_changed")
-	definition_picker.connect("data_changed", self, "_on_DefinitionPicker_data_changed")
+	character_picker.connect("data_changed",Callable(self,"_on_CharacterPicker_data_changed"))
+	portrait_picker.connect("data_changed",Callable(self,"_on_PortraitPicker_data_changed"))
+	definition_picker.connect("data_changed",Callable(self,"_on_DefinitionPicker_data_changed"))
 	
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	portrait_picker.load_data(data)

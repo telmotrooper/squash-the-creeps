@@ -1,12 +1,12 @@
-tool
+@tool
 extends MenuButton
 
 
 var _popup: PopupMenu
 var _save_icon = load(_get_root_folder() + "/icons/save.svg")
 var _load_icon = load(_get_root_folder() + "/icons/load.svg")
-var _load_popup: WindowDialog
-var _save_popup: WindowDialog
+var _load_popup: Window
+var _save_popup: Window
 
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 	_popup.clear()
 
 	# warning-ignore:return_value_discarded
-	_popup.connect("id_pressed", self, "_on_id_pressed")
+	_popup.connect("id_pressed",Callable(self,"_on_id_pressed"))
 
 	_popup.add_icon_item(_save_icon, "Save Preset", 0)
 	_popup.add_icon_item(_load_icon, "Load Preset", 1)

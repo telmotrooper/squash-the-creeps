@@ -1,21 +1,21 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var local_space := false
-export var rotation := Vector3.ZERO
+@export var local_space := false
+@export var rotation := Vector3.ZERO
 
 
-func _init() -> void:
+func _init():
 	display_name = "Offset Rotation"
 	category = "Offset"
 
 
 func _process_transforms(transforms, _global_seed : int) -> void:
 	var rotation_rad := Vector3.ZERO
-	rotation_rad.x = deg2rad(rotation.x)
-	rotation_rad.y = deg2rad(rotation.y)
-	rotation_rad.z = deg2rad(rotation.z)
+	rotation_rad.x = deg_to_rad(rotation.x)
+	rotation_rad.y = deg_to_rad(rotation.y)
+	rotation_rad.z = deg_to_rad(rotation.z)
 
 	var basis: Basis
 	var axis: Vector3

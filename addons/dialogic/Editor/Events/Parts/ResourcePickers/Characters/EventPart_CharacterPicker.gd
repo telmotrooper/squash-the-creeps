@@ -1,14 +1,14 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
-export (bool) var allow_no_character := false
+@export (bool) var allow_no_character := false
 
 ## node references
-onready var picker_menu = $HBox/MenuButton
-onready var no_character_button = $NoCharacterContainer/NoCharacterButton
-onready var no_character_container = $NoCharacterContainer
+@onready var picker_menu = $HBox/MenuButton
+@onready var no_character_button = $NoCharacterContainer/NoCharacterButton
+@onready var no_character_container = $NoCharacterContainer
 
 # theme
 var no_character_icon
@@ -24,7 +24,7 @@ func _ready():
 		picker_menu.hide()
 		no_character_container.show()
 		var editor_reference = find_parent('EditorView')
-		no_character_button.connect('pressed', editor_reference.get_node('MainPanel/MasterTreeContainer/MasterTree'), 'new_character')
+		no_character_button.connect('pressed',Callable(editor_reference.get_node('MainPanel/MasterTreeContainer/MasterTree'),'new_character'))
 	
 	# So... not having real events makes me do this kind of hacks
 	# I hope to improve how events work, but in the mean time
@@ -32,10 +32,10 @@ func _ready():
 	var event_node = get_node('../../../../../../../..')
 	if event_node.get_node_or_null('AllowNoCharacter'):
 		allow_no_character = true
-		no_character_container.hide()#We dont want the button on text events
+		no_character_container.hide()#We dont want the button checked text events
 	
 	# Connections
-	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
+	picker_menu.connect("about_to_popup",Callable(self,"_on_PickerMenu_about_to_show"))
 	
 	# Themeing
 	no_character_icon = get_icon("GuiRadioUnchecked", "EditorIcons")
@@ -46,7 +46,7 @@ func _ready():
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	allow_no_character = data['event_id'] != 'dialogic_002'
 	# Now update the ui nodes to display the data. 
@@ -80,7 +80,7 @@ func update_to_character():
 			picker_menu.custom_icon = single_character_icon
 		picker_menu.reset_modulation()
 
-# when an index is selected on one of the menus.
+# when an index is selected checked one of the menus.
 func _on_PickerMenu_selected(index, menu):
 	var metadata = menu.get_item_metadata(index)
 	if event_data['character'] != metadata.get('file',''):
@@ -150,7 +150,7 @@ func build_PickerMenuFolder(menu:PopupMenu, folder_structure:Dictionary, current
 		menu.set_item_metadata(index, {'file':file})
 		index += 1
 	
-	if not menu.is_connected("index_pressed", self, "_on_PickerMenu_selected"):
-		menu.connect("index_pressed", self, '_on_PickerMenu_selected', [menu])
+	if not menu.is_connected("index_pressed",Callable(self,"_on_PickerMenu_selected")):
+		menu.connect("index_pressed",Callable(self,'_on_PickerMenu_selected').bind(menu))
 	
 	return current_folder_name

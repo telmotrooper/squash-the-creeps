@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-export (bool) var is_title_screen = false
+@export (bool) var is_title_screen = false
 
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
@@ -69,8 +69,8 @@ func _on_MapOptionButton_item_selected(index):
   emit_signal("unpause")
 
 func _on_ToggleFullscreenButton_pressed():
-  OS.window_fullscreen = !OS.window_fullscreen
-  Configuration.update_setting("graphics", "fullscreen", OS.window_fullscreen)
+  get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
+  Configuration.update_setting("graphics", "fullscreen", ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
 
 func _on_BackButton_pressed():
   emit_signal("back_button_pressed")

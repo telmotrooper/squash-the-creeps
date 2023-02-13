@@ -1,4 +1,4 @@
-tool
+@tool
 extends Control
 
 # has to be set by the parent before adding it to the tree
@@ -36,7 +36,7 @@ func load_data(data:Dictionary):
 func get_preview_text():
 	return ''
 
-# to be overwritten by the body-parts if some kind of focus (on event creation) is wanted
+# to be overwritten by the body-parts if some kind of focus (checked event creation) is wanted
 func focus():
 	pass
 

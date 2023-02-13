@@ -2,8 +2,8 @@ extends ColorRect
 
 signal finished_fading
 
-export var is_faded = true setget set_is_faded, get_is_faded
-export var duration = 1.0
+@export var is_faded = true : get = get_is_faded, set = set_is_faded
+@export var duration = 1.0
 var alpha = 1.0
 
 func set_is_faded(new_value: bool) -> void:

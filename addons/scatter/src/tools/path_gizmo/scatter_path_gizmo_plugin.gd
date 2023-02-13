@@ -1,5 +1,5 @@
-tool
-extends EditorSpatialGizmoPlugin
+@tool
+extends EditorNode3DGizmoPlugin
 
 
 class PointState:
@@ -7,14 +7,14 @@ class PointState:
 	var position: Vector3
 	var version: int
 
-var editor_plugin: EditorPlugin setget set_editor_plugin
-var options setget _set_options
+var editor_plugin: EditorPlugin : set = set_editor_plugin
+var options : set = _set_options
 
 var _namespace = load(_get_root_folder() + "/src/core/namespace.gd").new()
 var _axis_mesh: ArrayMesh
 var _selected
 var _old_position: Vector3
-var _camera: Camera
+var _camera: Camera3D
 var _previous_state := PointState.new()
 var _is_forcing_projection := false
 var _undo: UndoRedo
@@ -38,12 +38,12 @@ func has_gizmo(node):
 	return node is _namespace.ScatterPath
 
 
-func get_handle_name(_gizmo: EditorSpatialGizmo, index: int) -> String:
+func _get_handle_name(_gizmo: EditorNode3DGizmo, index: int) -> String:
 	return "Handle " + String(index)
 
 
-func get_handle_value(gizmo: EditorSpatialGizmo, index: int):
-	var path = gizmo.get_spatial_node()
+func _get_handle_value(gizmo: EditorNode3DGizmo, index: int):
+	var path = gizmo.get_node_3d()
 	if not path:
 		return null
 
@@ -73,8 +73,8 @@ func get_handle_value(gizmo: EditorSpatialGizmo, index: int):
 
 
 # Automatically called when a handle is moved around.
-func set_handle(gizmo: EditorSpatialGizmo, index: int, camera: Camera, point: Vector2) -> void:
-	var path = gizmo.get_spatial_node()
+func set_handle(gizmo: EditorNode3DGizmo, index: int, camera: Camera3D, point: Vector2) -> void:
+	var path = gizmo.get_node_3d()
 	if not path:
 		return
 
@@ -119,8 +119,8 @@ func set_handle(gizmo: EditorSpatialGizmo, index: int, camera: Camera, point: Ve
 
 
 # Handle Undo / Redo after a handle was moved.
-func commit_handle(gizmo: EditorSpatialGizmo, index: int, restore, _cancel: bool = false) -> void:
-	var path = gizmo.get_spatial_node()
+func _commit_handle(gizmo: EditorNode3DGizmo, index: int, restore, _cancel: bool = false) -> void:
+	var path = gizmo.get_node_3d()
 	if not path:
 		return
 
@@ -129,7 +129,7 @@ func commit_handle(gizmo: EditorSpatialGizmo, index: int, restore, _cancel: bool
 	if index >= count:
 		index = int((index - count) / 2)
 
-	_undo.create_action("Moved Path Point")
+	_undo.create_action("Moved Path3D Point")
 	_undo.add_undo_method(self, "_set_point", path, restore)
 	_undo.add_do_method(self, "_set_point", path, _get_point_data(path.curve, index))
 	_undo.commit_action()
@@ -138,12 +138,12 @@ func commit_handle(gizmo: EditorSpatialGizmo, index: int, restore, _cancel: bool
 	path.update()
 
 
-func redraw(gizmo: EditorSpatialGizmo):
+func redraw(gizmo: EditorNode3DGizmo):
 	if not gizmo:
 		return
 
 	gizmo.clear()
-	var path = gizmo.get_spatial_node()
+	var path = gizmo.get_node_3d()
 	if not path:
 		return
 
@@ -159,35 +159,35 @@ func redraw(gizmo: EditorSpatialGizmo):
 
 func force_redraw():
 	if _selected and is_instance_valid(_selected):
-		_selected.update_gizmo()
+		_selected.update_gizmos()
 
 
-func create_custom_handle_material(name, icon: Texture, color := Color.white):
-	var handle_material = SpatialMaterial.new()
+func create_custom_handle_material(name, icon: Texture2D, color := Color.WHITE):
+	var handle_material = StandardMaterial3D.new()
 	handle_material.render_priority = 100
 
-	handle_material.set_feature(SpatialMaterial.FEATURE_TRANSPARENT, true)
-	handle_material.set_flag(SpatialMaterial.FLAG_UNSHADED, true)
-	handle_material.set_flag(SpatialMaterial.FLAG_USE_POINT_SIZE, true)
-	handle_material.set_flag(SpatialMaterial.FLAG_ALBEDO_FROM_VERTEX_COLOR, true)
-	handle_material.set_flag(SpatialMaterial.FLAG_SRGB_VERTEX_COLOR, true)
-	handle_material.set_flag(SpatialMaterial.FLAG_DISABLE_DEPTH_TEST, true)
+	handle_material.set_feature(StandardMaterial3D.FEATURE_TRANSPARENT, true)
+	handle_material.set_flag(StandardMaterial3D.FLAG_UNSHADED, true)
+	handle_material.set_flag(StandardMaterial3D.FLAG_USE_POINT_SIZE, true)
+	handle_material.set_flag(StandardMaterial3D.FLAG_ALBEDO_FROM_VERTEX_COLOR, true)
+	handle_material.set_flag(StandardMaterial3D.FLAG_SRGB_VERTEX_COLOR, true)
+	handle_material.set_flag(StandardMaterial3D.FLAG_DISABLE_DEPTH_TEST, true)
 	handle_material.set_point_size(icon.get_width())
-	handle_material.set_texture(SpatialMaterial.TEXTURE_ALBEDO, icon)
+	handle_material.set_texture(StandardMaterial3D.TEXTURE_ALBEDO, icon)
 	handle_material.set_albedo(color)
 
 	add_material(name, handle_material)
 
 
-func create_custom_material(name, color := Color.white):
-	var material = SpatialMaterial.new()
+func create_custom_material(name, color := Color.WHITE):
+	var material = StandardMaterial3D.new()
 	material.render_priority = 100
 
-	material.set_feature(SpatialMaterial.FEATURE_TRANSPARENT, true)
-	material.set_flag(SpatialMaterial.FLAG_UNSHADED, true)
-	material.set_flag(SpatialMaterial.FLAG_ALBEDO_FROM_VERTEX_COLOR, true)
-	material.set_flag(SpatialMaterial.FLAG_SRGB_VERTEX_COLOR, true)
-	material.set_flag(SpatialMaterial.FLAG_DISABLE_DEPTH_TEST, true)
+	material.set_feature(StandardMaterial3D.FEATURE_TRANSPARENT, true)
+	material.set_flag(StandardMaterial3D.FLAG_UNSHADED, true)
+	material.set_flag(StandardMaterial3D.FLAG_ALBEDO_FROM_VERTEX_COLOR, true)
+	material.set_flag(StandardMaterial3D.FLAG_SRGB_VERTEX_COLOR, true)
+	material.set_flag(StandardMaterial3D.FLAG_DISABLE_DEPTH_TEST, true)
 	material.set_albedo(color)
 
 	add_material(name, material)
@@ -195,8 +195,8 @@ func create_custom_material(name, color := Color.white):
 
 func set_selected(path) -> void:
 	if _selected and is_instance_valid(_selected):
-		if _selected.is_connected("curve_changed", self, "_on_curve_changed"):
-			_selected.disconnect("curve_changed", self, "_on_curve_changed")
+		if _selected.is_connected("curve_changed",Callable(self,"_on_curve_changed")):
+			_selected.disconnect("curve_changed",Callable(self,"_on_curve_changed"))
 
 	_selected = path
 
@@ -207,8 +207,8 @@ func set_selected(path) -> void:
 		path = null
 		return
 
-	if not path.is_connected("curve_changed", self, "_on_curve_changed"):
-		path.connect("curve_changed", self, "_on_curve_changed")
+	if not path.is_connected("curve_changed",Callable(self,"_on_curve_changed")):
+		path.connect("curve_changed",Callable(self,"_on_curve_changed"))
 
 	_previous_state.point_count = _selected.curve.get_point_count()
 	_previous_state.position = Vector3.ZERO
@@ -216,7 +216,7 @@ func set_selected(path) -> void:
 		_previous_state.position = _selected.curve.get_point_position(_previous_state.point_count - 1)
 
 
-func set_editor_camera(camera: Camera) -> void:
+func set_editor_camera(camera: Camera3D) -> void:
 	_camera = camera
 
 
@@ -227,7 +227,7 @@ func set_editor_plugin(val: EditorPlugin) -> void:
 
 
 func _draw_handles(gizmo):
-	var path = gizmo.get_spatial_node()
+	var path = gizmo.get_node_3d()
 	if not path:
 		return
 
@@ -235,9 +235,9 @@ func _draw_handles(gizmo):
 	if not curve:
 		return
 
-	var handles = PoolVector3Array()
-	var square_handles = PoolVector3Array()
-	var lines = PoolVector3Array()
+	var handles = PackedVector3Array()
+	var square_handles = PackedVector3Array()
+	var lines = PackedVector3Array()
 	var count = curve.get_point_count()
 	if count == 0:
 		return
@@ -262,8 +262,8 @@ func _draw_handles(gizmo):
 
 
 func _draw_path(gizmo):
-	var path = gizmo.get_spatial_node()
-	var polygon = PoolVector3Array()
+	var path = gizmo.get_node_3d()
+	var polygon = PackedVector3Array()
 
 	for i in path.baked_points.size() - 1:
 		polygon.append(path.baked_points[i])
@@ -277,8 +277,8 @@ func _draw_grid(gizmo):
 	if options.hide_grid():
 		return
 
-	var path = gizmo.get_spatial_node()
-	var grid = PoolVector3Array()
+	var path = gizmo.get_node_3d()
+	var grid = PackedVector3Array()
 	var size = path.size
 	var center = path.center
 	center.y = 0.0
@@ -317,7 +317,7 @@ func _get_root_folder() -> String:
 func _intersect_with_colliders(path, camera, screen_point):
 	var from = camera.project_ray_origin(screen_point)
 	var dir = camera.project_ray_normal(screen_point)
-	var space_state = path.get_world().direct_space_state
+	var space_state = path.get_world_3d().direct_space_state
 	var result = space_state.intersect_ray(from, from + dir * 4096)
 	if result:
 		return result.position
@@ -335,7 +335,7 @@ func _intersect_screen_space(path, camera, screen_point):
 	var from = camera.project_ray_origin(screen_point)
 	var dir = camera.project_ray_normal(screen_point)
 	var gt = path.get_global_transform()
-	var point: Vector3 = gt.xform(_old_position)
+	var point: Vector3 = gt * _old_position
 	var camera_basis: Basis = camera.get_transform().basis
 	var plane := Plane(point, point + camera_basis.x, point + camera_basis.y)
 	return plane.intersects_ray(from, dir)
@@ -378,8 +378,8 @@ func _set_options(val) -> void:
 	if not options:
 		return
 
-	options.connect("option_changed", self, "_on_option_changed")
-	options.connect("color_changed", self, "_on_color_changed")
+	options.connect("option_changed",Callable(self,"_on_option_changed"))
+	options.connect("color_changed",Callable(self,"_on_color_changed"))
 	create_custom_material("grid", options.get_grid_color())
 	create_custom_material("path", options.get_path_color())
 
@@ -388,8 +388,8 @@ func _on_option_changed() -> void:
 	force_redraw()
 
 
-# Force the newly added points on the plane if the option is enabled
-# Could have been avoided if Scatter didn't inherited from Path
+# Force the newly added points checked the plane if the option is enabled
+# Could have been avoided if Scatter didn't inherited from Path3D
 func _on_curve_changed() -> void:
 	if _is_forcing_projection:
 		return

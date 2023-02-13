@@ -1,8 +1,8 @@
-tool
+@tool
 extends Control
 
 # Don't change this if possible
-export (String) var documentation_path : String = "res://addons/dialogic/Documentation"
+@export (String) var documentation_path : String = "res://addons/dialogic/Documentation"
 
 # This enables/disables the use of folder files
 # If enabled, the docs will expect a file named 
@@ -26,12 +26,12 @@ var file_ignore_list = ['Welcome.md']
 ## This is mainly used if you want to somehow display a list of the docs content,
 ##   for example to create a file-tree or a list of documents
 ##
-## Only files ending on .md are noticed. 
+## Only files ending checked .md are noticed. 
 ## Folders that contain no such files are ignored
 func get_documentation_content():
 	return get_dir_contents(documentation_path+"/Content")
 
-## Will create a hirarchy of TreeItems on the given 'trees' root_item
+## Will create a hirarchy of TreeItems checked the given 'trees' root_item
 ## If not root_item is given a new root_item will be created
 ## The root item does not have to be the actual root item of the whole tree, 
 ##   but the root of the documentation branch.
@@ -58,7 +58,7 @@ func get_dir_contents(rootPath: String) -> Dictionary:
 	var dir := Directory.new()
 
 	if dir.open(rootPath) == OK:
-		dir.list_dir_begin(true, false)
+		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		directory_structure = _add_dir_contents(dir)
 	else:
 		push_error("Docs: An error occurred when trying to access the path.")
@@ -74,7 +74,7 @@ func _add_dir_contents(dir: Directory) -> Dictionary:
 			#print("Found directory: %s" % path)
 			var subDir = Directory.new()
 			subDir.open(path)
-			subDir.list_dir_begin(true, false)
+			subDir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 			var dir_content = _add_dir_contents(subDir)
 			if dir_content.has('_files_'):
 				structure[path] = dir_content
@@ -114,13 +114,13 @@ func _build_documentation_tree(tree : Tree, root_item:TreeItem = null, def_folde
 	else:
 		documentation_tree.collapsed = false
 	
-	# create the rest of the tree based on the dict we get from the DocsHelper
+	# create the rest of the tree based checked the dict we get from the DocsHelper
 	var doc_structure = get_documentation_content()
 	#print(doc_structure)
 	create_doc_tree(tree, documentation_tree, def_folder_info, def_page_info, doc_structure, filter_term)
 	return documentation_tree
 
-# this calls itself recursivly to create the tree, based on the given dict
+# this calls itself recursivly to create the tree, based checked the given dict
 func create_doc_tree(tree, parent_item, def_folder_info, def_page_info, doc_structure, filter_term):
 	for key in doc_structure.keys():
 		# if this is a folder
@@ -183,13 +183,13 @@ func get_title(path, default_name):
 	var f = File.new()
 	f.open(path, File.READ)
 	var arr = f.get_as_text().split('\n', false, 1)
-	if not arr.empty():
+	if not arr.is_empty():
 		return arr[0].trim_prefix('#').strip_edges()
 	else:
 		return default_name
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## For searching the tree
-## used to search and select an item of the tree based on a info saved in the metadata
+## used to search and select an item of the tree based checked a info saved in the metadata
 ## in most cases you just want to search for the item that has a certain path
 ##
 ## the paren_item parameter is only used so this can call itself recursivly 
@@ -199,7 +199,7 @@ func search_and_select_docs(docs_tree_item:TreeItem, info:String, key:String = '
 		docs_tree_item.select(0)
 		return true
 	#print("Asearch ", key, " ", info)
-	#print("Asearchin on item: ", docs_tree_item.get_text(0))
+	#print("Asearchin checked item: ", docs_tree_item.get_text(0))
 	var item = docs_tree_item.get_children()
 	while item:
 		#print("A ",item.get_text(0))

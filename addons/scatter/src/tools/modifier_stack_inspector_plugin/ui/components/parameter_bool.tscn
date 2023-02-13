@@ -10,15 +10,15 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_top = 5.0
-margin_right = 1252.0
-margin_bottom = 19.0
+offset_top = 5.0
+offset_right = 1252.0
+offset_bottom = 19.0
 size_flags_horizontal = 3
 text = "Parameter name"
 valign = 1
 
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 1256.0
-margin_right = 1280.0
-margin_bottom = 24.0
+offset_left = 1256.0
+offset_right = 1280.0
+offset_bottom = 24.0
 mouse_filter = 1

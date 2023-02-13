@@ -1,21 +1,21 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var override_global_seed := false
-export var custom_seed := 0
-export var instance_count := 10
-export var align_to_path := false
-export var align_up_axis := 1
-export var restrict_x := false
-export var restrict_y := false
-export var restrict_z := false
+@export var override_global_seed := false
+@export var custom_seed := 0
+@export var instance_count := 10
+@export var align_to_path := false
+@export var align_up_axis := 1
+@export var restrict_x := false
+@export var restrict_y := false
+@export var restrict_z := false
 
 var _rng: RandomNumberGenerator
 
 
-func _init() -> void:
-	display_name = "Distribute Along Path (Random)"
+func _init():
+	display_name = "Distribute Along Path3D (Random)"
 	category = "Distribute"
 	warning_ignore_no_transforms = true
 	warning_ignore_no_path = false
@@ -36,7 +36,7 @@ func _process_transforms(transforms, global_seed) -> void:
 		var data = path.get_pos_and_normal(_rng.randf() * length)
 		var pos: Vector3 = data[0]
 		var normal: Vector3 = data[1]
-		var t : Transform = transforms.list[i]
+		var t : Transform3D = transforms.list[i]
 
 		if align_to_path:
 			#axis restrictions

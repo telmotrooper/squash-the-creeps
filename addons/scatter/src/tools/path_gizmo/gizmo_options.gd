@@ -1,4 +1,4 @@
-tool
+@tool
 extends Control
 
 
@@ -7,17 +7,17 @@ signal color_changed
 signal snap_to_colliders_enabled
 
 
-onready var _colliders: Button = $VBoxContainer/Colliders
-onready var _plane: Button = $VBoxContainer/Plane
-onready var _options_button: Button = $VBoxContainer/Options
-onready var _options: Control = $VBoxContainer/MarginContainer
-onready var _grid_density: SpinBox = $VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/GridDensity/SpinBox
-onready var _hide_grid: CheckButton = $VBoxContainer/MarginContainer/VBoxContainer/HideGrid
-onready var _force_plane_projection: CheckButton = $VBoxContainer/MarginContainer/VBoxContainer/ForceProjection
-onready var _path_color: ColorRect = $VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PathColor/MarginContainer/Button/ColorRect
-onready var _grid_color: ColorRect = $VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/GridColor/MarginContainer/Button/ColorRect
-onready var _color_picker: ColorPicker = $Popup/MarginContainer/ColorPicker
-onready var _color_popup: Popup = $Popup
+@onready var _colliders: Button = $VBoxContainer/Colliders
+@onready var _plane: Button = $VBoxContainer/Plane
+@onready var _options_button: Button = $VBoxContainer/Options
+@onready var _options: Control = $VBoxContainer/MarginContainer
+@onready var _grid_density: SpinBox = $VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/GridDensity/SpinBox
+@onready var _hide_grid: CheckButton = $VBoxContainer/MarginContainer/VBoxContainer/HideGrid
+@onready var _force_plane_projection: CheckButton = $VBoxContainer/MarginContainer/VBoxContainer/ForceProjection
+@onready var _path_color: ColorRect = $VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PathColor/MarginContainer/Button/ColorRect
+@onready var _grid_color: ColorRect = $VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/GridColor/MarginContainer/Button/ColorRect
+@onready var _color_picker: ColorPicker = $Popup/MarginContainer/ColorPicker
+@onready var _color_popup: Popup = $Popup
 
 
 var _selected_color
@@ -63,14 +63,14 @@ func get_grid_density() -> float:
 # Auto hide the extra options
 func _set(property, value):
 	if property == "visible":
-		_options_button.pressed = false
+		_options_button.button_pressed = false
 		_on_option_button_toggled(false)
 	return false
 
 
 func _show_color_picker() -> void:
 	var origin := get_global_transform().origin
-	origin.x += rect_size.x + 12
+	origin.x += size.x + 12
 	_color_popup.popup(Rect2(origin, Vector2.ONE))
 
 
@@ -84,11 +84,11 @@ func _load_config_file() -> bool:
 	_path_color.color = config.get_value("colors", "path", Color("ff2f2f"))
 	_grid_color.color = config.get_value("colors", "grid", Color("c8ffbe11"))
 
-	_colliders.pressed = config.get_value("general", "snap_to_colliders", false)
-	_plane.pressed = config.get_value("general", "lock_to_plane", true)
-	_hide_grid.pressed = config.get_value("general", "always_hide_grid", false)
+	_colliders.button_pressed = config.get_value("general", "snap_to_colliders", false)
+	_plane.button_pressed = config.get_value("general", "lock_to_plane", true)
+	_hide_grid.button_pressed = config.get_value("general", "always_hide_grid", false)
 	_grid_density.value = config.get_value("general", "grid_density", 7)
-	_force_plane_projection.pressed = config.get_value("general", "force_plane_projection", false)
+	_force_plane_projection.button_pressed = config.get_value("general", "force_plane_projection", false)
 
 	return true
 

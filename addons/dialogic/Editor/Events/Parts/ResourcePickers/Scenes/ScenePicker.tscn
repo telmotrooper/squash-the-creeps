@@ -4,8 +4,8 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn" type="PackedScene" id=2]
 
 [node name="ScenePicker" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 size_flags_vertical = 4
 script = ExtResource( 1 )
 __meta__ = {
@@ -13,7 +13,7 @@ __meta__ = {
 }
 
 [node name="FilePicker" parent="." instance=ExtResource( 2 )]
-margin_top = 0.0
-margin_right = 199.0
-margin_bottom = 22.0
+offset_top = 0.0
+offset_right = 199.0
+offset_bottom = 22.0
 Mode = "Scene"

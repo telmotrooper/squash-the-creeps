@@ -1,11 +1,11 @@
-tool
+@tool
 extends PopupPanel
 
 
 signal add_modifier
 
 
-onready var _category_root: Control = $MarginContainer/CategoryRoot
+@onready var _category_root: Control = $MarginContainer/CategoryRoot
 
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func _rebuild_ui():
 			var category = _get_or_create_category(instance.category)
 			var button = _create_button(instance.display_name)
 			category.add_child(button)
-			button.connect("pressed", self, "_on_pressed", [modifier])
+			button.connect("pressed",Callable(self,"_on_pressed").bind(modifier))
 
 		instance.queue_free()
 
@@ -57,7 +57,7 @@ func _get_or_create_category(text: String) -> Control:
 	if _category_root.has_node(text):
 		return _category_root.get_node(text) as Control
 
-	var c = preload("category.tscn").instance()
+	var c = preload("category.tscn").instantiate()
 	c.name = text
 	_category_root.add_child(c, true)
 	c.set_category_name(text)
@@ -68,7 +68,7 @@ func _get_all_modifier_scripts(path) -> Array:
 	var res := []
 	var dir = Directory.new()
 	dir.open(path)
-	dir.list_dir_begin(true, true)
+	dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 	var path_root = dir.get_current_dir() + "/"
 
 	while true:
@@ -85,7 +85,7 @@ func _get_all_modifier_scripts(path) -> Array:
 
 		var full_path = path_root + file
 		var script = load(full_path)
-		if not script or not script.can_instance():
+		if not script or not script.can_instantiate():
 			print("Error: Failed to load script ", file)
 			continue
 

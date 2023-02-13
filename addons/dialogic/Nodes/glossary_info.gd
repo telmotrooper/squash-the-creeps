@@ -1,7 +1,7 @@
-tool
+@tool
 extends PanelContainer
 
-onready var nodes = {
+@onready var nodes = {
 	'title': $VBoxContainer/Title,
 	'body': $VBoxContainer/Content,
 	'extra': $VBoxContainer/Extra,
@@ -12,7 +12,7 @@ var margin = 10
 
 
 func _ready():
-	set_deferred('rect_size.y', 0)
+	set_deferred('size.y', 0)
 	nodes['title'].bbcode_enabled = true
 	nodes['body'].bbcode_enabled = true
 	nodes['extra'].bbcode_enabled = true
@@ -22,10 +22,10 @@ func _process(_delta):
 	if Engine.is_editor_hint() == false or in_theme_editor == true:
 		if visible:
 			if get_global_mouse_position().x < get_viewport().size.x * 0.5:
-				rect_global_position = get_global_mouse_position() - Vector2(0, rect_size.y + (margin * 2))
+				global_position = get_global_mouse_position() - Vector2(0, size.y + (margin * 2))
 			else:
-				rect_global_position = get_global_mouse_position() - rect_size - Vector2(0, (margin * 2))
-			rect_size.y = 0
+				global_position = get_global_mouse_position() - size - Vector2(0, (margin * 2))
+			size.y = 0
 #			
 
 func load_preview(info):
@@ -34,15 +34,15 @@ func load_preview(info):
 	nodes['extra'].visible = false
 	
 	if info['title'] != '':
-		nodes['title'].bbcode_text = info['title']
+		nodes['title'].text = info['title']
 		nodes['title'].visible = true
 
 	if info['body'] != '':
-		nodes['body'].bbcode_text = info['body']
+		nodes['body'].text = info['body']
 		nodes['body'].visible = true
 	
 	if info['extra'] != '':
-		nodes['extra'].bbcode_text = info['extra']
+		nodes['extra'].text = info['extra']
 		nodes['extra'].visible = true
 
 

@@ -62,7 +62,7 @@ func parse(content : String,  file_path:String = '', docs_path:String = ''):
 	var regex = RegEx.new()
 	
 	## Remove all comments
-	# TODO: remove comments <!-- -->
+	# TODO: remove_at comments <!-- -->
 	
 	
 	## Find all occurences of bold text

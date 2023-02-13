@@ -3,11 +3,11 @@
 [ext_resource path="res://props/falling_platform/falling_bridge.gd" type="Script" id=1]
 [ext_resource path="res://props/falling_platform/falling_platform.tscn" type="PackedScene" id=2]
 
-[sub_resource type="SpatialMaterial" id=39]
+[sub_resource type="StandardMaterial3D" id=39]
 albedo_color = Color( 0.454902, 0.458824, 0.360784, 1 )
 
-[node name="FallingBridge" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 157.5, 9.5, 0 )
+[node name="FallingBridge" type="Node3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 157.5, 9.5, 0 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -16,69 +16,69 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.15
 
-[node name="Platforms" type="Spatial" parent="."]
+[node name="Platforms" type="Node3D" parent="."]
 
 [node name="FallingPlatform" parent="Platforms" instance=ExtResource( 2 )]
 material = SubResource( 39 )
 
 [node name="FallingPlatform2" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform3" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform4" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform5" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform6" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform7" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform8" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform9" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform10" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform11" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform12" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform13" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform14" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform15" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 0 )
 material = SubResource( 39 )
 
 [node name="FallingPlatform16" parent="Platforms" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, 0 )
 material = SubResource( 39 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

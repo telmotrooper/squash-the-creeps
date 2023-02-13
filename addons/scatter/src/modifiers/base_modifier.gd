@@ -1,11 +1,11 @@
-tool
+@tool
 extends Node
 
 
 signal warning_changed
 
 
-export var enabled := true
+@export var enabled := true
 
 
 var display_name: String = "Base Modifier Name"
@@ -33,10 +33,10 @@ func process_transforms(transforms, global_seed) -> void:
 	var path = transforms.path
 	if path.curve.get_point_count() <= 1 and not warning_ignore_no_path:
 		warning += """The Scatter node 3D curve is empty.
-		You can draw one using the controls on top of the viewport."""
+		You can draw one using the controls checked top of the viewport."""
 		return
 
-	if transforms.list.empty() and not warning_ignore_no_transforms:
+	if transforms.list.is_empty() and not warning_ignore_no_transforms:
 		warning += """The list of transforms is empty.
 		Make sure you have a Distribute or Create modifier at the begining of the stack.
 		"""

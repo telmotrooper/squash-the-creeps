@@ -1,18 +1,18 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var interval := 1.0
-export var offset := 0.0
-export var align_to_path := false
-export(int, "X", "Y", "Z") var align_up_axis = 1
-export var restrict_x := false
-export var restrict_y := false
-export var restrict_z := false
+@export var interval := 1.0
+@export var offset := 0.0
+@export var align_to_path := false
+@export var align_up_axis = 1 # (int, "X", "Y", "Z")
+@export var restrict_x := false
+@export var restrict_y := false
+@export var restrict_z := false
 
 
-func _init() -> void:
-	display_name = "Distribute Along Path (Even)"
+func _init():
+	display_name = "Distribute Along Path3D (Even)"
 	category = "Distribute"
 	warning_ignore_no_transforms = true
 	warning_ignore_no_path = false
@@ -40,7 +40,7 @@ func _process_transforms(transforms, _seed) -> void:
 		var data : Array = path.get_pos_and_normal(curve_offset)
 		var pos: Vector3 = data[0]
 		var normal: Vector3 = data[1]
-		var t : Transform = transforms.list[i]
+		var t : Transform3D = transforms.list[i]
 
 		t.origin = pos
 

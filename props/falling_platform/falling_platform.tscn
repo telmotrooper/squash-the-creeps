@@ -2,13 +2,13 @@
 
 [ext_resource path="res://props/falling_platform/falling_platform.gd" type="Script" id=1]
 
-[sub_resource type="SpatialMaterial" id=39]
+[sub_resource type="StandardMaterial3D" id=39]
 albedo_color = Color( 0.454902, 0.458824, 0.360784, 1 )
 
-[sub_resource type="BoxShape" id=40]
+[sub_resource type="BoxShape3D" id=40]
 extents = Vector3( 0.75, 0.5, 3 )
 
-[node name="FallingPlatform" type="CSGBox"]
+[node name="FallingPlatform" type="CSGBox3D"]
 use_collision = true
 collision_layer = 64
 width = 1.5
@@ -17,11 +17,11 @@ depth = 6.0
 material = SubResource( 39 )
 script = ExtResource( 1 )
 
-[node name="DetectArea" type="Area" parent="."]
+[node name="DetectArea" type="Area3D" parent="."]
 collision_layer = 16
 
-[node name="CollisionShape" type="CollisionShape" parent="DetectArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379825, 0 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectArea"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379825, 0 )
 shape = SubResource( 40 )
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_DetectArea_body_entered"]

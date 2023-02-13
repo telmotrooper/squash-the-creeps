@@ -14,23 +14,23 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 377.0
-margin_bottom = 24.0
+offset_right = 377.0
+offset_bottom = 24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_top = 5.0
-margin_right = 17.0
-margin_bottom = 19.0
+offset_top = 5.0
+offset_right = 17.0
+offset_bottom = 19.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "for"
 
 [node name="SecondsBox" type="SpinBox" parent="HBoxContainer"]
-margin_left = 21.0
-margin_right = 97.0
-margin_bottom = 24.0
+offset_left = 21.0
+offset_right = 97.0
+offset_bottom = 24.0
 min_value = 0.1
 step = 0.1
 value = 1.0
@@ -39,21 +39,21 @@ align = 1
 script = ExtResource( 4 )
 
 [node name="Label2" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_left = 101.0
-margin_top = 5.0
-margin_right = 154.0
-margin_bottom = 19.0
+offset_left = 101.0
+offset_top = 5.0
+offset_right = 154.0
+offset_bottom = 19.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "seconds"
 
 [node name="SkippableCheckbox" type="CheckBox" parent="HBoxContainer"]
-margin_left = 158.0
-margin_right = 247.0
-margin_bottom = 24.0
+offset_left = 158.0
+offset_right = 247.0
+offset_bottom = 24.0
 text = "Skippable"
 
 [node name="HideDialogBoxCheckbox" type="CheckBox" parent="HBoxContainer"]
-margin_left = 251.0
-margin_right = 377.0
-margin_bottom = 24.0
+offset_left = 251.0
+offset_right = 377.0
+offset_bottom = 24.0
 text = "Hide DialogBox"

@@ -1,11 +1,11 @@
-tool
+@tool
 extends ScrollContainer
 
 var editor_reference
-onready var master_tree = get_node('../MasterTreeContainer/MasterTree')
+@onready var master_tree = get_node('../MasterTreeContainer/MasterTree')
 var current_definition = null
 
-onready var nodes = {
+@onready var nodes = {
 	'name' : $VBoxContainer/HBoxContainer/VBoxContainer/Name,
 	'extra_editor': $VBoxContainer/HBoxContainer/ExtraInfo,
 	'extra_title': $VBoxContainer/HBoxContainer/ExtraInfo/Title,
@@ -16,8 +16,8 @@ onready var nodes = {
 func _ready():
 	editor_reference = find_parent('EditorView')
 	reset_editor()
-	nodes['name'].connect('text_changed', self, '_on_name_changed')
-	nodes['name'].connect('focus_exited', self, '_update_name_on_tree')
+	nodes['name'].connect('text_changed',Callable(self,'_on_name_changed'))
+	nodes['name'].connect('focus_exited',Callable(self,'_update_name_on_tree'))
 
 
 func is_selected(id: String):

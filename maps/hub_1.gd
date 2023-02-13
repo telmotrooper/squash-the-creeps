@@ -1,8 +1,8 @@
 extends Node
 
-export (Environment) var day_environment
-export (Environment) var night_environment
-export (AudioStream) var map_music
+@export (Environment) var day_environment
+@export (Environment) var night_environment
+@export (AudioStream) var map_music
 
 # Notice that the Player node has been put by the end of the tree
 # to prevent a bug where the camera (related to the CutsceneAnimationPlayer)
@@ -41,5 +41,5 @@ func _on_AudioStreamPlayer_finished() -> void:
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
   var new_dialog = Dialogic.start("Intro")
   add_child(new_dialog)
-  yield(new_dialog, "dialogic_signal")
+  await new_dialog.dialogic_signal
   GameState.Player.paused = false

@@ -1,12 +1,12 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
-export var local_space := false
-export var scale := Vector3(1, 1, 1)
+@export var local_space := false
+@export var scale := Vector3(1, 1, 1)
 
 
-func _init() -> void:
+func _init():
 	display_name = "Offset Scale"
 	category = "Offset"
 

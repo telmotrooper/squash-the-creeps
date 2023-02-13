@@ -1,10 +1,10 @@
-tool
+@tool
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
 # has an event_data variable that stores the current data!!!
 
 ## node references
-onready var text_editor = $TextEdit
+@onready var text_editor = $TextEdit
 
 var timeline_area = null
 var text_gap = 50
@@ -14,11 +14,11 @@ func _ready():
 	text_gap = (text_gap * DialogicUtil.get_editor_scale(self))
 	
 	# signals
-	text_editor.connect("text_changed", self, "_on_TextEditor_text_changed")
-	text_editor.connect("focus_entered", self, "_on_TextEditor_focus_entered")
+	text_editor.connect("text_changed",Callable(self,"_on_TextEditor_text_changed"))
+	text_editor.connect("focus_entered",Callable(self,"_on_TextEditor_focus_entered"))
 	
 	# stylistig setup
-	text_editor.syntax_highlighting = true
+	text_editor.syntax_highlighter = true
 	text_editor.add_color_region('[', ']', get_color("axis_z_color", "Editor"))
 	text_editor.set('custom_colors/number_color', get_color("font_color", "Editor"))
 	text_editor.set('custom_colors/function_color', get_color("font_color", "Editor"))
@@ -26,14 +26,14 @@ func _ready():
 	text_editor.set('custom_colors/symbol_color', get_color("font_color", "Editor"))
 	
 	timeline_area = find_parent('TimelineArea')
-	timeline_area.connect('resized', self, '_set_new_min_size')
+	timeline_area.connect('resized',Callable(self,'_set_new_min_size'))
 	_set_new_min_size()
 
 
 # called by the event block
 func load_data(data:Dictionary):
 	# First set the event_data
-	.load_data(data)
+	super.load_data(data)
 	
 	# Now update the ui nodes to display the data. 
 	# in case this is a text event
@@ -86,7 +86,7 @@ func _on_TextEditor_text_changed():
 
 func _set_new_min_size():
 	# Reset
-	text_editor.rect_min_size = Vector2(0,0)
+	text_editor.custom_minimum_size = Vector2(0,0)
 	# Getting new sizes
 	var extra_vertical = 1.1
 	
@@ -106,18 +106,18 @@ func _set_new_min_size():
 	# set the height
 	if text_editor.get_line_count() > 1:
 		extra_vertical = 1.22
-	text_editor.rect_min_size.y = get_font("normal_font").get_height() * ((text_editor.get_line_count() + 1 + count_wrapped_lines) * extra_vertical)
+	text_editor.custom_minimum_size.y = get_font("normal_font").get_height() * ((text_editor.get_line_count() + 1 + count_wrapped_lines) * extra_vertical)
 	
 	# set the width
-	text_editor.rect_min_size.x = get_font("normal_font").get_string_size(longest_string).x + text_gap
-	if text_editor.rect_min_size.x > get_max_x_size():
-		text_editor.rect_min_size.x = get_max_x_size()
+	text_editor.custom_minimum_size.x = get_font("normal_font").get_string_size(longest_string).x + text_gap
+	if text_editor.custom_minimum_size.x > get_max_x_size():
+		text_editor.custom_minimum_size.x = get_max_x_size()
 
 func get_max_x_size():
-	return timeline_area.rect_size.x - (text_editor.rect_global_position.x - timeline_area.rect_global_position.x) - text_gap
+	return timeline_area.size.x - (text_editor.global_position.x - timeline_area.global_position.x) - text_gap
 
 func _on_TextEditor_focus_entered() -> void:
-	if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		emit_signal("request_selection")
 
 

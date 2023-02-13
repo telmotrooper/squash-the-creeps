@@ -5,8 +5,8 @@
 [ext_resource path="res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn" type="PackedScene" id=3]
 
 [node name="ThemePicker" type="HBoxContainer"]
-margin_right = 157.0
-margin_bottom = 27.0
+offset_right = 157.0
+offset_bottom = 27.0
 size_flags_vertical = 4
 script = ExtResource( 1 )
 __meta__ = {
@@ -15,15 +15,15 @@ __meta__ = {
 show_text = true
 
 [node name="Label" parent="." instance=ExtResource( 3 )]
-margin_top = 6.0
-margin_right = 59.0
-margin_bottom = 20.0
+offset_top = 6.0
+offset_right = 59.0
+offset_bottom = 20.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "to theme"
 
 [node name="MenuButton" parent="." instance=ExtResource( 2 )]
-margin_left = 63.0
-margin_top = 1.0
-margin_right = 177.0
-margin_bottom = 25.0
+offset_left = 63.0
+offset_top = 1.0
+offset_right = 177.0
+offset_bottom = 25.0
 custom_colors/font_color = Color( 0.8, 0.807843, 0.827451, 1 )

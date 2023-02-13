@@ -1,24 +1,24 @@
-tool
+@tool
 extends "base_modifier.gd"
 
 
 var Scatter = preload("../core/namespace.gd").new()
 
-export(String, "Node") var path_name
-export var width := 4.0
-export var ignore_height := true
-export(String, "Curve") var falloff
-export var override_global_seed := false
-export var custom_seed := 0
+@export var path_name # (String, "Node")
+@export var width := 4.0
+@export var ignore_height := true
+@export var falloff # (String, "Curve")
+@export var override_global_seed := false
+@export var custom_seed := 0
 
 var _rng: RandomNumberGenerator
 
 
-func _init() -> void:
-	display_name = "Remove Along Path"
+func _init():
+	display_name = "Remove Along Path3D"
 	category = "Remove"
 
-	if falloff.empty():
+	if falloff.is_empty():
 		var curve = Curve.new()
 		curve.add_point(Vector2(0, 0))
 		curve.add_point(Vector2(1, 0))
@@ -48,9 +48,9 @@ func _process_transforms(transforms, global_seed) -> void:
 	var curve: Curve = Scatter.Util.string_to_curve(falloff)
 
 	while i < transforms.list.size():
-		pos = global_transform.xform(transforms.list[i].origin)
+		pos = global_transform * transforms.list[i].origin
 		for p in paths:
-			var distance_to_point: float = p.distance_from_point(p.global_transform.xform_inv(pos), ignore_height)
+			var distance_to_point: float = p.distance_from_point(pos * p.global_transform, ignore_height)
 			var max_distance: float = width / 2.0
 
 			if distance_to_point < max_distance:
@@ -58,7 +58,7 @@ func _process_transforms(transforms, global_seed) -> void:
 				var random_value := _rng.randf()
 
 				if random_value > falloff_value:
-					transforms.list.remove(i)
+					transforms.list.remove_at(i)
 					i -= 1
 					break
 		i += 1
@@ -66,11 +66,11 @@ func _process_transforms(transforms, global_seed) -> void:
 
 func _get_paths_recursive(root) -> Array:
 	var res = []
-	if root is Path:
+	if root is Path3D:
 		res.push_back(root)
 
 	for c in root.get_children():
-		if c is Path:
+		if c is Path3D:
 			res += _get_paths_recursive(c)
 
 	return res

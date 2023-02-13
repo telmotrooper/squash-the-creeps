@@ -1,4 +1,4 @@
-tool
+@tool
 class_name DialogicUtil
 
 ## This class is used by the DialogicEditor
@@ -39,7 +39,7 @@ static func get_characters_dict():
 
 static func get_sorted_character_list():
 	var array = get_character_list()
-	array.sort_custom(DialgicSorter, 'sort_resources')
+	array.sort_custom(Callable(DialgicSorter,'sort_resources'))
 	return array
 
 
@@ -78,7 +78,7 @@ static func get_timeline_dict() -> Dictionary:
 
 static func get_sorted_timeline_list():
 	var array = get_timeline_list()
-	array.sort_custom(DialgicSorter, 'sort_resources')
+	array.sort_custom(Callable(DialgicSorter,'sort_resources'))
 	return array
 
 
@@ -105,7 +105,7 @@ static func get_theme_dict() -> Dictionary:
 
 static func get_sorted_theme_list():
 	var array = get_theme_list()
-	array.sort_custom(DialgicSorter, 'sort_resources')
+	array.sort_custom(Callable(DialgicSorter,'sort_resources'))
 	return array
 
 
@@ -126,7 +126,7 @@ static func get_default_definitions_dict():
 
 static func get_sorted_default_definitions_list():
 	var array = get_default_definitions_list()
-	array.sort_custom(DialgicSorter, 'sort_resources')
+	array.sort_custom(Callable(DialgicSorter,'sort_resources'))
 	return array
 
 # returns the result of the given dialogic comparison
@@ -216,7 +216,7 @@ static func get_folder_at_path(path):
 static func set_folder_content_recursive(path_array: Array, orig_data: Dictionary, new_data: Dictionary) -> Dictionary:
 	if len(path_array) == 1:
 		if path_array[0] in orig_data['folders'].keys():
-			if new_data.empty():
+			if new_data.is_empty():
 				orig_data['folders'].erase(path_array[0])
 			else:
 				orig_data["folders"][path_array[0]] = new_data
@@ -278,14 +278,14 @@ static func rename_folder(path:String, new_folder_name:String):
 	if new_folder_name in get_folder_at_path(get_parent_path(path))['folders'].keys():
 		print("[D] A folder with the name '"+new_folder_name+"' already exists in the target folder '"+get_parent_path(path)+"'.")
 		return ERR_ALREADY_EXISTS
-	elif new_folder_name.empty():
+	elif new_folder_name.is_empty():
 		return ERR_PRINTER_ON_FIRE
 		
 	
 	# save the content
 	var folder_content = get_folder_at_path(path)
 	
-	# remove the old folder BUT NOT THE FILES !!!!!
+	# remove_at the old folder BUT NOT THE FILES !!!!!
 	remove_folder(path, false)
 	
 	# add the new folder
@@ -304,7 +304,7 @@ static func move_folder_to_folder(orig_path, target_folder):
 	# save the content
 	var folder_content = get_folder_at_path(orig_path)
 	
-	# remove the old folder BUT DON'T DELETE THE FILES!!!!!!!!!!!
+	# remove_at the old folder BUT DON'T DELETE THE FILES!!!!!!!!!!!
 	# took me ages to find this when I forgot it..
 	remove_folder(orig_path, false)
 	
@@ -333,7 +333,7 @@ static func remove_file_from_folder(folder_path, file_name):
 
 
 ## STRUCTURE UPDATES
-#should be called when files got deleted and on program start
+#should be called when files got deleted and checked program start
 static func update_resource_folder_structure():
 	var character_files = DialogicResources.listdir(DialogicResources.get_path('CHAR_DIR'))
 	var timeline_files = DialogicResources.listdir(DialogicResources.get_path('TIMELINE_DIR')) 
@@ -387,11 +387,11 @@ static func beautify_filename(animation_name: String) -> String:
 ## *****************************************************************************
 
 static func generate_random_id() -> String:
-	return str(OS.get_unix_time()) + '-' + str(100 + randi()%899+1)
+	return str(Time.get_unix_time_from_system()) + '-' + str(100 + randi()%899+1)
 
 
 static func compare_dicts(dict_1: Dictionary, dict_2: Dictionary) -> bool:
-	# I tried using the .hash() function but it was returning different numbers
+	# I tried using the super.hash() function but it was returning different numbers
 	# even when the dictionary was exactly the same.
 	if str(dict_1) != "Null" and str(dict_2) != "Null":
 		if str(dict_1) == str(dict_2):
@@ -404,7 +404,7 @@ static func path_fixer_load(path):
 	# Dialogic 1.0 were moved for version 1.1. If by any chance they still
 	# Use those resources, we redirect the paths from the old place to the new
 	# ones. This can be safely removed and replace all instances of 
-	# DialogicUtil.path_fixer_load(x) with just load(x) on version 2.0
+	# DialogicUtil.path_fixer_load(x) with just load(x) checked version 2.0
 	# since we will break compatibility.
 	
 	match path:
@@ -493,7 +493,7 @@ static func resource_fixer():
 						{'emit_signal'}:
 							i['event_id'] = 'dialogic_040'
 						# Change Scene event
-						{'change_scene'}:
+						{'change_scene_to_file'}:
 							i['event_id'] = 'dialogic_041'
 						# Call Node event
 						{'call_node'}:
@@ -533,7 +533,7 @@ static func resource_fixer():
 						'mirror_portrait':events[i].get('mirror', false),
 						'z_index': events[i].get('z_index', 0),
 						}
-					if new_event['portrait'].empty(): new_event['portrait'] = 'Default'
+					if new_event['portrait'].is_empty(): new_event['portrait'] = 'Default'
 					events[i] = new_event
 				elif events[i]['event_id'] == 'dialogic_003':
 					var new_event = {
@@ -556,8 +556,8 @@ static func resource_fixer():
 		var input_enter = InputEventKey.new()
 		input_enter.scancode = KEY_ENTER
 		var input_left_click = InputEventMouseButton.new()
-		input_left_click.button_index = BUTTON_LEFT
-		input_left_click.pressed = true
+		input_left_click.button_index = MOUSE_BUTTON_LEFT
+		input_left_click.button_pressed = true
 		var input_space = InputEventKey.new()
 		input_space.scancode = KEY_SPACE
 		var input_x = InputEventKey.new()
@@ -587,7 +587,7 @@ static func list_dir(path: String) -> Array:
 	var files = []
 	var dir = Directory.new()
 	dir.open(path)
-	dir.list_dir_begin(true)
+	dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	var file = dir.get_next()
 	while file != '':
@@ -604,7 +604,7 @@ static func list_dir(path: String) -> Array:
 class DialgicSorter:
 
 	static func key_available(key, a: Dictionary) -> bool:
-		return key in a.keys() and not a[key].empty()
+		return key in a.keys() and not a[key].is_empty()
 
 	static func get_compare_value(a: Dictionary) -> String:
 		if key_available('display_name', a):

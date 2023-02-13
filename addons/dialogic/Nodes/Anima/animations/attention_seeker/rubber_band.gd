@@ -1,6 +1,6 @@
 func generate_animation(anima_tween: Tween, data: Dictionary) -> void:
 	var scale = DialogicAnimaPropertiesHelper.get_scale(data.node)
-	var frames = [
+	var sprite_frames = [
 		{ percentage = 0, from = scale * Vector2(1, 1) },
 		{ percentage = 30, to = scale * Vector2(1.25, 0.75) },
 		{ percentage = 40, to = scale * Vector2(0.75, 1.25) },
@@ -12,4 +12,4 @@ func generate_animation(anima_tween: Tween, data: Dictionary) -> void:
 
 	DialogicAnimaPropertiesHelper.set_2D_pivot(data.node, DialogicAnimaPropertiesHelper.PIVOT.CENTER)
 
-	anima_tween.add_frames(data, "scale", frames)
+	anima_tween.add_frames(data, "scale", sprite_frames)
