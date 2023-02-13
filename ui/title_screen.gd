@@ -1,8 +1,8 @@
 extends Node
 
 const MENU_FADE_OUT = "menu_fade_out"
-@export (PackedScene) var new_game_scene
-@export (AudioStream) var menu_music
+@export var new_game_scene: PackedScene
+@export var menu_music: AudioStream
 
 var submenu_open := false
 var button_pressed: String

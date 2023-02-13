@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Gem
 
-@export (AudioStream) var collected_sound
+@export var collected_sound: AudioStream
 @export var gem_value := 3
 
 var follow_player := false

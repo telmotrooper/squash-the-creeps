@@ -1,6 +1,6 @@
 extends Node3D
 
-@export (PackedScene) var initial_scene
+@export var initial_scene: PackedScene
 
 enum LoadingStates {
   FADE_TO_BLACK_1,

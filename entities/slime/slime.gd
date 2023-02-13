@@ -3,7 +3,7 @@ class_name Slime
 
 var already_squashed := false
 
-@export (AudioStream) var squash_sound
+@export var squash_sound: AudioStream
 @export var patrolling_speed = 4
 
 enum {
@@ -13,7 +13,7 @@ enum {
 
 var state = PATROLLING
 
-var velocity = Vector3.ZERO
+#var velocity = Vector3.ZERO
 
 func _ready() -> void:
   if get_parent() is PathFollow3D:

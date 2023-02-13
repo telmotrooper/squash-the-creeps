@@ -2,9 +2,9 @@
 extends Area3D
 class_name Boundary
 
-@export (bool) var mesh_visible : get = get_visible, set = set_visible
+@export var mesh_visible : bool : get = get_visible, set = _set_visible
 
-func set_visible(value: bool) -> void:
+func _set_visible(value: bool) -> void:
   $MeshInstance3D.visible = value
 
 func get_visible() -> bool:

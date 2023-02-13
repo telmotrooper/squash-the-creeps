@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-@export (bool) var is_title_screen = false
+@export var is_title_screen: bool = false
 
 const draw_distance_text = "Draw Distance: %d"
 const sensitivity_text = "Mouse Sensitivity: %.2f"
