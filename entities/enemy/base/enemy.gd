@@ -3,12 +3,12 @@ class_name Enemy
 
 var already_squashed := false
 
-@export (AudioStream) var squash_sound
+@export var squash_sound: AudioStream
 @export var min_speed := 10.0
 @export var max_speed := 18.0
 @export var affected_by_gravity := true
 
-var velocity = Vector3.ZERO
+#var velocity = Vector3.ZERO
 
 func _physics_process(_delta: float) -> void:
   if affected_by_gravity:

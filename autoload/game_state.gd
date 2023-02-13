@@ -195,27 +195,28 @@ func register_gem(map_name: String, path: NodePath, gem_value: int) -> void:
     gems_collected[map_name][path] = { "collected": false, "value": gem_value }
 
 func update_grass(index: int = -1) -> void:
-  if index == -1: # If called with no index, set the one from the configuration file.
-    index = Configuration.get_value("graphics", "grass_amount")
-    
-  var multiplier = grass_index_to_multiplier(index)
-  
-  if is_instance_valid(GameState.Grass):
-    # Backup modifier stack.
-    if not GameState.Grass.modifier_stack.stack.is_empty() and ScatterModifierStackBackup.is_empty():
-      for item in GameState.Grass.modifier_stack.stack:
-        ScatterModifierStackBackup.append(item.duplicate())
-
-    # Restore modifier stack.
-    if GameState.Grass.modifier_stack.stack.is_empty() and not ScatterModifierStackBackup.is_empty():
-      for item in ScatterModifierStackBackup:
-        GameState.Grass.modifier_stack.stack.append(item)
-    
-    # Update grass.
-    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
-    GameState.Grass._do_update()
-  
-  Configuration.update_setting("graphics", "grass_amount", index)
+  pass
+#  if index == -1: # If called with no index, set the one from the configuration file.
+#    index = Configuration.get_value("graphics", "grass_amount")
+#
+#  var multiplier = grass_index_to_multiplier(index)
+#
+#  if is_instance_valid(GameState.Grass):
+#    # Backup modifier stack.
+#    if not GameState.Grass.modifier_stack.stack.is_empty() and ScatterModifierStackBackup.is_empty():
+#      for item in GameState.Grass.modifier_stack.stack:
+#        ScatterModifierStackBackup.append(item.duplicate())
+#
+#    # Restore modifier stack.
+#    if GameState.Grass.modifier_stack.stack.is_empty() and not ScatterModifierStackBackup.is_empty():
+#      for item in ScatterModifierStackBackup:
+#        GameState.Grass.modifier_stack.stack.append(item)
+#
+#    # Update grass.
+#    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
+#    GameState.Grass._do_update()
+#
+#  Configuration.update_setting("graphics", "grass_amount", index)
 
 func grass_index_to_multiplier(index: int) -> float:
   var multiplier = 1

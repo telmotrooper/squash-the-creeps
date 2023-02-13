@@ -18,15 +18,15 @@ func _ready() -> void:
 
 func go_final() -> void:
   last = "final"
-  tween.interpolate_property(self, "position:y", null,
-    final_y, duration, transition_type)
-  tween.start()
+#  tween.interpolate_property(self, "position:y", null,
+#    final_y, duration, transition_type)
+#  tween.start()
 
 func go_initial() -> void:
   last = "initial"
-  tween.interpolate_property(self, "position:y", null,
-    initial_y, duration, transition_type)
-  tween.start()
+#  tween.interpolate_property(self, "position:y", null,
+#    initial_y, duration, transition_type)
+#  tween.start()
 
 func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void:
   if last == "final":
