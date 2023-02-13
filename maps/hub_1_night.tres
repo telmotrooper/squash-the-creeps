@@ -1,10 +1,7 @@
-[gd_resource type="Environment" load_steps=3 format=2]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bugt14yl4reku"]
 
-[ext_resource path="res://assets/skyboxes/animecloud.png" type="Texture2D" id=1]
-
-[sub_resource type="Sky" id=3]
-panorama = ExtResource( 1 )
+[sub_resource type="Sky" id="3"]
 
 [resource]
 background_mode = 2
-background_sky = SubResource( 3 )
+sky = SubResource("3")
