@@ -1,7 +1,0 @@
-res://main.tscn
-res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-res://ui/menu_env.tres
-res://shaders/stylized_water/stylized_water_material.tres
-res://default_env.tres
-res://maps/hub_1_night.tres
-res://autoload/game_state.gd
