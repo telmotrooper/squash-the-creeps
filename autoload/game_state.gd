@@ -126,7 +126,8 @@ func initialize_progress() -> void:
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
-func generate_progress_report(current_map: String) -> void:
+#func generate_progress_report(current_map: String) -> void:
+func generate_progress_report(current_map) -> void:
   if progress.is_empty(): # Useful when starting map from editor.
     initialize_progress()
   
