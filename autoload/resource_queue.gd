@@ -85,7 +85,7 @@ func is_ready(path) -> bool:
 func _wait_for_resource(res, path):
   _unlock("wait_for_resource")
   while true:
-    RenderingServer.sync()
+    RenderingServer.force_sync()
     OS.delay_usec(16000) # Wait approximately 1 frame.
     _lock("wait_for_resource")
     if queue.size() == 0 || queue[0] != res:
