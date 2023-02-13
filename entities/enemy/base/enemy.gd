@@ -36,14 +36,14 @@ func initiliaze(start_position: Vector3, player_position: Vector3, rotate = true
   
   velocity = Vector3.FORWARD * speed
   velocity = velocity.rotated(Vector3.UP, rotation.y)
-  $AnimationPlayer.playback_speed = speed / min_speed
+  $AnimationPlayer.speed_scale = speed / min_speed
 
 func squash() -> void:
   if !already_squashed:
     already_squashed = true
     velocity = Vector3.ZERO
     $CollisionShape3D.disabled = true
-    $AnimationPlayer.playback_speed = 1
+    $AnimationPlayer.speed_scale = 1
     $AnimationPlayer.play("squash")
     GameState.play_audio(squash_sound)
 
