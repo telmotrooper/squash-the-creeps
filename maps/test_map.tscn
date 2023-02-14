@@ -11,7 +11,7 @@
 [ext_resource type="Material" path="res://materials/green.tres" id="9"]
 [ext_resource type="PackedScene" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10"]
 [ext_resource type="PackedScene" path="res://props/flag/flag.tscn" id="11"]
-[ext_resource type="PackedScene" path="res://ui/user_interface.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="12"]
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://props/godot_head/godot_head.tscn" id="15"]
@@ -907,10 +907,6 @@ unique_name_in_owner = true
 [node name="Player" parent="." instance=ExtResource("14")]
 
 [node name="UserInterface" parent="." instance=ExtResource("12")]
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("7")
