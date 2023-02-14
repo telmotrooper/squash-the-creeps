@@ -65,11 +65,11 @@ func set_volume(bus_name: String, volume: float) -> void:
 
   AudioServer.set_bus_volume_db(bus_index, volume_in_db)
 
-func set_default_values(defaults: Dictionary) -> void:
-  for section in defaults:
-    for key in defaults[section]:
+func set_default_values(new_defaults: Dictionary) -> void:
+  for section in new_defaults:
+    for key in new_defaults[section]:
       if not config.has_section_key(section, key):
-        config.set_value(section, key, defaults[section][key])
+        config.set_value(section, key, new_defaults[section][key])
 
 func reset_settings() -> void:
   for section in defaults:
