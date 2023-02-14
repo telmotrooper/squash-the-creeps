@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
     t += delta * 0.25
     self.global_transform.origin = gem_position.lerp(player_position, t)
     
-    if distance <= 1 or t >= 1.0:
+    if distance <= 2.5 or t >= 1.0:
       GameState.collect_gem(owner.name, get_path())
       GameState.play_audio(collected_sound)
       queue_free()
