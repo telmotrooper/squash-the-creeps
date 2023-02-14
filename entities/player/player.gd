@@ -186,7 +186,7 @@ func _physics_process(delta: float) -> void:
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
         red_button.press()
     
-    elif is_body_slamming and collision.collider.is_in_group("breakable_floor"):
+    elif is_body_slamming and collision.get_collider().is_in_group("breakable_floor"):
       var parent = collision.collider.get_parent()
       if parent.get_class() == "MeshInstance3D":
         parent.queue_free()
