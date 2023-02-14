@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsu3jdop7dh8m" path="res://assets/logo.png" id="6"]
 [ext_resource type="AudioStream" uid="uid://06xd1n8w0all" path="res://assets/Super Game Music - Badass Space Explorer (Loop).ogg" id="8"]
 [ext_resource type="PackedScene" path="res://ui/buttons/options_button.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://ui/buttons/new_game_button.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://d2mtygq8msldw" path="res://ui/buttons/new_game_button.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://bxtdcfuxt5fmk" path="res://entities/player/player.glb" id="11"]
 [ext_resource type="PackedScene" path="res://props/spaceship/spaceship.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://ui/settings.tscn" id="13"]

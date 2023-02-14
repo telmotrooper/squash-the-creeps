@@ -1,21 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://s1b17me7gnqt"]
 
-[ext_resource path="res://assets/fonts/montserrat_extra_bold_48.tres" type="FontFile" id=1]
+[ext_resource type="Theme" uid="uid://cmx1ial7ax08w" path="res://ui/buttons/menu_button.tres" id="1_x82mu"]
 
 [node name="MenuButton" type="Button"]
+custom_minimum_size = Vector2(360, 60)
 offset_right = 1040.0
 offset_bottom = 20.0
-custom_minimum_size = Vector2( 360, 60 )
 flat = true
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-custom_fonts/font = ExtResource( 1 )
+theme = ExtResource("1_x82mu")
 text = "LABEL"
-__meta__ = {
-"_edit_use_anchors_": false
-}
