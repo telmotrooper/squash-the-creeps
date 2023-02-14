@@ -181,7 +181,7 @@ func _physics_process(delta: float) -> void:
         is_jumping = true
     
     elif collision.get_collider() is RedButton:
-      var red_button = collision.collider
+      var red_button = collision.get_collider()
       
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
         red_button.press()
