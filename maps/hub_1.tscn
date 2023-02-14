@@ -294,8 +294,6 @@ text = "\"E\" to interact"
 font = ExtResource("17")
 
 [node name="UserInterface" parent="." instance=ExtResource("7")]
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="PortalTestMap" parent="." instance=ExtResource("8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85, 2.48, -6.46)
