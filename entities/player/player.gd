@@ -142,7 +142,7 @@ func _physics_process(delta: float) -> void:
     )
     if safe_position_condition:
       last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
-  elif is_on_floor() and get_slide_collision(0).collider is Enemy: # Reset double jump.
+  elif is_on_floor() and get_slide_collision(0).get_collider() is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
         and velocity.y <= 20 # Only allow double jump after player slows down a bit.
@@ -170,9 +170,9 @@ func _physics_process(delta: float) -> void:
     var collision = get_slide_collision(index)
     
     if collision.get_collider().is_in_group("enemies"):
-      var enemy = collision.collider
+      var enemy = collision.get_collider()
       
-      if Vector3.UP.dot(collision.normal) > 0.1:
+      if Vector3.UP.dot(collision.get_normal()) > 0.1:
         enemy.squash()
         if Input.is_action_pressed("jump"):
           velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".

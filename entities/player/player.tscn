@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://o3sw10epn603" path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" id="4"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
-radius = 0.125
-height = 0.25
+radius = 1.0
+height = 2.1
 
 [sub_resource type="CylinderShape3D" id="2"]
 height = 0.3
@@ -158,7 +158,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 current = true
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("1")
 
 [node name="EnemyDetector" type="Area3D" parent="."]
