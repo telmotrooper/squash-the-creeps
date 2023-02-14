@@ -1,6 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cjnvu5nldqqke"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cjnvu5nldqqke"]
 
 [ext_resource type="Shader" path="res://shaders/stylized_water/stylized_water.gdshader" id="1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rncmn"]
+seed = 2
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ilv5t"]
+seamless = true
+noise = SubResource("FastNoiseLite_rncmn")
 
 [resource]
 render_priority = -1
@@ -17,3 +25,4 @@ shader_parameter/far = 300.0
 shader_parameter/wave_strength = Vector2(0.015, 0.015)
 shader_parameter/wave_frequ = Vector2(14, 14)
 shader_parameter/time_factor = Vector2(1.1, 2)
+shader_parameter/noise1 = SubResource("NoiseTexture2D_ilv5t")
