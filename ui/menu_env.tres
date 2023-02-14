@@ -1,6 +1,12 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dhylrgs4ypi2c"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://dhylrgs4ypi2c"]
+
+[ext_resource type="Texture2D" uid="uid://bcfsoy7w4cd2r" path="res://assets/skyboxes/milkyway.jpg" id="1_dunwk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_34kuo"]
+panorama = ExtResource("1_dunwk")
 
 [sub_resource type="Sky" id="1"]
+sky_material = SubResource("PanoramaSkyMaterial_34kuo")
 
 [resource]
 background_mode = 2
