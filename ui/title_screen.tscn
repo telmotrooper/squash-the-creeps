@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" path="res://ui/buttons/new_game_button.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://bxtdcfuxt5fmk" path="res://entities/player/player.glb" id="11"]
 [ext_resource type="PackedScene" path="res://props/spaceship/spaceship.tscn" id="12"]
-[ext_resource type="PackedScene" path="res://ui/settings.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="13"]
 
 [sub_resource type="Animation" id="4"]
 length = 0.001
@@ -369,7 +369,6 @@ text = "DEVELOPED BY TELMO \"TROOPER\""
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 8
 grow_horizontal = 2
 grow_vertical = 2
 is_title_screen = true
