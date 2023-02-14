@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ba5340ei5w227" path="res://assets/godot_logo.png" id="3"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://b5v4kn8dfo6sj" path="res://assets/crystal green.png" id="6"]
-[ext_resource type="PackedScene" path="res://ui/settings.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
 [ext_resource type="AudioStream" uid="uid://c07lf3h3xnhfo" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 
 [sub_resource type="Animation" id="3"]
@@ -227,15 +227,11 @@ text = "Back"
 [node name="Settings" parent="Pause/Submenus" instance=ExtResource("7")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 580.0
-offset_bottom = 353.0
+layout_mode = 1
+offset_top = -185.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
