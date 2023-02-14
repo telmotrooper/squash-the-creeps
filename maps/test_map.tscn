@@ -37,6 +37,7 @@
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="4"]
+material = ExtResource("9")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="Curve3D" id="6"]
@@ -560,6 +561,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 0
+size = Vector3(100, 1, 50)
 material = ExtResource("9")
 
 [node name="Ramp" type="StaticBody3D" parent="Map/GreenPlatform2"]
