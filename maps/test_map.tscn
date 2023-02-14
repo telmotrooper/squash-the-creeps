@@ -10,7 +10,7 @@
 [ext_resource type="Material" path="res://materials/cyan.tres" id="8"]
 [ext_resource type="Material" path="res://materials/green.tres" id="9"]
 [ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://props/flag/flag.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="12"]
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
