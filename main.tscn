@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://ui/fade_to_black.tscn" id="1"]
 [ext_resource type="Script" path="res://main.gd" id="2"]
-[ext_resource type="PackedScene" path="res://ui/title_screen.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bkk8jxmcw8q4x" path="res://ui/title_screen.tscn" id="3"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("2")
