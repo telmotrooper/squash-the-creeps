@@ -15,7 +15,7 @@
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
 [ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="15"]
-[ext_resource type="PackedScene" path="res://props/falling_platform/falling_bridge.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="16"]
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" id="17"]
 [ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="18"]
 [ext_resource type="PackedScene" path="res://props/red_button/red_button.tscn" id="19"]
