@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bkk8jxmcw8q4x"]
+[gd_scene load_steps=28 format=3 uid="uid://bkk8jxmcw8q4x"]
 
 [ext_resource type="Environment" uid="uid://dhylrgs4ypi2c" path="res://ui/menu_env.tres" id="1"]
 [ext_resource type="PackedScene" path="res://ui/buttons/continue_button.tscn" id="2"]
@@ -123,18 +123,34 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WorldEnvironment:environment:background_sky_rotation_degrees")
+tracks/0/path = NodePath("WorldEnvironment:environment:sky_rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -360, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04i8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p04cd"]
 _data = {
+"RESET": SubResource("Animation_04i8i"),
 "rotating_skybox": SubResource("2")
 }
 
@@ -372,6 +388,7 @@ current = true
 
 [node name="AnimationPlayerSkybox" type="AnimationPlayer" parent="Node3D"]
 autoplay = "rotating_skybox"
+speed_scale = 0.2
 libraries = {
 "": SubResource("AnimationLibrary_p04cd")
 }
