@@ -20,8 +20,7 @@ func _physics_process(delta: float) -> void:
   match state:
     PATROLLING:
       if get_parent() is PathFollow3D:
-        pass
-        #get_parent().set_offset(get_parent().get_offset() + patrolling_speed * delta)
+        get_parent().progress += patrolling_speed * delta
     ALERT:
       $ExclamationMark.visible = true
       $AlertTimer.start()
