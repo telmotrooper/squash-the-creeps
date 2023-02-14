@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
-
-[ext_resource type="Texture2D" uid="uid://dqyrus53vcxbo" path="res://addons/scatter/demos/scatter_assets/materials/t_birch_tree.png" id="1"]
-
-[resource]
-albedo_texture = ExtResource( 1 )
-uv1_scale = Vector3( 0.3, 0.3, 0.3 )
-uv1_triplanar = true

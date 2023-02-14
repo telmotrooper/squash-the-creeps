@@ -33,7 +33,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/scatter/plugin.cfg")
+enabled=PackedStringArray()
 
 [gdnative]
 

@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3]
-
-[ext_resource type="PackedScene" uid="uid://cwjahmnkggruu" path="res://addons/scatter/demos/scatter_assets/grass/data/grass_1.glb" id="1"]
-[ext_resource type="Material" path="res://addons/scatter/demos/scatter_assets/grass/data/m_grass_52.tres" id="2"]
-
-[node name="grass52" instance=ExtResource( 1 )]
-
-[node name="Plane" parent="." index="0"]
-material/0 = ExtResource( 2 )
