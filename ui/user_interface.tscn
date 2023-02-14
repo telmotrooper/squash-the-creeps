@@ -207,6 +207,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Text" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Walk – WASD
