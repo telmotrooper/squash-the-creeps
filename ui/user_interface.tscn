@@ -1,134 +1,145 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://c6q8y2lslwiqh"]
 
-[ext_resource path="res://ui_theme.tres" type="Theme" id=1]
-[ext_resource path="res://ui/pause.gd" type="Script" id=2]
-[ext_resource path="res://assets/godot_logo.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/fonts/montserrat_extra_bold_24_with_outline.tres" type="FontFile" id=4]
-[ext_resource path="res://ui/user_interface.gd" type="Script" id=5]
-[ext_resource path="res://assets/crystal green.png" type="Texture2D" id=6]
-[ext_resource path="res://ui/settings.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" type="AudioStream" id=8]
+[ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
+[ext_resource type="Script" path="res://ui/pause.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ba5340ei5w227" path="res://assets/godot_logo.png" id="3"]
+[ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://b5v4kn8dfo6sj" path="res://assets/crystal green.png" id="6"]
+[ext_resource type="PackedScene" path="res://ui/settings.tscn" id="7"]
+[ext_resource type="AudioStream" uid="uid://c07lf3h3xnhfo" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("HUD:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0, -110 ) ]
+"values": [Vector2(0, -110)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "VISIBLE"
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("HUD:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "hide_hud"
 length = 0.5
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("HUD:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 2.5, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.5, 1),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -110 ) ]
+"values": [Vector2(0, 0), Vector2(0, -110)]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_foux1"]
+_data = {
+"RESET": SubResource("3"),
+"VISIBLE": SubResource("4"),
+"hide_hud": SubResource("2")
+}
+
+[sub_resource type="Animation" id="5"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Announcement:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 resource_name = "show_all_godot_heads_collected"
 length = 5.0
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Announcement:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1, 2, 4, 5 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1, 2, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 1 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-} ]
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("AudioStreamPlayer:stream")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ExtResource("8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb5q5"]
+_data = {
+"RESET": SubResource("5"),
+"show_all_godot_heads_collected": SubResource("6")
 }
 
 [node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 568.0 ]
-}
+theme = ExtResource("1")
+script = ExtResource("5")
 
 [node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
-process_mode = 2
 unique_name_in_owner = true
-anims/RESET = SubResource( 3 )
-anims/VISIBLE = SubResource( 4 )
-anims/hide_hud = SubResource( 2 )
+process_mode = 2
+libraries = {
+"": SubResource("AnimationLibrary_foux1")
+}
 
 [node name="HUDTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -136,36 +147,41 @@ one_shot = true
 
 [node name="Retry" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.235294 )
+color = Color(0, 0, 0, 0.235294)
 
 [node name="Label" type="Label" parent="Retry"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -15.5
 offset_bottom = 15.5
 text = "Press enter to retry"
-align = 1
 
 [node name="Pause" type="Control" parent="."]
 process_mode = 2
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="BlackOverlay" type="ColorRect" parent="Pause"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.235294 )
+color = Color(0, 0, 0, 0.235294)
 
 [node name="Submenus" type="Control" parent="Pause"]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Controls" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -176,30 +192,20 @@ offset_right = 350.0
 offset_bottom = 225.0
 
 [node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Controls"]
-offset_right = 700.0
-offset_bottom = 403.0
-custom_minimum_size = Vector2( 700, 0 )
-tab_alignment = 0
-__meta__ = {
-"_editor_description_": ""
-}
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="Pause/Submenus/Controls/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 49.0
-offset_right = -4.0
-offset_bottom = -4.0
-custom_minimum_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Controls/TabContainer/Controls"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Text" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer"]
-offset_right = 680.0
-offset_bottom = 337.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Walk – WASD
 Jump – Space
@@ -213,18 +219,18 @@ Pause – ESC
 Toggle Fullscreen – Alt+Enter"
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Controls"]
-offset_top = 413.0
-offset_right = 700.0
-offset_bottom = 450.0
+layout_mode = 2
 text = "Back"
 
-[node name="Settings" parent="Pause/Submenus" instance=ExtResource( 7 )]
+[node name="Settings" parent="Pause/Submenus" instance=ExtResource("7")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 
 [node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -235,43 +241,32 @@ offset_right = 350.0
 offset_bottom = 175.0
 
 [node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Progress"]
-offset_right = 700.0
-offset_bottom = 303.0
-custom_minimum_size = Vector2( 700, 0 )
-tab_alignment = 0
-__meta__ = {
-"_editor_description_": ""
-}
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
 
 [node name="World3D 1" type="TabBar" parent="Pause/Submenus/Progress/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 49.0
-offset_right = -4.0
-offset_bottom = -4.0
-custom_minimum_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Progress/TabContainer/World3D 1"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="World1Progress" type="Label" parent="Pause/Submenus/Progress/TabContainer/World3D 1/ScrollContainer"]
 unique_name_in_owner = true
-offset_right = 158.0
-offset_bottom = 65.0
+layout_mode = 2
 text = "Hello, World3D!
 Hello, World3D!"
 
 [node name="BackButton" type="Button" parent="Pause/Submenus/Progress"]
-offset_top = 313.0
-offset_right = 700.0
-offset_bottom = 350.0
+layout_mode = 2
 text = "Back"
 
 [node name="PauseMenu" type="VBoxContainer" parent="Pause"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -283,189 +278,153 @@ offset_bottom = 243.5
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Pause/PauseMenu"]
-offset_top = 81.0
-offset_right = 570.0
-offset_bottom = 118.0
+layout_mode = 2
 text = "Resume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu"]
-offset_top = 128.0
-offset_right = 570.0
-offset_bottom = 165.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ProgressButton" type="Button" parent="Pause/PauseMenu/HBoxContainer"]
 unique_name_in_owner = true
-offset_right = 280.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Progress: 0.00%"
 
 [node name="ControlsButton" type="Button" parent="Pause/PauseMenu/HBoxContainer"]
-offset_left = 290.0
-offset_right = 570.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Controls"
 
 [node name="SettingsButton" type="Button" parent="Pause/PauseMenu"]
-offset_top = 175.0
-offset_right = 570.0
-offset_bottom = 212.0
+layout_mode = 2
 text = "Settings"
 
 [node name="UpgradesContainer" type="VBoxContainer" parent="Pause/PauseMenu"]
-offset_top = 222.0
-offset_right = 570.0
-offset_bottom = 312.0
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer"]
-offset_right = 570.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="DoubleJumpContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer"]
-offset_right = 280.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="DoubleJumpCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
 unique_name_in_owner = true
-offset_right = 76.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="DoubleJumpLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
-offset_left = 86.0
-offset_top = 4.0
-offset_right = 252.0
-offset_bottom = 35.0
+layout_mode = 2
 text = "Double Jump"
 
 [node name="MidAirDashContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer"]
-offset_left = 290.0
-offset_right = 570.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
 unique_name_in_owner = true
-offset_right = 76.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="MidAirDashLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
-offset_left = 86.0
-offset_top = 4.0
-offset_right = 246.0
-offset_bottom = 35.0
+layout_mode = 2
 text = "Mid-Air Dash"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer"]
-offset_top = 50.0
-offset_right = 570.0
-offset_bottom = 90.0
+layout_mode = 2
 
 [node name="BodySlamContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2"]
-offset_right = 218.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="BodySlamCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer"]
 unique_name_in_owner = true
-offset_right = 76.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="BodySlamLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer"]
-offset_left = 86.0
-offset_top = 4.0
-offset_right = 218.0
-offset_bottom = 35.0
+layout_mode = 2
 text = "Body Slam"
 
 [node name="RestartMapButton" type="Button" parent="Pause/PauseMenu"]
-offset_top = 322.0
-offset_right = 570.0
-offset_bottom = 359.0
+layout_mode = 2
 text = "Restart Map"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu"]
-offset_top = 369.0
-offset_right = 570.0
-offset_bottom = 406.0
+layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="TitleScreenButton" type="Button" parent="Pause/PauseMenu/HBoxContainer2"]
-offset_right = 281.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Return to Title Screen"
 
 [node name="ExitButton" type="Button" parent="Pause/PauseMenu/HBoxContainer2"]
-offset_left = 291.0
-offset_right = 570.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
 [node name="HUD" type="Control" parent="."]
+anchors_preset = 0
 offset_top = -110.0
 offset_right = 40.0
 offset_bottom = -70.0
 
 [node name="ScoreSprite" type="Sprite2D" parent="HUD"]
-position = Vector2( 10, 10 )
-scale = Vector2( 0.0816667, 0.0816667 )
-texture = ExtResource( 3 )
+position = Vector2(10, 10)
+scale = Vector2(0.0816667, 0.0816667)
+texture = ExtResource("3")
 centered = false
 
 [node name="ScoreLabel" type="Label" parent="HUD"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 65.0
 offset_top = 20.0
 offset_right = 121.0
 offset_bottom = 51.0
-custom_fonts/font = ExtResource( 4 )
 text = "0 / 0"
 
 [node name="CrystalGreen" type="Sprite2D" parent="HUD"]
-position = Vector2( 10, 60 )
-scale = Vector2( 0.16, 0.16 )
-texture = ExtResource( 6 )
+position = Vector2(10, 60)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("6")
 centered = false
 
 [node name="GemLabel" type="Label" parent="HUD"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 65.0
 offset_top = 70.0
 offset_right = 81.0
 offset_bottom = 101.0
-custom_fonts/font = ExtResource( 4 )
 text = "0"
 
 [node name="FPSLabel" type="Label" parent="."]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 25.0
 offset_top = -47.0
 offset_right = 104.0
-custom_fonts/font = ExtResource( 4 )
 text = "FPS: 0"
 
 [node name="Announcement" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-custom_fonts/font = ExtResource( 4 )
 text = "100% Godot Heads collected"
-align = 1
 
 [node name="AnnouncementAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 5 )
-anims/show_all_godot_heads_collected = SubResource( 6 )
+libraries = {
+"": SubResource("AnimationLibrary_sb5q5")
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-bus = "Sound"
+stream = ExtResource("8")
+bus = &"Sound"
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
@@ -473,9 +432,9 @@ bus = "Sound"
 [connection signal="unpause" from="Pause/Submenus/Settings" to="Pause" method="pause"]
 [connection signal="pressed" from="Pause/Submenus/Progress/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="pressed" from="Pause/PauseMenu/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="Pause/PauseMenu/HBoxContainer/ProgressButton" to="Pause" method="open_submenu" binds= [ "%Progress" ]]
-[connection signal="pressed" from="Pause/PauseMenu/HBoxContainer/ControlsButton" to="Pause" method="open_submenu" binds= [ "%Controls" ]]
-[connection signal="pressed" from="Pause/PauseMenu/SettingsButton" to="Pause" method="open_submenu" binds= [ "%Settings" ]]
+[connection signal="pressed" from="Pause/PauseMenu/HBoxContainer/ProgressButton" to="Pause" method="open_submenu" binds= ["%Progress"]]
+[connection signal="pressed" from="Pause/PauseMenu/HBoxContainer/ControlsButton" to="Pause" method="open_submenu" binds= ["%Controls"]]
+[connection signal="pressed" from="Pause/PauseMenu/SettingsButton" to="Pause" method="open_submenu" binds= ["%Settings"]]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer/DoubleJumpCheckButton" to="Pause" method="_on_DoubleJumpCheckButton_toggled"]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer/MidAirDashCheckButton" to="Pause" method="_on_MidAirDashCheckButton_toggled"]
 [connection signal="toggled" from="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer/BodySlamCheckButton" to="Pause" method="_on_BodySlamCheckButton_toggled"]

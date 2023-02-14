@@ -6,7 +6,7 @@
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="4"]
 [ext_resource type="PackedScene" path="res://shaders/smoke/smoke.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://props/spaceship/spaceship.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://ui/user_interface.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="7"]
 [ext_resource type="PackedScene" path="res://props/portal/portal.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://maps/extras/boundary.tscn" id="9"]
 [ext_resource type="Script" path="res://maps/hub_1.gd" id="10"]

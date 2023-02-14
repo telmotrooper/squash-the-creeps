@@ -53,7 +53,7 @@ func queue_resource(path, p_in_front = false) -> void:
 func cancel_resource(path) -> void:
   _lock("cancel_resource")
   if path in pending:
-    if pending[path] is ResourceLoader:
+    if not pending[path] is PackedScene:
       queue.erase(pending[path])
     pending.erase(path)
   _unlock("cancel_resource")
@@ -63,7 +63,7 @@ func get_progress(path) -> float:
   _lock("get_progress")
   var ret = -1
   if path in pending:
-    if pending[path] is ResourceLoader:
+    if not pending[path] is PackedScene:
       ret = float(pending[path].get_stage()) / float(pending[path].get_stage_count())
     else:
       ret = 1.0
@@ -75,7 +75,7 @@ func is_ready(path) -> bool:
   var ret
   _lock("is_ready")
   if path in pending:
-    ret = !(pending[path] is ResourceLoader)
+    ret = pending[path] is PackedScene
   else:
     ret = false
   _unlock("is_ready")
@@ -96,7 +96,7 @@ func _wait_for_resource(res, path):
 func get_resource(path) -> Resource:
   _lock("get_resource")
   if path in pending:
-    if pending[path] is ResourceLoader:
+    if not pending[path] is PackedScene:
       var res = pending[path]
       if res != queue[0]:
         var pos = queue.find(res)
