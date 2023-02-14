@@ -10,7 +10,7 @@ var button_pressed: String
 func _ready() -> void:
   GameState.play_music(menu_music)
   var version = Engine.get_version_info()
-  get_node("%VersionLabel").text = "DEMO RELEASE – GODOT %d.%d.%d" % [version.major, version.minor, version.patch]
+  get_node("%VersionLabel").text = "DEMO RELEASE – GODOT %d.%d.%d RC 1" % [version.major, version.minor, version.patch]
   
   get_node("%Settings").visible = false
 
