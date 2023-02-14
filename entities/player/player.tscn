@@ -14,7 +14,8 @@ height = 0.3
 radius = 1.2
 
 [sub_resource type="CylinderShape3D" id="5"]
-height = 1.0
+height = 0.5
+radius = 2.4
 
 [sub_resource type="Animation" id="8"]
 length = 0.001
@@ -174,7 +175,6 @@ collision_mask = 34
 monitorable = false
 
 [node name="SpinCollisionShape" type="CollisionShape3D" parent="SpinArea"]
-transform = Transform3D(2, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
