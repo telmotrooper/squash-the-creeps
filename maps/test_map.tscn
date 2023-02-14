@@ -839,6 +839,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0)
 use_collision = true
 collision_layer = 4
+size = Vector3(20, 20, 20)
 material = ExtResource("8")
 
 [node name="JumpLabel3D" type="Label3D" parent="Map/BlueCube"]
@@ -898,6 +899,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0)
 use_collision = true
 collision_layer = 4
+size = Vector3(20, 20, 20)
 material = ExtResource("8")
 
 [node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource("15")]
