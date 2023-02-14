@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6w6sp58442vp" path="res://entities/enemy/yellow_enemy/yellow_enemy.glb" id="6"]
 
 [sub_resource type="BoxShape3D" id="1"]
-size = Vector3(2, 2.40114, 2)
+size = Vector3(2.3, 1.4, 3.1)
 
 [sub_resource type="Animation" id="7"]
 resource_name = "RESET"
@@ -148,7 +148,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0)
 [node name="Character" parent="Pivot" instance=ExtResource("6")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.54, 0, 0, 0, 1.5, 0, 0.671283, 0.295466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671283, 0.295466)
 shape = SubResource("1")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]

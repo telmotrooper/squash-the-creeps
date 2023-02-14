@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c8tfsw7un6bay" path="res://entities/enemy/exclamation_mark.png" id="5"]
 
 [sub_resource type="BoxShape3D" id="1"]
-size = Vector3(2, 2.40114, 2)
+size = Vector3(2, 1.4, 2)
 
 [sub_resource type="Animation" id="2"]
 resource_name = "float"
@@ -107,8 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0)
 transform = Transform3D(1, 0, 0, 0, 0.986138, 0.165926, 0, -0.165925, 0.986139, 0, 0.478475, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.54, 0, 0, 0, 1.5, 0, 0.671283, 0.295466)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671283, 0.295466)
 shape = SubResource("1")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
