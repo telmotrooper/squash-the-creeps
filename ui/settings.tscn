@@ -97,6 +97,13 @@ text = "Map:"
 [node name="MapOptionButton" type="OptionButton" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+item_count = 3
+popup/item_0/text = "hub_1"
+popup/item_0/id = 0
+popup/item_1/text = "test_map"
+popup/item_1/id = 1
+popup/item_2/text = "lake_map"
+popup/item_2/id = 2
 
 [node name="ToggleFullscreenButton" type="Button" parent="."]
 layout_mode = 2
