@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://4wbx7gmqq2t" path="res://addons/scatter/demos/scatter_assets/leaves/data/leaves_1.glb" id="1"]
+[ext_resource type="Material" path="res://addons/scatter/demos/scatter_assets/leaves/data/m_leaves.tres" id="2"]
+
+[node name="leaves_1" instance=ExtResource( 1 )]
+
+[node name="Plane017" parent="." index="0"]
+material/0 = ExtResource( 2 )
