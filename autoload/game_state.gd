@@ -215,7 +215,7 @@ func update_grass(index: int = -1) -> void:
 #    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
 #    GameState.Grass._do_update()
 #
-#  Configuration.update_setting("graphics", "grass_amount", index)
+  Configuration.update_setting("graphics", "grass_amount", index)
 
 func grass_index_to_multiplier(index: int) -> float:
   var multiplier = 1
