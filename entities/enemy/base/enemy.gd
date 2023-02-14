@@ -21,14 +21,14 @@ func _physics_process(_delta: float) -> void:
   move_and_slide()
   velocity = velocity
 
-func initiliaze(start_position: Vector3, player_position: Vector3, rotate = true, speed = null) -> void:
+func initiliaze(start_position: Vector3, player_position: Vector3, should_rotate = true, speed = null) -> void:
   position = start_position
   look_at(player_position, Vector3.UP)
   # Ignore height of player position, spawn looking straight.
   rotation.x = 0
   
   # Rotate between -45 degrees and 45 degrees.
-  if rotate:
+  if should_rotate:
     rotate_y(randf_range(-PI / 4.0, PI / 4.0))
   
   if speed == null:

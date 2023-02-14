@@ -195,9 +195,8 @@ func register_gem(map_name: String, path: NodePath, gem_value: int) -> void:
     gems_collected[map_name][path] = { "collected": false, "value": gem_value }
 
 func update_grass(index: int = -1) -> void:
-  pass
-#  if index == -1: # If called with no index, set the one from the configuration file.
-#    index = Configuration.get_value("graphics", "grass_amount")
+  if index == -1: # If called with no index, set the one from the configuration file.
+    index = Configuration.get_value("graphics", "grass_amount")
 #
 #  var multiplier = grass_index_to_multiplier(index)
 #
