@@ -1,24 +1,25 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://0rj888k3m2wy"]
 
 [ext_resource type="Shader" path="res://assets/scatter_assets/leaves/data/s_leaves.gdshader" id="1"]
 [ext_resource type="Texture2D" uid="uid://dxlqumegremlw" path="res://assets/scatter_assets/leaves/data/sprite_0081.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cxngur0u1ar8v" path="res://assets/scatter_assets/grass/data/t_noise.png" id="3"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0, 0.996016 )
-colors = PackedColorArray( 0.571198, 0.796875, 0.34552, 1, 0.645856, 0.765625, 0.0687866, 1 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0, 0.996016)
+colors = PackedColorArray(0.571198, 0.796875, 0.34552, 1, 0.645856, 0.765625, 0.0687866, 1)
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/alpha_scissor_threshold = 0.8
-shader_param/transmission = Color( 0.494118, 0.541176, 0.0666667, 1 )
-shader_param/wind_direction = Vector2( 1, -0.5 )
-shader_param/wind_speed = 0.25
-shader_param/wind_strength = 0.5
-shader_param/noise_scale = 20.0
-shader_param/texture_albedo = ExtResource( 2 )
-shader_param/texture_gradient = SubResource( 2 )
-shader_param/texture_noise = ExtResource( 3 )
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/alpha_scissor_threshold = 0.8
+shader_parameter/transmission = Color(0.494118, 0.541176, 0.0666667, 1)
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.25
+shader_parameter/wind_strength = 0.5
+shader_parameter/noise_scale = 20.0
+shader_parameter/texture_albedo = ExtResource("2")
+shader_parameter/texture_gradient = SubResource("2")
+shader_parameter/texture_noise = ExtResource("3")
