@@ -274,6 +274,6 @@ func reload_current_scene() -> void:
   var Main = get_node_or_null("/root/Main")
   if is_instance_valid(Main): # Game started normally, use background loading.
     var WorldScene = $"/root/Main/WorldScene"
-    Main.load_world(WorldScene.get_child(0).filename)
+    Main.load_world(WorldScene.get_child(0).scene_file_path)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().reload_current_scene()
