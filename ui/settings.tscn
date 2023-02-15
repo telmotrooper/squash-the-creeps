@@ -53,6 +53,7 @@ text = "Amount of Grass:"
 [node name="GrassOptionButton" type="OptionButton" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+disabled = true
 item_count = 5
 popup/item_0/text = "Maximum"
 popup/item_0/id = 0

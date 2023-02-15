@@ -1,7 +1,5 @@
-[gd_scene load_steps=64 format=3 uid="uid://db6bt0bq72med"]
+[gd_scene load_steps=62 format=3 uid="uid://db6bt0bq72med"]
 
-[ext_resource type="Script" path="res://addons/scatter/src/core/scatter.gd" id="2"]
-[ext_resource type="Script" path="res://addons/scatter/src/core/scatter_item.gd" id="3"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
 [ext_resource type="PackedScene" path="res://maps/extras/boundary.tscn" id="6"]
@@ -344,10 +342,8 @@ mesh = SubResource("4")
 [node name="GreenPlatformGrass" type="Path3D" parent="Map/GreenPlatform1"]
 unique_name_in_owner = true
 curve = SubResource("6")
-script = ExtResource("2")
 
 [node name="ScatterItem" type="Node3D" parent="Map/GreenPlatform1/GreenPlatformGrass"]
-script = ExtResource("3")
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Map/GreenPlatform1/GreenPlatformGrass/ScatterItem"]
 multimesh = SubResource("19")
