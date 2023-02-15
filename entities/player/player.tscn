@@ -50,6 +50,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="3"]
 resource_name = "float"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -143,7 +144,7 @@ hurt_sound = ExtResource("4")
 [node name="ModelPivot" type="Node3D" parent="."]
 
 [node name="Model" parent="ModelPivot" instance=ExtResource("1")]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.325, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.4, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 script = ExtResource("3")
