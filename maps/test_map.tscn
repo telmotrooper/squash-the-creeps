@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="18"]
 [ext_resource type="PackedScene" uid="uid://dtsvkv0pyppjh" path="res://props/red_button/red_button.tscn" id="19"]
 [ext_resource type="PackedScene" uid="uid://rgi86wbfqauc" path="res://entities/enemy/purple_enemy/purple_enemy.tscn" id="20"]
-[ext_resource type="PackedScene" path="res://props/portal/portal.tscn" id="21"]
+[ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="21"]
 [ext_resource type="PackedScene" uid="uid://dgpc8sm6hks6b" path="res://maps/extras/beach_island/beach_island.tscn" id="22"]
 [ext_resource type="PackedScene" uid="uid://dhb72f0uqb47t" path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" id="23"]
 [ext_resource type="PackedScene" uid="uid://c7wwx46ehiufd" path="res://props/red_gem/red_gem.tscn" id="24"]
