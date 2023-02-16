@@ -74,6 +74,7 @@ _data = {
 point_count = 6
 
 [sub_resource type="BoxShape3D" id="5"]
+size = Vector3(12, 2, 60)
 
 [sub_resource type="Curve3D" id="18"]
 _data = {
@@ -380,9 +381,10 @@ transform = Transform3D(-1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0)
 
 [node name="Bridge" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.75822, -59)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Bridge"]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 29.9, 0, 0, 0)
 shape = SubResource("5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Bridge"]
