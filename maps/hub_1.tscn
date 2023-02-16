@@ -310,7 +310,7 @@ godot_heads_required = 2
 transform = Transform3D(0.6482, 0.266946, -0.713146, 0, 0.936538, 0.350566, 0.76147, -0.227237, 0.607064, -8.86963, 6.53239, 6.91475)
 
 [node name="Boundary" parent="." instance=ExtResource("9")]
-transform = Transform3D(-9.5744, 0, 0, 0, -0.2, 0, 0, 0, -9.5744, 0, -8.2956, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -8, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12")
