@@ -11,12 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="9"]
 [ext_resource type="Script" path="res://maps/hub_1.gd" id="10"]
 [ext_resource type="AudioStream" uid="uid://cbies1ga62hy" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="11"]
+[ext_resource type="FontFile" uid="uid://c8iss0q86a0p2" path="res://assets/fonts/montserrat_extra_bold.ttf" id="11_janls"]
 [ext_resource type="AudioStream" uid="uid://m32dxbu8f5m1" path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" id="12"]
 [ext_resource type="Environment" uid="uid://bugt14yl4reku" path="res://maps/hub_1_night.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://bxtdcfuxt5fmk" path="res://entities/player/player.glb" id="14"]
 [ext_resource type="AudioStream" uid="uid://b5gdohascmirt" path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" id="15"]
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="16"]
-[ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" id="17"]
 [ext_resource type="Script" path="res://props/spaceship/spaceship_hub.gd" id="18"]
 
 [sub_resource type="PlaneMesh" id="1"]
@@ -287,11 +287,13 @@ shape = SubResource("6")
 [node name="SpaceshipLabel3D" type="Label3D" parent="Spaceship/SpaceshipArea"]
 unique_name_in_owner = true
 transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, -1.52475, 4.18921, 0)
+pixel_size = 0.01
 billboard = 2
 render_priority = 2
 outline_render_priority = 1
 text = "\"E\" to interact"
-font = ExtResource("17")
+font = ExtResource("11_janls")
+font_size = 48
 
 [node name="UserInterface" parent="." instance=ExtResource("7")]
 
