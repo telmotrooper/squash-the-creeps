@@ -189,7 +189,7 @@ func _physics_process(delta: float) -> void:
         red_button.press()
     
     elif is_body_slamming and collision.get_collider().is_in_group("breakable_floor"):
-      var parent = collision.collider.get_parent()
+      var parent = collision.get_collider().get_parent()
       if parent.get_class() == "MeshInstance3D":
         parent.queue_free()
   
