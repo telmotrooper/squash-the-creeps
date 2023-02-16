@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
-[ext_resource type="PackedScene" path="res://maps/extras/boundary.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="6"]
 [ext_resource type="Material" uid="uid://chjwt45xklaos" path="res://assets/scatter_assets/grass/data/m_grass_52.tres" id="6_mjfx1"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="7"]
 [ext_resource type="Material" path="res://materials/cyan.tres" id="8"]
@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://cbies1ga62hy" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="28"]
 [ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
 [ext_resource type="PackedScene" path="res://entities/slime/slime.tscn" id="31"]
-[ext_resource type="PackedScene" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
+[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
 [ext_resource type="PackedScene" path="res://maps/extras/palm_tree/palm_tree.tscn" id="33"]
 
 [sub_resource type="BoxShape3D" id="3"]
