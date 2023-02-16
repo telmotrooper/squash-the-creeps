@@ -80,6 +80,8 @@ func _physics_process(delta: float) -> void:
     $ModelPivot.look_at(position + direction, Vector3.UP)
     
     if is_dashing:
+      if is_on_floor() and get_floor_angle(Vector3.UP) > 0: # Ramp bounce.
+        velocity.y = get_floor_angle(Vector3.UP) * 200
       $AnimationPlayer.speed_scale = 1.0
     elif Input.is_action_pressed("sprint"): # Running.
       speed = run_speed
