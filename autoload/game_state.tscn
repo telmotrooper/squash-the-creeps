@@ -1,28 +1,28 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bsfo07ukerebx"]
 
-[ext_resource path="res://autoload/game_state.gd" type="Script" id=3]
+[ext_resource type="Script" path="res://autoload/game_state.gd" id="3"]
 
 [node name="GameState" type="Node"]
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-process_mode = 2
+process_mode = 3
 autoplay = true
-bus = "Music"
+bus = &"Music"
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="Audio"]
-bus = "Sound"
+bus = &"Sound"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Audio"]
-bus = "Sound"
+bus = &"Sound"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Audio"]
-bus = "Sound"
+bus = &"Sound"
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Audio"]
-bus = "Sound"
+bus = &"Sound"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Audio"]
-bus = "Sound"
+bus = &"Sound"
