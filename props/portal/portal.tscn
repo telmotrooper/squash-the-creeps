@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://pjp410u41fqp"]
+[gd_scene load_steps=13 format=3 uid="uid://pjp410u41fqp"]
 
 [ext_resource type="Script" path="res://props/portal/portal.gd" id="1"]
-[ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48_with_outline.tres" id="2"]
-[ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_24_with_outline.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://c8iss0q86a0p2" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_7t4r7"]
 
 [sub_resource type="StandardMaterial3D" id="19"]
 albedo_color = Color(0.639216, 0.141176, 0.141176, 1)
@@ -68,6 +67,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="23"]
 resource_name = "up_and_down"
 length = 4.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -177,7 +177,9 @@ billboard = 2
 render_priority = 1
 outline_render_priority = 0
 text = "Map Name"
-font = ExtResource("2")
+font = ExtResource("2_7t4r7")
+font_size = 48
+outline_size = 6
 
 [node name="RequirementLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
@@ -186,7 +188,9 @@ billboard = 2
 render_priority = 1
 outline_render_priority = 0
 text = "Godot Heads x 1"
-font = ExtResource("3")
+font = ExtResource("2_7t4r7")
+font_size = 24
+outline_size = 6
 
 [node name="LabelAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "up_and_down"
