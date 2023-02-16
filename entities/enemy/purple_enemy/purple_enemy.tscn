@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://rgi86wbfqauc"]
 
 [ext_resource type="Script" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
-[ext_resource type="PackedScene" path="res://entities/enemy/prism_area.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://woycgl4833us" path="res://entities/enemy/prism_area.tscn" id="2"]
 [ext_resource type="AudioStream" uid="uid://ctusrq4cm61it" path="res://entities/enemy/slime_jump.ogg" id="3"]
 [ext_resource type="Texture2D" uid="uid://c8tfsw7un6bay" path="res://entities/enemy/exclamation_mark.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://c4jfkyleiw35d" path="res://entities/enemy/purple_enemy/purple_enemy.glb" id="5"]

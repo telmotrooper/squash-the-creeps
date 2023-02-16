@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3]
-
-[ext_resource type="PackedScene" uid="uid://f08puw74mwes" path="res://assets/scatter_assets/rock.glb" id="1"]
-
-[node name="rock" instance=ExtResource( 1 )]
