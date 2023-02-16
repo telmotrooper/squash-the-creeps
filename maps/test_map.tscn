@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cl7oilvypf1v2" path="res://props/purple_gem/purple_gem.tscn" id="26"]
 [ext_resource type="AudioStream" uid="uid://b2dc8gkeeqjpl" path="res://assets/house_in_a_forest_loop.ogg" id="27"]
 [ext_resource type="AudioStream" uid="uid://cbies1ga62hy" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="28"]
-[ext_resource type="PackedScene" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
+[ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
 [ext_resource type="PackedScene" path="res://entities/slime/slime.tscn" id="31"]
 [ext_resource type="PackedScene" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
 [ext_resource type="PackedScene" path="res://maps/extras/palm_tree/palm_tree.tscn" id="33"]
