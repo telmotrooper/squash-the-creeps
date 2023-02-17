@@ -138,7 +138,7 @@ script = ExtResource("5")
 
 [node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
-process_mode = 2
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_foux1")
 }
