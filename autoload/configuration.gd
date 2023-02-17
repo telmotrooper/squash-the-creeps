@@ -76,3 +76,5 @@ func reset_settings() -> void:
     if section != "debug": # For now we don't reset player upgrades.
       for key in defaults[section]:
         config.set_value(section, key, defaults[section][key])
+        
+  GameState.update_grass()
