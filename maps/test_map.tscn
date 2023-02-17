@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://db6bt0bq72med"]
+[gd_scene load_steps=67 format=3 uid="uid://db6bt0bq72med"]
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
@@ -8,7 +8,9 @@
 [ext_resource type="Material" path="res://materials/cyan.tres" id="8"]
 [ext_resource type="Material" path="res://materials/green.tres" id="9"]
 [ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10"]
+[ext_resource type="Material" uid="uid://cr7t2omehksmy" path="res://materials/gradient_blue.tres" id="10_uiqnu"]
 [ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="11"]
+[ext_resource type="Material" uid="uid://lnpp5e326wrn" path="res://materials/gradient_blue_2.tres" id="11_16cow"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="12"]
 [ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
@@ -75,6 +77,14 @@ point_count = 6
 
 [sub_resource type="BoxShape3D" id="5"]
 size = Vector3(12, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5iej4"]
+material = ExtResource("10_uiqnu")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1imjx"]
+material = ExtResource("11_16cow")
+size = Vector3(60, 2, 60)
 
 [sub_resource type="Curve3D" id="18"]
 _data = {
@@ -393,7 +403,7 @@ shape = SubResource("5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Bridge"]
 transform = Transform3D(-0.2, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0)
-mesh = SubResource("4")
+mesh = SubResource("BoxMesh_5iej4")
 
 [node name="BluePlatform" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.626)
@@ -406,7 +416,7 @@ shape = SubResource("3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/BluePlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
-mesh = SubResource("4")
+mesh = SubResource("BoxMesh_1imjx")
 
 [node name="ExitPortal" parent="Map/BluePlatform" instance=ExtResource("21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448)
