@@ -27,8 +27,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="2"]
-radius = 2.25
-height = 4.5
+radius = 2.5
+height = 5.0
 
 [node name="GodotHead" type="Area3D"]
 collision_layer = 8

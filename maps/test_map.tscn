@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://db6bt0bq72med"]
+[gd_scene load_steps=63 format=3 uid="uid://db6bt0bq72med"]
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
@@ -82,6 +82,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="BoxMesh" id="BoxMesh_rv8lt"]
+material = ExtResource("8")
+size = Vector3(60, 2, 60)
 
 [sub_resource type="ConvexPolygonShape3D" id="25"]
 points = PackedVector3Array(5.3, 3.4, 5.75, 5.3, -3.4, 5.75, 5.3, -3.4, -5.75, -5.3, 3.4, 5.75, -5.3, -3.4, 5.75, -5.3, -3.4, -5.75)
@@ -452,7 +456,7 @@ shape = SubResource("3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/FloatingBluePlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 cast_shadow = 0
-mesh = SubResource("4")
+mesh = SubResource("BoxMesh_rv8lt")
 
 [node name="FloatingGodotHead" parent="Map/FloatingBluePlatform" instance=ExtResource("15")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -16)
