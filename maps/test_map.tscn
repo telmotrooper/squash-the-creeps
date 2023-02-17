@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://db6bt0bq72med"]
+[gd_scene load_steps=65 format=3 uid="uid://db6bt0bq72med"]
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="11"]
 [ext_resource type="Material" uid="uid://lnpp5e326wrn" path="res://materials/gradient_blue_2.tres" id="11_16cow"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="12"]
-[ext_resource type="FontFile" path="res://assets/fonts/montserrat_extra_bold_48.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
 [ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="15"]
 [ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="16"]
@@ -850,7 +849,7 @@ transform = Transform3D(-3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-0
 pixel_size = 0.01
 text = "Hold \"JUMP\" while jumping
 over an enemy to go higher."
-font = ExtResource("13")
+font = ExtResource("19_dg500")
 font_size = 48
 outline_size = 0
 
