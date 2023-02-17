@@ -135,12 +135,12 @@ func _physics_process(delta: float) -> void:
     is_double_jumping = false
 
     var safe_position_condition = (
-      $RayCasts/RayCast3D.is_colliding() and
-      not $RayCasts/RayCast3D.get_collider().get_collision_layer_value(GameState.collision_layers["Water"]) and
-      not $RayCasts/RayCast3D.get_collider().is_in_group("breakable_floor") and
-      $RayCasts/RayCast3D.get_collider() == $RayCasts/RayCast2.get_collider() and
-      $RayCasts/RayCast3D.get_collider() == $RayCasts/RayCast3.get_collider() and
-      $RayCasts/RayCast3D.get_collider() == $RayCasts/RayCast4.get_collider()
+      $RayCasts/RayCast.is_colliding() and
+      not $RayCasts/RayCast.get_collider().get_collision_layer_value(GameState.collision_layers["Water"]) and
+      not $RayCasts/RayCast.get_collider().is_in_group("breakable_floor") and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
+      $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
     )
     if safe_position_condition:
       last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
