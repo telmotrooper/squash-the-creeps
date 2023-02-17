@@ -182,7 +182,7 @@ func _physics_process(delta: float) -> void:
           velocity.y = jump_impulse
         is_jumping = true
     
-    elif collision.get_collider() is RedButton:
+    elif collision.get_collider() is RedButton: # A red button in the floor.
       var red_button = collision.get_collider()
       
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
