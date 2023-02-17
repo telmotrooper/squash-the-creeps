@@ -11,6 +11,7 @@ size = Vector3(600, 3, 600)
 [node name="Boundary" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
 collision_layer = 524288
+collision_mask = 3
 monitorable = false
 script = ExtResource("1")
 
