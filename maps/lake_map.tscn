@@ -272,7 +272,7 @@ transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044
 [node name="Tunnel" type="Node3D" parent="."]
 
 [node name="TunnelGodotHead" parent="Tunnel" instance=ExtResource("14")]
-transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 23.3843, -32.6, 143.378)
+transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 23.3843, -33.6, 143.378)
 
 [node name="PurpleGem" parent="Tunnel" instance=ExtResource("16")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 34.1956, -37, 137.014)
