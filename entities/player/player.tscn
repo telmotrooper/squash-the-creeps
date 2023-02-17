@@ -172,8 +172,7 @@ monitorable = false
 shape = SubResource("2")
 
 [node name="SpinArea" type="Area3D" parent="."]
-collision_mask = 34
-monitorable = false
+collision_mask = 38
 
 [node name="SpinCollisionShape" type="CollisionShape3D" parent="SpinArea"]
 shape = SubResource("5")
