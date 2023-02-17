@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c8iss0q86a0p2"
+uid="uid://cmh82il44cykx"
 path="res://.godot/imported/montserrat_extra_bold.ttf-245103d2d9545c906bf12e2d33c0bba6.fontdata"
 
 [deps]
@@ -27,13 +27,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

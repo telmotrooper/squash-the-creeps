@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmx1ial7ax08w"]
 
-[ext_resource type="FontFile" uid="uid://c8iss0q86a0p2" path="res://assets/fonts/montserrat_extra_bold.ttf" id="1_3esqh"]
+[ext_resource type="FontFile" uid="uid://cmh82il44cykx" path="res://assets/fonts/montserrat_extra_bold.ttf" id="1_3esqh"]
 
 [resource]
 default_font = ExtResource("1_3esqh")
