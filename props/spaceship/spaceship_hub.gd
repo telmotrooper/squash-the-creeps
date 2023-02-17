@@ -4,8 +4,8 @@ func _ready() -> void:
   set_process(false)
 
 func _process(_delta: float) -> void:
-  pass
-#  if Input.is_action_just_pressed("interact"):
+  if Input.is_action_just_pressed("interact"):
+    print("interact")
 #    GameState.Player.paused = true
 #    var new_dialog = Dialogic.start("BrokenSpaceship")
 #    add_child(new_dialog)
