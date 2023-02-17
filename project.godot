@@ -45,11 +45,6 @@ window=false
 LAYER=false
 grid=false
 
-[gui]
-
-theme/custom="res://ui_theme.tres"
-theme/custom_font="res://assets/fonts/montserrat_semi_bold_24.tres"
-
 [importer_defaults]
 
 scene={
