@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://maps/extras/boundary.gd" id="1"]
 
 [sub_resource type="BoxShape3D" id="11"]
-size = Vector3(600, 1, 600)
+size = Vector3(600, 3, 600)
 
 [sub_resource type="BoxMesh" id="4"]
-size = Vector3(600, 1, 600)
+size = Vector3(600, 3, 600)
 
 [node name="Boundary" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
