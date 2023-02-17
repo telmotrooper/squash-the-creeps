@@ -48,23 +48,16 @@ value = 100.0
 
 [node name="GrassLabel" type="Label" parent="HBoxContainer/LeftContainer"]
 layout_mode = 2
-text = "Amount of Grass:"
+text = "Grass:"
 
 [node name="GrassOptionButton" type="OptionButton" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-disabled = true
-item_count = 5
-popup/item_0/text = "Maximum"
+item_count = 2
+popup/item_0/text = "Enabled"
 popup/item_0/id = 0
-popup/item_1/text = "High"
+popup/item_1/text = "Disabled"
 popup/item_1/id = 1
-popup/item_2/text = "Medium"
-popup/item_2/id = 2
-popup/item_3/text = "Low"
-popup/item_3/id = 3
-popup/item_4/text = "None"
-popup/item_4/id = 4
 
 [node name="RightContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
