@@ -17,6 +17,8 @@ func _ready() -> void:
     get_parent().set_rotation_mode(4)
 
 func _physics_process(delta: float) -> void:
+  super._physics_process(delta)
+  
   match state:
     PATROLLING:
       if get_parent() is PathFollow3D:
