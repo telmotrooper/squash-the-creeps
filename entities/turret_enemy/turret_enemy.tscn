@@ -35,6 +35,15 @@ collision_layer = 2
 radius = 3.0
 height = 4.0
 
+[node name="Cockpit Floor" type="CSGCylinder3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.58555, 0)
+use_collision = true
+collision_layer = 66
+collision_mask = 3
+radius = 3.0
+height = 0.5
+material = ExtResource("1_debqx")
+
 [node name="Cannon" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.6, -4.5)
 use_collision = true
