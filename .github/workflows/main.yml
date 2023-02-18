@@ -1,30 +1,36 @@
-# Whenever a push is made to the following branches then run the job.
 on: 
   push:
     branches:
       - main
 
 jobs:
-  # Job id, can be anything.
   export_game:
-    # Always use "ubuntu-latest" for this action.
     runs-on: ubuntu-latest
-    # Job name, can be anything.
-    name: Export Game Job
+    permissions: write-all
+    name: Export Game
     steps:
-      # Always include the checkout step so that your project is available for Godot to export.
     - name: checkout
-      uses: actions/checkout@v2.3.1
-      # Ensure that you get the entire project history.
-      with:
-        fetch-depth: 0
+      uses: actions/checkout@v3.0.2
+  
+    - name: get tag from version
+      id: tag_version
+      run: |
+          echo "TAG_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+  
     - name: export game
-      # Use latest version (see releases for all versions).
-      uses: firebelley/godot-export@v3.0.0
+      id: export
+      uses: firebelley/godot-export@v4.7.0
       with:
-        # Defining all the required inputs.
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.5.1/Godot_v3.5.1-stable_linux_headless.64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.5.1/Godot_v3.5.1-stable_export_templates.tpz
+        use_godot_4: true
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/rc2/Godot_v4.0-rc2_linux.x86_64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/rc2/Godot_v4.0-rc2_export_templates.tpz
         relative_project_path: ./
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        archive_output: true
+
+    - name: create release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: v${{ steps.tag_version.outputs.TAG_VERSION }}
+        artifacts: ${{ steps.export.outputs.archive_directory }}/*
