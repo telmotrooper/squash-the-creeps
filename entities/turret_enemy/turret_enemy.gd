@@ -15,8 +15,11 @@ func _physics_process(_delta: float) -> void:
     ATTACKING:
       if is_instance_valid(GameState.Player):
         aim_at_player(GameState.Player.transform.origin)
+        
+        if $GunTimer.is_stopped():
+          $GunTimer.start()      
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
+func _on_area_3d_body_entered(_body: Node3D) -> void:
   state = ALERT
 
 func aim_at_player(player_position) -> void:
@@ -26,3 +29,6 @@ func _on_alert_timer_timeout() -> void:
   $ExclamationMark.visible = false
   state = ATTACKING
   set_physics_process(true)
+
+func _on_gun_timer_timeout() -> void:
+  print("shoot")

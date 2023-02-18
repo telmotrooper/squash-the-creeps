@@ -86,5 +86,8 @@ mesh = SubResource("QuadMesh_rgjsy")
 wait_time = 0.5
 one_shot = true
 
+[node name="GunTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="AlertTimer" to="." method="_on_alert_timer_timeout"]
+[connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
