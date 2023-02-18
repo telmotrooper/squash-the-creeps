@@ -20,7 +20,8 @@ func _physics_process(_delta: float) -> void:
           $GunTimer.start()      
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
-  state = ALERT
+  if state == IDLE:
+    state = ALERT
 
 func aim_at_player(player_position) -> void:
   look_at(player_position, Vector3.UP)
