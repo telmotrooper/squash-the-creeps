@@ -1,13 +1,13 @@
 extends Control
 
 func _ready() -> void:
-  get_node("%MidAirDashCheckButton").pressed = Configuration.get_value("debug", "mid_air_dash")
+  get_node("%MidAirDashCheckButton").button_pressed = Configuration.get_value("debug", "mid_air_dash")
   GameState.upgrades["mid_air_dash"] = Configuration.get_value("debug", "mid_air_dash")
   
-  get_node("%DoubleJumpCheckButton").pressed = Configuration.get_value("debug", "double_jump")
+  get_node("%DoubleJumpCheckButton").button_pressed = Configuration.get_value("debug", "double_jump")
   GameState.upgrades["double_jump"] = Configuration.get_value("debug", "double_jump")
   
-  get_node("%BodySlamCheckButton").pressed = Configuration.get_value("debug", "body_slam")
+  get_node("%BodySlamCheckButton").button_pressed = Configuration.get_value("debug", "body_slam")
   GameState.upgrades["body_slam"] = Configuration.get_value("debug", "body_slam")
 
 func pause() -> void:
@@ -40,7 +40,7 @@ func _on_MainMenuButton_pressed() -> void:
   if is_instance_valid($"/root/Main"):
     $"/root/Main".load_world(title_screen)
   else:
-    var _error = get_tree().change_scene(title_screen)
+    var _error = get_tree().change_scene_to_file(title_screen)
   
   pause()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -1,38 +1,36 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c1uxp84cy3fxb"]
 
-[ext_resource path="res://ui/settings.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://ui/settings.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1_u0wmf"]
 
 [node name="Settings" type="VBoxContainer"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -290.0
-margin_top = -176.5
-margin_right = 290.0
-margin_bottom = 176.5
-script = ExtResource( 1 )
+offset_left = -290.0
+offset_top = -176.5
+offset_right = 290.0
+offset_bottom = 176.5
+theme = ExtResource("1_u0wmf")
+script = ExtResource("1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 580.0
-margin_bottom = 212.0
+layout_mode = 2
 
 [node name="LeftContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 285.0
-margin_bottom = 212.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SensitivityLabel" type="Label" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
-margin_right = 285.0
-margin_bottom = 31.0
+layout_mode = 2
 text = "Mouse Sensitivity: 0.50"
 
 [node name="SensitivitySlider" type="HSlider" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
-margin_top = 41.0
-margin_right = 285.0
-margin_bottom = 57.0
+layout_mode = 2
 min_value = 0.05
 max_value = 1.0
 step = 0.05
@@ -40,115 +38,86 @@ value = 0.1
 
 [node name="DrawDistanceLabel" type="Label" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
-margin_top = 67.0
-margin_right = 285.0
-margin_bottom = 98.0
+layout_mode = 2
 text = "Draw Distance: 500"
 
 [node name="DrawDistanceSlider" type="HSlider" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
-margin_top = 108.0
-margin_right = 285.0
-margin_bottom = 124.0
+layout_mode = 2
 min_value = 100.0
 max_value = 500.0
 value = 100.0
 
 [node name="GrassLabel" type="Label" parent="HBoxContainer/LeftContainer"]
-margin_top = 134.0
-margin_right = 285.0
-margin_bottom = 165.0
-text = "Amount of Grass:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
+text = "Grass:"
 
 [node name="GrassOptionButton" type="OptionButton" parent="HBoxContainer/LeftContainer"]
 unique_name_in_owner = true
-margin_top = 175.0
-margin_right = 285.0
-margin_bottom = 212.0
-text = "Maximum"
-items = [ "Maximum", null, false, 0, null, "High", null, false, 1, null, "Medium", null, false, 2, null, "Low", null, false, 3, null, "None", null, false, 4, null ]
-selected = 0
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Enabled"
+popup/item_0/id = 0
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
 
 [node name="RightContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 295.0
-margin_right = 580.0
-margin_bottom = 212.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MusicVolumeLabel" type="Label" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_right = 285.0
-margin_bottom = 31.0
+layout_mode = 2
 text = "Music Volume: 100"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_top = 41.0
-margin_right = 285.0
-margin_bottom = 57.0
+layout_mode = 2
 value = 100.0
 
 [node name="SoundVolumeLabel" type="Label" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_top = 67.0
-margin_right = 285.0
-margin_bottom = 98.0
+layout_mode = 2
 text = "Sound Volume: 100"
 
 [node name="SoundVolumeSlider" type="HSlider" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_top = 108.0
-margin_right = 285.0
-margin_bottom = 124.0
+layout_mode = 2
 value = 100.0
 
 [node name="MapLabel" type="Label" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_top = 134.0
-margin_right = 285.0
-margin_bottom = 165.0
+layout_mode = 2
 text = "Map:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MapOptionButton" type="OptionButton" parent="HBoxContainer/RightContainer"]
 unique_name_in_owner = true
-margin_top = 175.0
-margin_right = 285.0
-margin_bottom = 212.0
-text = "hub_1"
-items = [ "hub_1", null, false, 0, null, "test_map", null, false, 1, null, "lake_map", null, false, 2, null ]
-selected = 0
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "hub_1"
+popup/item_0/id = 0
+popup/item_1/text = "test_map"
+popup/item_1/id = 1
+popup/item_2/text = "lake_map"
+popup/item_2/id = 2
 
 [node name="ToggleFullscreenButton" type="Button" parent="."]
-margin_top = 222.0
-margin_right = 580.0
-margin_bottom = 259.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Toggle Fullscreen"
 
 [node name="ResetButton" type="Button" parent="."]
-margin_top = 269.0
-margin_right = 580.0
-margin_bottom = 306.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Reset to Defaults"
 
 [node name="BackButton" type="Button" parent="."]
-margin_top = 316.0
-margin_right = 580.0
-margin_bottom = 353.0
+layout_mode = 2
 text = "Back"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-margin_top = 316.0
-margin_right = 580.0
-margin_bottom = 408.0
-window_title = "Confirmation"
+size = Vector2i(500, 140)
+min_size = Vector2i(500, 140)
 dialog_text = "Are you sure you want to reset the settings to their default values?"
 dialog_autowrap = true
 

@@ -1,7 +1,7 @@
 extends Node
 
 var file_path = "user://settings.cfg"
-onready var config = ConfigFile.new()
+@onready var config = ConfigFile.new()
 
 const min_volume := -60
 const max_volume := 0
@@ -36,7 +36,7 @@ func _ready() -> void:
   
   # Handle fullscreen
   if config.get_value("graphics", "fullscreen") == true:
-    OS.window_fullscreen = true
+    get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
   
   # Handle music volume
   var music_volume = config.get_value("audio", "music_volume")
@@ -65,14 +65,16 @@ func set_volume(bus_name: String, volume: float) -> void:
 
   AudioServer.set_bus_volume_db(bus_index, volume_in_db)
 
-func set_default_values(defaults: Dictionary) -> void:
-  for section in defaults:
-    for key in defaults[section]:
+func set_default_values(new_defaults: Dictionary) -> void:
+  for section in new_defaults:
+    for key in new_defaults[section]:
       if not config.has_section_key(section, key):
-        config.set_value(section, key, defaults[section][key])
+        config.set_value(section, key, new_defaults[section][key])
 
 func reset_settings() -> void:
   for section in defaults:
     if section != "debug": # For now we don't reset player upgrades.
       for key in defaults[section]:
         config.set_value(section, key, defaults[section][key])
+        
+  GameState.update_grass()

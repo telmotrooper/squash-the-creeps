@@ -1,5 +1,9 @@
-[gd_resource type="Theme" format=2]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dxlqjk13q05vx"]
+
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="1_g37r2"]
 
 [resource]
+default_font = ExtResource("1_g37r2")
+default_font_size = 24
 HBoxContainer/constants/separation = 10
 VBoxContainer/constants/separation = 10
