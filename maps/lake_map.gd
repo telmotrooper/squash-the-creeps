@@ -14,8 +14,8 @@ func _on_Player_hit() -> void:
   GameState.UserInterface.retry()
 
 func emit_particles(value: bool) -> void:
-  get_node("%TunnelFloatingParticles").emitting = value
-  get_node("%TunnelFloatingParticles").visible = value
+  %TunnelFloatingParticles.emitting = value
+  %TunnelFloatingParticles.visible = value
 
 func _on_AreaToStartParticles_body_entered(_body: Node) -> void:
   emit_particles(true)
@@ -29,7 +29,7 @@ func _on_AreaToStopParticles_body_exited(player: Node) -> void:
     emit_particles(false)
 
 func _on_AreaToMakePlayerFloat_body_entered(_body: Node) -> void:
-  if get_node("%TunnelFloatingParticles").emitting:
+  if %TunnelFloatingParticles.emitting:
     GameState.Player.floating = true
 
 func _on_AreaToMakePlayerFloat_body_exited(_body: Node) -> void:

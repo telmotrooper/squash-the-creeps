@@ -13,9 +13,9 @@ func _process(_delta: float) -> void:
 #    GameState.Player.paused = false
 
 func _on_SpaceshipArea_body_entered(_player: Node) -> void:
-  get_node("%SpaceshipLabel3D").visible = true
+  %SpaceshipLabel3D.visible = true
   set_process(true)
 
 func _on_SpaceshipArea_body_exited(_player: Node) -> void:
-  get_node("%SpaceshipLabel3D").visible = false
+  %SpaceshipLabel3D.visible = false
   set_process(false)

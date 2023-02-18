@@ -15,7 +15,7 @@ var v_acceleration := 10
 
 func _ready() -> void:
   if (GameState.camera_distance):
-    get_node("%Camera3D").position.z = GameState.camera_distance
+    %Camera3D.position.z = GameState.camera_distance
     
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
   # Prevent camera from colliding with player.
@@ -27,17 +27,17 @@ func _input(event: InputEvent) -> void:
 #  if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
 #    return
   
-  var zoom = get_node("%Camera3D").position.z
+  var zoom = %Camera3D.position.z
 
   if event is InputEventMouseMotion:
     horizontal -= event.relative.x * Configuration.get_value("controls", "mouse_sensitivity")
     vertical -= event.relative.y * Configuration.get_value("controls", "mouse_sensitivity")
   elif event.is_action_pressed("zoom_in") and zoom > min_zoom:
-    get_node("%Camera3D").position.z -= ZOOM_STEP
-    GameState.camera_distance = get_node("%Camera3D").position.z
+    %Camera3D.position.z -= ZOOM_STEP
+    GameState.camera_distance = %Camera3D.position.z
   elif event.is_action_pressed("zoom_out") and zoom < max_zoom:
-    get_node("%Camera3D").position.z += ZOOM_STEP
-    GameState.camera_distance = get_node("%Camera3D").position.z
+    %Camera3D.position.z += ZOOM_STEP
+    GameState.camera_distance = %Camera3D.position.z
 
 func _physics_process(delta: float) -> void:
   # print(vertical) # It's useful to print the current value when trying to find the proper values for 'min' and 'max'.

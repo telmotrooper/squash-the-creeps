@@ -17,7 +17,7 @@ func _ready() -> void:
     submenu.visible = false
   
   GameState.generate_progress_report(owner.name)
-  get_node("%GemLabel").text = "%d" % GameState.amount_of_gems
+  %GemLabel.text = "%d" % GameState.amount_of_gems
 
 func _process(_delta: float) -> void:
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()

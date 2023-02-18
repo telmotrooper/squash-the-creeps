@@ -1,13 +1,13 @@
 extends Control
 
 func _ready() -> void:
-  get_node("%MidAirDashCheckButton").button_pressed = Configuration.get_value("debug", "mid_air_dash")
+  %MidAirDashCheckButton.button_pressed = Configuration.get_value("debug", "mid_air_dash")
   GameState.upgrades["mid_air_dash"] = Configuration.get_value("debug", "mid_air_dash")
   
-  get_node("%DoubleJumpCheckButton").button_pressed = Configuration.get_value("debug", "double_jump")
+  %DoubleJumpCheckButton.button_pressed = Configuration.get_value("debug", "double_jump")
   GameState.upgrades["double_jump"] = Configuration.get_value("debug", "double_jump")
   
-  get_node("%BodySlamCheckButton").button_pressed = Configuration.get_value("debug", "body_slam")
+  %BodySlamCheckButton.button_pressed = Configuration.get_value("debug", "body_slam")
   GameState.upgrades["body_slam"] = Configuration.get_value("debug", "body_slam")
 
 func pause() -> void:
