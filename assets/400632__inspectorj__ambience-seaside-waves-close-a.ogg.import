@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/400632__inspectorj__ambience-seaside-waves-close-a.ogg-728d183db5c3ae94e00c48aca6e120fa.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cs20rrahm3kdx"
+path="res://.godot/imported/400632__inspectorj__ambience-seaside-waves-close-a.ogg-728d183db5c3ae94e00c48aca6e120fa.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg"
-dest_files=[ "res://.import/400632__inspectorj__ambience-seaside-waves-close-a.ogg-728d183db5c3ae94e00c48aca6e120fa.oggstr" ]
+dest_files=["res://.godot/imported/400632__inspectorj__ambience-seaside-waves-close-a.ogg-728d183db5c3ae94e00c48aca6e120fa.oggvorbisstr"]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

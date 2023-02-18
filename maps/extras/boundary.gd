@@ -1,14 +1,14 @@
-tool
-extends Area
+@tool
+extends Area3D
 class_name Boundary
 
-export (bool) var mesh_visible setget set_visible, get_visible
+@export var mesh_visible : bool : get = get_visible, set = _set_visible
 
-func set_visible(value: bool) -> void:
-  $MeshInstance.visible = value
+func _set_visible(value: bool) -> void:
+  $MeshInstance3D.visible = value
 
 func get_visible() -> bool:
-  return $MeshInstance.visible
+  return $MeshInstance3D.visible
 
 func _on_Boundary_body_entered(body: Node) -> void:
   if body is Player:

@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmx1ial7ax08w"]
+
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="1_3esqh"]
+
+[resource]
+default_font = ExtResource("1_3esqh")
+default_font_size = 48
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 5

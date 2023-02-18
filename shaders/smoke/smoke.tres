@@ -1,13 +1,13 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dra44j584j801"]
 
-[ext_resource path="res://shaders/smoke/smoke.shader" type="Shader" id=1]
+[ext_resource type="Shader" path="res://shaders/smoke/smoke.gdshader" id="1"]
 
 [resource]
 render_priority = 1
-shader = ExtResource( 1 )
-shader_param/scale = 1.0
-shader_param/tex_speed = Vector3( 0, -2, 0.5 )
-shader_param/mokomoko = Vector2( 0.1, 0.1 )
-shader_param/smoke_volume = 0.6
-shader_param/smoke_aperture = 0.3
-shader_param/smoke_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+shader = ExtResource("1")
+shader_parameter/scale = 1.0
+shader_parameter/tex_speed = Vector3(0, -2, 0.5)
+shader_parameter/mokomoko = Vector2(0.1, 0.1)
+shader_parameter/smoke_volume = 0.6
+shader_parameter/smoke_aperture = 0.3
+shader_parameter/smoke_color = Color(0.301961, 0.301961, 0.301961, 1)

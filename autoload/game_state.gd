@@ -1,10 +1,10 @@
 extends Node
 
-var Player: KinematicBody
-var Grass: Node
+var Player: CharacterBody3D
+var Grass: MultiMeshInstance3D
 var MapName: String
 var UserInterface: Control
-var RetryCamera: Camera # Camera to be used when player dies.
+var RetryCamera: Camera3D # Camera3D to be used when player dies.
 
 var hub_1_at_night := true
 var camera_distance := 10
@@ -48,15 +48,15 @@ var gem_progress = {
 }
 
 # Backup this value so it can be used to start a new game.
-var initial_godot_heads_collected = var2bytes(godot_heads_collected)
-var initial_gem_progress = var2bytes(gem_progress)
-var initial_global_gem_progress = var2bytes(global_gem_progress)
+var initial_godot_heads_collected = var_to_bytes(godot_heads_collected)
+var initial_gem_progress = var_to_bytes(gem_progress)
+var initial_global_gem_progress = var_to_bytes(global_gem_progress)
 
 var intro_cutscene_played := false
 
 var collision_layers = {}
 
-# This variable is used to work around a bug in Scatter on which,
+# This variable is used to work around a bug in Scatter checked which,
 # after "test_map" is reloaded, the modifiers are not re-inserted
 # and we end up without any grass.
 var ScatterModifierStackBackup: Array = []
@@ -75,9 +75,9 @@ func _ready() -> void:
       collision_layers[layer_name] = i - 1
 
   # If scene with no camera loaded, load fallback scene.
-  if current_scene == "Player" or (current_scene != "Main" and current_scene != "TimelineTestingScene" and not is_instance_valid(get_viewport().get_camera())):
+  if current_scene == "Player" or (current_scene != "Main" and current_scene != "TimelineTestingScene" and not is_instance_valid(get_viewport().get_camera_3d())):
     print("Scene \"%s\" has no default camera, loading fallback scene at \"%s\"." % [current_scene, fallback_scene])
-    var _error = get_tree().change_scene(fallback_scene)
+    var _error = get_tree().change_scene_to_file(fallback_scene)
 
 func collect_gem(map_name: String, path: NodePath) -> void:
   gems_collected[map_name][path].collected = true
@@ -103,9 +103,9 @@ func initialize() -> void: # Used in "New Game".
   intro_cutscene_played = false
   hub_1_at_night = true
   gems_collected = {}
-  godot_heads_collected = bytes2var(initial_godot_heads_collected)
-  gem_progress = bytes2var(initial_gem_progress)
-  global_gem_progress = bytes2var(initial_global_gem_progress)
+  godot_heads_collected = bytes_to_var(initial_godot_heads_collected)
+  gem_progress = bytes_to_var(initial_gem_progress)
+  global_gem_progress = bytes_to_var(initial_global_gem_progress)
   initialize_progress()
   amount_of_gems = 0
   camera_distance = 10
@@ -126,8 +126,9 @@ func initialize_progress() -> void:
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
-func generate_progress_report(current_map: String) -> void:
-  if progress.empty(): # Useful when starting map from editor.
+#func generate_progress_report(current_map: String) -> void:
+func generate_progress_report(current_map) -> void:
+  if progress.is_empty(): # Useful when starting map from editor.
     initialize_progress()
   
   # This function reads the "progress" dictionary and updates the "Progress" menu accordingly.
@@ -196,40 +197,14 @@ func register_gem(map_name: String, path: NodePath, gem_value: int) -> void:
 func update_grass(index: int = -1) -> void:
   if index == -1: # If called with no index, set the one from the configuration file.
     index = Configuration.get_value("graphics", "grass_amount")
-    
-  var multiplier = grass_index_to_multiplier(index)
   
   if is_instance_valid(GameState.Grass):
-    # Backup modifier stack.
-    if not GameState.Grass.modifier_stack.stack.empty() and ScatterModifierStackBackup.empty():
-      for item in GameState.Grass.modifier_stack.stack:
-        ScatterModifierStackBackup.append(item.duplicate())
+    if index == 0: # Enabled
+      GameState.Grass.visible = true
+    else: # Disabled
+      GameState.Grass.visible = false
 
-    # Restore modifier stack.
-    if GameState.Grass.modifier_stack.stack.empty() and not ScatterModifierStackBackup.empty():
-      for item in ScatterModifierStackBackup:
-        GameState.Grass.modifier_stack.stack.append(item)
-    
-    # Update grass.
-    GameState.Grass.modifier_stack.stack[0].instance_count = GameState.initial_grass * multiplier
-    GameState.Grass._do_update()
-  
   Configuration.update_setting("graphics", "grass_amount", index)
-
-func grass_index_to_multiplier(index: int) -> float:
-  var multiplier = 1
-  match index:
-    0: # Maximum
-      multiplier = 1
-    1: # High
-      multiplier = 0.75
-    2: # Medium
-      multiplier = 0.5
-    3: # Low
-      multiplier = 0.25
-    4: # None
-      multiplier = 0
-  return multiplier
 
 func change_map(map_name: String) -> void:
   GameState.MapName = map_name
@@ -238,7 +213,7 @@ func change_map(map_name: String) -> void:
   if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
     $"/root/Main".load_world(map_file)
   else: # Game started through "Play Scene" in editor.
-    var _error = get_tree().change_scene(map_file)
+    var _error = get_tree().change_scene_to_file(map_file)
 
 func play_audio(stream: AudioStream) -> void:
   if !$Audio/AudioStreamPlayer1.playing:
@@ -273,6 +248,6 @@ func reload_current_scene() -> void:
   var Main = get_node_or_null("/root/Main")
   if is_instance_valid(Main): # Game started normally, use background loading.
     var WorldScene = $"/root/Main/WorldScene"
-    Main.load_world(WorldScene.get_child(0).filename)
+    Main.load_world(WorldScene.get_child(0).scene_file_path)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().reload_current_scene()

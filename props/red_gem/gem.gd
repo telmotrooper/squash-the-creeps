@@ -1,8 +1,8 @@
-extends RigidBody
+extends RigidBody3D
 class_name Gem
 
-export (AudioStream) var collected_sound
-export var gem_value := 3
+@export var collected_sound: AudioStream
+@export var gem_value := 3
 
 var follow_player := false
 var t := 0.0
@@ -23,9 +23,9 @@ func _physics_process(delta: float) -> void:
     
     # Make gem follow player.
     t += delta * 0.25
-    self.global_transform.origin = gem_position.linear_interpolate(player_position, t)
+    self.global_transform.origin = gem_position.lerp(player_position, t)
     
-    if distance <= 1 or t >= 1.0:
+    if distance <= 2.5 or t >= 1.0:
       GameState.collect_gem(owner.name, get_path())
       GameState.play_audio(collected_sound)
       queue_free()

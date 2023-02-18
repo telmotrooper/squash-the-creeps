@@ -1,8 +1,8 @@
-extends CSGCylinder
+extends CSGCylinder3D
 
-export var label: String
-export var map_name: String
-export var godot_heads_required: int
+@export var label: String
+@export var map_name: String
+@export var godot_heads_required: int
 
 func _ready() -> void:
   $Label3D.text = label if label else map_name
@@ -13,16 +13,16 @@ func _ready() -> void:
     $RequirementLabel.text = ""
   
   if godot_heads_required > 0 and requirement_met() and portal_locked():
-    var child_camera = get_node_or_null("Camera")
+    var child_camera = get_node_or_null("Camera3D")
   
     if is_instance_valid(child_camera): # Cutscene
       child_camera.make_current()
       var timer = get_tree().create_timer(1, false)
-      yield(timer, "timeout")
+      await timer.timeout
       $RequirementAnimationPlayer.play("fade_out")
       timer = get_tree().create_timer(2, false)
-      yield(timer, "timeout")
-      GameState.Player.get_node("%ClippedCamera").make_current()
+      await timer.timeout
+      GameState.Player.get_node("%Camera3D").make_current()
       GameState.portal_unlocked[get_path()] = true
 
 func _on_Portal_entered(_body: Node) -> void:

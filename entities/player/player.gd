@@ -1,32 +1,32 @@
-extends KinematicBody
+extends CharacterBody3D
 class_name Player
 
 signal hit
 
-export (AudioStream) var hurt_sound
+@export var hurt_sound: AudioStream
 
-export var walk_speed := 14.0
-export var run_speed := 22.0
+@export var walk_speed := 14.0
+@export var run_speed := 22.0
 
-export var jump_impulse := 25.0
-export var fall_acceleration := 75.0
-export var bounce_impulse := 16.0
-export var dash_duration := 0.2
-export var dash_speed := 150
-export var bounce_cap := 87
-export var body_slam_speed := 30
+@export var jump_impulse := 25.0
+@export var fall_acceleration := 75.0
+@export var bounce_impulse := 16.0
+@export var dash_duration := 0.2
+@export var dash_speed := 150
+@export var bounce_cap := 87
+@export var body_slam_speed := 30
 
-export var throw_back_y_impulse := 25
-export var throw_back_speed := 20
+@export var throw_back_y_impulse := 25
+@export var throw_back_speed := 20
 
-export var paused := false
+@export var paused := false
 
-# Starts as "forward", might behave weird depending on spawn direction.
+# Starts as "forward", might behave weird depending checked spawn direction.
 var last_direction := Vector3(0,0,-1)
 
 var last_safe_position := Vector3(0,0,0)
 
-var velocity = Vector3.ZERO
+#var velocity = Vector3.ZERO
 var speed = 0
 
 var is_jumping := false
@@ -61,13 +61,13 @@ func _physics_process(delta: float) -> void:
   if Input.is_action_just_pressed("attack") and not is_dashing:
     $AnimationPlayer.play("spin-y")
   
-  # Get direction vector based on input.
+  # Get direction vector based checked input.
   var direction = Vector3(
       Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
       0,
       Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
   
-  # Rotate direction based on camera.
+  # Rotate direction based checked camera.
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
@@ -77,18 +77,20 @@ func _physics_process(delta: float) -> void:
     if not being_thrown_back: # Last direction is used for throw back.
       last_direction = direction
     
-    $ModelPivot.look_at(translation + direction, Vector3.UP)
+    $ModelPivot.look_at(position + direction, Vector3.UP)
     
     if is_dashing:
-      $AnimationPlayer.playback_speed = 1.0
+      if is_on_floor() and get_floor_angle(Vector3.UP) > 0: # Ramp bounce.
+        velocity.y = get_floor_angle(Vector3.UP) * 200
+      $AnimationPlayer.speed_scale = 1.0
     elif Input.is_action_pressed("sprint"): # Running.
       speed = run_speed
-      $AnimationPlayer.playback_speed = 3.0
+      $AnimationPlayer.speed_scale = 3.0
     else: # Walking.
       speed = walk_speed
-      $AnimationPlayer.playback_speed = 2.25
+      $AnimationPlayer.speed_scale = 2.25
   else: # Idle
-    $AnimationPlayer.playback_speed = 1.0
+    $AnimationPlayer.speed_scale = 1.0
   
   if GameState.upgrades["mid_air_dash"]:
     if is_on_floor():
@@ -128,13 +130,13 @@ func _physics_process(delta: float) -> void:
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
     velocity.y = jump_impulse
     is_jumping = true
-  elif is_on_floor() and not get_slide_collision(0).collider is Enemy: # Reset both jumps.
+  elif is_on_floor() and get_slide_collision_count() > 0 and not get_slide_collision(0).get_collider() is Enemy: # Reset both jumps.
     is_jumping = false
     is_double_jumping = false
 
     var safe_position_condition = (
       $RayCasts/RayCast.is_colliding() and
-      not $RayCasts/RayCast.get_collider().get_collision_layer_bit(GameState.collision_layers["Water"]) and
+      not $RayCasts/RayCast.get_collider().get_collision_layer_value(GameState.collision_layers["Water"]) and
       not $RayCasts/RayCast.get_collider().is_in_group("breakable_floor") and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast3.get_collider() and
@@ -142,7 +144,7 @@ func _physics_process(delta: float) -> void:
     )
     if safe_position_condition:
       last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
-  elif is_on_floor() and get_slide_collision(0).collider is Enemy: # Reset double jump.
+  elif is_on_floor() and get_slide_collision_count() > 0 and get_slide_collision(0).get_collider() is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
         and velocity.y <= 20 # Only allow double jump after player slows down a bit.
@@ -160,16 +162,19 @@ func _physics_process(delta: float) -> void:
     velocity.y -= fall_acceleration * delta
   
   # Assign move_and_slide to velocity prevents the velocity from accumulating.
-  velocity = move_and_slide(velocity, Vector3.UP)
+  set_velocity(velocity)
+  set_up_direction(Vector3.UP)
+  move_and_slide()
+  velocity = velocity
   
   # Handling events related to colliding with nodes below player.
-  for index in get_slide_count():
+  for index in get_slide_collision_count():
     var collision = get_slide_collision(index)
     
-    if collision.collider.is_in_group("enemies"):
-      var enemy = collision.collider
+    if collision.get_collider().is_in_group("enemies"):
+      var enemy = collision.get_collider()
       
-      if Vector3.UP.dot(collision.normal) > 0.1:
+      if Vector3.UP.dot(collision.get_normal()) > 0.1:
         enemy.squash()
         if Input.is_action_pressed("jump"):
           velocity.y = jump_impulse + bounce_impulse # Bounce when squashing an enemy and holding "jump".
@@ -177,15 +182,15 @@ func _physics_process(delta: float) -> void:
           velocity.y = jump_impulse
         is_jumping = true
     
-    elif collision.collider is RedButton:
-      var red_button = collision.collider
+    elif collision.get_collider() is RedButton: # A red button in the floor.
+      var red_button = collision.get_collider()
       
       if red_button.direction == RedButton.Direction.FLOOR and not red_button.is_pressed:
         red_button.press()
     
-    elif is_body_slamming and collision.collider.is_in_group("breakable_floor"):
-      var parent = collision.collider.get_parent()
-      if parent.get_class() == "MeshInstance":
+    elif is_body_slamming and collision.get_collider().is_in_group("breakable_floor"):
+      var parent = collision.get_collider().get_parent()
+      if parent.get_class() == "MeshInstance3D":
         parent.queue_free()
   
   # Rotate character vertically alongside a fall.
@@ -200,7 +205,7 @@ func _physics_process(delta: float) -> void:
       elif entity is RedButton:
         entity.press()
   
-  # Prevent the player from going too high when bouncing off a slope.
+  # Prevent the player from going too high when bouncing unchecked a slope.
   if velocity.y > bounce_cap:
     velocity.y = bounce_cap
 
@@ -219,7 +224,7 @@ func _on_EnemyDetector_body_entered(_body: Node) -> void: # hurt
   being_thrown_back = true
 
 func set_draw_distance(value: int) -> void:
-  $CameraPivot/Horizontal/Vertical/ClippedCamera.far = value
+  $CameraPivot/Horizontal/Vertical/Camera3D.far = value
 
 func _on_DashDurationTimer_timeout() -> void:
   is_dashing = false
@@ -229,7 +234,7 @@ func move_to_last_safe_position() -> void:
   var fade_to_black = get_node_or_null("/root/Main/FadeToBlack")
   if fade_to_black:
     fade_to_black.set_is_faded(true)
-    yield(fade_to_black, "finished_fading")
+    await fade_to_black.finished_fading
     fade_to_black.set_is_faded(false)
   global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
   paused = false
