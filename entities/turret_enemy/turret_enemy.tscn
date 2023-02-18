@@ -1,14 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6f8nv3ycye4e"]
+[gd_scene load_steps=9 format=3 uid="uid://b6f8nv3ycye4e"]
 
 [ext_resource type="Material" uid="uid://das1fjm6135fh" path="res://materials/metallic.tres" id="1_debqx"]
 [ext_resource type="Script" path="res://entities/turret_enemy/turret_enemy.gd" id="1_pkk14"]
 [ext_resource type="PackedScene" uid="uid://bnbpymnuwf6bt" path="res://entities/enemy/base/enemy.tscn" id="2_exgmt"]
+[ext_resource type="Texture2D" uid="uid://chu22fldtwf8m" path="res://entities/enemy/exclamation_mark.png" id="4_2nlth"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2aop"]
 albedo_color = Color(1, 0.258824, 0.258824, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7cdj7"]
 radius = 40.0
+
+[sub_resource type="StandardMaterial3D" id="6"]
+transparency = 1
+albedo_texture = ExtResource("4_2nlth")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_rgjsy"]
+material = SubResource("6")
+size = Vector2(3, 3)
 
 [node name="TurretEnemy" type="Node3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -67,4 +77,14 @@ collision_layer = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_7cdj7")
 
+[node name="ExclamationMark" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.95, 0)
+visible = false
+mesh = SubResource("QuadMesh_rgjsy")
+
+[node name="AlertTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="AlertTimer" to="." method="_on_alert_timer_timeout"]
