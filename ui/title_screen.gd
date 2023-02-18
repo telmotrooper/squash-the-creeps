@@ -10,9 +10,9 @@ var button_pressed: String
 func _ready() -> void:
   GameState.play_music(menu_music)
   var version = Engine.get_version_info()
-  get_node("%VersionLabel").text = "DEMO RELEASE – GODOT %d.%d.%d RC 2" % [version.major, version.minor, version.patch]
+  %VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d RC 2" % [version.major, version.minor, version.patch]
   
-  get_node("%Settings").visible = false
+  %Settings.visible = false
 
 func _process(_delta: float) -> void:
   if Input.is_action_just_pressed("ui_cancel") and submenu_open:
@@ -33,7 +33,7 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name: String) -> void:
       else:
         var _error = get_tree().change_scene_to_file(new_game_scene.get_path())
     elif button_pressed == "settings":
-      get_node("%Settings").visible = true
+      %Settings.visible = true
     elif button_pressed == "exit":
       get_tree().quit()
 
@@ -46,6 +46,6 @@ func _on_CenterContainer_gui_input(event: InputEvent) -> void:
     $Node3D/AnimationPlayerAlien.play("spin_y")
 
 func _on_Settings_back_button_pressed() -> void:
-  get_node("%Settings").visible = false
+  %Settings.visible = false
   submenu_open = false
   $AnimationPlayerMenu.play("menu_fade_in_fast")

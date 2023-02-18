@@ -1,5 +1,7 @@
 extends Node3D
 
+var collected := false
+
 func _ready() -> void:
   GameState.register_godot_head(owner.name, name)
   
@@ -8,10 +10,10 @@ func _ready() -> void:
     queue_free()
 
 func _on_GodotPowerUp_body_entered(_body: Node) -> void:
-  GameState.collect_godot_head(owner.name, name)
-  $AudioStreamPlayer.play()
-  $CollisionShape3D.disabled = true
-  self.visible = false
-
-func _on_AudioStreamPlayer_finished() -> void:
-  queue_free()
+  if !collected:
+    collected = true
+    GameState.collect_godot_head(owner.name, name)
+    $AudioStreamPlayer.play()
+    self.visible = false
+    await $AudioStreamPlayer.finished
+    queue_free()
