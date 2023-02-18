@@ -1,8 +1,8 @@
 extends Node
 
 const MENU_FADE_OUT = "menu_fade_out"
-export (PackedScene) var new_game_scene
-export (AudioStream) var menu_music
+@export var new_game_scene: PackedScene
+@export var menu_music: AudioStream
 
 var submenu_open := false
 var button_pressed: String
@@ -10,7 +10,7 @@ var button_pressed: String
 func _ready() -> void:
   GameState.play_music(menu_music)
   var version = Engine.get_version_info()
-  get_node("%VersionLabel").text = "DEMO RELEASE – GODOT %d.%d.%d" % [version.major, version.minor, version.patch]
+  get_node("%VersionLabel").text = "DEMO RELEASE – GODOT %d.%d.%d RC 2" % [version.major, version.minor, version.patch]
   
   get_node("%Settings").visible = false
 
@@ -31,7 +31,7 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name: String) -> void:
         $"/root/Main".load_world(new_game_scene.get_path())
         GameState.initialize()
       else:
-        var _error = get_tree().change_scene(new_game_scene.get_path())
+        var _error = get_tree().change_scene_to_file(new_game_scene.get_path())
     elif button_pressed == "settings":
       get_node("%Settings").visible = true
     elif button_pressed == "exit":
@@ -39,11 +39,11 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name: String) -> void:
 
 func _on_AnimationPlayerSpaceship_animation_finished(anim_name: String) -> void:
   if anim_name == "coming_in":
-    $Spatial/AnimationPlayerSpaceship.play("flying_in_space")
+    $Node3D/AnimationPlayerSpaceship.play("flying_in_space")
 
 func _on_CenterContainer_gui_input(event: InputEvent) -> void:
-  if event is InputEventMouseButton and event.button_index == 1 and $Spatial/AnimationPlayerSpaceship.current_animation == "flying_in_space":
-    $Spatial/AnimationPlayerAlien.play("spin_y")
+  if event is InputEventMouseButton and event.button_index == 1 and $Node3D/AnimationPlayerSpaceship.current_animation == "flying_in_space":
+    $Node3D/AnimationPlayerAlien.play("spin_y")
 
 func _on_Settings_back_button_pressed() -> void:
   get_node("%Settings").visible = false

@@ -1,11 +1,11 @@
 extends Node
 
-export (AudioStream) var map_music
+@export var map_music: AudioStream
 
 func _ready() -> void:
   GameState.play_music(map_music)
   GameState.RetryCamera = $RetryCamera
-  GameState.Grass = get_node("%GreenPlatformGrass")
+  GameState.Grass = %Grass
   GameState.update_grass()
 
 func _on_Player_hit() -> void:

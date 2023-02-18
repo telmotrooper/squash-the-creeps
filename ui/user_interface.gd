@@ -51,7 +51,7 @@ func show_announcement(text: String) -> void:
   if $AnnouncementAnimationPlayer.is_playing():
     # If another announcement is underway, wait 5 seconds and try again.
     var timer = get_tree().create_timer(5, false)
-    yield(timer, "timeout")
+    await timer.timeout
   
   $Announcement.text = text
   $AnnouncementAnimationPlayer.play("show_all_godot_heads_collected")

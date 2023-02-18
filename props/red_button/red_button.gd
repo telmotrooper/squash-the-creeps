@@ -1,11 +1,11 @@
-extends Spatial
+extends Node3D
 class_name RedButton
 
 signal pressed
 
 enum Direction { FLOOR, WALL }
 
-export (Direction) var direction = Direction.FLOOR
+@export var direction: Direction = Direction.FLOOR
 var is_pressed := false
 
 func press() -> void:

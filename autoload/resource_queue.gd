@@ -38,7 +38,10 @@ func queue_resource(path, p_in_front = false) -> void:
     _unlock("queue_resource")
     return
   else:
-    var res = ResourceLoader.load_interactive(path)
+    # TODO: This blocks the thread until loading is done.
+    # Should be refactored to allow for background loading.
+    ResourceLoader.load_threaded_request(path, "", true)
+    var res = ResourceLoader.load_threaded_get(path) 
     res.set_meta("path", path)
     if p_in_front:
       queue.insert(0, res)
@@ -53,7 +56,7 @@ func queue_resource(path, p_in_front = false) -> void:
 func cancel_resource(path) -> void:
   _lock("cancel_resource")
   if path in pending:
-    if pending[path] is ResourceInteractiveLoader:
+    if not pending[path] is PackedScene:
       queue.erase(pending[path])
     pending.erase(path)
   _unlock("cancel_resource")
@@ -63,7 +66,7 @@ func get_progress(path) -> float:
   _lock("get_progress")
   var ret = -1
   if path in pending:
-    if pending[path] is ResourceInteractiveLoader:
+    if not pending[path] is PackedScene:
       ret = float(pending[path].get_stage()) / float(pending[path].get_stage_count())
     else:
       ret = 1.0
@@ -75,7 +78,7 @@ func is_ready(path) -> bool:
   var ret
   _lock("is_ready")
   if path in pending:
-    ret = !(pending[path] is ResourceInteractiveLoader)
+    ret = pending[path] is PackedScene
   else:
     ret = false
   _unlock("is_ready")
@@ -85,7 +88,7 @@ func is_ready(path) -> bool:
 func _wait_for_resource(res, path):
   _unlock("wait_for_resource")
   while true:
-    VisualServer.sync()
+    RenderingServer.force_sync()
     OS.delay_usec(16000) # Wait approximately 1 frame.
     _lock("wait_for_resource")
     if queue.size() == 0 || queue[0] != res:
@@ -96,11 +99,11 @@ func _wait_for_resource(res, path):
 func get_resource(path) -> Resource:
   _lock("get_resource")
   if path in pending:
-    if pending[path] is ResourceInteractiveLoader:
+    if not pending[path] is PackedScene:
       var res = pending[path]
       if res != queue[0]:
         var pos = queue.find(res)
-        queue.remove(pos)
+        queue.remove_at(pos)
         queue.insert(0, res)
 
       res = _wait_for_resource(res, path)
@@ -132,7 +135,7 @@ func thread_process() -> void:
       if path in pending: # Else, it was already retrieved.
         pending[res.get_meta("path")] = res.get_resource()
       # Something might have been put at the front of the queue while
-      # we polled, so use erase instead of remove.
+      # we polled, so use erase instead of remove_at.
       queue.erase(res)
   _unlock("process")
 
@@ -154,7 +157,7 @@ func start() -> void:
   mutex = Mutex.new()
   semaphore = Semaphore.new()
   thread = Thread.new()
-  thread.start(self, "thread_func", 0)
+  thread.start(Callable(self,"thread_func").bind(0))
 
 # Triggered by calling "get_tree().quit()".
 func _exit_tree() -> void:
