@@ -53,4 +53,3 @@ stream = ExtResource("3")
 bus = &"Sound"
 
 [connection signal="body_entered" from="." to="." method="_on_GodotPowerUp_body_entered"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
