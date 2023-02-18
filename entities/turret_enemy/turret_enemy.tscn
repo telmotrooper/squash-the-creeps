@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b6f8nv3ycye4e"]
+
+[node name="TurretEnemy" type="Node3D"]
+
+[node name="Structure" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+use_collision = true
+collision_layer = 2
+radius = 3.0
+height = 4.0
+
+[node name="Cockpit" type="CSGCylinder3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.692038)
+operation = 2
+use_collision = true
+collision_layer = 2
+radius = 3.0
+height = 4.0
+
+[node name="Float" type="CSGCylinder3D" parent="."]
+use_collision = true
+collision_layer = 2
+radius = 4.0
+height = 1.25
+sides = 10
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, -4.5)
+use_collision = true
+collision_layer = 2
+height = 3.5
