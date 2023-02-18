@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjeasqy275cdw"
+uid="uid://cyejmdv62084t"
 path.s3tc="res://.godot/imported/green_gem_Image_2.png-69347ca76aac3bf6262179880dc38ba1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

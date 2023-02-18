@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0vvlim7en2t"
+uid="uid://syfkicmkesxd"
 path.s3tc="res://.godot/imported/height_map_Untitled.png-e1f94d7027aa258c7a38b96d44caf176.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

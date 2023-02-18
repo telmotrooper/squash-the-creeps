@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7l2fo8fd3m3a"]
 
-[ext_resource type="PackedScene" uid="uid://cwjahmnkggruu" path="res://assets/scatter_assets/grass/data/grass_1.glb" id="1"]
+[ext_resource type="PackedScene" path="res://assets/scatter_assets/grass/data/grass_1.glb" id="1"]
 
 [node name="grass52" instance=ExtResource("1")]

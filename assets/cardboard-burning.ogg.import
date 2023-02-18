@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://bkh4hw7xotkmm"
+uid="uid://7nngsccaxwwr"
 path="res://.godot/imported/cardboard-burning.ogg-6b217164045120e5657fc616e5e8563e.oggvorbisstr"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/cardboard-burning.ogg-6b217164045120e5657fc61
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
 bpm=0
 beat_count=0

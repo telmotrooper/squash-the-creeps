@@ -1,8 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bf5tdct8fvxu3"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cj6vyccgv0stm"]
 
 [ext_resource type="Shader" path="res://assets/scatter_assets/grass/data/s_grass.gdshader" id="1"]
-[ext_resource type="Texture2D" uid="uid://b7sjiw2klyvvi" path="res://assets/scatter_assets/grass/data/t_grass_4.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://cxngur0u1ar8v" path="res://assets/scatter_assets/grass/data/t_noise.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c676435d6y1sk" path="res://assets/scatter_assets/grass/data/t_grass_4.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dvikb4tt2356g" path="res://assets/scatter_assets/grass/data/t_noise.png" id="3"]
 
 [sub_resource type="Gradient" id="1"]
 colors = PackedColorArray(0.546875, 0.33659, 0.00854492, 1, 0.945312, 0.931061, 0.0332336, 1)

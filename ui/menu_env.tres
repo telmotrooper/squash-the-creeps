@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://dhylrgs4ypi2c"]
 
-[ext_resource type="Texture2D" uid="uid://bcfsoy7w4cd2r" path="res://assets/skyboxes/milkyway.jpg" id="1_dunwk"]
+[ext_resource type="Texture2D" uid="uid://dpt76dtt1v2kx" path="res://assets/skyboxes/milkyway.jpg" id="1_dunwk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_34kuo"]
 panorama = ExtResource("1_dunwk")

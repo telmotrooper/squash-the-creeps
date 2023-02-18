@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjojq8jlst8br"
+uid="uid://c08cqrtmkm6ym"
 path="res://.godot/imported/purple_gem.glb-f25b5ff54764620593716a8c5efde638.scn"
 
 [deps]
@@ -13,18 +13,18 @@ dest_files=["res://.godot/imported/purple_gem.glb-f25b5ff54764620593716a8c5efde6
 
 [params]
 
-nodes/root_type="Spatial"
+nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=0
-meshes/lightmap_texel_size=0.1
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
-animation/fps=15
+animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://drnorhq1deu4b"]
-
-[ext_resource type="PackedScene" uid="uid://4wbx7gmqq2t" path="res://assets/scatter_assets/leaves/data/leaves_1.glb" id="1"]
-
-[node name="leaves_1" instance=ExtResource("1")]

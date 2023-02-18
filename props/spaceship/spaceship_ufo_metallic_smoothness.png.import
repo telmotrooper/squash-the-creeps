@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n1bt5oqr51oc"
+uid="uid://ctg74q2rmt5xa"
 path.s3tc="res://.godot/imported/spaceship_ufo_metallic_smoothness.png-98e6248218ef0f3f208959d2438d2edc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

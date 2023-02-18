@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o2uu1f6jd7jt"
+uid="uid://bnjresrwih336"
 path.s3tc="res://.godot/imported/spaceship_ufo_glass_normal.png-dd45076203bdb9a425a79971de20001e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b2dc8gkeeqjpl"
+uid="uid://c1y5qugat84ue"
 path="res://.godot/imported/house_in_a_forest_loop.ogg-3a8e18fbfdfedbd50e1021bf7ec5687a.oggvorbisstr"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/house_in_a_forest_loop.ogg-3a8e18fbfdfedbd50e
 [params]
 
 loop=true
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

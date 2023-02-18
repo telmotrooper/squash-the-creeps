@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://psfk4b2klkak"]
+[gd_scene load_steps=4 format=3 uid="uid://c23nhf7py30k"]
 
-[ext_resource type="PackedScene" uid="uid://cwjahmnkggruu" path="res://assets/scatter_assets/grass/data/grass_1.glb" id="1"]
-[ext_resource type="Material" uid="uid://bf5tdct8fvxu3" path="res://assets/scatter_assets/grass/data/m_grass_59.tres" id="2"]
+[ext_resource type="PackedScene" path="res://assets/scatter_assets/grass/data/grass_1.glb" id="1"]
+[ext_resource type="Material" uid="uid://cj6vyccgv0stm" path="res://assets/scatter_assets/grass/data/m_grass_59.tres" id="2"]
 
 [sub_resource type="ArrayMesh" id="1"]
 resource_local_to_scene = true

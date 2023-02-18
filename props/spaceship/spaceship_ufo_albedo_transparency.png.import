@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbblxl2peevx7"
+uid="uid://c4vfgg3xi14fm"
 path.s3tc="res://.godot/imported/spaceship_ufo_albedo_transparency.png-37513dd2c1657158931661f633a94b47.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

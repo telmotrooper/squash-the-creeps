@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://06xd1n8w0all"
+uid="uid://c1ope7npae620"
 path="res://.godot/imported/Super Game Music - Badass Space Explorer (Loop).ogg-7576957a32072b0db6f0cf9296d7067a.oggvorbisstr"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Super Game Music - Badass Space Explorer (Loo
 [params]
 
 loop=true
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

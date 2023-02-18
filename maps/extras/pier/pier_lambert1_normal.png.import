@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy657be3m4q1t"
+uid="uid://collpysw6evvt"
 path.s3tc="res://.godot/imported/pier_lambert1_normal.png-63b521774bcc24651aa34db4d804c970.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

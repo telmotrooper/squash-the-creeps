@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd63pnomyl4t1"
+uid="uid://bueabf5qekb7d"
 path.s3tc="res://.godot/imported/beach_island_Ground033_1K_NormalGL.png-876a6e9163a418013e1f3c4b38434154.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

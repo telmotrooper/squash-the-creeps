@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yswmyc5kl6d"
+uid="uid://bfp4taenpp0lr"
 path.s3tc="res://.godot/imported/beach_island_Ground033_1K_Roughness.png-deddb604c1c46418605157a43323b591.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
