@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1uxp84cy3fxb"]
+[gd_scene load_steps=3 format=3 uid="uid://c1uxp84cy3fxb"]
 
 [ext_resource type="Script" path="res://ui/settings.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1_u0wmf"]
 
 [node name="Settings" type="VBoxContainer"]
 anchors_preset = 8
@@ -12,6 +13,7 @@ offset_left = -290.0
 offset_top = -176.5
 offset_right = 290.0
 offset_bottom = 176.5
+theme = ExtResource("1_u0wmf")
 script = ExtResource("1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://dwlgvyx57i7f1"]
 
-[ext_resource type="PackedScene" uid="uid://bxtdcfuxt5fmk" path="res://entities/player/player.glb" id="1"]
+[ext_resource type="PackedScene" uid="uid://lx05gtxi21cd" path="res://entities/player/player.glb" id="1"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2"]
 [ext_resource type="Script" path="res://entities/player/camera.gd" id="3"]
-[ext_resource type="AudioStream" uid="uid://o3sw10epn603" path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://d3lt1joxf3lqj" path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" id="4"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 1.0

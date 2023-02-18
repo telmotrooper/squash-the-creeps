@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://pjp410u41fqp"]
 
 [ext_resource type="Script" path="res://props/portal/portal.gd" id="1"]
-[ext_resource type="FontFile" uid="uid://cmh82il44cykx" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_7t4r7"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_7t4r7"]
 
 [sub_resource type="StandardMaterial3D" id="19"]
 albedo_color = Color(0.639216, 0.141176, 0.141176, 1)

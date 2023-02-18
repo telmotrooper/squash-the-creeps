@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://dsi70335iix5i"]
 
 [ext_resource type="Script" path="res://props/red_gem/gem.gd" id="2"]
-[ext_resource type="AudioStream" uid="uid://bo0g1adaaukdv" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
-[ext_resource type="Texture2D" uid="uid://becdj4koor7im" path="res://props/green_gem/green_gem_Image_3.png" id="3_sflio"]
-[ext_resource type="Texture2D" uid="uid://cjeasqy275cdw" path="res://props/green_gem/green_gem_Image_2.png" id="4_gn0ul"]
-[ext_resource type="Texture2D" uid="uid://dq0vk6bwxnk2e" path="res://props/green_gem/green_gem_Image_0.png" id="5_guxcq"]
-[ext_resource type="Texture2D" uid="uid://c5m6vrl3x40aw" path="res://props/green_gem/green_gem_Image_1.png" id="6_hpm3n"]
+[ext_resource type="AudioStream" uid="uid://offdyh8u8jmf" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
+[ext_resource type="Texture2D" uid="uid://1ymeid4a5weu" path="res://props/green_gem/green_gem_Image_3.png" id="3_sflio"]
+[ext_resource type="Texture2D" uid="uid://cyejmdv62084t" path="res://props/green_gem/green_gem_Image_2.png" id="4_gn0ul"]
+[ext_resource type="Texture2D" uid="uid://sudysju8vob8" path="res://props/green_gem/green_gem_Image_0.png" id="5_guxcq"]
+[ext_resource type="Texture2D" uid="uid://mknw3e2ovb1d" path="res://props/green_gem/green_gem_Image_1.png" id="6_hpm3n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwvjw"]
 resource_name = "M_Gem"

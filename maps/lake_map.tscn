@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://boaoo3d7kojfm" path="res://maps/extras/height_map/height_map.tscn" id="1"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="2"]
 [ext_resource type="Script" path="res://maps/lake_map.gd" id="3"]
-[ext_resource type="AudioStream" uid="uid://hjcu0tknjt0y" path="res://assets/water-pour.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://bf7qsavkux6xo" path="res://assets/water-pour.ogg" id="4"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="6"]
 [ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="7"]
@@ -14,12 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="12"]
 [ext_resource type="Material" path="res://maps/extras/height_map/Material.material" id="13"]
 [ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="14"]
-[ext_resource type="AudioStream" uid="uid://b2dc8gkeeqjpl" path="res://assets/house_in_a_forest_loop.ogg" id="15"]
+[ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="15"]
 [ext_resource type="PackedScene" uid="uid://cl7oilvypf1v2" path="res://props/purple_gem/purple_gem.tscn" id="16"]
 [ext_resource type="PackedScene" uid="uid://c7wwx46ehiufd" path="res://props/red_gem/red_gem.tscn" id="17"]
 [ext_resource type="PackedScene" uid="uid://dsi70335iix5i" path="res://props/green_gem/green_gem.tscn" id="18"]
 [ext_resource type="PackedScene" uid="uid://dl4e5e40iodpb" path="res://maps/extras/pier/pier.tscn" id="19"]
-[ext_resource type="Texture2D" uid="uid://lsnwsp3fdc76" path="res://particles/float/star_08.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://c7rc5p0126d5f" path="res://particles/float/star_08.png" id="20"]
 
 [sub_resource type="Curve3D" id="1"]
 _data = {

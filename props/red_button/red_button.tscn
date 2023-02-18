@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dtsvkv0pyppjh"]
 
 [ext_resource type="Script" path="res://props/red_button/red_button.gd" id="2"]
-[ext_resource type="AudioStream" uid="uid://c2vnsuxpgbccv" path="res://props/red_button/button_click.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://dffuilohgfxue" path="res://props/red_button/button_click.ogg" id="3"]
 
 [sub_resource type="StandardMaterial3D" id="1"]
 resource_name = "Metal"

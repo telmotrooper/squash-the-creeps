@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dprtyraxfvhk6"]
 
-[ext_resource type="PackedScene" uid="uid://b1bwf32c8ye3p" path="res://props/spaceship/spaceship.glb" id="1"]
+[ext_resource type="PackedScene" uid="uid://bh1fi3ufkve6y" path="res://props/spaceship/spaceship.glb" id="1"]
 
 [sub_resource type="CylinderShape3D" id="1"]
 height = 3.5

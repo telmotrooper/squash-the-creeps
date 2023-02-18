@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7wwx46ehiufd"]
 
 [ext_resource type="Script" path="res://props/red_gem/gem.gd" id="2"]
-[ext_resource type="AudioStream" uid="uid://bo0g1adaaukdv" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://offdyh8u8jmf" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv7a6"]
 resource_name = "Stacy_Sh"

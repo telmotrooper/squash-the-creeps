@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwj1edhp5j7fw"]
 
-[ext_resource type="PackedScene" uid="uid://qeldihj5v1ft" path="res://props/godot_head/godot_logo.glb" id="1"]
+[ext_resource type="PackedScene" uid="uid://cfung4ar7g1gu" path="res://props/godot_head/godot_logo.glb" id="1"]
 [ext_resource type="Script" path="res://props/godot_head/godot_head.gd" id="2"]
-[ext_resource type="AudioStream" uid="uid://dp3ar3lid2jb7" path="res://props/godot_head/matrixxx_item.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://bojljq4ui2qt" path="res://props/godot_head/matrixxx_item.ogg" id="3"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "rotate"

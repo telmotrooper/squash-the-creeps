@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://shaders/smoke/smoke.gd" id="1"]
 [ext_resource type="Material" uid="uid://dra44j584j801" path="res://shaders/smoke/smoke.tres" id="2"]
-[ext_resource type="AudioStream" uid="uid://bkh4hw7xotkmm" path="res://assets/cardboard-burning.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://7nngsccaxwwr" path="res://assets/cardboard-burning.ogg" id="3"]
 
 [sub_resource type="PlaneMesh" id="1"]
 material = ExtResource("2")

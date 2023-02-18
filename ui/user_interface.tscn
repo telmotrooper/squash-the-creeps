@@ -2,11 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://ba5340ei5w227" path="res://assets/godot_logo.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
-[ext_resource type="Texture2D" uid="uid://b5v4kn8dfo6sj" path="res://assets/crystal green.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
-[ext_resource type="AudioStream" uid="uid://c07lf3h3xnhfo" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
+[ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 
 [sub_resource type="Animation" id="3"]
 resource_name = "RESET"
