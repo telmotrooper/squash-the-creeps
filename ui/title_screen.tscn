@@ -337,6 +337,7 @@ button_text = "NEW GAME"
 
 [node name="ContinueButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource("5_mxtec")]
 layout_mode = 2
+disabled = true
 button_text = "CONTINUE"
 button_disabled = true
 
