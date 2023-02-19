@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var target: Vector3
 
-var speed := 15
+var speed := 1000
 
 func setup(new_position, new_target) -> Node3D:
   position = new_position
@@ -12,9 +12,9 @@ func setup(new_position, new_target) -> Node3D:
 func _ready() -> void:
   set_up_direction(Vector3.UP)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
   #  look_at(target, Vector3.UP)
-  velocity = Vector3.FORWARD * speed
+  velocity = Vector3.FORWARD * speed * delta
   velocity = velocity.rotated(Vector3.UP, rotation.y)
   
   move_and_slide()
