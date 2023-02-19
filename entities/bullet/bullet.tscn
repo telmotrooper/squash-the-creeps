@@ -8,7 +8,7 @@
 
 [node name="Bullet" type="CharacterBody3D"]
 top_level = true
-collision_layer = 0
+collision_layer = 128
 script = ExtResource("1_1cgy2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

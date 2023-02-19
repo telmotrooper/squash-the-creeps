@@ -154,6 +154,7 @@ interact={
 3d_physics/layer_5="Detection Layer"
 3d_physics/layer_6="Water"
 3d_physics/layer_7="World (Dynamic)"
+3d_physics/layer_8="Projectile"
 3d_physics/layer_20="Boundary"
 
 [rendering]

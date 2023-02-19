@@ -102,6 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("SphereShape3D_2f36p")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="AlertTimer" to="." method="_on_alert_timer_timeout"]
 [connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
 [connection signal="body_exited" from="PilotArea3D" to="." method="_on_pilot_area_3d_body_exited"]
