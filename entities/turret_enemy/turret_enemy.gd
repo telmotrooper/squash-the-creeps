@@ -37,6 +37,5 @@ func _on_alert_timer_timeout() -> void:
 
 func _on_gun_timer_timeout() -> void:
   if is_instance_valid(GameState.Player):
-    var bullet = bullet_scene.instantiate().setup(GameState.Player.transform.origin)
+    var bullet = bullet_scene.instantiate().setup(Vector3(0,0,0), GameState.Player.transform.origin)
     add_child(bullet)
-    bullet.shoot()
