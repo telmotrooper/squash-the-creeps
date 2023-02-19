@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://s1b17me7gnqt"]
+[gd_scene load_steps=3 format=3 uid="uid://s1b17me7gnqt"]
 
+[ext_resource type="Script" path="res://ui/buttons/menu_button.gd" id="1_1pxd4"]
 [ext_resource type="Theme" uid="uid://cmx1ial7ax08w" path="res://ui/buttons/menu_button.tres" id="1_x82mu"]
 
 [node name="MenuButton" type="Button"]
@@ -7,6 +8,8 @@ custom_minimum_size = Vector2(360, 60)
 offset_right = 1040.0
 offset_bottom = 20.0
 flat = true
+script = ExtResource("1_1pxd4")
+button_text = "LABEL"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

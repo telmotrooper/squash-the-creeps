@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
   if Input.is_action_just_pressed("ui_cancel") and submenu_open:
     _on_Settings_back_button_pressed()
 
-func _on_Button_pressed(button_name) -> void:
+func _on_menu_button_pressed(button_name: String) -> void:
   submenu_open = true
   button_pressed = button_name
   $AnimationPlayerMenu.play(MENU_FADE_OUT)
