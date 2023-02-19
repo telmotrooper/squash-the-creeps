@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var target: Vector3
 
-var speed := 1500
+var speed := 2000
 
 func setup(new_position, new_target) -> Node3D:
   position = new_position
