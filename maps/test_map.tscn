@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://db6bt0bq72med"]
+[gd_scene load_steps=66 format=3 uid="uid://cg7uq868ylhax"]
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
 [ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="31"]
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
+[ext_resource type="PackedScene" uid="uid://b6f8nv3ycye4e" path="res://entities/turret_enemy/turret_enemy.tscn" id="32_toihe"]
 [ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="33"]
 
 [sub_resource type="BoxShape3D" id="3"]
@@ -405,11 +406,6 @@ shape = SubResource("3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 mesh = SubResource("BoxMesh_1imjx")
 
-[node name="ExitPortal" parent="Map/BluePlatform" instance=ExtResource("21")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448)
-label = "Exit"
-map_name = "hub_1"
-
 [node name="PurpleEnemyPath" type="Path3D" parent="Map/BluePlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -9.177)
 curve = SubResource("18")
@@ -420,6 +416,31 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.95
 [node name="PurpleEnemy" parent="Map/BluePlatform/PurpleEnemyPath/PathFollow3D" instance=ExtResource("20")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0)
 patrolling_speed = 18
+
+[node name="BluePlatform2" type="StaticBody3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -240.61)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BluePlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0)
+shape = SubResource("3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/BluePlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
+mesh = SubResource("BoxMesh_1imjx")
+
+[node name="ExitPortal" parent="Map/BluePlatform2" instance=ExtResource("21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448)
+label = "Exit"
+map_name = "hub_1"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -174.217)
+use_collision = true
+collision_layer = 4
+size = Vector3(12, 1, 70)
+material = ExtResource("8")
 
 [node name="SmallPlatform" parent="Map" instance=ExtResource("29")]
 collision_layer = 64
@@ -904,7 +925,7 @@ libraries = {
 }
 
 [node name="BlueCube2" type="CSGBox3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.835, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.645, 0.286633, -1.68718)
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 20, 20)
@@ -944,6 +965,9 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0)
 stream = ExtResource("28")
 autoplay = true
 bus = &"Music"
+
+[node name="TurretEnemy" parent="." instance=ExtResource("32_toihe")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -21.0567, -0.665399, -172.457)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]

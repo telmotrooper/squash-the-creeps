@@ -1,14 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnbpymnuwf6bt"]
 
 [ext_resource type="Script" path="res://entities/enemy/base/enemy.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://ceec514wea6ig" path="res://entities/enemy/base/enemy.glb" id="2"]
-[ext_resource type="AudioStream" uid="uid://ctusrq4cm61it" path="res://entities/enemy/slime_jump.ogg" id="3"]
+[ext_resource type="PackedScene" uid="uid://bg2wktdo3s8lh" path="res://entities/enemy/base/enemy.glb" id="2"]
+[ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(2, 1.4, 2)
 
 [sub_resource type="Animation" id="2"]
 resource_name = "float"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
