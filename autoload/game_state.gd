@@ -200,9 +200,9 @@ func update_grass(index: int = -1) -> void:
   
   if is_instance_valid(GameState.Grass):
     if index == 0: # Enabled
-      GameState.Grass.visible = true
+      GameState.Grass.show()
     else: # Disabled
-      GameState.Grass.visible = false
+      GameState.Grass.hide()
 
   Configuration.update_setting("graphics", "grass_amount", index)
 

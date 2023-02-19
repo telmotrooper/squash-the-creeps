@@ -29,7 +29,7 @@ func _on_Portal_entered(_body: Node) -> void:
   GameState.hub_1_at_night = false
   if requirement_met():
     $LabelAnimationPlayer.play("shrink")
-    $RequirementLabel.visible = false
+    $RequirementLabel.hide()
     #$AudioStreamPlayer.play()
     GameState.Player.get_node("EffectsAnimationPlayer").play("shrink")
     GameState.change_map(map_name)

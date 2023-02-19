@@ -12,7 +12,7 @@ func _physics_process(_delta: float) -> void:
     IDLE:
       pass
     ALERT:
-      $ExclamationMark.visible = true
+      $ExclamationMark.show()
       $AlertTimer.start()
       set_physics_process(false)
     ATTACKING:
@@ -33,7 +33,7 @@ func aim_at_player(player_position) -> void:
   look_at(player_position, Vector3.UP)
 
 func _on_alert_timer_timeout() -> void:
-  $ExclamationMark.visible = false
+  $ExclamationMark.hide()
   state = ATTACKING
   set_physics_process(true)
 

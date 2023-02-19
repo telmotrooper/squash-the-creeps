@@ -35,7 +35,7 @@ func load_world(scene_to_load: NodePath) -> void:
   
   if not ResourceLoader.has_cached(loading_world):
     $ProgressBar.value = 0
-    $ProgressBar.visible = true
+    $ProgressBar.show()
     
     while not ResourceQueue.is_ready(loading_world):
       $ProgressBar.value = ResourceQueue.get_progress(loading_world) * 100
@@ -44,7 +44,7 @@ func _on_FadeToBlack_finished_fading() -> void:
   match loading_state:
     LoadingStates.FADE_TO_BLACK_1:
       # Hide our world scene.
-      $WorldScene.visible = false
+      $WorldScene.hide()
       
       # Remove our current world.
       if current_world:
@@ -67,10 +67,10 @@ func _on_FadeToBlack_finished_fading() -> void:
       
       # Add our new scene.
       $WorldScene.add_child(current_world)
-      $WorldScene.visible = true
+      $WorldScene.show()
       
       $ProgressBar.value = 100
-      $ProgressBar.visible = false
+      $ProgressBar.hide()
       
       # Fade to transparent.
       loading_state = LoadingStates.FADE_TO_WORLD

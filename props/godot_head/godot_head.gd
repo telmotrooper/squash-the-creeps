@@ -14,6 +14,6 @@ func _on_GodotPowerUp_body_entered(_body: Node) -> void:
     collected = true
     GameState.collect_godot_head(owner.name, name)
     $AudioStreamPlayer.play()
-    self.visible = false
+    self.hide()
     await $AudioStreamPlayer.finished
     queue_free()
