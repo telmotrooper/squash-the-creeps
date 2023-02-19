@@ -5,13 +5,13 @@ extends Button
 @export var button_disabled: bool = false
 
 func get_button_text() -> String:
-  if is_instance_valid($Label):
-    return $Label.text
-  return ""
+  return $Label.text
 
 func set_button_text(value: String) -> void:
-  if is_instance_valid($Label):
-    $Label.text = value
+  if not is_inside_tree():
+    await ready
+  
+  $Label.text = value
 
 func get_button_disabled() -> bool:
   return disabled
