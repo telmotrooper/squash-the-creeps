@@ -10,7 +10,7 @@ var state = IDLE
 func _physics_process(_delta: float) -> void:
   match state:
     IDLE:
-      pass
+      $GunTimer.stop()
     ALERT:
       $ExclamationMark.show()
       $AlertTimer.start()
@@ -23,11 +23,15 @@ func _physics_process(_delta: float) -> void:
           _on_gun_timer_timeout() # Trigger first shot immediately.
           $GunTimer.start()
     STOPPED:
-      pass
+      $GunTimer.stop()
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
   if state == IDLE:
     state = ALERT
+
+func _on_area_3d_body_exited(_body: Node3D) -> void:
+  if state != STOPPED: # Only become idle if pilot is still in the cockpit.
+    state = IDLE
 
 func aim_at_player(player_position) -> void:
   look_at(player_position, Vector3.UP)
@@ -47,4 +51,3 @@ func _on_gun_timer_timeout() -> void:
 func _on_pilot_area_3d_body_exited(_body: Node3D) -> void:
   # If the pilot left the cockpit, stop turret.
   state = STOPPED
-  $GunTimer.stop()
