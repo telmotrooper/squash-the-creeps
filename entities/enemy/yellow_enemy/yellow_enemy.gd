@@ -5,12 +5,12 @@ func squash() -> void:
   super.squash()
 
 func kill() -> void: # Do not kill, just hide.
-  self.visible = false
+  self.hide()
   $CollisionShape3D.disabled = true
   $AnimationPlayer.play("RESET")
 
 func _on_RespawnTimer_timeout() -> void:
   already_squashed = false
-  self.visible = true
+  self.show()
   $CollisionShape3D.disabled = false
   $AnimationPlayer.play("float")

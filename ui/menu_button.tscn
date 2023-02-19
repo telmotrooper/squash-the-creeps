@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dialng5csue4b"]
+
+[ext_resource type="Script" path="res://ui/menu_button.gd" id="1_5mq8w"]
+[ext_resource type="Theme" uid="uid://cmx1ial7ax08w" path="res://ui/menu_button.tres" id="2_ea3ln"]
+
+[node name="MenuButton" type="Button"]
+custom_minimum_size = Vector2(360, 60)
+offset_right = 1040.0
+offset_bottom = 20.0
+flat = true
+script = ExtResource("1_5mq8w")
+button_text = "LABEL"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_ea3ln")
+text = "LABEL"

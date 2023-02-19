@@ -12,7 +12,7 @@ func _ready() -> void:
   GameState.stop_music()
   GameState.play_music(map_music)
   
-  %SpaceshipLabel3D.visible = false
+  %SpaceshipLabel3D.hide()
   
   # The player start the map paused, until we verify
   # whether the intro cutscene should be played.

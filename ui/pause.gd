@@ -49,13 +49,13 @@ func _on_ExitButton_pressed() -> void:
   get_tree().quit()
 
 func return_to_pause_menu() -> void:
-  $PauseMenu.visible = true
+  $PauseMenu.show()
   for submenu in $Submenus.get_children():
-    submenu.visible = false
+    submenu.hide()
 
 func open_submenu(node_path: NodePath) -> void:
-  $PauseMenu.visible = false
-  get_node(node_path).visible = true
+  $PauseMenu.hide()
+  get_node(node_path).show()
 
 func _on_RestartMapButton_pressed() -> void:
   GameState.reload_current_scene()

@@ -15,7 +15,7 @@ func _on_Player_hit() -> void:
 
 func emit_particles(value: bool) -> void:
   %TunnelFloatingParticles.emitting = value
-  %TunnelFloatingParticles.visible = value
+  %TunnelFloatingParticles.show()
 
 func _on_AreaToStartParticles_body_entered(_body: Node) -> void:
   emit_particles(true)

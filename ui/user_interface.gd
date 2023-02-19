@@ -8,13 +8,13 @@ func _ready() -> void:
   GameState.UserInterface = self
   
   get_tree().paused = false
-  $Pause.visible = false
+  $Pause.hide()
   
-  $Pause/PauseMenu.visible = true
+  $Pause/PauseMenu.show()
 
   # Guarantee all submenus are initially closed.  
   for submenu in $Pause/Submenus.get_children():
-    submenu.visible = false
+    submenu.hide()
   
   GameState.generate_progress_report(owner.name)
   %GemLabel.text = "%d" % GameState.amount_of_gems

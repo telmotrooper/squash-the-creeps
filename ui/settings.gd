@@ -12,8 +12,8 @@ signal unpause
 
 func _ready() -> void:
   if is_title_screen:
-    %MapLabel.visible = false
-    %MapOptionButton.visible = false
+    %MapLabel.hide()
+    %MapOptionButton.hide()
   
   refresh_values()
 

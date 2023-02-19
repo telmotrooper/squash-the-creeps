@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
       if get_parent() is PathFollow3D:
         get_parent().progress += patrolling_speed * delta
     ALERT:
-      $ExclamationMark.visible = true
+      $ExclamationMark.show()
       $AlertTimer.start()
       set_physics_process(false)
     CHASING:
@@ -43,10 +43,10 @@ func _on_PrismArea_body_entered(_body: Node) -> void:
 
 func squash() -> void:
   # When squashed, always hide exclamation mark.
-  $ExclamationMark.visible = false
+  $ExclamationMark.hide()
   super.squash()
 
 func _on_AlertTimer_timeout() -> void:
-  $ExclamationMark.visible = false
+  $ExclamationMark.hide()
   state = CHASING
   set_physics_process(true)
