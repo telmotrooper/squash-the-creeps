@@ -37,5 +37,7 @@ func _on_alert_timer_timeout() -> void:
 
 func _on_gun_timer_timeout() -> void:
   if is_instance_valid(GameState.Player):
-    var bullet = bullet_scene.instantiate().setup(Vector3(0,0,0), GameState.Player.transform.origin)
+    # The position (Vector3) passed to the bullet is an approximation
+    # of where we want it to spawn relative to this node.
+    var bullet = bullet_scene.instantiate().setup(Vector3(0,3,-10), GameState.Player.transform.origin)
     add_child(bullet)
