@@ -20,6 +20,7 @@ func _physics_process(_delta: float) -> void:
         aim_at_player(GameState.Player.transform.origin)
         
         if $GunTimer.is_stopped():
+          _on_gun_timer_timeout() # Trigger first shot immediately.
           $GunTimer.start()      
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
