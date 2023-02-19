@@ -19,3 +19,6 @@ func _physics_process(delta: float) -> void:
   velocity = velocity.rotated(Vector3.UP, rotation.y)
   
   move_and_slide()
+
+func _on_timer_timeout() -> void:
+  queue_free()
