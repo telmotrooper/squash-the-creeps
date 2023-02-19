@@ -1,4 +1,7 @@
 extends Node3D
+class_name TurretEnemy
+
+@export var bullet_scene: PackedScene
 
 enum { IDLE, ALERT, ATTACKING }
 
@@ -32,4 +35,7 @@ func _on_alert_timer_timeout() -> void:
   set_physics_process(true)
 
 func _on_gun_timer_timeout() -> void:
-  print("shoot")
+  if is_instance_valid(GameState.Player):
+    var bullet = bullet_scene.instantiate().setup(GameState.Player.transform.origin)
+    add_child(bullet)
+    bullet.shoot()

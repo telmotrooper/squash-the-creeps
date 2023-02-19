@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6f8nv3ycye4e"]
+[gd_scene load_steps=10 format=3 uid="uid://b6f8nv3ycye4e"]
 
 [ext_resource type="Material" uid="uid://das1fjm6135fh" path="res://materials/metallic.tres" id="1_debqx"]
 [ext_resource type="Script" path="res://entities/turret_enemy/turret_enemy.gd" id="1_pkk14"]
 [ext_resource type="PackedScene" uid="uid://bnbpymnuwf6bt" path="res://entities/enemy/base/enemy.tscn" id="2_exgmt"]
 [ext_resource type="Texture2D" uid="uid://chu22fldtwf8m" path="res://entities/enemy/exclamation_mark.png" id="4_2nlth"]
+[ext_resource type="PackedScene" uid="uid://bfox7po21r5bs" path="res://entities/bullet/bullet.tscn" id="5_7a6lq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2aop"]
 albedo_color = Color(1, 0.258824, 0.258824, 1)
@@ -23,6 +24,7 @@ size = Vector2(3, 3)
 [node name="TurretEnemy" type="Node3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_pkk14")
+bullet_scene = ExtResource("5_7a6lq")
 
 [node name="Float" type="CSGCylinder3D" parent="."]
 use_collision = true
