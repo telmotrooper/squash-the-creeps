@@ -44,7 +44,7 @@ func _on_gun_timer_timeout() -> void:
     var bullet = bullet_scene.instantiate().setup(Vector3(0,3,-10), GameState.Player.transform.origin)
     add_child(bullet)
 
-func _on_pilot_area_3d_body_exited(body: Node3D) -> void:
+func _on_pilot_area_3d_body_exited(_body: Node3D) -> void:
   # If the pilot left the cockpit, stop turret.
   state = STOPPED
   $GunTimer.stop()
