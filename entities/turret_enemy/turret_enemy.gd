@@ -3,7 +3,7 @@ class_name TurretEnemy
 
 @export var bullet_scene: PackedScene
 
-enum { IDLE, ALERT, ATTACKING }
+enum { IDLE, ALERT, ATTACKING, STOPPED }
 
 var state = IDLE
 
@@ -21,7 +21,9 @@ func _physics_process(_delta: float) -> void:
         
         if $GunTimer.is_stopped():
           _on_gun_timer_timeout() # Trigger first shot immediately.
-          $GunTimer.start()      
+          $GunTimer.start()
+    STOPPED:
+      pass
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
   if state == IDLE:
@@ -41,3 +43,8 @@ func _on_gun_timer_timeout() -> void:
     # of where we want it to spawn relative to this node.
     var bullet = bullet_scene.instantiate().setup(Vector3(0,3,-10), GameState.Player.transform.origin)
     add_child(bullet)
+
+func _on_pilot_area_3d_body_exited(_body: Node3D) -> void:
+  # If the pilot left the cockpit, stop turret.
+  state = STOPPED
+  $GunTimer.stop()
