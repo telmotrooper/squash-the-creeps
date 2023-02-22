@@ -3,9 +3,10 @@ class_name TurretEnemy
 
 @export var bullet_scene: PackedScene
 
-enum { IDLE, ALERT, ATTACKING, STOPPED }
+enum { IDLE, ALERT, ATTACKING, ATTACKING_BUT_NOT_AIMING, STOPPED }
 
-var state = IDLE
+var state := IDLE
+var pilot_alive := true
 
 func _physics_process(_delta: float) -> void:
   match state:
@@ -21,6 +22,9 @@ func _physics_process(_delta: float) -> void:
         
         if $GunTimer.is_stopped():
           _on_gun_timer_timeout() # Trigger first shot immediately.
+          $GunTimer.start()
+    ATTACKING_BUT_NOT_AIMING:
+        if $GunTimer.is_stopped():
           $GunTimer.start()
     STOPPED:
       $GunTimer.stop()
@@ -52,3 +56,12 @@ func _on_gun_timer_timeout() -> void:
 func _on_pilot_area_3d_body_exited(_body: Node3D) -> void:
   # If the pilot left the cockpit, stop turret.
   state = STOPPED
+  pilot_alive = false
+
+func _on_player_detection_body_entered(_body: Node3D) -> void:
+  if pilot_alive:
+    state = ATTACKING_BUT_NOT_AIMING
+
+func _on_player_detection_body_exited(_body: Node3D) -> void:
+  if pilot_alive:
+    state = ATTACKING

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6f8nv3ycye4e"]
+[gd_scene load_steps=12 format=3 uid="uid://b6f8nv3ycye4e"]
 
 [ext_resource type="Material" uid="uid://das1fjm6135fh" path="res://materials/metallic.tres" id="1_debqx"]
 [ext_resource type="Script" path="res://entities/turret_enemy/turret_enemy.gd" id="1_pkk14"]
@@ -23,6 +23,10 @@ size = Vector2(3, 3)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2f36p"]
 radius = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pc72f"]
+height = 10.0
+radius = 4.0
 
 [node name="TurretEnemy" type="Node3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -94,15 +98,24 @@ one_shot = true
 [node name="GunTimer" type="Timer" parent="."]
 
 [node name="PilotArea3D" type="Area3D" parent="."]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PilotArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("SphereShape3D_2f36p")
 
+[node name="PlayerDetection" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+shape = SubResource("CylinderShape3D_pc72f")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="AlertTimer" to="." method="_on_alert_timer_timeout"]
 [connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
 [connection signal="body_exited" from="PilotArea3D" to="." method="_on_pilot_area_3d_body_exited"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
