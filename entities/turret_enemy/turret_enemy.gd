@@ -35,7 +35,8 @@ func _on_area_3d_body_exited(_body: Node3D) -> void:
 
 func aim_at_player(player_position) -> void:
   look_at(player_position, Vector3.UP)
-
+  rotation.x = clamp(rotation.x, 0, 0.6)
+  
 func _on_alert_timer_timeout() -> void:
   $ExclamationMark.hide()
   state = ATTACKING
