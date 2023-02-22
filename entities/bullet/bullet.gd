@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
     if collider is Player:
       var player = collider
       player._on_EnemyDetector_body_entered(self)
+      queue_free()
 
 func _on_timer_timeout() -> void:
   queue_free()
