@@ -3,6 +3,12 @@ class_name Player
 
 signal hit
 
+var health = 3
+
+@export var full_health_material: Material
+@export var mid_health_material: Material
+@export var low_health_material: Material
+
 @export var hurt_sound: AudioStream
 
 @export var walk_speed := 14.0
@@ -29,6 +35,7 @@ var last_safe_position := Vector3(0,0,0)
 #var velocity = Vector3.ZERO
 var speed = 0
 
+# State
 var is_jumping := false
 var is_double_jumping := false
 
@@ -111,6 +118,7 @@ func _physics_process(delta: float) -> void:
     direction = last_direction
   
   if just_thrown_back: # If just thrown back, throw player up.
+    take_damage()
     velocity.y = throw_back_y_impulse
     just_thrown_back = false
   elif is_on_floor():
@@ -238,3 +246,12 @@ func move_to_last_safe_position() -> void:
     fade_to_black.set_is_faded(false)
   global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
   paused = false
+
+func take_damage() -> void:
+  health -= 1
+  if health == 3:
+    $ModelPivot/Model/Sphere001.set_surface_override_material(1, full_health_material)
+  elif health == 2:
+    $ModelPivot/Model/Sphere001.set_surface_override_material(1, mid_health_material)
+  elif health == 1:
+    $ModelPivot/Model/Sphere001.set_surface_override_material(1, low_health_material)

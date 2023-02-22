@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="11"]
 [ext_resource type="Material" uid="uid://lnpp5e326wrn" path="res://materials/gradient_blue_2.tres" id="11_16cow"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="12"]
-[ext_resource type="PackedScene" uid="uid://dwlgvyx57i7f1" path="res://entities/player/player.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="14"]
 [ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="15"]
 [ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="16"]
 [ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="18"]
