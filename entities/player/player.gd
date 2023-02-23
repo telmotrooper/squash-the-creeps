@@ -232,7 +232,7 @@ func _on_EnemyDetector_body_entered(_body: Node) -> void: # hurt
   being_thrown_back = true
 
 func set_draw_distance(value: int) -> void:
-  $CameraPivot/Horizontal/Vertical/Camera3D.far = value
+  %Camera3D.far = value
 
 func _on_DashDurationTimer_timeout() -> void:
   is_dashing = false
