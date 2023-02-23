@@ -26,7 +26,8 @@ var godot_heads_collected = {
     "GrassGodotHead": false,
     "BeachGodotHead": false,
     "BridgeGodotHead": false,
-    "PalmTreeGodotHead": false
+    "PalmTreeGodotHead": false,
+    "SandRampGodotHead": false
    },
   "LakeMap": {
     "GodotHead": false,
