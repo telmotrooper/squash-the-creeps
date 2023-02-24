@@ -8,9 +8,15 @@ var submenu_open := false
 var button_pressed: String
 
 func _ready() -> void:
+  # Workaround so menu button labels are correctly displayed when the game is exported.
+  %NewGameButton.button_text = "NEW GAME"
+  %ContinueButton.button_text = "CONTINUE"
+  %SettingsButton.button_text = "SETTINGS"
+  %ExitButton.button_text = "EXIT"
+  
   GameState.play_music(menu_music)
   var version = Engine.get_version_info()
-  %VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d RC 3" % [version.major, version.minor, version.patch]
+  %VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d RC 4" % [version.major, version.minor, version.patch]
   
   %Settings.hide()
 

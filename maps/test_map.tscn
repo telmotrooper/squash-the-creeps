@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cg7uq868ylhax"]
+[gd_scene load_steps=68 format=3 uid="uid://cg7uq868ylhax"]
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
 [ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
 [ext_resource type="PackedScene" uid="uid://b6f8nv3ycye4e" path="res://entities/turret_enemy/turret_enemy.tscn" id="32_toihe"]
 [ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="33"]
+[ext_resource type="Material" path="res://maps/extras/beach_island/Ground033.material" id="33_qw7ha"]
 
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(60, 2, 60)
@@ -325,6 +326,10 @@ size = Vector2(1000, 1000)
 subdivide_width = 10
 subdivide_depth = 10
 
+[sub_resource type="PrismMesh" id="PrismMesh_p0g05"]
+left_to_right = 1.0
+size = Vector3(22, 10, 10)
+
 [node name="TestMap" type="Node3D"]
 script = ExtResource("5")
 map_music = ExtResource("27")
@@ -565,7 +570,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098)
 
 [node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource("15")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 35.6944, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 34.6944, 0)
 
 [node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" instance=ExtResource("32")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 6.58969, 13.8456, -2.09302)
@@ -938,6 +943,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0850945, 0.15513, 0.129791)
 
 [node name="UserInterface" parent="." instance=ExtResource("12")]
 
@@ -945,7 +951,7 @@ unique_name_in_owner = true
 environment = ExtResource("7")
 
 [node name="SmallBoundary" parent="." instance=ExtResource("6")]
-transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 22, -3.5, -54)
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -59.9169, -56.6045, 79.2812)
 
 [node name="Boundary" parent="." instance=ExtResource("6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.6, 0)
@@ -955,7 +961,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941)
 mesh = SubResource("12")
 
 [node name="RetryCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, 0, 15.2, 45.4)
+transform = Transform3D(1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, -1.74665, 13.1938, 48.2778)
 far = 200.0
 
 [node name="YellowEnemy" parent="." instance=ExtResource("23")]
@@ -968,6 +974,38 @@ bus = &"Music"
 
 [node name="TurretEnemy" parent="." instance=ExtResource("32_toihe")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -21.0567, -0.665399, -172.457)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 78.594)
+use_collision = true
+collision_layer = 4
+size = Vector3(60, 30, 60)
+material = ExtResource("33_qw7ha")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.9007, 1)
+use_collision = true
+collision_layer = 4
+size = Vector3(10, 1, 10)
+material = ExtResource("33_qw7ha")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
+mesh = SubResource("PrismMesh_p0g05")
+material = ExtResource("33_qw7ha")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 19.4, 17)
+mesh = SubResource("PrismMesh_p0g05")
+material = ExtResource("33_qw7ha")
+
+[node name="SandRampGodotHead" parent="CSGBox3D" instance=ExtResource("15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4877, -39.264)
+size = Vector3(9, 1, 19)
+material = ExtResource("33_qw7ha")
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
