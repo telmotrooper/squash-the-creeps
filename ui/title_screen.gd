@@ -16,7 +16,7 @@ func _ready() -> void:
   
   GameState.play_music(menu_music)
   var version = Engine.get_version_info()
-  %VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d RC 4" % [version.major, version.minor, version.patch]
+  %VersionLabel.text = "DEMO RELEASE – GODOT %d.%d.%d RC 5" % [version.major, version.minor, version.patch]
   
   %Settings.hide()
 
