@@ -139,6 +139,21 @@ _data = {
 "show_all_godot_heads_collected": SubResource("6")
 }
 
+[sub_resource type="Animation" id="Animation_ro15n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AudioStreamPlayer:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_10biq")]
+}
+
 [sub_resource type="Animation" id="Animation_qlut8"]
 resource_name = "congratulations"
 tracks/0/type = "value"
@@ -166,21 +181,6 @@ tracks/1/keys = {
 "args": [0.0],
 "method": &"play"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_ro15n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AudioStreamPlayer:stream")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("8_10biq")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv28i"]
@@ -501,7 +501,6 @@ bus = &"Sound"
 process_mode = 3
 title = "Congratulations"
 size = Vector2i(1045, 140)
-visible = true
 dialog_text = "You've achieved 100% completion in the demo! Thank you so much for playing!  Feel free to leave your feedback in our GitHub page. :)"
 dialog_autowrap = true
 
