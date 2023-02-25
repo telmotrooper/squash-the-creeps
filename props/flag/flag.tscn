@@ -63,16 +63,16 @@ font_size = 80
 [node name="TextTimer" type="Timer" parent="."]
 wait_time = 0.15
 
-[node name="RestartTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_agi8s")
 
+[node name="VisibilityTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]
-[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="VisibilityTimer" to="." method="_on_visibility_timer_timeout"]

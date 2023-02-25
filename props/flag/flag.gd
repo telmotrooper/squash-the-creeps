@@ -13,17 +13,11 @@ func _on_text_timer_timeout() -> void:
   text_index += 1
   if text_index > text.length():
     $TextTimer.stop()
-    $RestartTimer.start()
-
-func _on_restart_timer_timeout() -> void:
-  text_index = 0
-  $TextTimer.start()
+    $VisibilityTimer.start()
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
   $TextTimer.start()
 
-func _on_area_3d_body_exited(_body: Node3D) -> void:
+func _on_visibility_timer_timeout() -> void:
   $Label3D.hide()
-  $TextTimer.stop()
-  $RestartTimer.stop()
   text_index = 0
