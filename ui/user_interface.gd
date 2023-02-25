@@ -59,6 +59,8 @@ func show_announcement(text: String) -> void:
 func show_congratulations() -> void:
   $CongratulationsDialog.popup_centered()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+  get_tree().paused = true
 
 func _on_congratulations_dialog_confirmed() -> void:
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+  get_tree().paused = false
