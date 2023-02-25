@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkgu38wfxp4w7"]
+[gd_scene load_steps=11 format=3 uid="uid://bkgu38wfxp4w7"]
 
 [ext_resource type="Shader" path="res://props/flag/flag.gdshader" id="1"]
 [ext_resource type="Script" path="res://props/flag/flag.gd" id="1_jmv4p"]
@@ -37,6 +37,9 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 4.105
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_agi8s"]
+radius = 10.0
+
 [node name="Flag" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79311, 0)
 script = ExtResource("1_jmv4p")
@@ -53,17 +56,23 @@ mesh = SubResource("6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 pixel_size = 0.01
 billboard = 2
-text = "CHECKPOINT
-ACTIVATED"
+text = "CHECKPOINT"
 font = ExtResource("2_bod6l")
 font_size = 80
 
 [node name="TextTimer" type="Timer" parent="."]
 wait_time = 0.15
-autostart = true
 
 [node name="RestartTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_agi8s")
+
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]
 [connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
