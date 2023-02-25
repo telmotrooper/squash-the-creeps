@@ -8,10 +8,11 @@ var follow_player := false
 var t := 0.0
 
 func _ready() -> void:
-  GameState.register_gem(owner.name, get_path(), gem_value)
+  if is_instance_valid(owner): # False when game is started from this scene.
+    GameState.register_gem(owner.name, get_path(), gem_value)
 
-  if GameState.gems_collected[owner.name][get_path()].collected:
-    queue_free()
+    if GameState.gems_collected[owner.name][get_path()].collected:
+      queue_free()
 
 # https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html
 func _physics_process(delta: float) -> void:
