@@ -55,3 +55,10 @@ func show_announcement(text: String) -> void:
   
   $Announcement.text = text
   $AnnouncementAnimationPlayer.play("show_all_godot_heads_collected")
+
+func show_congratulations() -> void:
+  $CongratulationsDialog.popup_centered()
+  Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_congratulations_dialog_confirmed() -> void:
+  Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -153,7 +153,7 @@ func generate_progress_report(current_map) -> void:
   
   if overall_progress == 1:
     # TODO: Display something cool when this happens.
-    print("100% achieved")
+    GameState.UserInterface.show_congratulations()
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text

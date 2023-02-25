@@ -434,6 +434,14 @@ libraries = {
 stream = ExtResource("8")
 bus = &"Sound"
 
+[node name="CongratulationsDialog" type="AcceptDialog" parent="."]
+title = "Congratulations"
+size = Vector2i(1169, 133)
+visible = true
+dialog_text = "You've collected every gem and Godot Head available in the demo.
+Thank you for playing! Feel free to leave your feedback in our GitHub page."
+dialog_autowrap = true
+
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
 [connection signal="back_button_pressed" from="Pause/Submenus/Settings" to="Pause" method="return_to_pause_menu"]
@@ -449,3 +457,4 @@ bus = &"Sound"
 [connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_RestartMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
+[connection signal="confirmed" from="CongratulationsDialog" to="." method="_on_congratulations_dialog_confirmed"]
