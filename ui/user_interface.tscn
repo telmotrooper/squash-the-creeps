@@ -437,9 +437,8 @@ bus = &"Sound"
 [node name="CongratulationsDialog" type="AcceptDialog" parent="."]
 process_mode = 3
 title = "Congratulations"
-size = Vector2i(1169, 133)
-dialog_text = "You've collected every gem and Godot Head available in the demo.
-Thank you for playing! Feel free to leave your feedback in our GitHub page."
+size = Vector2i(900, 140)
+dialog_text = "You've achieved 100% in the demo! Thank you so much for playing!  Feel free to leave your feedback in our GitHub page. :)"
 dialog_autowrap = true
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
