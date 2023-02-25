@@ -15,6 +15,8 @@ func _ready() -> void:
   # Guarantee all submenus are initially closed.  
   for submenu in $Pause/Submenus.get_children():
     submenu.hide()
+
+  $CongratulationsDialog.hide()
   
   GameState.generate_progress_report(owner.name)
   %GemLabel.text = "%d" % GameState.amount_of_gems
