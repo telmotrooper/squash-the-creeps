@@ -1,5 +1,8 @@
 extends Node3D
 
+@export var material_1: Material
+@export var material_2: Material
+
 var text_index = 0
 var text = "CHECKPOINT"
 
@@ -16,6 +19,7 @@ func _on_text_timer_timeout() -> void:
     $VisibilityTimer.start()
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
+  $Flag.set_surface_override_material(0, material_2)
   $TextTimer.start()
 
 func _on_visibility_timer_timeout() -> void:

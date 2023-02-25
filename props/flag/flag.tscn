@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkgu38wfxp4w7"]
+[gd_scene load_steps=13 format=3 uid="uid://bkgu38wfxp4w7"]
 
 [ext_resource type="Shader" path="res://props/flag/flag.gdshader" id="1"]
 [ext_resource type="Script" path="res://props/flag/flag.gd" id="1_jmv4p"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_bod6l"]
+[ext_resource type="Material" uid="uid://spijiqn1waam" path="res://props/flag/flag_material.tres" id="2_shneu"]
+[ext_resource type="Material" uid="uid://doapumohf71x2" path="res://props/flag/flag_material_2.tres" id="3_xa20q"]
 
 [sub_resource type="FastNoiseLite" id="1"]
 
@@ -43,6 +45,8 @@ radius = 10.0
 [node name="Flag" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79311, 0)
 script = ExtResource("1_jmv4p")
+material_1 = ExtResource("2_shneu")
+material_2 = ExtResource("3_xa20q")
 
 [node name="Flag" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.337505, 4.25, 0)
