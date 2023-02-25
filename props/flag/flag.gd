@@ -5,9 +5,12 @@ extends Node3D
 
 var text_index = 0
 var text = "CHECKPOINT"
+var initial_flag_y: float
+
 
 func _ready() -> void:
   $Label3D.hide()
+  initial_flag_y = $Flag.position.y
 
 func _on_text_timer_timeout() -> void:
   $Label3D.text = text.substr(0, text_index)
@@ -19,7 +22,11 @@ func _on_text_timer_timeout() -> void:
     $VisibilityTimer.start()
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
-  $Flag.set_surface_override_material(0, material_2)
+  var tween = create_tween()
+  
+  tween.tween_property($Flag, "position:y", -4, 1)
+  tween.tween_property($Flag, "position:y", initial_flag_y, 1)
+#  $Flag.set_surface_override_material(0, material_2)
   $TextTimer.start()
 
 func _on_visibility_timer_timeout() -> void:
