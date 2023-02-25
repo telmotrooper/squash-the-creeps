@@ -252,3 +252,6 @@ func reload_current_scene() -> void:
     Main.load_world(WorldScene.get_child(0).scene_file_path)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().reload_current_scene()
+
+func change_bgm_volume(amount: float) -> void:
+  $BGM.volume_db += amount

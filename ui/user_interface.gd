@@ -60,11 +60,14 @@ func show_announcement(text: String) -> void:
   $AnnouncementAnimationPlayer.play("show_all_godot_heads_collected")
 
 func show_congratulations() -> void:
-  $CongratulationsDialog/AnimationPlayer.play("congratulations")
   $CongratulationsDialog.popup_centered()
+  GameState.change_bgm_volume(-10)
+  $CongratulationsDialog/AnimationPlayer.play("congratulations")
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
   get_tree().paused = true
 
 func _on_congratulations_dialog_confirmed() -> void:
+  GameState.change_bgm_volume(+10)
+  $CongratulationsDialog/AnimationPlayer.stop()
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
   get_tree().paused = false
