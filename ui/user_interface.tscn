@@ -526,4 +526,5 @@ libraries = {
 [connection signal="pressed" from="Pause/PauseMenu/RestartMapButton" to="Pause" method="_on_RestartMapButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/TitleScreenButton" to="Pause" method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/HBoxContainer2/ExitButton" to="Pause" method="_on_ExitButton_pressed"]
+[connection signal="canceled" from="CongratulationsDialog" to="." method="_on_congratulations_dialog_confirmed"]
 [connection signal="confirmed" from="CongratulationsDialog" to="." method="_on_congratulations_dialog_confirmed"]
