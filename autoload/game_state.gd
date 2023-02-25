@@ -152,8 +152,7 @@ func generate_progress_report(current_map) -> void:
   var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
   
   if overall_progress == 1:
-    # TODO: Display something cool when this happens.
-    print("100% achieved")
+    GameState.UserInterface.show_congratulations()
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text
@@ -252,3 +251,6 @@ func reload_current_scene() -> void:
     Main.load_world(WorldScene.get_child(0).scene_file_path)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().reload_current_scene()
+
+func change_bgm_volume(amount: float) -> void:
+  $BGM.volume_db += amount
