@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - currently_disabled
+      - main
 
 jobs:
   export_game:
