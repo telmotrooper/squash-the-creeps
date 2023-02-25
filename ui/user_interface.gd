@@ -18,7 +18,8 @@ func _ready() -> void:
 
   $CongratulationsDialog.hide()
   
-  GameState.generate_progress_report(owner.name)
+  if is_instance_valid(owner):
+    GameState.generate_progress_report(owner.name)
   %GemLabel.text = "%d" % GameState.amount_of_gems
 
 func _process(_delta: float) -> void:
@@ -59,6 +60,7 @@ func show_announcement(text: String) -> void:
   $AnnouncementAnimationPlayer.play("show_all_godot_heads_collected")
 
 func show_congratulations() -> void:
+  $CongratulationsDialog/AnimationPlayer.play("congratulations")
   $CongratulationsDialog.popup_centered()
   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
   get_tree().paused = true
