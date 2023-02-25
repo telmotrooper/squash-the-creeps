@@ -437,8 +437,9 @@ bus = &"Sound"
 [node name="CongratulationsDialog" type="AcceptDialog" parent="."]
 process_mode = 3
 title = "Congratulations"
-size = Vector2i(900, 140)
-dialog_text = "You've achieved 100% in the demo! Thank you so much for playing!  Feel free to leave your feedback in our GitHub page. :)"
+size = Vector2i(1045, 140)
+visible = true
+dialog_text = "You've achieved 100% completion in the demo! Thank you so much for playing!  Feel free to leave your feedback in our GitHub page. :)"
 dialog_autowrap = true
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
