@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://spijiqn1waam"]
+
+[ext_resource type="Shader" path="res://props/flag/flag.gdshader" id="1_bs6b0"]
+
+[sub_resource type="FastNoiseLite" id="1"]
+
+[sub_resource type="NoiseTexture2D" id="2"]
+seamless = true
+noise = SubResource("1")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bs6b0")
+shader_parameter/wave_size = 1.0
+shader_parameter/face_distortion = 0.5
+shader_parameter/time_scale = Vector2(0.3, 0)
+shader_parameter/uv_offset_scale = Vector2(-0.2, -0.1)
+shader_parameter/uv_offset_texture = SubResource("2")

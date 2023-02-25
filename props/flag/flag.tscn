@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkgu38wfxp4w7"]
+[gd_scene load_steps=10 format=3 uid="uid://bkgu38wfxp4w7"]
 
 [ext_resource type="Shader" path="res://props/flag/flag.gdshader" id="1"]
+[ext_resource type="Script" path="res://props/flag/flag.gd" id="1_jmv4p"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_bod6l"]
 
 [sub_resource type="FastNoiseLite" id="1"]
 
@@ -35,8 +37,9 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 4.105
 
-[node name="Flag3DScene" type="Node3D"]
+[node name="Flag" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79311, 0)
+script = ExtResource("1_jmv4p")
 
 [node name="Flag" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.337505, 4.25, 0)
@@ -45,3 +48,22 @@ mesh = SubResource("4")
 [node name="Pole" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, -1.6, 1.82459, 0)
 mesh = SubResource("6")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+pixel_size = 0.01
+billboard = 2
+text = "CHECKPOINT
+ACTIVATED"
+font = ExtResource("2_bod6l")
+font_size = 80
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[node name="RestartTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
