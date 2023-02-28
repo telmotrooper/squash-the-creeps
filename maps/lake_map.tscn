@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://btj3fpr6wqgic"]
+[gd_scene load_steps=35 format=3 uid="uid://btj3fpr6wqgic"]
 
 [ext_resource type="PackedScene" uid="uid://boaoo3d7kojfm" path="res://maps/extras/height_map/height_map.tscn" id="1"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dsi70335iix5i" path="res://props/green_gem/green_gem.tscn" id="18"]
 [ext_resource type="PackedScene" uid="uid://dl4e5e40iodpb" path="res://maps/extras/pier/pier.tscn" id="19"]
 [ext_resource type="Texture2D" uid="uid://c7rc5p0126d5f" path="res://particles/float/star_08.png" id="20"]
+[ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="21_gosh7"]
 
 [sub_resource type="Curve3D" id="1"]
 _data = {
@@ -346,6 +347,9 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToStopParticles"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -2.6, -8.1, 6)
 shape = SubResource("12")
+
+[node name="Flag" parent="." instance=ExtResource("21_gosh7")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 22.19, 2.68937, 73.1753)
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
