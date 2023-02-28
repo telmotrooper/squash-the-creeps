@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://goxaxv03ucgy"]
+[gd_scene load_steps=23 format=3 uid="uid://goxaxv03ucgy"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2"]
 [ext_resource type="Script" path="res://entities/player/camera.gd" id="3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://brbs2f63fqpgl" path="res://entities/player/player_mid_health.tres" id="3_ndr1b"]
 [ext_resource type="AudioStream" uid="uid://d3lt1joxf3lqj" path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" id="4"]
 [ext_resource type="Material" uid="uid://bvdfpemkovmh1" path="res://entities/player/player_low_health.tres" id="4_imwxo"]
+[ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="6_l52l8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wgs1"]
 resource_name = "pupil"
@@ -116,7 +117,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelPivot/Model:rotation_degrees")
+tracks/0/path = NodePath("ModelPivot/player:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -125,6 +126,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ModelPivot/player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.325, 0)]
+}
 
 [sub_resource type="Animation" id="9"]
 resource_name = "dash"
@@ -132,14 +145,14 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelPivot/Model:rotation_degrees")
+tracks/0/path = NodePath("ModelPivot/player:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 360)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
 }
 
 [sub_resource type="Animation" id="3"]
@@ -148,7 +161,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelPivot/Model:position")
+tracks/0/path = NodePath("ModelPivot/player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -160,14 +173,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ModelPivot/Model:rotation_degrees")
+tracks/1/path = NodePath("ModelPivot/player:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.1, 0.3, 0.4, 0.7, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-9.551, 0, 0), Vector3(0.622502, 0, 0), Vector3(11.4967, 2.98079, -0.603191), Vector3(0.582003, 0, 0), Vector3(-10.1282, 2.65537, -0.69615)]
+"values": [Vector3(-0.167552, 0, 0), Vector3(0.010472, 0, 0), Vector3(0.200713, 0, 0), Vector3(0.010472, 0, 0), Vector3(-0.176278, 0, 0)]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -208,6 +221,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(1, 0.999999, 0.999999)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ModelPivot/player:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="7"]
 resource_name = "shrink"
@@ -222,6 +247,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1, 0.999999, 0.999999), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ModelPivot/player:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_svvlv"]
@@ -239,13 +276,18 @@ low_health_material = ExtResource("4_imwxo")
 hurt_sound = ExtResource("4")
 
 [node name="ModelPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 0, 0, 0)
 
 [node name="Model" type="Node3D" parent="ModelPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.325, 0)
+transform = Transform3D(1, -1.74845e-07, 0, 1.74846e-07, 0.999999, 0, 0, 0, 0.999999, 0, 0.4, 0)
+visible = false
 
 [node name="Sphere001" type="MeshInstance3D" parent="ModelPivot/Model"]
 mesh = SubResource("ArrayMesh_6tu3g")
 skeleton = NodePath("")
+
+[node name="player" parent="ModelPivot" instance=ExtResource("6_l52l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 visible = false
@@ -332,3 +374,5 @@ collide_with_areas = true
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="timeout" from="DashDurationTimer" to="." method="_on_DashDurationTimer_timeout"]
+
+[editable path="ModelPivot/player"]

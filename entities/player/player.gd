@@ -256,11 +256,11 @@ func move_to_last_safe_position() -> void:
 
 func update_color() -> void:
   if health == 3:
-    $ModelPivot/Model/Sphere001.set_surface_override_material(1, full_health_material)
+    $ModelPivot/player/Sphere001.set_surface_override_material(1, full_health_material)
   elif health == 2:
-    $ModelPivot/Model/Sphere001.set_surface_override_material(1, mid_health_material)
+    $ModelPivot/player/Sphere001.set_surface_override_material(1, mid_health_material)
   elif health == 1:
-    $ModelPivot/Model/Sphere001.set_surface_override_material(1, low_health_material)
+    $ModelPivot/player/Sphere001.set_surface_override_material(1, low_health_material)
 
 func take_damage() -> void:
   health -= 1
