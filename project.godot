@@ -35,10 +35,6 @@ window/size/viewport_height=720
 
 enabled=PackedStringArray()
 
-[filesystem]
-
-import/blender/enabled=false
-
 [gdnative]
 
 singletons=[]
