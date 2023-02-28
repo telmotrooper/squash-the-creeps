@@ -21,7 +21,7 @@ func _on_text_timer_timeout() -> void:
     $TextTimer.stop()
     $VisibilityTimer.start()
 
-func _on_area_3d_body_entered(_body: Node3D) -> void:
+func _on_area_3d_body_entered(body: Node3D) -> void:
   # Lower flag the first time (when material is not overriden yet).
   if not is_instance_valid($Flag.get_surface_override_material(0)):
     var tween = create_tween()
@@ -31,6 +31,10 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
     tween.tween_callback($TextTimer.start)
   else: # Otherwise just show the label.
     $TextTimer.start()
+  
+  if body is Player:
+    var player = body
+    player.set_health(3)
 
 func _on_visibility_timer_timeout() -> void:
   $Label3D.hide()
