@@ -254,13 +254,21 @@ func move_to_last_safe_position() -> void:
     global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
     paused = false
 
+func update_color() -> void:
+  if health == 3:
+    $ModelPivot/player/Sphere001.set_surface_override_material(1, full_health_material)
+  elif health == 2:
+    $ModelPivot/player/Sphere001.set_surface_override_material(1, mid_health_material)
+  elif health == 1:
+    $ModelPivot/player/Sphere001.set_surface_override_material(1, low_health_material)
+
 func take_damage() -> void:
   health -= 1
-  if health == 3:
-    $ModelPivot/Model/Sphere001.set_surface_override_material(1, full_health_material)
-  elif health == 2:
-    $ModelPivot/Model/Sphere001.set_surface_override_material(1, mid_health_material)
-  elif health == 1:
-    $ModelPivot/Model/Sphere001.set_surface_override_material(1, low_health_material)
-  elif health <= 0:
+  update_color()
+
+  if health <= 0:
     GameState.reload_current_scene()
+
+func set_health(value: int) -> void:
+  health = value
+  update_color()

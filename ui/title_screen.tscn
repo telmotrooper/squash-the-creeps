@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfx7dfats6hl" path="res://assets/logo.png" id="6"]
 [ext_resource type="AudioStream" uid="uid://c1ope7npae620" path="res://assets/Super Game Music - Badass Space Explorer (Loop).ogg" id="8"]
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="9_2p3fk"]
-[ext_resource type="PackedScene" uid="uid://lx05gtxi21cd" path="res://entities/player/player.glb" id="11"]
+[ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="11_cwy8d"]
 [ext_resource type="PackedScene" uid="uid://dprtyraxfvhk6" path="res://props/spaceship/spaceship.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="13"]
 
@@ -248,14 +248,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/Spaceship/Character:rotation_degrees")
+tracks/0/path = NodePath("Node3D/Spaceship/player:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-9, 0, 0)]
+"values": [Vector3(-0.15708, 0, 0)]
 }
 
 [sub_resource type="Animation" id="9"]
@@ -264,14 +264,14 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/Spaceship/Character:rotation_degrees")
+tracks/0/path = NodePath("Node3D/Spaceship/player:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-9, 0, 0), Vector3(-9, 720, 0)]
+"values": [Vector3(-0.15708, 0, 0), Vector3(-0.15708, 12.5664, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6i7gw"]
@@ -417,7 +417,7 @@ transform = Transform3D(-0.183013, 0.965926, -0.183013, 0.683013, 0.258819, 0.68
 [node name="Spaceship" parent="Node3D" instance=ExtResource("12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.2, 9.3)
 
-[node name="Character" parent="Node3D/Spaceship" instance=ExtResource("11")]
+[node name="player" parent="Node3D/Spaceship" instance=ExtResource("11_cwy8d")]
 transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156434, 0, -0.156434, 0.987688, 0, 1.4, 0)
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]

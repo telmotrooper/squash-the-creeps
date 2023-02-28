@@ -14,10 +14,10 @@
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="11_janls"]
 [ext_resource type="AudioStream" uid="uid://va0y80nyb6cg" path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" id="12"]
 [ext_resource type="Environment" uid="uid://bugt14yl4reku" path="res://maps/hub_1_night.tres" id="13"]
-[ext_resource type="PackedScene" uid="uid://lx05gtxi21cd" path="res://entities/player/player.glb" id="14"]
 [ext_resource type="AudioStream" uid="uid://dqhklgt4fxmjf" path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" id="15"]
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="16"]
 [ext_resource type="Script" path="res://props/spaceship/spaceship_hub.gd" id="18"]
+[ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="18_6iwc4"]
 
 [sub_resource type="PlaneMesh" id="1"]
 material = ExtResource("1")
@@ -110,13 +110,13 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CutsceneSpaceship/CutscenePlayer:visible")
+tracks/5/path = NodePath("CutsceneSpaceship/player:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [true]
 }
 
@@ -188,34 +188,22 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CutsceneSpaceship/CutscenePlayer:visible")
+tracks/5/path = NodePath("../Player:paused")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../Player:paused")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../Spaceship/Smoke")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Spaceship/Smoke")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -223,13 +211,13 @@ tracks/7/keys = {
 "method": &"play_sound"
 }]
 }
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CutsceneAudioStreamPlayer")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CutsceneAudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 4.2),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -239,6 +227,18 @@ tracks/8/keys = {
 "args": [],
 "method": &"stop"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CutsceneSpaceship/player:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbsdy"]
@@ -369,8 +369,8 @@ far = 500.0
 [node name="CutsceneSpaceship" parent="Cutscene" instance=ExtResource("6")]
 transform = Transform3D(0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="CutscenePlayer" parent="Cutscene/CutsceneSpaceship" instance=ExtResource("14")]
-transform = Transform3D(-0.164781, -0.310046, -0.936333, -0.0537377, 0.950722, -0.305354, 0.984865, 0, -0.173322, -0.0746751, 1.31173, 0.0307178)
+[node name="player" parent="Cutscene/CutsceneSpaceship" instance=ExtResource("18_6iwc4")]
+transform = Transform3D(-0.165173, -0.31028, -0.936186, -0.0531493, 0.950645, -0.305695, 0.984832, -0.000734895, -0.173512, -0.075, 1.312, 0.031)
 
 [connection signal="body_entered" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_entered"]
 [connection signal="body_exited" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_exited"]
