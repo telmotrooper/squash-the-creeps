@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://syfkicmkesxd"
-path.s3tc="res://.godot/imported/height_map_Untitled.png-e1f94d7027aa258c7a38b96d44caf176.s3tc.ctex"
+uid="uid://fasluw5ona43"
+path.s3tc="res://.godot/imported/Untitled.png-3e4dc4dd3b36eca819438ab92d71ceed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/extras/height_map/height_map_Untitled.png"
-dest_files=["res://.godot/imported/height_map_Untitled.png-e1f94d7027aa258c7a38b96d44caf176.s3tc.ctex"]
+source_file="res://maps/extras/height_map/textures/Untitled.png"
+dest_files=["res://.godot/imported/Untitled.png-3e4dc4dd3b36eca819438ab92d71ceed.s3tc.ctex"]
 
 [params]
 
