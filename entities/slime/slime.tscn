@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://chm02iuo3iig6"]
 
 [ext_resource type="Script" path="res://entities/slime/slime.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://5xgub8mu2txg" path="res://entities/slime/slime.glb" id="2"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
+[ext_resource type="PackedScene" uid="uid://xf7ioambo57h" path="res://entities/slime/slime.blend" id="3_phpra"]
 
 [sub_resource type="BoxShape3D" id="2"]
 size = Vector3(2, 3.5, 2)
@@ -129,8 +129,8 @@ collision_mask = 524357
 script = ExtResource("1")
 squash_sound = ExtResource("3")
 
-[node name="goo_monster" parent="." instance=ExtResource("2")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+[node name="slime" parent="." instance=ExtResource("3_phpra")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
