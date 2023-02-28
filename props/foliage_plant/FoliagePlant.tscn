@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://6y2crn0rj80a"]
 
-[ext_resource type="PackedScene" uid="uid://b2mvcb7rgndci" path="res://props/foliage_plant/foliage_plant.glb" id="1"]
+[ext_resource type="PackedScene" uid="uid://bnv3q5nnk43av" path="res://props/foliage_plant/foliage_plant.blend" id="1_50p24"]
 
 [node name="FoliagePlant" type="Node3D"]
 
-[node name="foliage_plant" parent="." instance=ExtResource("1")]
+[node name="foliage_plant" parent="." instance=ExtResource("1_50p24")]
