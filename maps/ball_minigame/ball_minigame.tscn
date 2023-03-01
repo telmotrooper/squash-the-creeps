@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcm56l4hh1vm"]
+
+[ext_resource type="Script" path="res://maps/ball_minigame/player_ball.gd" id="1_6xyva"]
+[ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="2_nr0pw"]
+[ext_resource type="Material" path="res://materials/cyan.tres" id="2_q0oxw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_x22n1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qw46v"]
+
+[node name="BallMinigame" type="Node3D"]
+
+[node name="PlayerBall" type="RigidBody3D" parent="."]
+collision_mask = 4
+script = ExtResource("1_6xyva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBall"]
+mesh = SubResource("SphereMesh_x22n1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBall"]
+shape = SubResource("SphereShape3D_qw46v")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerBall"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 2)
+top_level = true
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+collision_layer = 4
+size = Vector3(5, 1, 5)
+material = ExtResource("2_q0oxw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_nr0pw")
