@@ -333,10 +333,10 @@ size = Vector3(22, 10, 10)
 
 [sub_resource type="Curve3D" id="Curve3D_ck1gi"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0564919, 0, 19.4422, 0, 0, 0, 0, 0, 0, -5.00795, 0, 12.5332, 0, 0, 0, 0, 0, 0, 4.66467, 0, 5.39388, 0, 0, 0, 0, 0, 0, -4.54735, 0, -3.24239, 0, 0, 0, 0, 0, 0, 4.20407, 0, -10.2666, 0, 0, 0, 0, 0, 0, -4.08675, 0, -18.9028, 0, 0, 0, 0, 0, 0, 6.50707, 0, -26.2725),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, -5, 0, 12, 0, 0, 0, 0, 0, 0, 5, 0, 5.394, 0, 0, 0, 0, 0, 0, -5, 0, -3.242, 0, 0, 0, 0, 0, 0, 5, 0, -10.267, 0, 0, 0, 0, 0, 0, -5, 0, -18.903, 0, 0, 0, 0, 0, 0, 5, 0, -26.272, 0, 0, 0, 0, 0, 0, 0, 0, 20),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 7
+point_count = 8
 
 [node name="TestMap" type="Node3D"]
 script = ExtResource("5")
@@ -1016,11 +1016,11 @@ size = Vector3(9, 1, 19)
 material = ExtResource("33_qw7ha")
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5318, 0, 83.4094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5318, -0.3, 83.4094)
 curve = SubResource("Curve3D_ck1gi")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.812818, 0, -0.582518, 0, 1, 0, 0.582518, 0, -0.812818, -0.0564919, 0, 19.4422)
+transform = Transform3D(-0.847998, 0, -0.529999, 0, 1, 0, 0.529999, 0, -0.847998, 0, 0, 20)
 
 [node name="FishEnemy" parent="Path3D/PathFollow3D" instance=ExtResource("34_0x7ed")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)

@@ -18,6 +18,21 @@ size = Vector3(3, 3, 0.25)
 radius = 0.75
 height = 2.0
 
+[sub_resource type="Animation" id="Animation_x1lx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_wdclc"]
 resource_name = "swim"
 length = 0.5
@@ -35,21 +50,6 @@ tracks/0/keys = {
 "values": [Vector3(0, -0.174533, 0), Vector3(0, 0.174533, 0), Vector3(0, -0.174533, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x1lx2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0iqik"]
 _data = {
 "RESET": SubResource("Animation_x1lx2"),
@@ -62,11 +62,9 @@ collision_layer = 2
 script = ExtResource("1_xe3cw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ngw1e")
 
 [node name="Node" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Body" type="MeshInstance3D" parent="Node"]
 transform = Transform3D(0.998413, 0, 0.0563129, 0, 1, 0, -0.0563129, 0, 0.998413, 0, 0, 0)
