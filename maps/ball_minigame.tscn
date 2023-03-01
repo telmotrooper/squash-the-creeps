@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://cap6cu350om5k"]
 
 [ext_resource type="Script" path="res://maps/player_ball.gd" id="1_6xyva"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="2_nr0pw"]
 [ext_resource type="Material" path="res://materials/cyan.tres" id="2_q0oxw"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="4_qenu1"]
+[ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5_qivp7"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_x22n1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2odsq"]
 noise_type = 5
 seed = 1
-frequency = 1.0
+frequency = 0.7
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwmfe"]
 seamless = true
@@ -24,7 +25,7 @@ albedo_texture = SubResource("NoiseTexture2D_xwmfe")
 
 [node name="BallMinigame" type="Node3D"]
 
-[node name="PlayerBall" type="RigidBody3D" parent="."]
+[node name="PlayerBall" type="RigidBody3D" parent="." groups=["players"]]
 collision_mask = 4
 script = ExtResource("1_6xyva")
 
@@ -67,3 +68,6 @@ environment = ExtResource("2_nr0pw")
 transform = Transform3D(0.866025, 2.18557e-08, -0.5, 0.5, -3.78552e-08, 0.866025, 0, -1, -4.37114e-08, 0, 10, 0)
 
 [node name="UserInterface" parent="." instance=ExtResource("4_qenu1")]
+
+[node name="Boundary" parent="." instance=ExtResource("5_qivp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)

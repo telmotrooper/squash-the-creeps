@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name PlayerBall
 
 # Reference: https://youtu.be/G6OGM4fdF3M
 
@@ -12,11 +13,14 @@ func _physics_process(delta: float) -> void:
   %Camera3D.position = initial_camera_position + position
 
   if Input.is_action_pressed("move_forward"):
-    self.angular_velocity.x -= force * delta
+    angular_velocity.x -= force * delta
   elif Input.is_action_pressed("move_back"):
-    self.angular_velocity.x += force * delta
+    angular_velocity.x += force * delta
   
   if Input.is_action_pressed("move_left"):
-    self.angular_velocity.z += force * delta
+    angular_velocity.z += force * delta
   elif Input.is_action_pressed("move_right"):
-    self.angular_velocity.z -= force * delta
+    angular_velocity.z -= force * delta
+
+func move_to_last_safe_position() -> void:
+  position = Vector3.ZERO # Start of the map.
