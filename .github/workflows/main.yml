@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - main
+      - disabled
 
 jobs:
   export_game:
@@ -22,8 +22,8 @@ jobs:
       uses: firebelley/godot-export@v4.7.0
       with:
         use_godot_4: true
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/rc6/Godot_v4.0-rc6_linux.x86_64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/rc6/Godot_v4.0-rc6_export_templates.tpz
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
         relative_project_path: ./
         archive_output: true
 
