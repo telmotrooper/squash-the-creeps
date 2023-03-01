@@ -24,8 +24,8 @@ func _ready() -> void:
   %Camera3D.far = Configuration.get_value("graphics", "draw_distance")
 
 func _input(event: InputEvent) -> void:
-#  if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
-#    return
+  if get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
+    return
   
   var zoom = %Camera3D.position.z
 
