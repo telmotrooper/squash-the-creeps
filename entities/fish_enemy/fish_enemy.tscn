@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hrpb58rlnaf8"]
+[gd_scene load_steps=11 format=3 uid="uid://hrpb58rlnaf8"]
 
 [ext_resource type="Material" uid="uid://l7vxw82i64vp" path="res://entities/fish_enemy/red.material" id="1_p0x6w"]
 [ext_resource type="Script" path="res://entities/fish_enemy/fish_enemy.gd" id="1_xe3cw"]
@@ -13,6 +13,10 @@ height = 6.0
 
 [sub_resource type="PrismMesh" id="PrismMesh_t52yf"]
 size = Vector3(3, 3, 0.25)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0mwfu"]
+radius = 0.75
+height = 2.0
 
 [sub_resource type="Animation" id="Animation_wdclc"]
 resource_name = "swim"
@@ -64,7 +68,7 @@ shape = SubResource("SphereShape3D_ngw1e")
 [node name="Node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node"]
+[node name="Body" type="MeshInstance3D" parent="Node"]
 transform = Transform3D(0.998413, 0, 0.0563129, 0, 1, 0, -0.0563129, 0, 0.998413, 0, 0, 0)
 mesh = SubResource("SphereMesh_2slpr")
 skeleton = NodePath("../..")
@@ -81,6 +85,14 @@ transform = Transform3D(-1.96893e-08, 0.450438, 0.892808, -1, -4.37114e-08, 0, 3
 mesh = SubResource("PrismMesh_t52yf")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_36xaf")
+
+[node name="Eye1" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(0.999999, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 0.999999, 0.80792, 0.8, -2.3)
+mesh = SubResource("SphereMesh_0mwfu")
+
+[node name="Eye2" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(0.999999, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 0.999999, -0.592079, 0.8, -2.3)
+mesh = SubResource("SphereMesh_0mwfu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "swim"
