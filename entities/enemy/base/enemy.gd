@@ -8,8 +8,6 @@ var already_squashed := false
 @export var max_speed := 18.0
 @export var affected_by_gravity := true
 
-#var velocity = Vector3.ZERO
-
 func _physics_process(_delta: float) -> void:
   if affected_by_gravity:
     if not is_on_floor():
