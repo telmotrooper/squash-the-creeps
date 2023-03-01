@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcm56l4hh1vm"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://maps/ball_minigame/player_ball.gd" id="1_6xyva"]
+[ext_resource type="Script" path="res://maps/player_ball.gd" id="1_6xyva"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="2_nr0pw"]
 [ext_resource type="Material" path="res://materials/cyan.tres" id="2_q0oxw"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="4_qenu1"]
