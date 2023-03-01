@@ -1,34 +1,89 @@
-[gd_scene load_steps=6 format=3 uid="uid://hrpb58rlnaf8"]
+[gd_scene load_steps=10 format=3 uid="uid://hrpb58rlnaf8"]
 
 [ext_resource type="Material" uid="uid://l7vxw82i64vp" path="res://entities/fish_enemy/red.material" id="1_p0x6w"]
+[ext_resource type="Script" path="res://entities/fish_enemy/fish_enemy.gd" id="1_xe3cw"]
 [ext_resource type="Material" uid="uid://cwaqcbkgwuwmu" path="res://entities/fish_enemy/yellow.material" id="2_36xaf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ngw1e"]
+radius = 5.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_2slpr"]
 radius = 3.0
 height = 6.0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ngw1e"]
-radius = 5.0
-
 [sub_resource type="PrismMesh" id="PrismMesh_t52yf"]
 size = Vector3(3, 3, 0.25)
 
-[node name="FishEnemy" type="CharacterBody3D"]
-collision_layer = 2
+[sub_resource type="Animation" id="Animation_wdclc"]
+resource_name = "swim"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.174533, 0), Vector3(0, 0.174533, 0), Vector3(0, -0.174533, 0)]
+}
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_2slpr")
-surface_material_override/0 = ExtResource("1_p0x6w")
+[sub_resource type="Animation" id="Animation_x1lx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0iqik"]
+_data = {
+"RESET": SubResource("Animation_x1lx2"),
+"swim": SubResource("Animation_wdclc")
+}
+
+[node name="FishEnemy" type="CharacterBody3D"]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("1_xe3cw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ngw1e")
 
-[node name="Fin" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.18557e-08, -0.5, 0.866025, -1, -4.37114e-08, -3.64441e-15, 3.78552e-08, -0.866025, -0.5, 3.4, 0, 0)
+[node name="Node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(0.998413, 0, 0.0563129, 0, 1, 0, -0.0563129, 0, 0.998413, 0, 0, 0)
+mesh = SubResource("SphereMesh_2slpr")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_p0x6w")
+
+[node name="Fin" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(2.39527e-08, -0.547975, 0.836495, -1, -4.37114e-08, -3.64441e-15, 3.65643e-08, -0.836495, -0.547975, 3.3946, 0, -0.191464)
 mesh = SubResource("PrismMesh_t52yf")
+skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_36xaf")
 
-[node name="Fin2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0.5, 0.866025, -1, -4.37114e-08, 0, 3.78552e-08, -0.866025, 0.5, -3.4, 0, 0)
+[node name="Fin2" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(-1.96893e-08, 0.450438, 0.892808, -1, -4.37114e-08, 0, 3.90259e-08, -0.892808, 0.450438, -3.3946, 0, 0.191464)
 mesh = SubResource("PrismMesh_t52yf")
+skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_36xaf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "swim"
+libraries = {
+"": SubResource("AnimationLibrary_0iqik")
+}
