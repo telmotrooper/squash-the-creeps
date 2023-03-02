@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://chjwt45xklaos" path="res://assets/scatter_assets/grass/data/m_grass_52.tres" id="6_mjfx1"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="7"]
 [ext_resource type="Material" path="res://materials/cyan.tres" id="8"]
-[ext_resource type="Material" path="res://materials/green.tres" id="9"]
+[ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="9"]
 [ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10"]
 [ext_resource type="Material" uid="uid://cr7t2omehksmy" path="res://materials/gradient_blue.tres" id="10_uiqnu"]
 [ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="11"]
