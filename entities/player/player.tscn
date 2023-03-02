@@ -196,7 +196,7 @@ shape = SubResource("2")
 
 [node name="SpinArea" type="Area3D" parent="."]
 visible = false
-collision_mask = 38
+collision_mask = 102
 
 [node name="SpinCollisionShape" type="CollisionShape3D" parent="SpinArea"]
 visible = false
