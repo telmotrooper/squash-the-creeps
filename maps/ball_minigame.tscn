@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cap6cu350om5k"]
+[gd_scene load_steps=11 format=3 uid="uid://dj8g1fhhl6pl1"]
 
 [ext_resource type="Script" path="res://maps/player_ball.gd" id="1_6xyva"]
+[ext_resource type="Material" uid="uid://ctk7xq4vpjek2" path="res://materials/light_brown.tres" id="2_mjkdm"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="2_nr0pw"]
-[ext_resource type="Material" path="res://materials/cyan.tres" id="2_q0oxw"]
 [ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="4_qenu1"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5_qivp7"]
 
@@ -49,17 +49,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
 use_collision = true
 collision_layer = 4
 size = Vector3(5, 0.25, 5)
-material = ExtResource("2_q0oxw")
+material = ExtResource("2_mjkdm")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGBox3D"]
 transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, -0.258819, 0.965926, 0, 0.965926, 0.258819, -4.37114e-08, 0.0798993, 0.6, -4.8)
 size = Vector3(5, 0.25, 1)
-material = ExtResource("2_q0oxw")
+material = ExtResource("2_mjkdm")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGBox3D"]
 transform = Transform3D(-4.2222e-08, 1.13133e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, -4.37114e-08, 0.0798993, 0.6, -9.55099)
 size = Vector3(5, 0.25, 1)
-material = ExtResource("2_q0oxw")
+material = ExtResource("2_mjkdm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_nr0pw")
