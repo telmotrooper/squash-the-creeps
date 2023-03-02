@@ -133,7 +133,7 @@ particles_anim_loop = false
 
 [sub_resource type="ParticleProcessMaterial" id="8"]
 emission_shape = 1
-emission_sphere_radius = 2.0
+emission_sphere_radius = 3.0
 gravity = Vector3(0, 0.5, 0)
 
 [sub_resource type="QuadMesh" id="9"]
