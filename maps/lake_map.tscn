@@ -137,6 +137,7 @@ emission_sphere_radius = 2.0
 gravity = Vector3(0, 0.5, 0)
 
 [sub_resource type="QuadMesh" id="9"]
+size = Vector2(3, 3)
 
 [sub_resource type="BoxShape3D" id="10"]
 size = Vector3(40, 20, 28)
@@ -317,7 +318,8 @@ transform = Transform3D(1.5, 0, -2.59808, 0, 3, 0, 2.59808, 0, 1.5, 52.1456, -32
 material_override = SubResource("7")
 emitting = false
 amount = 20
-lifetime = 5.25
+lifetime = 10.0
+speed_scale = 1.5
 process_material = SubResource("8")
 draw_pass_1 = SubResource("9")
 
