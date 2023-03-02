@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dj8g1fhhl6pl1"]
+
+[ext_resource type="Script" path="res://maps/player_ball.gd" id="1_6xyva"]
+[ext_resource type="Material" uid="uid://ctk7xq4vpjek2" path="res://materials/light_brown.tres" id="2_mjkdm"]
+[ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="2_nr0pw"]
+[ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="4_qenu1"]
+[ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5_qivp7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_x22n1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2odsq"]
+noise_type = 5
+seed = 1
+frequency = 0.7
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwmfe"]
+seamless = true
+noise = SubResource("FastNoiseLite_2odsq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km2gf"]
+albedo_color = Color(0.67451, 0.305882, 0.188235, 1)
+albedo_texture = SubResource("NoiseTexture2D_xwmfe")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qw46v"]
+
+[node name="BallMinigame" type="Node3D"]
+
+[node name="PlayerBall" type="RigidBody3D" parent="." groups=["players"]]
+collision_mask = 4
+script = ExtResource("1_6xyva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBall"]
+mesh = SubResource("SphereMesh_x22n1")
+surface_material_override/0 = SubResource("StandardMaterial3D_km2gf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBall"]
+shape = SubResource("SphereShape3D_qw46v")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerBall"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 2)
+top_level = true
+
+[node name="Map" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147142, 0.00976372, -0.0100975)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+use_collision = true
+collision_layer = 4
+size = Vector3(5, 0.25, 5)
+material = ExtResource("2_mjkdm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, -0.258819, 0.965926, 0, 0.965926, 0.258819, -4.37114e-08, 0.0798993, 0.6, -4.8)
+size = Vector3(5, 0.25, 1)
+material = ExtResource("2_mjkdm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(-4.2222e-08, 1.13133e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, -4.37114e-08, 0.0798993, 0.6, -9.55099)
+size = Vector3(5, 0.25, 1)
+material = ExtResource("2_mjkdm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_nr0pw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 2.18557e-08, -0.5, 0.5, -3.78552e-08, 0.866025, 0, -1, -4.37114e-08, 0, 10, 0)
+
+[node name="UserInterface" parent="." instance=ExtResource("4_qenu1")]
+
+[node name="Boundary" parent="." instance=ExtResource("5_qivp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)

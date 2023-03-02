@@ -11,7 +11,7 @@ func get_visible() -> bool:
   return $MeshInstance3D.visible
 
 func _on_Boundary_body_entered(body: Node) -> void:
-  if body is Player:
+  if body is Player or body is PlayerBall:
     get_tree().call_group("players", "move_to_last_safe_position")
     
     # TODO: Make this more generic. Currently only used in TestMap.

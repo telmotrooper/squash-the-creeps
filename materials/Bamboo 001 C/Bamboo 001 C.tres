@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c23rwmc1hwenf"]
+
+[ext_resource type="Texture2D" uid="uid://bbckyav0eokgq" path="res://materials/Bamboo 001 C/textures/Bamboo001C_1K_Color.jpg" id="1_2t2ko"]
+[ext_resource type="Texture2D" uid="uid://bb5gnttsdeflt" path="res://materials/Bamboo 001 C/textures/Bamboo001C_1K_AmbientOcclusion.jpg" id="2_e4ib7"]
+[ext_resource type="Texture2D" uid="uid://c36v5akxcicg5" path="res://materials/Bamboo 001 C/textures/Bamboo001C_1K_NormalGL.jpg" id="2_pnvax"]
+[ext_resource type="Texture2D" uid="uid://dmsnrhn4o70xu" path="res://materials/Bamboo 001 C/textures/Bamboo001C_1K_Roughness.jpg" id="3_845ha"]
+
+[resource]
+albedo_texture = ExtResource("1_2t2ko")
+roughness_texture = ExtResource("3_845ha")
+normal_enabled = true
+normal_texture = ExtResource("2_pnvax")
+ao_enabled = true
+ao_texture = ExtResource("2_e4ib7")

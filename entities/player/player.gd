@@ -32,7 +32,6 @@ var last_direction := Vector3(0,0,-1)
 
 var last_safe_position := Vector3(0,0,0)
 
-#var velocity = Vector3.ZERO
 var speed = 0
 
 # State

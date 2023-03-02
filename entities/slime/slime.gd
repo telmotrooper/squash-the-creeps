@@ -13,8 +13,6 @@ enum {
 
 var state = PATROLLING
 
-#var velocity = Vector3.ZERO
-
 func _ready() -> void:
   if get_parent() is PathFollow3D:
     # This will make the enemy look to the correct direction along the path.

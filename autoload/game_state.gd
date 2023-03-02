@@ -127,8 +127,7 @@ func initialize_progress() -> void:
   
   global_progress.percentage = float(global_progress.collected) / global_progress.total
 
-#func generate_progress_report(current_map: String) -> void:
-func generate_progress_report(current_map) -> void:
+func generate_progress_report(current_map: String) -> void:
   if progress.is_empty(): # Useful when starting map from editor.
     initialize_progress()
   
@@ -157,7 +156,7 @@ func generate_progress_report(current_map) -> void:
   UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text
   
-  if current_map and progress.has(current_map):
+  if progress.has(current_map):
     UserInterface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
   else:
     UserInterface.get_node("%ScoreLabel").text = "%s" % global_progress.collected

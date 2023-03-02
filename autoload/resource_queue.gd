@@ -41,7 +41,7 @@ func queue_resource(path, p_in_front = false) -> void:
     # TODO: This blocks the thread until loading is done.
     # Should be refactored to allow for background loading.
     ResourceLoader.load_threaded_request(path, "", true)
-    var res = ResourceLoader.load_threaded_get(path) 
+    var res = ResourceLoader.load_threaded_get(path)
     res.set_meta("path", path)
     if p_in_front:
       queue.insert(0, res)
