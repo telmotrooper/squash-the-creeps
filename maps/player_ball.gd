@@ -24,3 +24,4 @@ func _physics_process(delta: float) -> void:
 
 func move_to_last_safe_position() -> void:
   position = Vector3.ZERO # Start of the map.
+  sleeping = true # Make ball stop moving.
