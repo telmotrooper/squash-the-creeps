@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm3n24xjx6pgr"
-path.s3tc="res://.godot/imported/Crack_1.png-08f67deb8fb33d19ce6d66d8622f0cb3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Crack_1.png-5b63c0feb9051029c2d089296765d570.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/Crack_1.png"
-dest_files=["res://.godot/imported/Crack_1.png-08f67deb8fb33d19ce6d66d8622f0cb3.s3tc.ctex"]
+source_file="res://assets/Crack_1.png"
+dest_files=["res://.godot/imported/Crack_1.png-5b63c0feb9051029c2d089296765d570.s3tc.ctex"]
 
 [params]
 
