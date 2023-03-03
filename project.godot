@@ -32,6 +32,7 @@ Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 editor/character_preview_mode=0
 editor/current_editor=&"Timeline Editor"
 editor/current_resources={
+"Character Editor": "res://dialogic/characters/player.dch",
 "Timeline Editor": "res://dialogic/timelines/intro.dtl"
 }
 animations/join_default_length=0.5
