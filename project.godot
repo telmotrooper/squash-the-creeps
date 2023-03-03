@@ -154,6 +154,10 @@ interact={
 3d_physics/layer_9="Pickup Item"
 3d_physics/layer_20="Boundary"
 
+[physics]
+
+3d/run_on_separate_thread=true
+
 [rendering]
 
 threads/thread_model=2
