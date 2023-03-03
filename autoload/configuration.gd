@@ -6,7 +6,7 @@ var file_path = "user://settings.cfg"
 const min_volume := -60
 const max_volume := 0
 
-const defaults: Dictionary = {
+var defaults: Dictionary = {
   "audio": {
     "music_volume": 80,
     "sound_volume": 80
@@ -27,6 +27,9 @@ const defaults: Dictionary = {
 }
 
 func _ready() -> void:
+  if OS.get_name() == "Windows" or OS.get_name() == "UWP":
+    defaults.controls.mouse_sensitivity = 0.3
+  
   var load_file = config.load(file_path)
   
   if load_file != OK:
