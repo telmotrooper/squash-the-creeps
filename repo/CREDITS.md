@@ -60,3 +60,5 @@
 * Material [Ground 033](https://ambientcg.com/view?id=Ground033) by [ambientCG](https://ambientcg.com/), licensed under (CC0 1.0)
 
 * Sprite [FANTASY-crystal-set](https://opengameart.org/content/fantasy-crystal-set) by [Melissa Krautheim](https://opengameart.org/users/melle), licensed under (CC0 1.0)
+
+* Decal [Crack_1](https://cgi.tutsplus.com/articles/freebie-11-crack-rust-decals--cg-7372) by [Ben Henry](https://tutsplus.com/authors/ben-henry), licensed under Envato Elements license
