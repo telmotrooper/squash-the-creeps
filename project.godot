@@ -25,6 +25,34 @@ GameState="*res://autoload/game_state.tscn"
 Hotkeys="*res://autoload/hotkeys.gd"
 Utils="*res://autoload/utils.gd"
 ResourceQueue="*res://autoload/resource_queue.gd"
+Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
+
+[dialogic]
+
+editor/character_preview_mode=0
+editor/current_editor=&"Timeline Editor"
+editor/current_resources={
+"Timeline Editor": "res://timeline.dtl"
+}
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+choices/autofocus_first=true
+choices/delay=0.2
+text/speed=0.01
+text/skippable=true
+text/autocontinue_delay=1.0
+history/history_system=true
+history/full_history=true
+history/text_history=true
+save/autosave_delay=60.0
+variables={}
+glossary/default_case_sensitive=true
+layout/mode=0
+editor/current_timeline_path="res://dialogic/timelines/intro.dtl"
+editor/timeline_editor_mode=0
+editor/last/resources=[""]
 
 [display]
 
@@ -33,7 +61,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [gdnative]
 
