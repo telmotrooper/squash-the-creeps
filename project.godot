@@ -32,7 +32,7 @@ Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 editor/character_preview_mode=0
 editor/current_editor=&"Timeline Editor"
 editor/current_resources={
-"Timeline Editor": "res://timeline.dtl"
+"Timeline Editor": "res://dialogic/timelines/intro.dtl"
 }
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
@@ -53,6 +53,7 @@ layout/mode=0
 editor/current_timeline_path="res://dialogic/timelines/intro.dtl"
 editor/timeline_editor_mode=0
 editor/last/resources=[""]
+editor/visual_timeline_editor_sidebar=200.0
 
 [display]
 

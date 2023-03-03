@@ -39,7 +39,6 @@ func _on_AudioStreamPlayer_finished() -> void:
 
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
-#  var new_dialog = Dialogic.start("Intro")
-#  add_child(new_dialog)
-#  await new_dialog.dialogic_signal
+  var intro_dialog = Dialogic.start("res://dialogic/timelines/intro.dtl")
+  await Dialogic.signal_event
   GameState.Player.paused = false
