@@ -1,6 +1,7 @@
 extends Control
 
 var minimap_default_position: Vector2
+var minimap_proportion: float
 var hud_visible := false
 
 func _ready() -> void:
@@ -81,15 +82,16 @@ func resize_minimap() -> void:
   $Minimap.scale = Vector2(minimap_scale,minimap_scale)
   $Minimap.pivot_offset = Vector2(minimap_pivot_offset,-minimap_pivot_offset)
 
-func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0)) -> void:
+func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), proportion: float = 1.0) -> void:
   %MapTexture.texture = minimap_texture
   # Centralize the minimap on the player.
   %MapTexture.position.x += center.x
   %MapTexture.position.y += center.y
   # Store the position calculated.
   minimap_default_position = %MapTexture.position
+  # Store the proportion so that when the player moves the minimap moves the correct amount.
+  minimap_proportion = proportion
 
 func move_minimap(player_offset: Vector3) -> void:
-  var proportion = 2.7
-  %MapTexture.position.x = minimap_default_position.x - player_offset.x * proportion
-  %MapTexture.position.y = minimap_default_position.y - player_offset.z * proportion
+  %MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
+  %MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion
