@@ -75,4 +75,5 @@ func _on_congratulations_dialog_confirmed() -> void:
   get_tree().paused = false
 
 func resize_minimap() -> void:
-  $Minimap.scale = Vector2(0.7,0.7) if get_window().mode == Window.MODE_WINDOWED else Vector2(1.0,1.0)
+  var scale = 0.7 if get_window().mode == Window.MODE_WINDOWED else 1.0
+  $Minimap.scale = Vector2(scale,scale)
