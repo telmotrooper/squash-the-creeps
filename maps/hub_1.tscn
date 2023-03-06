@@ -6,7 +6,7 @@
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="4"]
 [ext_resource type="PackedScene" uid="uid://bs8ljc0enja8j" path="res://shaders/smoke/smoke.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://dprtyraxfvhk6" path="res://props/spaceship/spaceship.tscn" id="6"]
-[ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="9"]
 [ext_resource type="Script" path="res://maps/hub_1.gd" id="10"]
@@ -307,7 +307,7 @@ map_name = "test_map"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73, 3.04, -6.46)
 label = "Lake Map"
 map_name = "lake_map"
-godot_heads_required = 2
+godot_heads_required = 3
 
 [node name="Camera3D" type="Camera3D" parent="PortalLakeMap"]
 transform = Transform3D(0.6482, 0.266946, -0.713146, 0, 0.936538, 0.350566, 0.76147, -0.227237, 0.607064, -8.86963, 6.53239, 6.91475)

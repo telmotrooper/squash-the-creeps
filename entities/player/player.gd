@@ -30,6 +30,7 @@ var health = 3
 # Starts as "forward", might behave weird depending checked spawn direction.
 var last_direction := Vector3(0,0,-1)
 
+var initial_position: Vector3
 var last_safe_position := Vector3(0,0,0)
 
 var speed = 0
@@ -49,6 +50,7 @@ var being_thrown_back := false
 var floating := false
 
 func _ready() -> void:
+  initial_position = global_transform.origin
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
   
@@ -58,6 +60,8 @@ func _ready() -> void:
   )
 
 func _physics_process(delta: float) -> void:
+  GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
+  
   if paused: # Used to prevent movement during a cutscene.
     return
   
@@ -69,13 +73,17 @@ func _physics_process(delta: float) -> void:
   
   # Get direction vector based checked input.
   var direction = Vector3(
-      Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-      0,
-      Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+    Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+    0,
+    Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
   
   # Rotate direction based checked camera.
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+  
+  if is_instance_valid(GameState.UserInterface):
+    var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
+    minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
 
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
@@ -154,8 +162,8 @@ func _physics_process(delta: float) -> void:
   elif is_on_floor() and get_slide_collision_count() > 0 and get_slide_collision(0).get_collider() is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
-        and velocity.y <= 20 # Only allow double jump after player slows down a bit.
-        and Input.is_action_just_pressed("jump")):
+    and velocity.y <= 20 # Only allow double jump after player slows down a bit.
+    and Input.is_action_just_pressed("jump")):
     is_double_jumping = true
     velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
     being_thrown_back = false # Double jump cancels throw back.

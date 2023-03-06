@@ -29,3 +29,4 @@ func _process(_delta: float) -> void:
 func toggle_fullscreen() -> void:
   get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
   Configuration.update_setting("graphics", "fullscreen", ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
+  GameState.UserInterface.resize_minimap()
