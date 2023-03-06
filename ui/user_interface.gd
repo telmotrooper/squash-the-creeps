@@ -90,6 +90,6 @@ func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0)) -> 
   minimap_default_position = %MapTexture.position
 
 func move_minimap(player_offset: Vector3) -> void:
-  var proportion = 1.8
+  var proportion = 2.7
   %MapTexture.position.x = minimap_default_position.x - player_offset.x * proportion
   %MapTexture.position.y = minimap_default_position.y - player_offset.z * proportion
