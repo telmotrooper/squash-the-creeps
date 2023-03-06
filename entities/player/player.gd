@@ -93,6 +93,10 @@ func _physics_process(delta: float) -> void:
     
     $ModelPivot.look_at(position + direction, Vector3.UP)
     
+    if is_instance_valid(GameState.UserInterface):
+      var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
+      player_cursor_pivot.rotation = $ModelPivot.rotation.y * -1
+    
     if is_dashing:
       if is_on_floor() and get_floor_angle(Vector3.UP) > 0: # Ramp bounce.
         velocity.y = get_floor_angle(Vector3.UP) * 200
