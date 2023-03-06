@@ -80,5 +80,8 @@ func resize_minimap() -> void:
   $Minimap.scale = Vector2(minimap_scale,minimap_scale)
   $Minimap.pivot_offset = Vector2(minimap_pivot_offset,-minimap_pivot_offset)
 
-func set_minimap(minimap_texture: Texture2D) -> void:
+func set_minimap(minimap_texture: Texture2D, correct_position: Vector2 = Vector2(0,0)) -> void:
   $Minimap/Mask/MinimapPivot/MapTexture.texture = minimap_texture
+  # Centralize the minimap on the player.
+  $Minimap/Mask/MinimapPivot/MapTexture.position.x += correct_position.x
+  $Minimap/Mask/MinimapPivot/MapTexture.position.y += correct_position.y
