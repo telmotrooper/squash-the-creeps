@@ -510,7 +510,6 @@ offset_bottom = 101.0
 text = "0"
 
 [node name="FPSLabel" type="Label" parent="."]
-visible = false
 layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0

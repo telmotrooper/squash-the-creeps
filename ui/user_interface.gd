@@ -76,4 +76,6 @@ func _on_congratulations_dialog_confirmed() -> void:
 
 func resize_minimap() -> void:
   var scale = 0.7 if get_window().mode == Window.MODE_WINDOWED else 0.9
+  var pivot_offset = 40 if get_window().mode == Window.MODE_WINDOWED else 40*3
   $Minimap.scale = Vector2(scale,scale)
+  $Minimap.pivot_offset = Vector2(pivot_offset,-pivot_offset)
