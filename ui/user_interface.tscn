@@ -204,6 +204,7 @@ theme = ExtResource("1")
 script = ExtResource("5")
 
 [node name="Minimap" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
