@@ -1105,6 +1105,7 @@ visible = false
 projection = 1
 size = 1000.0
 script = ExtResource("40_8w1et")
+save_to = "res://assets/minimap/maps/test.png"
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
