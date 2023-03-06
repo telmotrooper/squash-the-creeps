@@ -30,6 +30,7 @@ var health = 3
 # Starts as "forward", might behave weird depending checked spawn direction.
 var last_direction := Vector3(0,0,-1)
 
+var initial_position: Vector3
 var last_safe_position := Vector3(0,0,0)
 
 var speed = 0
@@ -49,6 +50,7 @@ var being_thrown_back := false
 var floating := false
 
 func _ready() -> void:
+  initial_position = global_transform.origin
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
   
@@ -58,6 +60,8 @@ func _ready() -> void:
   )
 
 func _physics_process(delta: float) -> void:
+  GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
+  
   if paused: # Used to prevent movement during a cutscene.
     return
   

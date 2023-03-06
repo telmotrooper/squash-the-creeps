@@ -235,6 +235,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MapTexture" type="TextureRect" parent="Minimap/Mask/MinimapPivot"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

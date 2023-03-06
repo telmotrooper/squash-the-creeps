@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="6"]
 [ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://c6q8y2lslwiqh" path="res://ui/user_interface.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://dtl8a6yhn3qa8" path="res://props/ball/ball.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://dtsvkv0pyppjh" path="res://props/red_button/red_button.tscn" id="11"]
