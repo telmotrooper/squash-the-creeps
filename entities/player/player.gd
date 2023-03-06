@@ -60,7 +60,8 @@ func _ready() -> void:
   )
 
 func _physics_process(delta: float) -> void:
-  GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
+  if is_instance_valid(GameState.UserInterface):
+    GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
   
   if paused: # Used to prevent movement during a cutscene.
     return
