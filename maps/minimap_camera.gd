@@ -1,10 +1,18 @@
 extends Camera3D
 
-@export var texture_resolution = Vector2i(1000, 1000)
-@export var save_to: String = "test.png"
+@export var generate : bool : get = get_generate, set = set_generate
 
+@export var texture_resolution = Vector2i(1000, 1000) # Can't be higher than the computer resolution.
+@export var save_to: String = "test.png"
+  
+func set_generate(value: bool) -> void:
+  current = value
+
+func get_generate() -> bool:
+  return current
+
+# This script saves the view of the camera to be used as minimap texture.
 func _ready() -> void:
-  # This script is activated by setting this camera as the current one.
   if current:
     GameState.UserInterface.hide()
     get_window().mode = Window.MODE_WINDOWED
