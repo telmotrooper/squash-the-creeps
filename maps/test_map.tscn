@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b34ipmbn3w45r"]
+[gd_scene load_steps=78 format=3 uid="uid://b34ipmbn3w45r"]
 
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_8tp7d"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://dm3n24xjx6pgr" path="res://assets/Crack_1.png" id="35_4wyr2"]
 [ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="37_5b3ys"]
 [ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="38_8ys50"]
+[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="40_8w1et"]
 
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(60, 2, 60)
@@ -326,7 +327,7 @@ _data = {
 "show_sprint_label": SubResource("41")
 }
 
-[sub_resource type="PlaneMesh" id="12"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_3hdny"]
 material = ExtResource("4")
 size = Vector2(1000, 1000)
 subdivide_width = 10
@@ -978,7 +979,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.6, 0)
 
 [node name="WaterPlane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941)
-mesh = SubResource("12")
+mesh = SubResource("PlaneMesh_3hdny")
 
 [node name="RetryCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, -1.74665, 13.1938, 48.2778)
@@ -1098,10 +1099,22 @@ surface_material_override/0 = ExtResource("33_qw7ha")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00776672, -0.930646, 40.443)
 shape = SubResource("ConvexPolygonShape3D_u7vgq")
 
+[node name="MinimapCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
+visible = false
+projection = 1
+size = 1000.0
+script = ExtResource("40_8w1et")
+
+[node name="Timer" type="Timer" parent="MinimapCamera"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
 [connection signal="body_entered" from="Map/BlueCube/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
+[connection signal="timeout" from="MinimapCamera/Timer" to="MinimapCamera" method="_on_timer_timeout"]
 
 [editable path="Isle/isle"]
 [editable path="IslePath/isle_path"]
