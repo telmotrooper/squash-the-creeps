@@ -1106,15 +1106,10 @@ projection = 1
 size = 1000.0
 script = ExtResource("40_8w1et")
 
-[node name="Timer" type="Timer" parent="MinimapCamera"]
-wait_time = 0.1
-one_shot = true
-
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
 [connection signal="body_entered" from="Map/BlueCube/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
-[connection signal="timeout" from="MinimapCamera/Timer" to="MinimapCamera" method="_on_timer_timeout"]
 
 [editable path="Isle/isle"]
 [editable path="IslePath/isle_path"]
