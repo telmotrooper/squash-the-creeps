@@ -83,7 +83,9 @@ func _physics_process(delta: float) -> void:
   
   if is_instance_valid(GameState.UserInterface):
     var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
+    var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
     minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
+    player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
 
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
@@ -92,10 +94,6 @@ func _physics_process(delta: float) -> void:
       last_direction = direction
     
     $ModelPivot.look_at(position + direction, Vector3.UP)
-    
-    if is_instance_valid(GameState.UserInterface):
-      var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
-      player_cursor_pivot.rotation = $ModelPivot.rotation.y * -1
     
     if is_dashing:
       if is_on_floor() and get_floor_angle(Vector3.UP) > 0: # Ramp bounce.
