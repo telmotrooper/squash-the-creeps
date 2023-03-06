@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="33"]
 [ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="33_qw7ha"]
 [ext_resource type="PackedScene" uid="uid://hrpb58rlnaf8" path="res://entities/fish_enemy/fish_enemy.tscn" id="34_0x7ed"]
-[ext_resource type="Texture2D" uid="uid://dm3n24xjx6pgr" path="res://assets/Crack_1.png" id="35_4wyr2"]
+[ext_resource type="PackedScene" uid="uid://dnt73n7hhecsc" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.tscn" id="36_n8ws8"]
 [ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="37_5b3ys"]
 [ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="38_8ys50"]
 [ext_resource type="Script" path="res://maps/minimap_camera.gd" id="40_8w1et"]
@@ -1029,33 +1029,10 @@ visible = false
 size = Vector3(9, 1, 19)
 material = ExtResource("33_qw7ha")
 
-[node name="BreakableSandWall" type="CSGBox3D" parent="." groups=["breakable_scenario"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 3.91087, 79.5702)
-use_collision = true
-collision_layer = 64
-size = Vector3(0.5, 9, 10.5)
-material = ExtResource("33_qw7ha")
+[node name="BreakableSandWall" parent="." instance=ExtResource("36_n8ws8")]
 
-[node name="WallCrackDecal" type="Decal" parent="BreakableSandWall"]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.182743, 0.464756, 0.237343)
-size = Vector3(7, 0.25, 7)
-texture_albedo = ExtResource("35_4wyr2")
-upper_fade = 1e-05
-lower_fade = 1e-05
-
-[node name="BreakableSandWall2" type="CSGBox3D" parent="." groups=["breakable_scenario"]]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.71683, 3.91087, 79.5702)
-use_collision = true
-collision_layer = 64
-size = Vector3(0.5, 9, 10.5)
-material = ExtResource("33_qw7ha")
-
-[node name="WallCrackDecal" type="Decal" parent="BreakableSandWall2"]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.182743, 0.464756, 0.237343)
-size = Vector3(7, 0.25, 7)
-texture_albedo = ExtResource("35_4wyr2")
-upper_fade = 1e-05
-lower_fade = 1e-05
+[node name="BreakableSandWall3" parent="." instance=ExtResource("36_n8ws8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 3.911, 79.57)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5318, -0.3, 83.4094)

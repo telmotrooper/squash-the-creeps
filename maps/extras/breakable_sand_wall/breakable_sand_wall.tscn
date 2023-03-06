@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnt73n7hhecsc"]
+
+[ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="1_ld7na"]
+[ext_resource type="Texture2D" uid="uid://dm3n24xjx6pgr" path="res://assets/Crack_1.png" id="2_il8t2"]
+[ext_resource type="Script" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.gd" id="2_sh08v"]
+[ext_resource type="AudioStream" uid="uid://djejr4dtjnlyi" path="res://assets/505169__mitchanary__shovelingsand.ogg" id="3_bqtnj"]
+
+[node name="BreakableSandWall" type="CSGBox3D" groups=["breakable_scenario"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 3.91087, 79.5702)
+use_collision = true
+collision_layer = 64
+size = Vector3(0.5, 9, 10.5)
+material = ExtResource("1_ld7na")
+script = ExtResource("2_sh08v")
+
+[node name="WallCrackDecal" type="Decal" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.182743, 0.464756, 0.237343)
+size = Vector3(7, 0.25, 7)
+texture_albedo = ExtResource("2_il8t2")
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_bqtnj")
+volume_db = 30.0
+bus = &"Sound"
