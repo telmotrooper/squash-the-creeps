@@ -69,13 +69,17 @@ func _physics_process(delta: float) -> void:
   
   # Get direction vector based checked input.
   var direction = Vector3(
-      Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-      0,
-      Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+    Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+    0,
+    Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
   
   # Rotate direction based checked camera.
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+  
+  if is_instance_valid(GameState.UserInterface):
+    var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
+    minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
 
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
     direction = direction.normalized()
@@ -154,8 +158,8 @@ func _physics_process(delta: float) -> void:
   elif is_on_floor() and get_slide_collision_count() > 0 and get_slide_collision(0).get_collider() is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
-        and velocity.y <= 20 # Only allow double jump after player slows down a bit.
-        and Input.is_action_just_pressed("jump")):
+    and velocity.y <= 20 # Only allow double jump after player slows down a bit.
+    and Input.is_action_just_pressed("jump")):
     is_double_jumping = true
     velocity.y = jump_impulse * 1.3 # Double jump goes higher than single jump.
     being_thrown_back = false # Double jump cancels throw back.

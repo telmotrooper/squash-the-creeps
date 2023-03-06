@@ -223,7 +223,8 @@ offset_right = 345.0
 grow_vertical = 0
 texture = ExtResource("9_3xw3k")
 
-[node name="Pivot" type="Control" parent="Minimap/Mask"]
+[node name="MinimapPivot" type="Control" parent="Minimap/Mask"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -233,7 +234,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MapTexture" type="TextureRect" parent="Minimap/Mask/Pivot"]
+[node name="MapTexture" type="TextureRect" parent="Minimap/Mask/MinimapPivot"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
