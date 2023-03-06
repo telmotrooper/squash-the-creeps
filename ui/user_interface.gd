@@ -7,6 +7,8 @@ func _ready() -> void:
   # we'll need a reference to the current one.
   GameState.UserInterface = self
   
+  resize_minimap()
+  
   get_tree().paused = false
   $Pause.hide()
   
@@ -71,3 +73,6 @@ func _on_congratulations_dialog_confirmed() -> void:
   $CongratulationsDialog/AnimationPlayer.stop()
   Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
   get_tree().paused = false
+
+func resize_minimap() -> void:
+  $Minimap.scale = Vector2(0.7,0.7) if get_window().mode == Window.MODE_WINDOWED else Vector2(1.0,1.0)

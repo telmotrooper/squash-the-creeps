@@ -213,18 +213,15 @@ grow_vertical = 2
 [node name="Mask" type="TextureRect" parent="Minimap"]
 modulate = Color(1, 1, 1, 0.784314)
 clip_children = 2
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -355.0
-offset_right = 355.0
-offset_bottom = -10.0
+offset_top = -345.0
+offset_right = 345.0
 grow_vertical = 0
 texture = ExtResource("9_3xw3k")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Minimap/Mask"]
 texture = ExtResource("10_hlgjo")
@@ -234,14 +231,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -355.0
-offset_right = 355.0
-offset_bottom = -10.0
+offset_top = -345.0
+offset_right = 345.0
 grow_vertical = 0
 texture = ExtResource("5_0ar1b")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -284,9 +277,12 @@ anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.235294)
 
 [node name="Submenus" type="Control" parent="Pause"]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Controls" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
