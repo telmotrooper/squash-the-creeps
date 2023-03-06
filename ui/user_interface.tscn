@@ -1,15 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://rfirm4ngnmft"]
+[gd_scene load_steps=22 format=3 uid="uid://pqxrdej6qrhp"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-overlay.svg" id="5_0ar1b"]
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
-[ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-texture.svg" id="9_o4p62"]
 [ext_resource type="Texture2D" uid="uid://bde8fxx2ufpyv" path="res://assets/minimap/placeholder-map.jpg" id="10_hlgjo"]
 
 [sub_resource type="Animation" id="3"]
@@ -201,6 +201,38 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("5")
+
+[node name="Minimap" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mask" type="TextureRect" parent="Minimap"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -345.0
+offset_right = 345.0
+grow_vertical = 0
+texture = ExtResource("9_3xw3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Minimap/Mask"]
+texture = ExtResource("10_hlgjo")
+
+[node name="Overlay" type="TextureRect" parent="Minimap"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -345.0
+offset_right = 345.0
+grow_vertical = 0
+texture = ExtResource("5_0ar1b")
 
 [node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -498,7 +530,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8")
+stream = ExtResource("8_10biq")
 bus = &"Sound"
 
 [node name="CongratulationsDialog" type="AcceptDialog" parent="."]
@@ -513,32 +545,6 @@ root_node = NodePath("../../AnnouncementAnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_wv28i")
 }
-
-[node name="Minimap" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Mask" type="TextureRect" parent="Minimap"]
-visible = false
-clip_children = 2
-layout_mode = 0
-offset_right = 345.0
-offset_bottom = 345.0
-texture = ExtResource("9_3xw3k")
-
-[node name="Sprite2D" type="Sprite2D" parent="Minimap/Mask"]
-visible = false
-texture = ExtResource("10_hlgjo")
-
-[node name="Texture" type="TextureRect" parent="Minimap"]
-layout_mode = 0
-offset_right = 345.0
-offset_bottom = 345.0
-texture = ExtResource("9_o4p62")
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
