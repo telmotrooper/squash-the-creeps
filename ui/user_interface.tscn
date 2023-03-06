@@ -1,12 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=23 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="4_kkygk"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
-[ext_resource type="Texture2D" uid="uid://df2v6axt5xvff" path="res://assets/minimap/minimap-overlay-with-dot.svg" id="5_f24rg"]
+[ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-overlay.svg" id="5_tg4xs"]
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://do0d3kqunn7pt" path="res://assets/minimap/player-cursor.png" id="6_y76n1"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
@@ -258,7 +259,17 @@ anchor_bottom = 1.0
 offset_top = -345.0
 offset_right = 345.0
 grow_vertical = 0
-texture = ExtResource("5_f24rg")
+texture = ExtResource("5_tg4xs")
+
+[node name="PlayerCursor" type="TextureRect" parent="Minimap/Overlay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_y76n1")
 
 [node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
