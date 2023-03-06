@@ -1,6 +1,6 @@
 extends Camera3D
 
-var texture_resolution = Vector2i(1000, 1000)
+@export var texture_resolution = Vector2i(1000, 1000)
 @export var save_to: String = "test.png"
 
 func _ready() -> void:
