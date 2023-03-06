@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://pqxrdej6qrhp"]
+[gd_scene load_steps=22 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/test-map.png" id="4_cgwe6"]
+[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="4_kkygk"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://df2v6axt5xvff" path="res://assets/minimap/minimap-overlay-with-dot.svg" id="5_f24rg"]
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
@@ -247,7 +247,7 @@ offset_right = 650.0
 offset_bottom = 487.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_cgwe6")
+texture = ExtResource("4_kkygk")
 
 [node name="Overlay" type="TextureRect" parent="Minimap"]
 layout_mode = 1
