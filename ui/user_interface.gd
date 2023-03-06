@@ -9,6 +9,7 @@ func _ready() -> void:
   # we'll need a reference to the current one.
   GameState.UserInterface = self
   
+  $Minimap.hide()
   resize_minimap()
   
   get_tree().paused = false
@@ -91,6 +92,7 @@ func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), pro
   minimap_default_position = %MapTexture.position
   # Store the proportion so that when the player moves the minimap moves the correct amount.
   minimap_proportion = proportion
+  $Minimap.show()
 
 func move_minimap(player_offset: Vector3) -> void:
   %MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
