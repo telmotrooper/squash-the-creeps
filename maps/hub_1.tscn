@@ -307,7 +307,7 @@ map_name = "test_map"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73, 3.04, -6.46)
 label = "Lake Map"
 map_name = "lake_map"
-godot_heads_required = 2
+godot_heads_required = 3
 
 [node name="Camera3D" type="Camera3D" parent="PortalLakeMap"]
 transform = Transform3D(0.6482, 0.266946, -0.713146, 0, 0.936538, 0.350566, 0.76147, -0.227237, 0.607064, -8.86963, 6.53239, 6.91475)
