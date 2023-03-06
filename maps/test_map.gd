@@ -8,7 +8,7 @@ func _ready() -> void:
   GameState.RetryCamera = $RetryCamera
   GameState.Grass = %Grass
   GameState.update_grass()
-  GameState.UserInterface.set_minimap(minimap, Vector2(0,-215), 2.7)
+  GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 2.35)
 
 func _on_Player_hit() -> void:
   GameState.UserInterface.retry()

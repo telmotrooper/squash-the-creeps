@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://chbhpadk5nbgi"]
+[gd_scene load_steps=28 format=3 uid="uid://chbhpadk5nbgi"]
 
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://dlus26dqjvlml" path="res://maps/extras/beach_island_hub/beach_island_hub.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="3"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="4"]
 [ext_resource type="PackedScene" uid="uid://bs8ljc0enja8j" path="res://shaders/smoke/smoke.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://e3vrp5k88e4s" path="res://assets/minimap/maps/hub-1.png" id="5_mn1ck"]
 [ext_resource type="PackedScene" uid="uid://dprtyraxfvhk6" path="res://props/spaceship/spaceship.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="8"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="16"]
 [ext_resource type="Script" path="res://props/spaceship/spaceship_hub.gd" id="18"]
 [ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="18_6iwc4"]
+[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="19_wf4fl"]
 
 [sub_resource type="PlaneMesh" id="1"]
 material = ExtResource("1")
@@ -252,6 +254,7 @@ script = ExtResource("10")
 day_environment = ExtResource("4")
 night_environment = ExtResource("13")
 map_music = ExtResource("11")
+minimap = ExtResource("5_mn1ck")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 39.4168, -76.0941)
@@ -371,6 +374,14 @@ transform = Transform3D(0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 
 
 [node name="player" parent="Cutscene/CutsceneSpaceship" instance=ExtResource("18_6iwc4")]
 transform = Transform3D(-0.165173, -0.31028, -0.936186, -0.0531493, 0.950645, -0.305695, 0.984832, -0.000734895, -0.173512, -0.075, 1.312, 0.031)
+
+[node name="MinimapCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
+visible = false
+projection = 1
+size = 550.0
+script = ExtResource("19_wf4fl")
+save_to = "res://assets/minimap/maps/hub-1.png"
 
 [connection signal="body_entered" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_entered"]
 [connection signal="body_exited" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_exited"]
