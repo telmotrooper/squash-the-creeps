@@ -461,8 +461,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448
 label = "Exit"
 map_name = "hub_1"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -174.217)
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/BluePlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 66.393)
 use_collision = true
 collision_layer = 4
 size = Vector3(12, 1, 70)
