@@ -3,12 +3,8 @@ class_name BlueEnemy
 
 @export var patrolling_speed := 9
 @export var chasing_speed := 13
-enum {
-  PATROLLING,
-  ALERT,
-  CHASING
-}
 
+enum { PATROLLING, ALERT, CHASING }
 enum { GOING, RETURNING }
 
 var state = PATROLLING
@@ -18,17 +14,19 @@ func _ready() -> void:
   if get_parent() is PathFollow3D:
     # This will make the enemy look to the correct direction along the path.
     get_parent().set_rotation_mode(4)
+    
+#    print(get_parent().loop)
 
 func _physics_process(delta: float) -> void:
   super._physics_process(delta)
   
   if get_parent() is PathFollow3D:
-    var x = get_parent().progress_ratio
+    var progress_ratio = get_parent().progress_ratio
     
-    if x <= 0 and path_state == RETURNING:
+    if progress_ratio <= 0 and path_state == RETURNING:
       path_state = GOING
       rotation_degrees.y -= 180
-    elif x >= 1:
+    elif progress_ratio >= 1:
       path_state = RETURNING
       rotation_degrees.y -= 180
   
