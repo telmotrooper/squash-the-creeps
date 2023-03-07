@@ -17,6 +17,8 @@ var state = PATROLLING
 
 func _ready() -> void:
   randomize()
+  $SplashTimer.wait_time = randf_range(1, 5)
+  $SplashTimer.start()
   
   if get_parent() is PathFollow3D:
     # This will make the enemy look to the correct direction along the path.
