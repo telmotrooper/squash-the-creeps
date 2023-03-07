@@ -149,4 +149,10 @@ libraries = {
 [node name="SplashTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="TestDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.25, 0)
+visible = false
+size = Vector3(4, 0.5, 4)
+texture_albedo = ExtResource("4_kmx6p")
+
 [connection signal="timeout" from="SplashTimer" to="." method="_on_splash_timer_timeout"]

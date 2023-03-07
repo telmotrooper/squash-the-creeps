@@ -54,9 +54,9 @@ func kill() -> void: # Triggered by animation "squash'.
 
 func _on_splash_timer_timeout() -> void:
   var decal = Decal.new()
-  decal.size = Vector3(4,1,4)
   decal.texture_albedo = splash_textures[randi() % splash_textures.size()]
-  decal.position = Vector3(0,-2,0)
+  decal.size = Vector3(4,0.5,4)
+  decal.position = Vector3(0,-2.25,0)
   decal.top_level = true
   add_child(decal)
 
