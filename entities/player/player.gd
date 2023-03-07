@@ -223,7 +223,7 @@ func _physics_process(delta: float) -> void:
       elif entity is RedButton:
         entity.press()
       elif entity.is_in_group("breakable_scenario"):
-        entity.queue_free()
+        entity.break_wall()
   
   # Prevent the player from going too high when bouncing unchecked a slope.
   if velocity.y > bounce_cap:
