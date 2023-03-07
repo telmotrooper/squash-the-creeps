@@ -1106,8 +1106,9 @@ curve = SubResource("Curve3D_idwc0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D"]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 15, 23)
+loop = false
 
-[node name="BlueEnemy" parent="SandPlatform/Path3D/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemyNew" parent="SandPlatform/Path3D/PathFollow3D" instance=ExtResource("10")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Path3D" type="Path3D" parent="."]

@@ -9,7 +9,10 @@ enum {
   CHASING
 }
 
+enum { GOING, RETURNING }
+
 var state = PATROLLING
+var path_state = GOING
 
 func _ready() -> void:
   if get_parent() is PathFollow3D:
@@ -19,10 +22,23 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
   super._physics_process(delta)
   
+  if get_parent() is PathFollow3D:
+    var x = get_parent().progress_ratio
+    
+    if x <= 0 and path_state == RETURNING:
+      path_state = GOING
+      rotation_degrees.y -= 180
+    elif x >= 1:
+      path_state = RETURNING
+      rotation_degrees.y -= 180
+  
   match state:
     PATROLLING:
       if get_parent() is PathFollow3D:
-        get_parent().progress += patrolling_speed * delta
+        if path_state == GOING:
+          get_parent().progress += patrolling_speed * delta
+        elif path_state == RETURNING:
+          get_parent().progress -= patrolling_speed * delta
     ALERT:
       $ExclamationMark.show()
       $AlertTimer.start()
