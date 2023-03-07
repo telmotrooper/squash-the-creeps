@@ -53,12 +53,18 @@ func kill() -> void: # Triggered by animation "squash'.
   queue_free()
 
 func _on_splash_timer_timeout() -> void:
+  # Draw splash on the floor.
   var decal = Decal.new()
   decal.texture_albedo = splash_textures[randi() % splash_textures.size()]
   decal.size = Vector3(4,0.5,4)
   decal.position = Vector3(0,-2.25,0)
   decal.top_level = true
   add_child(decal)
-
+  
+  # Randomize time for next splash.
   $SplashTimer.wait_time = randf_range(1, 5)
   $SplashTimer.start()
+  
+  # Remove current splash.
+  await get_tree().create_timer(4).timeout
+  decal.queue_free()
