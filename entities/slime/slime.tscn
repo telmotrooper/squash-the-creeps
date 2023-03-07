@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://chm02iuo3iig6"]
+[gd_scene load_steps=12 format=3 uid="uid://chm02iuo3iig6"]
 
 [ext_resource type="Script" path="res://entities/slime/slime.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
 [ext_resource type="PackedScene" uid="uid://xf7ioambo57h" path="res://entities/slime/slime.blend" id="3_phpra"]
+[ext_resource type="Texture2D" uid="uid://b5kd7lrfeiyrf" path="res://entities/slime/slime_splash_1.png" id="4_kmx6p"]
+[ext_resource type="Texture2D" uid="uid://dfpjf1upbfk8y" path="res://entities/slime/slime_splash_2.png" id="5_ds5kd"]
+[ext_resource type="Texture2D" uid="uid://16wtc8b73lso" path="res://entities/slime/slime_splash_3.png" id="6_k1tyq"]
 
 [sub_resource type="BoxShape3D" id="2"]
 size = Vector3(2, 3.5, 2)
@@ -128,6 +131,7 @@ collision_layer = 2
 collision_mask = 524357
 script = ExtResource("1")
 squash_sound = ExtResource("3")
+splash_textures = Array[Texture2D]([ExtResource("4_kmx6p"), ExtResource("5_ds5kd"), ExtResource("6_k1tyq")])
 
 [node name="slime" parent="." instance=ExtResource("3_phpra")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -141,3 +145,9 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_hr6we")
 }
+
+[node name="SplashTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="SplashTimer" to="." method="_on_splash_timer_timeout"]

@@ -6,6 +6,8 @@ var already_squashed := false
 @export var squash_sound: AudioStream
 @export var patrolling_speed = 4
 
+@export var splash_textures: Array[Texture2D]
+
 enum {
   PATROLLING,
   DYING
@@ -45,3 +47,12 @@ func squash() -> void:
 
 func kill() -> void: # Triggered by animation "squash'.
   queue_free()
+
+func _on_splash_timer_timeout() -> void:
+  print("timeout")
+  var decal = Decal.new()
+  decal.size = Vector3(4,1,4)
+  decal.texture_albedo = splash_textures[randi() % splash_textures.size()]
+  decal.position = Vector3(0,-2,0)
+  decal.top_level = true
+  add_child(decal)
