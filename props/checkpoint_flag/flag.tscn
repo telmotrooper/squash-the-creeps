@@ -1,8 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cxjpvcv7qi46v"]
 
 [ext_resource type="Script" path="res://props/checkpoint_flag/flag.gd" id="1_euxr4"]
-[ext_resource type="Material" path="res://props/checkpoint_flag/flag_material.tres" id="2_hnj1t"]
-[ext_resource type="Material" path="res://props/checkpoint_flag/flag_material_2.tres" id="3_ofsl6"]
+[ext_resource type="Material" uid="uid://cs1n50is125v" path="res://props/checkpoint_flag/flag_material_2.tres" id="3_ofsl6"]
 [ext_resource type="Shader" path="res://props/checkpoint_flag/flag.gdshader" id="4_1lnfm"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="5_ejn7v"]
 [ext_resource type="AudioStream" uid="uid://d05y3bkiqsmxh" path="res://props/checkpoint_flag/zapsplat_multimedia_game_sound_finish_complete_success_bright_warm_synth_001_60688.mp3" id="6_aelxe"]
@@ -28,6 +27,12 @@ size = Vector2(3.2, 2)
 subdivide_width = 32
 subdivide_depth = 32
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_oss8i"]
+material = ExtResource("3_ofsl6")
+size = Vector2(3.2, 2)
+subdivide_width = 32
+subdivide_depth = 32
+
 [sub_resource type="StandardMaterial3D" id="5"]
 albedo_color = Color(0.709804, 0.713726, 0.760784, 1)
 metallic = 0.56
@@ -46,12 +51,14 @@ radius = 10.0
 [node name="CheckpointFlag" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79311, 0)
 script = ExtResource("1_euxr4")
-material_1 = ExtResource("2_hnj1t")
-material_2 = ExtResource("3_ofsl6")
 
 [node name="Flag" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.337505, 4.25, 0)
 mesh = SubResource("4")
+
+[node name="Flag2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.338, -4, 0)
+mesh = SubResource("PlaneMesh_oss8i")
 
 [node name="Pole" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, -1.6, 1.82459, 0)
