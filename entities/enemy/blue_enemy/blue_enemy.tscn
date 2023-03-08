@@ -125,6 +125,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 visible = false
 
 [node name="AlertTimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="ExclamationMark" type="MeshInstance3D" parent="."]
