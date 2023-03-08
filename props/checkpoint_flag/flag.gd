@@ -29,6 +29,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
     tween.tween_callback($Flag.set_surface_override_material.bind(0, material_2))
     tween.tween_property($Flag, "position:y", initial_flag_y, 1)
     tween.tween_callback($TextTimer.start)
+    tween.tween_callback($AudioStreamPlayer3D.play)
   else: # Otherwise just show the label.
     $TextTimer.start()
   
