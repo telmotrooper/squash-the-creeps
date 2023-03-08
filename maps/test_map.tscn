@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="9"]
 [ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10"]
 [ext_resource type="Material" uid="uid://cr7t2omehksmy" path="res://materials/gradient_blue.tres" id="10_uiqnu"]
-[ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="11"]
 [ext_resource type="Material" uid="uid://lnpp5e326wrn" path="res://materials/gradient_blue_2.tres" id="11_16cow"]
 [ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="14"]
