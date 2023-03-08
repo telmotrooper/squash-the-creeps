@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
           get_parent().progress -= patrolling_speed * delta
     ALERT:
       $ExclamationMark.show()
+      $AnimationPlayer.play("surprised")
       $AlertTimer.start()
       set_physics_process(false)
     CHASING:
@@ -61,5 +62,6 @@ func squash() -> void:
 
 func _on_AlertTimer_timeout() -> void:
   $ExclamationMark.hide()
+  $AnimationPlayer.play("float")
   state = CHASING
   set_physics_process(true)

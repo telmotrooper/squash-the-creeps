@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0skipybh0r4s"]
+[gd_scene load_steps=14 format=3 uid="uid://d0skipybh0r4s"]
 
 [ext_resource type="Script" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://woycgl4833us" path="res://entities/enemy/prism_area.tscn" id="2"]
@@ -79,10 +79,43 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_mlvfu"]
+resource_name = "surprised"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bjpng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qiig7"]
 _data = {
+"RESET": SubResource("Animation_bjpng"),
 "float": SubResource("2"),
-"squash": SubResource("3")
+"squash": SubResource("3"),
+"surprised": SubResource("Animation_mlvfu")
 }
 
 [sub_resource type="StandardMaterial3D" id="6"]
@@ -104,7 +137,7 @@ squash_sound = ExtResource("4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0)
 
 [node name="Character" parent="Pivot" instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 0.986138, 0.165926, 0, -0.165925, 0.986139, 0, 0.478475, 0)
+transform = Transform3D(0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985271, 0.170891, -0.0221321, -0.170982, 0.985026, 0.0239411, 0.734308, -0.00194665)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671283, 0.295466)
