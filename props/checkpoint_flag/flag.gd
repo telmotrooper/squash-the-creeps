@@ -8,7 +8,7 @@ var initial_flag_y: float
 
 func _ready() -> void:
   $Label3D.hide()
-  initial_flag_y = $Flag.position.y
+  initial_flag_y = $Pivot/Flag.global_transform.origin.y
 
 func _on_text_timer_timeout() -> void:
   $Label3D.text = text.substr(0, text_index)
@@ -25,8 +25,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
     played = true
     var tween = create_tween()
     tween.set_parallel(true)
-    tween.tween_property($Flag, "position:y", -4, 1)
-    tween.tween_property($Flag2, "position:y", initial_flag_y, 1)
+    $Flag2.show()
+    tween.tween_property($Pivot, "rotation_degrees:y", 45, 1)
+    tween.tween_property($Pivot/Flag, "position:y", -8, 1)
+    tween.tween_property($Flag2, "global_transform:origin:y", initial_flag_y, 1)
     tween.set_parallel(false)
     tween.tween_callback($TextTimer.start)
     tween.tween_callback($AudioStreamPlayer3D.play)

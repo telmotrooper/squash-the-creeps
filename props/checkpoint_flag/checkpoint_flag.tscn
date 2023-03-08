@@ -52,12 +52,16 @@ radius = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79311, 0)
 script = ExtResource("1_3h7g4")
 
-[node name="Flag" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.337505, 4.25, 0)
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 4.2, 0)
+
+[node name="Flag" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 1.93751, 0.0499997, 0)
 mesh = SubResource("4")
 
 [node name="Flag2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.338, -4, 0)
+transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.338, -3.2, 0)
+visible = false
 mesh = SubResource("PlaneMesh_oss8i")
 
 [node name="Pole" type="MeshInstance3D" parent="."]
