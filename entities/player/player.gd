@@ -224,6 +224,8 @@ func _physics_process(delta: float) -> void:
         entity.press()
       elif entity.is_in_group("breakable_scenario"):
         entity.break_wall()
+      elif entity.is_in_group("spinnable"):
+        entity.interact_on_spin()
   
   # Prevent the player from going too high when bouncing unchecked a slope.
   if velocity.y > bounce_cap:
