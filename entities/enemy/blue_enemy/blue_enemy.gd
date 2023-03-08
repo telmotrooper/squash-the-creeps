@@ -56,6 +56,7 @@ func _on_PrismArea_body_entered(_body: Node) -> void:
     state = ALERT
 
 func squash() -> void:
+  set_physics_process(false)
   # When squashed, always hide exclamation mark.
   $ExclamationMark.hide()
   super.squash()

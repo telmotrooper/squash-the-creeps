@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://doapumohf71x2"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cw87vh5ubyy1l"]
 
-[ext_resource type="Shader" path="res://props/flag/flag_2.gdshader" id="1_vp01k"]
+[ext_resource type="Shader" path="res://props/checkpoint_flag/flag.gdshader" id="1_bs6b0"]
 
 [sub_resource type="FastNoiseLite" id="1"]
 
@@ -10,7 +10,7 @@ noise = SubResource("1")
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_vp01k")
+shader = ExtResource("1_bs6b0")
 shader_parameter/wave_size = 1.0
 shader_parameter/face_distortion = 0.5
 shader_parameter/time_scale = Vector2(0.3, 0)

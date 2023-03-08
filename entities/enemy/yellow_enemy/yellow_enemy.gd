@@ -3,6 +3,7 @@ extends BlueEnemy
 func squash() -> void:
   $RespawnTimer.start()
   super.squash()
+  set_physics_process(true)
 
 func kill() -> void: # Do not kill, just hide.
   self.hide()

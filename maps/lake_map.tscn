@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dsi70335iix5i" path="res://props/green_gem/green_gem.tscn" id="18"]
 [ext_resource type="PackedScene" uid="uid://dl4e5e40iodpb" path="res://maps/extras/pier/pier.tscn" id="19"]
 [ext_resource type="Texture2D" uid="uid://c7rc5p0126d5f" path="res://particles/float/star_08.png" id="20"]
-[ext_resource type="PackedScene" uid="uid://bkgu38wfxp4w7" path="res://props/flag/flag.tscn" id="21_gosh7"]
+[ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="21_gosh7"]
 
 [sub_resource type="Curve3D" id="1"]
 _data = {
