@@ -152,8 +152,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="24"]
 radius = 10.0
 
-[node name="Node3D" type="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0, -135.074)
+[node name="Portal" type="CSGCylinder3D"]
 radius = 3.0
 height = 0.25
 sides = 16
