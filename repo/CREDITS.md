@@ -44,6 +44,8 @@
 
 * Sound [ShovelingSand.wav](https://freesound.org/people/mitchanary/sounds/505169/) by [mitchanary](https://freesound.org/people/mitchanary/), licensed under (CC0 1.0)
 
+* Sound [Game sound, bright and warm synth, complete, success tone 1](https://www.zapsplat.com/music/game-sound-bright-and-warm-synth-complete-success-tone-1/) by [ZapSplat](https://www.zapsplat.com/), licensed under ZapSplat Standard License
+
 ## Others
 
 * Skybox [Sky Pano - Milkyway](https://sketchfab.com/3d-models/sky-pano-milkyway-0016725c047a4ea18cd0b5e5ef2fe441) by [MozillaHubs](https://sketchfab.com/3d-models/sky-pano-milkyway-0016725c047a4ea18cd0b5e5ef2fe441) licensed under CC Attribution-NonCommercial-ShareAlikeCC.
