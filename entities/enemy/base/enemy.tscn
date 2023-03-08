@@ -85,7 +85,7 @@ _data = {
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 2
-collision_mask = 524357
+collision_mask = 524359
 script = ExtResource("1")
 squash_sound = ExtResource("3")
 
