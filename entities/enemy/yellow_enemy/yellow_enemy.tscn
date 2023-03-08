@@ -136,7 +136,7 @@ size = Vector2(1.5, 1.5)
 [node name="YellowEnemy" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 collision_layer = 2
-collision_mask = 524357
+collision_mask = 524359
 script = ExtResource("1")
 patrolling_speed = 6
 squash_sound = ExtResource("3")
