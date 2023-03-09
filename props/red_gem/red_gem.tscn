@@ -49,6 +49,7 @@ radius = 1.0
 [node name="RedGem" type="RigidBody3D"]
 collision_layer = 256
 collision_mask = 4
+gravity_scale = 3.0
 script = ExtResource("2")
 collected_sound = ExtResource("3")
 

@@ -42,9 +42,9 @@ var progress = {}
 var amount_of_gems := 0
 var gems_collected = {}
 
-var global_gem_progress = { "collected": 0, "total": 90+52, "percentage": 0.0 }
+var global_gem_progress = { "collected": 0, "total": 102+52, "percentage": 0.0 }
 var gem_progress = {
-  "TestMap": { "collected": 0, "total": 90, "percentage": 0.0 },
+  "TestMap": { "collected": 0, "total": 102, "percentage": 0.0 },
   "LakeMap": { "collected": 0, "total": 52, "percentage": 0.0 }
 }
 

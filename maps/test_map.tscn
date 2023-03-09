@@ -605,6 +605,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759)
 [node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource("33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098)
 
+[node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(0.963696, 0.267003, 0, -0.267003, 0.963696, 0, 0, 0, 1, -2.15528, 6.71425, 0)
+
+[node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(1, 0, 0, 0, 0.961175, -0.275939, 0, 0.275939, 0.961175, 0.611984, 6.63977, -2.46629)
+
+[node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(0.999988, 0.00493372, 0.000530863, -0.004962, 0.995157, 0.0981748, -4.39294e-05, -0.0981763, 0.995169, 0.611984, 6.93238, 2.08485)
+
+[node name="RedGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("24")]
+transform = Transform3D(0.932557, 0.361022, 0, -0.361022, 0.932557, 0, 0, 0, 1, -1.71158, 6.66337, -1.86882)
+
+[node name="RedGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("24")]
+transform = Transform3D(0.924799, -0.380457, 0, 0.380457, 0.924799, 0, 0, 0, 1, 1.67213, 6.7352, -0.258358)
+
+[node name="RedGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("24")]
+transform = Transform3D(0.995795, -0.091606, 0, 0.0885957, 0.963073, 0.254248, -0.0232906, -0.253179, 0.967139, -0.815338, 6.38492, 2.07698)
+
 [node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource("15")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 34.6944, 0)
 

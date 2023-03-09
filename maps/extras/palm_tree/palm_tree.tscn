@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://brxm4hmmc44rl"]
+[gd_scene load_steps=5 format=3 uid="uid://brxm4hmmc44rl"]
 
+[ext_resource type="Script" path="res://maps/extras/palm_tree/palm_tree.gd" id="1_1av7d"]
 [ext_resource type="PackedScene" uid="uid://by67u68yj1vku" path="res://maps/extras/palm_tree/palm_tree.blend" id="1_hbbvb"]
 
 [sub_resource type="BoxShape3D" id="1"]
@@ -8,15 +9,20 @@ size = Vector3(12, 1, 12)
 [sub_resource type="BoxShape3D" id="2"]
 size = Vector3(2, 17, 2)
 
-[node name="PalmTree" type="StaticBody3D"]
+[node name="PalmTree" type="StaticBody3D" groups=["spinnable"]]
 collision_layer = 4
+script = ExtResource("1_1av7d")
 
-[node name="palm_tree" parent="." instance=ExtResource("1_hbbvb")]
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="palm_tree" parent="Pivot" instance=ExtResource("1_hbbvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="CollisionShapeTop" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.90711, 0)
 shape = SubResource("1")
 
-[node name="CollisionShape2" type="CollisionShape3D" parent="."]
+[node name="CollisionShapeBody" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.434076, -0.429467)
 shape = SubResource("2")
