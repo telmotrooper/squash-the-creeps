@@ -13,7 +13,11 @@ size = Vector3(2, 17, 2)
 collision_layer = 4
 script = ExtResource("1_1av7d")
 
-[node name="palm_tree" parent="." instance=ExtResource("1_hbbvb")]
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+
+[node name="palm_tree" parent="Pivot" instance=ExtResource("1_hbbvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
 
 [node name="CollisionShapeTop" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.90711, 0)
