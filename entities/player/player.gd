@@ -277,6 +277,7 @@ func update_color() -> void:
     $ModelPivot/player/Body.set_surface_override_material(0, low_health_material)
 
 func take_damage() -> void:
+  $AnimationPlayer.play("hurt")
   health -= 1
   update_color()
 
