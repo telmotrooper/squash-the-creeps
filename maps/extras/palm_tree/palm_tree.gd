@@ -2,6 +2,11 @@ extends StaticBody3D
 
 var shaking := false
 
+func _ready() -> void:
+  for child in get_children():
+    if child is Gem:
+      child.freeze = true
+
 func interact_on_spin() -> void:
   if not shaking:
     
