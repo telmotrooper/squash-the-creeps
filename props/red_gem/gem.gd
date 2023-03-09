@@ -32,4 +32,5 @@ func _physics_process(delta: float) -> void:
       queue_free()
 
 func _on_GrabArea_body_entered(_body: Node) -> void:
-  follow_player = true
+  if not freeze:
+    follow_player = true
