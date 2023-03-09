@@ -4,6 +4,11 @@ var shaking := false
 
 func interact_on_spin() -> void:
   if not shaking:
+    
+    for child in get_children(): # Drop gem.
+      if child is Gem:
+        child.freeze = false
+    
     shaking = true
     var tween = create_tween().set_loops(2)
     tween.tween_property($Pivot, "rotation_degrees:x", 2.5, 0.2)

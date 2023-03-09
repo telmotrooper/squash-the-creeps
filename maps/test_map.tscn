@@ -605,6 +605,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759)
 [node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource("33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098)
 
+[node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69263, 7.09497, 0)
+freeze = true
+
+[node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15528, 6.71425, 0)
+freeze = true
+
+[node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611984, 6.63977, -2.46629)
+freeze = true
+
+[node name="GreenGem4" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611984, 6.93238, 2.08485)
+freeze = true
+
+[node name="GreenGem5" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98901, 6.82544, 1.82888)
+freeze = true
+
 [node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource("15")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 34.6944, 0)
 
