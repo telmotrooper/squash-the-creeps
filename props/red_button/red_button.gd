@@ -14,3 +14,6 @@ func press() -> void:
     $AudioStreamPlayer.play()
     is_pressed = true
     emit_signal("pressed")
+
+func interact_on_spin() -> void:
+  press()

@@ -85,7 +85,7 @@ _data = {
 "press": SubResource("2")
 }
 
-[node name="RedButton" type="StaticBody3D"]
+[node name="RedButton" type="StaticBody3D" groups=["spinnable"]]
 collision_layer = 4
 script = ExtResource("2")
 
