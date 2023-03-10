@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - disabled
+      - main
 
 jobs:
   export_game:
@@ -11,12 +11,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3.0.2
-  
-    - name: get tag from version
-      id: tag_version
-      run: |
-          echo "TAG_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-  
+
     - name: export game
       id: export
       uses: firebelley/godot-export@v4.7.0
@@ -32,5 +27,5 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         generateReleaseNotes: true
-        tag: v${{ steps.tag_version.outputs.TAG_VERSION }}
+        tag: ${{ github.ref_name }}
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
