@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.gd" id="2_sh08v"]
 [ext_resource type="AudioStream" uid="uid://djejr4dtjnlyi" path="res://assets/505169__mitchanary__shovelingsand.ogg" id="3_bqtnj"]
 
-[node name="BreakableSandWall" type="CSGBox3D" groups=["breakable_scenario"]]
+[node name="BreakableSandWall" type="CSGBox3D" groups=["spinnable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 3.91087, 79.5702)
 use_collision = true
 collision_layer = 64

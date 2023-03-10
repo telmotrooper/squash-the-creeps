@@ -418,7 +418,7 @@ transform = Transform3D(-0.183013, 0.965926, -0.183013, 0.683013, 0.258819, 0.68
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.2, 9.3)
 
 [node name="player" parent="Node3D/Spaceship" instance=ExtResource("11_cwy8d")]
-transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156434, 0, -0.156434, 0.987688, 0, 1.4, 0)
+transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156435, 0, -0.156435, 0.987688, 0, 1.4, 0)
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_menu_button_pressed" binds= ["new_game"]]

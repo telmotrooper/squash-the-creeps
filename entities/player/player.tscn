@@ -71,20 +71,20 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="4"]
-resource_name = "spin-y"
-length = 0.4
+[sub_resource type="Animation" id="9"]
+resource_name = "dash"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelPivot:rotation_degrees")
+tracks/0/path = NodePath("ModelPivot/player:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 720, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
 }
 
 [sub_resource type="Animation" id="3"]
@@ -115,20 +115,20 @@ tracks/1/keys = {
 "values": [Vector3(-0.167552, 0, 0), Vector3(0.010472, 0, 0), Vector3(0.200713, 0, 0), Vector3(0.010472, 0, 0), Vector3(-0.176278, 0, 0)]
 }
 
-[sub_resource type="Animation" id="9"]
-resource_name = "dash"
-length = 0.5
+[sub_resource type="Animation" id="4"]
+resource_name = "spin-y"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelPivot/player:rotation")
+tracks/0/path = NodePath("ModelPivot:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+"values": [Vector3(0, 0, 0), Vector3(0, 720, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_et1fc"]
@@ -137,6 +137,33 @@ _data = {
 "dash": SubResource("9"),
 "float": SubResource("3"),
 "spin-y": SubResource("4")
+}
+
+[sub_resource type="Animation" id="Animation_uvekq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ModelPivot/player/Pupil:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ModelPivot/player/Pupil (Hurt):visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_yisnt"]
@@ -165,33 +192,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_uvekq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../ModelPivot/player/Pupil:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ModelPivot/player/Pupil (Hurt):visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8gbh"]
