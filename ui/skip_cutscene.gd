@@ -25,4 +25,5 @@ func enable(_anim_name: StringName) -> void:
   set_process(true)
 
 func disable(_anim_name: StringName) -> void:
+  hide()
   set_process(false)
