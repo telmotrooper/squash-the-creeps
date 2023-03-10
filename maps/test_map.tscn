@@ -1167,6 +1167,9 @@ size = 550.0
 script = ExtResource("40_8w1et")
 save_to = "res://assets/minimap/maps/test-map.png"
 
+[node name="CheckpointFlag" parent="." instance=ExtResource("11")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.119, 11.1003, 9.64482)
+
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]

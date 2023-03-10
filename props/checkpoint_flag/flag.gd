@@ -32,6 +32,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
     tween.set_parallel(false)
     tween.tween_callback($TextTimer.start)
     tween.tween_callback($AudioStreamPlayer3D.play)
+    tween.tween_callback($Pivot/Flag.hide)
   else: # Otherwise just show the label.
     $TextTimer.start()
   
