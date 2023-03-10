@@ -22,5 +22,5 @@ offset_left = -268.0
 offset_top = -26.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Hold LMB to skip cutscene"
+text = "Press Left Mouse Button again to skip cutscene"
 horizontal_alignment = 1
