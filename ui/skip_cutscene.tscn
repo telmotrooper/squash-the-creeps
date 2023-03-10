@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8mgkrk8bsb4m"]
+[gd_scene load_steps=3 format=3 uid="uid://c8mgkrk8bsb4m"]
 
 [ext_resource type="Script" path="res://ui/skip_cutscene.gd" id="1_i41nt"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_v4k7b"]
 
 [node name="SkipCutscene" type="Control"]
 layout_mode = 3
@@ -18,9 +19,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -268.0
-offset_top = -26.0
+offset_left = -524.0
+offset_top = -39.0
+offset_right = -14.999
+offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_v4k7b")
+theme_override_font_sizes/font_size = 20
 text = "Press Left Mouse Button again to skip cutscene"
-horizontal_alignment = 1
+horizontal_alignment = 2
+vertical_alignment = 2
