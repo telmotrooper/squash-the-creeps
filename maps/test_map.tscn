@@ -984,7 +984,7 @@ libraries = {
 }
 
 [node name="BlueCube2" type="CSGBox3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.645, 0.286633, -1.68718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.645, 0.287, 0)
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 20, 20)
