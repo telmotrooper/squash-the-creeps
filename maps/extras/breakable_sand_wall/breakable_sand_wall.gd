@@ -1,6 +1,6 @@
 extends CSGBox3D
 
-func break_wall() -> void:
+func interact_on_spin() -> void:
   $AudioStreamPlayer3D.play()
   use_collision = false
   hide()
