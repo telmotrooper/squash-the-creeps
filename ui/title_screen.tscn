@@ -420,6 +420,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.2, 9.3)
 [node name="player" parent="Node3D/Spaceship" instance=ExtResource("11_cwy8d")]
 transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156435, 0, -0.156435, 0.987688, 0, 1.4, 0)
 
+[node name="Pupil (Hurt)" parent="Node3D/Spaceship/player" index="3"]
+visible = false
+
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_menu_button_pressed" binds= ["new_game"]]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/SettingsButton" to="." method="_on_menu_button_pressed" binds= ["settings"]]
@@ -427,3 +430,5 @@ transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156435, 0, -0.156435, 0.987688, 
 [connection signal="gui_input" from="Control/Menu/CenterRow/CenterContainer" to="." method="_on_CenterContainer_gui_input"]
 [connection signal="back_button_pressed" from="Control/Settings" to="." method="_on_Settings_back_button_pressed"]
 [connection signal="animation_finished" from="Node3D/AnimationPlayerSpaceship" to="." method="_on_AnimationPlayerSpaceship_animation_finished"]
+
+[editable path="Node3D/Spaceship/player"]
