@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
   if listening:
+    $AnimationPlayer.play("bounce")
     listening = false
     player = body
     # Backup player parent and fall acceleration.
@@ -33,3 +34,9 @@ func reset() -> void:
   $SpringPath/PathFollow3D.progress_ratio = 0
   listening = true
   set_physics_process(false)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+  if anim_name == "bounce":
+    await get_tree().create_timer(0.5).timeout
+    $AnimationPlayer.play("retract")
