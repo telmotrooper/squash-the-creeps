@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://1adku7xcpwfb"]
+
+[ext_resource type="Script" path="res://maps/extras/spring/spring.gd" id="1_w7cyw"]
+[ext_resource type="PackedScene" uid="uid://b4uyhp6qs75my" path="res://maps/extras/spring/spring.blend" id="2_bf2kl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6maf"]
+size = Vector3(5, 4, 5)
+
+[node name="Spring" type="Node3D"]
+script = ExtResource("1_w7cyw")
+
+[node name="spring" parent="." instance=ExtResource("2_bf2kl")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_e6maf")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
