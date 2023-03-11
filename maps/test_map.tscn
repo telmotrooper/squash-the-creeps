@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://b34ipmbn3w45r"]
+[gd_scene load_steps=83 format=3 uid="uid://btsj8kt81tarp"]
 
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_8tp7d"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
@@ -29,7 +29,7 @@
 [ext_resource type="Material" uid="uid://c23rwmc1hwenf" path="res://materials/Bamboo 001 C/Bamboo 001 C.tres" id="26_xnkt5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="27"]
 [ext_resource type="AudioStream" uid="uid://cs20rrahm3kdx" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="28"]
-[ext_resource type="Script" path="res://maps/spring.gd" id="28_3l6fl"]
+[ext_resource type="Script" path="res://maps/extras/spring/spring.gd" id="28_fkfcn"]
 [ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
 [ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="31"]
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
@@ -1009,7 +1009,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.145, 10.4, 7.476)
 use_collision = true
 collision_layer = 4
 size = Vector3(5, 0.25, 5)
-script = ExtResource("28_3l6fl")
+script = ExtResource("28_fkfcn")
 
 [node name="Area3D" type="Area3D" parent="Map/Spring"]
 collision_layer = 16
@@ -1023,7 +1023,6 @@ unique_name_in_owner = true
 curve = SubResource("Curve3D_dm8rc")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/Spring/SpringPath"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 rotation_mode = 0
 loop = false
 
