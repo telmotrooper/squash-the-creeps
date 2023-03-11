@@ -1023,7 +1023,9 @@ unique_name_in_owner = true
 curve = SubResource("Curve3D_dm8rc")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/Spring/SpringPath"]
-transform = Transform3D(7.54979e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, -5.33851e-08, 5.33851e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+rotation_mode = 0
+loop = false
 
 [node name="FallingBridge" parent="Map" instance=ExtResource("16")]
 unique_name_in_owner = true
