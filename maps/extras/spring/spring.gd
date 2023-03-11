@@ -1,4 +1,4 @@
-extends CSGBox3D
+extends Node3D
 
 @export var speed := 35
 var running := false
