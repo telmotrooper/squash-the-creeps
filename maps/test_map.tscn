@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b34ipmbn3w45r"]
+[gd_scene load_steps=82 format=3 uid="uid://btsj8kt81tarp"]
 
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_8tp7d"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
@@ -29,6 +29,7 @@
 [ext_resource type="Material" uid="uid://c23rwmc1hwenf" path="res://materials/Bamboo 001 C/Bamboo 001 C.tres" id="26_xnkt5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="27"]
 [ext_resource type="AudioStream" uid="uid://cs20rrahm3kdx" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="28"]
+[ext_resource type="PackedScene" uid="uid://1adku7xcpwfb" path="res://maps/extras/spring/spring.tscn" id="28_phcqy"]
 [ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
 [ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="31"]
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
@@ -326,6 +327,13 @@ _data = {
 "RESET": SubResource("40"),
 "show_sprint_label": SubResource("41")
 }
+
+[sub_resource type="Curve3D" id="Curve3D_dm8rc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -6, 6, 0, 0, 0, 0, 0, 0, 0, -14, 12, 0, 0, 0, 0, 0, 0, 0, -22, 14, 0, 0, 0, 0, 0, 0, 0, -30, 14, 0, 0, 0, 0, 0, 0, 0, -38, 12, 0, 0, 0, 0, 0, 0, 0, -47, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3hdny"]
 material = ExtResource("4")
@@ -992,6 +1000,17 @@ material = ExtResource("26_xnkt5")
 
 [node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource("15")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="Spring" parent="Map" instance=ExtResource("28_phcqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.145, 10, 7.476)
+
+[node name="SpringPath" type="Path3D" parent="Map/Spring"]
+unique_name_in_owner = true
+curve = SubResource("Curve3D_dm8rc")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/Spring/SpringPath"]
+rotation_mode = 0
+loop = false
 
 [node name="FallingBridge" parent="Map" instance=ExtResource("16")]
 unique_name_in_owner = true
