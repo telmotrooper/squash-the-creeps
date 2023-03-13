@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - disabled
+      - main
 
 jobs:
   export_game:
@@ -9,6 +9,9 @@ jobs:
     permissions: write-all
     name: Export Game
     steps:
+    - name: download blender
+      run: wget https://mirrors.ocf.berkeley.edu/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz
+
     - name: checkout
       uses: actions/checkout@v3.0.2
 
