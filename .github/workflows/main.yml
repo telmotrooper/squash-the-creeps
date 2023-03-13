@@ -23,7 +23,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.0.2
 
-    - name: Export Game
+    - name: Export game
       id: export
       uses: firebelley/godot-export@v4.7.0
       with:
@@ -33,7 +33,7 @@ jobs:
         relative_project_path: ./
         archive_output: true
 
-    - name: Create Release
+    - name: Create release
       uses: ncipollo/release-action@v1.12.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
