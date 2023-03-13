@@ -12,10 +12,10 @@ jobs:
     - name: Download and setup Blender
       run: |
         wget https://mirrors.ocf.berkeley.edu/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz
-        tar xvf blender-*.tar.xz && mv -v $(ls -d */ | grep blender) blender
-        echo "Blender is at: $(cd blender && pwd)"
+        tar xvf blender-*.tar.xz && mv -v $(ls -d */ | grep blender) $HOME/blender
+        echo "Blender is at: $(cd $HOME/blender && pwd)"
         mkdir -pv ~/.config/godot
-        echo -e "[gd_resource type=\"EditorSettings\" format=3]\n\n[resource]\nfilesystem/import/blender/blender3_path = \"$GITHUB_WORKSPACE/blender\"" > ~/.config/godot/editor_settings-4.tres
+        echo -e "[gd_resource type=\"EditorSettings\" format=3]\n\n[resource]\nfilesystem/import/blender/blender3_path = \"$HOME/blender\"" > ~/.config/godot/editor_settings-4.tres
         cat ~/.config/godot/editor_settings-4.tres
 
     - name: Checkout
