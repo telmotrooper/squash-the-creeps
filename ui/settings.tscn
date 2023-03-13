@@ -9,10 +9,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.0
-offset_top = -176.5
-offset_right = 290.0
-offset_bottom = 176.5
+offset_left = -306.0
+offset_top = -185.0
+offset_right = 306.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_u0wmf")
 script = ExtResource("1")
 
