@@ -9,21 +9,21 @@ jobs:
     permissions: write-all
     name: Export Game
     steps:
-    - name: download blender
+    - name: Download Blender
       run: |
         wget https://mirrors.ocf.berkeley.edu/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz
         tar xvf blender-*.tar.xz && mv -v $(ls -d */ | grep blender) blender
 
-    - name: setup blender
+    - name: Setup Blender
       run: |
         mkdir -pv ~/.config/godot
         echo -e "[gd_resource type="EditorSettings" format=3]\n\n[resource]\nfilesystem/import/blender/blender3_path = \"$GITHUB_WORKSPACE/blender\"" > ~/.config/godot/editor_settings-4.tres
         cat ~/.config/godot/editor_settings-4.tres
 
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v3.0.2
 
-    - name: export game
+    - name: Export Game
       id: export
       uses: firebelley/godot-export@v4.7.0
       with:
@@ -33,7 +33,7 @@ jobs:
         relative_project_path: ./
         archive_output: true
 
-    - name: create release
+    - name: Create Release
       uses: ncipollo/release-action@v1.12.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
