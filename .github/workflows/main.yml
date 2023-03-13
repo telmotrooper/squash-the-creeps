@@ -16,7 +16,7 @@ jobs:
       run: tar xvf blender-*.tar.xz && mv -v $(ls -d */ | grep blender) blender
 
     - name: setup blender
-      run: echo -e "[gd_resource type="EditorSettings" format=3]\n\n[resource]\nfilesystem/import/blender/blender3_path = \"~/blender\"" > ~/.config/godot/editor_settings-4.tres && cat ~/.config/godot/editor_settings-4.tres
+      run: echo -e "[gd_resource type="EditorSettings" format=3]\n\n[resource]\nfilesystem/import/blender/blender3_path = \"$GITHUB_WORKSPACE/blender\"" > ~/.config/godot/editor_settings-4.tres && cat ~/.config/godot/editor_settings-4.tres
 
     - name: checkout
       uses: actions/checkout@v3.0.2
