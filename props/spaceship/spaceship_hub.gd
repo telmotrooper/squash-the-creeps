@@ -4,7 +4,7 @@ func _ready() -> void:
   set_process(false)
 
 func _process(_delta: float) -> void:
-  if Input.is_action_just_pressed("interact"):
+  if Input.is_action_just_pressed("interact") and not GameState.Player.paused:
     GameState.Player.paused = true
     Dialogic.start("res://dialogic/timelines/broken_spaceship.dtl")
     await Dialogic.signal_event
