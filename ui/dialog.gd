@@ -37,6 +37,7 @@ func close_dialog() -> void:
   tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
   tween.tween_callback(func():
     index = 0
+    text_to_write = ""
     %DialogText.text = ""
     hide()
     GameState.minimap.show()
