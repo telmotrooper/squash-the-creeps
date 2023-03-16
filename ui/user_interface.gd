@@ -9,6 +9,7 @@ func _ready() -> void:
   # we'll need a reference to the current one.
   GameState.UserInterface = self
   GameState.dialog = $Dialog
+  GameState.minimap = $Minimap
   
   $Dialog.show()
   $Dialog.modulate = Color(1, 1, 1, 0)
