@@ -1,6 +1,8 @@
 extends Control
 class_name Dialog
 
+signal finished
+
 func _ready() -> void:
   set_process(false)
 
@@ -23,4 +25,5 @@ func close_dialog() -> void:
   tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
   tween.tween_callback(func():
     hide()
+    emit_signal("finished")
   )
