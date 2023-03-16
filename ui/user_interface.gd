@@ -98,3 +98,12 @@ func move_minimap(player_offset: Vector3) -> void:
 #  print('player_offset: (%.2f,%.2f)' % [player_offset.x, player_offset.z])
   %MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
   %MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion
+
+func switch_to_dialog() -> void:
+  $Minimap.hide()
+  %DialogText.text = "It isn't going anywhere soon..."
+  $Dialog.show()
+
+func switch_from_dialog() -> void:
+  $Minimap.show()
+  $Dialog.show()

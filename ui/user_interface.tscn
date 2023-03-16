@@ -313,6 +313,34 @@ offset_top = -15.5
 offset_bottom = 15.5
 text = "Press enter to retry"
 
+[node name="Dialog" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = -255.0
+offset_right = 368.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogText" type="RichTextLabel" parent="Dialog/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "HELLO"
+
 [node name="Pause" type="Control" parent="."]
 process_mode = 3
 anchors_preset = 0
@@ -382,10 +410,6 @@ text = "Back"
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-offset_top = -185.0
-offset_bottom = 185.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true
