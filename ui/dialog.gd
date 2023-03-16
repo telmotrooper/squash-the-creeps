@@ -16,10 +16,10 @@ func set_text(text) -> void:
 func open_dialog() -> void:
   GameState.Player.paused = true
   GameState.minimap.hide()
-  set_process(true)
   show()
   var tween = create_tween()
   tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.5)
+  tween.tween_callback(func(): set_process(true))
 
 func close_dialog() -> void:
   set_process(false)
