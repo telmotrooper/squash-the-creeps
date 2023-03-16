@@ -5,12 +5,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
   if Input.is_action_just_pressed("interact") and not GameState.Player.paused:
-    if GameState.UserInterface.get_node("Dialog").visible:
-      print("switch_from_dialog")
-      GameState.UserInterface.switch_from_dialog()
-    else:
-      print("switch_to_dialog")
-      GameState.UserInterface.switch_to_dialog()
+    GameState.dialog.set_text("It isn't going anywhere soon...")
+    GameState.dialog.open_dialog()
 #    GameState.Player.paused = true
 #    Dialogic.start("res://dialogic/timelines/broken_spaceship.dtl")
 #    await Dialogic.signal_event

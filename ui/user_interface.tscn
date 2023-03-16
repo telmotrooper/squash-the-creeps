@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=24 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://do0d3kqunn7pt" path="res://assets/minimap/player-cursor.png" id="6_y76n1"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
+[ext_resource type="Script" path="res://ui/dialog.gd" id="7_g3dh2"]
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
@@ -314,14 +315,13 @@ offset_bottom = 15.5
 text = "Press enter to retry"
 
 [node name="Dialog" type="Control" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_g3dh2")
 
 [node name="PanelContainer" type="PanelContainer" parent="Dialog"]
 layout_mode = 1

@@ -8,6 +8,10 @@ func _ready() -> void:
   # If every map is gonna have its own UserInterface instance,
   # we'll need a reference to the current one.
   GameState.UserInterface = self
+  GameState.dialog = $Dialog
+  
+  $Dialog.show()
+  $Dialog.modulate = Color(1, 1, 1, 0)
   
   $Minimap.hide()
   resize_minimap()
@@ -104,7 +108,6 @@ func switch_to_dialog() -> void:
   $Minimap.hide()
   $Dialog.show()
   tween.tween_property($Dialog, "modulate", Color(1, 1, 1, 1), 0.5)
-  %DialogText.text = "It isn't going anywhere soon..."
 
 func switch_from_dialog() -> void:
   var tween = create_tween()
