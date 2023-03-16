@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=25 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
@@ -68,6 +68,17 @@ _data = {
 "VISIBLE": SubResource("4"),
 "hide_hud": SubResource("2")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phqdm"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.627451)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="Animation" id="5"]
 length = 0.001
@@ -336,11 +347,12 @@ offset_right = 368.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_phqdm")
 
 [node name="DialogText" type="RichTextLabel" parent="Dialog/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "HELLO"
+text = "Hello! This is a dialog."
 
 [node name="Pause" type="Control" parent="."]
 process_mode = 3
