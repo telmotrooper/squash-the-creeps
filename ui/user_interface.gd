@@ -102,17 +102,3 @@ func move_minimap(player_offset: Vector3) -> void:
 #  print('player_offset: (%.2f,%.2f)' % [player_offset.x, player_offset.z])
   %MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
   %MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion
-
-func switch_to_dialog() -> void:
-  var tween = create_tween()
-  $Minimap.hide()
-  $Dialog.show()
-  tween.tween_property($Dialog, "modulate", Color(1, 1, 1, 1), 0.5)
-
-func switch_from_dialog() -> void:
-  var tween = create_tween()
-  tween.tween_property($Dialog, "modulate", Color(1, 1, 1, 0), 0.5)
-  tween.tween_callback(func():
-    $Minimap.show()
-    $Dialog.hide()
-  )

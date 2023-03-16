@@ -7,13 +7,14 @@ func _ready() -> void:
   set_process(false)
 
 func _process(_delta: float) -> void:
-  if Input.is_action_just_pressed("interact"):
+  if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("skip_dialog"):
     close_dialog()
 
 func set_text(text) -> void:
   %DialogText.text = text
 
 func open_dialog() -> void:
+  GameState.Player.paused = true
   set_process(true)
   show()
   var tween = create_tween()
@@ -25,5 +26,5 @@ func close_dialog() -> void:
   tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
   tween.tween_callback(func():
     hide()
-    emit_signal("finished")
+    GameState.Player.paused = false
   )
