@@ -100,10 +100,16 @@ func move_minimap(player_offset: Vector3) -> void:
   %MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion
 
 func switch_to_dialog() -> void:
+  var tween = create_tween()
   $Minimap.hide()
-  %DialogText.text = "It isn't going anywhere soon..."
   $Dialog.show()
+  tween.tween_property($Dialog, "modulate", Color(1, 1, 1, 1), 0.5)
+  %DialogText.text = "It isn't going anywhere soon..."
 
 func switch_from_dialog() -> void:
-  $Minimap.show()
-  $Dialog.show()
+  var tween = create_tween()
+  tween.tween_property($Dialog, "modulate", Color(1, 1, 1, 0), 0.5)
+  tween.tween_callback(func():
+    $Minimap.show()
+    $Dialog.hide()
+  )
