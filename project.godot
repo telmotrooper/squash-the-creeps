@@ -25,15 +25,14 @@ GameState="*res://autoload/game_state.tscn"
 Hotkeys="*res://autoload/hotkeys.gd"
 Utils="*res://autoload/utils.gd"
 ResourceQueue="*res://autoload/resource_queue.gd"
-Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 
 [dialogic]
 
 editor/character_preview_mode=0
-editor/current_editor=&"Layout"
+editor/current_editor=&"Timeline Editor"
 editor/current_resources={
 "Character Editor": "res://dialogic/characters/player.dch",
-"Timeline Editor": "res://dialogic/timelines/broken_spaceship.dtl"
+"Timeline Editor": "res://dialogic/timelines/intro.dtl"
 }
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
@@ -53,7 +52,7 @@ glossary/default_case_sensitive=true
 layout/mode=0
 editor/current_timeline_path="res://dialogic/timelines/broken_spaceship.dtl"
 editor/timeline_editor_mode=0
-editor/last/resources=[]
+editor/last/resources=["res://dialogic/timelines/broken_spaceship.dtl", "res://dialogic/timelines/intro.dtl"]
 editor/visual_timeline_editor_sidebar=200.0
 layout/export_overrides={
 "box_modulate": "Color(0.00784314, 0.00784314, 0.00784314, 0.705882)",
@@ -68,10 +67,6 @@ editor/custom_testing_layout="res://addons/dialogic/Events/DefaultLayouts/Defaul
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [gdnative]
 
