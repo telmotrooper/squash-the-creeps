@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=25 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://do0d3kqunn7pt" path="res://assets/minimap/player-cursor.png" id="6_y76n1"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
+[ext_resource type="Script" path="res://ui/dialog.gd" id="7_g3dh2"]
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
@@ -67,6 +68,17 @@ _data = {
 "VISIBLE": SubResource("4"),
 "hide_hud": SubResource("2")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phqdm"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.627451)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="Animation" id="5"]
 length = 0.001
@@ -313,6 +325,35 @@ offset_top = -15.5
 offset_bottom = 15.5
 text = "Press enter to retry"
 
+[node name="Dialog" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_g3dh2")
+
+[node name="PanelContainer" type="PanelContainer" parent="Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = -255.0
+offset_right = 368.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_phqdm")
+
+[node name="DialogText" type="RichTextLabel" parent="Dialog/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hello! This is a dialog."
+
 [node name="Pause" type="Control" parent="."]
 process_mode = 3
 anchors_preset = 0
@@ -382,10 +423,6 @@ text = "Back"
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-offset_top = -185.0
-offset_bottom = 185.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]
 unique_name_in_owner = true

@@ -4,6 +4,8 @@ var Player: CharacterBody3D
 var Grass: MultiMeshInstance3D
 var MapName: String
 var UserInterface: Control
+var dialog: Dialog
+var minimap: Control
 var RetryCamera: Camera3D # Camera3D to be used when player dies.
 
 var hub_1_at_night := true

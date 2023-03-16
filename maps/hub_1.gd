@@ -42,7 +42,7 @@ func _on_AudioStreamPlayer_finished() -> void:
 
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
-  Dialogic.start("res://dialogic/timelines/intro.dtl")
-  await Dialogic.signal_event
+  GameState.dialog.set_text("The ship is completely busted... I won't be able to get out of here easily. Where IS here though?")
+  GameState.dialog.open_dialog()
+  await GameState.dialog.finished
   GameState.UserInterface.get_node("%Minimap").show()
-  GameState.Player.paused = false

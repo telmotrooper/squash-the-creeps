@@ -5,10 +5,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
   if Input.is_action_just_pressed("interact") and not GameState.Player.paused:
-    GameState.Player.paused = true
-    Dialogic.start("res://dialogic/timelines/broken_spaceship.dtl")
-    await Dialogic.signal_event
-    GameState.Player.paused = false
+    GameState.dialog.set_text("It isn't going anywhere soon...")
+    GameState.dialog.open_dialog()
 
 func _on_SpaceshipArea_body_entered(_player: Node) -> void:
   %SpaceshipLabel3D.show()
