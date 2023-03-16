@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://btsj8kt81tarp"]
+[gd_scene load_steps=83 format=3 uid="uid://btsj8kt81tarp"]
 
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_8tp7d"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="37_5b3ys"]
 [ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="38_8ys50"]
 [ext_resource type="Script" path="res://maps/minimap_camera.gd" id="40_8w1et"]
+[ext_resource type="PackedScene" uid="uid://bdeoefigj1dme" path="res://entities/tiki_npc/tiki_npc.tscn" id="42_d2gyg"]
 
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(60, 2, 60)
@@ -1188,6 +1189,9 @@ save_to = "res://assets/minimap/maps/test-map.png"
 
 [node name="CheckpointFlag" parent="." instance=ExtResource("11")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.119, 11.1003, 9.64482)
+
+[node name="tiki_npc" parent="." instance=ExtResource("42_d2gyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00802486, 0.047887, -7.46869)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]

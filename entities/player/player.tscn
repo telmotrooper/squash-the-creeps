@@ -237,7 +237,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" groups=["players"]]
-collision_mask = 524494
+collision_mask = 525006
 script = ExtResource("2")
 full_health_material = ExtResource("3_koyrj")
 mid_health_material = ExtResource("3_ndr1b")
