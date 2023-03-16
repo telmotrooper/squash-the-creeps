@@ -1191,7 +1191,7 @@ save_to = "res://assets/minimap/maps/test-map.png"
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.119, 11.1003, 9.64482)
 
 [node name="tiki_npc" parent="." instance=ExtResource("42_d2gyg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00802486, 0.047887, -7.46869)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00802486, 0.047887, -7.46869)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
