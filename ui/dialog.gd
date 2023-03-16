@@ -31,14 +31,13 @@ func open_dialog() -> void:
       index += 1
   )
 
-func close_dialog() -> void:
-  index = 0
-  %DialogText.text = ""
-  
+func close_dialog() -> void:  
   set_process(false)
   var tween = create_tween()
   tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
   tween.tween_callback(func():
+    index = 0
+    %DialogText.text = ""
     hide()
     GameState.minimap.show()
     GameState.Player.paused = false
