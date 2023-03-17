@@ -264,6 +264,7 @@ func move_to_last_safe_position() -> void:
       fade_to_black.set_is_faded(false)
     else: # If not started from "main" scene, still call "take_damage".
       take_damage()
+    $EffectsAnimationPlayer.play("grow")
     global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
     paused = false
 
