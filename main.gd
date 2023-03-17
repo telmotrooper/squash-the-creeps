@@ -4,7 +4,6 @@ extends Node3D
 
 enum LoadingStates {
   FADE_TO_BLACK_1,
-  FADE_TO_LOADING,
   LOADING,
   FADE_TO_BLACK_2,
   FADE_TO_WORLD,
@@ -53,13 +52,6 @@ func _on_FadeToBlack_finished_fading() -> void:
           current_world.queue_free()
         current_world = null
       
-      # Fade to transparent.
-      loading_state = LoadingStates.FADE_TO_LOADING
-      # This is where it goes to gray if we set "is_faded" to "false".
-      # Setting this variable starts processing in node FadeToBlack.
-      $FadeTransition.fade_out()
-    LoadingStates.FADE_TO_LOADING:
-      # Simply change the state to loading.
       loading_state = LoadingStates.LOADING
       set_process(true)
     LoadingStates.FADE_TO_BLACK_2:
@@ -93,5 +85,5 @@ func _process(_delta: float) -> void:
       
       # Fade to black.
       loading_state = LoadingStates.FADE_TO_BLACK_2
-      $FadeTransition.fade_out()
+      _on_FadeToBlack_finished_fading()
       set_process(false)
