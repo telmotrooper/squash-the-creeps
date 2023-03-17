@@ -3,7 +3,7 @@ extends Node3D
 @export var initial_scene: PackedScene
 
 enum LoadingStates {
-  FADE_TO_BLACK_1,
+  CLEAN_UP,
   LOADING,
   FADE_TO_BLACK_2,
   FADE_TO_WORLD,
@@ -15,6 +15,7 @@ var current_world = null
 var loading_world = null
 
 func _ready() -> void:
+  set_process(false)
   ResourceQueue.start()
   load_world(initial_scene.get_path())
 
@@ -22,7 +23,7 @@ func load_world(scene_to_load: NodePath) -> void:
   loading_world = scene_to_load
   ResourceQueue.queue_resource(loading_world)
   
-  loading_state = LoadingStates.FADE_TO_BLACK_1
+  loading_state = LoadingStates.CLEAN_UP
   $FadeTransition.fade_out()
   
   if not ResourceLoader.has_cached(loading_world):
@@ -34,7 +35,7 @@ func load_world(scene_to_load: NodePath) -> void:
 
 func _on_FadeToBlack_finished_fading() -> void:
   match loading_state:
-    LoadingStates.FADE_TO_BLACK_1:
+    LoadingStates.CLEAN_UP:
       $WorldScene.hide()
       
       if current_world:
@@ -43,7 +44,6 @@ func _on_FadeToBlack_finished_fading() -> void:
           current_world.queue_free()
         current_world = null
       
-      loading_state = LoadingStates.LOADING
       set_process(true)
     LoadingStates.FADE_TO_BLACK_2:
       $WorldScene.add_child(current_world)
@@ -58,16 +58,11 @@ func _on_FadeToBlack_finished_fading() -> void:
       loading_state = LoadingStates.PLAYING
 
 func _process(_delta: float) -> void:
-  if loading_state == LoadingStates.LOADING:
-    # We could do something with a progress bar here.
-    
-    # Check if our resource is available.
-    var new_world = ResourceQueue.get_resource(loading_world)
-    if new_world:
-      # If we're finished, create a new instance.
-      current_world = new_world.instantiate()
-      
-      # Fade to black.
-      loading_state = LoadingStates.FADE_TO_BLACK_2
-      _on_FadeToBlack_finished_fading()
-      set_process(false)
+  # Waiting until loading is done.
+  var new_world = ResourceQueue.get_resource(loading_world)
+  
+  if new_world: # If resource is available.
+    current_world = new_world.instantiate()
+    loading_state = LoadingStates.FADE_TO_BLACK_2
+    _on_FadeToBlack_finished_fading()
+    set_process(false)
