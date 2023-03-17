@@ -31,7 +31,7 @@ func load_world(scene_to_load: NodePath) -> void:
   
   # Fade to black, if we've already faded to black (startup) we get our signal immediately.
   loading_state = LoadingStates.FADE_TO_BLACK_1
-  $FadeToBlack.is_faded = true
+  $FadeTransition.fade_out()
   
   if not ResourceLoader.has_cached(loading_world):
     $ProgressBar.value = 0
@@ -57,8 +57,7 @@ func _on_FadeToBlack_finished_fading() -> void:
       loading_state = LoadingStates.FADE_TO_LOADING
       # This is where it goes to gray if we set "is_faded" to "false".
       # Setting this variable starts processing in node FadeToBlack.
-      $FadeToBlack.is_faded = true
-      #$FadeToBlack.is_faded = false
+      $FadeTransition.fade_out()
     LoadingStates.FADE_TO_LOADING:
       # Simply change the state to loading.
       loading_state = LoadingStates.LOADING
@@ -74,7 +73,7 @@ func _on_FadeToBlack_finished_fading() -> void:
       
       # Fade to transparent.
       loading_state = LoadingStates.FADE_TO_WORLD
-      $FadeToBlack.is_faded = false
+      $FadeTransition.fade_in()
     LoadingStates.FADE_TO_WORLD:
       # Simply set the state to playing.
       loading_state = LoadingStates.PLAYING
@@ -94,5 +93,5 @@ func _process(_delta: float) -> void:
       
       # Fade to black.
       loading_state = LoadingStates.FADE_TO_BLACK_2
-      $FadeToBlack.is_faded = true
+      $FadeTransition.fade_out()
       set_process(false)
