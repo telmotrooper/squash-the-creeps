@@ -306,6 +306,7 @@ environment = ExtResource("13")
 [node name="Player" parent="." instance=ExtResource("3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.66847, 12)
 paused = true
+spawn_animation = false
 
 [node name="Spaceship" parent="." instance=ExtResource("6")]
 transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 8.155, 4.044, 11.033)

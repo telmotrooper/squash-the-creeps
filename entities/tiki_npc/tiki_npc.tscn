@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdeoefigj1dme"]
+
+[ext_resource type="PackedScene" uid="uid://bosxa8nsrlr60" path="res://entities/tiki_npc/tiki_statue.blend" id="1_82h7m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lsccj"]
+height = 4.2
+radius = 1.2
+
+[node name="tiki_npc" type="CharacterBody3D"]
+collision_layer = 512
+collision_mask = 711
+
+[node name="tiki_statue" parent="." instance=ExtResource("1_82h7m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10717, 0)
+shape = SubResource("CylinderShape3D_lsccj")

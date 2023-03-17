@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://goxaxv03ucgy"]
+[gd_scene load_steps=23 format=3 uid="uid://goxaxv03ucgy"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2"]
 [ext_resource type="Script" path="res://entities/player/camera.gd" id="3"]
@@ -230,14 +230,30 @@ tracks/0/keys = {
 "values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_daath"]
+resource_name = "grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ModelPivot/player:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_svvlv"]
 _data = {
 "RESET": SubResource("6"),
+"grow": SubResource("Animation_daath"),
 "shrink": SubResource("7")
 }
 
 [node name="Player" type="CharacterBody3D" groups=["players"]]
-collision_mask = 524494
+collision_mask = 525006
 script = ExtResource("2")
 full_health_material = ExtResource("3_koyrj")
 mid_health_material = ExtResource("3_ndr1b")

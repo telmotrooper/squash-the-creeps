@@ -26,6 +26,7 @@ var health = 3
 @export var throw_back_speed := 20
 
 @export var paused := false
+@export var spawn_animation := true
 
 # Starts as "forward", might behave weird depending checked spawn direction.
 var last_direction := Vector3(0,0,-1)
@@ -58,6 +59,8 @@ func _ready() -> void:
   last_safe_position = Vector3(
     global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
   )
+  if spawn_animation:
+    $EffectsAnimationPlayer.play("grow")
 
 func _physics_process(delta: float) -> void:
   if is_instance_valid(GameState.UserInterface):
@@ -253,14 +256,15 @@ func move_to_last_safe_position() -> void:
   if health == 1:
     GameState.reload_current_scene()
   else:
-    var fade_to_black = get_node_or_null("/root/Main/FadeToBlack")
-    if fade_to_black: # Always available when started from "main" scene.
-      fade_to_black.set_is_faded(true)
-      await fade_to_black.finished_fading
+    var fade_transition = get_node_or_null("/root/Main/FadeTransition")
+    if fade_transition: # Always available when started from "main" scene.
+      fade_transition.fade_out()
+      await fade_transition.finished
       take_damage() # Player changes color while the screen is black.
-      fade_to_black.set_is_faded(false)
+      fade_transition.fade_in()
     else: # If not started from "main" scene, still call "take_damage".
       take_damage()
+    $EffectsAnimationPlayer.play("grow")
     global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
     paused = false
 
