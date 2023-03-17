@@ -25,12 +25,12 @@ func load_world(scene_to_load: NodePath) -> void:
   loading_state = LoadingStates.CLEAN_UP
   $FadeTransition.fade_out()
   
-  if not ResourceLoader.has_cached(loading_world):
-    $ProgressBar.value = 0
-    $ProgressBar.show()
-    
-    while not ResourceQueue.is_ready(loading_world):
-      $ProgressBar.value = ResourceQueue.get_progress(loading_world) * 100
+#  if not ResourceLoader.has_cached(loading_world):
+#    $ProgressBar.value = 0
+#    $ProgressBar.show()
+#
+#    while not ResourceQueue.is_ready(loading_world):
+#      $ProgressBar.value = ResourceQueue.get_progress(loading_world) * 100
 
 func _on_fade_transition_finished() -> void:
   match loading_state:
