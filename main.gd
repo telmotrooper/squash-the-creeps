@@ -4,8 +4,7 @@ extends Node3D
 
 enum LoadingStates {
   CLEAN_UP,
-  LOADING,
-  FADE_TO_BLACK_2,
+  LOADED,
   FADE_TO_WORLD,
   PLAYING
 }
@@ -33,7 +32,7 @@ func load_world(scene_to_load: NodePath) -> void:
     while not ResourceQueue.is_ready(loading_world):
       $ProgressBar.value = ResourceQueue.get_progress(loading_world) * 100
 
-func _on_FadeToBlack_finished_fading() -> void:
+func _on_fade_transition_finished() -> void:
   match loading_state:
     LoadingStates.CLEAN_UP:
       $WorldScene.hide()
@@ -45,7 +44,7 @@ func _on_FadeToBlack_finished_fading() -> void:
         current_world = null
       
       set_process(true)
-    LoadingStates.FADE_TO_BLACK_2:
+    LoadingStates.LOADED:
       $WorldScene.add_child(current_world)
       $WorldScene.show()
       
@@ -63,6 +62,6 @@ func _process(_delta: float) -> void:
   
   if new_world: # If resource is available.
     current_world = new_world.instantiate()
-    loading_state = LoadingStates.FADE_TO_BLACK_2
-    _on_FadeToBlack_finished_fading()
+    loading_state = LoadingStates.LOADED
+    _on_fade_transition_finished()
     set_process(false)

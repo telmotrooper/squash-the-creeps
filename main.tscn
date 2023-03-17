@@ -26,4 +26,4 @@ offset_top = -60.0
 offset_right = -20.0
 offset_bottom = -20.0
 
-[connection signal="finished_fading" from="FadeTransition" to="." method="_on_FadeToBlack_finished_fading"]
+[connection signal="finished" from="FadeTransition" to="." method="_on_fade_transition_finished"]
