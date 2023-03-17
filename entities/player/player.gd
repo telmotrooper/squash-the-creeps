@@ -26,6 +26,7 @@ var health = 3
 @export var throw_back_speed := 20
 
 @export var paused := false
+@export var spawn_animation := true
 
 # Starts as "forward", might behave weird depending checked spawn direction.
 var last_direction := Vector3(0,0,-1)
@@ -58,6 +59,8 @@ func _ready() -> void:
   last_safe_position = Vector3(
     global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
   )
+  if spawn_animation:
+    $EffectsAnimationPlayer.play("grow")
 
 func _physics_process(delta: float) -> void:
   if is_instance_valid(GameState.UserInterface):
