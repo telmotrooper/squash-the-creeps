@@ -7,7 +7,6 @@ var loading_scene = null
 
 func _ready() -> void:
   set_process(false)
-  ResourceQueue.start()
   load_scene(initial_scene.get_path())
 
 func load_scene(scene_to_load: NodePath) -> void:
@@ -17,7 +16,7 @@ func load_scene(scene_to_load: NodePath) -> void:
     $ProgressBar.value = 0
     $ProgressBar.show()
   
-  ResourceQueue.queue_resource(loading_scene)
+  ResourceLoader.load_threaded_request(loading_scene)
   
   $FadeTransition.fade_out()
   await $FadeTransition.faded_out
@@ -30,12 +29,10 @@ func load_scene(scene_to_load: NodePath) -> void:
   set_process(true)
 
 func _process(_delta: float) -> void:
-  #$ProgressBar.value = ResourceQueue.get_progress(loading_scene) * 100  
-  
   # Waiting until loading is done.
-  var new_scene = ResourceQueue.get_resource(loading_scene)
-  
-  if new_scene: # If resource is available.
+
+  if ResourceLoader.load_threaded_get_status(loading_scene) == 3: # If resource is available.
+    var new_scene = ResourceLoader.load_threaded_get(loading_scene)
     $ProgressBar.value = 100
     
     current_scene = new_scene.instantiate()
