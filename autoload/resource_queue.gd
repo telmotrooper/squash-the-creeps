@@ -11,6 +11,14 @@ var time_max := 100 # Milliseconds.
 var queue := []
 var pending := {}
 
+func start() -> void:
+  exit_thread = false
+  start_called = true
+  mutex = Mutex.new()
+  semaphore = Semaphore.new()
+  thread = Thread.new()
+  thread.start(Callable(self,"thread_func"))
+
 func _lock(_caller) -> void:
   mutex.lock()
 
@@ -129,7 +137,7 @@ func thread_process() -> void:
       queue.erase(res)
   _unlock("process")
 
-func thread_func(_u) -> void:
+func thread_func() -> void:
   while true:
     mutex.lock()
     var should_exit = exit_thread # Protect with Mutex.
@@ -138,14 +146,6 @@ func thread_func(_u) -> void:
     if should_exit:
       break
     thread_process()
-
-func start() -> void:
-  exit_thread = false
-  start_called = true
-  mutex = Mutex.new()
-  semaphore = Semaphore.new()
-  thread = Thread.new()
-  thread.start(Callable(self,"thread_func").bind(0))
 
 # Triggered by calling "get_tree().quit()".
 func _exit_tree() -> void:
