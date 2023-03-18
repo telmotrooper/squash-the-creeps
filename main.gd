@@ -29,9 +29,10 @@ func load_scene(scene_to_load: NodePath) -> void:
   set_process(true)
 
 func _process(_delta: float) -> void:
-  # Waiting until loading is done.
+  var progress = []
+  var load_status = ResourceLoader.load_threaded_get_status(loading_scene, progress)
 
-  if ResourceLoader.load_threaded_get_status(loading_scene) == 3: # If resource is available.
+  if load_status == ResourceLoader.THREAD_LOAD_LOADED:
     var new_scene = ResourceLoader.load_threaded_get(loading_scene)
     $ProgressBar.value = 100
     
