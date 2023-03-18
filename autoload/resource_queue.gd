@@ -43,7 +43,7 @@ func thread_process() -> void:
       queue.erase(res)
   _unlock("process")
 
-func queue_resource(path, p_in_front = false) -> void:
+func queue_resource(path, place_in_front = false) -> void:
   _lock("queue_resource")
   if path in pending: # If already queued.
     _unlock("queue_resource")
@@ -59,7 +59,7 @@ func queue_resource(path, p_in_front = false) -> void:
     ResourceLoader.load_threaded_request(path, "", true)
     var res = ResourceLoader.load_threaded_get(path)
     res.set_meta("path", path)
-    if p_in_front:
+    if place_in_front:
       queue.insert(0, res)
     else:
       queue.push_back(res)
