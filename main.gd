@@ -37,5 +37,5 @@ func _process(_delta: float) -> void:
     $WorldScene.add_child(current_scene)
     $FadeTransition.fade_in()
     set_process(false)
-    await get_tree().create_timer(0.5).timeout
-    $ProgressBar.hide()
+#    await get_tree().create_timer(0.5).timeout
+#    $ProgressBar.hide()
