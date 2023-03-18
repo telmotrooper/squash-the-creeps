@@ -33,11 +33,11 @@ func _process(_delta: float) -> void:
   #$ProgressBar.value = ResourceQueue.get_progress(loading_scene) * 100  
   
   # Waiting until loading is done.
-  var new_world = ResourceQueue.get_resource(loading_scene)
+  var new_scene = ResourceQueue.get_resource(loading_scene)
   
-  if new_world: # If resource is available.
+  if new_scene: # If resource is available.
     $ProgressBar.value = 100
-    current_scene = new_world.instantiate()
+    current_scene = new_scene.instantiate()
     
     $WorldScene.add_child(current_scene)
     
