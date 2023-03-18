@@ -12,7 +12,6 @@ var queue := []
 var pending := {}
 
 func start() -> void:
-  exit_thread = false
   start_called = true
   mutex = Mutex.new()
   semaphore = Semaphore.new()
@@ -25,17 +24,24 @@ func thread_func() -> void:
       break
     thread_process()
 
-func _lock(_caller) -> void:
-  mutex.lock()
+func thread_process() -> void:
+  _wait("thread_process")
+  _lock("process")
 
-func _unlock(_caller) -> void:
-  mutex.unlock()
+  while queue.size() > 0:
+    var res = queue[0]
+    _unlock("process_poll")
+    var ret = res.poll()
+    _lock("process_check_queue")
 
-func _post(_caller) -> void:
-  semaphore.post()
-
-func _wait(_caller) -> void:
-  semaphore.wait()
+    if ret == ERR_FILE_EOF || ret != OK:
+      var path = res.get_meta("path")
+      if path in pending: # Else, it was already retrieved.
+        pending[res.get_meta("path")] = res.get_resource()
+      # Something might have been put at the front of the queue while
+      # we polled, so use erase instead of remove_at.
+      queue.erase(res)
+  _unlock("process")
 
 func queue_resource(path, p_in_front = false) -> void:
   _lock("queue_resource")
@@ -124,25 +130,6 @@ func get_resource(path) -> Resource:
     _unlock("return")
     return ResourceLoader.load(path)
 
-func thread_process() -> void:
-  _wait("thread_process")
-  _lock("process")
-
-  while queue.size() > 0:
-    var res = queue[0]
-    _unlock("process_poll")
-    var ret = res.poll()
-    _lock("process_check_queue")
-
-    if ret == ERR_FILE_EOF || ret != OK:
-      var path = res.get_meta("path")
-      if path in pending: # Else, it was already retrieved.
-        pending[res.get_meta("path")] = res.get_resource()
-      # Something might have been put at the front of the queue while
-      # we polled, so use erase instead of remove_at.
-      queue.erase(res)
-  _unlock("process")
-
 # Triggered by calling "get_tree().quit()".
 func _exit_tree() -> void:
   if start_called: # If a scene was started from the editor, "start" won't have been called.
@@ -156,3 +143,15 @@ func _exit_tree() -> void:
     
     # Wait until it exits.
     thread.wait_to_finish()
+
+func _lock(_caller) -> void:
+  mutex.lock()
+
+func _unlock(_caller) -> void:
+  mutex.unlock()
+
+func _post(_caller) -> void:
+  semaphore.post()
+
+func _wait(_caller) -> void:
+  semaphore.wait()
