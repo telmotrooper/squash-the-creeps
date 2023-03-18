@@ -212,7 +212,7 @@ func change_map(map_name: String) -> void:
   var map_file = "res://maps/%s.tscn" % map_name
   #Utils.exists(map_file) 
   if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
-    $"/root/Main".load_world(map_file)
+    $"/root/Main".load_scene(map_file)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().change_scene_to_file(map_file)
 
@@ -249,7 +249,7 @@ func reload_current_scene() -> void:
   var Main = get_node_or_null("/root/Main")
   if is_instance_valid(Main): # Game started normally, use background loading.
     var WorldScene = $"/root/Main/WorldScene"
-    Main.load_world(WorldScene.get_child(0).scene_file_path)
+    Main.load_scene(WorldScene.get_child(0).scene_file_path)
   else: # Game started through "Play Scene" in editor.
     var _error = get_tree().reload_current_scene()
 

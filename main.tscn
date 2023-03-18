@@ -26,4 +26,5 @@ offset_top = -60.0
 offset_right = -20.0
 offset_bottom = -20.0
 
-[connection signal="finished" from="FadeTransition" to="." method="_on_fade_transition_finished"]
+[connection signal="faded_in" from="FadeTransition" to="." method="_on_fade_transition_faded_in"]
+[connection signal="faded_out" from="FadeTransition" to="." method="_on_fade_transition_faded_out"]

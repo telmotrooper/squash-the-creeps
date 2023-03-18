@@ -38,7 +38,7 @@ func _on_ResumeButton_pressed() -> void:
 func _on_MainMenuButton_pressed() -> void:
   var title_screen = "res://ui/title_screen.tscn"
   if is_instance_valid($"/root/Main"):
-    $"/root/Main".load_world(title_screen)
+    $"/root/Main".load_scene(title_screen)
   else:
     var _error = get_tree().change_scene_to_file(title_screen)
   
