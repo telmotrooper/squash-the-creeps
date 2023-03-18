@@ -25,14 +25,14 @@ func thread_func() -> void:
     thread_process()
 
 func thread_process() -> void:
-  _wait("thread_process")
-  _lock("process")
+  semaphore.wait()
+  mutex.lock()
 
   while queue.size() > 0:
     var resource = queue[0]
-    _unlock("process_poll")
+    mutex.unlock()
     var ret = resource.poll()
-    _lock("process_check_queue")
+    mutex.lock()
 
     if ret == ERR_FILE_EOF || ret != OK:
       var path = resource.get_meta("path")
@@ -41,17 +41,17 @@ func thread_process() -> void:
       # Something might have been put at the front of the queue while
       # we polled, so use erase instead of remove_at.
       queue.erase(resource)
-  _unlock("process")
+  mutex.unlock()
 
 func queue_resource(path, place_in_front = false) -> void:
-  _lock("queue_resource")
+  mutex.lock()
   if path in pending: # If already queued.
-    _unlock("queue_resource")
+    mutex.unlock()
     return
   elif ResourceLoader.has_cached(path):
     var resource = ResourceLoader.load(path)
     pending[path] = resource
-    _unlock("queue_resource")
+    mutex.unlock()
     return
   else:
     # TODO: This blocks the thread until loading is done.
@@ -64,51 +64,51 @@ func queue_resource(path, place_in_front = false) -> void:
     else:
       queue.push_back(resource)
     pending[path] = resource
-    _post("queue_resource")
-    _unlock("queue_resource")
+    semaphore.post()
+    mutex.unlock()
     return
 
 func cancel_resource(path) -> void:
-  _lock("cancel_resource")
+  mutex.lock()
   if path in pending:
     if not pending[path] is PackedScene:
       queue.erase(pending[path])
     pending.erase(path)
-  _unlock("cancel_resource")
+  mutex.unlock()
 
 func get_progress(path) -> float:
-  _lock("get_progress")
+  mutex.lock()
   var ret = -1
   if path in pending:
     if not pending[path] is PackedScene:
       ret = float(pending[path].get_stage()) / float(pending[path].get_stage_count())
     else:
       ret = 1.0
-  _unlock("get_progress")
+  mutex.unlock()
   return ret
 
 func is_ready(path) -> bool:
   var ret
-  _lock("is_ready")
+  mutex.lock()
   if path in pending:
     ret = pending[path] is PackedScene
   else:
     ret = false
-  _unlock("is_ready")
+  mutex.unlock()
   return ret
 
 func _wait_for_resource(res, path):
-  _unlock("wait_for_resource")
+  mutex.unlock()
   while true:
     RenderingServer.force_sync()
     OS.delay_usec(16000) # Wait approximately 1 frame.
-    _lock("wait_for_resource")
+    mutex.lock()
     if queue.size() == 0 || queue[0] != res:
       return pending[path]
-    _unlock("wait_for_resource")
+    mutex.unlock()
 
 func get_resource(path) -> Resource:
-  _lock("get_resource")
+  mutex.lock()
   if path in pending:
     if not pending[path] is PackedScene:
       var resource = pending[path]
@@ -119,15 +119,15 @@ func get_resource(path) -> Resource:
 
       resource = _wait_for_resource(resource, path)
       pending.erase(path)
-      _unlock("return")
+      mutex.unlock()
       return resource
     else:
       var resource = pending[path]
       pending.erase(path)
-      _unlock("return")
+      mutex.unlock()
       return resource
   else:
-    _unlock("return")
+    mutex.unlock()
     return ResourceLoader.load(path)
 
 # Triggered by calling "get_tree().quit()".
@@ -139,15 +139,3 @@ func _exit_tree() -> void:
     
     semaphore.post() # Unblock by posting.
     thread.wait_to_finish() # Wait until it exits.
-
-func _lock(_caller) -> void:
-  mutex.lock()
-
-func _unlock(_caller) -> void:
-  mutex.unlock()
-
-func _post(_caller) -> void:
-  semaphore.post()
-
-func _wait(_caller) -> void:
-  semaphore.wait()
