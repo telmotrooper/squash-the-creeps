@@ -34,7 +34,7 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name: String) -> void:
     if button_pressed == "new_game":
       GameState.MapName = "hub_1"
       if is_instance_valid($"/root/Main"):
-        $"/root/Main".load_world(new_game_scene.get_path())
+        $"/root/Main".load_scene(new_game_scene.get_path())
         GameState.initialize()
       else:
         var _error = get_tree().change_scene_to_file(new_game_scene.get_path())

@@ -259,7 +259,7 @@ func move_to_last_safe_position() -> void:
     var fade_transition = get_node_or_null("/root/Main/FadeTransition")
     if fade_transition: # Always available when started from "main" scene.
       fade_transition.fade_out()
-      await fade_transition.finished
+      await fade_transition.faded_out
       take_damage() # Player changes color while the screen is black.
       fade_transition.fade_in()
     else: # If not started from "main" scene, still call "take_damage".
