@@ -14,18 +14,14 @@ var pending := {}
 func _lock(_caller) -> void:
   mutex.lock()
 
-
 func _unlock(_caller) -> void:
   mutex.unlock()
-
 
 func _post(_caller) -> void:
   semaphore.post()
 
-
 func _wait(_caller) -> void:
   semaphore.wait()
-
 
 func queue_resource(path, p_in_front = false) -> void:
   _lock("queue_resource")
@@ -52,7 +48,6 @@ func queue_resource(path, p_in_front = false) -> void:
     _unlock("queue_resource")
     return
 
-
 func cancel_resource(path) -> void:
   _lock("cancel_resource")
   if path in pending:
@@ -60,7 +55,6 @@ func cancel_resource(path) -> void:
       queue.erase(pending[path])
     pending.erase(path)
   _unlock("cancel_resource")
-
 
 func get_progress(path) -> float:
   _lock("get_progress")
@@ -73,7 +67,6 @@ func get_progress(path) -> float:
   _unlock("get_progress")
   return ret
 
-
 func is_ready(path) -> bool:
   var ret
   _lock("is_ready")
@@ -84,7 +77,6 @@ func is_ready(path) -> bool:
   _unlock("is_ready")
   return ret
 
-
 func _wait_for_resource(res, path):
   _unlock("wait_for_resource")
   while true:
@@ -94,7 +86,6 @@ func _wait_for_resource(res, path):
     if queue.size() == 0 || queue[0] != res:
       return pending[path]
     _unlock("wait_for_resource")
-
 
 func get_resource(path) -> Resource:
   _lock("get_resource")
@@ -119,7 +110,6 @@ func get_resource(path) -> Resource:
     _unlock("return")
     return ResourceLoader.load(path)
 
-
 func thread_process() -> void:
   _wait("thread_process")
   _lock("process")
@@ -139,7 +129,6 @@ func thread_process() -> void:
       queue.erase(res)
   _unlock("process")
 
-
 func thread_func(_u) -> void:
   while true:
     mutex.lock()
@@ -149,7 +138,6 @@ func thread_func(_u) -> void:
     if should_exit:
       break
     thread_process()
-
 
 func start() -> void:
   exit_thread = false
