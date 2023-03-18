@@ -133,16 +133,12 @@ func get_resource(path) -> Resource:
 # Triggered by calling "get_tree().quit()".
 func _exit_tree() -> void:
   if start_called: # If a scene was started from the editor, "start" won't have been called.
-    # Set exit condition to true.
     mutex.lock()
-    exit_thread = true # Protect with Mutex.
+    exit_thread = true # Will stop "thread_func".
     mutex.unlock()
     
-    # Unblock by posting.
-    semaphore.post()
-    
-    # Wait until it exits.
-    thread.wait_to_finish()
+    semaphore.post() # Unblock by posting.
+    thread.wait_to_finish() # Wait until it exits.
 
 func _lock(_caller) -> void:
   mutex.lock()
