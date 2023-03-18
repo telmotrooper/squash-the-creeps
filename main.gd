@@ -4,20 +4,17 @@ extends Node3D
 
 var current_scene = null
 var loading_scene = null
+var progress = []
 
 func _ready() -> void:
   set_process(false)
-  ResourceQueue.start()
   load_scene(initial_scene.get_path())
 
 func load_scene(scene_to_load: NodePath) -> void:
   loading_scene = scene_to_load
-  
-  if not ResourceLoader.has_cached(loading_scene):
-    $ProgressBar.value = 0
-    $ProgressBar.show()
-  
-  ResourceQueue.queue_resource(loading_scene)
+#  $ProgressBar.value = 0
+#  $ProgressBar.show()
+  ResourceLoader.load_threaded_request(loading_scene)
   
   $FadeTransition.fade_out()
   await $FadeTransition.faded_out
@@ -30,17 +27,15 @@ func load_scene(scene_to_load: NodePath) -> void:
   set_process(true)
 
 func _process(_delta: float) -> void:
-  #$ProgressBar.value = ResourceQueue.get_progress(loading_scene) * 100  
+  var load_status = ResourceLoader.load_threaded_get_status(loading_scene, progress)
+  $ProgressBar.value = progress[0] * 100
   
-  # Waiting until loading is done.
-  var new_scene = ResourceQueue.get_resource(loading_scene)
-  
-  if new_scene: # If resource is available.
-    $ProgressBar.value = 100
-    
+  if load_status == ResourceLoader.THREAD_LOAD_LOADED:
+    var new_scene = ResourceLoader.load_threaded_get(loading_scene)
+    loading_scene = null
     current_scene = new_scene.instantiate()
     $WorldScene.add_child(current_scene)
-    $ProgressBar.hide()
-    
     $FadeTransition.fade_in()
     set_process(false)
+#    await get_tree().create_timer(0.5).timeout
+#    $ProgressBar.hide()

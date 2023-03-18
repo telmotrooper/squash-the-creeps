@@ -24,7 +24,6 @@ Configuration="*res://autoload/configuration.gd"
 GameState="*res://autoload/game_state.tscn"
 Hotkeys="*res://autoload/hotkeys.gd"
 Utils="*res://autoload/utils.gd"
-ResourceQueue="*res://autoload/resource_queue.gd"
 
 [dialogic]
 
