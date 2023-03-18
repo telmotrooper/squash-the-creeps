@@ -37,14 +37,10 @@ func _process(_delta: float) -> void:
   
   if new_scene: # If resource is available.
     $ProgressBar.value = 100
+    
     current_scene = new_scene.instantiate()
-    
     $WorldScene.add_child(current_scene)
-    
-    $ProgressBar.value = 100
     $ProgressBar.hide()
     
     $FadeTransition.fade_in()
-    
     set_process(false)
-    await $FadeTransition.faded_in
