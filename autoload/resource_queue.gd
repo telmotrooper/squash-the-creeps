@@ -31,16 +31,16 @@ func thread_process() -> void:
   while queue.size() > 0:
     var resource = queue[0]
     _unlock("process_poll")
-    var ret = res.poll()
+    var ret = resource.poll()
     _lock("process_check_queue")
 
     if ret == ERR_FILE_EOF || ret != OK:
-      var path = res.get_meta("path")
+      var path = resource.get_meta("path")
       if path in pending: # Else, it was already retrieved.
-        pending[res.get_meta("path")] = res.get_resource()
+        pending[resource.get_meta("path")] = resource.get_resource()
       # Something might have been put at the front of the queue while
       # we polled, so use erase instead of remove_at.
-      queue.erase(res)
+      queue.erase(resource)
   _unlock("process")
 
 func queue_resource(path, place_in_front = false) -> void:
@@ -50,7 +50,7 @@ func queue_resource(path, place_in_front = false) -> void:
     return
   elif ResourceLoader.has_cached(path):
     var resource = ResourceLoader.load(path)
-    pending[path] = res
+    pending[path] = resource
     _unlock("queue_resource")
     return
   else:
@@ -58,12 +58,12 @@ func queue_resource(path, place_in_front = false) -> void:
     # Should be refactored to allow for background loading.
     ResourceLoader.load_threaded_request(path, "", true)
     var resource = ResourceLoader.load_threaded_get(path)
-    res.set_meta("path", path)
+    resource.set_meta("path", path)
     if place_in_front:
-      queue.insert(0, res)
+      queue.insert(0, resource)
     else:
-      queue.push_back(res)
-    pending[path] = res
+      queue.push_back(resource)
+    pending[path] = resource
     _post("queue_resource")
     _unlock("queue_resource")
     return
@@ -112,20 +112,20 @@ func get_resource(path) -> Resource:
   if path in pending:
     if not pending[path] is PackedScene:
       var resource = pending[path]
-      if res != queue[0]:
-        var pos = queue.find(res)
+      if resource != queue[0]:
+        var pos = queue.find(resource)
         queue.remove_at(pos)
-        queue.insert(0, res)
+        queue.insert(0, resource)
 
-      res = _wait_for_resource(res, path)
+      resource = _wait_for_resource(resource, path)
       pending.erase(path)
       _unlock("return")
-      return res
+      return resource
     else:
       var resource = pending[path]
       pending.erase(path)
       _unlock("return")
-      return res
+      return resource
   else:
     _unlock("return")
     return ResourceLoader.load(path)
