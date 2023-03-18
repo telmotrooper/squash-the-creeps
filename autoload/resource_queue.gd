@@ -19,6 +19,12 @@ func start() -> void:
   thread = Thread.new()
   thread.start(Callable(self,"thread_func"))
 
+func thread_func() -> void:
+  while true:
+    if exit_thread:
+      break
+    thread_process()
+
 func _lock(_caller) -> void:
   mutex.lock()
 
@@ -136,16 +142,6 @@ func thread_process() -> void:
       # we polled, so use erase instead of remove_at.
       queue.erase(res)
   _unlock("process")
-
-func thread_func() -> void:
-  while true:
-    mutex.lock()
-    var should_exit = exit_thread # Protect with Mutex.
-    mutex.unlock()
-
-    if should_exit:
-      break
-    thread_process()
 
 # Triggered by calling "get_tree().quit()".
 func _exit_tree() -> void:
