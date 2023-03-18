@@ -45,7 +45,7 @@ func thread_process() -> void:
 
 func queue_resource(path, p_in_front = false) -> void:
   _lock("queue_resource")
-  if path in pending:
+  if path in pending: # If already queued.
     _unlock("queue_resource")
     return
   elif ResourceLoader.has_cached(path):
