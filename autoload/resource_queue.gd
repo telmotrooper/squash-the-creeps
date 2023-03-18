@@ -6,8 +6,6 @@ var semaphore: Semaphore
 var exit_thread := false
 var start_called := false
 
-var time_max := 100 # Milliseconds.
-
 var queue := []
 var pending := {}
 
