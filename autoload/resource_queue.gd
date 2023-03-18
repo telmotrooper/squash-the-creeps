@@ -1,12 +1,12 @@
 extends Node
 
-var thread
-var mutex
-var semaphore
-var exit_thread = false
-var start_called = false
+var thread: Thread
+var mutex: Mutex
+var semaphore: Semaphore
+var exit_thread := false
+var start_called := false
 
-var time_max = 100 # Milliseconds.
+var time_max := 100 # Milliseconds.
 
 var queue = []
 var pending = {}
