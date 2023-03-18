@@ -29,7 +29,7 @@ func thread_process() -> void:
   _lock("process")
 
   while queue.size() > 0:
-    var res = queue[0]
+    var resource = queue[0]
     _unlock("process_poll")
     var ret = res.poll()
     _lock("process_check_queue")
@@ -49,7 +49,7 @@ func queue_resource(path, place_in_front = false) -> void:
     _unlock("queue_resource")
     return
   elif ResourceLoader.has_cached(path):
-    var res = ResourceLoader.load(path)
+    var resource = ResourceLoader.load(path)
     pending[path] = res
     _unlock("queue_resource")
     return
@@ -57,7 +57,7 @@ func queue_resource(path, place_in_front = false) -> void:
     # TODO: This blocks the thread until loading is done.
     # Should be refactored to allow for background loading.
     ResourceLoader.load_threaded_request(path, "", true)
-    var res = ResourceLoader.load_threaded_get(path)
+    var resource = ResourceLoader.load_threaded_get(path)
     res.set_meta("path", path)
     if place_in_front:
       queue.insert(0, res)
@@ -111,7 +111,7 @@ func get_resource(path) -> Resource:
   _lock("get_resource")
   if path in pending:
     if not pending[path] is PackedScene:
-      var res = pending[path]
+      var resource = pending[path]
       if res != queue[0]:
         var pos = queue.find(res)
         queue.remove_at(pos)
@@ -122,7 +122,7 @@ func get_resource(path) -> Resource:
       _unlock("return")
       return res
     else:
-      var res = pending[path]
+      var resource = pending[path]
       pending.erase(path)
       _unlock("return")
       return res
