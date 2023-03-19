@@ -30,10 +30,10 @@ func _process(_delta: float) -> void:
       hide()
       set_process(false)
 
-func enable(_anim_name: StringName) -> void:
+func enable(_anim_name: StringName = "") -> void:
   set_process(true)
 
-func disable(_anim_name: StringName) -> void:
+func disable(_anim_name: StringName = "") -> void:
   hide()
   set_process(false)
 
