@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
   
   # Rotate direction based checked camera.
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
-  direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+  direction = direction.rotated(Vector3.UP, horizontal_rotation)
   
   if is_instance_valid(GameState.UserInterface):
     var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
