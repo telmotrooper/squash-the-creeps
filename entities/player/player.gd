@@ -56,7 +56,7 @@ func _ready() -> void:
   # Calculate the initial value for "last_direction" based on the rotation of the camera.
   # This guarantees that if the player dashes before moving, they'll dash forward.
   last_direction = Vector3.FORWARD.rotated(Vector3.UP,
-    $CameraPivot/Horizontal.global_transform.basis.get_euler().y)
+    $CameraPivot/Horizontal.global_transform.basis.get_euler().y).normalized()
   
   # Initial position will always be considered a safe position, even if the raycasts do not indicate it.
   last_safe_position = Vector3(
@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
   
   # Rotate direction based checked camera.
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
-  direction = direction.rotated(Vector3.UP, horizontal_rotation)
+  direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
   
   if is_instance_valid(GameState.UserInterface):
     var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
