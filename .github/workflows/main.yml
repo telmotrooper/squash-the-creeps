@@ -1,7 +1,7 @@
-on:
+on: 
   push:
-    tags:
-      - '*'
+    branches:
+      - disabled
 
 jobs:
   export_game:
