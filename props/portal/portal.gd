@@ -21,7 +21,7 @@ func _ready() -> void:
   
     if is_instance_valid(child_camera): # Cutscene
       child_camera.make_current()
-      skip_cutscene.set_mode(1) # Signal
+      skip_cutscene.set_mode(SkipCutscene.Mode.SIGNAL)
       skip_cutscene.enable()
       await get_tree().create_timer(1, false).timeout
       $RequirementAnimationPlayer.play("fade_out")
@@ -29,7 +29,7 @@ func _ready() -> void:
       GameState.Player.get_node("%Camera3D").make_current()
       GameState.portal_unlocked[get_path()] = true
       skip_cutscene.disable()
-      skip_cutscene.set_mode(0) # Animation Player
+      skip_cutscene.set_mode(SkipCutscene.Mode.ANIMATION_PLAYER)
 
 func _on_Portal_entered(_body: Node) -> void:
   GameState.hub_1_at_night = false
