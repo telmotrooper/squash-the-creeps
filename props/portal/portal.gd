@@ -54,3 +54,4 @@ func portal_locked() -> bool:
 
 func skip() -> void:
   GameState.Player.get_node("%Camera3D").make_current()
+  GameState.portal_unlocked[get_path()] = true
