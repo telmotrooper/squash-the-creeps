@@ -145,7 +145,7 @@ func _physics_process(delta: float) -> void:
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
     )
     if safe_position_condition:
-      last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
+      last_safe_position = global_transform.origin
   elif is_on_floor() and get_slide_collision_count() > 0 and get_slide_collision(0).get_collider() is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
