@@ -163,11 +163,7 @@ func _physics_process(delta: float) -> void:
   else: # Apply gravity.
     velocity.y -= fall_acceleration * delta
   
-  # Assign move_and_slide to velocity prevents the velocity from accumulating.
-  set_velocity(velocity)
-  set_up_direction(Vector3.UP)
   move_and_slide()
-  velocity = velocity
   
   # Handling events related to colliding with nodes below player.
   for index in get_slide_collision_count():
