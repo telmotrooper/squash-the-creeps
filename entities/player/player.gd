@@ -246,7 +246,7 @@ func move_to_last_safe_position() -> void:
     else: # If not started from "main" scene, still call "take_damage".
       take_damage()
     $EffectsAnimationPlayer.play("grow")
-    global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
+    global_transform.origin = last_safe_position
     paused = false
 
 func update_color() -> void:
