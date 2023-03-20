@@ -3,17 +3,13 @@ class_name Player
 
 signal hit
 
-var health := 3
-
+# Exports
 @export var full_health_material: Material
 @export var mid_health_material: Material
 @export var low_health_material: Material
-
 @export var hurt_sound: AudioStream
-
 @export var walk_speed := 14.0
 @export var run_speed := 22.0
-
 @export var jump_impulse := 25.0
 @export var fall_acceleration := 75.0
 @export var bounce_impulse := 16.0
@@ -21,36 +17,29 @@ var health := 3
 @export var dash_speed := 150
 @export var bounce_cap := 87
 @export var body_slam_speed := 30
-
 @export var throw_back_y_impulse := 25
 @export var throw_back_speed := 20
-
 @export var paused := false
 @export var spawn_animation := true
 
+# State
 var last_direction: Vector3
 var initial_position: Vector3
-var last_safe_position := Vector3.ZERO
-
+var last_safe_position: Vector3
+var health := 3
 var speed := 0.0
-
-# State
 var is_jumping := false
 var is_double_jumping := false
-
 var dash_available := true
 var is_dashing := false
-
 var is_body_slamming := false
-
 var just_thrown_back := false
 var being_thrown_back := false
-
 var floating := false
 
 func _ready() -> void:
-  initial_position = global_transform.origin
   GameState.Player = self
+  initial_position = global_transform.origin
   $DashDurationTimer.wait_time = dash_duration
   
   # Calculate the initial value for "last_direction" based on the rotation of the camera.
@@ -59,15 +48,12 @@ func _ready() -> void:
     $CameraPivot/Horizontal.global_transform.basis.get_euler().y).normalized()
   
   # Initial position will always be considered a safe position, even if the raycasts do not indicate it.
-  last_safe_position = Vector3(
-    global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
-  )
+  last_safe_position = global_transform.origin
   if spawn_animation:
     $EffectsAnimationPlayer.play("grow")
 
 func _physics_process(delta: float) -> void:
-  if is_instance_valid(GameState.UserInterface):
-    GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
+  update_minimap()
   
   if paused: # Used to prevent movement during a cutscene.
     return
@@ -88,15 +74,7 @@ func _physics_process(delta: float) -> void:
   var horizontal_rotation = $CameraPivot/Horizontal.global_transform.basis.get_euler().y
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
   
-  if is_instance_valid(GameState.UserInterface):
-    var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
-    var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
-    minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
-    player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
-
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
-    direction = direction.normalized()
-    
     if not being_thrown_back: # Last direction is used for throw back.
       last_direction = direction
     
@@ -167,7 +145,7 @@ func _physics_process(delta: float) -> void:
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast4.get_collider()
     )
     if safe_position_condition:
-      last_safe_position = Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
+      last_safe_position = global_transform.origin
   elif is_on_floor() and get_slide_collision_count() > 0 and get_slide_collision(0).get_collider() is Enemy: # Reset double jump.
     is_double_jumping = false
   elif GameState.upgrades["double_jump"] and (is_jumping and not is_double_jumping
@@ -185,11 +163,7 @@ func _physics_process(delta: float) -> void:
   else: # Apply gravity.
     velocity.y -= fall_acceleration * delta
   
-  # Assign move_and_slide to velocity prevents the velocity from accumulating.
-  set_velocity(velocity)
-  set_up_direction(Vector3.UP)
   move_and_slide()
-  velocity = velocity
   
   # Handling events related to colliding with nodes below player.
   for index in get_slide_collision_count():
@@ -268,7 +242,7 @@ func move_to_last_safe_position() -> void:
     else: # If not started from "main" scene, still call "take_damage".
       take_damage()
     $EffectsAnimationPlayer.play("grow")
-    global_transform.origin = Vector3(last_safe_position.x, last_safe_position.y, last_safe_position.z)
+    global_transform.origin = last_safe_position
     paused = false
 
 func update_color() -> void:
@@ -290,3 +264,11 @@ func take_damage() -> void:
 func set_health(value: int) -> void:
   health = value
   update_color()
+
+func update_minimap() -> void:
+  if is_instance_valid(GameState.UserInterface):
+    GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
+    var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
+    minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
+    var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
+    player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
