@@ -9,7 +9,7 @@ func _ready() -> void:
   $Label3D.text = label if label else map_name
   
   if skip_cutscene:
-    skip_cutscene.connect("skip", skip)
+    skip_cutscene.connect("skip", finish_cutscene)
   
   if godot_heads_required >= 1 and portal_locked():
     $RequirementLabel.text = "Godot Heads x %d" % godot_heads_required
@@ -26,8 +26,7 @@ func _ready() -> void:
       await get_tree().create_timer(1, false).timeout
       $RequirementAnimationPlayer.play("fade_out")
       await get_tree().create_timer(2, false).timeout
-      GameState.Player.get_node("%Camera3D").make_current()
-      GameState.portal_unlocked[get_path()] = true
+      finish_cutscene()
       skip_cutscene.disable()
       skip_cutscene.set_mode(SkipCutscene.Mode.ANIMATION_PLAYER)
 
@@ -52,6 +51,6 @@ func requirement_met() -> bool:
 func portal_locked() -> bool:
   return not GameState.portal_unlocked.has(get_path())
 
-func skip() -> void:
-  GameState.Player.get_node("%Camera3D").make_current()
+func finish_cutscene() -> void:
   GameState.portal_unlocked[get_path()] = true
+  GameState.Player.get_node("%Camera3D").make_current()
