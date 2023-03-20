@@ -75,8 +75,6 @@ func _physics_process(delta: float) -> void:
   direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
   
   if direction != Vector3.ZERO and !is_spinning(): # Player is moving.
-    direction = direction.normalized()
-    
     if not being_thrown_back: # Last direction is used for throw back.
       last_direction = direction
     
