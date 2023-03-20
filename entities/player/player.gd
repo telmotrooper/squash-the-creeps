@@ -28,11 +28,10 @@ var health = 3
 @export var paused := false
 @export var spawn_animation := true
 
-# Starts as "forward", might behave weird depending checked spawn direction.
-var last_direction := Vector3(0,0,-1)
+var last_direction: Vector3
 
 var initial_position: Vector3
-var last_safe_position := Vector3(0,0,0)
+var last_safe_position := Vector3.ZERO
 
 var speed = 0
 
@@ -54,6 +53,11 @@ func _ready() -> void:
   initial_position = global_transform.origin
   GameState.Player = self
   $DashDurationTimer.wait_time = dash_duration
+  
+  # Calculate the initial value for "last_direction" based on the rotation of the camera.
+  # This guarantees that if the player dashes before moving, they'll dash forward.
+  last_direction = Vector3.FORWARD.rotated(Vector3.UP,
+    $CameraPivot/Horizontal.global_transform.basis.get_euler().y).normalized()
   
   # Initial position will always be considered a safe position, even if the raycasts do not indicate it.
   last_safe_position = Vector3(
