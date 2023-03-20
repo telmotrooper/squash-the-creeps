@@ -83,6 +83,8 @@ func _physics_process(delta: float) -> void:
     if is_dashing:
       if is_on_floor() and get_floor_angle(Vector3.UP) > 0: # Ramp bounce.
         velocity.y = get_floor_angle(Vector3.UP) * 200
+        if velocity.y > bounce_cap: # Prevent the bounce from going too high.
+          velocity.y = bounce_cap
       $AnimationPlayer.speed_scale = 1.0
     elif Input.is_action_pressed("sprint"): # Running.
       speed = run_speed
@@ -202,10 +204,6 @@ func _physics_process(delta: float) -> void:
         entity.squash()
       elif entity.is_in_group("spinnable"):
         entity.interact_on_spin()
-  
-  # Prevent the player from going too high when bouncing unchecked a slope.
-  if velocity.y > bounce_cap:
-    velocity.y = bounce_cap
 
 func is_spinning() -> bool:
   return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
