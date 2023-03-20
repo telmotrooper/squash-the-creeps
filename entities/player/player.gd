@@ -3,15 +3,13 @@ class_name Player
 
 signal hit
 
+# Exports
 @export var full_health_material: Material
 @export var mid_health_material: Material
 @export var low_health_material: Material
-
 @export var hurt_sound: AudioStream
-
 @export var walk_speed := 14.0
 @export var run_speed := 22.0
-
 @export var jump_impulse := 25.0
 @export var fall_acceleration := 75.0
 @export var bounce_impulse := 16.0
@@ -19,37 +17,29 @@ signal hit
 @export var dash_speed := 150
 @export var bounce_cap := 87
 @export var body_slam_speed := 30
-
 @export var throw_back_y_impulse := 25
 @export var throw_back_speed := 20
-
 @export var paused := false
 @export var spawn_animation := true
 
+# State
 var last_direction: Vector3
 var initial_position: Vector3
 var last_safe_position: Vector3
-
-# State
 var health := 3
 var speed := 0.0
-
 var is_jumping := false
 var is_double_jumping := false
-
 var dash_available := true
 var is_dashing := false
-
 var is_body_slamming := false
-
 var just_thrown_back := false
 var being_thrown_back := false
-
 var floating := false
 
 func _ready() -> void:
-  initial_position = global_transform.origin
   GameState.Player = self
+  initial_position = global_transform.origin
   $DashDurationTimer.wait_time = dash_duration
   
   # Calculate the initial value for "last_direction" based on the rotation of the camera.
@@ -58,9 +48,7 @@ func _ready() -> void:
     $CameraPivot/Horizontal.global_transform.basis.get_euler().y).normalized()
   
   # Initial position will always be considered a safe position, even if the raycasts do not indicate it.
-  last_safe_position = Vector3(
-    global_transform.origin.x, global_transform.origin.y, global_transform.origin.z
-  )
+  last_safe_position = global_transform.origin
   if spawn_animation:
     $EffectsAnimationPlayer.play("grow")
 
