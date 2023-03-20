@@ -3,8 +3,6 @@ class_name Player
 
 signal hit
 
-var health := 3
-
 @export var full_health_material: Material
 @export var mid_health_material: Material
 @export var low_health_material: Material
@@ -30,11 +28,12 @@ var health := 3
 
 var last_direction: Vector3
 var initial_position: Vector3
-var last_safe_position := Vector3.ZERO
-
-var speed := 0.0
+var last_safe_position: Vector3
 
 # State
+var health := 3
+var speed := 0.0
+
 var is_jumping := false
 var is_double_jumping := false
 
