@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://btsj8kt81tarp"]
+[gd_scene load_steps=86 format=3 uid="uid://btsj8kt81tarp"]
 
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_8tp7d"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
@@ -372,6 +372,84 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 8
+
+[sub_resource type="Animation" id="Animation_i3fst"]
+resource_name = "preview"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector3(0, 36, 382), Vector3(0, 36, 324), Vector3(-104.252, 21.314, 95.6037), Vector3(126.637, 26.4706, 22.0149)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(-0.261799, 0, 0), Vector3(-0.261799, -0.785398, 0), Vector3(-0.523599, -0.785398, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"make_current"
+}, {
+"args": [true],
+"method": &"clear_current"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gw5c3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 36, 382)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.261799, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8e17r"]
+_data = {
+"RESET": SubResource("Animation_gw5c3"),
+"preview": SubResource("Animation_i3fst")
+}
 
 [node name="TestMap" type="Node3D"]
 script = ExtResource("5")
@@ -1192,6 +1270,16 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.11
 
 [node name="BigBeachIsland" parent="." instance=ExtResource("42_mo7kc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56736, -75.1845, 246.716)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("CutsceneCamera")
+autoplay = "preview"
+libraries = {
+"": SubResource("AnimationLibrary_8e17r")
+}
+
+[node name="CutsceneCamera" type="Camera3D" parent="AnimationPlayer"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 36, 382)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
