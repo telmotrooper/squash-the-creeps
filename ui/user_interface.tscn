@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=26 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="14_ly17m"]
 
 [sub_resource type="Animation" id="3"]
 resource_name = "RESET"
@@ -214,6 +215,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("5")
+
+[node name="MapName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -141.0
+offset_right = 265.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("14_ly17m")
+theme_override_font_sizes/font_size = 48
+text = "Avocado Beach"
+horizontal_alignment = 1
 
 [node name="Minimap" type="Control" parent="."]
 unique_name_in_owner = true
