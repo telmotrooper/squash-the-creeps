@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://2esl5e4dn6aj"]
+
+[ext_resource type="PackedScene" uid="uid://c1xutxeh4jt0d" path="res://maps/extras/big_beach_island/big_beach_island.blend" id="1_2btys"]
+[ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="2_on8y1"]
+
+[node name="big_beach_island" type="Node3D"]
+
+[node name="big_beach_island" parent="." instance=ExtResource("1_2btys")]
+
+[node name="Plane" parent="big_beach_island" index="0"]
+surface_material_override/0 = ExtResource("2_on8y1")
+
+[editable path="big_beach_island"]
