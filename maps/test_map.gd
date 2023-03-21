@@ -8,7 +8,9 @@ func _ready() -> void:
   GameState.RetryCamera = $RetryCamera
   GameState.Grass = %Grass
   GameState.update_grass()
-  GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 2.35)
+  GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
+  # 2.35 is a good proportion for a camera with size 550 m
+  # 1.72 is a good proportion for a camera with size 750 m
 
 func _on_Player_hit() -> void:
   GameState.UserInterface.retry()
