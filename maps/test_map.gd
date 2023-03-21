@@ -20,3 +20,7 @@ func _on_RedButton_pressed() -> void:
 
 func _on_SprintTutorial_body_entered(_body: Node) -> void:
   %SprintTutorial.get_node("AnimationPlayer").play("show_sprint_label")
+
+# Used in cutscene.
+func set_minimap_visible(value: bool) -> void:
+  GameState.minimap.set_visible(value)
