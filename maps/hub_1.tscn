@@ -338,7 +338,7 @@ font_size = 48
 [node name="PortalAvocadoBeach" parent="." instance=ExtResource("8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85, 2.48, -6.46)
 label = "Avocado Beach"
-map_name = "test_map"
+map_name = "avocado_beach"
 
 [node name="PortalLakeMap" parent="." node_paths=PackedStringArray("skip_cutscene") instance=ExtResource("8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73, 3.04, -6.46)

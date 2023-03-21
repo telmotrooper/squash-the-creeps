@@ -23,7 +23,7 @@ func refresh_values() -> void:
   if GameState.MapName: # TODO: Find a way to find option from label (maybe iterate through the items?)
     if GameState.MapName == 'hub_1':
       %MapOptionButton.select(0)
-    elif (GameState.MapName == 'test_map'):
+    elif (GameState.MapName == 'avocado_beach'):
       %MapOptionButton.select(1)
     elif (GameState.MapName == 'lake_map'):
       %MapOptionButton.select(2)

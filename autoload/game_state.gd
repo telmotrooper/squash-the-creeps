@@ -59,15 +59,10 @@ var intro_cutscene_played := false
 
 var collision_layers = {}
 
-# This variable is used to work around a bug in Scatter checked which,
-# after "test_map" is reloaded, the modifiers are not re-inserted
-# and we end up without any grass.
-var ScatterModifierStackBackup: Array = []
-
 const initial_grass = 3000
 
 func _ready() -> void:
-  var fallback_scene = "res://maps/test_map.tscn"
+  var fallback_scene = "res://maps/avocado_beach.tscn"
   var current_scene = get_tree().get_current_scene().get_name()
   
   # List named collision layers for easy access.
