@@ -23,7 +23,7 @@ var godot_heads_counter := 0
 var total_godot_heads_in_map := 0
 
 var godot_heads_collected = {
-  "TestMap": {
+  "AvocadoBeach": {
     "FloatingGodotHead": false,
     "GrassGodotHead": false,
     "BeachGodotHead": false,
@@ -46,7 +46,7 @@ var gems_collected = {}
 
 var global_gem_progress = { "collected": 0, "total": 102+52, "percentage": 0.0 }
 var gem_progress = {
-  "TestMap": { "collected": 0, "total": 102, "percentage": 0.0 },
+  "AvocadoBeach": { "collected": 0, "total": 102, "percentage": 0.0 },
   "LakeMap": { "collected": 0, "total": 52, "percentage": 0.0 }
 }
 

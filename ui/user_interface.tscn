@@ -3,8 +3,8 @@
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="4_kkygk"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="5_hbfsb"]
 [ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-overlay.svg" id="5_tg4xs"]
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://do0d3kqunn7pt" path="res://assets/minimap/player-cursor.png" id="6_y76n1"]
@@ -285,7 +285,7 @@ offset_right = 650.0
 offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_kkygk")
+texture = ExtResource("5_hbfsb")
 
 [node name="Overlay" type="TextureRect" parent="Minimap"]
 layout_mode = 1

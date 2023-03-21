@@ -1,8 +1,8 @@
-[gd_scene load_steps=86 format=3 uid="uid://bt6t10065e0ix"]
+[gd_scene load_steps=86 format=3 uid="uid://bji1tdapoh0ct"]
 
 [ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
-[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_lr6ml"]
+[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="3_lfm86"]
 [ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="4_ksy0t"]
 [ext_resource type="Material" uid="uid://chjwt45xklaos" path="res://assets/scatter_assets/grass/data/m_grass_52.tres" id="5_mveht"]
 [ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="6_rhpv0"]
@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://1adku7xcpwfb" path="res://maps/extras/spring/spring.tscn" id="28_so3lg"]
 [ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="29_wueom"]
 [ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="30_qaouf"]
-[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="31_dia1q"]
+[ext_resource type="PackedScene" path="res://ui/user_interface.tscn" id="31_dia1q"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="32_xg6rw"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="33_5k70r"]
 [ext_resource type="AudioStream" uid="uid://cs20rrahm3kdx" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="34_0eww4"]
@@ -210,7 +210,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../MovingPlatforms/MovingPlatform:position")
+tracks/0/path = NodePath("../MovingPlatform:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -222,7 +222,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../MovingPlatforms/MovingPlatform2:position")
+tracks/1/path = NodePath("../MovingPlatform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -237,7 +237,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../MovingPlatforms/MovingPlatform:position")
+tracks/0/path = NodePath("../MovingPlatform:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -249,7 +249,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../MovingPlatforms/MovingPlatform2:position")
+tracks/1/path = NodePath("../MovingPlatform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -468,10 +468,10 @@ _data = {
 "preview": SubResource("Animation_i3fst")
 }
 
-[node name="TestMap" type="Node3D"]
+[node name="AvocadoBeach" type="Node3D"]
 script = ExtResource("1_1tay5")
 map_music = ExtResource("2_livli")
-minimap = ExtResource("3_lr6ml")
+minimap = ExtResource("3_lfm86")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 0)
