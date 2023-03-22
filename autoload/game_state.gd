@@ -101,6 +101,8 @@ func collect_gem(map_name: String, path: NodePath) -> void:
 
 func initialize() -> void: # Used in "New Game".
   cutscenes_played.intro = false
+  cutscenes_played.avocado_beach_preview = false
+  
   hub_1_at_night = true
   gems_collected = {}
   godot_heads_collected = bytes_to_var(initial_godot_heads_collected)
