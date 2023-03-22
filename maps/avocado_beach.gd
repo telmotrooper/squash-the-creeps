@@ -11,6 +11,10 @@ func _ready() -> void:
   # 2.35 is a good proportion for a camera with size 550 m
   # 1.72 is a good proportion for a camera with size 750 m
   GameState.UserInterface.get_node("MapName").display("Avocado Beach")
+  
+  if not GameState.cutscenes_played.avocado_beach_preview:
+    GameState.cutscenes_played.avocado_beach_preview = true
+    $CutsceneAnimationPlayer.play("preview")
 
 func _on_Player_hit() -> void:
   GameState.UserInterface.retry()

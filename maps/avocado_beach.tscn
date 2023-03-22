@@ -503,7 +503,7 @@ map_music = ExtResource("2_livli")
 minimap = ExtResource("3_lfm86")
 
 [node name="SkipCutscene" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("4_mb8ty")]
-animation_player = NodePath("../AnimationPlayer")
+animation_player = NodePath("../CutsceneAnimationPlayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 0)
@@ -1316,14 +1316,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.11
 [node name="BigBeachIsland" parent="." instance=ExtResource("42_3dnkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56736, -75.1845, 246.716)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("CutsceneCamera")
-autoplay = "preview"
 libraries = {
 "": SubResource("AnimationLibrary_8e17r")
 }
 
-[node name="CutsceneCamera" type="Camera3D" parent="AnimationPlayer"]
+[node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 36, 382)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
