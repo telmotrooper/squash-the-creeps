@@ -1,9 +1,10 @@
-[gd_scene load_steps=86 format=3 uid="uid://bji1tdapoh0ct"]
+[gd_scene load_steps=87 format=3 uid="uid://bji1tdapoh0ct"]
 
 [ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="3_lfm86"]
 [ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="4_ksy0t"]
+[ext_resource type="PackedScene" uid="uid://c8mgkrk8bsb4m" path="res://ui/skip_cutscene.tscn" id="4_mb8ty"]
 [ext_resource type="Material" uid="uid://chjwt45xklaos" path="res://assets/scatter_assets/grass/data/m_grass_52.tres" id="5_mveht"]
 [ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="6_rhpv0"]
 [ext_resource type="PackedScene" uid="uid://c7wwx46ehiufd" path="res://props/red_gem/red_gem.tscn" id="7_tpij1"]
@@ -399,6 +400,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-0.261799, 0, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"clear_current"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"set_minimap_visible"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_i3fst"]
 resource_name = "preview"
@@ -472,6 +501,9 @@ _data = {
 script = ExtResource("1_1tay5")
 map_music = ExtResource("2_livli")
 minimap = ExtResource("3_lfm86")
+
+[node name="SkipCutscene" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("4_mb8ty")]
+animation_player = NodePath("../AnimationPlayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 0)
