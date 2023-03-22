@@ -100,8 +100,8 @@ func collect_gem(map_name: String, path: NodePath) -> void:
   generate_progress_report(map_name)
 
 func initialize() -> void: # Used in "New Game".
-  cutscenes_played.intro = false
-  cutscenes_played.avocado_beach_preview = false
+  for property in cutscenes_played:
+    cutscenes_played[property] = false
   
   hub_1_at_night = true
   gems_collected = {}
