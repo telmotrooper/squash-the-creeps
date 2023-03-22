@@ -1,52 +1,54 @@
-[gd_scene load_steps=82 format=3 uid="uid://btsj8kt81tarp"]
+[gd_scene load_steps=87 format=3 uid="uid://bji1tdapoh0ct"]
 
-[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="3_8tp7d"]
-[ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="4"]
-[ext_resource type="Script" path="res://maps/test_map.gd" id="5"]
-[ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="6"]
-[ext_resource type="Material" uid="uid://chjwt45xklaos" path="res://assets/scatter_assets/grass/data/m_grass_52.tres" id="6_mjfx1"]
-[ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="7"]
-[ext_resource type="Material" uid="uid://dibxqpa2cmppd" path="res://materials/cyan.tres" id="8"]
-[ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="9"]
-[ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10"]
-[ext_resource type="Material" uid="uid://cr7t2omehksmy" path="res://materials/gradient_blue.tres" id="10_uiqnu"]
-[ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="11"]
-[ext_resource type="Material" uid="uid://lnpp5e326wrn" path="res://materials/gradient_blue_2.tres" id="11_16cow"]
-[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="12"]
-[ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="14"]
-[ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="15"]
-[ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="16"]
-[ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="18"]
-[ext_resource type="PackedScene" uid="uid://dtsvkv0pyppjh" path="res://props/red_button/red_button.tscn" id="19"]
-[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="19_dg500"]
-[ext_resource type="PackedScene" uid="uid://rgi86wbfqauc" path="res://entities/enemy/purple_enemy/purple_enemy.tscn" id="20"]
-[ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="21"]
-[ext_resource type="PackedScene" uid="uid://dgpc8sm6hks6b" path="res://maps/extras/beach_island/beach_island.tscn" id="22"]
-[ext_resource type="PackedScene" uid="uid://dhb72f0uqb47t" path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" id="23"]
-[ext_resource type="PackedScene" uid="uid://c7wwx46ehiufd" path="res://props/red_gem/red_gem.tscn" id="24"]
-[ext_resource type="PackedScene" uid="uid://dsi70335iix5i" path="res://props/green_gem/green_gem.tscn" id="25"]
-[ext_resource type="PackedScene" uid="uid://cl7oilvypf1v2" path="res://props/purple_gem/purple_gem.tscn" id="26"]
-[ext_resource type="Material" uid="uid://c23rwmc1hwenf" path="res://materials/Bamboo 001 C/Bamboo 001 C.tres" id="26_xnkt5"]
-[ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="27"]
-[ext_resource type="AudioStream" uid="uid://cs20rrahm3kdx" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="28"]
-[ext_resource type="PackedScene" uid="uid://1adku7xcpwfb" path="res://maps/extras/spring/spring.tscn" id="28_phcqy"]
-[ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="29"]
-[ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="31"]
-[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="32"]
-[ext_resource type="PackedScene" uid="uid://b6f8nv3ycye4e" path="res://entities/turret_enemy/turret_enemy.tscn" id="32_toihe"]
-[ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="33"]
-[ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="33_qw7ha"]
-[ext_resource type="PackedScene" uid="uid://hrpb58rlnaf8" path="res://entities/fish_enemy/fish_enemy.tscn" id="34_0x7ed"]
-[ext_resource type="PackedScene" uid="uid://dnt73n7hhecsc" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.tscn" id="36_n8ws8"]
-[ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="37_5b3ys"]
-[ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="38_8ys50"]
-[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="40_8w1et"]
+[ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
+[ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
+[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="3_lfm86"]
+[ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="4_ksy0t"]
+[ext_resource type="PackedScene" uid="uid://c8mgkrk8bsb4m" path="res://ui/skip_cutscene.tscn" id="4_mb8ty"]
+[ext_resource type="Material" uid="uid://chjwt45xklaos" path="res://assets/scatter_assets/grass/data/m_grass_52.tres" id="5_mveht"]
+[ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="6_rhpv0"]
+[ext_resource type="PackedScene" uid="uid://c7wwx46ehiufd" path="res://props/red_gem/red_gem.tscn" id="7_tpij1"]
+[ext_resource type="PackedScene" uid="uid://dsi70335iix5i" path="res://props/green_gem/green_gem.tscn" id="8_m1jg2"]
+[ext_resource type="PackedScene" uid="uid://cl7oilvypf1v2" path="res://props/purple_gem/purple_gem.tscn" id="9_gl1x1"]
+[ext_resource type="PackedScene" uid="uid://d0skipybh0r4s" path="res://entities/enemy/blue_enemy/blue_enemy.tscn" id="10_vipi2"]
+[ext_resource type="Material" uid="uid://cr7t2omehksmy" path="res://materials/gradient_blue.tres" id="11_nlgyu"]
+[ext_resource type="Material" uid="uid://lnpp5e326wrn" path="res://materials/gradient_blue_2.tres" id="12_irblm"]
+[ext_resource type="PackedScene" uid="uid://rgi86wbfqauc" path="res://entities/enemy/purple_enemy/purple_enemy.tscn" id="13_uc65y"]
+[ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="14_b6nat"]
+[ext_resource type="Material" uid="uid://dibxqpa2cmppd" path="res://materials/cyan.tres" id="15_dtq2f"]
+[ext_resource type="PackedScene" uid="uid://dfytcujhakrx2" path="res://maps/extras/small_platform/small_platform.tscn" id="16_pgooe"]
+[ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="17_tburi"]
+[ext_resource type="PackedScene" uid="uid://dgpc8sm6hks6b" path="res://maps/extras/beach_island/beach_island.tscn" id="18_bms0o"]
+[ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="19_hwma5"]
+[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="20_ijocr"]
+[ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="21_2oe45"]
+[ext_resource type="PackedScene" uid="uid://dtsvkv0pyppjh" path="res://props/red_button/red_button.tscn" id="22_wpjky"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="23_2se3s"]
+[ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="24_1hsoc"]
+[ext_resource type="PackedScene" uid="uid://dhb72f0uqb47t" path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" id="25_ui5k2"]
+[ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="26_0e88k"]
+[ext_resource type="Material" uid="uid://c23rwmc1hwenf" path="res://materials/Bamboo 001 C/Bamboo 001 C.tres" id="27_1scad"]
+[ext_resource type="PackedScene" uid="uid://1adku7xcpwfb" path="res://maps/extras/spring/spring.tscn" id="28_so3lg"]
+[ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="29_wueom"]
+[ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="30_qaouf"]
+[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="31_dia1q"]
+[ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="32_xg6rw"]
+[ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="33_5k70r"]
+[ext_resource type="AudioStream" uid="uid://cs20rrahm3kdx" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="34_0eww4"]
+[ext_resource type="PackedScene" uid="uid://b6f8nv3ycye4e" path="res://entities/turret_enemy/turret_enemy.tscn" id="35_e5ry1"]
+[ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="36_wghgm"]
+[ext_resource type="PackedScene" uid="uid://dnt73n7hhecsc" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.tscn" id="37_4w2bu"]
+[ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="38_qdb03"]
+[ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="39_105mw"]
+[ext_resource type="PackedScene" uid="uid://hrpb58rlnaf8" path="res://entities/fish_enemy/fish_enemy.tscn" id="40_duj88"]
+[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="41_2dfa4"]
+[ext_resource type="PackedScene" uid="uid://2esl5e4dn6aj" path="res://maps/extras/big_beach_island/big_beach_island.tscn" id="42_3dnkc"]
 
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="4"]
-material = ExtResource("9")
+material = ExtResource("4_ksy0t")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="ArrayMesh" id="1"]
@@ -57,7 +59,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 54,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 6, 0, 1, 0, 5, 0, 6, 0, 0, 0, 1, 0, 8, 0, 10, 0, 9, 0, 8, 0, 11, 0, 10, 0, 9, 0, 12, 0, 8, 0, 13, 0, 15, 0, 14, 0, 16, 0, 15, 0, 13, 0, 17, 0, 19, 0, 18, 0, 17, 0, 20, 0, 19, 0, 18, 0, 21, 0, 17, 0, 22, 0, 24, 0, 23, 0, 22, 0, 25, 0, 24, 0, 26, 0, 28, 0, 27, 0, 29, 0, 28, 0, 26, 0),
-"material": ExtResource("6_mjfx1"),
+"material": ExtResource("5_mveht"),
 "primitive": 3,
 "vertex_count": 30,
 "vertex_data": PackedByteArray(145, 37, 191, 61, 193, 28, 255, 62, 174, 60, 128, 190, 222, 238, 68, 34, 196, 226, 134, 195, 136, 37, 191, 61, 250, 208, 23, 188, 211, 11, 98, 188, 222, 238, 68, 34, 196, 226, 134, 195, 40, 92, 143, 62, 73, 232, 214, 60, 2, 81, 127, 61, 192, 223, 60, 30, 158, 207, 142, 199, 40, 92, 143, 62, 230, 164, 8, 63, 97, 132, 50, 190, 192, 223, 60, 30, 158, 207, 142, 199, 40, 92, 143, 190, 73, 232, 214, 60, 2, 81, 127, 61, 64, 32, 60, 30, 222, 239, 77, 167, 145, 37, 191, 189, 250, 208, 23, 188, 211, 11, 98, 188, 34, 17, 68, 34, 236, 246, 98, 177, 136, 37, 191, 189, 193, 28, 255, 62, 174, 60, 128, 190, 34, 17, 68, 34, 236, 246, 98, 177, 40, 92, 143, 190, 230, 164, 8, 63, 97, 132, 50, 190, 64, 32, 60, 30, 222, 239, 77, 167, 148, 190, 124, 190, 222, 182, 6, 63, 152, 218, 177, 61, 190, 95, 128, 64, 16, 8, 210, 233, 154, 65, 169, 60, 178, 129, 185, 35, 98, 121, 183, 61, 194, 97, 136, 68, 10, 5, 202, 229, 23, 77, 229, 189, 224, 5, 184, 163, 65, 203, 73, 189, 202, 101, 150, 75, 2, 1, 190, 223, 252, 68, 136, 190, 51, 250, 205, 62, 15, 80, 170, 58, 202, 101, 150, 75, 2, 1, 190, 223, 84, 92, 236, 189, 92, 36, 166, 62, 40, 212, 148, 62, 174, 87, 100, 50, 34, 17, 232, 244, 88, 15, 156, 189, 25, 138, 216, 59, 31, 190, 48, 188, 180, 217, 102, 51, 92, 174, 114, 185, 120, 154, 148, 187, 57, 110, 81, 188, 223, 2, 191, 61, 180, 217, 102, 51, 92, 174, 114, 185, 226, 23, 169, 62, 8, 123, 139, 62, 252, 195, 61, 61, 180, 217, 102, 51, 92, 174, 114, 185, 168, 217, 205, 62, 127, 169, 229, 62, 166, 222, 1, 190, 180, 217, 102, 51, 92, 174, 114, 185, 70, 199, 45, 62, 11, 9, 209, 62, 255, 190, 51, 62, 64, 159, 230, 115, 96, 48, 152, 204, 0, 108, 12, 62, 99, 197, 17, 189, 95, 17, 144, 60, 62, 158, 214, 107, 104, 52, 150, 203, 129, 192, 204, 59, 235, 239, 144, 56, 122, 160, 183, 61, 56, 155, 192, 96, 116, 58, 144, 200, 87, 118, 165, 61, 28, 217, 166, 62, 12, 120, 59, 62, 56, 155, 192, 96, 116, 58, 144, 200, 94, 41, 162, 62, 134, 246, 83, 62, 67, 67, 11, 62, 196, 98, 220, 110, 72, 36, 166, 211, 192, 172, 234, 61, 89, 241, 33, 62, 0, 203, 112, 62, 156, 78, 226, 113, 4, 2, 148, 202, 104, 46, 163, 61, 126, 97, 131, 187, 75, 27, 217, 61, 156, 78, 226, 113, 4, 2, 148, 202, 34, 25, 212, 187, 42, 211, 56, 187, 76, 147, 181, 61, 156, 78, 226, 113, 4, 2, 148, 202, 49, 128, 92, 187, 241, 3, 204, 61, 211, 55, 42, 62, 156, 78, 226, 113, 4, 2, 148, 202, 17, 46, 152, 189, 77, 174, 210, 60, 80, 65, 127, 189, 64, 159, 44, 149, 84, 42, 112, 184, 84, 150, 28, 190, 208, 222, 89, 60, 182, 93, 19, 189, 64, 159, 44, 149, 84, 42, 112, 184, 108, 40, 147, 190, 214, 127, 134, 62, 52, 211, 200, 189, 64, 159, 44, 149, 84, 42, 112, 184, 119, 238, 122, 190, 212, 9, 210, 62, 7, 12, 44, 190, 64, 159, 44, 149, 84, 42, 112, 184)
@@ -81,11 +83,11 @@ point_count = 2
 size = Vector3(12, 2, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5iej4"]
-material = ExtResource("10_uiqnu")
+material = ExtResource("11_nlgyu")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1imjx"]
-material = ExtResource("11_16cow")
+material = ExtResource("12_irblm")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="Curve3D" id="18"]
@@ -96,7 +98,7 @@ _data = {
 point_count = 5
 
 [sub_resource type="BoxMesh" id="BoxMesh_rv8lt"]
-material = ExtResource("8")
+material = ExtResource("15_dtq2f")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="ConvexPolygonShape3D" id="25"]
@@ -133,7 +135,7 @@ point_count = 3
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxMesh" id="36"]
-material = ExtResource("9")
+material = ExtResource("4_ksy0t")
 size = Vector3(50, 1, 50)
 
 [sub_resource type="Curve3D" id="15"]
@@ -209,7 +211,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../MovingPlatforms/MovingPlatform:position")
+tracks/0/path = NodePath("../MovingPlatform:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -221,7 +223,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../MovingPlatforms/MovingPlatform2:position")
+tracks/1/path = NodePath("../MovingPlatform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -236,7 +238,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../MovingPlatforms/MovingPlatform:position")
+tracks/0/path = NodePath("../MovingPlatform:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -248,7 +250,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../MovingPlatforms/MovingPlatform2:position")
+tracks/1/path = NodePath("../MovingPlatform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -336,7 +338,7 @@ _data = {
 point_count = 7
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3hdny"]
-material = ExtResource("4")
+material = ExtResource("33_5k70r")
 size = Vector2(1000, 1000)
 subdivide_width = 10
 subdivide_depth = 10
@@ -372,10 +374,149 @@ _data = {
 }
 point_count = 8
 
-[node name="TestMap" type="Node3D"]
-script = ExtResource("5")
-map_music = ExtResource("27")
-minimap = ExtResource("3_8tp7d")
+[sub_resource type="Animation" id="Animation_gw5c3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 36, 382)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.261799, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"clear_current"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Player:paused")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i3fst"]
+resource_name = "preview"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9),
+"transitions": PackedFloat32Array(1, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector3(0, 36, 382), Vector3(0, 36, 324), Vector3(-104.252, 21.314, 95.6037), Vector3(24.8507, 48.3282, 28.8195)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(-0.261799, 0, 0), Vector3(-0.261799, -0.785398, 0), Vector3(-0.523599, -0.523599, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"make_current"
+}, {
+"args": [true],
+"method": &"clear_current"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"set_minimap_visible"
+}, {
+"args": [],
+"method": &"hide_map_name"
+}, {
+"args": [true],
+"method": &"set_minimap_visible"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Player:paused")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8e17r"]
+_data = {
+"RESET": SubResource("Animation_gw5c3"),
+"preview": SubResource("Animation_i3fst")
+}
+
+[node name="AvocadoBeach" type="Node3D"]
+script = ExtResource("1_1tay5")
+map_music = ExtResource("2_livli")
+minimap = ExtResource("3_lfm86")
+
+[node name="SkipCutscene" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("4_mb8ty")]
+animation_player = NodePath("../CutsceneAnimationPlayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 0)
@@ -399,24 +540,24 @@ mesh = SubResource("4")
 unique_name_in_owner = true
 multimesh = SubResource("19")
 
-[node name="Flag" parent="Map/GreenPlatform1" instance=ExtResource("11")]
+[node name="Flag" parent="Map/GreenPlatform1" instance=ExtResource("6_rhpv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031)
 
 [node name="Gems" type="Node3D" parent="Map/GreenPlatform1"]
 
-[node name="RedGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("24")]
+[node name="RedGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0256, 0.0999999, -26.1378)
 
-[node name="RedGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource("24")]
+[node name="RedGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541)
 
-[node name="GreenGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("25")]
+[node name="GreenGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8488, 0.630445, -22.1003)
 
-[node name="PurpleGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("26")]
+[node name="PurpleGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7919, 0.765488, -26.3931)
 
-[node name="PurpleGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource("26")]
+[node name="PurpleGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6563, 0.765488, -22.3548)
 
 [node name="BlueEnemyPath" type="Path3D" parent="Map/GreenPlatform1"]
@@ -427,7 +568,7 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16, 0, -16)
 rotation_mode = 4
 loop = false
 
-[node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow3D" instance=ExtResource("10_vipi2")]
 transform = Transform3D(-1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0)
 
 [node name="Bridge" type="StaticBody3D" parent="Map"]
@@ -462,7 +603,7 @@ curve = SubResource("18")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/BluePlatform/PurpleEnemyPath"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.9524, 0, 7.80272)
 
-[node name="PurpleEnemy" parent="Map/BluePlatform/PurpleEnemyPath/PathFollow3D" instance=ExtResource("20")]
+[node name="PurpleEnemy" parent="Map/BluePlatform/PurpleEnemyPath/PathFollow3D" instance=ExtResource("13_uc65y")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0)
 patrolling_speed = 18
 
@@ -479,7 +620,7 @@ shape = SubResource("3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 mesh = SubResource("BoxMesh_1imjx")
 
-[node name="ExitPortal" parent="Map/BluePlatform2" instance=ExtResource("21")]
+[node name="ExitPortal" parent="Map/BluePlatform2" instance=ExtResource("14_b6nat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448)
 label = "Exit"
 map_name = "hub_1"
@@ -489,26 +630,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 66.393)
 use_collision = true
 collision_layer = 4
 size = Vector3(12, 1, 70)
-material = ExtResource("8")
+material = ExtResource("15_dtq2f")
 
-[node name="SmallPlatform" parent="Map" instance=ExtResource("29")]
+[node name="SmallPlatform" parent="Map" instance=ExtResource("16_pgooe")]
 collision_layer = 64
 
-[node name="GreenGem3" parent="Map/SmallPlatform" instance=ExtResource("25")]
+[node name="GreenGem3" parent="Map/SmallPlatform" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
 
-[node name="GreenGem4" parent="Map/SmallPlatform" instance=ExtResource("25")]
+[node name="GreenGem4" parent="Map/SmallPlatform" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
 
-[node name="SmallPlatform2" parent="Map" instance=ExtResource("29")]
+[node name="SmallPlatform2" parent="Map" instance=ExtResource("16_pgooe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -5, -65)
 collision_layer = 64
 move_y = 4.0
 
-[node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource("25")]
+[node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
 
-[node name="GreenGem2" parent="Map/SmallPlatform2" instance=ExtResource("25")]
+[node name="GreenGem2" parent="Map/SmallPlatform2" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
 
 [node name="FloatingBluePlatform" type="StaticBody3D" parent="Map"]
@@ -525,122 +666,122 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_rv8lt")
 
-[node name="FloatingGodotHead" parent="Map/FloatingBluePlatform" instance=ExtResource("15")]
+[node name="FloatingGodotHead" parent="Map/FloatingBluePlatform" instance=ExtResource("17_tburi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -16)
 
-[node name="PurpleGem" parent="Map/FloatingBluePlatform" instance=ExtResource("26")]
+[node name="PurpleGem" parent="Map/FloatingBluePlatform" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.15353)
 
-[node name="PurpleGem2" parent="Map/FloatingBluePlatform" instance=ExtResource("26")]
+[node name="PurpleGem2" parent="Map/FloatingBluePlatform" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.28504)
 
-[node name="PurpleGem3" parent="Map/FloatingBluePlatform" instance=ExtResource("26")]
+[node name="PurpleGem3" parent="Map/FloatingBluePlatform" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.309)
 
-[node name="BeachIsland" parent="Map" instance=ExtResource("22")]
+[node name="BeachIsland" parent="Map" instance=ExtResource("18_bms0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999)
 
-[node name="Boundary" parent="Map/BeachIsland" instance=ExtResource("6")]
+[node name="Boundary" parent="Map/BeachIsland" instance=ExtResource("19_hwma5")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 4.6, 0)
 
-[node name="BeachGodotHead" parent="Map/BeachIsland" instance=ExtResource("15")]
+[node name="BeachGodotHead" parent="Map/BeachIsland" instance=ExtResource("17_tburi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.0961, 16.9, 0.464002)
 
 [node name="Gems" type="Node3D" parent="Map/BeachIsland"]
 
-[node name="RedGem" parent="Map/BeachIsland/Gems" instance=ExtResource("24")]
+[node name="RedGem" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25001, 13.7, -15.07)
 
-[node name="RedGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("24")]
+[node name="RedGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.75, 13.7, 3.83)
 
-[node name="RedGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("24")]
+[node name="RedGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25001, 13.7, 17.33)
 
-[node name="RedGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("24")]
+[node name="RedGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35, 13.7, 2.23)
 
-[node name="GreenGem" parent="Map/BeachIsland/Gems" instance=ExtResource("25")]
+[node name="GreenGem" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0575, 14.1012, -10.1517)
 
-[node name="GreenGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("25")]
+[node name="GreenGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0282, 14.1012, 13.2848)
 
-[node name="GreenGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("25")]
+[node name="GreenGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62411, 14.1012, 14.4321)
 
-[node name="GreenGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("25")]
+[node name="GreenGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6186, 14.1012, -10.7166)
 
-[node name="PurpleGem" parent="Map/BeachIsland/Gems" instance=ExtResource("26")]
+[node name="PurpleGem" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9443, 14.0882, -6.98813)
 
-[node name="PurpleGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("26")]
+[node name="PurpleGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8715, 14.0882, 7.53171)
 
-[node name="PurpleGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("26")]
+[node name="PurpleGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994)
 
-[node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("26")]
+[node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913)
 
 [node name="Props" type="Node3D" parent="Map/BeachIsland"]
 
-[node name="FoliagePlant" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.954334, 0.298741, 0, -0.298741, 0.954334, 0, 0, 0, 1, 23.8857, 10.059, -2.49402)
 
-[node name="FoliagePlant2" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant2" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.986363, 0.164583, 0, -0.164583, 0.986363, 0, 0, 0, 1, 16.1197, 12.0579, 6.10835)
 
-[node name="FoliagePlant3" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant3" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.119062, 0.992887, 0, 0, 0, 1, 0.577538, 13.7211, -0.395428)
 
-[node name="FoliagePlant4" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant4" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.112881, 0.941341, -0.318016, 0.0378638, 0.315754, 0.948085, 0.577538, 10.6109, 17.7934)
 
-[node name="FoliagePlant5" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant5" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.949716, -0.313114, 0, 0.313114, 0.949716, 0, 0, 0, 1, -13.1941, 10.4794, 5.59452)
 
-[node name="FoliagePlant6" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant6" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.115964, 0.967048, 0.226651, -0.0269857, -0.225039, 0.973976, -10.1768, 10.4834, -10.1844)
 
-[node name="FoliagePlant7" parent="Map/BeachIsland/Props" instance=ExtResource("32")]
+[node name="FoliagePlant7" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.110968, 0.925385, 0.362422, -0.0431508, -0.359844, 0.932014, 6.64685, 11.0762, -16.4952)
 
-[node name="PalmTreeBeachIsland" parent="Map" instance=ExtResource("22")]
+[node name="PalmTreeBeachIsland" parent="Map" instance=ExtResource("18_bms0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759)
 
-[node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource("33")]
+[node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource("21_2oe45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098)
 
-[node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+[node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(0.963696, 0.267003, 0, -0.267003, 0.963696, 0, 0, 0, 1, -2.15528, 6.71425, 0)
 
-[node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+[node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 0.961175, -0.275939, 0, 0.275939, 0.961175, 0.611984, 6.63977, -2.46629)
 
-[node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("25")]
+[node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(0.999988, 0.00493372, 0.000530863, -0.004962, 0.995157, 0.0981748, -4.39294e-05, -0.0981763, 0.995169, 0.611984, 6.93238, 2.08485)
 
-[node name="RedGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("24")]
+[node name="RedGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.932557, 0.361022, 0, -0.361022, 0.932557, 0, 0, 0, 1, -1.71158, 6.66337, -1.86882)
 
-[node name="RedGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("24")]
+[node name="RedGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.924799, -0.380457, 0, 0.380457, 0.924799, 0, 0, 0, 1, 1.67213, 6.7352, -0.258358)
 
-[node name="RedGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("24")]
+[node name="RedGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.995795, -0.091606, 0, 0.0885957, 0.963073, 0.254248, -0.0232906, -0.253179, 0.967139, -0.815338, 6.38492, 2.07698)
 
-[node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource("15")]
+[node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource("17_tburi")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 34.6944, 0)
 
-[node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" instance=ExtResource("32")]
+[node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 6.58969, 13.8456, -2.09302)
 
-[node name="FoliagePlant2" parent="Map/PalmTreeBeachIsland" instance=ExtResource("32")]
+[node name="FoliagePlant2" parent="Map/PalmTreeBeachIsland" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 5.87474, 13.8456, 2.40438)
 
-[node name="FoliagePlant3" parent="Map/PalmTreeBeachIsland" instance=ExtResource("32")]
+[node name="FoliagePlant3" parent="Map/PalmTreeBeachIsland" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 2.47056, 13.8456, 0.595779)
 
 [node name="GreenPlatform2" type="CSGBox3D" parent="Map"]
@@ -649,7 +790,7 @@ use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(100, 1, 50)
-material = ExtResource("9")
+material = ExtResource("4_ksy0t")
 
 [node name="Ramp" type="StaticBody3D" parent="Map/GreenPlatform2"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -25.0022, 3.64643, -0.0341987)
@@ -661,7 +802,7 @@ shape = SubResource("25")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform2/Ramp"]
 mesh = SubResource("27")
 
-[node name="RedButton" parent="Map/GreenPlatform2/Ramp" instance=ExtResource("19")]
+[node name="RedButton" parent="Map/GreenPlatform2/Ramp" instance=ExtResource("22_wpjky")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 5.3, -1.1, 3.4)
 direction = 1
 
@@ -670,7 +811,7 @@ transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 
 pixel_size = 0.01
 text = "Press \"ATTACK\" to
 press a wall button."
-font = ExtResource("19_dg500")
+font = ExtResource("23_2se3s")
 font_size = 48
 outline_size = 0
 
@@ -681,7 +822,7 @@ curve = SubResource("45")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow3D" instance=ExtResource("31")]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow3D" instance=ExtResource("24_1hsoc")]
 
 [node name="SlimePath2" type="Path3D" parent="Map/GreenPlatform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5176, 2.8, 0)
@@ -690,7 +831,7 @@ curve = SubResource("45")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow3D" instance=ExtResource("31")]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow3D" instance=ExtResource("24_1hsoc")]
 
 [node name="SlimePath3" type="Path3D" parent="Map/GreenPlatform2"]
 transform = Transform3D(-0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 90.654, 12.5175, 0)
@@ -699,56 +840,56 @@ curve = SubResource("45")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow3D" instance=ExtResource("31")]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow3D" instance=ExtResource("24_1hsoc")]
 
 [node name="Props" type="Node3D" parent="Map/GreenPlatform2"]
 
-[node name="FoliagePlant" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1691, 0.657533, -3.19401)
 
-[node name="FoliagePlant2" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant2" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3508, 0.657533, 14.6727)
 
-[node name="FoliagePlant3" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant3" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8013, 0.657533, 5.29685)
 
-[node name="FoliagePlant4" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant4" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7966, 0.657533, -18.9896)
 
-[node name="FoliagePlant5" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant5" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78354, 0.657533, -3.74691)
 
-[node name="FoliagePlant6" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant6" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5296, 0.657533, -17.9681)
 
-[node name="FoliagePlant7" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant7" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3915, 0.657533, 13.4889)
 
-[node name="FoliagePlant8" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant8" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34264, 0.657533, 19.1331)
 
-[node name="FoliagePlant9" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant9" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6831, 0.657533, -7.62557)
 
-[node name="FoliagePlant10" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant10" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8484, 0.657533, 2.50677)
 
-[node name="FoliagePlant11" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant11" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5673, 0.657533, -12.773)
 
-[node name="FoliagePlant12" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant12" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27011, 0.657533, -14.5014)
 
-[node name="FoliagePlant13" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant13" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7385, 0.657533, -14.5014)
 
-[node name="FoliagePlant14" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant14" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.696, 0.657533, 12.3598)
 
-[node name="FoliagePlant15" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant15" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8737, 0.657533, 20.5638)
 
-[node name="FoliagePlant16" parent="Map/GreenPlatform2/Props" instance=ExtResource("32")]
+[node name="FoliagePlant16" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6651, 0.657533, 18.9823)
 
 [node name="GreenPlatform3" type="StaticBody3D" parent="Map"]
@@ -762,7 +903,7 @@ shape = SubResource("37")
 mesh = SubResource("36")
 skeleton = NodePath("../../MovingPlatforms")
 
-[node name="GrassGodotHead" parent="Map/GreenPlatform3" instance=ExtResource("15")]
+[node name="GrassGodotHead" parent="Map/GreenPlatform3" instance=ExtResource("17_tburi")]
 transform = Transform3D(-4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, 0.774998, 3.5, -18.772)
 
 [node name="BlueEnemyPath2" type="Path3D" parent="Map/GreenPlatform3"]
@@ -772,7 +913,7 @@ curve = SubResource("15")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath2"]
 transform = Transform3D(-1, -3.34144e-13, -8.74228e-08, 0, 1, -3.82216e-06, 8.74228e-08, -3.82216e-06, -1, 6.67461, 3.05176e-05, 8.29214)
 
-[node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow3D" instance=ExtResource("10_vipi2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BlueEnemyPath3" type="Path3D" parent="Map/GreenPlatform3"]
@@ -782,7 +923,7 @@ curve = SubResource("16")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath3"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.63111, 0, 14.5864)
 
-[node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow3D" instance=ExtResource("10_vipi2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BlueEnemyPath4" type="Path3D" parent="Map/GreenPlatform3"]
@@ -792,33 +933,33 @@ curve = SubResource("17")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath4"]
 transform = Transform3D(0.707107, 0, 0.707105, 0, 1, 0, -0.707105, 0, 0.707107, 2.04762, 0, 1.40272)
 
-[node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow3D" instance=ExtResource("10_vipi2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Node3D" type="Node3D" parent="Map/GreenPlatform3"]
 
-[node name="FoliagePlant" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1122, 0.459839, 0)
 
-[node name="FoliagePlant2" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant2" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70905, 0.459839, 13.1691)
 
-[node name="FoliagePlant3" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant3" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97467, 0.459839, 6.54948)
 
-[node name="FoliagePlant4" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant4" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.06, 0.459839, 20.2818)
 
-[node name="FoliagePlant5" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant5" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0572, 0.459839, -7.46893)
 
-[node name="FoliagePlant6" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant6" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39832, 0.459839, -14.9648)
 
-[node name="FoliagePlant7" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant7" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1006, 0.459839, 8.20314)
 
-[node name="FoliagePlant8" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("32")]
+[node name="FoliagePlant8" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52028, 0.459839, -20.0867)
 
 [node name="EnemyBridge" type="Node3D" parent="Map"]
@@ -830,7 +971,7 @@ curve = SubResource("20")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow3D" instance=ExtResource("23")]
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow3D" instance=ExtResource("25_ui5k2")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge"]
@@ -840,7 +981,7 @@ curve = SubResource("20")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow3D" instance=ExtResource("23")]
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow3D" instance=ExtResource("25_ui5k2")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge"]
@@ -850,7 +991,7 @@ curve = SubResource("20")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow3D" instance=ExtResource("23")]
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow3D" instance=ExtResource("25_ui5k2")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="EnemyBridge2" type="Node3D" parent="Map"]
@@ -863,7 +1004,7 @@ curve = SubResource("20")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath1/PathFollow3D" instance=ExtResource("23")]
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath1/PathFollow3D" instance=ExtResource("25_ui5k2")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge2"]
@@ -873,7 +1014,7 @@ curve = SubResource("20")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath2/PathFollow3D" instance=ExtResource("23")]
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath2/PathFollow3D" instance=ExtResource("25_ui5k2")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge2"]
@@ -883,7 +1024,7 @@ curve = SubResource("20")
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath3/PathFollow3D" instance=ExtResource("23")]
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath3/PathFollow3D" instance=ExtResource("25_ui5k2")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="MovingPlatforms" type="Node3D" parent="Map"]
@@ -912,7 +1053,7 @@ mesh = SubResource("31")
 skeleton = NodePath("../..")
 
 [node name="Manual" type="Node" parent="Map/MovingPlatforms"]
-script = ExtResource("18")
+script = ExtResource("26_0e88k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
 autoplay = "RESET"
@@ -930,39 +1071,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0)
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 20, 20)
-material = ExtResource("26_xnkt5")
+material = ExtResource("27_1scad")
 
 [node name="JumpLabel3D" type="Label3D" parent="Map/BlueCube"]
 transform = Transform3D(-3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3)
 pixel_size = 0.01
 text = "Hold \"JUMP\" while jumping
 over an enemy to go higher."
-font = ExtResource("19_dg500")
+font = ExtResource("23_2se3s")
 font_size = 48
 outline_size = 0
 
-[node name="RedGem" parent="Map/BlueCube" instance=ExtResource("24")]
+[node name="RedGem" parent="Map/BlueCube" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5)
 
-[node name="RedGem2" parent="Map/BlueCube" instance=ExtResource("24")]
+[node name="RedGem2" parent="Map/BlueCube" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5)
 
-[node name="RedGem3" parent="Map/BlueCube" instance=ExtResource("24")]
+[node name="RedGem3" parent="Map/BlueCube" instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0)
 
-[node name="PurpleGem" parent="Map/BlueCube" instance=ExtResource("26")]
+[node name="PurpleGem" parent="Map/BlueCube" instance=ExtResource("9_gl1x1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0)
 
-[node name="GreenGem" parent="Map/BlueCube" instance=ExtResource("25")]
+[node name="GreenGem" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
 
-[node name="GreenGem2" parent="Map/BlueCube" instance=ExtResource("25")]
+[node name="GreenGem2" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3)
 
-[node name="GreenGem3" parent="Map/BlueCube" instance=ExtResource("25")]
+[node name="GreenGem3" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2)
 
-[node name="GreenGem4" parent="Map/BlueCube" instance=ExtResource("25")]
+[node name="GreenGem4" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2)
 
 [node name="SprintTutorial" type="Area3D" parent="Map/BlueCube"]
@@ -981,7 +1122,7 @@ modulate = Color(1, 1, 1, 0)
 outline_modulate = Color(0, 0, 0, 0)
 text = "Sometimes you'll have to be fast,
 press SHIFT to sprint."
-font = ExtResource("19_dg500")
+font = ExtResource("23_2se3s")
 font_size = 48
 outline_size = 0
 
@@ -996,12 +1137,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.645, 0.287, 0)
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 20, 20)
-material = ExtResource("26_xnkt5")
+material = ExtResource("27_1scad")
 
-[node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource("15")]
+[node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource("17_tburi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 
-[node name="Spring" parent="Map" instance=ExtResource("28_phcqy")]
+[node name="Spring" parent="Map" instance=ExtResource("28_so3lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.145, 10, 7.476)
 
 [node name="SpringPath" type="Path3D" parent="Map/Spring"]
@@ -1012,40 +1153,37 @@ curve = SubResource("Curve3D_dm8rc")
 rotation_mode = 0
 loop = false
 
-[node name="FallingBridge" parent="Map" instance=ExtResource("16")]
+[node name="FallingBridge" parent="Map" instance=ExtResource("29_wueom")]
 unique_name_in_owner = true
 
-[node name="Player" parent="." instance=ExtResource("14")]
+[node name="Player" parent="." instance=ExtResource("30_qaouf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0850945, 0.15513, 0.129791)
+paused = true
 
-[node name="UserInterface" parent="." instance=ExtResource("12")]
+[node name="UserInterface" parent="." instance=ExtResource("31_dia1q")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("7")
+environment = ExtResource("32_xg6rw")
 
-[node name="SmallBoundary" parent="." instance=ExtResource("6")]
+[node name="SmallBoundary" parent="." instance=ExtResource("19_hwma5")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 21.2329, -3.71757, -54.5046)
 
-[node name="Boundary" parent="." instance=ExtResource("6")]
+[node name="Boundary" parent="." instance=ExtResource("19_hwma5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.6, 0)
 
 [node name="WaterPlane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941)
 mesh = SubResource("PlaneMesh_3hdny")
 
-[node name="RetryCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.969876, 0.243598, 0, -0.243598, 0.969876, -1.74665, 13.1938, 48.2778)
-far = 200.0
-
-[node name="YellowEnemy" parent="." instance=ExtResource("23")]
+[node name="YellowEnemy" parent="." instance=ExtResource("25_ui5k2")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("28")
+stream = ExtResource("34_0eww4")
 autoplay = true
 bus = &"Music"
 
-[node name="TurretEnemy" parent="." instance=ExtResource("32_toihe")]
+[node name="TurretEnemy" parent="." instance=ExtResource("35_e5ry1")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -21.0567, -0.665399, -172.457)
 
 [node name="SandPlatform" type="Node3D" parent="."]
@@ -1055,38 +1193,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 78.594)
 use_collision = true
 collision_layer = 4
 size = Vector3(0, 0, 0)
-material = ExtResource("33_qw7ha")
+material = ExtResource("36_wghgm")
 
 [node name="AboveRamp" type="CSGBox3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.9007, 1)
 use_collision = true
 collision_layer = 4
 size = Vector3(10, 1, 10)
-material = ExtResource("33_qw7ha")
+material = ExtResource("36_wghgm")
 
 [node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
 mesh = SubResource("PrismMesh_p0g05")
-material = ExtResource("33_qw7ha")
+material = ExtResource("36_wghgm")
 
 [node name="SandRampBack" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 19.4, 17)
 mesh = SubResource("PrismMesh_p0g05")
-material = ExtResource("33_qw7ha")
+material = ExtResource("36_wghgm")
 
-[node name="SandRampGodotHead" parent="SandPlatform/SandRamp" instance=ExtResource("15")]
+[node name="SandRampGodotHead" parent="SandPlatform/SandRamp" instance=ExtResource("17_tburi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 1)
 
 [node name="SandBridge" type="CSGBox3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4877, -39.264)
 visible = false
 size = Vector3(9, 1, 19)
-material = ExtResource("33_qw7ha")
+material = ExtResource("36_wghgm")
 
-[node name="BreakableSandWall" parent="SandPlatform" instance=ExtResource("36_n8ws8")]
+[node name="BreakableSandWall" parent="SandPlatform" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 18.9109, 0.976196)
 
-[node name="BreakableSandWall3" parent="SandPlatform" instance=ExtResource("36_n8ws8")]
+[node name="BreakableSandWall3" parent="SandPlatform" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 18.911, 0.975998)
 
 [node name="Isle" type="StaticBody3D" parent="SandPlatform"]
@@ -1094,12 +1232,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.295, -14.8192, 24.5
 collision_layer = 4
 collision_mask = 3
 
-[node name="isle" parent="SandPlatform/Isle" instance=ExtResource("37_5b3ys")]
+[node name="isle" parent="SandPlatform/Isle" instance=ExtResource("38_qdb03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
 
 [node name="Plane" parent="SandPlatform/Isle/isle" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.43521, -49.4544)
-surface_material_override/0 = ExtResource("33_qw7ha")
+surface_material_override/0 = ExtResource("36_wghgm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SandPlatform/Isle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -4.43521, -49.4544)
@@ -1111,39 +1249,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -78.594)
 collision_layer = 4
 collision_mask = 3
 
-[node name="isle_path" parent="SandPlatform/IslePath" instance=ExtResource("38_8ys50")]
+[node name="isle_path" parent="SandPlatform/IslePath" instance=ExtResource("39_105mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59223, -0.629283, 44.943)
 
 [node name="Plane" parent="SandPlatform/IslePath/isle_path" index="0"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8.6, -0.301363, -4.5)
-surface_material_override/0 = ExtResource("33_qw7ha")
+surface_material_override/0 = ExtResource("36_wghgm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SandPlatform/IslePath"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00776672, -0.930646, 40.443)
 shape = SubResource("ConvexPolygonShape3D_u7vgq")
 
-[node name="FoliagePlant" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.559, 15.3146, -19.7572)
 
-[node name="FoliagePlant2" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant2" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7921, 15.3146, -6.78072)
 
-[node name="FoliagePlant3" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant3" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7618, 15.3146, 13.2694)
 
-[node name="FoliagePlant4" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant4" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2028, 15.3146, -18.5993)
 
-[node name="FoliagePlant5" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant5" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99682, 15.3146, -10.0185)
 
-[node name="FoliagePlant6" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant6" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3738, 15.3146, 7.78867)
 
-[node name="FoliagePlant7" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant7" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6878, 15.3146, 17.7119)
 
-[node name="FoliagePlant8" parent="SandPlatform" instance=ExtResource("32")]
+[node name="FoliagePlant8" parent="SandPlatform" instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4245, 15.3146, -2.89021)
 
 [node name="Path3D" type="Path3D" parent="SandPlatform"]
@@ -1153,7 +1291,7 @@ curve = SubResource("Curve3D_idwc0")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 15, 23)
 loop = false
 
-[node name="BlueEnemy" parent="SandPlatform/Path3D/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemy" parent="SandPlatform/Path3D/PathFollow3D" instance=ExtResource("10_vipi2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="SandPlatform"]
@@ -1165,7 +1303,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.48
 progress = 57.9443
 loop = false
 
-[node name="BlueEnemy" parent="SandPlatform/Path3D2/PathFollow3D" instance=ExtResource("10")]
+[node name="BlueEnemy" parent="SandPlatform/Path3D2/PathFollow3D" instance=ExtResource("10_vipi2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="FishPath3D" type="Path3D" parent="."]
@@ -1175,19 +1313,31 @@ curve = SubResource("Curve3D_ck1gi")
 [node name="PathFollow3D" type="PathFollow3D" parent="FishPath3D"]
 transform = Transform3D(-0.847998, 0, -0.529999, 0, 1, 0, 0.529999, 0, -0.847998, 0, 0, 20)
 
-[node name="FishEnemy" parent="FishPath3D/PathFollow3D" instance=ExtResource("34_0x7ed")]
+[node name="FishEnemy" parent="FishPath3D/PathFollow3D" instance=ExtResource("40_duj88")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="MinimapCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
 visible = false
 projection = 1
-size = 550.0
-script = ExtResource("40_8w1et")
+size = 750.0
+script = ExtResource("41_2dfa4")
 save_to = "res://assets/minimap/maps/test-map.png"
 
-[node name="CheckpointFlag" parent="." instance=ExtResource("11")]
+[node name="CheckpointFlag" parent="." instance=ExtResource("6_rhpv0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.119, 11.1003, 9.64482)
+
+[node name="BigBeachIsland" parent="." instance=ExtResource("42_3dnkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56736, -75.1845, 246.716)
+
+[node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("CutsceneCamera")
+libraries = {
+"": SubResource("AnimationLibrary_8e17r")
+}
+
+[node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 36, 382)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]

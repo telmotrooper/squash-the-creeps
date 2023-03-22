@@ -14,7 +14,7 @@ func _on_Boundary_body_entered(body: Node) -> void:
   if body is Player or body is PlayerBall:
     get_tree().call_group("players", "move_to_last_safe_position")
     
-    # TODO: Make this more generic. Currently only used in TestMap.
+    # TODO: Make this more generic. Currently only used in Avocado Beach.
     var falling_bridge = get_node_or_null("%FallingBridge")
     if is_instance_valid(falling_bridge):
       falling_bridge.reset()
