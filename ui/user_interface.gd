@@ -35,14 +35,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
   $FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()
 
-func _unhandled_input(event):
-  if $Retry.visible and event.is_action_pressed("ui_accept"):
-    GameState.reload_current_scene()
-
-func retry() -> void:
-  $Retry.show()
-  GameState.RetryCamera.current = true
-
 func show_hud() -> void:
   $HUDTimer.start()
   if not hud_visible:

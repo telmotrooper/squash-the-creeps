@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=27 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/test-map.png" id="4_kkygk"]
+[ext_resource type="Script" path="res://ui/map_name.gd" id="3_rj0dl"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="5_hbfsb"]
 [ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-overlay.svg" id="5_tg4xs"]
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://do0d3kqunn7pt" path="res://assets/minimap/player-cursor.png" id="6_y76n1"]
@@ -13,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="14_ly17m"]
 
 [sub_resource type="Animation" id="3"]
 resource_name = "RESET"
@@ -215,6 +217,40 @@ grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("5")
 
+[node name="MapName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -141.0
+offset_right = 265.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("14_ly17m")
+theme_override_font_sizes/font_size = 48
+text = "Avocado Beach"
+horizontal_alignment = 1
+script = ExtResource("3_rj0dl")
+
+[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_foux1")
+}
+
+[node name="HUDTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Minimap" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -262,7 +298,7 @@ offset_right = 650.0
 offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_kkygk")
+texture = ExtResource("5_hbfsb")
 
 [node name="Overlay" type="TextureRect" parent="Minimap"]
 layout_mode = 1
@@ -297,33 +333,6 @@ offset_bottom = 172.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_y76n1")
-
-[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-process_mode = 3
-libraries = {
-"": SubResource("AnimationLibrary_foux1")
-}
-
-[node name="HUDTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="Retry" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0, 0, 0, 0.235294)
-
-[node name="Label" type="Label" parent="Retry"]
-layout_mode = 0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
-text = "Press enter to retry"
 
 [node name="Dialog" type="Control" parent="."]
 layout_mode = 1
@@ -596,15 +605,6 @@ offset_right = 81.0
 offset_bottom = 101.0
 text = "0"
 
-[node name="FPSLabel" type="Label" parent="."]
-layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -47.0
-offset_right = 104.0
-text = "FPS: 0"
-
 [node name="Announcement" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -636,6 +636,15 @@ root_node = NodePath("../../AnnouncementAnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_wv28i")
 }
+
+[node name="FPSLabel" type="Label" parent="."]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -47.0
+offset_right = 104.0
+text = "FPS: 0"
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]

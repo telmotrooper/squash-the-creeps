@@ -6,7 +6,6 @@ var MapName: String
 var UserInterface: Control
 var dialog: Dialog
 var minimap: Control
-var RetryCamera: Camera3D # Camera3D to be used when player dies.
 
 var hub_1_at_night := true
 var camera_distance := 10
@@ -23,7 +22,7 @@ var godot_heads_counter := 0
 var total_godot_heads_in_map := 0
 
 var godot_heads_collected = {
-  "TestMap": {
+  "AvocadoBeach": {
     "FloatingGodotHead": false,
     "GrassGodotHead": false,
     "BeachGodotHead": false,
@@ -46,7 +45,7 @@ var gems_collected = {}
 
 var global_gem_progress = { "collected": 0, "total": 102+52, "percentage": 0.0 }
 var gem_progress = {
-  "TestMap": { "collected": 0, "total": 102, "percentage": 0.0 },
+  "AvocadoBeach": { "collected": 0, "total": 102, "percentage": 0.0 },
   "LakeMap": { "collected": 0, "total": 52, "percentage": 0.0 }
 }
 
@@ -55,19 +54,17 @@ var initial_godot_heads_collected = var_to_bytes(godot_heads_collected)
 var initial_gem_progress = var_to_bytes(gem_progress)
 var initial_global_gem_progress = var_to_bytes(global_gem_progress)
 
-var intro_cutscene_played := false
+var cutscenes_played = {
+  "intro": false,
+  "avocado_beach_preview": false
+}
 
 var collision_layers = {}
-
-# This variable is used to work around a bug in Scatter checked which,
-# after "test_map" is reloaded, the modifiers are not re-inserted
-# and we end up without any grass.
-var ScatterModifierStackBackup: Array = []
 
 const initial_grass = 3000
 
 func _ready() -> void:
-  var fallback_scene = "res://maps/test_map.tscn"
+  var fallback_scene = "res://maps/avocado_beach.tscn"
   var current_scene = get_tree().get_current_scene().get_name()
   
   # List named collision layers for easy access.
@@ -103,7 +100,9 @@ func collect_gem(map_name: String, path: NodePath) -> void:
   generate_progress_report(map_name)
 
 func initialize() -> void: # Used in "New Game".
-  intro_cutscene_played = false
+  for property in cutscenes_played:
+    cutscenes_played[property] = false
+  
   hub_1_at_night = true
   gems_collected = {}
   godot_heads_collected = bytes_to_var(initial_godot_heads_collected)

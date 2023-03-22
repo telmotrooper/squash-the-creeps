@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cln1tidcuynt6"
-path="res://.godot/imported/test-map.png-2d7bc945f192bc45579ba558c501152d.ctex"
+path="res://.godot/imported/avocado-beach.png-be983254cbd54f83eadcb2da4d44b260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minimap/maps/test-map.png"
-dest_files=["res://.godot/imported/test-map.png-2d7bc945f192bc45579ba558c501152d.ctex"]
+source_file="res://assets/minimap/maps/avocado-beach.png"
+dest_files=["res://.godot/imported/avocado-beach.png-be983254cbd54f83eadcb2da4d44b260.ctex"]
 
 [params]
 
