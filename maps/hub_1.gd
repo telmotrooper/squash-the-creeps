@@ -19,12 +19,12 @@ func _ready() -> void:
   
   # The player start the map paused, until we verify
   # whether the intro cutscene should be played.
-  if GameState.intro_cutscene_played:
+  if GameState.cutscenes_played.intro:
     $Player.paused = false
   else: # Play cutscene.
     GameState.UserInterface.get_node("%Minimap").hide()
     $Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
-    GameState.intro_cutscene_played = true
+    GameState.cutscenes_played.intro = true
   
   if GameState.hub_1_at_night:
     $WorldEnvironment.environment = night_environment

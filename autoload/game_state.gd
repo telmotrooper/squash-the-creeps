@@ -54,7 +54,10 @@ var initial_godot_heads_collected = var_to_bytes(godot_heads_collected)
 var initial_gem_progress = var_to_bytes(gem_progress)
 var initial_global_gem_progress = var_to_bytes(global_gem_progress)
 
-var intro_cutscene_played := false
+var cutscenes_played = {
+  "intro": false,
+  "avocado_beach_preview": false
+}
 
 var collision_layers = {}
 
@@ -97,7 +100,7 @@ func collect_gem(map_name: String, path: NodePath) -> void:
   generate_progress_report(map_name)
 
 func initialize() -> void: # Used in "New Game".
-  intro_cutscene_played = false
+  cutscenes_played.intro = false
   hub_1_at_night = true
   gems_collected = {}
   godot_heads_collected = bytes_to_var(initial_godot_heads_collected)
