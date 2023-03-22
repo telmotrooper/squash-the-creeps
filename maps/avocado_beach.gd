@@ -11,6 +11,7 @@ func _ready() -> void:
   GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
   # 2.35 is a good proportion for a camera with size 550 m
   # 1.72 is a good proportion for a camera with size 750 m
+  GameState.UserInterface.get_node("MapName").display("Avocado Beach")
 
 func _on_Player_hit() -> void:
   GameState.UserInterface.retry()

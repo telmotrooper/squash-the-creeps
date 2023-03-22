@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ccj15586diobm"]
+[gd_scene load_steps=27 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
+[ext_resource type="Script" path="res://ui/map_name.gd" id="3_rj0dl"]
 [ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="5_hbfsb"]
 [ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-overlay.svg" id="5_tg4xs"]
@@ -237,89 +238,7 @@ theme_override_fonts/font = ExtResource("14_ly17m")
 theme_override_font_sizes/font_size = 48
 text = "Avocado Beach"
 horizontal_alignment = 1
-
-[node name="Minimap" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-
-[node name="Mask" type="TextureRect" parent="Minimap"]
-modulate = Color(1, 1, 1, 0.784314)
-clip_children = 2
-layout_direction = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -345.0
-offset_right = 345.0
-grow_vertical = 0
-texture = ExtResource("9_3xw3k")
-
-[node name="MinimapPivot" type="Control" parent="Minimap/Mask"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MapTexture" type="TextureRect" parent="Minimap/Mask/MinimapPivot"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -650.0
-offset_top = -650.0
-offset_right = 650.0
-offset_bottom = 650.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_hbfsb")
-
-[node name="Overlay" type="TextureRect" parent="Minimap"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -345.0
-offset_right = 345.0
-grow_vertical = 0
-texture = ExtResource("5_tg4xs")
-
-[node name="PlayerCursorPivot" type="Control" parent="Minimap/Overlay"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PlayerCursor" type="TextureRect" parent="Minimap/Overlay/PlayerCursorPivot"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -172.5
-offset_top = -172.5
-offset_right = 172.5
-offset_bottom = 172.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_y76n1")
+script = ExtResource("3_rj0dl")
 
 [node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -619,15 +538,6 @@ offset_right = 81.0
 offset_bottom = 101.0
 text = "0"
 
-[node name="FPSLabel" type="Label" parent="."]
-layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -47.0
-offset_right = 104.0
-text = "FPS: 0"
-
 [node name="Announcement" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -659,6 +569,98 @@ root_node = NodePath("../../AnnouncementAnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_wv28i")
 }
+
+[node name="Minimap" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+
+[node name="Mask" type="TextureRect" parent="Minimap"]
+modulate = Color(1, 1, 1, 0.784314)
+clip_children = 2
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -345.0
+offset_right = 345.0
+grow_vertical = 0
+texture = ExtResource("9_3xw3k")
+
+[node name="MinimapPivot" type="Control" parent="Minimap/Mask"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapTexture" type="TextureRect" parent="Minimap/Mask/MinimapPivot"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -650.0
+offset_right = 650.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hbfsb")
+
+[node name="Overlay" type="TextureRect" parent="Minimap"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -345.0
+offset_right = 345.0
+grow_vertical = 0
+texture = ExtResource("5_tg4xs")
+
+[node name="PlayerCursorPivot" type="Control" parent="Minimap/Overlay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerCursor" type="TextureRect" parent="Minimap/Overlay/PlayerCursorPivot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.5
+offset_top = -172.5
+offset_right = 172.5
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_y76n1")
+
+[node name="FPSLabel" type="Label" parent="."]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -47.0
+offset_right = 104.0
+text = "FPS: 0"
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]
