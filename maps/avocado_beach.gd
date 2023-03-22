@@ -28,3 +28,6 @@ func _on_SprintTutorial_body_entered(_body: Node) -> void:
 # Used in cutscene.
 func set_minimap_visible(value: bool) -> void:
   GameState.minimap.set_visible(value)
+
+func hide_map_name() -> void:
+  GameState.UserInterface.get_node("MapName").hide()
