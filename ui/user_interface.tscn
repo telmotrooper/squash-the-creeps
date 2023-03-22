@@ -251,22 +251,6 @@ libraries = {
 wait_time = 2.0
 one_shot = true
 
-[node name="Retry" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0, 0, 0, 0.235294)
-
-[node name="Label" type="Label" parent="Retry"]
-layout_mode = 0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
-text = "Press enter to retry"
-
 [node name="Dialog" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
