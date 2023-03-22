@@ -424,12 +424,12 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_i3fst"]
 resource_name = "preview"
-length = 12.0
+length = 9.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -437,10 +437,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9, 12),
-"transitions": PackedFloat32Array(1, 1e-05, 1e-05, 1e-05, 1e-05),
+"times": PackedFloat32Array(0, 3, 6, 9),
+"transitions": PackedFloat32Array(1, 1e-05, 1e-05, 1e-05),
 "update": 0,
-"values": [Vector3(0, 36, 382), Vector3(0, 36, 324), Vector3(-104.252, 21.314, 95.6037), Vector3(34.956, 48.3282, 28.8195), Vector3(126.637, 26.4706, 22.0149)]
+"values": [Vector3(0, 36, 382), Vector3(0, 36, 324), Vector3(-104.252, 21.314, 95.6037), Vector3(24.8507, 48.3282, 28.8195)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -449,10 +449,10 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector3(-0.261799, 0, 0), Vector3(-0.261799, -0.785398, 0), Vector3(-0.523599, -0.785398, 0), Vector3(-0.523599, -0.785398, 0)]
+"values": [Vector3(-0.261799, 0, 0), Vector3(-0.261799, -0.785398, 0), Vector3(-0.523599, -0.523599, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -461,7 +461,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 12),
+"times": PackedFloat32Array(0, 9),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -478,7 +478,7 @@ tracks/3/path = NodePath("../..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3, 12),
+"times": PackedFloat32Array(0, 3, 9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [false],
@@ -498,7 +498,7 @@ tracks/4/path = NodePath("../../Player:paused")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 12),
+"times": PackedFloat32Array(0, 9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
