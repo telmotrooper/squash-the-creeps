@@ -5,7 +5,6 @@ extends Node
 
 func _ready() -> void:
   GameState.play_music(map_music)
-  GameState.RetryCamera = $RetryCamera
   GameState.Grass = %Grass
   GameState.update_grass()
   GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
