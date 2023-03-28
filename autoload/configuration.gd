@@ -16,7 +16,7 @@ var defaults: Dictionary = {
   },
   "graphics": {
     "fullscreen": false,
-    "draw_distance": 200,
+    "draw_distance": 500,
     "grass_amount": 0
   },
   "debug": {
