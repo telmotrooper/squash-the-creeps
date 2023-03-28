@@ -7,3 +7,5 @@
 script = ExtResource("2")
 
 [node name="height_map" parent="." instance=ExtResource("2_euaid")]
+
+[editable path="height_map"]
