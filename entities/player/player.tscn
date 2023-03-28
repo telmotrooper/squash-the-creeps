@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://goxaxv03ucgy"]
+[gd_scene load_steps=24 format=3 uid="uid://goxaxv03ucgy"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2"]
 [ext_resource type="Script" path="res://entities/player/camera.gd" id="3"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://d3lt1joxf3lqj" path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" id="4"]
 [ext_resource type="Material" uid="uid://bvdfpemkovmh1" path="res://entities/player/player_low_health.tres" id="4_imwxo"]
 [ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="6_l52l8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_se4do"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 1.0
@@ -280,6 +282,7 @@ script = ExtResource("3")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_mask = 68
+shape = SubResource("SphereShape3D_se4do")
 spring_length = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D"]
