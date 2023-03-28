@@ -5,7 +5,6 @@ extends Node3D
 
 func _ready() -> void:
   GameState.play_music(map_music)
-  GameState.RetryCamera = $RetryCamera
 
 func _on_RedButton_pressed() -> void:
   $AnimationPlayer.play("drain_water")

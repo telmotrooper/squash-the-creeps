@@ -8,7 +8,7 @@ var dialog: Dialog
 var minimap: Control
 
 var hub_1_at_night := true
-var camera_distance := 10
+var camera_distance: int
 
 var upgrades = {
   "body_slam": false,
