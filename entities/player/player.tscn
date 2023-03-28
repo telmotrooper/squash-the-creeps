@@ -277,8 +277,9 @@ script = ExtResource("3")
 [node name="Vertical" type="Node3D" parent="CameraPivot/Horizontal"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Horizontal/Vertical"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-collision_mask = 69
+collision_mask = 68
 spring_length = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D"]
