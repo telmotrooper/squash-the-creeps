@@ -5,7 +5,7 @@ extends Node3D
 @export var minimap: Texture2D
 
 func _ready() -> void:
-  GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
+  GameState.UserInterface.set_minimap(minimap, Vector2(-100,-75), 1.72)
   GameState.play_music(map_music)
 
 func _on_RedButton_pressed() -> void:
