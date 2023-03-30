@@ -2,8 +2,10 @@ extends Node3D
 
 @export var map_music: AudioStream
 @export var drain_water_sound: AudioStream
+@export var minimap: Texture2D
 
 func _ready() -> void:
+  GameState.UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
   GameState.play_music(map_music)
 
 func _on_RedButton_pressed() -> void:

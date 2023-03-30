@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://btj3fpr6wqgic"]
+[gd_scene load_steps=37 format=3 uid="uid://btj3fpr6wqgic"]
 
 [ext_resource type="PackedScene" uid="uid://boaoo3d7kojfm" path="res://maps/extras/height_map/height_map.tscn" id="1"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="2"]
 [ext_resource type="Script" path="res://maps/lake_map.gd" id="3"]
 [ext_resource type="AudioStream" uid="uid://bf7qsavkux6xo" path="res://assets/water-pour.ogg" id="4"]
+[ext_resource type="Texture2D" uid="uid://d1p8anhd3edlr" path="res://assets/minimap/maps/lake-map.png" id="4_l5twf"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="6"]
 [ext_resource type="PackedScene" uid="uid://goxaxv03ucgy" path="res://entities/player/player.tscn" id="7"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4e5e40iodpb" path="res://maps/extras/pier/pier.tscn" id="19"]
 [ext_resource type="Texture2D" uid="uid://c7rc5p0126d5f" path="res://particles/float/star_08.png" id="20"]
 [ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="21_gosh7"]
+[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="22_se7s5"]
 
 [sub_resource type="Curve3D" id="1"]
 _data = {
@@ -152,6 +154,7 @@ size = Vector3(40, 1, 40)
 script = ExtResource("3")
 map_music = ExtResource("15")
 drain_water_sound = ExtResource("4")
+minimap = ExtResource("4_l5twf")
 
 [node name="Player" parent="." instance=ExtResource("7")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 57.6636, 2.1881, 39.8077)
@@ -352,6 +355,14 @@ shape = SubResource("12")
 
 [node name="Flag" parent="." instance=ExtResource("21_gosh7")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 22.2, 2.7, 73.2)
+
+[node name="MinimapCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
+visible = false
+projection = 1
+size = 750.0
+script = ExtResource("22_se7s5")
+save_to = "res://assets/minimap/maps/lake-map.png"
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
