@@ -17,7 +17,7 @@ func _ready() -> void:
     GameState.UserInterface.hide()
     get_window().mode = Window.MODE_WINDOWED
     DisplayServer.window_set_size(texture_resolution)
-    await get_tree().create_timer(0.2).timeout
+    await get_tree().create_timer(0.5).timeout
 
     var texture = get_viewport().get_texture().get_image()
     texture.save_png(save_to)
