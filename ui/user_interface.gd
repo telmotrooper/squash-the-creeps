@@ -81,6 +81,9 @@ func resize_minimap() -> void:
   $Minimap.pivot_offset = Vector2(minimap_pivot_offset,-minimap_pivot_offset)
 
 func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), proportion: float = 1.0) -> void:
+  if is_instance_valid(GameState.Player):
+    %InnerMinimapPivot.rotation = GameState.Player.rotation.y
+  
   %MapTexture.texture = minimap_texture
   # Centralize the minimap on the player.
   %MapTexture.position.x += center.x
