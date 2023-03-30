@@ -426,6 +426,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"set_minimap_visible"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_i3fst"]
 resource_name = "preview"
