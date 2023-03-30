@@ -21,6 +21,7 @@ func _ready() -> void:
   # whether the intro cutscene should be played.
   if GameState.cutscenes_played.intro:
     $Player.paused = false
+    $Cutscene/CutsceneSpaceship.queue_free()
   else: # Play cutscene.
     GameState.UserInterface.get_node("%Minimap").hide()
     $Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
