@@ -39,6 +39,7 @@ var godot_heads_collected = {
 
 var global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
 var progress = {}
+var completion_message_displayed := false
 
 var amount_of_gems := 0
 var gems_collected = {}
@@ -108,6 +109,7 @@ func initialize() -> void: # Used in "New Game".
   godot_heads_collected = bytes_to_var(initial_godot_heads_collected)
   gem_progress = bytes_to_var(initial_gem_progress)
   global_gem_progress = bytes_to_var(initial_global_gem_progress)
+  completion_message_displayed = false
   initialize_progress()
   amount_of_gems = 0
   camera_distance = 10
@@ -151,8 +153,9 @@ func generate_progress_report(current_map: String) -> void:
   
   var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
   
-  if overall_progress == 1:
+  if overall_progress == 1 and not completion_message_displayed:
     GameState.UserInterface.show_congratulations()
+    completion_message_displayed = true
   
   UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
   UserInterface.get_node("%World1Progress").text = text
