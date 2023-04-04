@@ -8,10 +8,10 @@
 script = ExtResource("2")
 initial_scene = ExtResource("3")
 
+[node name="WorldScene" type="Node3D" parent="."]
+
 [node name="FadeTransition" parent="." instance=ExtResource("1")]
 anchors_preset = 15
-
-[node name="WorldScene" type="Node3D" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false
