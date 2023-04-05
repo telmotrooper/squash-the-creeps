@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bji1tdapoh0ct"]
+[gd_scene load_steps=88 format=3 uid="uid://bji1tdapoh0ct"]
 
 [ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://hrpb58rlnaf8" path="res://entities/fish_enemy/fish_enemy.tscn" id="40_duj88"]
 [ext_resource type="Script" path="res://maps/minimap_camera.gd" id="41_2dfa4"]
 [ext_resource type="PackedScene" uid="uid://2esl5e4dn6aj" path="res://maps/extras/big_beach_island/big_beach_island.tscn" id="42_3dnkc"]
+[ext_resource type="PackedScene" uid="uid://by4x3rbps47k6" path="res://maps/extras/caged_tiki_npc/caged_tiki_npc.tscn" id="44_wr07v"]
 
 [sub_resource type="BoxShape3D" id="3"]
 size = Vector3(60, 2, 60)
@@ -1351,6 +1352,9 @@ libraries = {
 
 [node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 36, 382)
+
+[node name="CagedTikiNPC" parent="." instance=ExtResource("44_wr07v")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 13.7607, 0.0819117, -256.247)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
