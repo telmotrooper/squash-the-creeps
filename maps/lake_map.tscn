@@ -171,10 +171,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.018, 0, 77.11)
 curve = SubResource("1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawns/BlueEnemyPath"]
-transform = Transform3D(0.752857, -1.32854e-07, -0.658186, 0, 1, -2.0185e-07, 0.658186, 1.51964e-07, 0.752857, 14.082, 0, -0.909996)
+transform = Transform3D(-0.752857, -1.32854e-07, 0.658186, 0, 1, 2.0185e-07, -0.658186, 1.51964e-07, -0.752857, 14.082, 0, -0.909996)
 
 [node name="BlueEnemy" parent="EnemySpawns/BlueEnemyPath/PathFollow3D" instance=ExtResource("9")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 affected_by_gravity = false
 
 [node name="Props" type="Node3D" parent="."]
