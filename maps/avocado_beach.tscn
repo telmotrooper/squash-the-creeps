@@ -579,12 +579,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6563, 0.765488, -22.3548)
 curve = SubResource("14")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform1/BlueEnemyPath"]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16, 0, -16)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -16, 0, -16)
 rotation_mode = 4
 loop = false
 
 [node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(-1, 0, 0.00103571, 0, 1, 0, -0.00103571, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Bridge" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.75822, -59)
@@ -616,10 +616,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -9.177)
 curve = SubResource("18")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/BluePlatform/PurpleEnemyPath"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.9524, 0, 7.80272)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.9524, 0, 7.80272)
 
 [node name="PurpleEnemy" parent="Map/BluePlatform/PurpleEnemyPath/PathFollow3D" instance=ExtResource("13_uc65y")]
-transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0)
 patrolling_speed = 18
 
 [node name="BluePlatform2" type="StaticBody3D" parent="Map"]
@@ -835,7 +834,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 curve = SubResource("45")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+use_model_front = true
 
 [node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow3D" instance=ExtResource("24_1hsoc")]
 
@@ -844,7 +844,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5176, 2.8, 0)
 curve = SubResource("45")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+use_model_front = true
 
 [node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow3D" instance=ExtResource("24_1hsoc")]
 
@@ -853,7 +854,8 @@ transform = Transform3D(-0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986
 curve = SubResource("45")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+use_model_front = true
 
 [node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow3D" instance=ExtResource("24_1hsoc")]
 
@@ -926,30 +928,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4163, 0, 11.9448)
 curve = SubResource("15")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath2"]
-transform = Transform3D(-1, -3.34144e-13, -8.74228e-08, 0, 1, -3.82216e-06, 8.74228e-08, -3.82216e-06, -1, 6.67461, 3.05176e-05, 8.29214)
+transform = Transform3D(1, 0, 0, 0, 1, 3.82216e-06, 0, -3.82216e-06, 1, 6.67461, 3.05176e-05, 8.29214)
 
 [node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BlueEnemyPath3" type="Path3D" parent="Map/GreenPlatform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3689, 0, 5.3776)
 curve = SubResource("16")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.63111, 0, 14.5864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63111, 0, 14.5864)
 
 [node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BlueEnemyPath4" type="Path3D" parent="Map/GreenPlatform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0476, 0, -13.439)
 curve = SubResource("17")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath4"]
-transform = Transform3D(0.707107, 0, 0.707105, 0, 1, 0, -0.707105, 0, 0.707107, 2.04762, 0, 1.40272)
+transform = Transform3D(-0.707107, 0, -0.707105, 0, 1, 0, 0.707105, 0, -0.707107, 2.04762, 0, 1.40272)
 
 [node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Node3D" type="Node3D" parent="Map/GreenPlatform3"]
 
@@ -984,30 +983,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 0, 0)
 curve = SubResource("20")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow3D" instance=ExtResource("25_ui5k2")]
-transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0)
 curve = SubResource("20")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow3D" instance=ExtResource("25_ui5k2")]
-transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0)
 curve = SubResource("20")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
 
 [node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow3D" instance=ExtResource("25_ui5k2")]
-transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="EnemyBridge2" type="Node3D" parent="Map"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -80, 0, 85)
@@ -1017,30 +1013,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 10, 0)
 curve = SubResource("20")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
 
 [node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath1/PathFollow3D" instance=ExtResource("25_ui5k2")]
-transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 5, 0)
 curve = SubResource("20")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
 
 [node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath2/PathFollow3D" instance=ExtResource("25_ui5k2")]
-transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0)
 curve = SubResource("20")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
 
 [node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath3/PathFollow3D" instance=ExtResource("25_ui5k2")]
-transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
 
 [node name="MovingPlatforms" type="Node3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0)
@@ -1302,33 +1295,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4245, 15.3146, -2.89021)
 curve = SubResource("Curve3D_idwc0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 15, 23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 15, 23)
 loop = false
 
 [node name="BlueEnemy" parent="SandPlatform/Path3D/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="SandPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0791, 0, 0)
 curve = SubResource("Curve3D_8pu6n")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.4815, 15, -26)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.4815, 15, -26)
 progress = 57.9443
 loop = false
 
 [node name="BlueEnemy" parent="SandPlatform/Path3D2/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="FishPath3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5318, -0.3, 83.4094)
 curve = SubResource("Curve3D_ck1gi")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="FishPath3D"]
-transform = Transform3D(-0.847998, 0, -0.529999, 0, 1, 0, 0.529999, 0, -0.847998, 0, 0, 20)
+transform = Transform3D(0.847998, 0, 0.529999, 0, 1, 0, -0.529999, 0, 0.847998, 0, 0, 20)
 
 [node name="FishEnemy" parent="FishPath3D/PathFollow3D" instance=ExtResource("40_duj88")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MinimapCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
