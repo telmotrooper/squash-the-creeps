@@ -31,9 +31,12 @@ func open_dialog() -> void:
   tween.tween_callback(func():
     is_writing = true
     while index <= text_to_write.length():
-      await get_tree().create_timer(0.05).timeout
-      %DialogText.text = text_to_write.substr(0, index)
-      index += 1
+      if get_tree().paused: # If game is paused, stop typing and recheck every half a second.
+        await get_tree().create_timer(0.5).timeout
+      else:
+        await get_tree().create_timer(0.05).timeout
+        %DialogText.text = text_to_write.substr(0, index)
+        index += 1
     is_writing = false
   )
 
