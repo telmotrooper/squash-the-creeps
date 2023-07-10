@@ -15,7 +15,7 @@ var defaults: Dictionary = {
     "mouse_sensitivity": 0.5
   },
   "graphics": {
-    "fullscreen": false,
+    "fullscreen": true,
     "draw_distance": 500,
     "grass_amount": 0
   },
