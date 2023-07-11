@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://by4x3rbps47k6"]
+[gd_scene load_steps=10 format=3 uid="uid://by4x3rbps47k6"]
 
 [ext_resource type="PackedScene" uid="uid://nkarq1qbnp1v" path="res://props/cage/cage.blend" id="1_uac30"]
+[ext_resource type="Script" path="res://maps/extras/caged_tiki_npc/caged_tiki_npc.gd" id="1_uxdyq"]
 [ext_resource type="PackedScene" uid="uid://bdeoefigj1dme" path="res://entities/tiki_npc/tiki_npc.tscn" id="2_yjljt"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="3_63fx1"]
+[ext_resource type="Script" path="res://maps/extras/caged_tiki_npc/cage.gd" id="3_376bk"]
 
 [sub_resource type="Animation" id="Animation_vb570"]
 length = 0.001
@@ -70,6 +72,7 @@ _data = {
 size = Vector3(6, 5.2, 6)
 
 [node name="CagedTikiNPC" type="Node3D"]
+script = ExtResource("1_uxdyq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../tiki_npc")
@@ -88,12 +91,14 @@ pixel_size = 0.025
 text = "HELP!"
 font = ExtResource("3_63fx1")
 
-[node name="cage" parent="." instance=ExtResource("1_uac30")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="cage"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["spinnable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183237, 0, 0.383657)
 collision_layer = 64
+script = ExtResource("3_376bk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cage/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192559, 2.5, -0.4)
 shape = SubResource("BoxShape3D_q38xr")
+
+[node name="cage" parent="StaticBody3D" instance=ExtResource("1_uac30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183237, 0, -0.383657)
