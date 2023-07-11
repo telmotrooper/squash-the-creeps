@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pjp410u41fqp"]
+[gd_scene load_steps=16 format=3 uid="uid://pjp410u41fqp"]
 
 [ext_resource type="Script" path="res://props/portal/portal.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_7t4r7"]
@@ -152,6 +152,34 @@ _data = {
 [sub_resource type="SphereShape3D" id="24"]
 radius = 10.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmhe1"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.513726, 0.635294, 0.854902, 0.415686)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 7.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1p10"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+spread = 0.0
+gravity = Vector3(0, 2, 0)
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+tangential_accel_min = 60.0
+tangential_accel_max = 60.0
+damping_min = 10.0
+damping_max = 10.0
+scale_min = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_xrnan"]
+radius = 0.25
+height = 0.5
+
 [node name="Portal" type="CSGCylinder3D"]
 radius = 3.0
 height = 0.25
@@ -208,6 +236,14 @@ collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectArea"]
 shape = SubResource("24")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_bmhe1")
+amount = 32
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_g1p10")
+draw_pass_1 = SubResource("SphereMesh_xrnan")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_Portal_entered"]
 [connection signal="body_entered" from="DetectArea" to="." method="_on_DetectArea_body_entered"]

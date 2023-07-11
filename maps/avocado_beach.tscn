@@ -584,7 +584,6 @@ rotation_mode = 4
 loop = false
 
 [node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow3D" instance=ExtResource("10_vipi2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Bridge" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.75822, -59)
@@ -834,7 +833,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 curve = SubResource("45")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 use_model_front = true
 
 [node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow3D" instance=ExtResource("24_1hsoc")]
@@ -844,7 +843,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5176, 2.8, 0)
 curve = SubResource("45")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath2"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 use_model_front = true
 
 [node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow3D" instance=ExtResource("24_1hsoc")]
@@ -854,7 +853,7 @@ transform = Transform3D(-0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986
 curve = SubResource("45")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 use_model_front = true
 
 [node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow3D" instance=ExtResource("24_1hsoc")]
@@ -1345,7 +1344,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 36, 382)
 
 [node name="CagedTikiNPC" parent="." instance=ExtResource("44_wr07v")]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 13.7607, 0.0819117, -256.247)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.7607, 0.0819117, -256.247)
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
