@@ -4,6 +4,33 @@
 [ext_resource type="PackedScene" uid="uid://bdeoefigj1dme" path="res://entities/tiki_npc/tiki_npc.tscn" id="2_yjljt"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="3_63fx1"]
 
+[sub_resource type="Animation" id="Animation_vb570"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_gig1m"]
 resource_name = "help"
 length = 2.0
@@ -33,33 +60,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vb570"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1w5hv"]
 _data = {
 "RESET": SubResource("Animation_vb570"),
@@ -74,12 +74,19 @@ size = Vector3(6, 5.2, 6)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../tiki_npc")
 autoplay = "help"
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_1w5hv")
 }
 
 [node name="tiki_npc" parent="." instance=ExtResource("2_yjljt")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="tiki_npc"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 5.8, 0)
+pixel_size = 0.025
+text = "HELP!"
+font = ExtResource("3_63fx1")
 
 [node name="cage" parent="." instance=ExtResource("1_uac30")]
 
@@ -90,9 +97,3 @@ collision_layer = 64
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cage/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192559, 2.5, -0.4)
 shape = SubResource("BoxShape3D_q38xr")
-
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-pixel_size = 0.025
-text = "HELP!"
-font = ExtResource("3_63fx1")
