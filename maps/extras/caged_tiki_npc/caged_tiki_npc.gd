@@ -31,3 +31,12 @@ func free_tiki() -> void:
   
   GameState.events.tiki_freed = true
   emit_signal("tiki_freed")
+
+func _on_area_3d_body_entered(body):
+  if GameState.events.tiki_freed:
+    $tiki_npc/Label3D.text = "Hey, maaan!"
+    $tiki_npc/Label3D.show()
+
+func _on_area_3d_body_exited(body):
+  if GameState.events.tiki_freed:
+    $tiki_npc/Label3D.hide()

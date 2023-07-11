@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by4x3rbps47k6"]
+[gd_scene load_steps=11 format=3 uid="uid://by4x3rbps47k6"]
 
 [ext_resource type="PackedScene" uid="uid://nkarq1qbnp1v" path="res://props/cage/cage.blend" id="1_uac30"]
 [ext_resource type="Script" path="res://maps/extras/caged_tiki_npc/caged_tiki_npc.gd" id="1_uxdyq"]
@@ -71,6 +71,9 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_q38xr"]
 size = Vector3(6, 5.2, 6)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nvae3"]
+radius = 10.0
+
 [node name="CagedTikiNPC" type="Node3D"]
 script = ExtResource("1_uxdyq")
 
@@ -102,3 +105,12 @@ shape = SubResource("BoxShape3D_q38xr")
 
 [node name="cage" parent="CageStaticBody3D" instance=ExtResource("1_uac30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183237, 0, -0.383657)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_nvae3")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
