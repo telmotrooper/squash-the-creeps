@@ -274,3 +274,10 @@ func update_minimap() -> void:
     minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
     var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
     player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
+
+func set_cutscene_mode(enabled: bool) -> void:
+  if enabled:
+    GameState.Player.paused = true
+    $AnimationPlayer.speed_scale = 1.0
+  else:
+    GameState.Player.paused = false
