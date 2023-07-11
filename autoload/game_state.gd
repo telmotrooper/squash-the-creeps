@@ -109,6 +109,9 @@ func initialize() -> void: # Used in "New Game".
   for property in cutscenes_played:
     cutscenes_played[property] = false
   
+  for property in events:
+    events[property] = false
+  
   hub_1_at_night = true
   gems_collected = {}
   godot_heads_collected = bytes_to_var(initial_godot_heads_collected)
