@@ -55,6 +55,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
   update_minimap()
   
+  if get_parent() is PathFollow3D: # Prevent movement when bouncing.
+    $AnimationPlayer.speed_scale = 1.0
+    return
+  
   if paused: # Used to prevent movement during a cutscene.
     return
   
