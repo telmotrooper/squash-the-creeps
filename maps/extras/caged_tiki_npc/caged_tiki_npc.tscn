@@ -91,6 +91,7 @@ transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 
 [node name="Label3D" type="Label3D" parent="tiki_npc"]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 5.8, 0)
 pixel_size = 0.025
+billboard = 2
 text = "HELP!"
 font = ExtResource("3_63fx1")
 

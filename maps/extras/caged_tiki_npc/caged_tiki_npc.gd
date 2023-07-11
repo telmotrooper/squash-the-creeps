@@ -36,6 +36,9 @@ func _on_area_3d_body_entered(body):
   if GameState.events.tiki_freed:
     $tiki_npc/Label3D.text = "Hey, maaan!"
     $tiki_npc/Label3D.show()
+    var tween = create_tween().set_loops(2)
+    tween.tween_property($tiki_npc, "position:y", 0.5, 0.25)
+    tween.tween_property($tiki_npc, "position:y", 0, 0.25)
 
 func _on_area_3d_body_exited(body):
   if GameState.events.tiki_freed:
