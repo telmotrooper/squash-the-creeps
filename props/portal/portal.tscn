@@ -172,6 +172,8 @@ radial_accel_min = -100.0
 radial_accel_max = -100.0
 tangential_accel_min = 60.0
 tangential_accel_max = 60.0
+damping_min = 10.0
+damping_max = 10.0
 scale_min = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_xrnan"]
