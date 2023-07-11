@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://by4x3rbps47k6"]
+[gd_scene load_steps=5 format=3 uid="uid://by4x3rbps47k6"]
 
 [ext_resource type="PackedScene" uid="uid://nkarq1qbnp1v" path="res://props/cage/cage.blend" id="1_uac30"]
 [ext_resource type="PackedScene" uid="uid://bdeoefigj1dme" path="res://entities/tiki_npc/tiki_npc.tscn" id="2_yjljt"]
+[ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="3_63fx1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q38xr"]
 size = Vector3(6, 5.2, 6)
@@ -9,7 +10,7 @@ size = Vector3(6, 5.2, 6)
 [node name="CagedTikiNPC" type="Node3D"]
 
 [node name="tiki_npc" parent="." instance=ExtResource("2_yjljt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126333, 0, -0.387262)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.126333, 0, -0.387262)
 
 [node name="cage" parent="." instance=ExtResource("1_uac30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183237, 0, -0.383657)
@@ -21,3 +22,9 @@ collision_layer = 64
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cage/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192559, 2.5, -0.4)
 shape = SubResource("BoxShape3D_q38xr")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+pixel_size = 0.025
+text = "HELP!"
+font = ExtResource("3_63fx1")
