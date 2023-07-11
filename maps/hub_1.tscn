@@ -313,7 +313,7 @@ transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 8.
 script = ExtResource("18")
 
 [node name="Smoke" parent="Spaceship" instance=ExtResource("5")]
-transform = Transform3D(-0.268486, 0.87273, 0.407749, -0.097721, 0.396431, -0.912849, -0.958314, -0.284933, -0.0211522, -2.43791, 2.20846, -1.00656)
+transform = Transform3D(-0.268486, 0.87273, 0.407749, -0.0977209, 0.396431, -0.912849, -0.958314, -0.284933, -0.0211522, -2.43791, 2.20846, -1.00656)
 skeleton = NodePath("")
 
 [node name="SpaceshipArea" type="Area3D" parent="Spaceship"]

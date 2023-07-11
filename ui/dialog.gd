@@ -51,4 +51,5 @@ func close_dialog() -> void:
     hide()
     GameState.minimap.show()
     GameState.Player.paused = false
+    emit_signal("finished")
   )

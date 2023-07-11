@@ -10,7 +10,7 @@ func _ready() -> void:
     queue_free()
 
 func _on_GodotPowerUp_body_entered(_body: Node) -> void:
-  if !collected:
+  if !collected and visible:
     collected = true
     GameState.collect_godot_head(owner.name, name)
     $AudioStreamPlayer.play()

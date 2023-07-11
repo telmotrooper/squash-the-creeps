@@ -31,3 +31,6 @@ func set_minimap_visible(value: bool) -> void:
 
 func hide_map_name() -> void:
   GameState.UserInterface.get_node("MapName").hide()
+
+func _on_tiki_freed():
+  $CagedTikiNPC/CagedTikiGodotHeadAnimationPlayer.play("appear")

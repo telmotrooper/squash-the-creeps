@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bji1tdapoh0ct"]
+[gd_scene load_steps=91 format=3 uid="uid://bji1tdapoh0ct"]
 
 [ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
@@ -523,6 +523,79 @@ tracks/4/keys = {
 _data = {
 "RESET": SubResource("Animation_gw5c3"),
 "preview": SubResource("Animation_i3fst")
+}
+
+[sub_resource type="Animation" id="Animation_ku3vj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CagedTikiGodotHead:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CagedTikiGodotHead:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_umxow"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CagedTikiGodotHead:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 7.85398, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CagedTikiGodotHead:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CagedTikiGodotHead:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5igw"]
+_data = {
+"RESET": SubResource("Animation_ku3vj"),
+"appear": SubResource("Animation_umxow")
 }
 
 [node name="AvocadoBeach" type="Node3D"]
@@ -1346,10 +1419,20 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 [node name="CagedTikiNPC" parent="." instance=ExtResource("44_wr07v")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.7607, 0.0819117, -256.247)
 
+[node name="CagedTikiGodotHead" parent="CagedTikiNPC" instance=ExtResource("17_tburi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, 3, 3)
+visible = false
+
+[node name="CagedTikiGodotHeadAnimationPlayer" type="AnimationPlayer" parent="CagedTikiNPC"]
+libraries = {
+"": SubResource("AnimationLibrary_p5igw")
+}
+
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Map/MovingPlatforms/Manual/MovingPlatformTimer" to="Map/MovingPlatforms/Manual" method="_on_FloatingPlatformTimer_timeout"]
 [connection signal="body_entered" from="Map/BlueCube/SprintTutorial" to="." method="_on_SprintTutorial_body_entered"]
+[connection signal="tiki_freed" from="CagedTikiNPC" to="." method="_on_tiki_freed"]
 
 [editable path="SandPlatform/Isle/isle"]
 [editable path="SandPlatform/IslePath/isle_path"]

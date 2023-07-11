@@ -28,7 +28,8 @@ var godot_heads_collected = {
     "BeachGodotHead": false,
     "BridgeGodotHead": false,
     "PalmTreeGodotHead": false,
-    "SandRampGodotHead": false
+    "SandRampGodotHead": false,
+    "CagedTikiGodotHead": false
    },
   "LakeMap": {
     "GodotHead": false,
@@ -58,6 +59,10 @@ var initial_global_gem_progress = var_to_bytes(global_gem_progress)
 var cutscenes_played = {
   "intro": false,
   "avocado_beach_preview": false
+}
+
+var events = {
+  "tiki_freed": false
 }
 
 var collision_layers = {}
@@ -103,6 +108,9 @@ func collect_gem(map_name: String, path: NodePath) -> void:
 func initialize() -> void: # Used in "New Game".
   for property in cutscenes_played:
     cutscenes_played[property] = false
+  
+  for property in events:
+    events[property] = false
   
   hub_1_at_night = true
   gems_collected = {}
