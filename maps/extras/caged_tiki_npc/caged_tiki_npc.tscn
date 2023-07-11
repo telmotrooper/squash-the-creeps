@@ -91,14 +91,14 @@ pixel_size = 0.025
 text = "HELP!"
 font = ExtResource("3_63fx1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["spinnable"]]
+[node name="CageStaticBody3D" type="StaticBody3D" parent="." groups=["spinnable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183237, 0, 0.383657)
 collision_layer = 64
 script = ExtResource("3_376bk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CageStaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192559, 2.5, -0.4)
 shape = SubResource("BoxShape3D_q38xr")
 
-[node name="cage" parent="StaticBody3D" instance=ExtResource("1_uac30")]
+[node name="cage" parent="CageStaticBody3D" instance=ExtResource("1_uac30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183237, 0, -0.383657)

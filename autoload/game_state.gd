@@ -61,6 +61,10 @@ var cutscenes_played = {
   "avocado_beach_preview": false
 }
 
+var events = {
+  "tiki_freed": false
+}
+
 var collision_layers = {}
 
 const initial_grass = 3000
