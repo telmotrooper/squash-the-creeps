@@ -1,19 +1,87 @@
-[gd_scene load_steps=5 format=3 uid="uid://by4x3rbps47k6"]
+[gd_scene load_steps=8 format=3 uid="uid://by4x3rbps47k6"]
 
 [ext_resource type="PackedScene" uid="uid://nkarq1qbnp1v" path="res://props/cage/cage.blend" id="1_uac30"]
 [ext_resource type="PackedScene" uid="uid://bdeoefigj1dme" path="res://entities/tiki_npc/tiki_npc.tscn" id="2_yjljt"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="3_63fx1"]
+
+[sub_resource type="Animation" id="Animation_gig1m"]
+resource_name = "help"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.5, 0.1, 0), Vector3(0, 0.5, 0), Vector3(0.5, 0.1, 0), Vector3(0, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vb570"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1w5hv"]
+_data = {
+"RESET": SubResource("Animation_vb570"),
+"help": SubResource("Animation_gig1m")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q38xr"]
 size = Vector3(6, 5.2, 6)
 
 [node name="CagedTikiNPC" type="Node3D"]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../tiki_npc")
+autoplay = "help"
+libraries = {
+"": SubResource("AnimationLibrary_1w5hv")
+}
+
 [node name="tiki_npc" parent="." instance=ExtResource("2_yjljt")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.126333, 0, -0.387262)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="cage" parent="." instance=ExtResource("1_uac30")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183237, 0, -0.383657)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="cage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183237, 0, 0.383657)
