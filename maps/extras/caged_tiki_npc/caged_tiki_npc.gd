@@ -1,5 +1,7 @@
 extends Node3D
 
+signal tiki_freed
+
 func free_tiki() -> void:
   $AnimationPlayer.stop()
   $tiki_npc/Label3D.hide()
@@ -20,3 +22,5 @@ func free_tiki() -> void:
   var tween_2 = create_tween().set_loops()
   tween_2.tween_property($tiki_npc, "position:y", 0.5, 0.25)
   tween_2.tween_property($tiki_npc, "position:y", 0, 0.25)
+  
+  emit_signal("tiki_freed")
