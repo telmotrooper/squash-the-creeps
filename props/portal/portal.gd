@@ -8,6 +8,8 @@ extends CSGCylinder3D
 func _ready() -> void:
   $Label3D.text = label if label else map_name
   
+  $GPUParticles3D.emitting = requirement_met()
+  
   if skip_cutscene:
     skip_cutscene.connect("skip", finish_cutscene)
   

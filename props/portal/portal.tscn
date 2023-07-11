@@ -238,7 +238,7 @@ shape = SubResource("24")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_bmhe1")
-amount = 16
+amount = 32
 speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_g1p10")
 draw_pass_1 = SubResource("SphereMesh_xrnan")
