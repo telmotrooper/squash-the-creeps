@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://goxaxv03ucgy"]
+[gd_scene load_steps=26 format=3 uid="uid://goxaxv03ucgy"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2"]
 [ext_resource type="Script" path="res://entities/player/camera.gd" id="3"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://d3lt1joxf3lqj" path="res://assets/zapsplat_cartoon_character_voice_high_pitched_ouch_ohh_as_if_sudden_pain_002_32264.ogg" id="4"]
 [ext_resource type="Material" uid="uid://bvdfpemkovmh1" path="res://entities/player/player_low_health.tres" id="4_imwxo"]
 [ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="6_l52l8"]
+[ext_resource type="Material" uid="uid://mv8nme7ce2t3" path="res://entities/player/body_slam_particles_process_material.tres" id="8_bqahf"]
+[ext_resource type="SphereMesh" uid="uid://chu652fwfracc" path="res://entities/player/body_slam_particles_draw_pass_1.tres" id="9_r1iiy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_se4do"]
 
@@ -254,24 +256,6 @@ _data = {
 "shrink": SubResource("7")
 }
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dyt2w"]
-emission_shape = 6
-emission_ring_axis = Vector3(0, 1, 0)
-emission_ring_height = 1.0
-emission_ring_radius = 3.0
-emission_ring_inner_radius = 1.5
-radial_accel_min = 10.0
-radial_accel_max = 10.0
-scale_min = 0.25
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u7bp"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.901961, 0.901961, 0.901961, 0.588235)
-
-[sub_resource type="SphereMesh" id="SphereMesh_r06iu"]
-material = SubResource("StandardMaterial3D_8u7bp")
-
 [node name="Player" type="CharacterBody3D" groups=["players"]]
 collision_mask = 525006
 script = ExtResource("2")
@@ -386,12 +370,12 @@ collide_with_areas = true
 [node name="BodySlamParticles" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 60
-lifetime = 0.5
+lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_dyt2w")
-draw_pass_1 = SubResource("SphereMesh_r06iu")
+process_material = ExtResource("8_bqahf")
+draw_pass_1 = ExtResource("9_r1iiy")
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="timeout" from="DashDurationTimer" to="." method="_on_DashDurationTimer_timeout"]
