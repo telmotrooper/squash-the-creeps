@@ -132,7 +132,9 @@ func _physics_process(delta: float) -> void:
     velocity.x = direction.x * speed
     velocity.z = direction.z * speed
   
-  if is_on_floor():
+  if is_body_slamming and is_on_floor():
+    $BodySlamParticles.restart()
+    $BodySlamParticles.emitting = true
     is_body_slamming = false
   
   if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
@@ -143,7 +145,7 @@ func _physics_process(delta: float) -> void:
     is_double_jumping = false
 
     var safe_position_condition = (
-      $RayCasts/RayCast.is_colliding() and
+      $RayCasts/RayCast.get_collider() and $RayCasts/RayCast.is_colliding() and
       not $RayCasts/RayCast.get_collider().get_collision_layer_value(GameState.collision_layers["Water"]) and
       not $RayCasts/RayCast.get_collider().is_in_group("breakable_floor") and
       $RayCasts/RayCast.get_collider() == $RayCasts/RayCast2.get_collider() and
@@ -274,3 +276,10 @@ func update_minimap() -> void:
     minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
     var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
     player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
+
+func set_cutscene_mode(enabled: bool) -> void:
+  if enabled:
+    GameState.Player.paused = true
+    $AnimationPlayer.speed_scale = 1.0
+  else:
+    GameState.Player.paused = false

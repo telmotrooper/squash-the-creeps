@@ -22,7 +22,7 @@ func set_text(text) -> void:
   text_to_write = text
 
 func open_dialog() -> void:
-  GameState.Player.paused = true
+  GameState.Player.set_cutscene_mode(true)
   GameState.minimap.hide()
   show()
   var tween = create_tween()
@@ -50,6 +50,6 @@ func close_dialog() -> void:
     %DialogText.text = ""
     hide()
     GameState.minimap.show()
-    GameState.Player.paused = false
+    GameState.Player.set_cutscene_mode(false)
     emit_signal("finished")
   )
