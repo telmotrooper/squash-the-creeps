@@ -133,6 +133,7 @@ func _physics_process(delta: float) -> void:
     velocity.z = direction.z * speed
   
   if is_body_slamming and is_on_floor():
+    $BodySlamParticles.restart()
     $BodySlamParticles.emitting = true
     is_body_slamming = false
   
