@@ -368,9 +368,10 @@ collision_mask = 36
 collide_with_areas = true
 
 [node name="BodySlamParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326194, 0)
 emitting = false
 amount = 60
-lifetime = 0.2
+lifetime = 0.35
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
