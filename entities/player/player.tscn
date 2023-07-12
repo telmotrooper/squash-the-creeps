@@ -262,6 +262,7 @@ emission_ring_radius = 3.0
 emission_ring_inner_radius = 1.5
 radial_accel_min = 10.0
 radial_accel_max = 10.0
+scale_min = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u7bp"]
 transparency = 1
