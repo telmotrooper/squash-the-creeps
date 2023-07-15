@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj8g1fhhl6pl1"]
+[gd_scene load_steps=9 format=3 uid="uid://dj8g1fhhl6pl1"]
 
 [ext_resource type="PackedScene" uid="uid://jolpuvcannrl" path="res://entities/player_ball/player_ball.tscn" id="1_lb0je"]
 [ext_resource type="Script" path="res://maps/ball_minigame_1.gd" id="1_qvnt5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="3_jeiom"]
 [ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="4_g7aqb"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5_nfj5k"]
+[ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="8_brshw"]
 
 [node name="BallMinigame1" type="Node3D"]
 script = ExtResource("1_qvnt5")
@@ -61,3 +62,6 @@ transform = Transform3D(0.866025, 2.18557e-08, -0.5, 0.5, -3.78552e-08, 0.866025
 
 [node name="Boundary" parent="." instance=ExtResource("5_nfj5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+
+[node name="CheckpointFlag" parent="." instance=ExtResource("8_brshw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.42832, -3.12727, -22.4254)
