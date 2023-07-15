@@ -3,15 +3,15 @@ class_name PlayerBall
 
 # Reference: https://youtu.be/G6OGM4fdF3M
 
+var initial_position: Vector3
 var initial_camera_position: Vector3
 var force = 40
 
 func _ready() -> void:
-  initial_camera_position = %Camera3D.position
+  initial_position = global_transform.origin
 
 func _physics_process(delta: float) -> void:
-  %Camera3D.position = initial_camera_position + position
-
+  %CameraPivot.position = initial_position + position
   if Input.is_action_pressed("move_forward"):
     angular_velocity.x -= force * delta
   elif Input.is_action_pressed("move_back"):

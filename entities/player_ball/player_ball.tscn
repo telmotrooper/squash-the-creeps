@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://jolpuvcannrl"]
+
+[ext_resource type="Script" path="res://maps/player_ball.gd" id="1_owrhn"]
+[ext_resource type="Script" path="res://entities/player/camera.gd" id="2_q82hi"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_x22n1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2odsq"]
+noise_type = 5
+seed = 1
+frequency = 0.7
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwmfe"]
+seamless = true
+noise = SubResource("FastNoiseLite_2odsq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km2gf"]
+albedo_color = Color(0.67451, 0.305882, 0.188235, 1)
+albedo_texture = SubResource("NoiseTexture2D_xwmfe")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qw46v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ymhhk"]
+
+[node name="PlayerBall" type="Node3D"]
+
+[node name="PlayerBall" type="RigidBody3D" parent="." groups=["players"]]
+collision_mask = 4
+script = ExtResource("1_owrhn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBall"]
+mesh = SubResource("SphereMesh_x22n1")
+surface_material_override/0 = SubResource("StandardMaterial3D_km2gf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBall"]
+shape = SubResource("SphereShape3D_qw46v")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_q82hi")
+
+[node name="Horizontal" type="Node3D" parent="CameraPivot"]
+
+[node name="Vertical" type="Node3D" parent="CameraPivot/Horizontal"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Horizontal/Vertical"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_mask = 68
+shape = SubResource("SphereShape3D_ymhhk")
+spring_length = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D"]
+unique_name_in_owner = true
+process_mode = 1
+current = true
