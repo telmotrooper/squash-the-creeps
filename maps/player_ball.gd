@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
     apply_impulse(Vector3(0,5,0), Vector3.ZERO)
     is_jumping = true
     # TODO: Find something similar to "is_on_floor" to use here.
-    await get_tree().create_timer(0.5).timeout
+    await get_tree().create_timer(1).timeout
     is_jumping = false
 
 func move_to_last_safe_position() -> void:
