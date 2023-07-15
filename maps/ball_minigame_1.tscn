@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj8g1fhhl6pl1"]
+
+[ext_resource type="PackedScene" uid="uid://jolpuvcannrl" path="res://entities/player_ball/player_ball.tscn" id="1_lb0je"]
+[ext_resource type="Script" path="res://maps/ball_minigame_1.gd" id="1_qvnt5"]
+[ext_resource type="Material" uid="uid://ctk7xq4vpjek2" path="res://materials/light_brown.tres" id="2_mephh"]
+[ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_qdwid"]
+[ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="3_jeiom"]
+[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="4_g7aqb"]
+[ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5_nfj5k"]
+
+[node name="BallMinigame1" type="Node3D"]
+script = ExtResource("1_qvnt5")
+map_music = ExtResource("2_qdwid")
+
+[node name="PlayerBall" parent="." instance=ExtResource("1_lb0je")]
+
+[node name="Map" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147142, 0.00976372, -0.0100975)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+use_collision = true
+collision_layer = 4
+size = Vector3(5, 0.25, 5)
+material = ExtResource("2_mephh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, -0.258819, 0.965926, 0, 0.965926, 0.258819, -4.37114e-08, 0.0798993, 0.6, -4.8)
+size = Vector3(5, 0.25, 1)
+material = ExtResource("2_mephh")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(-4.2222e-08, 1.13133e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, -4.37114e-08, 0.0798993, 0.6, -9.55099)
+size = Vector3(5, 0.25, 1)
+material = ExtResource("2_mephh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_jeiom")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 2.18557e-08, -0.5, 0.5, -3.78552e-08, 0.866025, 0, -1, -4.37114e-08, 0, 10, 0)
+
+[node name="UserInterface" parent="." instance=ExtResource("4_g7aqb")]
+
+[node name="Boundary" parent="." instance=ExtResource("5_nfj5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)

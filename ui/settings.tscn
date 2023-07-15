@@ -102,7 +102,7 @@ popup/item_1/text = "avocado_beach"
 popup/item_1/id = 1
 popup/item_2/text = "lake_map"
 popup/item_2/id = 2
-popup/item_3/text = "ball_minigame"
+popup/item_3/text = "ball_minigame_1"
 popup/item_3/id = 3
 
 [node name="ToggleFullscreenButton" type="Button" parent="."]
