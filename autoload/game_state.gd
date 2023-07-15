@@ -84,6 +84,9 @@ func _ready() -> void:
   if current_scene == "Player" or (current_scene != "Main" and current_scene != "TestTimelineScene" and not is_instance_valid(get_viewport().get_camera_3d())):
     print("Scene \"%s\" has no default camera, loading fallback scene at \"%s\"." % [current_scene, fallback_scene])
     var _error = get_tree().change_scene_to_file(fallback_scene)
+  
+  if current_scene == "PlayerBall":
+    var _error = get_tree().change_scene_to_file("res://maps/ball_minigame_1.tscn")
 
 func collect_gem(map_name: String, path: NodePath) -> void:
   gems_collected[map_name][path].collected = true
