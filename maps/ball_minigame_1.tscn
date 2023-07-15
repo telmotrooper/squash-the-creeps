@@ -14,6 +14,7 @@ script = ExtResource("1_qvnt5")
 map_music = ExtResource("2_qdwid")
 
 [node name="PlayerBall" parent="." instance=ExtResource("1_lb0je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Map" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147142, 0.00976372, -0.0100975)
@@ -22,31 +23,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147142, 0.00976372, -0.01
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
 use_collision = true
 collision_layer = 4
-size = Vector3(5, 0.25, 5)
+size = Vector3(5, 0.25, 8)
 material = ExtResource("2_mephh")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGBox3D"]
-transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, -0.258819, 0.965926, 0, 0.965926, 0.258819, -4.37114e-08, 0.0798993, 0.6, -4.8)
+transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, -0.258819, 0.965926, 0, 0.965926, 0.258819, -4.37114e-08, 0.0798993, 0.6, -6.4)
 size = Vector3(5, 0.25, 1)
 material = ExtResource("2_mephh")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGBox3D"]
-transform = Transform3D(-4.2222e-08, 1.13133e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, -4.37114e-08, 0.0798993, 0.6, -9.55099)
+transform = Transform3D(-4.2222e-08, 1.13133e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, -4.37114e-08, 0.0798993, 0.6, -11.151)
 size = Vector3(5, 0.25, 1)
 material = ExtResource("2_mephh")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGBox3D"]
-transform = Transform3D(-4.47035e-08, -0.707107, -0.707107, 0.258819, 0.683013, -0.683013, 0.965926, -0.183013, 0.183013, 1.0799, -0.4, -14.551)
-size = Vector3(5, 0.25, 1)
+transform = Transform3D(-4.47035e-08, -0.707107, -0.707107, 0.258819, 0.683013, -0.683013, 0.965926, -0.183013, 0.183013, 1.0799, -0.5, -16.751)
+size = Vector3(6.5, 0.25, 1)
 material = ExtResource("2_mephh")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGBox3D"]
-transform = Transform3D(-2.98023e-08, 0.707107, -0.707107, 0.258819, 0.683013, 0.683013, 0.965926, -0.183013, -0.183013, -0.920101, -0.4, -14.551)
-size = Vector3(5, 0.25, 1)
+transform = Transform3D(-2.98023e-08, 0.707107, -0.707107, 0.258819, 0.683013, 0.683013, 0.965926, -0.183013, -0.183013, -0.920101, -0.5, -16.751)
+size = Vector3(6.5, 0.25, 1)
 material = ExtResource("2_mephh")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Map/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -20.6088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -22.2088)
 use_collision = true
 collision_layer = 4
 size = Vector3(5, 0.25, 5)
@@ -64,4 +65,4 @@ transform = Transform3D(0.866025, 2.18557e-08, -0.5, 0.5, -3.78552e-08, 0.866025
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 
 [node name="CheckpointFlag" parent="." instance=ExtResource("8_brshw")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.42832, -3.12727, -22.4254)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.42832, -3.12727, -24.0254)
