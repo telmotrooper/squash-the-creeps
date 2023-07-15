@@ -5,7 +5,8 @@ class_name PlayerBall
 
 var initial_position: Vector3
 var initial_camera_position: Vector3
-var force = 40
+var force := 40.0
+var is_jumping := false
 
 func _ready() -> void:
   initial_position = global_transform.origin
@@ -27,7 +28,14 @@ func _physics_process(delta: float) -> void:
     # Move player ball according to input and camera direction.
     angular_velocity.x += direction.z * force * delta
     angular_velocity.z -= direction.x * force * delta
-
+  
+  if not is_jumping and Input.is_action_pressed("jump"): # Single jump.
+    print("jump")
+    apply_impulse(Vector3(0,5,0), Vector3.ZERO)
+    is_jumping = true
+    # TODO: Find something similar to "is_on_floor" to use here.
+    await get_tree().create_timer(0.5).timeout
+    is_jumping = false
 
 func move_to_last_safe_position() -> void:
   position = Vector3.ZERO # Start of the map.
