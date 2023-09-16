@@ -9,11 +9,11 @@ enum Direction { FLOOR, WALL }
 var is_pressed := false
 
 func press() -> void:
-  if !is_pressed:
-    $AnimationPlayer.play("press")
-    $AudioStreamPlayer.play()
-    is_pressed = true
-    emit_signal("pressed")
+	if !is_pressed:
+		$AnimationPlayer.play("press")
+		$AudioStreamPlayer.play()
+		is_pressed = true
+		emit_signal("pressed")
 
 func interact_on_spin() -> void:
-  press()
+	press()
