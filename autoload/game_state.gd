@@ -7,7 +7,7 @@ var UserInterface: Control
 var dialog: Dialog
 var minimap: Control
 
-var hub_1_at_night := true
+var hub_1_at_night := true 
 var camera_distance: int
 
 var upgrades = {
