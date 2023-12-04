@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ugh2m8t2l7r6"]
 
-[ext_resource type="PackedScene" path="res://ui/fade_transition.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://2ysxp08lphfh" path="res://ui/fade_transition.tscn" id="1"]
 [ext_resource type="Script" path="res://main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://bkk8jxmcw8q4x" path="res://ui/title_screen.tscn" id="3"]
 

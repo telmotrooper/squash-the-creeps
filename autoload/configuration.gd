@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	# Handle fullscreen
 	if config.get_value("graphics", "fullscreen") == true:
-		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
+		get_window().mode = Window.MODE_FULLSCREEN if (true) else Window.MODE_WINDOWED
 	
 	# Handle music volume
 	var music_volume = config.get_value("audio", "music_volume")

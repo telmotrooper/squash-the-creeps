@@ -286,10 +286,10 @@ new_game_scene = ExtResource("4")
 menu_music = ExtResource("8")
 
 [node name="AnimationPlayerMenu" type="AnimationPlayer" parent="."]
-autoplay = "menu_fade_in"
 libraries = {
 "": SubResource("AnimationLibrary_pte50")
 }
+autoplay = "menu_fade_in"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -379,8 +379,6 @@ text = "DEVELOPED BY TELMO \"TROOPER\""
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 is_title_screen = true
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -393,17 +391,17 @@ transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -13.2946
 current = true
 
 [node name="AnimationPlayerSkybox" type="AnimationPlayer" parent="Node3D"]
-autoplay = "rotating_skybox"
-speed_scale = 0.2
 libraries = {
 "": SubResource("AnimationLibrary_p04cd")
 }
+autoplay = "rotating_skybox"
+speed_scale = 0.2
 
 [node name="AnimationPlayerSpaceship" type="AnimationPlayer" parent="Node3D"]
-autoplay = "coming_in"
 libraries = {
 "": SubResource("AnimationLibrary_477ag")
 }
+autoplay = "coming_in"
 
 [node name="AnimationPlayerAlien" type="AnimationPlayer" parent="Node3D"]
 root_node = NodePath("../..")
