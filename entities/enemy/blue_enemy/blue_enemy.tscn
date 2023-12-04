@@ -137,7 +137,7 @@ squash_sound = ExtResource("4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0)
 
 [node name="Character" parent="Pivot" instance=ExtResource("3")]
-transform = Transform3D(0.999737, 0.00211385, 0.0228296, -0.00598565, 0.985272, 0.17089, -0.0221321, -0.170982, 0.985026, 0.0239411, 0.734308, -0.00194665)
+transform = Transform3D(0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985272, 0.17089, -0.0221321, -0.170982, 0.985026, 0.0239411, 0.734308, -0.00194665)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671283, 0.295466)
