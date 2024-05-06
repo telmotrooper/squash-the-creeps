@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	$Pause/PauseMenu.show()
 
-	# Guarantee all submenus are initially closed.  
+	# Guarantee all submenus are initially closed.
 	for submenu in $Pause/Submenus.get_children():
 		submenu.hide()
 

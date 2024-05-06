@@ -11,4 +11,4 @@ func _ready() -> void:
 
 func setup_collision_layers(node: Node) -> void:
 	node.set_collision_layer_value(1, false) # Remove from "Player"
-	node.set_collision_layer_value(3, true)  # Add to "World (Static)"
+	node.set_collision_layer_value(3, true) # Add to "World (Static)"
