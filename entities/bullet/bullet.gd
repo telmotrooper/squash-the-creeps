@@ -6,7 +6,7 @@ var speed := 2000
 
 func setup(new_position, new_target) -> Node3D:
 	position = new_position
-	target = new_target  # Currently target is not doing anything.
+	target = new_target # Currently target is not doing anything.
 	return self
 
 func _ready() -> void:
