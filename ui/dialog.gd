@@ -40,7 +40,7 @@ func open_dialog() -> void:
 		is_writing = false
 	)
 
-func close_dialog() -> void:  
+func close_dialog() -> void:
 	set_process(false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)

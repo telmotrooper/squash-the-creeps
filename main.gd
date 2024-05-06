@@ -12,8 +12,8 @@ func _ready() -> void:
 
 func load_scene(scene_to_load: NodePath) -> void:
 	loading_scene = scene_to_load
-#  $ProgressBar.value = 0
-#  $ProgressBar.show()
+	# $ProgressBar.value = 0
+	# $ProgressBar.show()
 	ResourceLoader.load_threaded_request(loading_scene, "", true)
 	
 	$FadeTransition.fade_out()
@@ -37,5 +37,5 @@ func _process(_delta: float) -> void:
 		$WorldScene.add_child(current_scene)
 		$FadeTransition.fade_in()
 		set_process(false)
-#    await get_tree().create_timer(0.5).timeout
-#    $ProgressBar.hide()
+		# await get_tree().create_timer(0.5).timeout
+		# $ProgressBar.hide()

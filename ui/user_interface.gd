@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	$Pause/PauseMenu.show()
 
-	# Guarantee all submenus are initially closed.  
+	# Guarantee all submenus are initially closed.
 	for submenu in $Pause/Submenus.get_children():
 		submenu.hide()
 
@@ -95,6 +95,6 @@ func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), pro
 	$Minimap.show()
 
 func move_minimap(player_offset: Vector3) -> void:
-#  print('player_offset: (%.2f,%.2f)' % [player_offset.x, player_offset.z])
+	# print('player_offset: (%.2f,%.2f)' % [player_offset.x, player_offset.z])
 	%MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
 	%MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion

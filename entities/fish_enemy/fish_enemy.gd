@@ -5,4 +5,4 @@ extends CharacterBody3D
 func _physics_process(delta: float) -> void:
 	if get_parent() is PathFollow3D:
 		get_parent().progress += patrolling_speed * delta
-#    print(get_parent().progress_ratio)
+		# print(get_parent().progress_ratio)

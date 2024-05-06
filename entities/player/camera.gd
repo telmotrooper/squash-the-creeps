@@ -17,7 +17,7 @@ func _ready() -> void:
 		
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# Prevent camera from colliding with player.
-#  $Horizontal/Vertical/Camera3D.add_exception(get_parent())
+	# $Horizontal/Vertical/Camera3D.add_exception(get_parent())
 	# Fetch draw distance from configuration file.
 	%Camera3D.far = Configuration.get_value("graphics", "draw_distance")
 

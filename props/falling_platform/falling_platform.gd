@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if falling:
-		global_transform.origin.y -= delta * speed  
+		global_transform.origin.y -= delta * speed
 
 	if global_transform.origin.y < lower_limit:
 		visible = false
