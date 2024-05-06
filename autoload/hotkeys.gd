@@ -8,10 +8,10 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_toggle_fullscreen"):
 		toggle_fullscreen()
 
-#  if Input.is_action_just_pressed("ui_fast_forward"):
-#    Engine.time_scale = 2.25
-#  elif Input.is_action_just_released("ui_fast_forward"):
-#    Engine.time_scale = 1
+	# if Input.is_action_just_pressed("ui_fast_forward"):
+	# 	Engine.time_scale = 2.25
+	# elif Input.is_action_just_released("ui_fast_forward"):
+	# 	Engine.time_scale = 1
 	
 	if Input.is_action_just_pressed("print_screen"):
 		var screenshot = get_viewport().get_texture().get_data()
