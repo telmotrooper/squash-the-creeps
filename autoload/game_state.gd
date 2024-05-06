@@ -70,6 +70,9 @@ var collision_layers = {}
 const initial_grass = 3000
 
 func _ready() -> void:
+	if DisplayServer.screen_get_size()[0] >= 3840: # 4K resolution and above (might also be higher due to display scaling):
+		get_tree().root.content_scale_factor = 2.0
+	
 	var fallback_scene = "res://maps/avocado_beach.tscn"
 	var current_scene = get_tree().get_current_scene().get_name()
 	
