@@ -11,7 +11,6 @@ func _ready() -> void:
 	GameState.dialog = $Dialog
 	GameState.minimap = $Minimap
 	
-	$Dialog.show()
 	$Dialog.modulate = Color(1, 1, 1, 0)
 	
 	$Minimap.hide()
