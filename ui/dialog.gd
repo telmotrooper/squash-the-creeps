@@ -62,5 +62,5 @@ func close_dialog() -> void:
 		hide()
 		GameState.minimap.show()
 		GameState.Player.set_cutscene_mode(false)
-		emit_signal("finished")
+		finished.emit()
 	)

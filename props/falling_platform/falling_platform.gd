@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		#queue_free()
 
 func _on_DetectArea_body_entered(_body: Node) -> void:
-	emit_signal("body_entered")
+	body_entered.emit()
 
 func reset() -> void:
 	falling = false

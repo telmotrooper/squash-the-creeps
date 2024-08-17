@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 			if mode == Mode.ANIMATION_PLAYER:
 				animation_player.play("RESET") # Skip cutscene.
 			else:
-				emit_signal("skip")
+				skip.emit()
 			first_time = true # Reset counter for future cutscenes.
 			hide()
 			set_process(false)

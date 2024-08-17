@@ -30,7 +30,7 @@ func free_tiki() -> void:
 	tween_2.tween_property($tiki_npc, "position:y", 0, 0.25)
 	
 	GameState.events.tiki_freed = true
-	emit_signal("tiki_freed")
+	tiki_freed.emit()
 
 func _on_area_3d_body_entered(_body):
 	if GameState.events.tiki_freed:

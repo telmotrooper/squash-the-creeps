@@ -66,14 +66,14 @@ func _on_GrassOptionButton_item_selected(index):
 func _on_MapOptionButton_item_selected(index):
 	var map_name = %MapOptionButton.get_item_text(index)
 	GameState.change_map(map_name)
-	emit_signal("unpause")
+	unpause.emit()
 
 func _on_ToggleFullscreenButton_pressed():
 	get_window().mode = Window.MODE_FULLSCREEN if (!((get_window().mode == Window.MODE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
 	Configuration.update_setting("graphics", "fullscreen", ((get_window().mode == Window.MODE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
 
 func _on_BackButton_pressed():
-	emit_signal("back_button_pressed")
+	back_button_pressed.emit()
 
 func _on_ResetButton_pressed() -> void:
 	$ConfirmationDialog.popup_centered()
