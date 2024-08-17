@@ -141,10 +141,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
 shape = SubResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_hr6we")
 }
+autoplay = "idle"
 
 [node name="SplashTimer" type="Timer" parent="."]
 one_shot = true

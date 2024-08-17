@@ -156,10 +156,10 @@ transform = Transform3D(1.21071, 0, 0, 0, 1, 0, 0, 0, 1.7127, 0, 0, 0.28548)
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "float"
 libraries = {
 "": SubResource("AnimationLibrary_v44g1")
 }
+autoplay = "float"
 
 [node name="AlertTimer" type="Timer" parent="."]
 one_shot = true
