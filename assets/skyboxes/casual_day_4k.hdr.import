@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://corum3l1owa2v"
 path.bptc="res://.godot/imported/casual_day_4k.hdr-a2c85b4ac29d161a2ec6553295e0254a.bptc.ctex"
+path.astc="res://.godot/imported/casual_day_4k.hdr-a2c85b4ac29d161a2ec6553295e0254a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/skyboxes/casual_day_4k.hdr"
-dest_files=["res://.godot/imported/casual_day_4k.hdr-a2c85b4ac29d161a2ec6553295e0254a.bptc.ctex"]
+dest_files=["res://.godot/imported/casual_day_4k.hdr-a2c85b4ac29d161a2ec6553295e0254a.bptc.ctex", "res://.godot/imported/casual_day_4k.hdr-a2c85b4ac29d161a2ec6553295e0254a.astc.ctex"]
 
 [params]
 

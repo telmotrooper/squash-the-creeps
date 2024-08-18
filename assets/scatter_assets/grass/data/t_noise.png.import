@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvikb4tt2356g"
 path.s3tc="res://.godot/imported/t_noise.png-a37e6a56b48cf9db9af27f644dec5ffc.s3tc.ctex"
+path.etc2="res://.godot/imported/t_noise.png-a37e6a56b48cf9db9af27f644dec5ffc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/scatter_assets/grass/data/t_noise.png"
-dest_files=["res://.godot/imported/t_noise.png-a37e6a56b48cf9db9af27f644dec5ffc.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_noise.png-a37e6a56b48cf9db9af27f644dec5ffc.s3tc.ctex", "res://.godot/imported/t_noise.png-a37e6a56b48cf9db9af27f644dec5ffc.etc2.ctex"]
 
 [params]
 

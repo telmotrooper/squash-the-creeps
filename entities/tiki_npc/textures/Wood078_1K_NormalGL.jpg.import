@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2oacdnkkv1l5"
 path.s3tc="res://.godot/imported/Wood078_1K_NormalGL.jpg-71ff9a14039f6a4312598e4f585a31af.s3tc.ctex"
+path.etc2="res://.godot/imported/Wood078_1K_NormalGL.jpg-71ff9a14039f6a4312598e4f585a31af.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/tiki_npc/textures/Wood078_1K_NormalGL.jpg"
-dest_files=["res://.godot/imported/Wood078_1K_NormalGL.jpg-71ff9a14039f6a4312598e4f585a31af.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wood078_1K_NormalGL.jpg-71ff9a14039f6a4312598e4f585a31af.s3tc.ctex", "res://.godot/imported/Wood078_1K_NormalGL.jpg-71ff9a14039f6a4312598e4f585a31af.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmsnrhn4o70xu"
 path.s3tc="res://.godot/imported/Bamboo001C_1K_Roughness.jpg-b8ab853da2dc4d0ea176c27afddb616a.s3tc.ctex"
+path.etc2="res://.godot/imported/Bamboo001C_1K_Roughness.jpg-b8ab853da2dc4d0ea176c27afddb616a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Bamboo 001 C/textures/Bamboo001C_1K_Roughness.jpg"
-dest_files=["res://.godot/imported/Bamboo001C_1K_Roughness.jpg-b8ab853da2dc4d0ea176c27afddb616a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bamboo001C_1K_Roughness.jpg-b8ab853da2dc4d0ea176c27afddb616a.s3tc.ctex", "res://.godot/imported/Bamboo001C_1K_Roughness.jpg-b8ab853da2dc4d0ea176c27afddb616a.etc2.ctex"]
 
 [params]
 

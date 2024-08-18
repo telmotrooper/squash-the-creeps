@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1pgg5x6hysg2"
 path.s3tc="res://.godot/imported/green_gem_Image_0.jpg-c1d2a393bef63cfae3f88549b05976b6.s3tc.ctex"
+path.etc2="res://.godot/imported/green_gem_Image_0.jpg-c1d2a393bef63cfae3f88549b05976b6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://props/green_gem/green_gem_Image_0.jpg"
-dest_files=["res://.godot/imported/green_gem_Image_0.jpg-c1d2a393bef63cfae3f88549b05976b6.s3tc.ctex"]
+dest_files=["res://.godot/imported/green_gem_Image_0.jpg-c1d2a393bef63cfae3f88549b05976b6.s3tc.ctex", "res://.godot/imported/green_gem_Image_0.jpg-c1d2a393bef63cfae3f88549b05976b6.etc2.ctex"]
 
 [params]
 

@@ -164,6 +164,7 @@ skip_dialog={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 threads/thread_model=2
 quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"
