@@ -51,10 +51,10 @@ func _on_gun_timer_timeout() -> void:
 		# The position (Vector3) passed to the bullet is an approximation
 		# of where we want it to spawn relative to this node.
 		var bullet = bullet_scene.instantiate()
-		#bullet.setup(transform.origin + Vector3(0,3,-10), GameState.Player.transform.origin)
-		bullet.setup(transform.origin + Vector3(0,2.5,0), GameState.Player.transform.origin)
+		bullet.setup($ReferenceBullet.global_transform.origin, GameState.Player.transform.origin)
 		bullet.rotation = rotation
 		add_child(bullet)
+		bullet.start()
 
 func _on_pilot_area_3d_body_exited(_body: Node3D) -> void:
 	# If the pilot left the cockpit, stop turret.

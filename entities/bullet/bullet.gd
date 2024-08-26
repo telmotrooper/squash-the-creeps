@@ -11,6 +11,11 @@ func setup(new_position, new_target) -> Node3D:
 
 func _ready() -> void:
 	set_up_direction(Vector3.UP)
+	set_physics_process(false)
+
+func start() -> void:
+	set_physics_process(true)
+	$Timer.start()
 
 func _physics_process(delta: float) -> void:
 	# look_at(target, Vector3.UP)
