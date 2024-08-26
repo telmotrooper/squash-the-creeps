@@ -57,7 +57,7 @@ func _on_splash_timer_timeout() -> void:
 	var decal = Decal.new()
 	decal.texture_albedo = splash_textures[randi() % splash_textures.size()]
 	decal.size = Vector3(4,0.5,4)
-	decal.position = Vector3(0,-2.25,0)
+	decal.position = global_transform.origin + Vector3(0,-2.25,0)
 	decal.top_level = true
 	add_child(decal)
 	
