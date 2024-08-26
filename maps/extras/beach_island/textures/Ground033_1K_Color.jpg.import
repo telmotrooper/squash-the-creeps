@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq5k6wg77em3n"
 path.s3tc="res://.godot/imported/Ground033_1K_Color.jpg-9f336e1b40642e9d5c8519c3f163072d.s3tc.ctex"
+path.etc2="res://.godot/imported/Ground033_1K_Color.jpg-9f336e1b40642e9d5c8519c3f163072d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/extras/beach_island/textures/Ground033_1K_Color.jpg"
-dest_files=["res://.godot/imported/Ground033_1K_Color.jpg-9f336e1b40642e9d5c8519c3f163072d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ground033_1K_Color.jpg-9f336e1b40642e9d5c8519c3f163072d.s3tc.ctex", "res://.godot/imported/Ground033_1K_Color.jpg-9f336e1b40642e9d5c8519c3f163072d.etc2.ctex"]
 
 [params]
 

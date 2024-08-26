@@ -39,10 +39,10 @@ script = ExtResource("2")
 [node name="godot_logo" parent="Pivot" instance=ExtResource("2_v6g6h")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "rotate"
 libraries = {
 "": SubResource("AnimationLibrary_vpucn")
 }
+autoplay = "rotate"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

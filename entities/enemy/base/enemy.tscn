@@ -100,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671283, 0.295466)
 shape = SubResource("1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "float"
 libraries = {
 "": SubResource("AnimationLibrary_k0jrf")
 }
+autoplay = "float"

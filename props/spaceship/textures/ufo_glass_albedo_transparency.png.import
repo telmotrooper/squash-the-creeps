@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://l4yua4sfkerj"
 path.s3tc="res://.godot/imported/ufo_glass_albedo_transparency.png-3ae420846824c27a2fc55a420f7ab55c.s3tc.ctex"
+path.etc2="res://.godot/imported/ufo_glass_albedo_transparency.png-3ae420846824c27a2fc55a420f7ab55c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://props/spaceship/textures/ufo_glass_albedo_transparency.png"
-dest_files=["res://.godot/imported/ufo_glass_albedo_transparency.png-3ae420846824c27a2fc55a420f7ab55c.s3tc.ctex"]
+dest_files=["res://.godot/imported/ufo_glass_albedo_transparency.png-3ae420846824c27a2fc55a420f7ab55c.s3tc.ctex", "res://.godot/imported/ufo_glass_albedo_transparency.png-3ae420846824c27a2fc55a420f7ab55c.etc2.ctex"]
 
 [params]
 

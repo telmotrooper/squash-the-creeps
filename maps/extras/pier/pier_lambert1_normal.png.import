@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://collpysw6evvt"
 path.s3tc="res://.godot/imported/pier_lambert1_normal.png-63b521774bcc24651aa34db4d804c970.s3tc.ctex"
+path.etc2="res://.godot/imported/pier_lambert1_normal.png-63b521774bcc24651aa34db4d804c970.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/extras/pier/pier_lambert1_normal.png"
-dest_files=["res://.godot/imported/pier_lambert1_normal.png-63b521774bcc24651aa34db4d804c970.s3tc.ctex"]
+dest_files=["res://.godot/imported/pier_lambert1_normal.png-63b521774bcc24651aa34db4d804c970.s3tc.ctex", "res://.godot/imported/pier_lambert1_normal.png-63b521774bcc24651aa34db4d804c970.etc2.ctex"]
 
 [params]
 

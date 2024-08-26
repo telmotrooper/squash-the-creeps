@@ -79,11 +79,11 @@ script = ExtResource("1_uxdyq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../tiki_npc")
-autoplay = "help"
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_1w5hv")
 }
+autoplay = "help"
+speed_scale = 2.0
 
 [node name="tiki_npc" parent="." instance=ExtResource("2_yjljt")]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)

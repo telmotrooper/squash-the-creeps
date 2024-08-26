@@ -410,10 +410,12 @@ offset_bottom = 225.0
 [node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Controls"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
+current_tab = 0
 
 [node name="Controls" type="TabBar" parent="Pause/Submenus/Controls/TabContainer"]
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Controls/TabContainer/Controls"]
 layout_mode = 0
@@ -460,10 +462,12 @@ offset_bottom = 175.0
 [node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Progress"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
+current_tab = 0
 
 [node name="World3D 1" type="TabBar" parent="Pause/Submenus/Progress/TabContainer"]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Progress/TabContainer/World3D 1"]
 layout_mode = 0

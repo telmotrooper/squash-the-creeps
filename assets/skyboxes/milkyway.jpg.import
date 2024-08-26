@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpt76dtt1v2kx"
 path.s3tc="res://.godot/imported/milkyway.jpg-8a40b5ca524cd5f9bb208b75b3a614b0.s3tc.ctex"
+path.etc2="res://.godot/imported/milkyway.jpg-8a40b5ca524cd5f9bb208b75b3a614b0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/skyboxes/milkyway.jpg"
-dest_files=["res://.godot/imported/milkyway.jpg-8a40b5ca524cd5f9bb208b75b3a614b0.s3tc.ctex"]
+dest_files=["res://.godot/imported/milkyway.jpg-8a40b5ca524cd5f9bb208b75b3a614b0.s3tc.ctex", "res://.godot/imported/milkyway.jpg-8a40b5ca524cd5f9bb208b75b3a614b0.etc2.ctex"]
 
 [params]
 

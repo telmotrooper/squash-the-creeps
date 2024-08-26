@@ -148,10 +148,10 @@ transform = Transform3D(1.21071, 0, 0, 0, 1, 0, 0, 0, 1.7127, 0, 0, 0.28548)
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "float"
 libraries = {
 "": SubResource("AnimationLibrary_qiig7")
 }
+autoplay = "float"
 
 [node name="PrismArea" parent="." instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8.7)

@@ -220,10 +220,10 @@ font_size = 24
 outline_size = 6
 
 [node name="LabelAnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "up_and_down"
 libraries = {
 "": SubResource("AnimationLibrary_i0kr4")
 }
+autoplay = "up_and_down"
 
 [node name="RequirementAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../DetectArea")

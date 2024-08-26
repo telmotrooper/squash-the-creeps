@@ -13,7 +13,7 @@ func press() -> void:
 		$AnimationPlayer.play("press")
 		$AudioStreamPlayer.play()
 		is_pressed = true
-		emit_signal("pressed")
+		pressed.emit()
 
 func interact_on_spin() -> void:
 	press()

@@ -16,7 +16,7 @@ func fade_in() -> void:
 	show()
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", WHITE, fade_duration)
-	tween.tween_callback(func(): emit_signal("done"))
+	tween.tween_callback(func(): done.emit())
 
 func fade_out() -> void:
 	var tween = create_tween()

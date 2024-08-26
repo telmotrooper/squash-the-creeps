@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy8ihvjkgch8q"
 path.s3tc="res://.godot/imported/Ground033_1K_Roughness.jpg-9ad44f1dae06f02c99c3e25abc0d9479.s3tc.ctex"
+path.etc2="res://.godot/imported/Ground033_1K_Roughness.jpg-9ad44f1dae06f02c99c3e25abc0d9479.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/extras/beach_island/textures/Ground033_1K_Roughness.jpg"
-dest_files=["res://.godot/imported/Ground033_1K_Roughness.jpg-9ad44f1dae06f02c99c3e25abc0d9479.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ground033_1K_Roughness.jpg-9ad44f1dae06f02c99c3e25abc0d9479.s3tc.ctex", "res://.godot/imported/Ground033_1K_Roughness.jpg-9ad44f1dae06f02c99c3e25abc0d9479.etc2.ctex"]
 
 [params]
 

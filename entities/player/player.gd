@@ -215,7 +215,7 @@ func is_spinning() -> bool:
 	return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
 
 func die() -> void:
-	emit_signal("hit")
+	hit.emit()
 	queue_free()
 
 func _on_EnemyDetector_body_entered(_body: Node) -> void: # hurt
