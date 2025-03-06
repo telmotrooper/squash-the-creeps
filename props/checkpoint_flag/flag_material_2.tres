@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cs1n50is125v"]
 
-[ext_resource type="Shader" path="res://props/checkpoint_flag/flag_2.gdshader" id="1_vp01k"]
+[ext_resource type="Shader" uid="uid://cgldo3caewf7p" path="res://props/checkpoint_flag/flag_2.gdshader" id="1_vp01k"]
 
 [sub_resource type="FastNoiseLite" id="1"]
 

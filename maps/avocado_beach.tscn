@@ -1142,7 +1142,7 @@ script = ExtResource("26_0e88k")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
 callback_mode_process = 0
 libraries = {
-"": SubResource("AnimationLibrary_xf4hg")
+&"": SubResource("AnimationLibrary_xf4hg")
 }
 autoplay = "RESET"
 
@@ -1213,7 +1213,7 @@ outline_size = 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/BlueCube/SprintTutorial"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_1tc6t")
+&"": SubResource("AnimationLibrary_1tc6t")
 }
 
 [node name="BlueCube2" type="CSGBox3D" parent="Map"]
@@ -1272,22 +1272,13 @@ transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 
 [node name="SandPlatform" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 78.594)
 
-[node name="SandRamp" type="CSGBox3D" parent="SandPlatform"]
-use_collision = true
-collision_layer = 4
-size = Vector3(0, 0, 0)
-material = ExtResource("36_wghgm")
+[node name="SandRamp" type="Node3D" parent="SandPlatform"]
 
 [node name="AboveRamp" type="CSGBox3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.9007, 1)
 use_collision = true
 collision_layer = 4
 size = Vector3(10, 1, 10)
-material = ExtResource("36_wghgm")
-
-[node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
-mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
 [node name="SandRampBack" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
@@ -1298,17 +1289,21 @@ material = ExtResource("36_wghgm")
 [node name="SandRampGodotHead" parent="SandPlatform/SandRamp" instance=ExtResource("17_tburi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 1)
 
-[node name="SandBridge" type="CSGBox3D" parent="SandPlatform/SandRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4877, -39.264)
-visible = false
-size = Vector3(9, 1, 19)
+[node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
+mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
-[node name="BreakableSandWall" parent="SandPlatform" instance=ExtResource("37_4w2bu")]
+[node name="BreakableSandWall" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 18.9109, 0.976196)
 
-[node name="BreakableSandWall3" parent="SandPlatform" instance=ExtResource("37_4w2bu")]
+[node name="BreakableSandWall3" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 18.911, 0.975998)
+
+[node name="SandBridge" type="CSGBox3D" parent="SandPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4877, -39.264)
+size = Vector3(9, 1, 19)
+material = ExtResource("36_wghgm")
 
 [node name="Isle" type="StaticBody3D" parent="SandPlatform"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.295, -14.8192, 24.523)
@@ -1414,7 +1409,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56736, -75.1845, 246.716)
 [node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("CutsceneCamera")
 libraries = {
-"": SubResource("AnimationLibrary_8e17r")
+&"": SubResource("AnimationLibrary_8e17r")
 }
 
 [node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer"]
@@ -1429,7 +1424,7 @@ visible = false
 
 [node name="CagedTikiGodotHeadAnimationPlayer" type="AnimationPlayer" parent="CagedTikiNPC"]
 libraries = {
-"": SubResource("AnimationLibrary_p5igw")
+&"": SubResource("AnimationLibrary_p5igw")
 }
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
