@@ -1283,6 +1283,9 @@ material = ExtResource("36_wghgm")
 
 [node name="SandRampBack" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 19.4, 17)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
 mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
@@ -1291,14 +1294,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 1)
 
 [node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
 mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
 [node name="BreakableSandWall" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 18.9109, 0.976196)
+collision_mask = 3
 
 [node name="BreakableSandWall3" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 18.911, 0.975998)
+collision_mask = 3
 
 [node name="Isle" type="StaticBody3D" parent="SandPlatform"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.295, -14.8192, 24.523)
