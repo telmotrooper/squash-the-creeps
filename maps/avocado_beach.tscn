@@ -1300,11 +1300,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 18.9109, 0.976196)
 [node name="BreakableSandWall3" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 18.911, 0.975998)
 
-[node name="SandBridge" type="CSGBox3D" parent="SandPlatform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4877, -39.264)
-size = Vector3(9, 1, 19)
-material = ExtResource("36_wghgm")
-
 [node name="Isle" type="StaticBody3D" parent="SandPlatform"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.295, -14.8192, 24.523)
 collision_layer = 4
