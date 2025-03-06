@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsfo07ukerebx"]
 
-[ext_resource type="Script" path="res://autoload/game_state.gd" id="3"]
+[ext_resource type="Script" uid="uid://dmlxa42elev38" path="res://autoload/game_state.gd" id="3"]
 
 [node name="GameState" type="Node"]
 script = ExtResource("3")

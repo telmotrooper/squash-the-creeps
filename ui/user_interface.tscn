@@ -1,16 +1,16 @@
 [gd_scene load_steps=27 format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
-[ext_resource type="Script" path="res://ui/pause.gd" id="2"]
+[ext_resource type="Script" uid="uid://bfw7u03655r11" path="res://ui/pause.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dihom2two7x28" path="res://assets/godot_logo.png" id="3"]
-[ext_resource type="Script" path="res://ui/map_name.gd" id="3_rj0dl"]
-[ext_resource type="Script" path="res://ui/user_interface.gd" id="5"]
+[ext_resource type="Script" uid="uid://bjewxx2rva6s4" path="res://ui/map_name.gd" id="3_rj0dl"]
+[ext_resource type="Script" uid="uid://c2ymrogvu7um7" path="res://ui/user_interface.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="5_hbfsb"]
 [ext_resource type="Texture2D" uid="uid://cupbjntxilq6n" path="res://assets/minimap/minimap-overlay.svg" id="5_tg4xs"]
 [ext_resource type="Texture2D" uid="uid://bnjp3erf87md0" path="res://assets/crystal green.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://do0d3kqunn7pt" path="res://assets/minimap/player-cursor.png" id="6_y76n1"]
 [ext_resource type="PackedScene" uid="uid://c1uxp84cy3fxb" path="res://ui/settings.tscn" id="7"]
-[ext_resource type="Script" path="res://ui/dialog.gd" id="7_g3dh2"]
+[ext_resource type="Script" uid="uid://dvvhyednxao0m" path="res://ui/dialog.gd" id="7_g3dh2"]
 [ext_resource type="AudioStream" uid="uid://t55hiuj8ac0l" path="res://assets/zapsplat_multimedia_alert_musical_warm_finish_complete_success_004_64256.ogg" id="8"]
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
@@ -66,9 +66,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_foux1"]
 _data = {
-"RESET": SubResource("3"),
-"VISIBLE": SubResource("4"),
-"hide_hud": SubResource("2")
+&"RESET": SubResource("3"),
+&"VISIBLE": SubResource("4"),
+&"hide_hud": SubResource("2")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phqdm"]
@@ -153,8 +153,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sb5q5"]
 _data = {
-"RESET": SubResource("5"),
-"show_all_godot_heads_collected": SubResource("6")
+&"RESET": SubResource("5"),
+&"show_all_godot_heads_collected": SubResource("6")
 }
 
 [sub_resource type="Animation" id="Animation_ro15n"]
@@ -203,8 +203,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv28i"]
 _data = {
-"RESET": SubResource("Animation_ro15n"),
-"congratulations": SubResource("Animation_qlut8")
+&"RESET": SubResource("Animation_ro15n"),
+&"congratulations": SubResource("Animation_qlut8")
 }
 
 [node name="UserInterface" type="Control"]
@@ -244,7 +244,7 @@ script = ExtResource("3_rj0dl")
 unique_name_in_owner = true
 process_mode = 3
 libraries = {
-"": SubResource("AnimationLibrary_foux1")
+&"": SubResource("AnimationLibrary_foux1")
 }
 
 [node name="HUDTimer" type="Timer" parent="."]
@@ -632,7 +632,7 @@ horizontal_alignment = 1
 
 [node name="AnnouncementAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sb5q5")
+&"": SubResource("AnimationLibrary_sb5q5")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -649,7 +649,7 @@ dialog_autowrap = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CongratulationsDialog"]
 root_node = NodePath("../../AnnouncementAnimationPlayer")
 libraries = {
-"": SubResource("AnimationLibrary_wv28i")
+&"": SubResource("AnimationLibrary_wv28i")
 }
 
 [node name="FPSLabel" type="Label" parent="."]

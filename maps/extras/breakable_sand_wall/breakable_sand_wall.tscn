@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="1_ld7na"]
 [ext_resource type="Texture2D" uid="uid://dm3n24xjx6pgr" path="res://assets/Crack_1.png" id="2_il8t2"]
-[ext_resource type="Script" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.gd" id="2_sh08v"]
+[ext_resource type="Script" uid="uid://50ug58kef4jp" path="res://maps/extras/breakable_sand_wall/breakable_sand_wall.gd" id="2_sh08v"]
 [ext_resource type="AudioStream" uid="uid://djejr4dtjnlyi" path="res://assets/505169__mitchanary__shovelingsand.ogg" id="3_bqtnj"]
 
 [node name="BreakableSandWall" type="CSGBox3D" groups=["spinnable"]]

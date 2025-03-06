@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cxjpvcv7qi46v"]
 
-[ext_resource type="Script" path="res://props/checkpoint_flag/flag.gd" id="1_3h7g4"]
-[ext_resource type="Shader" path="res://props/checkpoint_flag/flag.gdshader" id="2_7knrb"]
+[ext_resource type="Script" uid="uid://crhk827lho5kf" path="res://props/checkpoint_flag/flag.gd" id="1_3h7g4"]
+[ext_resource type="Shader" uid="uid://dj08im61o7svw" path="res://props/checkpoint_flag/flag.gdshader" id="2_7knrb"]
 [ext_resource type="Material" uid="uid://cs1n50is125v" path="res://props/checkpoint_flag/flag_material_2.tres" id="3_t8fwv"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="4_v7dg7"]
 [ext_resource type="AudioStream" uid="uid://d05y3bkiqsmxh" path="res://props/checkpoint_flag/zapsplat_multimedia_game_sound_finish_complete_success_bright_warm_synth_001_60688.mp3" id="5_efkp8"]

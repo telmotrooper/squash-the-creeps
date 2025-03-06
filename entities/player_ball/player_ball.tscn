@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://jolpuvcannrl"]
 
-[ext_resource type="Script" path="res://maps/player_ball.gd" id="1_owrhn"]
-[ext_resource type="Script" path="res://entities/player/camera.gd" id="2_q82hi"]
+[ext_resource type="Script" uid="uid://bn2b1q7ph8qd5" path="res://maps/player_ball.gd" id="1_owrhn"]
+[ext_resource type="Script" uid="uid://du560503dixa4" path="res://entities/player/camera.gd" id="2_q82hi"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_x22n1"]
 

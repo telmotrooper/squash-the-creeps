@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://rgi86wbfqauc"]
 
-[ext_resource type="Script" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
+[ext_resource type="Script" uid="uid://cmpcbw68avqol" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://woycgl4833us" path="res://entities/enemy/prism_area.tscn" id="2"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
 [ext_resource type="Texture2D" uid="uid://chu22fldtwf8m" path="res://entities/enemy/exclamation_mark.png" id="4"]
@@ -81,8 +81,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_df5q3"]
 _data = {
-"float": SubResource("2"),
-"squash": SubResource("3")
+&"float": SubResource("2"),
+&"squash": SubResource("3")
 }
 
 [sub_resource type="StandardMaterial3D" id="4"]

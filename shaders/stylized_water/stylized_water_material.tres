@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://cjnvu5nldqqke"]
 
-[ext_resource type="Shader" path="res://shaders/stylized_water/stylized_water.gdshader" id="1"]
+[ext_resource type="Shader" uid="uid://dhe18jbayd1n0" path="res://shaders/stylized_water/stylized_water.gdshader" id="1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rncmn"]
 seed = 2
@@ -31,6 +31,9 @@ noise = SubResource("FastNoiseLite_o0686")
 render_priority = -1
 shader = ExtResource("1")
 shader_parameter/speed = 0.00300005
+shader_parameter/noise1 = SubResource("NoiseTexture2D_ilv5t")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_1cr7s")
+shader_parameter/normalmap = SubResource("NoiseTexture2D_3m8wb")
 shader_parameter/color = Color(0.14902, 0.329412, 0.501961, 1)
 shader_parameter/deep_water = Color(0.14902, 0.329412, 0.501961, 1)
 shader_parameter/beer_law_factor = 0.016
@@ -42,6 +45,3 @@ shader_parameter/far = 300.0
 shader_parameter/wave_strength = Vector2(0.015, 0.015)
 shader_parameter/wave_frequ = Vector2(14, 14)
 shader_parameter/time_factor = Vector2(1.1, 2)
-shader_parameter/noise1 = SubResource("NoiseTexture2D_ilv5t")
-shader_parameter/noise2 = SubResource("NoiseTexture2D_1cr7s")
-shader_parameter/normalmap = SubResource("NoiseTexture2D_3m8wb")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnbpymnuwf6bt"]
 
-[ext_resource type="Script" path="res://entities/enemy/base/enemy.gd" id="1"]
+[ext_resource type="Script" uid="uid://dorgk5mpuo6sh" path="res://entities/enemy/base/enemy.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bg2wktdo3s8lh" path="res://entities/enemy/base/enemy.glb" id="2"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
 
@@ -79,8 +79,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k0jrf"]
 _data = {
-"float": SubResource("2"),
-"squash": SubResource("3")
+&"float": SubResource("2"),
+&"squash": SubResource("3")
 }
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemies"]]

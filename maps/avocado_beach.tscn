@@ -1,6 +1,6 @@
 [gd_scene load_steps=91 format=4 uid="uid://bji1tdapoh0ct"]
 
-[ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
+[ext_resource type="Script" uid="uid://bbq6dfelfkom7" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="3_lfm86"]
 [ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="4_ksy0t"]
@@ -26,7 +26,7 @@
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="23_2se3s"]
 [ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="24_1hsoc"]
 [ext_resource type="PackedScene" uid="uid://dhb72f0uqb47t" path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" id="25_ui5k2"]
-[ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="26_0e88k"]
+[ext_resource type="Script" uid="uid://cpirgcs87jt8y" path="res://maps/extras/move_platforms.gd" id="26_0e88k"]
 [ext_resource type="Material" uid="uid://c23rwmc1hwenf" path="res://materials/Bamboo 001 C/Bamboo 001 C.tres" id="27_1scad"]
 [ext_resource type="PackedScene" uid="uid://1adku7xcpwfb" path="res://maps/extras/spring/spring.tscn" id="28_so3lg"]
 [ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="29_wueom"]
@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="38_qdb03"]
 [ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="39_105mw"]
 [ext_resource type="PackedScene" uid="uid://hrpb58rlnaf8" path="res://entities/fish_enemy/fish_enemy.tscn" id="40_duj88"]
-[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="41_2dfa4"]
+[ext_resource type="Script" uid="uid://biisxq3mem8ti" path="res://maps/minimap_camera.gd" id="41_2dfa4"]
 [ext_resource type="PackedScene" uid="uid://2esl5e4dn6aj" path="res://maps/extras/big_beach_island/big_beach_island.tscn" id="42_3dnkc"]
 [ext_resource type="PackedScene" uid="uid://by4x3rbps47k6" path="res://maps/extras/caged_tiki_npc/caged_tiki_npc.tscn" id="44_wr07v"]
 
@@ -267,8 +267,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xf4hg"]
 _data = {
-"RESET": SubResource("32"),
-"move_platforms": SubResource("33")
+&"RESET": SubResource("32"),
+&"move_platforms": SubResource("33")
 }
 
 [sub_resource type="BoxShape3D" id="39"]
@@ -331,8 +331,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1tc6t"]
 _data = {
-"RESET": SubResource("40"),
-"show_sprint_label": SubResource("41")
+&"RESET": SubResource("40"),
+&"show_sprint_label": SubResource("41")
 }
 
 [sub_resource type="Curve3D" id="Curve3D_dm8rc"]
@@ -525,8 +525,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8e17r"]
 _data = {
-"RESET": SubResource("Animation_gw5c3"),
-"preview": SubResource("Animation_i3fst")
+&"RESET": SubResource("Animation_gw5c3"),
+&"preview": SubResource("Animation_i3fst")
 }
 
 [sub_resource type="Animation" id="Animation_ku3vj"]
@@ -598,8 +598,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p5igw"]
 _data = {
-"RESET": SubResource("Animation_ku3vj"),
-"appear": SubResource("Animation_umxow")
+&"RESET": SubResource("Animation_ku3vj"),
+&"appear": SubResource("Animation_umxow")
 }
 
 [node name="AvocadoBeach" type="Node3D"]
@@ -1142,7 +1142,7 @@ script = ExtResource("26_0e88k")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
 callback_mode_process = 0
 libraries = {
-"": SubResource("AnimationLibrary_xf4hg")
+&"": SubResource("AnimationLibrary_xf4hg")
 }
 autoplay = "RESET"
 
@@ -1213,7 +1213,7 @@ outline_size = 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/BlueCube/SprintTutorial"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_1tc6t")
+&"": SubResource("AnimationLibrary_1tc6t")
 }
 
 [node name="BlueCube2" type="CSGBox3D" parent="Map"]
@@ -1272,11 +1272,7 @@ transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 
 [node name="SandPlatform" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 78.594)
 
-[node name="SandRamp" type="CSGBox3D" parent="SandPlatform"]
-use_collision = true
-collision_layer = 4
-size = Vector3(0, 0, 0)
-material = ExtResource("36_wghgm")
+[node name="SandRamp" type="Node3D" parent="SandPlatform"]
 
 [node name="AboveRamp" type="CSGBox3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.9007, 1)
@@ -1285,30 +1281,32 @@ collision_layer = 4
 size = Vector3(10, 1, 10)
 material = ExtResource("36_wghgm")
 
-[node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
-mesh = SubResource("PrismMesh_p0g05")
-material = ExtResource("36_wghgm")
-
 [node name="SandRampBack" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 19.4, 17)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
 mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
 [node name="SandRampGodotHead" parent="SandPlatform/SandRamp" instance=ExtResource("17_tburi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 1)
 
-[node name="SandBridge" type="CSGBox3D" parent="SandPlatform/SandRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4877, -39.264)
-visible = false
-size = Vector3(9, 1, 19)
+[node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
-[node name="BreakableSandWall" parent="SandPlatform" instance=ExtResource("37_4w2bu")]
+[node name="BreakableSandWall" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 18.9109, 0.976196)
+collision_mask = 3
 
-[node name="BreakableSandWall3" parent="SandPlatform" instance=ExtResource("37_4w2bu")]
+[node name="BreakableSandWall3" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 18.911, 0.975998)
+collision_mask = 3
 
 [node name="Isle" type="StaticBody3D" parent="SandPlatform"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.295, -14.8192, 24.523)
@@ -1414,7 +1412,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56736, -75.1845, 246.716)
 [node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("CutsceneCamera")
 libraries = {
-"": SubResource("AnimationLibrary_8e17r")
+&"": SubResource("AnimationLibrary_8e17r")
 }
 
 [node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer"]
@@ -1429,7 +1427,7 @@ visible = false
 
 [node name="CagedTikiGodotHeadAnimationPlayer" type="AnimationPlayer" parent="CagedTikiNPC"]
 libraries = {
-"": SubResource("AnimationLibrary_p5igw")
+&"": SubResource("AnimationLibrary_p5igw")
 }
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]

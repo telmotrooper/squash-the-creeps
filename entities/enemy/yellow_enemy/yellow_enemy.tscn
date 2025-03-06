@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dhb72f0uqb47t"]
 
-[ext_resource type="Script" path="res://entities/enemy/yellow_enemy/yellow_enemy.gd" id="1"]
+[ext_resource type="Script" uid="uid://ck6ryt1f0fnwy" path="res://entities/enemy/yellow_enemy/yellow_enemy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://chu22fldtwf8m" path="res://entities/enemy/exclamation_mark.png" id="2"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
 [ext_resource type="PackedScene" uid="uid://dpovsobdw4klv" path="res://entities/enemy/yellow_enemy/yellow_enemy.glb" id="6"]
@@ -119,9 +119,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v44g1"]
 _data = {
-"RESET": SubResource("7"),
-"float": SubResource("2"),
-"squash": SubResource("3")
+&"RESET": SubResource("7"),
+&"float": SubResource("2"),
+&"squash": SubResource("3")
 }
 
 [sub_resource type="StandardMaterial3D" id="6"]

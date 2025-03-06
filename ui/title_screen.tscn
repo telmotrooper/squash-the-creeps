@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://dhylrgs4ypi2c" path="res://ui/menu_env.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://chbhpadk5nbgi" path="res://maps/hub_1.tscn" id="4"]
-[ext_resource type="Script" path="res://ui/title_screen.gd" id="5"]
+[ext_resource type="Script" uid="uid://dg84es73nwecu" path="res://ui/title_screen.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://dialng5csue4b" path="res://ui/menu_button.tscn" id="5_mxtec"]
 [ext_resource type="Texture2D" uid="uid://cfx7dfats6hl" path="res://assets/logo.png" id="6"]
 [ext_resource type="AudioStream" uid="uid://c1ope7npae620" path="res://assets/Super Game Music - Badass Space Explorer (Loop).ogg" id="8"]
@@ -110,10 +110,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pte50"]
 _data = {
-"RESET": SubResource("4"),
-"menu_fade_in": SubResource("5"),
-"menu_fade_in_fast": SubResource("10"),
-"menu_fade_out": SubResource("1")
+&"RESET": SubResource("4"),
+&"menu_fade_in": SubResource("5"),
+&"menu_fade_in_fast": SubResource("10"),
+&"menu_fade_out": SubResource("1")
 }
 
 [sub_resource type="Animation" id="Animation_04i8i"]
@@ -149,8 +149,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p04cd"]
 _data = {
-"RESET": SubResource("Animation_04i8i"),
-"rotating_skybox": SubResource("2")
+&"RESET": SubResource("Animation_04i8i"),
+&"rotating_skybox": SubResource("2")
 }
 
 [sub_resource type="Animation" id="6"]
@@ -238,9 +238,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_477ag"]
 _data = {
-"RESET": SubResource("6"),
-"coming_in": SubResource("7"),
-"flying_in_space": SubResource("3")
+&"RESET": SubResource("6"),
+&"coming_in": SubResource("7"),
+&"flying_in_space": SubResource("3")
 }
 
 [sub_resource type="Animation" id="8"]
@@ -276,8 +276,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6i7gw"]
 _data = {
-"RESET": SubResource("8"),
-"spin_y": SubResource("9")
+&"RESET": SubResource("8"),
+&"spin_y": SubResource("9")
 }
 
 [node name="TitleScreen" type="Node"]
@@ -287,7 +287,7 @@ menu_music = ExtResource("8")
 
 [node name="AnimationPlayerMenu" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pte50")
+&"": SubResource("AnimationLibrary_pte50")
 }
 autoplay = "menu_fade_in"
 
@@ -392,21 +392,21 @@ current = true
 
 [node name="AnimationPlayerSkybox" type="AnimationPlayer" parent="Node3D"]
 libraries = {
-"": SubResource("AnimationLibrary_p04cd")
+&"": SubResource("AnimationLibrary_p04cd")
 }
 autoplay = "rotating_skybox"
 speed_scale = 0.2
 
 [node name="AnimationPlayerSpaceship" type="AnimationPlayer" parent="Node3D"]
 libraries = {
-"": SubResource("AnimationLibrary_477ag")
+&"": SubResource("AnimationLibrary_477ag")
 }
 autoplay = "coming_in"
 
 [node name="AnimationPlayerAlien" type="AnimationPlayer" parent="Node3D"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_6i7gw")
+&"": SubResource("AnimationLibrary_6i7gw")
 }
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]

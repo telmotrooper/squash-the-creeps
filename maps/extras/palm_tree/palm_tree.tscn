@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://brxm4hmmc44rl"]
 
-[ext_resource type="Script" path="res://maps/extras/palm_tree/palm_tree.gd" id="1_1av7d"]
+[ext_resource type="Script" uid="uid://chgn1ls1b071f" path="res://maps/extras/palm_tree/palm_tree.gd" id="1_1av7d"]
 [ext_resource type="PackedScene" uid="uid://by67u68yj1vku" path="res://maps/extras/palm_tree/palm_tree.blend" id="1_hbbvb"]
 
 [sub_resource type="BoxShape3D" id="1"]

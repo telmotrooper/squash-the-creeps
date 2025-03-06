@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8mgkrk8bsb4m"]
 
-[ext_resource type="Script" path="res://ui/skip_cutscene.gd" id="1_i41nt"]
+[ext_resource type="Script" uid="uid://dp04snknlmujl" path="res://ui/skip_cutscene.gd" id="1_i41nt"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_v4k7b"]
 
 [node name="SkipCutscene" type="Control"]

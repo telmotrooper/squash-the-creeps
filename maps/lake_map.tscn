@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://boaoo3d7kojfm" path="res://maps/extras/height_map/height_map.tscn" id="1"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="2"]
-[ext_resource type="Script" path="res://maps/lake_map.gd" id="3"]
+[ext_resource type="Script" uid="uid://4n1s4ex0x7r1" path="res://maps/lake_map.gd" id="3"]
 [ext_resource type="AudioStream" uid="uid://bf7qsavkux6xo" path="res://assets/water-pour.ogg" id="4"]
 [ext_resource type="Texture2D" uid="uid://d1p8anhd3edlr" path="res://assets/minimap/maps/lake-map.png" id="4_l5twf"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="5"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4e5e40iodpb" path="res://maps/extras/pier/pier.tscn" id="19"]
 [ext_resource type="Texture2D" uid="uid://c7rc5p0126d5f" path="res://particles/float/star_08.png" id="20"]
 [ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="21_gosh7"]
-[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="22_se7s5"]
+[ext_resource type="Script" uid="uid://biisxq3mem8ti" path="res://maps/minimap_camera.gd" id="22_se7s5"]
 
 [sub_resource type="Curve3D" id="1"]
 _data = {
@@ -114,8 +114,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hf4yl"]
 _data = {
-"RESET": SubResource("4"),
-"drain_water": SubResource("3")
+&"RESET": SubResource("4"),
+&"drain_water": SubResource("3")
 }
 
 [sub_resource type="CylinderShape3D" id="5"]
