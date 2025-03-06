@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dqkm46qb08gjf"]
+
+[ext_resource type="Texture2D" uid="uid://l4yua4sfkerj" path="res://props/spaceship/textures/ufo_glass_albedo_transparency.png" id="1_01yb0"]
+[ext_resource type="Texture2D" uid="uid://lnoufbusr2r7" path="res://props/spaceship/textures/ufo_glass_normal.png" id="2_kmfht"]
+
+[resource]
+resource_name = "GlassMaterial"
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_01yb0")
+metallic = 1.0
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.29997, 0.29997, 0.29997, 1)
+normal_enabled = true
+normal_texture = ExtResource("2_kmfht")

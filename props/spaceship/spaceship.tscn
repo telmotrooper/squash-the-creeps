@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dprtyraxfvhk6"]
+[gd_scene load_steps=5 format=3 uid="uid://dprtyraxfvhk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjm7lcynfitmc" path="res://props/spaceship/spaceship.blend" id="1_rimuf"]
+[ext_resource type="Material" uid="uid://dqkm46qb08gjf" path="res://props/spaceship/GlassMaterial.tres" id="2_b6br0"]
 
 [sub_resource type="CylinderShape3D" id="1"]
 height = 3.5
@@ -16,6 +17,9 @@ collision_mask = 0
 
 [node name="spaceship" parent="." instance=ExtResource("1_rimuf")]
 
+[node name="Glass" parent="spaceship" index="1"]
+surface_material_override/0 = ExtResource("2_b6br0")
+
 [node name="SpaceshipCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 shape = SubResource("1")
@@ -23,3 +27,5 @@ shape = SubResource("1")
 [node name="GlassCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("2")
+
+[editable path="spaceship"]
