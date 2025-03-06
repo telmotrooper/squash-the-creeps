@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bs8ljc0enja8j"]
 
-[ext_resource type="Script" path="res://shaders/smoke/smoke.gd" id="1"]
+[ext_resource type="Script" uid="uid://wd2pu4u58snt" path="res://shaders/smoke/smoke.gd" id="1"]
 [ext_resource type="Material" uid="uid://dra44j584j801" path="res://shaders/smoke/smoke.tres" id="2"]
 [ext_resource type="AudioStream" uid="uid://7nngsccaxwwr" path="res://assets/cardboard-burning.ogg" id="3"]
 

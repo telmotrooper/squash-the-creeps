@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://chm02iuo3iig6"]
 
-[ext_resource type="Script" path="res://entities/slime/slime.gd" id="1"]
+[ext_resource type="Script" uid="uid://bdxfe4utki7re" path="res://entities/slime/slime.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="3"]
 [ext_resource type="PackedScene" uid="uid://xf7ioambo57h" path="res://entities/slime/slime.blend" id="3_phpra"]
 [ext_resource type="Texture2D" uid="uid://b5kd7lrfeiyrf" path="res://entities/slime/slime_splash_1.png" id="4_kmx6p"]
@@ -121,9 +121,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hr6we"]
 _data = {
-"RESET": SubResource("5"),
-"idle": SubResource("6"),
-"squash": SubResource("4")
+&"RESET": SubResource("5"),
+&"idle": SubResource("6"),
+&"squash": SubResource("4")
 }
 
 [node name="Slime" type="CharacterBody3D" groups=["enemies"]]
@@ -142,7 +142,7 @@ shape = SubResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hr6we")
+&"": SubResource("AnimationLibrary_hr6we")
 }
 autoplay = "idle"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0skipybh0r4s"]
 
-[ext_resource type="Script" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
+[ext_resource type="Script" uid="uid://cmpcbw68avqol" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://woycgl4833us" path="res://entities/enemy/prism_area.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bg2wktdo3s8lh" path="res://entities/enemy/base/enemy.glb" id="3"]
 [ext_resource type="AudioStream" uid="uid://cc86tjlicmqp3" path="res://entities/enemy/slime_jump.ogg" id="4"]
@@ -112,10 +112,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qiig7"]
 _data = {
-"RESET": SubResource("Animation_bjpng"),
-"float": SubResource("2"),
-"squash": SubResource("3"),
-"surprised": SubResource("Animation_mlvfu")
+&"RESET": SubResource("Animation_bjpng"),
+&"float": SubResource("2"),
+&"squash": SubResource("3"),
+&"surprised": SubResource("Animation_mlvfu")
 }
 
 [sub_resource type="StandardMaterial3D" id="6"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://1adku7xcpwfb"]
 
-[ext_resource type="Script" path="res://maps/extras/spring/spring.gd" id="1_w7cyw"]
+[ext_resource type="Script" uid="uid://dpvm6vefewwn7" path="res://maps/extras/spring/spring.gd" id="1_w7cyw"]
 [ext_resource type="PackedScene" uid="uid://b4uyhp6qs75my" path="res://maps/extras/spring/spring.blend" id="2_bf2kl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e6maf"]
@@ -55,9 +55,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjk3j"]
 _data = {
-"RESET": SubResource("Animation_q2wvu"),
-"bounce": SubResource("Animation_nev35"),
-"retract": SubResource("Animation_bdimh")
+&"RESET": SubResource("Animation_q2wvu"),
+&"bounce": SubResource("Animation_nev35"),
+&"retract": SubResource("Animation_bdimh")
 }
 
 [node name="Spring" type="Node3D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2ysxp08lphfh"]
 
-[ext_resource type="Script" path="res://ui/fade_transition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cq81lucwg5t0v" path="res://ui/fade_transition.gd" id="1"]
 
 [node name="FadeToBlack" type="ColorRect"]
 anchors_preset = 15

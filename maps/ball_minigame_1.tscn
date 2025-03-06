@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dj8g1fhhl6pl1"]
 
 [ext_resource type="PackedScene" uid="uid://jolpuvcannrl" path="res://entities/player_ball/player_ball.tscn" id="1_lb0je"]
-[ext_resource type="Script" path="res://maps/ball_minigame_1.gd" id="1_qvnt5"]
+[ext_resource type="Script" uid="uid://dyggf2tbajpch" path="res://maps/ball_minigame_1.gd" id="1_qvnt5"]
 [ext_resource type="Material" uid="uid://ctk7xq4vpjek2" path="res://materials/light_brown.tres" id="2_mephh"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_qdwid"]
 [ext_resource type="Environment" uid="uid://d38p1lm0kuun7" path="res://default_env.tres" id="3_jeiom"]

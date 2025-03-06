@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://boaoo3d7kojfm"]
 
-[ext_resource type="Script" path="res://maps/extras/height_map/height_map.gd" id="2"]
+[ext_resource type="Script" uid="uid://c01h5yqecur36" path="res://maps/extras/height_map/height_map.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://7qsvq1qjncu7" path="res://maps/extras/height_map/height_map.blend" id="2_euaid"]
 
 [node name="HeightMap" type="Node3D"]

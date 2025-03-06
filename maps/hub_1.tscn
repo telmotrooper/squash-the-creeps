@@ -11,16 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="9"]
-[ext_resource type="Script" path="res://maps/hub_1.gd" id="10"]
+[ext_resource type="Script" uid="uid://bd5bwqbdf0aed" path="res://maps/hub_1.gd" id="10"]
 [ext_resource type="AudioStream" uid="uid://cs20rrahm3kdx" path="res://assets/400632__inspectorj__ambience-seaside-waves-close-a.ogg" id="11"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="11_janls"]
 [ext_resource type="AudioStream" uid="uid://va0y80nyb6cg" path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" id="12"]
 [ext_resource type="Environment" uid="uid://bugt14yl4reku" path="res://maps/hub_1_night.tres" id="13"]
 [ext_resource type="AudioStream" uid="uid://dqhklgt4fxmjf" path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" id="15"]
 [ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="16"]
-[ext_resource type="Script" path="res://props/spaceship/spaceship_hub.gd" id="18"]
+[ext_resource type="Script" uid="uid://cixcepramf1fx" path="res://props/spaceship/spaceship_hub.gd" id="18"]
 [ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="18_6iwc4"]
-[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="19_wf4fl"]
+[ext_resource type="Script" uid="uid://biisxq3mem8ti" path="res://maps/minimap_camera.gd" id="19_wf4fl"]
 
 [sub_resource type="PlaneMesh" id="1"]
 material = ExtResource("1")
@@ -275,8 +275,8 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbsdy"]
 _data = {
-"RESET": SubResource("5"),
-"spaceship_fall": SubResource("4")
+&"RESET": SubResource("5"),
+&"spaceship_fall": SubResource("4")
 }
 
 [node name="Hub1" type="Node3D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://hrpb58rlnaf8"]
 
 [ext_resource type="Material" uid="uid://l7vxw82i64vp" path="res://entities/fish_enemy/red.material" id="1_p0x6w"]
-[ext_resource type="Script" path="res://entities/fish_enemy/fish_enemy.gd" id="1_xe3cw"]
+[ext_resource type="Script" uid="uid://bk7d0wippeght" path="res://entities/fish_enemy/fish_enemy.gd" id="1_xe3cw"]
 [ext_resource type="Material" uid="uid://cwaqcbkgwuwmu" path="res://entities/fish_enemy/yellow.material" id="2_36xaf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ngw1e"]
@@ -52,8 +52,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0iqik"]
 _data = {
-"RESET": SubResource("Animation_x1lx2"),
-"swim": SubResource("Animation_wdclc")
+&"RESET": SubResource("Animation_x1lx2"),
+&"swim": SubResource("Animation_wdclc")
 }
 
 [node name="FishEnemy" type="CharacterBody3D"]

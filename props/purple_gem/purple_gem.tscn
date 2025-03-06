@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://cl7oilvypf1v2"]
 
-[ext_resource type="Script" path="res://props/red_gem/gem.gd" id="2"]
+[ext_resource type="Script" uid="uid://cwno530n4eetr" path="res://props/red_gem/gem.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://offdyh8u8jmf" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elu5g"]

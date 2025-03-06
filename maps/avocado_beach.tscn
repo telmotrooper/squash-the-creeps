@@ -1,6 +1,6 @@
 [gd_scene load_steps=91 format=4 uid="uid://bji1tdapoh0ct"]
 
-[ext_resource type="Script" path="res://maps/avocado_beach.gd" id="1_1tay5"]
+[ext_resource type="Script" uid="uid://bbq6dfelfkom7" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
 [ext_resource type="Texture2D" uid="uid://cln1tidcuynt6" path="res://assets/minimap/maps/avocado-beach.png" id="3_lfm86"]
 [ext_resource type="Material" uid="uid://xkucysguu3v" path="res://materials/green.tres" id="4_ksy0t"]
@@ -26,7 +26,7 @@
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="23_2se3s"]
 [ext_resource type="PackedScene" uid="uid://chm02iuo3iig6" path="res://entities/slime/slime.tscn" id="24_1hsoc"]
 [ext_resource type="PackedScene" uid="uid://dhb72f0uqb47t" path="res://entities/enemy/yellow_enemy/yellow_enemy.tscn" id="25_ui5k2"]
-[ext_resource type="Script" path="res://maps/extras/move_platforms.gd" id="26_0e88k"]
+[ext_resource type="Script" uid="uid://cpirgcs87jt8y" path="res://maps/extras/move_platforms.gd" id="26_0e88k"]
 [ext_resource type="Material" uid="uid://c23rwmc1hwenf" path="res://materials/Bamboo 001 C/Bamboo 001 C.tres" id="27_1scad"]
 [ext_resource type="PackedScene" uid="uid://1adku7xcpwfb" path="res://maps/extras/spring/spring.tscn" id="28_so3lg"]
 [ext_resource type="PackedScene" uid="uid://bvu7s6ed1br1r" path="res://props/falling_platform/falling_bridge.tscn" id="29_wueom"]
@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://dq4ttjj1ckq8n" path="res://maps/isle.blend" id="38_qdb03"]
 [ext_resource type="PackedScene" uid="uid://cj3bopr4atmyc" path="res://maps/isle_path.blend" id="39_105mw"]
 [ext_resource type="PackedScene" uid="uid://hrpb58rlnaf8" path="res://entities/fish_enemy/fish_enemy.tscn" id="40_duj88"]
-[ext_resource type="Script" path="res://maps/minimap_camera.gd" id="41_2dfa4"]
+[ext_resource type="Script" uid="uid://biisxq3mem8ti" path="res://maps/minimap_camera.gd" id="41_2dfa4"]
 [ext_resource type="PackedScene" uid="uid://2esl5e4dn6aj" path="res://maps/extras/big_beach_island/big_beach_island.tscn" id="42_3dnkc"]
 [ext_resource type="PackedScene" uid="uid://by4x3rbps47k6" path="res://maps/extras/caged_tiki_npc/caged_tiki_npc.tscn" id="44_wr07v"]
 
@@ -267,8 +267,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xf4hg"]
 _data = {
-"RESET": SubResource("32"),
-"move_platforms": SubResource("33")
+&"RESET": SubResource("32"),
+&"move_platforms": SubResource("33")
 }
 
 [sub_resource type="BoxShape3D" id="39"]
@@ -331,8 +331,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1tc6t"]
 _data = {
-"RESET": SubResource("40"),
-"show_sprint_label": SubResource("41")
+&"RESET": SubResource("40"),
+&"show_sprint_label": SubResource("41")
 }
 
 [sub_resource type="Curve3D" id="Curve3D_dm8rc"]
@@ -525,8 +525,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8e17r"]
 _data = {
-"RESET": SubResource("Animation_gw5c3"),
-"preview": SubResource("Animation_i3fst")
+&"RESET": SubResource("Animation_gw5c3"),
+&"preview": SubResource("Animation_i3fst")
 }
 
 [sub_resource type="Animation" id="Animation_ku3vj"]
@@ -598,8 +598,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p5igw"]
 _data = {
-"RESET": SubResource("Animation_ku3vj"),
-"appear": SubResource("Animation_umxow")
+&"RESET": SubResource("Animation_ku3vj"),
+&"appear": SubResource("Animation_umxow")
 }
 
 [node name="AvocadoBeach" type="Node3D"]
