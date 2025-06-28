@@ -2,3 +2,4 @@
 .import
 *.blend1
 logs/
+server.pem
