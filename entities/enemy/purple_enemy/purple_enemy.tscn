@@ -117,7 +117,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_df5q3")
+&"": SubResource("AnimationLibrary_df5q3")
 }
 autoplay = "float"
 

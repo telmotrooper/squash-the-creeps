@@ -106,7 +106,7 @@ shape = SubResource("6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7ecka")
+&"": SubResource("AnimationLibrary_7ecka")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
