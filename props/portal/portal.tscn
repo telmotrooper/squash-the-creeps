@@ -222,14 +222,14 @@ outline_size = 6
 
 [node name="LabelAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_i0kr4")
+&"": SubResource("AnimationLibrary_i0kr4")
 }
 autoplay = "up_and_down"
 
 [node name="RequirementAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../DetectArea")
 libraries = {
-"": SubResource("AnimationLibrary_spwc0")
+&"": SubResource("AnimationLibrary_spwc0")
 }
 
 [node name="DetectArea" type="Area3D" parent="."]

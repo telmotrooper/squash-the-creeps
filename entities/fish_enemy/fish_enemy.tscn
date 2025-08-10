@@ -95,6 +95,6 @@ mesh = SubResource("SphereMesh_0mwfu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0iqik")
+&"": SubResource("AnimationLibrary_0iqik")
 }
 autoplay = "swim"

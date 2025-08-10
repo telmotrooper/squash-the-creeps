@@ -149,7 +149,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qiig7")
+&"": SubResource("AnimationLibrary_qiig7")
 }
 autoplay = "float"
 

@@ -75,7 +75,7 @@ shape = SubResource("BoxShape3D_e6maf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vjk3j")
+&"": SubResource("AnimationLibrary_vjk3j")
 }
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
