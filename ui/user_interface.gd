@@ -7,7 +7,7 @@ var hud_visible := false
 func _ready() -> void:
 	# If every map is gonna have its own UserInterface instance,
 	# we'll need a reference to the current one.
-	GameState.UserInterface = self
+	GameState.user_interface = self
 	GameState.dialog = $Dialog
 	GameState.minimap = $Minimap
 	
@@ -80,8 +80,8 @@ func resize_minimap() -> void:
 	$Minimap.pivot_offset = Vector2(minimap_pivot_offset,-minimap_pivot_offset)
 
 func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), proportion: float = 1.0) -> void:
-	if is_instance_valid(GameState.Player):
-		%InnerMinimapPivot.rotation = GameState.Player.rotation.y
+	if is_instance_valid(GameState.player):
+		%InnerMinimapPivot.rotation = GameState.player.rotation.y
 	
 	%MapTexture.texture = minimap_texture
 	# Centralize the minimap on the player.

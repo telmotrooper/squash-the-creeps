@@ -32,7 +32,7 @@ func _on_menu_button_pressed(button_name: String) -> void:
 func _on_AnimationPlayerMenu_animation_finished(anim_name: String) -> void:
 	if anim_name == MENU_FADE_OUT:
 		if button_pressed == "new_game":
-			GameState.MapName = "hub_1"
+			GameState.current_map_name = "hub_1"
 			if is_instance_valid($"/root/Main"):
 				$"/root/Main".load_scene(new_game_scene.get_path())
 				GameState.initialize()

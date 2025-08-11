@@ -38,7 +38,7 @@ var being_thrown_back := false
 var floating := false
 
 func _ready() -> void:
-	GameState.Player = self
+	GameState.player = self
 	initial_position = global_transform.origin
 	$DashDurationTimer.wait_time = dash_duration
 	
@@ -270,16 +270,16 @@ func set_health(value: int) -> void:
 	update_color()
 
 func update_minimap() -> void:
-	if is_instance_valid(GameState.UserInterface):
-		GameState.UserInterface.move_minimap(global_transform.origin - initial_position)
-		var minimap_pivot = GameState.UserInterface.get_node("%MinimapPivot")
+	if is_instance_valid(GameState.user_interface):
+		GameState.user_interface.move_minimap(global_transform.origin - initial_position)
+		var minimap_pivot = GameState.user_interface.get_node("%MinimapPivot")
 		minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
-		var player_cursor_pivot = GameState.UserInterface.get_node("%PlayerCursorPivot")
+		var player_cursor_pivot = GameState.user_interface.get_node("%PlayerCursorPivot")
 		player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
 
 func set_cutscene_mode(enabled: bool) -> void:
 	if enabled:
-		GameState.Player.paused = true
+		GameState.player.paused = true
 		$AnimationPlayer.speed_scale = 1.0
 	else:
-		GameState.Player.paused = false
+		GameState.player.paused = false

@@ -16,8 +16,8 @@ func _ready() -> void:
 
 # https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html
 func _physics_process(delta: float) -> void:
-	if follow_player and is_instance_valid(GameState.Player):
-		var player_position = GameState.Player.global_transform.origin
+	if follow_player and is_instance_valid(GameState.player):
+		var player_position = GameState.player.global_transform.origin
 		var gem_position = self.global_transform.origin
 		
 		var distance = gem_position.distance_to(player_position)

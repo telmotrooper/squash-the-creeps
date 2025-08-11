@@ -38,10 +38,10 @@ func _on_Portal_entered(_body: Node) -> void:
 		$LabelAnimationPlayer.play("shrink")
 		$RequirementLabel.hide()
 		#$AudioStreamPlayer.play()
-		GameState.Player.get_node("EffectsAnimationPlayer").play("shrink")
+		GameState.player.get_node("EffectsAnimationPlayer").play("shrink")
 		GameState.change_map(map_name)
 	else:
-		GameState.UserInterface.show_hud()
+		GameState.user_interface.show_hud()
 
 func _on_DetectArea_body_entered(_body: Node) -> void:
 	if requirement_met() and portal_locked():
@@ -55,4 +55,4 @@ func portal_locked() -> bool:
 
 func finish_cutscene() -> void:
 	GameState.portal_unlocked[get_path()] = true
-	GameState.Player.get_node("%Camera3D").make_current()
+	GameState.player.get_node("%Camera3D").make_current()
