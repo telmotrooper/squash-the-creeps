@@ -20,12 +20,12 @@ func _ready() -> void:
 func refresh_values() -> void:
 	%GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
 
-	if GameState.MapName: # TODO: Find a way to find option from label (maybe iterate through the items?)
-		if GameState.MapName == 'hub_1':
+	if GameState.current_map_name: # TODO: Find a way to find option from label (maybe iterate through the items?)
+		if GameState.current_map_name == 'hub_1':
 			%MapOptionButton.select(0)
-		elif (GameState.MapName == 'avocado_beach'):
+		elif (GameState.current_map_name == 'avocado_beach'):
 			%MapOptionButton.select(1)
-		elif (GameState.MapName == 'lake_map'):
+		elif (GameState.current_map_name == 'lake_map'):
 			%MapOptionButton.select(2)
 	
 	%DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
@@ -43,8 +43,8 @@ func refresh_values() -> void:
 func _on_DrawDistanceSlider_value_changed(value):
 	Configuration.update_setting("graphics", "draw_distance", value)
 	%DrawDistanceLabel.text = draw_distance_text % value
-	if is_instance_valid(GameState.Player):
-		GameState.Player.set_draw_distance(value)
+	if is_instance_valid(GameState.player):
+		GameState.player.set_draw_distance(value)
 
 func _on_SensitivitySlider_value_changed(value):
 	Configuration.update_setting("controls", "mouse_sensitivity", value)

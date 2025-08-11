@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 		screenshot.flip_y()
 		screenshot.save_png("user://squash_%s.png" % Time.get_unix_time_from_system())
 	
-	if Input.is_action_just_pressed("show_hud") and is_instance_valid(GameState.UserInterface):
-		GameState.UserInterface.show_hud()
+	if Input.is_action_just_pressed("show_hud") and is_instance_valid(GameState.user_interface):
+		GameState.user_interface.show_hud()
 	
 	title_screen = get_node_or_null("/root/Main/WorldScene/TitleScreen")
 	
@@ -29,5 +29,5 @@ func _process(_delta: float) -> void:
 func toggle_fullscreen() -> void:
 	get_window().mode = Window.MODE_FULLSCREEN if (!((get_window().mode == Window.MODE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
 	Configuration.update_setting("graphics", "fullscreen", ((get_window().mode == Window.MODE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
-	if is_instance_valid(GameState.UserInterface):
-		GameState.UserInterface.resize_minimap()
+	if is_instance_valid(GameState.user_interface):
+		GameState.user_interface.resize_minimap()

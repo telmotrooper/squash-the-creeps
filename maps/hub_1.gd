@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameState.stop_music()
 	GameState.play_music(map_music)
 	
-	GameState.UserInterface.set_minimap(minimap, Vector2(0,-25), 2.35)
+	GameState.user_interface.set_minimap(minimap, Vector2(0,-25), 2.35)
 	%SpaceshipLabel3D.hide()
 	
 	# The player start the map paused, until we verify
@@ -23,7 +23,7 @@ func _ready() -> void:
 		$Player.paused = false
 		$Cutscene/CutsceneSpaceship.queue_free()
 	else: # Play cutscene.
-		GameState.UserInterface.get_node("%Minimap").hide()
+		GameState.user_interface.get_node("%Minimap").hide()
 		$Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
 		GameState.cutscenes_played.intro = true
 	
@@ -36,7 +36,7 @@ func _ready() -> void:
 		$Spaceship/Smoke.queue_free()
 
 func _on_Player_hit() -> void:
-	GameState.UserInterface.retry()
+	GameState.user_interface.retry()
 
 func _on_AudioStreamPlayer_finished() -> void:
 	GameState.play_music(map_music)

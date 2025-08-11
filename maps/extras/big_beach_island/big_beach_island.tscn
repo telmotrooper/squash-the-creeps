@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xutxeh4jt0d" path="res://maps/extras/big_beach_island/big_beach_island.blend" id="1_2btys"]
 [ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="2_on8y1"]
 [ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="3_0ul3k"]
-[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="4_vf6ae"]
+[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/foliage_plant.tscn" id="4_vf6ae"]
 [ext_resource type="PackedScene" uid="uid://cxjpvcv7qi46v" path="res://props/checkpoint_flag/checkpoint_flag.tscn" id="5_xpjtw"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a8bb0"]

@@ -17,8 +17,8 @@ func _physics_process(_delta: float) -> void:
 			$AlertTimer.start()
 			set_physics_process(false)
 		ATTACKING:
-			if is_instance_valid(GameState.Player):
-				aim_at_player(GameState.Player.transform.origin)
+			if is_instance_valid(GameState.player):
+				aim_at_player(GameState.player.transform.origin)
 				
 				if $GunTimer.is_stopped():
 					_on_gun_timer_timeout() # Trigger first shot immediately.
@@ -47,11 +47,11 @@ func _on_alert_timer_timeout() -> void:
 	set_physics_process(true)
 
 func _on_gun_timer_timeout() -> void:
-	if is_instance_valid(GameState.Player):
+	if is_instance_valid(GameState.player):
 		# The position (Vector3) passed to the bullet is an approximation
 		# of where we want it to spawn relative to this node.
 		var bullet = bullet_scene.instantiate()
-		bullet.setup($ReferenceBullet.global_transform.origin, GameState.Player.transform.origin)
+		bullet.setup($ReferenceBullet.global_transform.origin, GameState.player.transform.origin)
 		bullet.rotation = rotation
 		add_child(bullet)
 		bullet.start()

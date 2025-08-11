@@ -8,7 +8,7 @@ func _ready() -> void:
 	initial_rotation = self.rotation_degrees
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and not GameState.Player.paused:
+	if Input.is_action_just_pressed("interact") and not GameState.player.paused:
 		GameState.dialog.set_text("It isn't going anywhere soon...")
 		GameState.dialog.open_dialog()
 

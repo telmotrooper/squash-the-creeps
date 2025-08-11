@@ -14,7 +14,7 @@ func get_generate() -> bool:
 # This script saves the view of the camera to be used as minimap texture.
 func _ready() -> void:
 	if current:
-		GameState.UserInterface.hide()
+		GameState.user_interface.hide()
 		get_window().mode = Window.MODE_WINDOWED
 		DisplayServer.window_set_size(texture_resolution)
 		await get_tree().create_timer(0.5).timeout

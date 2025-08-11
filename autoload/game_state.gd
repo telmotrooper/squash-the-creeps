@@ -1,9 +1,9 @@
 extends Node
 
-var Player: CharacterBody3D
-var Grass: MultiMeshInstance3D
-var MapName: String
-var UserInterface: Control
+var player: CharacterBody3D
+var grass: MultiMeshInstance3D
+var current_map_name: String
+var user_interface: Control
 var dialog: Dialog
 var minimap: Control
 
@@ -101,14 +101,14 @@ func collect_gem(map_name: String, path: NodePath) -> void:
 	global_gem_progress.percentage = float(global_gem_progress.collected) / global_gem_progress.total
 	
 	if gem_progress[map_name].percentage == 1.0:
-		UserInterface.show_all_gems_collected()
+		user_interface.show_all_gems_collected()
 	
 	if gem_progress[map_name].percentage > 1.0:
 		print("Player has more gems than expected for this map.")
 	
-	UserInterface.show_hud()
+	user_interface.show_hud()
 	amount_of_gems += gems_collected[map_name][path].value
-	UserInterface.get_node("%GemLabel").text = "%d" % amount_of_gems
+	user_interface.get_node("%GemLabel").text = "%d" % amount_of_gems
 	generate_progress_report(map_name)
 
 func initialize() -> void: # Used in "New Game".
@@ -151,7 +151,7 @@ func generate_progress_report(current_map: String) -> void:
 	# This function reads the "progress" dictionary and updates the "Progress" menu accordingly.
 	# If current map is provided, we also update the HUD with map-specific progress.
 	
-	assert(is_instance_valid(UserInterface))
+	assert(is_instance_valid(user_interface))
 
 	var text := ""
 	
@@ -168,19 +168,19 @@ func generate_progress_report(current_map: String) -> void:
 	var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
 	
 	if overall_progress == 1 and not completion_message_displayed:
-		GameState.UserInterface.show_congratulations()
+		GameState.user_interface.show_congratulations()
 		completion_message_displayed = true
 	
-	UserInterface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
-	UserInterface.get_node("%World1Progress").text = text
+	user_interface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
+	user_interface.get_node("%World1Progress").text = text
 	
 	if progress.has(current_map):
-		UserInterface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
+		user_interface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
 	else:
-		UserInterface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
+		user_interface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
 
 func collect_godot_head(map_name: String, id: String) -> void:
-	UserInterface.show_hud()
+	user_interface.show_hud()
 	GameState.godot_heads_collected[map_name][id] = true
 	
 	# Update progress.
@@ -191,7 +191,7 @@ func collect_godot_head(map_name: String, id: String) -> void:
 	global_progress.percentage = float(global_progress.collected) / global_progress.total
 	
 	if progress[map_name].percentage == 1.0:
-		UserInterface.show_all_godot_heads_collected()
+		user_interface.show_all_godot_heads_collected()
 	
 	generate_progress_report(map_name)
 
@@ -215,16 +215,16 @@ func update_grass(index: int = -1) -> void:
 	if index == -1: # If called with no index, set the one from the configuration file.
 		index = Configuration.get_value("graphics", "grass_amount")
 	
-	if is_instance_valid(GameState.Grass):
+	if is_instance_valid(GameState.grass):
 		if index == 0: # Enabled
-			GameState.Grass.show()
+			GameState.grass.show()
 		else: # Disabled
-			GameState.Grass.hide()
+			GameState.grass.hide()
 
 	Configuration.update_setting("graphics", "grass_amount", index)
 
 func change_map(map_name: String) -> void:
-	GameState.MapName = map_name
+	GameState.current_map_name = map_name
 	var map_file = "res://maps/%s.tscn" % map_name
 	#Utils.exists(map_file) 
 	if is_instance_valid($"/root/Main"): # Game started normally, use background loading.

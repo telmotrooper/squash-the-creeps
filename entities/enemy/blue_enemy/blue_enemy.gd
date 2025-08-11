@@ -45,8 +45,8 @@ func _physics_process(delta: float) -> void:
 			if get_parent() is PathFollow3D:
 				# Reset rotation, otherwise enemy won't be able to chase player.
 				get_parent().rotation = Vector3.ZERO
-			if is_instance_valid(GameState.Player) and not already_squashed:
-				initiliaze(self.transform.origin, GameState.Player.transform.origin, false, chasing_speed)
+			if is_instance_valid(GameState.player) and not already_squashed:
+				initiliaze(self.transform.origin, GameState.player.transform.origin, false, chasing_speed)
 
 func _on_VisibilityNotifier_screen_exited() -> void:
 	pass # Prevent "queue_free()" from parent.
