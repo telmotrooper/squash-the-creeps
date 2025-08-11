@@ -411,6 +411,9 @@ transform = Transform3D(0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 
 [node name="player" parent="Cutscene/CutsceneSpaceship" instance=ExtResource("18_6iwc4")]
 transform = Transform3D(-0.165173, -0.31028, -0.936186, -0.0531493, 0.950645, -0.305695, 0.984832, -0.000734895, -0.173512, -0.075, 1.312, 0.031)
 
+[node name="Pupil (Hurt)" parent="Cutscene/CutsceneSpaceship/player" index="3"]
+visible = false
+
 [node name="MinimapCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
 visible = false
@@ -423,3 +426,5 @@ save_to = "res://assets/minimap/maps/hub-1.png"
 [connection signal="body_exited" from="Spaceship/SpaceshipArea" to="Spaceship" method="_on_SpaceshipArea_body_exited"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="animation_finished" from="Cutscene/CutsceneAnimationPlayer" to="." method="_on_CutsceneAnimationPlayer_animation_finished"]
+
+[editable path="Cutscene/CutsceneSpaceship/player"]
