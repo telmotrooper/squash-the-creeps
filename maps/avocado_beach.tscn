@@ -771,7 +771,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.309)
 [node name="BeachIsland" parent="Map" instance=ExtResource("18_bms0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999)
 
-[node name="Boundary" parent="Map/BeachIsland" instance=ExtResource("19_hwma5")]
+[node name="BeachIslandBoundary" parent="Map/BeachIsland" instance=ExtResource("19_hwma5")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 4.6, 0)
 
 [node name="BeachGodotHead" parent="Map/BeachIsland" instance=ExtResource("17_tburi")]
@@ -1251,8 +1251,8 @@ environment = ExtResource("32_xg6rw")
 [node name="SmallBoundary" parent="." instance=ExtResource("19_hwma5")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 21.2329, -3.71757, -54.5046)
 
-[node name="Boundary" parent="." instance=ExtResource("19_hwma5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.6, 0)
+[node name="MajorBoundary" parent="." instance=ExtResource("19_hwma5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
 [node name="WaterPlane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941)
