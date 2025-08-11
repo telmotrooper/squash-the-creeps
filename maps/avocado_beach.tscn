@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bwj1edhp5j7fw" path="res://props/godot_head/godot_head.tscn" id="17_tburi"]
 [ext_resource type="PackedScene" uid="uid://dgpc8sm6hks6b" path="res://maps/extras/beach_island/beach_island.tscn" id="18_bms0o"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="19_hwma5"]
-[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="20_ijocr"]
+[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/foliage_plant.tscn" id="20_ijocr"]
 [ext_resource type="PackedScene" uid="uid://brxm4hmmc44rl" path="res://maps/extras/palm_tree/palm_tree.tscn" id="21_2oe45"]
 [ext_resource type="PackedScene" uid="uid://dtsvkv0pyppjh" path="res://props/red_button/red_button.tscn" id="22_wpjky"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="23_2se3s"]

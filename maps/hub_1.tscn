@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://va0y80nyb6cg" path="res://assets/131385__musicmasta1__carstartskidcrash.ogg" id="12"]
 [ext_resource type="Environment" uid="uid://bugt14yl4reku" path="res://maps/hub_1_night.tres" id="13"]
 [ext_resource type="AudioStream" uid="uid://dqhklgt4fxmjf" path="res://assets/smartsound_TRANSPORTATION_JET_MILITARY_A-10_Thunderbolt_Flyby_Close_01.ogg" id="15"]
-[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/FoliagePlant.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://6y2crn0rj80a" path="res://props/foliage_plant/foliage_plant.tscn" id="16"]
 [ext_resource type="Script" uid="uid://cixcepramf1fx" path="res://props/spaceship/spaceship_hub.gd" id="18"]
 [ext_resource type="PackedScene" uid="uid://by8fbbogtahlu" path="res://entities/player/player.blend" id="18_6iwc4"]
 [ext_resource type="Script" uid="uid://biisxq3mem8ti" path="res://maps/minimap_camera.gd" id="19_wf4fl"]
