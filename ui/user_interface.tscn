@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ccj15586diobm"]
+[gd_scene format=3 uid="uid://ccj15586diobm"]
 
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://bfw7u03655r11" path="res://ui/pause.gd" id="2"]
@@ -207,7 +207,7 @@ _data = {
 &"congratulations": SubResource("Animation_qlut8")
 }
 
-[node name="UserInterface" type="Control"]
+[node name="UserInterface" type="Control" unique_id=1768187333]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,7 +217,7 @@ grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("5")
 
-[node name="MapName" type="Label" parent="."]
+[node name="MapName" type="Label" parent="." unique_id=1195358702]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -240,18 +240,16 @@ text = "Avocado Beach"
 horizontal_alignment = 1
 script = ExtResource("3_rj0dl")
 
-[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1458767992]
 unique_name_in_owner = true
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_foux1")
-}
+libraries/ = SubResource("AnimationLibrary_foux1")
 
-[node name="HUDTimer" type="Timer" parent="."]
+[node name="HUDTimer" type="Timer" parent="." unique_id=2024735173]
 wait_time = 2.0
 one_shot = true
 
-[node name="Minimap" type="Control" parent="."]
+[node name="Minimap" type="Control" parent="." unique_id=1664314283]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
@@ -260,10 +258,9 @@ anchor_bottom = 1.0
 grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 
-[node name="Mask" type="TextureRect" parent="Minimap"]
+[node name="Mask" type="TextureRect" parent="Minimap" unique_id=1369646273]
 modulate = Color(1, 1, 1, 0.784314)
 clip_children = 2
-layout_direction = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -271,9 +268,10 @@ anchor_bottom = 1.0
 offset_top = -345.0
 offset_right = 345.0
 grow_vertical = 0
+layout_direction = 1
 texture = ExtResource("9_3xw3k")
 
-[node name="MinimapPivot" type="Control" parent="Minimap/Mask"]
+[node name="MinimapPivot" type="Control" parent="Minimap/Mask" unique_id=1304364328]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -284,7 +282,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InnerMinimapPivot" type="Control" parent="Minimap/Mask/MinimapPivot"]
+[node name="InnerMinimapPivot" type="Control" parent="Minimap/Mask/MinimapPivot" unique_id=1188936551]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -295,7 +293,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MapTexture" type="TextureRect" parent="Minimap/Mask/MinimapPivot/InnerMinimapPivot"]
+[node name="MapTexture" type="TextureRect" parent="Minimap/Mask/MinimapPivot/InnerMinimapPivot" unique_id=294231873]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -311,7 +309,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_hbfsb")
 
-[node name="Overlay" type="TextureRect" parent="Minimap"]
+[node name="Overlay" type="TextureRect" parent="Minimap" unique_id=2092981778]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -321,7 +319,7 @@ offset_right = 345.0
 grow_vertical = 0
 texture = ExtResource("5_tg4xs")
 
-[node name="PlayerCursorPivot" type="Control" parent="Minimap/Overlay"]
+[node name="PlayerCursorPivot" type="Control" parent="Minimap/Overlay" unique_id=965099649]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -332,7 +330,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerCursor" type="TextureRect" parent="Minimap/Overlay/PlayerCursorPivot"]
+[node name="PlayerCursor" type="TextureRect" parent="Minimap/Overlay/PlayerCursorPivot" unique_id=1571255309]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -345,7 +343,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_y76n1")
 
-[node name="Dialog" type="Control" parent="."]
+[node name="Dialog" type="Control" parent="." unique_id=240277953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -354,7 +352,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_g3dh2")
 
-[node name="PanelContainer" type="PanelContainer" parent="Dialog"]
+[node name="PanelContainer" type="PanelContainer" parent="Dialog" unique_id=786006420]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -369,25 +367,25 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_phqdm")
 
-[node name="DialogText" type="RichTextLabel" parent="Dialog/PanelContainer"]
+[node name="DialogText" type="RichTextLabel" parent="Dialog/PanelContainer" unique_id=77126875]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Hello! This is a dialog."
 
-[node name="Pause" type="Control" parent="."]
+[node name="Pause" type="Control" parent="." unique_id=346266743]
 process_mode = 3
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("2")
 
-[node name="BlackOverlay" type="ColorRect" parent="Pause"]
+[node name="BlackOverlay" type="ColorRect" parent="Pause" unique_id=1442971682]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.235294)
 
-[node name="Submenus" type="Control" parent="Pause"]
+[node name="Submenus" type="Control" parent="Pause" unique_id=1394318830]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -395,7 +393,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Controls" type="VBoxContainer" parent="Pause/Submenus"]
+[node name="Controls" type="VBoxContainer" parent="Pause/Submenus" unique_id=1209555090]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_left = 0.5
@@ -407,22 +405,22 @@ offset_top = -225.0
 offset_right = 350.0
 offset_bottom = 225.0
 
-[node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Controls"]
+[node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Controls" unique_id=500166046]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 current_tab = 0
 
-[node name="Controls" type="TabBar" parent="Pause/Submenus/Controls/TabContainer"]
+[node name="Controls" type="TabBar" parent="Pause/Submenus/Controls/TabContainer" unique_id=1107348771]
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Controls/TabContainer/Controls"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Controls/TabContainer/Controls" unique_id=1467775497]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Text" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer"]
+[node name="Text" type="Label" parent="Pause/Submenus/Controls/TabContainer/Controls/ScrollContainer" unique_id=37218327]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -437,16 +435,16 @@ Show HUD – TAB
 Pause – ESC
 Toggle Fullscreen – Alt+Enter"
 
-[node name="BackButton" type="Button" parent="Pause/Submenus/Controls"]
+[node name="BackButton" type="Button" parent="Pause/Submenus/Controls" unique_id=957849833]
 layout_mode = 2
 text = "Back"
 
-[node name="Settings" parent="Pause/Submenus" instance=ExtResource("7")]
+[node name="Settings" parent="Pause/Submenus" unique_id=1630057307 instance=ExtResource("7")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="Progress" type="VBoxContainer" parent="Pause/Submenus"]
+[node name="Progress" type="VBoxContainer" parent="Pause/Submenus" unique_id=648501166]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -459,32 +457,32 @@ offset_top = -175.0
 offset_right = 350.0
 offset_bottom = 175.0
 
-[node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Progress"]
+[node name="TabContainer" type="TabContainer" parent="Pause/Submenus/Progress" unique_id=1316516538]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 current_tab = 0
 
-[node name="World3D 1" type="TabBar" parent="Pause/Submenus/Progress/TabContainer"]
+[node name="World3D 1" type="TabBar" parent="Pause/Submenus/Progress/TabContainer" unique_id=377730807]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Progress/TabContainer/World3D 1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pause/Submenus/Progress/TabContainer/World3D 1" unique_id=1632301416]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="World1Progress" type="Label" parent="Pause/Submenus/Progress/TabContainer/World3D 1/ScrollContainer"]
+[node name="World1Progress" type="Label" parent="Pause/Submenus/Progress/TabContainer/World3D 1/ScrollContainer" unique_id=914909866]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Hello, World3D!
 Hello, World3D!"
 
-[node name="BackButton" type="Button" parent="Pause/Submenus/Progress"]
+[node name="BackButton" type="Button" parent="Pause/Submenus/Progress" unique_id=733884999]
 layout_mode = 2
 text = "Back"
 
-[node name="PauseMenu" type="VBoxContainer" parent="Pause"]
+[node name="PauseMenu" type="VBoxContainer" parent="Pause" unique_id=52007283]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -498,105 +496,105 @@ offset_right = 285.0
 offset_bottom = 243.5
 alignment = 1
 
-[node name="ResumeButton" type="Button" parent="Pause/PauseMenu"]
+[node name="ResumeButton" type="Button" parent="Pause/PauseMenu" unique_id=144458498]
 layout_mode = 2
 text = "Resume"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu" unique_id=233848211]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ProgressButton" type="Button" parent="Pause/PauseMenu/HBoxContainer"]
+[node name="ProgressButton" type="Button" parent="Pause/PauseMenu/HBoxContainer" unique_id=1496074114]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Progress: 0.00%"
 
-[node name="ControlsButton" type="Button" parent="Pause/PauseMenu/HBoxContainer"]
+[node name="ControlsButton" type="Button" parent="Pause/PauseMenu/HBoxContainer" unique_id=1322327071]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Controls"
 
-[node name="SettingsButton" type="Button" parent="Pause/PauseMenu"]
+[node name="SettingsButton" type="Button" parent="Pause/PauseMenu" unique_id=338376210]
 layout_mode = 2
 text = "Settings"
 
-[node name="UpgradesContainer" type="VBoxContainer" parent="Pause/PauseMenu"]
+[node name="UpgradesContainer" type="VBoxContainer" parent="Pause/PauseMenu" unique_id=346198539]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer" unique_id=1979402511]
 layout_mode = 2
 
-[node name="DoubleJumpContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer"]
+[node name="DoubleJumpContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer" unique_id=1412467285]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DoubleJumpCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
+[node name="DoubleJumpCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer" unique_id=1294290309]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DoubleJumpLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer"]
+[node name="DoubleJumpLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/DoubleJumpContainer" unique_id=1969263872]
 layout_mode = 2
 text = "Double Jump"
 
-[node name="MidAirDashContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer"]
+[node name="MidAirDashContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer" unique_id=1722469309]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
+[node name="MidAirDashCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer" unique_id=1309644356]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MidAirDashLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer"]
+[node name="MidAirDashLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer/MidAirDashContainer" unique_id=899425750]
 layout_mode = 2
 text = "Mid-Air Dash"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer" unique_id=1024387940]
 layout_mode = 2
 
-[node name="BodySlamContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2"]
+[node name="BodySlamContainer" type="HBoxContainer" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2" unique_id=1822362323]
 layout_mode = 2
 
-[node name="BodySlamCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer"]
+[node name="BodySlamCheckButton" type="CheckButton" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer" unique_id=1234192882]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BodySlamLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer"]
+[node name="BodySlamLabel" type="Label" parent="Pause/PauseMenu/UpgradesContainer/HBoxContainer2/BodySlamContainer" unique_id=2126305242]
 layout_mode = 2
 text = "Body Slam"
 
-[node name="RestartMapButton" type="Button" parent="Pause/PauseMenu"]
+[node name="RestartMapButton" type="Button" parent="Pause/PauseMenu" unique_id=1179087441]
 layout_mode = 2
 text = "Restart Map"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pause/PauseMenu" unique_id=1219435171]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="TitleScreenButton" type="Button" parent="Pause/PauseMenu/HBoxContainer2"]
+[node name="TitleScreenButton" type="Button" parent="Pause/PauseMenu/HBoxContainer2" unique_id=1233039070]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Return to Title Screen"
 
-[node name="ExitButton" type="Button" parent="Pause/PauseMenu/HBoxContainer2"]
+[node name="ExitButton" type="Button" parent="Pause/PauseMenu/HBoxContainer2" unique_id=960939483]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
-[node name="HUD" type="Control" parent="."]
+[node name="HUD" type="Control" parent="." unique_id=1786703089]
 anchors_preset = 0
 offset_top = -110.0
 offset_right = 40.0
 offset_bottom = -70.0
 
-[node name="ScoreSprite" type="Sprite2D" parent="HUD"]
+[node name="ScoreSprite" type="Sprite2D" parent="HUD" unique_id=870945190]
 position = Vector2(10, 10)
 scale = Vector2(0.0816667, 0.0816667)
 texture = ExtResource("3")
 centered = false
 
-[node name="ScoreLabel" type="Label" parent="HUD"]
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=2008076553]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 65.0
@@ -605,13 +603,13 @@ offset_right = 121.0
 offset_bottom = 51.0
 text = "0 / 0"
 
-[node name="CrystalGreen" type="Sprite2D" parent="HUD"]
+[node name="CrystalGreen" type="Sprite2D" parent="HUD" unique_id=725042748]
 position = Vector2(10, 60)
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("6")
 centered = false
 
-[node name="GemLabel" type="Label" parent="HUD"]
+[node name="GemLabel" type="Label" parent="HUD" unique_id=177658192]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 65.0
@@ -620,7 +618,7 @@ offset_right = 81.0
 offset_bottom = 101.0
 text = "0"
 
-[node name="Announcement" type="Label" parent="."]
+[node name="Announcement" type="Label" parent="." unique_id=1560057399]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 anchor_top = 1.0
@@ -630,29 +628,25 @@ offset_top = -150.0
 text = "100% Godot Heads collected"
 horizontal_alignment = 1
 
-[node name="AnnouncementAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_sb5q5")
-}
+[node name="AnnouncementAnimationPlayer" type="AnimationPlayer" parent="." unique_id=644451190]
+libraries/ = SubResource("AnimationLibrary_sb5q5")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=406124714]
 stream = ExtResource("8_10biq")
 bus = &"Sound"
 
-[node name="CongratulationsDialog" type="AcceptDialog" parent="."]
+[node name="CongratulationsDialog" type="AcceptDialog" parent="." unique_id=874543636]
 process_mode = 3
 title = "Congratulations"
 size = Vector2i(1045, 140)
 dialog_text = "You've achieved 100% completion in the demo! Thank you so much for playing!  Feel free to leave your feedback in our GitHub page. :)"
 dialog_autowrap = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CongratulationsDialog"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CongratulationsDialog" unique_id=964272098]
 root_node = NodePath("../../AnnouncementAnimationPlayer")
-libraries = {
-&"": SubResource("AnimationLibrary_wv28i")
-}
+libraries/ = SubResource("AnimationLibrary_wv28i")
 
-[node name="FPSLabel" type="Label" parent="."]
+[node name="FPSLabel" type="Label" parent="." unique_id=1483798115]
 layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0

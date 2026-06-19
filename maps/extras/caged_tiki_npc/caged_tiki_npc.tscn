@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://by4x3rbps47k6"]
+[gd_scene format=3 uid="uid://by4x3rbps47k6"]
 
 [ext_resource type="PackedScene" uid="uid://nkarq1qbnp1v" path="res://props/cage/cage.blend" id="1_uac30"]
 [ext_resource type="Script" uid="uid://c5d4bjm78qqo8" path="res://maps/extras/caged_tiki_npc/caged_tiki_npc.gd" id="1_uxdyq"]
@@ -74,43 +74,41 @@ size = Vector3(6, 5.2, 6)
 [sub_resource type="SphereShape3D" id="SphereShape3D_nvae3"]
 radius = 10.0
 
-[node name="CagedTikiNPC" type="Node3D"]
+[node name="CagedTikiNPC" type="Node3D" unique_id=313935104]
 script = ExtResource("1_uxdyq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1719279789]
 root_node = NodePath("../tiki_npc")
-libraries = {
-&"": SubResource("AnimationLibrary_1w5hv")
-}
-autoplay = "help"
+libraries/ = SubResource("AnimationLibrary_1w5hv")
+autoplay = &"help"
 speed_scale = 2.0
 
-[node name="tiki_npc" parent="." instance=ExtResource("2_yjljt")]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+[node name="tiki_npc" parent="." unique_id=1371541986 instance=ExtResource("2_yjljt")]
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0, 0)
 
-[node name="Label3D" type="Label3D" parent="tiki_npc"]
+[node name="Label3D" type="Label3D" parent="tiki_npc" unique_id=1306712288]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 5.8, 0)
 pixel_size = 0.025
 billboard = 2
 text = "HELP!"
 font = ExtResource("3_63fx1")
 
-[node name="CageStaticBody3D" type="StaticBody3D" parent="." groups=["spinnable"]]
+[node name="CageStaticBody3D" type="StaticBody3D" parent="." unique_id=765970641 groups=["spinnable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183237, 0, 0.383657)
 collision_layer = 64
 script = ExtResource("3_376bk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CageStaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CageStaticBody3D" unique_id=975614551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192559, 2.5, -0.4)
 shape = SubResource("BoxShape3D_q38xr")
 
-[node name="cage" parent="CageStaticBody3D" instance=ExtResource("1_uac30")]
+[node name="cage" parent="CageStaticBody3D" unique_id=371451760 instance=ExtResource("1_uac30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183237, 0, -0.383657)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1346301108]
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1630681505]
 shape = SubResource("SphereShape3D_nvae3")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

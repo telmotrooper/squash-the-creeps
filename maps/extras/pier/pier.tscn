@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl4e5e40iodpb"]
+[gd_scene format=3 uid="uid://dl4e5e40iodpb"]
 
 [ext_resource type="PackedScene" uid="uid://b5y5a2ntrmleh" path="res://maps/extras/pier/pier.glb" id="1"]
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(24, 4.6, 8)
 
-[node name="Pier" type="StaticBody3D"]
+[node name="Pier" type="StaticBody3D" unique_id=1240163366]
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1397390684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9, 2.2, 2)
 shape = SubResource("1")
 
-[node name="pier" parent="." instance=ExtResource("1")]
+[node name="pier" parent="." unique_id=1149603748 instance=ExtResource("1")]

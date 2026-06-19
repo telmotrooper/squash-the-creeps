@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxjpvcv7qi46v"]
+[gd_scene format=3 uid="uid://cxjpvcv7qi46v"]
 
 [ext_resource type="Script" uid="uid://crhk827lho5kf" path="res://props/checkpoint_flag/flag.gd" id="1_3h7g4"]
 [ext_resource type="Shader" uid="uid://dj08im61o7svw" path="res://props/checkpoint_flag/flag.gdshader" id="2_7knrb"]
@@ -9,8 +9,8 @@
 [sub_resource type="FastNoiseLite" id="1"]
 
 [sub_resource type="NoiseTexture2D" id="2"]
-seamless = true
 noise = SubResource("1")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="3"]
 render_priority = 0
@@ -48,27 +48,27 @@ height = 4.105
 [sub_resource type="SphereShape3D" id="SphereShape3D_agi8s"]
 radius = 10.0
 
-[node name="CheckpointFlag" type="Node3D"]
+[node name="CheckpointFlag" type="Node3D" unique_id=1069760576]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79311, 0)
 script = ExtResource("1_3h7g4")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=1707109770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 4.2, 0)
 
-[node name="Flag" type="MeshInstance3D" parent="Pivot"]
+[node name="Flag" type="MeshInstance3D" parent="Pivot" unique_id=818522229]
 transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 1.93751, 0.0499997, 0)
 mesh = SubResource("4")
 
-[node name="Flag2" type="MeshInstance3D" parent="."]
+[node name="Flag2" type="MeshInstance3D" parent="." unique_id=1633857923]
 transform = Transform3D(1.2, 0, 0, 0, -1.95505e-07, -1.2, 0, 1, -1.62921e-07, 0.338, -3.2, 0)
 visible = false
 mesh = SubResource("PlaneMesh_oss8i")
 
-[node name="Pole" type="MeshInstance3D" parent="."]
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=643674190]
 transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, -1.6, 1.82459, 0)
 mesh = SubResource("6")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=1804673161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 pixel_size = 0.01
 billboard = 2
@@ -76,20 +76,20 @@ text = "CHECKPOINT"
 font = ExtResource("4_v7dg7")
 font_size = 80
 
-[node name="TextTimer" type="Timer" parent="."]
+[node name="TextTimer" type="Timer" parent="." unique_id=1864707519]
 wait_time = 0.15
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=828158729]
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=813871356]
 shape = SubResource("SphereShape3D_agi8s")
 
-[node name="VisibilityTimer" type="Timer" parent="."]
+[node name="VisibilityTimer" type="Timer" parent="." unique_id=913166799]
 wait_time = 2.0
 one_shot = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=352597117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 4.3, 0)
 stream = ExtResource("5_efkp8")
 volume_db = 30.0

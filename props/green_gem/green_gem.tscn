@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dsi70335iix5i"]
+[gd_scene format=4 uid="uid://dsi70335iix5i"]
 
 [ext_resource type="Script" uid="uid://cwno530n4eetr" path="res://props/red_gem/gem.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://offdyh8u8jmf" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
@@ -65,7 +65,7 @@ shadow_mesh = SubResource("ArrayMesh_lcuys")
 [sub_resource type="SphereShape3D" id="2"]
 radius = 1.0
 
-[node name="GreenGem" type="RigidBody3D"]
+[node name="GreenGem" type="RigidBody3D" unique_id=953247281]
 collision_layer = 256
 collision_mask = 4
 gravity_scale = 3.0
@@ -73,30 +73,29 @@ script = ExtResource("2")
 collected_sound = ExtResource("3")
 gem_value = 1
 
-[node name="green_gem" type="Node3D" parent="."]
+[node name="green_gem" type="Node3D" parent="." unique_id=1138067345]
 
-[node name="Sketchfab_model" type="Node3D" parent="green_gem"]
+[node name="Sketchfab_model" type="Node3D" parent="green_gem" unique_id=2080378570]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 
-[node name="Collada visual scene group" type="Node3D" parent="green_gem/Sketchfab_model"]
+[node name="Collada visual scene group" type="Node3D" parent="green_gem/Sketchfab_model" unique_id=161233591]
 transform = Transform3D(0.820518, 0, 0, 0, -9.78134e-08, -0.820518, 0, 0.820518, -9.78134e-08, 0, 0, 0)
 
-[node name="Gem" type="Node3D" parent="green_gem/Sketchfab_model/Collada visual scene group"]
+[node name="Gem" type="Node3D" parent="green_gem/Sketchfab_model/Collada visual scene group" unique_id=1818290658]
 
-[node name="defaultMaterial" type="MeshInstance3D" parent="green_gem/Sketchfab_model/Collada visual scene group/Gem"]
+[node name="defaultMaterial" type="MeshInstance3D" parent="green_gem/Sketchfab_model/Collada visual scene group/Gem" unique_id=1236072610]
 transform = Transform3D(1.109, 0, 0, 0, 1.109, 0, 0, 0, 1.109, 0, 0.731245, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_lminm")
-skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=820505152]
 transform = Transform3D(0.707107, -0.707107, 0, 0.5, 0.5, -0.707107, 0.5, 0.5, 0.707107, 0, 0.8, 0)
 shape = SubResource("1")
 
-[node name="GrabArea" type="Area3D" parent="."]
+[node name="GrabArea" type="Area3D" parent="." unique_id=221049769]
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabArea" unique_id=1749393341]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.8, 0)
 shape = SubResource("2")
 

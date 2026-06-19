@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://btj3fpr6wqgic"]
+[gd_scene format=3 uid="uid://btj3fpr6wqgic"]
 
 [ext_resource type="PackedScene" uid="uid://boaoo3d7kojfm" path="res://maps/extras/height_map/height_map.tscn" id="1"]
 [ext_resource type="Material" uid="uid://cjnvu5nldqqke" path="res://shaders/stylized_water/stylized_water_material.tres" id="2"]
@@ -150,171 +150,169 @@ size = Vector3(20, 36, 18)
 [sub_resource type="BoxShape3D" id="12"]
 size = Vector3(40, 1, 40)
 
-[node name="LakeMap" type="Node3D"]
+[node name="LakeMap" type="Node3D" unique_id=2106479987]
 script = ExtResource("3")
 map_music = ExtResource("15")
 drain_water_sound = ExtResource("4")
 minimap = ExtResource("4_l5twf")
 
-[node name="Player" parent="." instance=ExtResource("7")]
+[node name="Player" parent="." unique_id=1793342111 instance=ExtResource("7")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 57.6636, 2.1881, 39.8077)
 
-[node name="UserInterface" parent="." instance=ExtResource("8")]
+[node name="UserInterface" parent="." unique_id=28410377 instance=ExtResource("8")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1167998748]
 environment = ExtResource("6")
 
-[node name="EnemySpawns" type="Node3D" parent="."]
+[node name="EnemySpawns" type="Node3D" parent="." unique_id=2035344986]
 
-[node name="BlueEnemyPath" type="Path3D" parent="EnemySpawns"]
+[node name="BlueEnemyPath" type="Path3D" parent="EnemySpawns" unique_id=323268697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.018, 0, 77.11)
 curve = SubResource("1")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawns/BlueEnemyPath"]
-transform = Transform3D(-0.752857, -1.32854e-07, 0.658186, 0, 1, 2.0185e-07, -0.658186, 1.51964e-07, -0.752857, 14.082, 0, -0.909996)
+[node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawns/BlueEnemyPath" unique_id=2080939289]
+transform = Transform3D(-0.7528567, -1.328545e-07, 0.6581863, 0, 1, 2.0184984e-07, -0.6581863, 1.5196363e-07, -0.7528567, 14.082, 0, -0.909996)
 
-[node name="BlueEnemy" parent="EnemySpawns/BlueEnemyPath/PathFollow3D" instance=ExtResource("9")]
+[node name="BlueEnemy" parent="EnemySpawns/BlueEnemyPath/PathFollow3D" unique_id=947346412 instance=ExtResource("9")]
 affected_by_gravity = false
 
-[node name="Props" type="Node3D" parent="."]
+[node name="Props" type="Node3D" parent="." unique_id=103920119]
 
-[node name="Ball" parent="Props" instance=ExtResource("10")]
+[node name="Ball" parent="Props" unique_id=691450253 instance=ExtResource("10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.437, 29.7845, 75.7972)
 
-[node name="RedButton" parent="Props" instance=ExtResource("11")]
+[node name="RedButton" parent="Props" unique_id=907772769 instance=ExtResource("11")]
 transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 64.9038, -2.71311, 85.0633)
 
-[node name="HeightMap" parent="." instance=ExtResource("1")]
+[node name="HeightMap" parent="." unique_id=1273950928 instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.935, 9.89507, 94.6744)
 
-[node name="LakeWaterPlane" type="MeshInstance3D" parent="."]
+[node name="LakeWaterPlane" type="MeshInstance3D" parent="." unique_id=1754384028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2274, -2.38324, 91.0514)
 mesh = SubResource("2")
 
-[node name="WaterBoundary" parent="LakeWaterPlane" instance=ExtResource("5")]
+[node name="WaterBoundary" parent="LakeWaterPlane" unique_id=507528713 instance=ExtResource("5")]
 transform = Transform3D(0.160697, 0, 0.191511, 0, 0.25, 0, -0.191511, 0, 0.160697, 12, -1.46748, 0.5)
 
-[node name="WaterArea" type="Area3D" parent="LakeWaterPlane"]
+[node name="WaterArea" type="Area3D" parent="LakeWaterPlane" unique_id=1325930659]
 visible = false
 collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LakeWaterPlane/WaterArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LakeWaterPlane/WaterArea" unique_id=954043995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.6, 0)
 visible = false
 shape = SubResource("6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hf4yl")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=133219977]
+libraries/ = SubResource("AnimationLibrary_hf4yl")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=134681968]
 stream = ExtResource("4")
 bus = &"Sound"
 
-[node name="RetryCamera" type="Camera3D" parent="."]
+[node name="RetryCamera" type="Camera3D" parent="." unique_id=217405105]
 transform = Transform3D(-0.707107, 0.0568076, -0.704821, 0, 0.996768, 0.0803381, 0.707107, 0.0568076, -0.704821, 8.32897, 44.3172, 8.32897)
 far = 200.0
 
-[node name="Boundary" parent="." instance=ExtResource("5")]
+[node name="Boundary" parent="." unique_id=2120963728 instance=ExtResource("5")]
 transform = Transform3D(15, 0, 0, 0, -15, -2.26494e-06, 0, 2.26494e-06, -15, 65, -60, 91)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1946601956]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 55.2639, 3.8, 21.8429)
 radius = 5.0
 height = 5.0
 material = ExtResource("13")
 
-[node name="ExitPortal" parent="CSGCylinder3D" instance=ExtResource("12")]
+[node name="ExitPortal" parent="CSGCylinder3D" unique_id=1011302148 instance=ExtResource("12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52588e-05, 2.6, -0.00272751)
 label = "Exit"
 map_name = "hub_1"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGCylinder3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGCylinder3D" unique_id=860799293]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCylinder3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCylinder3D/StaticBody3D" unique_id=2077871360]
 shape = SubResource("5")
 
-[node name="GodotHead" parent="." instance=ExtResource("14")]
+[node name="GodotHead" parent="." unique_id=681861905 instance=ExtResource("14")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 33.6, 116.8)
 
-[node name="GodotHead2" parent="." instance=ExtResource("14")]
+[node name="GodotHead2" parent="." unique_id=617583017 instance=ExtResource("14")]
 transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 179.809, 33.6, 68.9833)
 
-[node name="LakeGems" type="Node3D" parent="."]
+[node name="LakeGems" type="Node3D" parent="." unique_id=1516534630]
 
-[node name="RedGem" parent="LakeGems" instance=ExtResource("17")]
+[node name="RedGem" parent="LakeGems" unique_id=851076848 instance=ExtResource("17")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1, -5.5, 57.8)
 
-[node name="RedGem2" parent="LakeGems" instance=ExtResource("17")]
+[node name="RedGem2" parent="LakeGems" unique_id=2039629560 instance=ExtResource("17")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.7, -4.1, 119)
 
-[node name="PurpleGem" parent="LakeGems" instance=ExtResource("16")]
+[node name="PurpleGem" parent="LakeGems" unique_id=171212507 instance=ExtResource("16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -5.8, 51.8)
 
-[node name="GreenGem" parent="LakeGems" instance=ExtResource("18")]
+[node name="GreenGem" parent="LakeGems" unique_id=306260579 instance=ExtResource("18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, -5.8, 40.9)
 
-[node name="GreenGem2" parent="LakeGems" instance=ExtResource("18")]
+[node name="GreenGem2" parent="LakeGems" unique_id=260110450 instance=ExtResource("18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.2, -3.2, 117.1)
 
-[node name="GreenGem3" parent="LakeGems" instance=ExtResource("18")]
+[node name="GreenGem3" parent="LakeGems" unique_id=1018061408 instance=ExtResource("18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.7, -3.2, 126.6)
 
-[node name="GreenGem4" parent="LakeGems" instance=ExtResource("18")]
+[node name="GreenGem4" parent="LakeGems" unique_id=1019996953 instance=ExtResource("18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2, -3.2, 120.8)
 
-[node name="GreenGem5" parent="LakeGems" instance=ExtResource("18")]
+[node name="GreenGem5" parent="LakeGems" unique_id=1910190254 instance=ExtResource("18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4, -3.2, 111)
 
-[node name="Pier" parent="." instance=ExtResource("19")]
+[node name="Pier" parent="." unique_id=1080968688 instance=ExtResource("19")]
 transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 55.2444, -4.9, 79.45)
 
-[node name="Tunnel" type="Node3D" parent="."]
+[node name="Tunnel" type="Node3D" parent="." unique_id=1559096029]
 
-[node name="TunnelGodotHead" parent="Tunnel" instance=ExtResource("14")]
+[node name="TunnelGodotHead" parent="Tunnel" unique_id=1105029932 instance=ExtResource("14")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 23.3843, -33.6, 143.378)
 
-[node name="PurpleGem" parent="Tunnel" instance=ExtResource("16")]
+[node name="PurpleGem" parent="Tunnel" unique_id=1697355500 instance=ExtResource("16")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 34.1956, -37, 137.014)
 
-[node name="PurpleGem2" parent="Tunnel" instance=ExtResource("16")]
+[node name="PurpleGem2" parent="Tunnel" unique_id=811220502 instance=ExtResource("16")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 30.7422, -37, 132.784)
 
-[node name="PurpleGem3" parent="Tunnel" instance=ExtResource("16")]
+[node name="PurpleGem3" parent="Tunnel" unique_id=616937932 instance=ExtResource("16")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 29.182, -37, 142.396)
 
-[node name="PurpleGem4" parent="Tunnel" instance=ExtResource("16")]
+[node name="PurpleGem4" parent="Tunnel" unique_id=1108533515 instance=ExtResource("16")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 25.0285, -37, 137.135)
 
-[node name="RedGem" parent="Tunnel" instance=ExtResource("17")]
+[node name="RedGem" parent="Tunnel" unique_id=712308086 instance=ExtResource("17")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 41.6606, -37, 129.868)
 
-[node name="RedGem2" parent="Tunnel" instance=ExtResource("17")]
+[node name="RedGem2" parent="Tunnel" unique_id=1372381789 instance=ExtResource("17")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 38.8967, -37, 126.574)
 
-[node name="RedGem3" parent="Tunnel" instance=ExtResource("17")]
+[node name="RedGem3" parent="Tunnel" unique_id=1336842580 instance=ExtResource("17")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 38.725, -37, 132.592)
 
-[node name="RedGem4" parent="Tunnel" instance=ExtResource("17")]
+[node name="RedGem4" parent="Tunnel" unique_id=1059761050 instance=ExtResource("17")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 35.8958, -36.8, 128.875)
 
-[node name="GreenGem" parent="Tunnel" instance=ExtResource("18")]
+[node name="GreenGem" parent="Tunnel" unique_id=1505049018 instance=ExtResource("18")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 29.8644, -36.3, 156.204)
 
-[node name="GreenGem2" parent="Tunnel" instance=ExtResource("18")]
+[node name="GreenGem2" parent="Tunnel" unique_id=1752922759 instance=ExtResource("18")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 29.6354, -36.3, 149.086)
 
-[node name="GreenGem3" parent="Tunnel" instance=ExtResource("18")]
+[node name="GreenGem3" parent="Tunnel" unique_id=80727641 instance=ExtResource("18")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 11.9949, -36.3, 134.908)
 
-[node name="GreenGem4" parent="Tunnel" instance=ExtResource("18")]
+[node name="GreenGem4" parent="Tunnel" unique_id=705581585 instance=ExtResource("18")]
 transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 18.619, -36.3, 136.268)
 
-[node name="TunnelFloatingParticles" type="GPUParticles3D" parent="Tunnel"]
+[node name="TunnelFloatingParticles" type="GPUParticles3D" parent="Tunnel" unique_id=172608129]
 unique_name_in_owner = true
 transform = Transform3D(1.5, 0, -2.59808, 0, 3, 0, 2.59808, 0, 1.5, 52.1456, -32.6, 117.71)
 material_override = SubResource("7")
@@ -325,37 +323,37 @@ speed_scale = 1.5
 process_material = SubResource("8")
 draw_pass_1 = SubResource("9")
 
-[node name="AreaToStartParticles" type="Area3D" parent="Tunnel"]
+[node name="AreaToStartParticles" type="Area3D" parent="Tunnel" unique_id=269862739]
 transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 26.6827, -30.5, 133.329)
 collision_layer = 16
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToStartParticles"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToStartParticles" unique_id=364300876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40001, 0, 3.3)
 shape = SubResource("10")
 
-[node name="AreaToMakePlayerFloat" type="Area3D" parent="Tunnel"]
+[node name="AreaToMakePlayerFloat" type="Area3D" parent="Tunnel" unique_id=861770685]
 transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 52.152, -28.4, 117.405)
 collision_layer = 16
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToMakePlayerFloat"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToMakePlayerFloat" unique_id=816831395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.4, 0)
 shape = SubResource("11")
 
-[node name="AreaToStopParticles" type="Area3D" parent="Tunnel"]
+[node name="AreaToStopParticles" type="Area3D" parent="Tunnel" unique_id=455125297]
 transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 56.8691, 5.1, 115.785)
 collision_layer = 16
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToStopParticles"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel/AreaToStopParticles" unique_id=1043920552]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -2.6, -8.1, 6)
 shape = SubResource("12")
 
-[node name="Flag" parent="." instance=ExtResource("21_gosh7")]
+[node name="Flag" parent="." unique_id=1299852117 instance=ExtResource("21_gosh7")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 22.2, 2.7, 73.2)
 
-[node name="MinimapCamera" type="Camera3D" parent="."]
+[node name="MinimapCamera" type="Camera3D" parent="." unique_id=776736562]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
 visible = false
 projection = 1

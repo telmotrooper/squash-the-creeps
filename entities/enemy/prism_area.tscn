@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://woycgl4833us"]
+[gd_scene format=3 uid="uid://woycgl4833us"]
 
 [sub_resource type="PrismMesh" id="1"]
 size = Vector3(22, 20, 2)
@@ -6,13 +6,13 @@ size = Vector3(22, 20, 2)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lu2y8"]
 points = PackedVector3Array(-9.53674e-07, 10, 1, 11, -10, 1, -9.53674e-07, 10, -1, -11, -10, 1, 11, -10, -1, -11, -10, -1)
 
-[node name="PrismArea" type="Area3D"]
+[node name="PrismArea" type="Area3D" unique_id=1770539556]
 collision_layer = 16
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=237483465]
 transform = Transform3D(1, 0, 0, 0, 8.9407e-08, -1, 0, 1, 8.9407e-08, 0, 0, 0)
 mesh = SubResource("1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=226168936]
 transform = Transform3D(1, 0, 0, 0, 8.9407e-08, -1, 0, 1, 8.9407e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_lu2y8")

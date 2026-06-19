@@ -1,12 +1,12 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cw87vh5ubyy1l"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cw87vh5ubyy1l"]
 
-[ext_resource type="Shader" path="res://props/checkpoint_flag/flag.gdshader" id="1_bs6b0"]
+[ext_resource type="Shader" uid="uid://dj08im61o7svw" path="res://props/checkpoint_flag/flag.gdshader" id="1_bs6b0"]
 
 [sub_resource type="FastNoiseLite" id="1"]
 
 [sub_resource type="NoiseTexture2D" id="2"]
-seamless = true
 noise = SubResource("1")
+seamless = true
 
 [resource]
 render_priority = 0

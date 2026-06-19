@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfox7po21r5bs"]
+[gd_scene format=3 uid="uid://bfox7po21r5bs"]
 
 [ext_resource type="Script" uid="uid://juuw3kqe64a6" path="res://entities/bullet/bullet.gd" id="1_1cgy2"]
 
@@ -6,18 +6,18 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_h7el3"]
 
-[node name="Bullet" type="CharacterBody3D"]
+[node name="Bullet" type="CharacterBody3D" unique_id=102070004]
 top_level = true
 collision_layer = 128
 script = ExtResource("1_1cgy2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1145959678]
 shape = SubResource("SphereShape3D_0hk5u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1366515802]
 mesh = SubResource("SphereMesh_h7el3")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1398567855]
 wait_time = 5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

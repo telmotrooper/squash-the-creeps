@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://jolpuvcannrl"]
+[gd_scene format=3 uid="uid://jolpuvcannrl"]
 
 [ext_resource type="Script" uid="uid://bn2b1q7ph8qd5" path="res://maps/player_ball.gd" id="1_owrhn"]
 [ext_resource type="Script" uid="uid://du560503dixa4" path="res://entities/player/camera.gd" id="2_q82hi"]
@@ -11,8 +11,8 @@ seed = 1
 frequency = 0.7
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwmfe"]
-seamless = true
 noise = SubResource("FastNoiseLite_2odsq")
+seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km2gf"]
 albedo_color = Color(0.67451, 0.305882, 0.188235, 1)
@@ -22,35 +22,35 @@ albedo_texture = SubResource("NoiseTexture2D_xwmfe")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ymhhk"]
 
-[node name="PlayerBall" type="Node3D"]
+[node name="PlayerBall" type="Node3D" unique_id=620001892]
 
-[node name="PlayerBall" type="RigidBody3D" parent="." groups=["players"]]
+[node name="PlayerBall" type="RigidBody3D" parent="." unique_id=1066916295 groups=["players"]]
 collision_mask = 4
 script = ExtResource("1_owrhn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBall" unique_id=1886274385]
 mesh = SubResource("SphereMesh_x22n1")
 surface_material_override/0 = SubResource("StandardMaterial3D_km2gf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBall" unique_id=1666024616]
 shape = SubResource("SphereShape3D_qw46v")
 
-[node name="CameraPivot" type="Node3D" parent="."]
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1907361175]
 unique_name_in_owner = true
 script = ExtResource("2_q82hi")
 
-[node name="Horizontal" type="Node3D" parent="CameraPivot"]
+[node name="Horizontal" type="Node3D" parent="CameraPivot" unique_id=606166798]
 
-[node name="Vertical" type="Node3D" parent="CameraPivot/Horizontal"]
+[node name="Vertical" type="Node3D" parent="CameraPivot/Horizontal" unique_id=1114361262]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Horizontal/Vertical"]
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Horizontal/Vertical" unique_id=754413156]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_mask = 68
 shape = SubResource("SphereShape3D_ymhhk")
 spring_length = 10.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D" unique_id=1524916988]
 unique_name_in_owner = true
 process_mode = 1
 current = true

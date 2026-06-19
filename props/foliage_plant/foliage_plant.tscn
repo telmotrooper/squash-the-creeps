@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6y2crn0rj80a"]
+[gd_scene format=3 uid="uid://6y2crn0rj80a"]
 
 [ext_resource type="PackedScene" uid="uid://bnv3q5nnk43av" path="res://props/foliage_plant/foliage_plant.blend" id="1_stw6i"]
 
-[node name="FoliagePlant" type="Node3D"]
+[node name="FoliagePlant" type="Node3D" unique_id=1791412321]
 
-[node name="foliage_plant" parent="." instance=ExtResource("1_stw6i")]
+[node name="foliage_plant" parent="." unique_id=2026431294 instance=ExtResource("1_stw6i")]

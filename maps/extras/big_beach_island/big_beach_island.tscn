@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2esl5e4dn6aj"]
+[gd_scene format=3 uid="uid://2esl5e4dn6aj"]
 
 [ext_resource type="PackedScene" uid="uid://c1xutxeh4jt0d" path="res://maps/extras/big_beach_island/big_beach_island.blend" id="1_2btys"]
 [ext_resource type="Material" uid="uid://camw5738uvq8t" path="res://maps/extras/beach_island/Ground033.material" id="2_on8y1"]
@@ -17,149 +17,149 @@ _data = {
 }
 point_count = 5
 
-[node name="BigBeachIsland" type="Node3D"]
+[node name="BigBeachIsland" type="Node3D" unique_id=854298208]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=338685047]
 collision_layer = 4
 collision_mask = 0
 
-[node name="big_beach_island" parent="StaticBody3D" instance=ExtResource("1_2btys")]
+[node name="big_beach_island" parent="StaticBody3D" unique_id=2078836665 instance=ExtResource("1_2btys")]
 
-[node name="Island" parent="StaticBody3D/big_beach_island" index="0"]
+[node name="Island" parent="StaticBody3D/big_beach_island" index="0" unique_id=405324773]
 surface_material_override/0 = ExtResource("2_on8y1")
 
-[node name="Water Level" parent="StaticBody3D/big_beach_island" index="2"]
+[node name="Water Level" parent="StaticBody3D/big_beach_island" index="2" unique_id=1163923162]
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1166519408]
 transform = Transform3D(0.460653, 0, 0, 0, 0.460653, 0, 0, 0, 0.460653, 0, 5.9924, 0)
 shape = SubResource("ConcavePolygonShape3D_a8bb0")
 
-[node name="PalmTree9" parent="StaticBody3D" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree9" parent="StaticBody3D" unique_id=1489577954 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7932, 85.1491, 15.1314)
 
-[node name="Trees" type="Node3D" parent="StaticBody3D"]
+[node name="Trees" type="Node3D" parent="StaticBody3D" unique_id=1243154905]
 
-[node name="PalmTree" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree" parent="StaticBody3D/Trees" unique_id=658029628 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3538, 85.1491, -4.30988)
 
-[node name="PalmTree2" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree2" parent="StaticBody3D/Trees" unique_id=1526300588 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4729, 85.1491, -52.3732)
 
-[node name="PalmTree3" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree3" parent="StaticBody3D/Trees" unique_id=22261366 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.0317, 85.1491, -76.1348)
 
-[node name="PalmTree4" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree4" parent="StaticBody3D/Trees" unique_id=1740908890 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4135, 85.1491, -82.2559)
 
-[node name="PalmTree5" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree5" parent="StaticBody3D/Trees" unique_id=821415739 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.311, 85.1491, 17.2915)
 
-[node name="PalmTree6" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree6" parent="StaticBody3D/Trees" unique_id=509877715 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.6332, 85.1491, -36.7121)
 
-[node name="PalmTree7" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree7" parent="StaticBody3D/Trees" unique_id=501474621 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.0557, 85.1491, -45.3527)
 
-[node name="PalmTree8" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree8" parent="StaticBody3D/Trees" unique_id=1792975093 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6349, 85.1491, 31.8726)
 
-[node name="PalmTree10" parent="StaticBody3D/Trees" instance=ExtResource("3_0ul3k")]
+[node name="PalmTree10" parent="StaticBody3D/Trees" unique_id=217162383 instance=ExtResource("3_0ul3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4321, 85.1491, 56.1742)
 
-[node name="Spring" parent="StaticBody3D/Trees" instance=ExtResource("4_4dqda")]
+[node name="Spring" parent="StaticBody3D/Trees" unique_id=603572784 instance=ExtResource("4_4dqda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3813, 76.1968, -93.385)
 
-[node name="SpringPath" type="Path3D" parent="StaticBody3D/Trees/Spring"]
+[node name="SpringPath" type="Path3D" parent="StaticBody3D/Trees/Spring" unique_id=547490311]
 unique_name_in_owner = true
 curve = SubResource("Curve3D_4dqda")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="StaticBody3D/Trees/Spring/SpringPath"]
+[node name="PathFollow3D" type="PathFollow3D" parent="StaticBody3D/Trees/Spring/SpringPath" unique_id=1188098212]
 rotation_mode = 0
 loop = false
 
-[node name="Plants" type="Node3D" parent="StaticBody3D"]
+[node name="Plants" type="Node3D" parent="StaticBody3D" unique_id=428345581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7932, 85.1491, 15.1314)
 
-[node name="FoliagePlant" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant" parent="StaticBody3D/Plants" unique_id=1355949762 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6703, -8.67046, -18.1112)
 
-[node name="FoliagePlant2" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant2" parent="StaticBody3D/Plants" unique_id=67507573 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7408, -8.67046, -33.5517)
 
-[node name="FoliagePlant3" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant3" parent="StaticBody3D/Plants" unique_id=784112178 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50999, -8.67046, -40.5436)
 
-[node name="FoliagePlant4" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant4" parent="StaticBody3D/Plants" unique_id=318687885 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0877, -8.67046, -73.1724)
 
-[node name="FoliagePlant5" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant5" parent="StaticBody3D/Plants" unique_id=634109146 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.651, -8.67046, -90.0695)
 
-[node name="FoliagePlant6" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant6" parent="StaticBody3D/Plants" unique_id=949387259 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2056, -8.67046, -102.888)
 
-[node name="FoliagePlant7" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant7" parent="StaticBody3D/Plants" unique_id=624438986 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3466, -8.67046, -89.1955)
 
-[node name="FoliagePlant8" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant8" parent="StaticBody3D/Plants" unique_id=1694091276 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.787, -8.67046, -54.5274)
 
-[node name="FoliagePlant9" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant9" parent="StaticBody3D/Plants" unique_id=1674203815 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1813, -8.67046, -51.0314)
 
-[node name="FoliagePlant10" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant10" parent="StaticBody3D/Plants" unique_id=970453537 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8344, -8.67046, -33.5517)
 
-[node name="FoliagePlant11" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant11" parent="StaticBody3D/Plants" unique_id=1063362900 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9374, -8.67046, -15.4893)
 
-[node name="FoliagePlant12" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant12" parent="StaticBody3D/Plants" unique_id=1279773724 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.661, -8.67046, -16.9459)
 
-[node name="FoliagePlant13" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant13" parent="StaticBody3D/Plants" unique_id=1975953270 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1408, -8.67046, -26.2684)
 
-[node name="FoliagePlant14" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant14" parent="StaticBody3D/Plants" unique_id=278151084 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5643, -8.67046, -24.2291)
 
-[node name="FoliagePlant15" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant15" parent="StaticBody3D/Plants" unique_id=1898466487 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2174, -8.67046, -10.828)
 
-[node name="FoliagePlant16" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant16" parent="StaticBody3D/Plants" unique_id=657883778 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7065, -8.67046, 15.683)
 
-[node name="FoliagePlant17" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant17" parent="StaticBody3D/Plants" unique_id=555887837 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9143, -8.67046, 17.1396)
 
-[node name="FoliagePlant18" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant18" parent="StaticBody3D/Plants" unique_id=2097797714 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.268, -8.67046, 6.0691)
 
-[node name="FoliagePlant19" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant19" parent="StaticBody3D/Plants" unique_id=179420701 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.7546, -8.67046, 18.5963)
 
-[node name="FoliagePlant20" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant20" parent="StaticBody3D/Plants" unique_id=686939042 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.6286, -8.67046, -72.2984)
 
-[node name="FoliagePlant21" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant21" parent="StaticBody3D/Plants" unique_id=387679814 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.905, -8.67046, -112.502)
 
-[node name="FoliagePlant22" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant22" parent="StaticBody3D/Plants" unique_id=1234789705 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45628, -8.67046, 39.3002)
 
-[node name="FoliagePlant23" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant23" parent="StaticBody3D/Plants" unique_id=747236231 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.7276, -8.67046, 35.7331)
 
-[node name="FoliagePlant24" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant24" parent="StaticBody3D/Plants" unique_id=823943904 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.1853, -8.67046, 60.3068)
 
-[node name="FoliagePlant25" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant25" parent="StaticBody3D/Plants" unique_id=535323727 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3168, -8.67046, 27.8061)
 
-[node name="FoliagePlant26" parent="StaticBody3D/Plants" instance=ExtResource("4_vf6ae")]
+[node name="FoliagePlant26" parent="StaticBody3D/Plants" unique_id=1898109989 instance=ExtResource("4_vf6ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50723, -8.67046, -125.185)
 
-[node name="CheckpointFlag" parent="." instance=ExtResource("5_xpjtw")]
+[node name="CheckpointFlag" parent="." unique_id=204146929 instance=ExtResource("5_xpjtw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7489, 78.1792, -100.439)
 
 [editable path="StaticBody3D/big_beach_island"]

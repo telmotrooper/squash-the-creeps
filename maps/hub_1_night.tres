@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=4 format=3 uid="uid://bugt14yl4reku"]
+[gd_resource type="Environment" format=3 uid="uid://bugt14yl4reku"]
 
 [ext_resource type="Texture2D" uid="uid://bfg2tal3yf0l1" path="res://assets/skyboxes/animecloud.png" id="1_48g4q"]
 

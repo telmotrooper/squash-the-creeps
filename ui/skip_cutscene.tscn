@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8mgkrk8bsb4m"]
+[gd_scene format=3 uid="uid://c8mgkrk8bsb4m"]
 
 [ext_resource type="Script" uid="uid://dp04snknlmujl" path="res://ui/skip_cutscene.gd" id="1_i41nt"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_v4k7b"]
 
-[node name="SkipCutscene" type="Control"]
+[node name="SkipCutscene" type="Control" unique_id=748640443]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i41nt")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1969007960]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
