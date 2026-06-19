@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://bji1tdapoh0ct"]
+[gd_scene format=4 uid="uid://bji1tdapoh0ct"]
 
 [ext_resource type="Script" uid="uid://bbq6dfelfkom7" path="res://maps/avocado_beach.gd" id="1_1tay5"]
 [ext_resource type="AudioStream" uid="uid://c1y5qugat84ue" path="res://assets/house_in_a_forest_loop.ogg" id="2_livli"]
@@ -602,279 +602,279 @@ _data = {
 &"appear": SubResource("Animation_umxow")
 }
 
-[node name="AvocadoBeach" type="Node3D"]
+[node name="AvocadoBeach" type="Node3D" unique_id=1481740297]
 script = ExtResource("1_1tay5")
 map_music = ExtResource("2_livli")
 minimap = ExtResource("3_lfm86")
 
-[node name="SkipCutscene" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("4_mb8ty")]
+[node name="SkipCutscene" parent="." unique_id=960846532 node_paths=PackedStringArray("animation_player") instance=ExtResource("4_mb8ty")]
 animation_player = NodePath("../CutsceneAnimationPlayer")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=942902234]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 0)
 shadow_enabled = true
 
-[node name="Map" type="Node3D" parent="."]
+[node name="Map" type="Node3D" parent="." unique_id=605504129]
 
-[node name="GreenPlatform1" type="StaticBody3D" parent="Map"]
+[node name="GreenPlatform1" type="StaticBody3D" parent="Map" unique_id=125557183]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GreenPlatform1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GreenPlatform1" unique_id=1748846536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.952113, 0)
 shape = SubResource("3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform1" unique_id=904207707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("4")
 
-[node name="Grass" type="MultiMeshInstance3D" parent="Map/GreenPlatform1"]
+[node name="Grass" type="MultiMeshInstance3D" parent="Map/GreenPlatform1" unique_id=1818054784]
 unique_name_in_owner = true
 multimesh = SubResource("19")
 
-[node name="Flag" parent="Map/GreenPlatform1" instance=ExtResource("6_rhpv0")]
+[node name="Flag" parent="Map/GreenPlatform1" unique_id=1372108864 instance=ExtResource("6_rhpv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6379, 1.85172, -27.0031)
 
-[node name="Gems" type="Node3D" parent="Map/GreenPlatform1"]
+[node name="Gems" type="Node3D" parent="Map/GreenPlatform1" unique_id=197346366]
 
-[node name="RedGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("7_tpij1")]
+[node name="RedGem" parent="Map/GreenPlatform1/Gems" unique_id=479630570 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0256, 0.0999999, -26.1378)
 
-[node name="RedGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource("7_tpij1")]
+[node name="RedGem2" parent="Map/GreenPlatform1/Gems" unique_id=1621240078 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541)
 
-[node name="GreenGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem" parent="Map/GreenPlatform1/Gems" unique_id=1630944844 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8488, 0.630445, -22.1003)
 
-[node name="PurpleGem" parent="Map/GreenPlatform1/Gems" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem" parent="Map/GreenPlatform1/Gems" unique_id=734533486 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7919, 0.765488, -26.3931)
 
-[node name="PurpleGem2" parent="Map/GreenPlatform1/Gems" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem2" parent="Map/GreenPlatform1/Gems" unique_id=1346356829 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6563, 0.765488, -22.3548)
 
-[node name="BlueEnemyPath" type="Path3D" parent="Map/GreenPlatform1"]
+[node name="BlueEnemyPath" type="Path3D" parent="Map/GreenPlatform1" unique_id=1047614205]
 curve = SubResource("14")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform1/BlueEnemyPath"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform1/BlueEnemyPath" unique_id=456814731]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -16, 0, -16)
 rotation_mode = 4
 loop = false
 
-[node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow3D" instance=ExtResource("10_vipi2")]
+[node name="BlueEnemy" parent="Map/GreenPlatform1/BlueEnemyPath/PathFollow3D" unique_id=692751658 instance=ExtResource("10_vipi2")]
 
-[node name="Bridge" type="StaticBody3D" parent="Map"]
+[node name="Bridge" type="StaticBody3D" parent="Map" unique_id=1509175056]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 6.75822, -59)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Bridge"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Bridge" unique_id=1987656095]
 shape = SubResource("5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Bridge"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Bridge" unique_id=887326706]
 transform = Transform3D(-0.2, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_5iej4")
 
-[node name="BluePlatform" type="StaticBody3D" parent="Map"]
+[node name="BluePlatform" type="StaticBody3D" parent="Map" unique_id=515345274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.626)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BluePlatform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BluePlatform" unique_id=1690591793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0)
 shape = SubResource("3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/BluePlatform"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/BluePlatform" unique_id=766174664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 mesh = SubResource("BoxMesh_1imjx")
 
-[node name="PurpleEnemyPath" type="Path3D" parent="Map/BluePlatform"]
+[node name="PurpleEnemyPath" type="Path3D" parent="Map/BluePlatform" unique_id=2035440929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04762, 0, -9.177)
 curve = SubResource("18")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/BluePlatform/PurpleEnemyPath"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.9524, 0, 7.80272)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/BluePlatform/PurpleEnemyPath" unique_id=515721739]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.9524, 0, 7.80272)
 
-[node name="PurpleEnemy" parent="Map/BluePlatform/PurpleEnemyPath/PathFollow3D" instance=ExtResource("13_uc65y")]
+[node name="PurpleEnemy" parent="Map/BluePlatform/PurpleEnemyPath/PathFollow3D" unique_id=1070105065 instance=ExtResource("13_uc65y")]
 patrolling_speed = 18
 
-[node name="BluePlatform2" type="StaticBody3D" parent="Map"]
+[node name="BluePlatform2" type="StaticBody3D" parent="Map" unique_id=101417113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -240.61)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BluePlatform2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BluePlatform2" unique_id=307921892]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0)
 shape = SubResource("3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/BluePlatform2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/BluePlatform2" unique_id=784818273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 mesh = SubResource("BoxMesh_1imjx")
 
-[node name="ExitPortal" parent="Map/BluePlatform2" instance=ExtResource("14_b6nat")]
+[node name="ExitPortal" parent="Map/BluePlatform2" unique_id=1816384942 instance=ExtResource("14_b6nat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670445, 0.144789, -24.448)
 label = "Exit"
 map_name = "hub_1"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Map/BluePlatform2"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/BluePlatform2" unique_id=555757392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 66.393)
 use_collision = true
 collision_layer = 4
 size = Vector3(12, 1, 70)
 material = ExtResource("15_dtq2f")
 
-[node name="SmallPlatform" parent="Map" instance=ExtResource("16_pgooe")]
+[node name="SmallPlatform" parent="Map" unique_id=510678968 instance=ExtResource("16_pgooe")]
 collision_layer = 64
 
-[node name="GreenGem3" parent="Map/SmallPlatform" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem3" parent="Map/SmallPlatform" unique_id=1373930313 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
 
-[node name="GreenGem4" parent="Map/SmallPlatform" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem4" parent="Map/SmallPlatform" unique_id=409318827 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
 
-[node name="SmallPlatform2" parent="Map" instance=ExtResource("16_pgooe")]
+[node name="SmallPlatform2" parent="Map" unique_id=1494334816 instance=ExtResource("16_pgooe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -5, -65)
 collision_layer = 64
 move_y = 4.0
 
-[node name="GreenGem" parent="Map/SmallPlatform2" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem" parent="Map/SmallPlatform2" unique_id=1614902966 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
 
-[node name="GreenGem2" parent="Map/SmallPlatform2" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem2" parent="Map/SmallPlatform2" unique_id=408367863 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
 
-[node name="FloatingBluePlatform" type="StaticBody3D" parent="Map"]
+[node name="FloatingBluePlatform" type="StaticBody3D" parent="Map" unique_id=842320626]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8, 49.2458, -75.826)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/FloatingBluePlatform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/FloatingBluePlatform" unique_id=792269209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01119, 0)
 shape = SubResource("3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/FloatingBluePlatform"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/FloatingBluePlatform" unique_id=1214096888]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1.35706)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_rv8lt")
 
-[node name="FloatingGodotHead" parent="Map/FloatingBluePlatform" instance=ExtResource("17_tburi")]
+[node name="FloatingGodotHead" parent="Map/FloatingBluePlatform" unique_id=635981842 instance=ExtResource("17_tburi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -16)
 
-[node name="PurpleGem" parent="Map/FloatingBluePlatform" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem" parent="Map/FloatingBluePlatform" unique_id=748742517 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.15353)
 
-[node name="PurpleGem2" parent="Map/FloatingBluePlatform" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem2" parent="Map/FloatingBluePlatform" unique_id=1996743545 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.28504)
 
-[node name="PurpleGem3" parent="Map/FloatingBluePlatform" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem3" parent="Map/FloatingBluePlatform" unique_id=1332573870 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.309)
 
-[node name="BeachIsland" parent="Map" instance=ExtResource("18_bms0o")]
+[node name="BeachIsland" parent="Map" unique_id=794950563 instance=ExtResource("18_bms0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0211, -8.3, -0.699999)
 
-[node name="BeachIslandBoundary" parent="Map/BeachIsland" instance=ExtResource("19_hwma5")]
+[node name="BeachIslandBoundary" parent="Map/BeachIsland" unique_id=843626234 instance=ExtResource("19_hwma5")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 4.6, 0)
 
-[node name="BeachGodotHead" parent="Map/BeachIsland" instance=ExtResource("17_tburi")]
+[node name="BeachGodotHead" parent="Map/BeachIsland" unique_id=207568721 instance=ExtResource("17_tburi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.0961, 16.9, 0.464002)
 
-[node name="Gems" type="Node3D" parent="Map/BeachIsland"]
+[node name="Gems" type="Node3D" parent="Map/BeachIsland" unique_id=1966241524]
 
-[node name="RedGem" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
+[node name="RedGem" parent="Map/BeachIsland/Gems" unique_id=1980580295 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25001, 13.7, -15.07)
 
-[node name="RedGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
+[node name="RedGem2" parent="Map/BeachIsland/Gems" unique_id=1772242620 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.75, 13.7, 3.83)
 
-[node name="RedGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
+[node name="RedGem3" parent="Map/BeachIsland/Gems" unique_id=528009756 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25001, 13.7, 17.33)
 
-[node name="RedGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("7_tpij1")]
+[node name="RedGem4" parent="Map/BeachIsland/Gems" unique_id=651431408 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35, 13.7, 2.23)
 
-[node name="GreenGem" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem" parent="Map/BeachIsland/Gems" unique_id=1139445653 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0575, 14.1012, -10.1517)
 
-[node name="GreenGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem2" parent="Map/BeachIsland/Gems" unique_id=1365470778 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0282, 14.1012, 13.2848)
 
-[node name="GreenGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem3" parent="Map/BeachIsland/Gems" unique_id=474024574 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62411, 14.1012, 14.4321)
 
-[node name="GreenGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem4" parent="Map/BeachIsland/Gems" unique_id=1985921265 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6186, 14.1012, -10.7166)
 
-[node name="PurpleGem" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem" parent="Map/BeachIsland/Gems" unique_id=1027424897 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9443, 14.0882, -6.98813)
 
-[node name="PurpleGem2" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem2" parent="Map/BeachIsland/Gems" unique_id=909722921 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8715, 14.0882, 7.53171)
 
-[node name="PurpleGem3" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem3" parent="Map/BeachIsland/Gems" unique_id=419662592 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0792, 14.0882, 7.47994)
 
-[node name="PurpleGem4" parent="Map/BeachIsland/Gems" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem4" parent="Map/BeachIsland/Gems" unique_id=347884737 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741402, 14.0882, -6.42913)
 
-[node name="Props" type="Node3D" parent="Map/BeachIsland"]
+[node name="Props" type="Node3D" parent="Map/BeachIsland" unique_id=1685850761]
 
-[node name="FoliagePlant" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant" parent="Map/BeachIsland/Props" unique_id=475960718 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.954334, 0.298741, 0, -0.298741, 0.954334, 0, 0, 0, 1, 23.8857, 10.059, -2.49402)
 
-[node name="FoliagePlant2" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant2" parent="Map/BeachIsland/Props" unique_id=1433865901 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.986363, 0.164583, 0, -0.164583, 0.986363, 0, 0, 0, 1, 16.1197, 12.0579, 6.10835)
 
-[node name="FoliagePlant3" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant3" parent="Map/BeachIsland/Props" unique_id=700380969 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.119062, 0.992887, 0, 0, 0, 1, 0.577538, 13.7211, -0.395428)
 
-[node name="FoliagePlant4" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant4" parent="Map/BeachIsland/Props" unique_id=322002240 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.112881, 0.941341, -0.318016, 0.0378638, 0.315754, 0.948085, 0.577538, 10.6109, 17.7934)
 
-[node name="FoliagePlant5" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant5" parent="Map/BeachIsland/Props" unique_id=1404870385 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.949716, -0.313114, 0, 0.313114, 0.949716, 0, 0, 0, 1, -13.1941, 10.4794, 5.59452)
 
-[node name="FoliagePlant6" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant6" parent="Map/BeachIsland/Props" unique_id=1185032554 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.115964, 0.967048, 0.226651, -0.0269857, -0.225039, 0.973976, -10.1768, 10.4834, -10.1844)
 
-[node name="FoliagePlant7" parent="Map/BeachIsland/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant7" parent="Map/BeachIsland/Props" unique_id=169619103 instance=ExtResource("20_ijocr")]
 transform = Transform3D(0.992887, -0.119062, 0, 0.110968, 0.925385, 0.362422, -0.0431508, -0.359844, 0.932014, 6.64685, 11.0762, -16.4952)
 
-[node name="PalmTreeBeachIsland" parent="Map" instance=ExtResource("18_bms0o")]
+[node name="PalmTreeBeachIsland" parent="Map" unique_id=755085895 instance=ExtResource("18_bms0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5384, -12.3179, 62.2759)
 
-[node name="PalmTree" parent="Map/PalmTreeBeachIsland" instance=ExtResource("21_2oe45")]
+[node name="PalmTree" parent="Map/PalmTreeBeachIsland" unique_id=304583233 instance=ExtResource("21_2oe45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098)
 
-[node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=883349946 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(0.963696, 0.267003, 0, -0.267003, 0.963696, 0, 0, 0, 1, -2.15528, 6.71425, 0)
 
-[node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=1218947323 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 0.961175, -0.275939, 0, 0.275939, 0.961175, 0.611984, 6.63977, -2.46629)
 
-[node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=835080126 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(0.999988, 0.00493372, 0.000530863, -0.004962, 0.995157, 0.0981748, -4.39294e-05, -0.0981763, 0.995169, 0.611984, 6.93238, 2.08485)
 
-[node name="RedGem" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("7_tpij1")]
+[node name="RedGem" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=874824105 instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.932557, 0.361022, 0, -0.361022, 0.932557, 0, 0, 0, 1, -1.71158, 6.66337, -1.86882)
 
-[node name="RedGem2" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("7_tpij1")]
+[node name="RedGem2" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=618491498 instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.924799, -0.380457, 0, 0.380457, 0.924799, 0, 0, 0, 1, 1.67213, 6.7352, -0.258358)
 
-[node name="RedGem3" parent="Map/PalmTreeBeachIsland/PalmTree" instance=ExtResource("7_tpij1")]
+[node name="RedGem3" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=1891421691 instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.995795, -0.091606, 0, 0.0885957, 0.963073, 0.254248, -0.0232906, -0.253179, 0.967139, -0.815338, 6.38492, 2.07698)
 
-[node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" instance=ExtResource("17_tburi")]
+[node name="PalmTreeGodotHead" parent="Map/PalmTreeBeachIsland" unique_id=1587566755 instance=ExtResource("17_tburi")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.16994, 34.6944, 0)
 
-[node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant" parent="Map/PalmTreeBeachIsland" unique_id=599916588 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 6.58969, 13.8456, -2.09302)
 
-[node name="FoliagePlant2" parent="Map/PalmTreeBeachIsland" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant2" parent="Map/PalmTreeBeachIsland" unique_id=1350102340 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 5.87474, 13.8456, 2.40438)
 
-[node name="FoliagePlant3" parent="Map/PalmTreeBeachIsland" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant3" parent="Map/PalmTreeBeachIsland" unique_id=1882450130 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 0.995463, 0.0951508, 0, -0.0951508, 0.995463, 2.47056, 13.8456, 0.595779)
 
-[node name="GreenPlatform2" type="CSGBox3D" parent="Map"]
+[node name="GreenPlatform2" type="CSGBox3D" parent="Map" unique_id=1292377189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 0)
 use_collision = true
 collision_layer = 4
@@ -882,21 +882,21 @@ collision_mask = 0
 size = Vector3(100, 1, 50)
 material = ExtResource("4_ksy0t")
 
-[node name="Ramp" type="StaticBody3D" parent="Map/GreenPlatform2"]
+[node name="Ramp" type="StaticBody3D" parent="Map/GreenPlatform2" unique_id=675962667]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -25.0022, 3.64643, -0.0341987)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GreenPlatform2/Ramp"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GreenPlatform2/Ramp" unique_id=794861602]
 shape = SubResource("25")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform2/Ramp"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform2/Ramp" unique_id=1124537877]
 mesh = SubResource("27")
 
-[node name="RedButton" parent="Map/GreenPlatform2/Ramp" instance=ExtResource("22_wpjky")]
+[node name="RedButton" parent="Map/GreenPlatform2/Ramp" unique_id=1728873889 instance=ExtResource("22_wpjky")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 5.3, -1.1, 3.4)
 direction = 1
 
-[node name="Label3D" type="Label3D" parent="Map/GreenPlatform2/Ramp"]
+[node name="Label3D" type="Label3D" parent="Map/GreenPlatform2/Ramp" unique_id=91036709]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 7.8, -3.1, 3.3)
 pixel_size = 0.01
 text = "Press \"ATTACK\" to
@@ -905,259 +905,257 @@ font = ExtResource("23_2se3s")
 font_size = 48
 outline_size = 0
 
-[node name="SlimePath" type="Path3D" parent="Map/GreenPlatform2"]
+[node name="SlimePath" type="Path3D" parent="Map/GreenPlatform2" unique_id=872532929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 curve = SubResource("45")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath"]
-transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, 1, 0, 0, -10)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath" unique_id=1600252216]
+transform = Transform3D(1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, 1, 0, 0, -10)
 use_model_front = true
 
-[node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow3D" instance=ExtResource("24_1hsoc")]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath/PathFollow3D" unique_id=484769084 instance=ExtResource("24_1hsoc")]
 
-[node name="SlimePath2" type="Path3D" parent="Map/GreenPlatform2"]
+[node name="SlimePath2" type="Path3D" parent="Map/GreenPlatform2" unique_id=762414470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5176, 2.8, 0)
 curve = SubResource("45")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath2"]
-transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, 1, 0, 0, -10)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath2" unique_id=1689976231]
+transform = Transform3D(1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, 1, 0, 0, -10)
 use_model_front = true
 
-[node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow3D" instance=ExtResource("24_1hsoc")]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath2/PathFollow3D" unique_id=986875524 instance=ExtResource("24_1hsoc")]
 
-[node name="SlimePath3" type="Path3D" parent="Map/GreenPlatform2"]
+[node name="SlimePath3" type="Path3D" parent="Map/GreenPlatform2" unique_id=433875080]
 transform = Transform3D(-0.0172986, 0, -0.99985, 0, 1, 0, 0.99985, 0, -0.0172986, 90.654, 12.5175, 0)
 curve = SubResource("45")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath3"]
-transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, 1, 0, 0, -10)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform2/SlimePath3" unique_id=1427893188]
+transform = Transform3D(1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, 1, 0, 0, -10)
 use_model_front = true
 
-[node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow3D" instance=ExtResource("24_1hsoc")]
+[node name="Slime" parent="Map/GreenPlatform2/SlimePath3/PathFollow3D" unique_id=61062265 instance=ExtResource("24_1hsoc")]
 
-[node name="Props" type="Node3D" parent="Map/GreenPlatform2"]
+[node name="Props" type="Node3D" parent="Map/GreenPlatform2" unique_id=1873286843]
 
-[node name="FoliagePlant" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant" parent="Map/GreenPlatform2/Props" unique_id=50136701 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1691, 0.657533, -3.19401)
 
-[node name="FoliagePlant2" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant2" parent="Map/GreenPlatform2/Props" unique_id=2001438727 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3508, 0.657533, 14.6727)
 
-[node name="FoliagePlant3" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant3" parent="Map/GreenPlatform2/Props" unique_id=1824594048 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8013, 0.657533, 5.29685)
 
-[node name="FoliagePlant4" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant4" parent="Map/GreenPlatform2/Props" unique_id=1239727153 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7966, 0.657533, -18.9896)
 
-[node name="FoliagePlant5" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant5" parent="Map/GreenPlatform2/Props" unique_id=1435395455 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78354, 0.657533, -3.74691)
 
-[node name="FoliagePlant6" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant6" parent="Map/GreenPlatform2/Props" unique_id=1564996603 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5296, 0.657533, -17.9681)
 
-[node name="FoliagePlant7" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant7" parent="Map/GreenPlatform2/Props" unique_id=381500273 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3915, 0.657533, 13.4889)
 
-[node name="FoliagePlant8" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant8" parent="Map/GreenPlatform2/Props" unique_id=793099877 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34264, 0.657533, 19.1331)
 
-[node name="FoliagePlant9" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant9" parent="Map/GreenPlatform2/Props" unique_id=377580441 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6831, 0.657533, -7.62557)
 
-[node name="FoliagePlant10" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant10" parent="Map/GreenPlatform2/Props" unique_id=2058993104 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8484, 0.657533, 2.50677)
 
-[node name="FoliagePlant11" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant11" parent="Map/GreenPlatform2/Props" unique_id=223480468 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5673, 0.657533, -12.773)
 
-[node name="FoliagePlant12" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant12" parent="Map/GreenPlatform2/Props" unique_id=935239715 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27011, 0.657533, -14.5014)
 
-[node name="FoliagePlant13" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant13" parent="Map/GreenPlatform2/Props" unique_id=35728947 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7385, 0.657533, -14.5014)
 
-[node name="FoliagePlant14" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant14" parent="Map/GreenPlatform2/Props" unique_id=479687657 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.696, 0.657533, 12.3598)
 
-[node name="FoliagePlant15" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant15" parent="Map/GreenPlatform2/Props" unique_id=1240153754 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8737, 0.657533, 20.5638)
 
-[node name="FoliagePlant16" parent="Map/GreenPlatform2/Props" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant16" parent="Map/GreenPlatform2/Props" unique_id=143253470 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6651, 0.657533, 18.9823)
 
-[node name="GreenPlatform3" type="StaticBody3D" parent="Map"]
+[node name="GreenPlatform3" type="StaticBody3D" parent="Map" unique_id=2012083518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -99.964)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GreenPlatform3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GreenPlatform3" unique_id=1528233188]
 shape = SubResource("37")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/GreenPlatform3" unique_id=778793065]
 mesh = SubResource("36")
 skeleton = NodePath("../../MovingPlatforms")
 
-[node name="GrassGodotHead" parent="Map/GreenPlatform3" instance=ExtResource("17_tburi")]
+[node name="GrassGodotHead" parent="Map/GreenPlatform3" unique_id=47316505 instance=ExtResource("17_tburi")]
 transform = Transform3D(-4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, 0.774998, 3.5, -18.772)
 
-[node name="BlueEnemyPath2" type="Path3D" parent="Map/GreenPlatform3"]
+[node name="BlueEnemyPath2" type="Path3D" parent="Map/GreenPlatform3" unique_id=414032520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4163, 0, 11.9448)
 curve = SubResource("15")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath2"]
-transform = Transform3D(1, 0, 0, 0, 1, 3.82216e-06, 0, -3.82216e-06, 1, 6.67461, 3.05176e-05, 8.29214)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath2" unique_id=2056537559]
+transform = Transform3D(1, 0, 0, 0, 1, 3.822163e-06, 0, -3.822163e-06, 1, 6.67461, 3.05176e-05, 8.29214)
 
-[node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow3D" instance=ExtResource("10_vipi2")]
+[node name="BlueEnemy2" parent="Map/GreenPlatform3/BlueEnemyPath2/PathFollow3D" unique_id=1889225828 instance=ExtResource("10_vipi2")]
 
-[node name="BlueEnemyPath3" type="Path3D" parent="Map/GreenPlatform3"]
+[node name="BlueEnemyPath3" type="Path3D" parent="Map/GreenPlatform3" unique_id=802661725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3689, 0, 5.3776)
 curve = SubResource("16")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath3"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath3" unique_id=1046888248]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63111, 0, 14.5864)
 
-[node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow3D" instance=ExtResource("10_vipi2")]
+[node name="BlueEnemy3" parent="Map/GreenPlatform3/BlueEnemyPath3/PathFollow3D" unique_id=861915809 instance=ExtResource("10_vipi2")]
 
-[node name="BlueEnemyPath4" type="Path3D" parent="Map/GreenPlatform3"]
+[node name="BlueEnemyPath4" type="Path3D" parent="Map/GreenPlatform3" unique_id=331575447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0476, 0, -13.439)
 curve = SubResource("17")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath4"]
-transform = Transform3D(-0.707107, 0, -0.707105, 0, 1, 0, 0.707105, 0, -0.707107, 2.04762, 0, 1.40272)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/GreenPlatform3/BlueEnemyPath4" unique_id=1294890852]
+transform = Transform3D(-0.7071068, 0, -0.70710516, 0, 1, 0, 0.70710516, 0, -0.7071068, 2.04762, 0, 1.40272)
 
-[node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow3D" instance=ExtResource("10_vipi2")]
+[node name="BlueEnemy4" parent="Map/GreenPlatform3/BlueEnemyPath4/PathFollow3D" unique_id=1912689466 instance=ExtResource("10_vipi2")]
 
-[node name="Node3D" type="Node3D" parent="Map/GreenPlatform3"]
+[node name="Node3D" type="Node3D" parent="Map/GreenPlatform3" unique_id=704362354]
 
-[node name="FoliagePlant" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant" parent="Map/GreenPlatform3/Node3D" unique_id=1222586133 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1122, 0.459839, 0)
 
-[node name="FoliagePlant2" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant2" parent="Map/GreenPlatform3/Node3D" unique_id=1774147502 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70905, 0.459839, 13.1691)
 
-[node name="FoliagePlant3" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant3" parent="Map/GreenPlatform3/Node3D" unique_id=1880221421 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97467, 0.459839, 6.54948)
 
-[node name="FoliagePlant4" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant4" parent="Map/GreenPlatform3/Node3D" unique_id=939546202 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.06, 0.459839, 20.2818)
 
-[node name="FoliagePlant5" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant5" parent="Map/GreenPlatform3/Node3D" unique_id=1403077041 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0572, 0.459839, -7.46893)
 
-[node name="FoliagePlant6" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant6" parent="Map/GreenPlatform3/Node3D" unique_id=1322090139 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39832, 0.459839, -14.9648)
 
-[node name="FoliagePlant7" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant7" parent="Map/GreenPlatform3/Node3D" unique_id=1135150738 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1006, 0.459839, 8.20314)
 
-[node name="FoliagePlant8" parent="Map/GreenPlatform3/Node3D" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant8" parent="Map/GreenPlatform3/Node3D" unique_id=723441652 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52028, 0.459839, -20.0867)
 
-[node name="EnemyBridge" type="Node3D" parent="Map"]
+[node name="EnemyBridge" type="Node3D" parent="Map" unique_id=1322400793]
 
-[node name="YellowEnemyPath1" type="Path3D" parent="Map/EnemyBridge"]
+[node name="YellowEnemyPath1" type="Path3D" parent="Map/EnemyBridge" unique_id=47361259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 0, 0)
 curve = SubResource("20")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath1"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath1" unique_id=282410415]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow3D" instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath1/PathFollow3D" unique_id=333365127 instance=ExtResource("25_ui5k2")]
 
-[node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge"]
+[node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge" unique_id=1236355429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0)
 curve = SubResource("20")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath2"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath2" unique_id=814906427]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow3D" instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath2/PathFollow3D" unique_id=1629869998 instance=ExtResource("25_ui5k2")]
 
-[node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge"]
+[node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge" unique_id=969539453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0)
 curve = SubResource("20")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge/YellowEnemyPath3" unique_id=892958864]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow3D" instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="Map/EnemyBridge/YellowEnemyPath3/PathFollow3D" unique_id=1341318695 instance=ExtResource("25_ui5k2")]
 
-[node name="EnemyBridge2" type="Node3D" parent="Map"]
+[node name="EnemyBridge2" type="Node3D" parent="Map" unique_id=1121946349]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -80, 0, 85)
 
-[node name="YellowEnemyPath1" type="Path3D" parent="Map/EnemyBridge2"]
+[node name="YellowEnemyPath1" type="Path3D" parent="Map/EnemyBridge2" unique_id=1613995080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6, 10, 0)
 curve = SubResource("20")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath1"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath1" unique_id=826346263]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath1/PathFollow3D" instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath1/PathFollow3D" unique_id=1228284332 instance=ExtResource("25_ui5k2")]
 
-[node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge2"]
+[node name="YellowEnemyPath2" type="Path3D" parent="Map/EnemyBridge2" unique_id=1016387302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 5, 0)
 curve = SubResource("20")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath2"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath2" unique_id=1742771958]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath2/PathFollow3D" instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath2/PathFollow3D" unique_id=161611467 instance=ExtResource("25_ui5k2")]
 
-[node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge2"]
+[node name="YellowEnemyPath3" type="Path3D" parent="Map/EnemyBridge2" unique_id=1423747169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6, 0, 0)
 curve = SubResource("20")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0, -6)
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/EnemyBridge2/YellowEnemyPath3" unique_id=491529139]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, 0, -6)
 
-[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath3/PathFollow3D" instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="Map/EnemyBridge2/YellowEnemyPath3/PathFollow3D" unique_id=112823906 instance=ExtResource("25_ui5k2")]
 
-[node name="MovingPlatforms" type="Node3D" parent="Map"]
+[node name="MovingPlatforms" type="Node3D" parent="Map" unique_id=1436717879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, 0)
 
-[node name="MovingPlatform" type="CharacterBody3D" parent="Map/MovingPlatforms"]
+[node name="MovingPlatform" type="CharacterBody3D" parent="Map/MovingPlatforms" unique_id=1579072015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -32)
 collision_layer = 64
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MovingPlatforms/MovingPlatform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MovingPlatforms/MovingPlatform" unique_id=101114416]
 shape = SubResource("28")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MovingPlatforms/MovingPlatform"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MovingPlatforms/MovingPlatform" unique_id=590009816]
 mesh = SubResource("29")
 skeleton = NodePath("../..")
 
-[node name="MovingPlatform2" type="CharacterBody3D" parent="Map/MovingPlatforms"]
+[node name="MovingPlatform2" type="CharacterBody3D" parent="Map/MovingPlatforms" unique_id=306067869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67, -47)
 collision_layer = 64
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MovingPlatforms/MovingPlatform2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MovingPlatforms/MovingPlatform2" unique_id=1444267643]
 shape = SubResource("30")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MovingPlatforms/MovingPlatform2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MovingPlatforms/MovingPlatform2" unique_id=482995900]
 mesh = SubResource("31")
 skeleton = NodePath("../..")
 
-[node name="Manual" type="Node" parent="Map/MovingPlatforms"]
+[node name="Manual" type="Node" parent="Map/MovingPlatforms" unique_id=1084355345]
 script = ExtResource("26_0e88k")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/MovingPlatforms/Manual" unique_id=690657765]
 callback_mode_process = 0
-libraries = {
-&"": SubResource("AnimationLibrary_xf4hg")
-}
-autoplay = "RESET"
+libraries/ = SubResource("AnimationLibrary_xf4hg")
+autoplay = &"RESET"
 
-[node name="MovingPlatformTimer" type="Timer" parent="Map/MovingPlatforms/Manual"]
+[node name="MovingPlatformTimer" type="Timer" parent="Map/MovingPlatforms/Manual" unique_id=110515820]
 wait_time = 2.0
 one_shot = true
 
-[node name="BlueCube" type="CSGBox3D" parent="Map"]
+[node name="BlueCube" type="CSGBox3D" parent="Map" unique_id=1781346582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 0)
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 20, 20)
 material = ExtResource("27_1scad")
 
-[node name="JumpLabel3D" type="Label3D" parent="Map/BlueCube"]
+[node name="JumpLabel3D" type="Label3D" parent="Map/BlueCube" unique_id=1894188002]
 transform = Transform3D(-3.92894e-06, 0, -1.25, 0, 1.25, 0, 1.25, 0, -3.92894e-06, -10.1, 5.8, 0.3)
 pixel_size = 0.01
 text = "Hold \"JUMP\" while jumping
@@ -1166,39 +1164,39 @@ font = ExtResource("23_2se3s")
 font_size = 48
 outline_size = 0
 
-[node name="RedGem" parent="Map/BlueCube" instance=ExtResource("7_tpij1")]
+[node name="RedGem" parent="Map/BlueCube" unique_id=1730710119 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5)
 
-[node name="RedGem2" parent="Map/BlueCube" instance=ExtResource("7_tpij1")]
+[node name="RedGem2" parent="Map/BlueCube" unique_id=328816981 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 5)
 
-[node name="RedGem3" parent="Map/BlueCube" instance=ExtResource("7_tpij1")]
+[node name="RedGem3" parent="Map/BlueCube" unique_id=286776282 instance=ExtResource("7_tpij1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, 0)
 
-[node name="PurpleGem" parent="Map/BlueCube" instance=ExtResource("9_gl1x1")]
+[node name="PurpleGem" parent="Map/BlueCube" unique_id=606918907 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 0)
 
-[node name="GreenGem" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem" parent="Map/BlueCube" unique_id=1491989856 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
 
-[node name="GreenGem2" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem2" parent="Map/BlueCube" unique_id=962241710 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3)
 
-[node name="GreenGem3" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem3" parent="Map/BlueCube" unique_id=1420264567 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2)
 
-[node name="GreenGem4" parent="Map/BlueCube" instance=ExtResource("8_m1jg2")]
+[node name="GreenGem4" parent="Map/BlueCube" unique_id=1135117392 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2)
 
-[node name="SprintTutorial" type="Area3D" parent="Map/BlueCube"]
+[node name="SprintTutorial" type="Area3D" parent="Map/BlueCube" unique_id=1771094876]
 unique_name_in_owner = true
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BlueCube/SprintTutorial"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/BlueCube/SprintTutorial" unique_id=654140958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
 shape = SubResource("39")
 
-[node name="SprintLabel3D" type="Label3D" parent="Map/BlueCube/SprintTutorial"]
+[node name="SprintLabel3D" type="Label3D" parent="Map/BlueCube/SprintTutorial" unique_id=245589763]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.5, 12.5, -7.5)
 pixel_size = 0.01
 billboard = 2
@@ -1210,78 +1208,76 @@ font = ExtResource("23_2se3s")
 font_size = 48
 outline_size = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/BlueCube/SprintTutorial"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/BlueCube/SprintTutorial" unique_id=1530808500]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_1tc6t")
-}
+libraries/ = SubResource("AnimationLibrary_1tc6t")
 
-[node name="BlueCube2" type="CSGBox3D" parent="Map"]
+[node name="BlueCube2" type="CSGBox3D" parent="Map" unique_id=837641530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.645, 0.287, 0)
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 20, 20)
 material = ExtResource("27_1scad")
 
-[node name="BridgeGodotHead" parent="Map/BlueCube2" instance=ExtResource("17_tburi")]
+[node name="BridgeGodotHead" parent="Map/BlueCube2" unique_id=1645768947 instance=ExtResource("17_tburi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 
-[node name="Spring" parent="Map" instance=ExtResource("28_so3lg")]
+[node name="Spring" parent="Map" unique_id=1042545464 instance=ExtResource("28_so3lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.145, 10, 7.476)
 
-[node name="SpringPath" type="Path3D" parent="Map/Spring"]
+[node name="SpringPath" type="Path3D" parent="Map/Spring" unique_id=1232909940]
 unique_name_in_owner = true
 curve = SubResource("Curve3D_dm8rc")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Map/Spring/SpringPath"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/Spring/SpringPath" unique_id=1726060662]
 rotation_mode = 0
 loop = false
 
-[node name="FallingBridge" parent="Map" instance=ExtResource("29_wueom")]
+[node name="FallingBridge" parent="Map" unique_id=1738664031 instance=ExtResource("29_wueom")]
 unique_name_in_owner = true
 
-[node name="Player" parent="." instance=ExtResource("30_qaouf")]
+[node name="Player" parent="." unique_id=518737034 instance=ExtResource("30_qaouf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0850945, 0.15513, 0.129791)
 
-[node name="UserInterface" parent="." instance=ExtResource("31_dia1q")]
+[node name="UserInterface" parent="." unique_id=378170814 instance=ExtResource("31_dia1q")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2131775426]
 environment = ExtResource("32_xg6rw")
 
-[node name="SmallBoundary" parent="." instance=ExtResource("19_hwma5")]
+[node name="SmallBoundary" parent="." unique_id=1319287035 instance=ExtResource("19_hwma5")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 21.2329, -3.71757, -54.5046)
 
-[node name="MajorBoundary" parent="." instance=ExtResource("19_hwma5")]
+[node name="MajorBoundary" parent="." unique_id=151896443 instance=ExtResource("19_hwma5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
-[node name="WaterPlane" type="MeshInstance3D" parent="."]
+[node name="WaterPlane" type="MeshInstance3D" parent="." unique_id=1780842611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583241, -76.0941)
 mesh = SubResource("PlaneMesh_3hdny")
 
-[node name="YellowEnemy" parent="." instance=ExtResource("25_ui5k2")]
+[node name="YellowEnemy" parent="." unique_id=1264632494 instance=ExtResource("25_ui5k2")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 131.98, 0, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=140302281]
 stream = ExtResource("34_0eww4")
 autoplay = true
 bus = &"Music"
 
-[node name="TurretEnemy" parent="." instance=ExtResource("35_e5ry1")]
+[node name="TurretEnemy" parent="." unique_id=496806630 instance=ExtResource("35_e5ry1")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -21.0567, -0.665399, -172.457)
 
-[node name="SandPlatform" type="Node3D" parent="."]
+[node name="SandPlatform" type="Node3D" parent="." unique_id=631455403]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 78.594)
 
-[node name="SandRamp" type="Node3D" parent="SandPlatform"]
+[node name="SandRamp" type="Node3D" parent="SandPlatform" unique_id=1196764001]
 
-[node name="AboveRamp" type="CSGBox3D" parent="SandPlatform/SandRamp"]
+[node name="AboveRamp" type="CSGBox3D" parent="SandPlatform/SandRamp" unique_id=1590240237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.9007, 1)
 use_collision = true
 collision_layer = 4
 size = Vector3(10, 1, 10)
 material = ExtResource("36_wghgm")
 
-[node name="SandRampBack" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
+[node name="SandRampBack" type="CSGMesh3D" parent="SandPlatform/SandRamp" unique_id=1399210050]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 19.4, 17)
 use_collision = true
 collision_layer = 4
@@ -1289,10 +1285,10 @@ collision_mask = 3
 mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
-[node name="SandRampGodotHead" parent="SandPlatform/SandRamp" instance=ExtResource("17_tburi")]
+[node name="SandRampGodotHead" parent="SandPlatform/SandRamp" unique_id=34957614 instance=ExtResource("17_tburi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 1)
 
-[node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp"]
+[node name="SandRampFront" type="CSGMesh3D" parent="SandPlatform/SandRamp" unique_id=1838391849]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 19.4, -15)
 use_collision = true
 collision_layer = 4
@@ -1300,102 +1296,102 @@ collision_mask = 3
 mesh = SubResource("PrismMesh_p0g05")
 material = ExtResource("36_wghgm")
 
-[node name="BreakableSandWall" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
+[node name="BreakableSandWall" parent="SandPlatform/SandRamp" unique_id=457006293 instance=ExtResource("37_4w2bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74763, 18.9109, 0.976196)
 collision_mask = 3
 
-[node name="BreakableSandWall3" parent="SandPlatform/SandRamp" instance=ExtResource("37_4w2bu")]
+[node name="BreakableSandWall3" parent="SandPlatform/SandRamp" unique_id=1547018714 instance=ExtResource("37_4w2bu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.717, 18.911, 0.975998)
 collision_mask = 3
 
-[node name="Isle" type="StaticBody3D" parent="SandPlatform"]
+[node name="Isle" type="StaticBody3D" parent="SandPlatform" unique_id=320509416]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.295, -14.8192, 24.523)
 collision_layer = 4
 collision_mask = 3
 
-[node name="isle" parent="SandPlatform/Isle" instance=ExtResource("38_qdb03")]
+[node name="isle" parent="SandPlatform/Isle" unique_id=1021286323 instance=ExtResource("38_qdb03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
 
-[node name="Plane" parent="SandPlatform/Isle/isle" index="0"]
+[node name="Plane" parent="SandPlatform/Isle/isle" index="0" unique_id=2146303334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.43521, -49.4544)
 surface_material_override/0 = ExtResource("36_wghgm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SandPlatform/Isle"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SandPlatform/Isle" unique_id=1459718024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -4.43521, -49.4544)
 shape = SubResource("ConvexPolygonShape3D_6csbd")
 metadata/_edit_lock_ = true
 
-[node name="IslePath" type="StaticBody3D" parent="SandPlatform"]
+[node name="IslePath" type="StaticBody3D" parent="SandPlatform" unique_id=803017090]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -78.594)
 collision_layer = 4
 collision_mask = 3
 
-[node name="isle_path" parent="SandPlatform/IslePath" instance=ExtResource("39_105mw")]
+[node name="isle_path" parent="SandPlatform/IslePath" unique_id=1600168633 instance=ExtResource("39_105mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59223, -0.629283, 44.943)
 
-[node name="Plane" parent="SandPlatform/IslePath/isle_path" index="0"]
+[node name="Plane" parent="SandPlatform/IslePath/isle_path" index="0" unique_id=1202758693]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8.6, -0.301363, -4.5)
 surface_material_override/0 = ExtResource("36_wghgm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SandPlatform/IslePath"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SandPlatform/IslePath" unique_id=713760109]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00776672, -0.930646, 40.443)
 shape = SubResource("ConvexPolygonShape3D_u7vgq")
 
-[node name="FoliagePlant" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant" parent="SandPlatform" unique_id=1241064090 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.559, 15.3146, -19.7572)
 
-[node name="FoliagePlant2" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant2" parent="SandPlatform" unique_id=1895283956 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7921, 15.3146, -6.78072)
 
-[node name="FoliagePlant3" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant3" parent="SandPlatform" unique_id=1875751342 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7618, 15.3146, 13.2694)
 
-[node name="FoliagePlant4" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant4" parent="SandPlatform" unique_id=1165898961 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2028, 15.3146, -18.5993)
 
-[node name="FoliagePlant5" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant5" parent="SandPlatform" unique_id=1054060564 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99682, 15.3146, -10.0185)
 
-[node name="FoliagePlant6" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant6" parent="SandPlatform" unique_id=473219203 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3738, 15.3146, 7.78867)
 
-[node name="FoliagePlant7" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant7" parent="SandPlatform" unique_id=1620024501 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6878, 15.3146, 17.7119)
 
-[node name="FoliagePlant8" parent="SandPlatform" instance=ExtResource("20_ijocr")]
+[node name="FoliagePlant8" parent="SandPlatform" unique_id=361651649 instance=ExtResource("20_ijocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4245, 15.3146, -2.89021)
 
-[node name="Path3D" type="Path3D" parent="SandPlatform"]
+[node name="Path3D" type="Path3D" parent="SandPlatform" unique_id=1531814292]
 curve = SubResource("Curve3D_idwc0")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D"]
+[node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D" unique_id=28707100]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 15, 23)
 loop = false
 
-[node name="BlueEnemy" parent="SandPlatform/Path3D/PathFollow3D" instance=ExtResource("10_vipi2")]
+[node name="BlueEnemy" parent="SandPlatform/Path3D/PathFollow3D" unique_id=1110626355 instance=ExtResource("10_vipi2")]
 
-[node name="Path3D2" type="Path3D" parent="SandPlatform"]
+[node name="Path3D2" type="Path3D" parent="SandPlatform" unique_id=2080529000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0791, 0, 0)
 curve = SubResource("Curve3D_8pu6n")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.4815, 15, -26)
+[node name="PathFollow3D" type="PathFollow3D" parent="SandPlatform/Path3D2" unique_id=673607009]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -28.481531, 15, -26)
 progress = 57.9443
 loop = false
 
-[node name="BlueEnemy" parent="SandPlatform/Path3D2/PathFollow3D" instance=ExtResource("10_vipi2")]
+[node name="BlueEnemy" parent="SandPlatform/Path3D2/PathFollow3D" unique_id=1461087777 instance=ExtResource("10_vipi2")]
 
-[node name="FishPath3D" type="Path3D" parent="."]
+[node name="FishPath3D" type="Path3D" parent="." unique_id=171285191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5318, -0.3, 83.4094)
 curve = SubResource("Curve3D_ck1gi")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="FishPath3D"]
-transform = Transform3D(0.847998, 0, 0.529999, 0, 1, 0, -0.529999, 0, 0.847998, 0, 0, 20)
+[node name="PathFollow3D" type="PathFollow3D" parent="FishPath3D" unique_id=395278542]
+transform = Transform3D(0.8479981, 0, 0.5299989, 0, 1, 0, -0.5299989, 0, 0.8479981, 0, 0, 20)
 
-[node name="FishEnemy" parent="FishPath3D/PathFollow3D" instance=ExtResource("40_duj88")]
+[node name="FishEnemy" parent="FishPath3D/PathFollow3D" unique_id=1946197067 instance=ExtResource("40_duj88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="MinimapCamera" type="Camera3D" parent="."]
+[node name="MinimapCamera" type="Camera3D" parent="." unique_id=1432655262]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 435, 0)
 visible = false
 projection = 1
@@ -1403,32 +1399,28 @@ size = 750.0
 script = ExtResource("41_2dfa4")
 save_to = "res://assets/minimap/maps/test-map.png"
 
-[node name="CheckpointFlag" parent="." instance=ExtResource("6_rhpv0")]
+[node name="CheckpointFlag" parent="." unique_id=230679379 instance=ExtResource("6_rhpv0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.119, 11.1003, 9.64482)
 
-[node name="BigBeachIsland" parent="." instance=ExtResource("42_3dnkc")]
+[node name="BigBeachIsland" parent="." unique_id=1932606039 instance=ExtResource("42_3dnkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56736, -75.1845, 246.716)
 
-[node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="." unique_id=913162539]
 root_node = NodePath("CutsceneCamera")
-libraries = {
-&"": SubResource("AnimationLibrary_8e17r")
-}
+libraries/ = SubResource("AnimationLibrary_8e17r")
 
-[node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 36, 382)
+[node name="CutsceneCamera" type="Camera3D" parent="CutsceneAnimationPlayer" unique_id=1546567302]
+transform = Transform3D(1, 0, 0, 0, 0.96592605, 0.25881872, 0, -0.25881872, 0.96592605, 0, 36, 382)
 
-[node name="CagedTikiNPC" parent="." instance=ExtResource("44_wr07v")]
+[node name="CagedTikiNPC" parent="." unique_id=756598206 instance=ExtResource("44_wr07v")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.7607, 0.0819117, -256.247)
 
-[node name="CagedTikiGodotHead" parent="CagedTikiNPC" instance=ExtResource("17_tburi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, 3, 3)
+[node name="CagedTikiGodotHead" parent="CagedTikiNPC" unique_id=1265620244 instance=ExtResource("17_tburi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.2, 3, 3)
 visible = false
 
-[node name="CagedTikiGodotHeadAnimationPlayer" type="AnimationPlayer" parent="CagedTikiNPC"]
-libraries = {
-&"": SubResource("AnimationLibrary_p5igw")
-}
+[node name="CagedTikiGodotHeadAnimationPlayer" type="AnimationPlayer" parent="CagedTikiNPC" unique_id=721632766]
+libraries/ = SubResource("AnimationLibrary_p5igw")
 
 [connection signal="pressed" from="Map/GreenPlatform2/Ramp/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="animation_finished" from="Map/MovingPlatforms/Manual/AnimationPlayer" to="Map/MovingPlatforms/Manual" method="_on_AnimationPlayer_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0skipybh0r4s"]
+[gd_scene format=3 uid="uid://d0skipybh0r4s"]
 
 [ext_resource type="Script" uid="uid://cmpcbw68avqol" path="res://entities/enemy/blue_enemy/blue_enemy.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://woycgl4833us" path="res://entities/enemy/prism_area.tscn" id="2"]
@@ -127,41 +127,39 @@ billboard_mode = 1
 material = SubResource("6")
 size = Vector2(1.5, 1.5)
 
-[node name="BlueEnemy" type="CharacterBody3D" groups=["enemies"]]
+[node name="BlueEnemy" type="CharacterBody3D" unique_id=826428962 groups=["enemies"]]
 collision_layer = 2
 collision_mask = 524871
 script = ExtResource("1")
 squash_sound = ExtResource("4")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=966740187]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.354281, 0)
 
-[node name="Character" parent="Pivot" instance=ExtResource("3")]
-transform = Transform3D(0.999737, 0.00211386, 0.0228296, -0.00598565, 0.985272, 0.17089, -0.0221321, -0.170982, 0.985026, 0.0239411, 0.734308, -0.00194665)
+[node name="Character" parent="Pivot" unique_id=1836778515 instance=ExtResource("3")]
+transform = Transform3D(0.99973714, 0.0021138582, 0.022829577, -0.0059856507, 0.9852719, 0.17089027, -0.022132102, -0.17098199, 0.9850255, 0.0239411, 0.734308, -0.00194665)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=335411024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671283, 0.295466)
 shape = SubResource("1")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1413136777]
 transform = Transform3D(1.21071, 0, 0, 0, 1, 0, 0, 0, 1.7127, 0, 0, 0.28548)
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qiig7")
-}
-autoplay = "float"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=638058414]
+libraries/ = SubResource("AnimationLibrary_qiig7")
+autoplay = &"float"
 
-[node name="PrismArea" parent="." instance=ExtResource("2")]
+[node name="PrismArea" parent="." unique_id=1502215643 instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8.7)
 visible = false
 
-[node name="AlertTimer" type="Timer" parent="."]
+[node name="AlertTimer" type="Timer" parent="." unique_id=1308752133]
 wait_time = 0.5
 one_shot = true
 
-[node name="ExclamationMark" type="MeshInstance3D" parent="."]
+[node name="ExclamationMark" type="MeshInstance3D" parent="." unique_id=82937904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
 visible = false
 mesh = SubResource("5")

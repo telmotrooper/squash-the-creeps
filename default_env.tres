@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=4 format=3 uid="uid://d38p1lm0kuun7"]
+[gd_resource type="Environment" format=3 uid="uid://d38p1lm0kuun7"]
 
 [ext_resource type="Texture2D" uid="uid://corum3l1owa2v" path="res://assets/skyboxes/casual_day_4k.hdr" id="1_4uu4e"]
 

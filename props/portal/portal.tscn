@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://pjp410u41fqp"]
+[gd_scene format=3 uid="uid://pjp410u41fqp"]
 
 [ext_resource type="Script" uid="uid://d0ivl0vwquf0k" path="res://props/portal/portal.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="2_7t4r7"]
@@ -181,24 +181,24 @@ scale_min = 0.5
 radius = 0.25
 height = 0.5
 
-[node name="Portal" type="CSGCylinder3D"]
+[node name="Portal" type="CSGCylinder3D" unique_id=1072378324]
 radius = 3.0
 height = 0.25
 sides = 16
 material = SubResource("19")
 script = ExtResource("1")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=807993352]
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=378149193]
 shape = SubResource("20")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2139817285]
 bus = &"Sound"
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=631437711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 pixel_size = 0.025
 billboard = 2
@@ -209,7 +209,7 @@ font = ExtResource("2_7t4r7")
 font_size = 48
 outline_size = 6
 
-[node name="RequirementLabel" type="Label3D" parent="."]
+[node name="RequirementLabel" type="Label3D" parent="." unique_id=896118656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
 pixel_size = 0.025
 billboard = 2
@@ -220,25 +220,21 @@ font = ExtResource("2_7t4r7")
 font_size = 24
 outline_size = 6
 
-[node name="LabelAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_i0kr4")
-}
-autoplay = "up_and_down"
+[node name="LabelAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2026750686]
+libraries/ = SubResource("AnimationLibrary_i0kr4")
+autoplay = &"up_and_down"
 
-[node name="RequirementAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="RequirementAnimationPlayer" type="AnimationPlayer" parent="." unique_id=860479431]
 root_node = NodePath("../DetectArea")
-libraries = {
-&"": SubResource("AnimationLibrary_spwc0")
-}
+libraries/ = SubResource("AnimationLibrary_spwc0")
 
-[node name="DetectArea" type="Area3D" parent="."]
+[node name="DetectArea" type="Area3D" parent="." unique_id=1030106946]
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectArea" unique_id=1794271256]
 shape = SubResource("24")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1194021190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_bmhe1")
 amount = 32

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://c7wwx46ehiufd"]
+[gd_scene format=4 uid="uid://c7wwx46ehiufd"]
 
 [ext_resource type="Script" uid="uid://cwno530n4eetr" path="res://props/red_gem/gem.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://offdyh8u8jmf" path="res://props/red_gem/zapsplat_multimedia_game_sound_plonky_synth_high_pitched_ping.ogg" id="3"]
@@ -48,28 +48,27 @@ shadow_mesh = SubResource("ArrayMesh_ve8de")
 [sub_resource type="SphereShape3D" id="2"]
 radius = 1.0
 
-[node name="RedGem" type="RigidBody3D"]
+[node name="RedGem" type="RigidBody3D" unique_id=728637603]
 collision_layer = 256
 collision_mask = 4
 gravity_scale = 3.0
 script = ExtResource("2")
 collected_sound = ExtResource("3")
 
-[node name="red_gem" type="Node3D" parent="."]
+[node name="red_gem" type="Node3D" parent="." unique_id=1307593017]
 
-[node name="RedGem" type="MeshInstance3D" parent="red_gem"]
+[node name="RedGem" type="MeshInstance3D" parent="red_gem" unique_id=524692472]
 transform = Transform3D(0.0267608, 0, 0, 0, 0.0267608, 0, 0, 0, 0.0267608, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jhv4u")
-skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=194764840]
 transform = Transform3D(0.707107, -0.707107, 0, 0.5, 0.5, -0.707107, 0.5, 0.5, 0.707107, 0, 0.8, 0)
 shape = SubResource("1")
 
-[node name="GrabArea" type="Area3D" parent="."]
+[node name="GrabArea" type="Area3D" parent="." unique_id=306492530]
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabArea" unique_id=600916742]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.8, 0)
 shape = SubResource("2")
 

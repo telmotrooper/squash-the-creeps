@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1adku7xcpwfb"]
+[gd_scene format=3 uid="uid://1adku7xcpwfb"]
 
 [ext_resource type="Script" uid="uid://dpvm6vefewwn7" path="res://maps/extras/spring/spring.gd" id="1_w7cyw"]
 [ext_resource type="PackedScene" uid="uid://b4uyhp6qs75my" path="res://maps/extras/spring/spring.blend" id="2_bf2kl"]
@@ -60,23 +60,21 @@ _data = {
 &"retract": SubResource("Animation_bdimh")
 }
 
-[node name="Spring" type="Node3D"]
+[node name="Spring" type="Node3D" unique_id=644257147]
 script = ExtResource("1_w7cyw")
 
-[node name="spring" parent="." instance=ExtResource("2_bf2kl")]
+[node name="spring" parent="." unique_id=1841342233 instance=ExtResource("2_bf2kl")]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=102925194]
 collision_layer = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=904965040]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_e6maf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vjk3j")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=922540283]
+libraries/ = SubResource("AnimationLibrary_vjk3j")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

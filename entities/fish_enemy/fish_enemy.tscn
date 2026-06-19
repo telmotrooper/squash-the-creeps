@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hrpb58rlnaf8"]
+[gd_scene format=3 uid="uid://hrpb58rlnaf8"]
 
 [ext_resource type="Material" uid="uid://l7vxw82i64vp" path="res://entities/fish_enemy/red.material" id="1_p0x6w"]
 [ext_resource type="Script" uid="uid://bk7d0wippeght" path="res://entities/fish_enemy/fish_enemy.gd" id="1_xe3cw"]
@@ -56,45 +56,43 @@ _data = {
 &"swim": SubResource("Animation_wdclc")
 }
 
-[node name="FishEnemy" type="CharacterBody3D"]
+[node name="FishEnemy" type="CharacterBody3D" unique_id=1856993932]
 transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 0, 0, 0)
 collision_layer = 2
 collision_mask = 583
 script = ExtResource("1_xe3cw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1346283851]
 shape = SubResource("SphereShape3D_ngw1e")
 
-[node name="Node" type="Node3D" parent="."]
+[node name="Node" type="Node3D" parent="." unique_id=725094610]
 
-[node name="Body" type="MeshInstance3D" parent="Node"]
+[node name="Body" type="MeshInstance3D" parent="Node" unique_id=937416836]
 transform = Transform3D(0.998413, 0, 0.0563129, 0, 1, 0, -0.0563129, 0, 0.998413, 0, 0, 0)
 mesh = SubResource("SphereMesh_2slpr")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_p0x6w")
 
-[node name="Fin" type="MeshInstance3D" parent="Node"]
+[node name="Fin" type="MeshInstance3D" parent="Node" unique_id=1573491614]
 transform = Transform3D(2.39527e-08, -0.547975, 0.836495, -1, -4.37114e-08, -3.64441e-15, 3.65643e-08, -0.836495, -0.547975, 3.3946, 0, -0.191464)
 mesh = SubResource("PrismMesh_t52yf")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_36xaf")
 
-[node name="Fin2" type="MeshInstance3D" parent="Node"]
+[node name="Fin2" type="MeshInstance3D" parent="Node" unique_id=2096601718]
 transform = Transform3D(-1.96893e-08, 0.450438, 0.892808, -1, -4.37114e-08, 0, 3.90259e-08, -0.892808, 0.450438, -3.3946, 0, 0.191464)
 mesh = SubResource("PrismMesh_t52yf")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_36xaf")
 
-[node name="Eye1" type="MeshInstance3D" parent="Node"]
+[node name="Eye1" type="MeshInstance3D" parent="Node" unique_id=2037019730]
 transform = Transform3D(0.999999, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 0.999999, 0.80792, 0.8, -2.3)
 mesh = SubResource("SphereMesh_0mwfu")
 
-[node name="Eye2" type="MeshInstance3D" parent="Node"]
+[node name="Eye2" type="MeshInstance3D" parent="Node" unique_id=1665304949]
 transform = Transform3D(0.999999, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 0.999999, -0.592079, 0.8, -2.3)
 mesh = SubResource("SphereMesh_0mwfu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_0iqik")
-}
-autoplay = "swim"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1266148281]
+libraries/ = SubResource("AnimationLibrary_0iqik")
+autoplay = &"swim"

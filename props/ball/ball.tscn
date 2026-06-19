@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtl8a6yhn3qa8"]
+[gd_scene format=3 uid="uid://dtl8a6yhn3qa8"]
 
 [ext_resource type="PackedScene" uid="uid://dlsstig2f4bjc" path="res://props/ball/ball.glb" id="1"]
 
 [sub_resource type="SphereShape3D" id="1"]
 radius = 1.0
 
-[node name="Ball" type="RigidBody3D"]
+[node name="Ball" type="RigidBody3D" unique_id=2128052082]
 collision_layer = 8
 collision_mask = 68
 
-[node name="Model" parent="." instance=ExtResource("1")]
+[node name="Model" parent="." unique_id=1344002629 instance=ExtResource("1")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1228157845]
 shape = SubResource("1")

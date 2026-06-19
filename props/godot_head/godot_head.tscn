@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwj1edhp5j7fw"]
+[gd_scene format=3 uid="uid://bwj1edhp5j7fw"]
 
 [ext_resource type="Script" uid="uid://cufidje4dhou0" path="res://props/godot_head/godot_head.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://b1qcirx0o28s5" path="res://props/godot_head/godot_logo.blend" id="2_v6g6h"]
@@ -30,25 +30,23 @@ _data = {
 radius = 2.5
 height = 5.0
 
-[node name="GodotHead" type="Area3D"]
+[node name="GodotHead" type="Area3D" unique_id=1180138197]
 collision_layer = 8
 script = ExtResource("2")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=992252403]
 
-[node name="godot_logo" parent="Pivot" instance=ExtResource("2_v6g6h")]
+[node name="godot_logo" parent="Pivot" unique_id=792032953 instance=ExtResource("2_v6g6h")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vpucn")
-}
-autoplay = "rotate"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1890091502]
+libraries/ = SubResource("AnimationLibrary_vpucn")
+autoplay = &"rotate"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=258453242]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=250098339]
 stream = ExtResource("3")
 bus = &"Sound"
 

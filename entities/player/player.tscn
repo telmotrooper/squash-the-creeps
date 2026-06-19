@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://goxaxv03ucgy"]
+[gd_scene format=3 uid="uid://goxaxv03ucgy"]
 
 [ext_resource type="Script" uid="uid://cn4grqaxixv5x" path="res://entities/player/player.gd" id="2"]
 [ext_resource type="Script" uid="uid://du560503dixa4" path="res://entities/player/camera.gd" id="3"]
@@ -273,7 +273,7 @@ albedo_color = Color(0.901961, 0.901961, 0.901961, 0.588235)
 [sub_resource type="SphereMesh" id="SphereMesh_r06iu"]
 material = SubResource("StandardMaterial3D_8u7bp")
 
-[node name="Player" type="CharacterBody3D" groups=["players"]]
+[node name="Player" type="CharacterBody3D" unique_id=1817863931 groups=["players"]]
 collision_mask = 525006
 script = ExtResource("2")
 full_health_material = ExtResource("3_koyrj")
@@ -281,110 +281,104 @@ mid_health_material = ExtResource("3_ndr1b")
 low_health_material = ExtResource("4_imwxo")
 hurt_sound = ExtResource("4")
 
-[node name="ModelPivot" type="Node3D" parent="."]
+[node name="ModelPivot" type="Node3D" parent="." unique_id=1379203550]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 0, 0, 0)
 
-[node name="player" parent="ModelPivot" instance=ExtResource("6_l52l8")]
+[node name="player" parent="ModelPivot" unique_id=546681402 instance=ExtResource("6_l52l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0)
 
-[node name="Pupil (Hurt)" parent="ModelPivot/player" index="3"]
+[node name="Pupil (Hurt)" parent="ModelPivot/player" index="3" unique_id=1736695118]
 visible = false
 
-[node name="CameraPivot" type="Node3D" parent="."]
+[node name="CameraPivot" type="Node3D" parent="." unique_id=992365201]
 script = ExtResource("3")
 
-[node name="Horizontal" type="Node3D" parent="CameraPivot"]
+[node name="Horizontal" type="Node3D" parent="CameraPivot" unique_id=1896858374]
 
-[node name="Vertical" type="Node3D" parent="CameraPivot/Horizontal"]
+[node name="Vertical" type="Node3D" parent="CameraPivot/Horizontal" unique_id=1862416931]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Horizontal/Vertical"]
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Horizontal/Vertical" unique_id=1030908010]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_mask = 68
 shape = SubResource("SphereShape3D_se4do")
 spring_length = 10.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Horizontal/Vertical/SpringArm3D" unique_id=1252561258]
 unique_name_in_owner = true
 process_mode = 1
 current = true
 
-[node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="." unique_id=1348452622]
 visible = false
 shape = SubResource("1")
 
-[node name="EnemyDetector" type="Area3D" parent="."]
+[node name="EnemyDetector" type="Area3D" parent="." unique_id=1620989900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector" unique_id=1717512516]
 visible = false
 shape = SubResource("2")
 
-[node name="SpinArea" type="Area3D" parent="."]
+[node name="SpinArea" type="Area3D" parent="." unique_id=878192125]
 visible = false
 collision_mask = 102
 
-[node name="SpinCollisionShape" type="CollisionShape3D" parent="SpinArea"]
+[node name="SpinCollisionShape" type="CollisionShape3D" parent="SpinArea" unique_id=957191479]
 visible = false
 shape = SubResource("5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_et1fc")
-}
-autoplay = "float"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1137136137]
+libraries/ = SubResource("AnimationLibrary_et1fc")
+autoplay = &"float"
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1652361189]
 root_node = NodePath("../AnimationPlayer")
-libraries = {
-&"": SubResource("AnimationLibrary_t8gbh")
-}
+libraries/ = SubResource("AnimationLibrary_t8gbh")
 
-[node name="EffectsAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_svvlv")
-}
+[node name="EffectsAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1957733302]
+libraries/ = SubResource("AnimationLibrary_svvlv")
 
-[node name="DashDurationTimer" type="Timer" parent="."]
+[node name="DashDurationTimer" type="Timer" parent="." unique_id=1980567330]
 wait_time = 0.2
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1347560696]
 stream = ExtResource("4")
 bus = &"Sound"
 
-[node name="RayCasts" type="Node3D" parent="."]
+[node name="RayCasts" type="Node3D" parent="." unique_id=826702532]
 visible = false
 
-[node name="RayCast" type="RayCast3D" parent="RayCasts"]
+[node name="RayCast" type="RayCast3D" parent="RayCasts" unique_id=109642793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, -1.1)
 target_position = Vector3(0, -3, 0)
 collision_mask = 36
 collide_with_areas = true
 
-[node name="RayCast2" type="RayCast3D" parent="RayCasts"]
+[node name="RayCast2" type="RayCast3D" parent="RayCasts" unique_id=1658159696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.75, -1.1)
 target_position = Vector3(0, -3, 0)
 collision_mask = 36
 collide_with_areas = true
 
-[node name="RayCast3" type="RayCast3D" parent="RayCasts"]
+[node name="RayCast3" type="RayCast3D" parent="RayCasts" unique_id=1168958856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.75, 1.8)
 target_position = Vector3(0, -3, 0)
 collision_mask = 36
 collide_with_areas = true
 
-[node name="RayCast4" type="RayCast3D" parent="RayCasts"]
+[node name="RayCast4" type="RayCast3D" parent="RayCasts" unique_id=857908891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, 1.8)
 target_position = Vector3(0, -3, 0)
 collision_mask = 36
 collide_with_areas = true
 
-[node name="BodySlamParticles" type="GPUParticles3D" parent="."]
+[node name="BodySlamParticles" type="GPUParticles3D" parent="." unique_id=1003687408]
 emitting = false
 amount = 60
 lifetime = 0.5

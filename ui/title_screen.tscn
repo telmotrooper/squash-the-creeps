@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bkk8jxmcw8q4x"]
+[gd_scene format=3 uid="uid://bkk8jxmcw8q4x"]
 
 [ext_resource type="Environment" uid="uid://dhylrgs4ypi2c" path="res://ui/menu_env.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://chbhpadk5nbgi" path="res://maps/hub_1.tscn" id="4"]
@@ -280,18 +280,16 @@ _data = {
 &"spin_y": SubResource("9")
 }
 
-[node name="TitleScreen" type="Node"]
+[node name="TitleScreen" type="Node" unique_id=1300183966]
 script = ExtResource("5")
 new_game_scene = ExtResource("4")
 menu_music = ExtResource("8")
 
-[node name="AnimationPlayerMenu" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pte50")
-}
-autoplay = "menu_fade_in"
+[node name="AnimationPlayerMenu" type="AnimationPlayer" parent="." unique_id=408183911]
+libraries/ = SubResource("AnimationLibrary_pte50")
+autoplay = &"menu_fade_in"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=2053959106]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -305,7 +303,7 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="VBoxContainer" parent="Control"]
+[node name="Menu" type="VBoxContainer" parent="Control" unique_id=1706139184]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -316,109 +314,103 @@ offset_top = -295.5
 offset_right = 520.0
 offset_bottom = 295.5
 
-[node name="Logo" type="TextureRect" parent="Control/Menu"]
+[node name="Logo" type="TextureRect" parent="Control/Menu" unique_id=1124003485]
 layout_mode = 2
 texture = ExtResource("6")
 stretch_mode = 3
 
-[node name="CenterRow" type="HBoxContainer" parent="Control/Menu"]
+[node name="CenterRow" type="HBoxContainer" parent="Control/Menu" unique_id=1877083242]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="Control/Menu/CenterRow"]
+[node name="Buttons" type="VBoxContainer" parent="Control/Menu/CenterRow" unique_id=1988456305]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="NewGameButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource("5_mxtec")]
+[node name="NewGameButton" parent="Control/Menu/CenterRow/Buttons" unique_id=112530495 instance=ExtResource("5_mxtec")]
 unique_name_in_owner = true
 layout_mode = 2
 button_text = "NEW GAME"
 
-[node name="ContinueButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource("5_mxtec")]
+[node name="ContinueButton" parent="Control/Menu/CenterRow/Buttons" unique_id=141632898 instance=ExtResource("5_mxtec")]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 button_text = "CONTINUE"
 button_disabled = true
 
-[node name="SettingsButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource("5_mxtec")]
+[node name="SettingsButton" parent="Control/Menu/CenterRow/Buttons" unique_id=1901107866 instance=ExtResource("5_mxtec")]
 unique_name_in_owner = true
 layout_mode = 2
 button_text = "SETTINGS"
 
-[node name="ExitButton" parent="Control/Menu/CenterRow/Buttons" instance=ExtResource("5_mxtec")]
+[node name="ExitButton" parent="Control/Menu/CenterRow/Buttons" unique_id=888026499 instance=ExtResource("5_mxtec")]
 unique_name_in_owner = true
 layout_mode = 2
 button_text = "EXIT"
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/Menu/CenterRow"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/Menu/CenterRow" unique_id=1037153870]
 self_modulate = Color(1, 1, 1, 0.909091)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="Control/Menu/CenterRow/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/Menu/CenterRow/CenterContainer" unique_id=765693796]
 layout_mode = 2
 
-[node name="VersionLabel" type="Label" parent="Control/Menu"]
+[node name="VersionLabel" type="Label" parent="Control/Menu" unique_id=262611599]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 5
 theme = ExtResource("9_2p3fk")
 text = "DEMO RELEASE"
 
-[node name="DevelopedBy" type="Label" parent="Control/Menu"]
+[node name="DevelopedBy" type="Label" parent="Control/Menu" unique_id=539828434]
 layout_mode = 2
 size_flags_vertical = 5
 theme = ExtResource("9_2p3fk")
 text = "DEVELOPED BY TELMO \"TROOPER\""
 
-[node name="Settings" parent="Control" instance=ExtResource("13")]
+[node name="Settings" parent="Control" unique_id=800924089 instance=ExtResource("13")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 is_title_screen = true
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=1153621284]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=1818324334]
 environment = ExtResource("1")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=925617104]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -13.2946, 6.29957, 0)
 current = true
 
-[node name="AnimationPlayerSkybox" type="AnimationPlayer" parent="Node3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_p04cd")
-}
-autoplay = "rotating_skybox"
+[node name="AnimationPlayerSkybox" type="AnimationPlayer" parent="Node3D" unique_id=1641186827]
+libraries/ = SubResource("AnimationLibrary_p04cd")
+autoplay = &"rotating_skybox"
 speed_scale = 0.2
 
-[node name="AnimationPlayerSpaceship" type="AnimationPlayer" parent="Node3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_477ag")
-}
-autoplay = "coming_in"
+[node name="AnimationPlayerSpaceship" type="AnimationPlayer" parent="Node3D" unique_id=785405684]
+libraries/ = SubResource("AnimationLibrary_477ag")
+autoplay = &"coming_in"
 
-[node name="AnimationPlayerAlien" type="AnimationPlayer" parent="Node3D"]
+[node name="AnimationPlayerAlien" type="AnimationPlayer" parent="Node3D" unique_id=1347127362]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_6i7gw")
-}
+libraries/ = SubResource("AnimationLibrary_6i7gw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=2087064872]
 transform = Transform3D(-0.183013, 0.965926, -0.183013, 0.683013, 0.258819, 0.683013, 0.707107, 0, -0.707107, 0, 0, 0)
 
-[node name="Spaceship" parent="Node3D" instance=ExtResource("12")]
+[node name="Spaceship" parent="Node3D" unique_id=94059200 instance=ExtResource("12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.2, 9.3)
 
-[node name="player" parent="Node3D/Spaceship" instance=ExtResource("11_cwy8d")]
-transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156435, 0, -0.156435, 0.987688, 0, 1.4, 0)
+[node name="player" parent="Node3D/Spaceship" unique_id=1202508193 instance=ExtResource("11_cwy8d")]
+transform = Transform3D(1, 0, 0, 0, 0.98768806, 0.15643477, 0, -0.15643477, 0.98768806, 0, 1.4, 0)
 
-[node name="Pupil (Hurt)" parent="Node3D/Spaceship/player" index="3"]
+[node name="Pupil (Hurt)" parent="Node3D/Spaceship/player" index="3" unique_id=1736695118]
 visible = false
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
