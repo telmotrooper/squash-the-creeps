@@ -11,7 +11,7 @@ collision_layer = 4
 
 [node name="beach_island_hub" parent="." unique_id=1189232865 instance=ExtResource("1_qkxwh")]
 
-[node name="Plane_001" parent="beach_island_hub" index="0" unique_id=101406349]
+[node name="Plane_001" parent="beach_island_hub" index="0" unique_id=121281476]
 surface_material_override/0 = ExtResource("2_7lefv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=972931121]

@@ -25,10 +25,10 @@ collision_mask = 0
 
 [node name="big_beach_island" parent="StaticBody3D" unique_id=2078836665 instance=ExtResource("1_2btys")]
 
-[node name="Island" parent="StaticBody3D/big_beach_island" index="0" unique_id=405324773]
+[node name="Island" parent="StaticBody3D/big_beach_island" index="0" unique_id=205276493]
 surface_material_override/0 = ExtResource("2_on8y1")
 
-[node name="Water Level" parent="StaticBody3D/big_beach_island" index="2" unique_id=1163923162]
+[node name="Water Level" parent="StaticBody3D/big_beach_island" index="2" unique_id=1598994549]
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1166519408]
