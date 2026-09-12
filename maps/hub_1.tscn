@@ -314,7 +314,7 @@ transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 8.
 script = ExtResource("18")
 
 [node name="Smoke" parent="Spaceship" unique_id=339927825 instance=ExtResource("5")]
-transform = Transform3D(-0.26848617, 0.87272996, 0.4077486, -0.09772093, 0.39643067, -0.9128491, -0.9583139, -0.28493327, -0.021152155, -2.43791, 2.2084608, -1.0065603)
+transform = Transform3D(-0.26848614, 0.87272996, 0.4077486, -0.09772093, 0.39643067, -0.9128491, -0.9583138, -0.28493327, -0.021152155, -2.43791, 2.2084608, -1.0065603)
 
 [node name="SpaceshipArea" type="Area3D" parent="Spaceship" unique_id=1249412025]
 collision_layer = 16
@@ -408,7 +408,7 @@ transform = Transform3D(0.950722, 0.310046, 0, -0.310046, 0.950722, 0, 0, 0, 1, 
 [node name="player" parent="Cutscene/CutsceneSpaceship" unique_id=1964692184 instance=ExtResource("18_6iwc4")]
 transform = Transform3D(-0.165173, -0.31028, -0.936186, -0.0531493, 0.950645, -0.305695, 0.984832, -0.000734895, -0.173512, -0.075, 1.312, 0.031)
 
-[node name="Pupil (Hurt)" parent="Cutscene/CutsceneSpaceship/player" index="3" unique_id=1736695118]
+[node name="Pupil (Hurt)" parent="Cutscene/CutsceneSpaceship/player" index="3" unique_id=642400834]
 visible = false
 
 [node name="MinimapCamera" type="Camera3D" parent="." unique_id=1962437390]

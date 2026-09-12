@@ -35,6 +35,7 @@ var is_dashing := false
 var is_body_slamming := false
 var just_thrown_back := false
 var being_thrown_back := false
+var throw_back_direction := Vector3.ZERO
 var floating := false
 
 func _ready() -> void:
@@ -126,8 +127,8 @@ func _physics_process(delta: float) -> void:
 	
 	if being_thrown_back:
 		is_jumping = true
-		velocity.x = -last_direction.x * throw_back_speed
-		velocity.z = -last_direction.z * throw_back_speed
+		velocity.x = throw_back_direction.x * throw_back_speed
+		velocity.z = throw_back_direction.z * throw_back_speed
 	else: # Move player.
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -218,10 +219,12 @@ func die() -> void:
 	hit.emit()
 	queue_free()
 
-func _on_EnemyDetector_body_entered(_body: Node) -> void: # hurt
+func _on_EnemyDetector_body_entered(_body: Node, direction: Vector3 = Vector3.ZERO) -> void: # hurt
 	if not $AudioStreamPlayer.playing:
 		$AudioStreamPlayer.stream = hurt_sound
 		$AudioStreamPlayer.play()
+	
+	throw_back_direction = direction if direction != Vector3.ZERO else -last_direction
 	just_thrown_back = true
 	being_thrown_back = true
 

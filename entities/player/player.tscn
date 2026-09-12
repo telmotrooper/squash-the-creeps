@@ -287,7 +287,7 @@ transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 0, 0, 0)
 [node name="player" parent="ModelPivot" unique_id=546681402 instance=ExtResource("6_l52l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0)
 
-[node name="Pupil (Hurt)" parent="ModelPivot/player" index="3" unique_id=1736695118]
+[node name="Pupil (Hurt)" parent="ModelPivot/player" index="3" unique_id=642400834]
 visible = false
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=992365201]

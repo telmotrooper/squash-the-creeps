@@ -14,7 +14,7 @@ func load_scene(scene_to_load: NodePath) -> void:
 	loading_scene = scene_to_load
 	# $ProgressBar.value = 0
 	# $ProgressBar.show()
-	ResourceLoader.load_threaded_request(loading_scene, "", true)
+	ResourceLoader.load_threaded_request(loading_scene)
 	
 	$FadeTransition.fade_out()
 	await $FadeTransition.faded_out

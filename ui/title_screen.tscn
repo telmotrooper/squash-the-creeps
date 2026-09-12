@@ -410,7 +410,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.2, 9.3)
 [node name="player" parent="Node3D/Spaceship" unique_id=1202508193 instance=ExtResource("11_cwy8d")]
 transform = Transform3D(1, 0, 0, 0, 0.98768806, 0.15643477, 0, -0.15643477, 0.98768806, 0, 1.4, 0)
 
-[node name="Pupil (Hurt)" parent="Node3D/Spaceship/player" index="3" unique_id=1736695118]
+[node name="Pupil (Hurt)" parent="Node3D/Spaceship/player" index="3" unique_id=642400834]
 visible = false
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
