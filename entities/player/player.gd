@@ -219,12 +219,15 @@ func die() -> void:
 	hit.emit()
 	queue_free()
 
-func _on_EnemyDetector_body_entered(_body: Node, direction: Vector3 = Vector3.ZERO) -> void: # hurt
+func _on_EnemyDetector_body_entered(body: Node, direction: Vector3 = Vector3.ZERO) -> void: # hurt
+	if direction == Vector3.ZERO:
+		direction = body.velocity.normalized()
+	
 	if not $AudioStreamPlayer.playing:
 		$AudioStreamPlayer.stream = hurt_sound
 		$AudioStreamPlayer.play()
 	
-	throw_back_direction = direction if direction != Vector3.ZERO else -last_direction
+	throw_back_direction = direction
 	just_thrown_back = true
 	being_thrown_back = true
 
