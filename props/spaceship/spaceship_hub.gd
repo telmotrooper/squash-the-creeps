@@ -20,7 +20,7 @@ func _on_SpaceshipArea_body_exited(_player: Node) -> void:
 	%SpaceshipLabel3D.hide()
 	set_process(false)
 
-func interact_on_spin() -> void:
+func interact_on_spin(_player_position: Vector3) -> void:
 	if not shaking:
 		shaking = true
 		var tween = create_tween().set_loops(2)
