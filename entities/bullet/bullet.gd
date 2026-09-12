@@ -3,6 +3,7 @@ extends CharacterBody3D
 var target: Vector3
 
 var speed := 35
+var direction := Vector3.ZERO
 
 func setup(new_position, new_target) -> Node3D:
 	position = new_position
@@ -23,6 +24,9 @@ func _physics_process(_delta: float) -> void:
 	# TODO: Current the bullet ignores the height the player is in, fix this.
 	velocity = velocity.rotated(Vector3.UP, rotation.y) # Aim at player horizontally.
 	
+	# Store before move_and_slide(), so it's not affected by a collision.
+	direction = velocity.normalized()
+	
 	move_and_slide()
 	
 	# Check if bullet hit the player.
@@ -30,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 		var collider = get_slide_collision(0).get_collider()
 		if collider is Player:
 			var player = collider
-			player._on_EnemyDetector_body_entered(self)
+			player._on_EnemyDetector_body_entered(self, direction)
 			queue_free()
 
 func _on_timer_timeout() -> void:
