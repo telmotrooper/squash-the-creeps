@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://chbhpadk5nbgi" path="res://maps/hub_1.tscn" id="4"]
 [ext_resource type="Script" uid="uid://dg84es73nwecu" path="res://ui/title_screen.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://dialng5csue4b" path="res://ui/menu_button.tscn" id="5_mxtec"]
+[ext_resource type="Script" uid="uid://dnfbaja2use07" path="res://ui/logo.gd" id="5_rakse"]
 [ext_resource type="Texture2D" uid="uid://cfx7dfats6hl" path="res://assets/logo.png" id="6"]
 [ext_resource type="AudioStream" uid="uid://c1ope7npae620" path="res://assets/Super Game Music - Badass Space Explorer (Loop).ogg" id="8"]
 [ext_resource type="Theme" uid="uid://dxlqjk13q05vx" path="res://ui_theme.tres" id="9_2p3fk"]
@@ -314,10 +315,12 @@ offset_top = -295.5
 offset_right = 520.0
 offset_bottom = 295.5
 
-[node name="Logo" type="TextureRect" parent="Control/Menu" unique_id=1124003485]
+[node name="Logo" type="TextureButton" parent="Control/Menu" unique_id=809933274]
 layout_mode = 2
-texture = ExtResource("6")
+size_flags_horizontal = 4
+texture_normal = ExtResource("6")
 stretch_mode = 3
+script = ExtResource("5_rakse")
 
 [node name="CenterRow" type="HBoxContainer" parent="Control/Menu" unique_id=1877083242]
 layout_mode = 2
@@ -414,6 +417,7 @@ transform = Transform3D(1, 0, 0, 0, 0.98768806, 0.15643477, 0, -0.15643477, 0.98
 visible = false
 
 [connection signal="animation_finished" from="AnimationPlayerMenu" to="." method="_on_AnimationPlayerMenu_animation_finished"]
+[connection signal="pressed" from="Control/Menu/Logo" to="Control/Menu/Logo" method="_on_pressed"]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_menu_button_pressed" binds= ["new_game"]]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/SettingsButton" to="." method="_on_menu_button_pressed" binds= ["settings"]]
 [connection signal="pressed" from="Control/Menu/CenterRow/Buttons/ExitButton" to="." method="_on_menu_button_pressed" binds= ["exit"]]
