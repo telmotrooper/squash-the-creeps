@@ -8,7 +8,7 @@ func _ready() -> void:
 		if child is Gem:
 			child.freeze = true
 
-func interact_on_spin() -> void:
+func interact_on_spin(_player_position: Vector3) -> void:
 	if not shaking:
 		shaking = true
 		

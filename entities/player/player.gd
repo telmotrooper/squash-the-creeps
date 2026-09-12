@@ -210,7 +210,7 @@ func _physics_process(delta: float) -> void:
 			if entity.is_in_group("enemies"):
 				entity.squash()
 			elif entity.is_in_group("spinnable"):
-				entity.interact_on_spin()
+				entity.interact_on_spin(global_position)
 
 func is_spinning() -> bool:
 	return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()

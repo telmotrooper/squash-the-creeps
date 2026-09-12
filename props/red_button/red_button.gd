@@ -15,5 +15,5 @@ func press() -> void:
 		is_pressed = true
 		pressed.emit()
 
-func interact_on_spin() -> void:
+func interact_on_spin(_player_position: Vector3) -> void:
 	press()
