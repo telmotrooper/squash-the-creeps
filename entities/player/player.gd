@@ -220,8 +220,8 @@ func die() -> void:
 	queue_free()
 
 func _on_EnemyDetector_body_entered(body: Node, direction: Vector3 = Vector3.ZERO) -> void: # hurt
-	if direction == Vector3.ZERO:
-		direction = body.velocity.normalized()
+	if direction == Vector3.ZERO and "direction" in body:
+		direction = body.direction
 	
 	if not $AudioStreamPlayer.playing:
 		$AudioStreamPlayer.stream = hurt_sound

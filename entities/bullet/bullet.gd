@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 	# TODO: Current the bullet ignores the height the player is in, fix this.
 	velocity = velocity.rotated(Vector3.UP, rotation.y) # Aim at player horizontally.
 	
-	# Store before move_and_slide(), so it's not affected by a collision.
+	# Store before move_and_slide(), so it's not affected by collisions.
 	direction = velocity.normalized()
 	
 	move_and_slide()
