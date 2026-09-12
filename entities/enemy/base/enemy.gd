@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Enemy
 
 var already_squashed := false
+var direction := Vector3.ZERO
 
 @export var squash_sound: AudioStream
 @export var min_speed := 10.0
@@ -16,8 +17,9 @@ func _physics_process(_delta: float) -> void:
 			velocity.y = 0
 	set_velocity(velocity)
 	set_up_direction(Vector3.UP)
+	# Store before move_and_slide(), so it's not affected by collisions.
+	direction = velocity.normalized()
 	move_and_slide()
-	velocity = velocity
 
 func initiliaze(start_position: Vector3, player_position: Vector3, should_rotate = true, speed = null) -> void:
 	position = start_position
