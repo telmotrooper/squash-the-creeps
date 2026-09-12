@@ -46,7 +46,10 @@ func _physics_process(delta: float) -> void:
 				# Reset rotation, otherwise enemy won't be able to chase player.
 				get_parent().rotation = Vector3.ZERO
 			if is_instance_valid(GameState.player) and not already_squashed:
-				initiliaze(self.transform.origin, GameState.player.transform.origin, false, chasing_speed)
+				var to_player := GameState.player.global_position - global_position
+				var horizontal_offset := Vector2(to_player.x, to_player.z) # discard height
+				if horizontal_offset.length() > 3.0:
+					initiliaze(self.transform.origin, GameState.player.transform.origin, false, chasing_speed)
 
 func _on_VisibilityNotifier_screen_exited() -> void:
 	pass # Prevent "queue_free()" from parent.
