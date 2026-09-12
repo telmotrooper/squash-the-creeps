@@ -9,16 +9,18 @@ func _ready() -> void:
 			child.freeze = true
 
 func interact_on_spin(_player_position: Vector3) -> void:
-	if not shaking:
-		shaking = true
-		
-		for child in get_children(): # Drop gem.
-			if child is Gem:
-				child.freeze = false
+	if shaking:
+		return
 	
-		var tween = create_tween().set_loops(2)
-		tween.tween_property($Pivot, "rotation_degrees:x", tilt_degrees, 0.2)
-		tween.tween_property($Pivot, "rotation_degrees:x", 0, 0.2)
-		await tween.finished
-		
-		shaking = false
+	shaking = true
+	
+	for child in get_children(): # Drop gem.
+		if child is Gem:
+			child.freeze = false
+
+	var tween = create_tween().set_loops(2)
+	tween.tween_property($Pivot, "rotation_degrees:x", tilt_degrees, 0.2)
+	tween.tween_property($Pivot, "rotation_degrees:x", 0, 0.2)
+	await tween.finished
+	
+	shaking = false
