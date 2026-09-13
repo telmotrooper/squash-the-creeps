@@ -282,7 +282,7 @@ low_health_material = ExtResource("4_imwxo")
 hurt_sound = ExtResource("4")
 
 [node name="ModelPivot" type="Node3D" parent="." unique_id=1379203550]
-transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 3.496909e-07, 0, 1, 0, -3.496909e-07, 0, 1, 0, 0, 0)
 
 [node name="player" parent="ModelPivot" unique_id=546681402 instance=ExtResource("6_l52l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0)
