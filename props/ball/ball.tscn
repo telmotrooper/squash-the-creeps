@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtl8a6yhn3qa8"]
 
 [ext_resource type="PackedScene" uid="uid://dlsstig2f4bjc" path="res://props/ball/ball.glb" id="1"]
+[ext_resource type="Script" uid="uid://dr40axvkh8f3f" path="res://props/ball/ball.gd" id="1_xaix2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t4mm7"]
 bounce = 1.0
@@ -8,11 +9,12 @@ bounce = 1.0
 [sub_resource type="SphereShape3D" id="1"]
 radius = 1.0
 
-[node name="Ball" type="RigidBody3D" unique_id=2128052082]
+[node name="Ball" type="RigidBody3D" unique_id=2128052082 groups=["spinnable"]]
 collision_layer = 1024
 collision_mask = 69
 physics_material_override = SubResource("PhysicsMaterial_t4mm7")
 gravity_scale = 2.0
+script = ExtResource("1_xaix2")
 
 [node name="Model" parent="." unique_id=1344002629 instance=ExtResource("1")]
 
