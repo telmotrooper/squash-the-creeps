@@ -6,8 +6,8 @@
 radius = 1.0
 
 [node name="Ball" type="RigidBody3D" unique_id=2128052082]
-collision_layer = 8
-collision_mask = 68
+collision_layer = 1024
+collision_mask = 69
 
 [node name="Model" parent="." unique_id=1344002629 instance=ExtResource("1")]
 
