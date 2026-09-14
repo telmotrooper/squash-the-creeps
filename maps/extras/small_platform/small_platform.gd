@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends AnimatableBody3D
 
 @export var duration: float = 3
 @export var move_y: float = -1
@@ -10,7 +10,7 @@ func _ready() -> void:
 	initial_y = position.y
 	final_y = position.y + move_y
 	
-	var tween = create_tween().set_loops().set_trans(Tween.TRANS_BACK)
+	var tween = create_tween().set_loops().set_trans(Tween.TRANS_BACK).set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	
 	tween.tween_property(self, "position:y", final_y, duration)
 	tween.tween_property(self, "position:y", initial_y, duration)
