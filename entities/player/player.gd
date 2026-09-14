@@ -199,6 +199,7 @@ func _physics_process(delta: float) -> void:
 			var parent = collision.get_collider().get_parent()
 			if parent is MeshInstance3D:
 				parent.queue_free()
+				get_tree().call_group("gems", "wake")
 	
 	# Rotate character vertically alongside a fall.
 	var rotation_x = PI / 6.0 * velocity.y / jump_impulse

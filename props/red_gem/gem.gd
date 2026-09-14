@@ -34,3 +34,6 @@ func _physics_process(delta: float) -> void:
 func _on_GrabArea_body_entered(_body: Node) -> void:
 	if not freeze:
 		follow_player = true
+
+func wake() -> void:
+	sleeping = false

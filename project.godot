@@ -156,6 +156,7 @@ skip_dialog={
 3d_physics/layer_8="Projectile"
 3d_physics/layer_9="Pickup Item"
 3d_physics/layer_10="NPC"
+3d_physics/layer_11="Pushable"
 3d_physics/layer_20="Boundary"
 
 [physics]
