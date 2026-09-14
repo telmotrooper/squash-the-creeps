@@ -13,6 +13,8 @@ func _ready() -> void:
 
 		if GameState.gems_collected[owner.name][get_path()].collected:
 			queue_free()
+	
+	continuous_cd = true
 
 # https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html
 func _physics_process(delta: float) -> void:
