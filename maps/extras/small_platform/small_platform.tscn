@@ -13,7 +13,7 @@ material = SubResource("42")
 size = Vector3(6, 2, 14)
 
 [node name="SmallPlatform" type="AnimatableBody3D" unique_id=331710157]
-collision_layer = 4
+collision_layer = 64
 collision_mask = 0
 script = ExtResource("2")
 move_y = -4.0

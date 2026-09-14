@@ -53,7 +53,7 @@ radius = 1.0
 
 [node name="PurpleGem" type="RigidBody3D" unique_id=287723733 groups=["gems"]]
 collision_layer = 256
-collision_mask = 4
+collision_mask = 68
 gravity_scale = 3.0
 script = ExtResource("2")
 collected_sound = ExtResource("3")

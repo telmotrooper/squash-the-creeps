@@ -645,6 +645,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.626, 0.0999999, -18.1541)
 
 [node name="GreenGem" parent="Map/GreenPlatform1/Gems" unique_id=1630944844 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8488, 0.630445, -22.1003)
+collision_mask = 68
 
 [node name="PurpleGem" parent="Map/GreenPlatform1/Gems" unique_id=734533486 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7919, 0.765488, -26.3931)
@@ -724,7 +725,6 @@ material = ExtResource("15_dtq2f")
 
 [node name="SmallPlatform" parent="Map" unique_id=510678968 instance=ExtResource("16_pgooe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -44)
-collision_layer = 64
 
 [node name="GreenGem3" parent="Map/SmallPlatform" unique_id=1373930313 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
@@ -734,7 +734,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
 
 [node name="SmallPlatform2" parent="Map" unique_id=1494334816 instance=ExtResource("16_pgooe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -5, -65)
-collision_layer = 64
 move_y = 4.0
 
 [node name="GreenGem" parent="Map/SmallPlatform2" unique_id=1614902966 instance=ExtResource("8_m1jg2")]
@@ -794,15 +793,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35, 13.7, 2.23)
 
 [node name="GreenGem" parent="Map/BeachIsland/Gems" unique_id=1139445653 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0575, 14.1012, -10.1517)
+collision_mask = 68
 
 [node name="GreenGem2" parent="Map/BeachIsland/Gems" unique_id=1365470778 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0282, 14.1012, 13.2848)
+collision_mask = 68
 
 [node name="GreenGem3" parent="Map/BeachIsland/Gems" unique_id=474024574 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62411, 14.1012, 14.4321)
+collision_mask = 68
 
 [node name="GreenGem4" parent="Map/BeachIsland/Gems" unique_id=1985921265 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6186, 14.1012, -10.7166)
+collision_mask = 68
 
 [node name="PurpleGem" parent="Map/BeachIsland/Gems" unique_id=1027424897 instance=ExtResource("9_gl1x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9443, 14.0882, -6.98813)
@@ -847,12 +850,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5384, 22.2179, 0.724098)
 
 [node name="GreenGem" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=883349946 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(0.963696, 0.267003, 0, -0.267003, 0.963696, 0, 0, 0, 1, -2.15528, 6.71425, 0)
+collision_mask = 68
 
 [node name="GreenGem2" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=1218947323 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 0.961175, -0.275939, 0, 0.275939, 0.961175, 0.611984, 6.63977, -2.46629)
+collision_mask = 68
 
 [node name="GreenGem3" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=835080126 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(0.999988, 0.00493372, 0.000530863, -0.004962, 0.995157, 0.0981748, -4.39294e-05, -0.0981763, 0.995169, 0.611984, 6.93238, 2.08485)
+collision_mask = 68
 
 [node name="RedGem" parent="Map/PalmTreeBeachIsland/PalmTree" unique_id=874824105 instance=ExtResource("7_tpij1")]
 transform = Transform3D(0.932557, 0.361022, 0, -0.361022, 0.932557, 0, 0, 0, 1, -1.71158, 6.66337, -1.86882)
@@ -1179,15 +1185,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10,
 
 [node name="GreenGem" parent="Map/BlueCube" unique_id=1491989856 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
+collision_mask = 68
 
 [node name="GreenGem2" parent="Map/BlueCube" unique_id=962241710 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 3)
+collision_mask = 68
 
 [node name="GreenGem3" parent="Map/BlueCube" unique_id=1420264567 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, 2)
+collision_mask = 68
 
 [node name="GreenGem4" parent="Map/BlueCube" unique_id=1135117392 instance=ExtResource("8_m1jg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10, -2)
+collision_mask = 68
 
 [node name="SprintTutorial" type="Area3D" parent="Map/BlueCube" unique_id=1771094876]
 unique_name_in_owner = true
