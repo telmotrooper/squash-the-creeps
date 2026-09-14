@@ -723,6 +723,7 @@ size = Vector3(12, 1, 70)
 material = ExtResource("15_dtq2f")
 
 [node name="SmallPlatform" parent="Map" unique_id=510678968 instance=ExtResource("16_pgooe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -44)
 collision_layer = 64
 
 [node name="GreenGem3" parent="Map/SmallPlatform" unique_id=1373930313 instance=ExtResource("8_m1jg2")]
@@ -1312,7 +1313,7 @@ collision_mask = 3
 [node name="isle" parent="SandPlatform/Isle" unique_id=1021286323 instance=ExtResource("38_qdb03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
 
-[node name="Plane" parent="SandPlatform/Isle/isle" index="0" unique_id=2015359640]
+[node name="Plane" parent="SandPlatform/Isle/isle" index="0" unique_id=886356096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.43521, -49.4544)
 surface_material_override/0 = ExtResource("36_wghgm")
 
@@ -1329,7 +1330,7 @@ collision_mask = 3
 [node name="isle_path" parent="SandPlatform/IslePath" unique_id=1600168633 instance=ExtResource("39_105mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59223, -0.629283, 44.943)
 
-[node name="Plane" parent="SandPlatform/IslePath/isle_path" index="0" unique_id=1131792085]
+[node name="Plane" parent="SandPlatform/IslePath/isle_path" index="0" unique_id=287832271]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8.6, -0.301363, -4.5)
 surface_material_override/0 = ExtResource("36_wghgm")
 

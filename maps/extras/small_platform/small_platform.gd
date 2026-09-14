@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends AnimatableBody3D
 
 @export var duration: float = 3
 @export var move_y: float = -1
