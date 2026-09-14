@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dr40axvkh8f3f" path="res://props/ball/ball.gd" id="1_xaix2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t4mm7"]
-bounce = 1.0
+bounce = 0.95
 
 [sub_resource type="SphereShape3D" id="1"]
 radius = 1.0

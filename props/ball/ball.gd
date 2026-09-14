@@ -2,9 +2,9 @@ extends RigidBody3D
 
 var just_spun := false
 
-var throw_impulse := 1.0
-var lift_impulse := 2.0
-var rotational_impulse := 1.0
+var throw_impulse := 1.25 # affects how far it goes
+var lift_impulse := 2.5 # affects how high it goes
+var rotational_impulse := 1.0 # affects how much it spins
 
 func interact_on_spin(player_position: Vector3) -> void:
 	if just_spun:

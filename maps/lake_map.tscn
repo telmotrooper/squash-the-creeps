@@ -179,7 +179,7 @@ affected_by_gravity = false
 [node name="Props" type="Node3D" parent="." unique_id=103920119]
 
 [node name="Ball" parent="Props" unique_id=691450253 instance=ExtResource("10")]
-transform = Transform3D(-0.4457433, 0, -0.89516085, 0, 1, 0, 0.89516085, 0, -0.4457433, 169.86119, 27.807571, 85.53604)
+transform = Transform3D(0.4969468, 0, 0.867781, 0, 1, 0, -0.867781, 0, 0.4969468, 74.097725, -3.9987788, 96.809395)
 
 [node name="RedButton" parent="Props" unique_id=907772769 instance=ExtResource("11")]
 transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 64.9038, -2.71311, 85.0633)
