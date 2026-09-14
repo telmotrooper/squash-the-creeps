@@ -7,8 +7,8 @@ extends Node
 @export var minimap: Texture2D
 
 # Notice that the Player node has been put by the end of the tree
-# to prevent a bug where the camera (related to the CutsceneAnimationPlayer)
-# where restarting the map makes sets the wrong current camera.
+# to prevent a camera bug (related to the CutsceneAnimationPlayer)
+# where restarting the map sets the wrong current camera.
 
 func _ready() -> void:
 	GameState.stop_music()
@@ -40,7 +40,6 @@ func _on_Player_hit() -> void:
 
 func _on_AudioStreamPlayer_finished() -> void:
 	GameState.play_music(map_music)
-
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
 	GameState.dialog.set_text("The ship is completely busted... I won't be able to get out of here easily. Where IS here though?")
