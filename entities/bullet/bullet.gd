@@ -4,6 +4,7 @@ var target: Vector3
 
 var speed := 35
 var direction := Vector3.ZERO
+var just_spun := false
 
 func setup(new_position, new_target) -> Node3D:
 	position = new_position
@@ -41,4 +42,11 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func interact_on_spin(_player_position: Vector3) -> void:
-	print("player spun bullet %s" % name)
+	if just_spun:
+		return
+	just_spun = true
+	
+	rotation.y += PI
+	
+	await get_tree().create_timer(0.5).timeout
+	just_spun = false
