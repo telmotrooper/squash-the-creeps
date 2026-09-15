@@ -21,7 +21,7 @@ func _ready() -> void:
 	# whether the intro cutscene should be played.
 	if GameState.cutscenes_played.intro:
 		$Player.paused = false
-		$Cutscene/CutsceneSpaceship.queue_free()
+		$Cutscene.queue_free()
 	else: # Play cutscene.
 		GameState.user_interface.get_node("%Minimap").hide()
 		$Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
@@ -42,5 +42,6 @@ func _on_AudioStreamPlayer_finished() -> void:
 	GameState.play_music(map_music)
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
+	$Cutscene.queue_free()
 	GameState.dialog.set_text("The ship is completely busted... I won't be able to get out of here easily. Where IS here though?")
 	GameState.dialog.open_dialog()
