@@ -6,7 +6,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_h7el3"]
 
-[node name="Bullet" type="CharacterBody3D" unique_id=102070004]
+[node name="Bullet" type="CharacterBody3D" unique_id=102070004 groups=["spinnable"]]
 top_level = true
 collision_layer = 128
 script = ExtResource("1_1cgy2")

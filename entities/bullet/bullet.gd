@@ -39,3 +39,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+func interact_on_spin(_player_position: Vector3) -> void:
+	print("player spun bullet %s" % name)
