@@ -37,6 +37,8 @@ func _physics_process(_delta: float) -> void:
 			var player = collider
 			player._on_EnemyDetector_body_entered(self, direction)
 			queue_free()
+		elif collider is Enemy:
+			collider.squash()
 
 func _on_timer_timeout() -> void:
 	queue_free()

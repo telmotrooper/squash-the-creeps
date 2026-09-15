@@ -38,7 +38,7 @@ bullet_scene = ExtResource("5_7a6lq")
 
 [node name="Float" type="CSGCylinder3D" parent="." unique_id=588492682]
 use_collision = true
-collision_layer = 66
+collision_layer = 64
 collision_mask = 3
 radius = 4.0
 height = 1.25
@@ -48,7 +48,7 @@ material = SubResource("StandardMaterial3D_t2aop")
 [node name="Structure" type="CSGCylinder3D" parent="." unique_id=1891838282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
 use_collision = true
-collision_layer = 66
+collision_layer = 64
 collision_mask = 3
 radius = 3.0
 height = 3.0
@@ -74,7 +74,7 @@ material = ExtResource("1_debqx")
 [node name="Cannon" type="CSGCylinder3D" parent="." unique_id=2102947959]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.6, -4.5)
 use_collision = true
-collision_layer = 66
+collision_layer = 64
 collision_mask = 3
 height = 3.5
 material = ExtResource("1_debqx")
