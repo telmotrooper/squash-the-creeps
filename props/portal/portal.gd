@@ -41,7 +41,7 @@ func _on_Portal_entered(_body: Node) -> void:
 		GameState.player.get_node("EffectsAnimationPlayer").play("shrink")
 		GameState.change_map(map_name)
 	else:
-		GameState.user_interface.show_hud()
+		UserInterface.show_hud()
 
 func _on_DetectArea_body_entered(_body: Node) -> void:
 	if requirement_met() and portal_locked():

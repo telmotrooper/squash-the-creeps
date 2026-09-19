@@ -1,37 +1,32 @@
 extends Control
-class_name UserInterface
 
 var minimap_default_position: Vector2
+var minimap_home_position: Vector2
 var minimap_proportion: float
 var hud_visible := false
 
 func _ready() -> void:
-	# If every map is gonna have its own UserInterface instance,
-	# we'll need a reference to the current one.
-	GameState.user_interface = self
 	GameState.dialog = $Dialog
 	GameState.minimap = $Minimap
 	GameState.gems_changed.connect(_on_gems_changed)
 	GameState.progress_changed.connect(_on_progress_changed)
+	minimap_home_position = %MapTexture.position
 	
 	$Dialog.modulate = Color(1, 1, 1, 0)
-	
-	$Minimap.hide()
 	resize_minimap()
-	
-	get_tree().paused = false
-	$Pause.hide()
-	
-	$Pause/PauseMenu.show()
+	reset_for_map()
 
-	# Guarantee all submenus are initially closed.
+func reset_for_map() -> void:
+	hud_visible = false
+	$HUDAnimationPlayer.play("RESET")
+	$HUDAnimationPlayer.stop()
+	$Pause.hide()
+	$Pause/PauseMenu.show()
 	for submenu in $Pause/Submenus.get_children():
 		submenu.hide()
-
+	$Minimap.hide()
+	$MapName.hide()
 	$CongratulationsDialog.hide()
-	
-	if is_instance_valid(owner):
-		GameState.generate_progress_report(owner.name)
 	%GemLabel.text = "%d" % GameState.amount_of_gems
 
 func _process(_delta: float) -> void:
@@ -88,8 +83,7 @@ func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), pro
 	
 	%MapTexture.texture = minimap_texture
 	# Centralize the minimap on the player.
-	%MapTexture.position.x += center.x
-	%MapTexture.position.y += center.y
+	%MapTexture.position = minimap_home_position + center
 	# Store the position calculated.
 	minimap_default_position = %MapTexture.position
 	# Store the proportion so that when the player moves the minimap moves the correct amount.
@@ -108,3 +102,12 @@ func _on_progress_changed(report_text: String, overall_progress: float, collecte
 	%ProgressButton.text = "Progress: %.f%%" % [overall_progress * 100]
 	%World1Progress.text = report_text
 	%ScoreLabel.text = "%s / %s" % [collected, total] if total > 0 else "%s" % collected
+
+func set_minimap_visible(value: bool) -> void:
+	$Minimap.set_visible(value)
+
+func show_map_name(text: String) -> void:
+	$MapName.display(text)
+
+func hide_map_name() -> void:
+	$MapName.hide()

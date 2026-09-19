@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://e3vrp5k88e4s" path="res://assets/minimap/maps/hub-1.png" id="5_mn1ck"]
 [ext_resource type="PackedScene" uid="uid://dprtyraxfvhk6" path="res://props/spaceship/spaceship.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://c8mgkrk8bsb4m" path="res://ui/skip_cutscene.tscn" id="6_qxiw7"]
-[ext_resource type="PackedScene" uid="uid://ccj15586diobm" path="res://ui/user_interface.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://pjp410u41fqp" path="res://props/portal/portal.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://bb87xc3wgpnmr" path="res://maps/extras/boundary.tscn" id="9"]
 [ext_resource type="Script" uid="uid://bd5bwqbdf0aed" path="res://maps/hub_1.gd" id="10"]
@@ -332,8 +331,6 @@ outline_render_priority = 1
 text = "\"E\" to interact"
 font = ExtResource("11_janls")
 font_size = 48
-
-[node name="UserInterface" parent="." unique_id=2006296504 instance=ExtResource("7")]
 
 [node name="PortalAvocadoBeach" parent="." unique_id=1732261461 instance=ExtResource("8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85, 2.48, -6.46)

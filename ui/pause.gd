@@ -23,6 +23,9 @@ func pause() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
+	if not get_parent().visible:
+		return
+	
 	if event.is_action_pressed("pause"):
 		if $PauseMenu.visible:
 			pause()
