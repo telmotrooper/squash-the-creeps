@@ -361,7 +361,6 @@ size = 750.0
 script = ExtResource("22_se7s5")
 save_to = "res://assets/minimap/maps/lake-map.png"
 
-[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="pressed" from="Props/RedButton" to="." method="_on_RedButton_pressed"]
 [connection signal="body_entered" from="Tunnel/AreaToStartParticles" to="." method="_on_AreaToStartParticles_body_entered"]
 [connection signal="body_entered" from="Tunnel/AreaToMakePlayerFloat" to="." method="_on_AreaToMakePlayerFloat_body_entered"]

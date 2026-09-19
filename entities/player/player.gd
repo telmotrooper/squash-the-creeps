@@ -1,8 +1,6 @@
 extends CharacterBody3D
 class_name Player
 
-signal hit
-
 # Exports
 @export var full_health_material: Material
 @export var mid_health_material: Material
@@ -215,10 +213,6 @@ func _physics_process(delta: float) -> void:
 
 func is_spinning() -> bool:
 	return $AnimationPlayer.current_animation == "spin-y" and $AnimationPlayer.is_playing()
-
-func die() -> void:
-	hit.emit()
-	queue_free()
 
 func _on_EnemyDetector_body_entered(body: Node, direction: Vector3 = Vector3.ZERO) -> void: # hurt
 	if direction == Vector3.ZERO and "direction" in body:

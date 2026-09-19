@@ -16,9 +16,6 @@ func _ready() -> void:
 		GameState.cutscenes_played.avocado_beach_preview = true
 		$CutsceneAnimationPlayer.play("preview")
 
-func _on_Player_hit() -> void:
-	GameState.user_interface.retry()
-
 func _on_RedButton_pressed() -> void:
 	$Map/MovingPlatforms/Manual.move_platforms()
 

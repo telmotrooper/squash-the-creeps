@@ -11,9 +11,6 @@ func _ready() -> void:
 func _on_RedButton_pressed() -> void:
 	$AnimationPlayer.play("drain_water")
 
-func _on_Player_hit() -> void:
-	GameState.user_interface.retry()
-
 func emit_particles(value: bool) -> void:
 	%TunnelFloatingParticles.emitting = value
 	%TunnelFloatingParticles.show()
