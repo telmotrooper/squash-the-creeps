@@ -3,7 +3,7 @@ extends Node
 var player: CharacterBody3D
 var grass: MultiMeshInstance3D
 var current_map_name: String
-var user_interface: Control
+var user_interface: UserInterface
 var dialog: Dialog
 var minimap: Control
 
