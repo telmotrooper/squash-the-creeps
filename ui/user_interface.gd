@@ -11,6 +11,8 @@ func _ready() -> void:
 	GameState.user_interface = self
 	GameState.dialog = $Dialog
 	GameState.minimap = $Minimap
+	GameState.gems_changed.connect(_on_gems_changed)
+	GameState.progress_changed.connect(_on_progress_changed)
 	
 	$Dialog.modulate = Color(1, 1, 1, 0)
 	
@@ -98,3 +100,11 @@ func move_minimap(player_offset: Vector3) -> void:
 	# print('player_offset: (%.2f,%.2f)' % [player_offset.x, player_offset.z])
 	%MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
 	%MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion
+
+func _on_gems_changed(amount: int) -> void:
+	%GemLabel.text = "%d" % amount
+
+func _on_progress_changed(report_text: String, overall_progress: float, collected: int, total: int) -> void:
+	%ProgressButton.text = "Progress: %.f%%" % [overall_progress * 100]
+	%World1Progress.text = report_text
+	%ScoreLabel.text = "%s / %s" % [collected, total] if total > 0 else "%s" % collected

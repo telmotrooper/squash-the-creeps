@@ -7,6 +7,9 @@ var user_interface: UserInterface
 var dialog: Dialog
 var minimap: Control
 
+signal gems_changed(amount: int)
+signal progress_changed(report_text: String, overall_progress: float, collected: int, total: int)
+
 var hub_1_at_night := true 
 var camera_distance: int
 
@@ -108,7 +111,7 @@ func collect_gem(map_name: String, path: NodePath) -> void:
 	
 	user_interface.show_hud()
 	amount_of_gems += gems_collected[map_name][path].value
-	user_interface.get_node("%GemLabel").text = "%d" % amount_of_gems
+	gems_changed.emit(amount_of_gems)
 	generate_progress_report(map_name)
 
 func initialize() -> void: # Used in "New Game".
@@ -171,13 +174,16 @@ func generate_progress_report(current_map: String) -> void:
 		GameState.user_interface.show_congratulations()
 		completion_message_displayed = true
 	
-	user_interface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
-	user_interface.get_node("%World1Progress").text = text
-	
+	var collected: int
+	var total: int
 	if progress.has(current_map):
-		user_interface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
+		collected = progress[current_map].collected
+		total = progress[current_map].total
 	else:
-		user_interface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
+		collected = global_progress.collected
+		total = 0
+	
+	progress_changed.emit(text, overall_progress, collected, total)
 
 func collect_godot_head(map_name: String, id: String) -> void:
 	user_interface.show_hud()
