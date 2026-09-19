@@ -3,9 +3,11 @@ extends Node
 var player: CharacterBody3D
 var grass: MultiMeshInstance3D
 var current_map_name: String
-var user_interface: UserInterface
 var dialog: Dialog
 var minimap: Control
+
+signal gems_changed(amount: int)
+signal progress_changed(report_text: String, overall_progress: float, collected: int, total: int)
 
 var hub_1_at_night := true 
 var camera_distance: int
@@ -101,14 +103,14 @@ func collect_gem(map_name: String, path: NodePath) -> void:
 	global_gem_progress.percentage = float(global_gem_progress.collected) / global_gem_progress.total
 	
 	if gem_progress[map_name].percentage == 1.0:
-		user_interface.show_all_gems_collected()
+		UserInterface.show_all_gems_collected()
 	
 	if gem_progress[map_name].percentage > 1.0:
 		print("Player has more gems than expected for this map.")
 	
-	user_interface.show_hud()
+	UserInterface.show_hud()
 	amount_of_gems += gems_collected[map_name][path].value
-	user_interface.get_node("%GemLabel").text = "%d" % amount_of_gems
+	gems_changed.emit(amount_of_gems)
 	generate_progress_report(map_name)
 
 func initialize() -> void: # Used in "New Game".
@@ -151,8 +153,6 @@ func generate_progress_report(current_map: String) -> void:
 	# This function reads the "progress" dictionary and updates the "Progress" menu accordingly.
 	# If current map is provided, we also update the HUD with map-specific progress.
 	
-	assert(is_instance_valid(user_interface))
-
 	var text := ""
 	
 	for map_name in godot_heads_collected:
@@ -168,19 +168,22 @@ func generate_progress_report(current_map: String) -> void:
 	var overall_progress = global_progress.percentage * 0.5 + global_gem_progress.percentage * 0.5
 	
 	if overall_progress == 1 and not completion_message_displayed:
-		GameState.user_interface.show_congratulations()
+		UserInterface.show_congratulations()
 		completion_message_displayed = true
 	
-	user_interface.get_node("%ProgressButton").text = "Progress: %.f%%" % [overall_progress * 100]
-	user_interface.get_node("%World1Progress").text = text
-	
+	var collected: int
+	var total: int
 	if progress.has(current_map):
-		user_interface.get_node("%ScoreLabel").text = "%s / %s" % [progress[current_map].collected, progress[current_map].total]
+		collected = progress[current_map].collected
+		total = progress[current_map].total
 	else:
-		user_interface.get_node("%ScoreLabel").text = "%s" % global_progress.collected
+		collected = global_progress.collected
+		total = 0
+	
+	progress_changed.emit(text, overall_progress, collected, total)
 
 func collect_godot_head(map_name: String, id: String) -> void:
-	user_interface.show_hud()
+	UserInterface.show_hud()
 	GameState.godot_heads_collected[map_name][id] = true
 	
 	# Update progress.
@@ -191,7 +194,7 @@ func collect_godot_head(map_name: String, id: String) -> void:
 	global_progress.percentage = float(global_progress.collected) / global_progress.total
 	
 	if progress[map_name].percentage == 1.0:
-		user_interface.show_all_godot_heads_collected()
+		UserInterface.show_all_godot_heads_collected()
 	
 	generate_progress_report(map_name)
 

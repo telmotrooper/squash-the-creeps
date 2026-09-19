@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var day_environment: Environment
 @export var night_environment: Environment
@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameState.stop_music()
 	GameState.play_music(map_music)
 	
-	GameState.user_interface.set_minimap(minimap, Vector2(0,-25), 2.35)
+	UserInterface.set_minimap(minimap, Vector2(0,-25), 2.35)
 	%SpaceshipLabel3D.hide()
 	
 	# The player start the map paused, until we verify
@@ -23,7 +23,7 @@ func _ready() -> void:
 		$Player.paused = false
 		$Cutscene.queue_free()
 	else: # Play cutscene.
-		GameState.user_interface.get_node("%Minimap").hide()
+		UserInterface.set_minimap_visible(false)
 		$Cutscene/CutsceneAnimationPlayer.play("spaceship_fall")
 		GameState.cutscenes_played.intro = true
 	

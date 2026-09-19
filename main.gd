@@ -2,6 +2,8 @@ extends Node3D
 
 @export var initial_scene: PackedScene
 
+const WORLD_SCENE_PREFIX := "res://maps/"
+
 var current_scene = null
 var loading_scene = null
 var progress = []
@@ -31,10 +33,17 @@ func _process(_delta: float) -> void:
 	$ProgressBar.value = progress[0] * 100
 	
 	if load_status == ResourceLoader.THREAD_LOAD_LOADED:
+		var scene_path := str(loading_scene)
 		var new_scene = ResourceLoader.load_threaded_get(loading_scene)
 		loading_scene = null
 		current_scene = new_scene.instantiate()
+		var is_map := scene_path.begins_with(WORLD_SCENE_PREFIX)
+		UserInterface.visible = is_map
+		if is_map:
+			UserInterface.reset_for_map()
+			GameState.generate_progress_report(str(current_scene.name))
 		$WorldScene.add_child(current_scene)
+		get_tree().paused = false
 		$FadeTransition.fade_in()
 		set_process(false)
 		# await get_tree().create_timer(0.5).timeout

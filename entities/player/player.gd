@@ -271,12 +271,11 @@ func set_health(value: int) -> void:
 	update_color()
 
 func update_minimap() -> void:
-	if is_instance_valid(GameState.user_interface):
-		GameState.user_interface.move_minimap(global_transform.origin - initial_position)
-		var minimap_pivot = GameState.user_interface.get_node("%MinimapPivot")
-		minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
-		var player_cursor_pivot = GameState.user_interface.get_node("%PlayerCursorPivot")
-		player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
+	UserInterface.move_minimap(global_transform.origin - initial_position)
+	var minimap_pivot = UserInterface.get_node("%MinimapPivot")
+	minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
+	var player_cursor_pivot = UserInterface.get_node("%PlayerCursorPivot")
+	player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
 
 func set_cutscene_mode(enabled: bool) -> void:
 	if enabled:

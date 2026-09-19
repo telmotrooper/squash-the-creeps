@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var map_music: AudioStream
 @export var minimap: Texture2D
@@ -7,10 +7,10 @@ func _ready() -> void:
 	GameState.play_music(map_music)
 	GameState.grass = %Grass
 	GameState.update_grass()
-	GameState.user_interface.set_minimap(minimap, Vector2(0,0), 1.72)
+	UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
 	# 2.35 is a good proportion for a camera with size 550 m
 	# 1.72 is a good proportion for a camera with size 750 m
-	GameState.user_interface.get_node("MapName").display("Avocado Beach")
+	UserInterface.show_map_name("Avocado Beach")
 	
 	if not GameState.cutscenes_played.avocado_beach_preview:
 		GameState.cutscenes_played.avocado_beach_preview = true
@@ -24,10 +24,10 @@ func _on_SprintTutorial_body_entered(_body: Node) -> void:
 
 # Used in cutscene.
 func set_minimap_visible(value: bool) -> void:
-	GameState.minimap.set_visible(value)
+	UserInterface.set_minimap_visible(value)
 
 func hide_map_name() -> void:
-	GameState.user_interface.get_node("MapName").hide()
+	UserInterface.hide_map_name()
 
 func _on_tiki_freed():
 	$CagedTikiNPC/CagedTikiGodotHeadAnimationPlayer.play("appear")
