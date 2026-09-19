@@ -1,4 +1,5 @@
 extends Control
+class_name UserInterface
 
 var minimap_default_position: Vector2
 var minimap_proportion: float

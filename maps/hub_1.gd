@@ -35,9 +35,6 @@ func _ready() -> void:
 		$WorldEnvironment.environment = day_environment
 		$Spaceship/Smoke.queue_free()
 
-func _on_Player_hit() -> void:
-	GameState.user_interface.retry()
-
 func _on_AudioStreamPlayer_finished() -> void:
 	GameState.play_music(map_music)
 
