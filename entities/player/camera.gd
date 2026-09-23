@@ -5,9 +5,9 @@ var min_zoom := 9
 var max_zoom := 18
 
 var horizontal: float = 0
-var vertical: float = 0
-var v_min: float = -70 # Looking up
-var v_max: float = 12 # Look down
+var vertical: float = -12.0
+var v_min: float = -70 # Looking down
+var v_max: float = 12 # Looking up
 var h_acceleration := 10
 var v_acceleration := 10
 
@@ -16,10 +16,11 @@ func _ready() -> void:
 		%SpringArm3D.spring_length = GameState.camera_distance
 		
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	# Prevent camera from colliding with player.
-	# $Horizontal/Vertical/Camera3D.add_exception(get_parent())
+	
 	# Fetch draw distance from configuration file.
 	%Camera3D.far = Configuration.get_value("graphics", "draw_distance")
+	# Start looking slightly from above instead of level.
+	$Horizontal/Vertical.rotation_degrees.x = vertical
 
 func _input(event: InputEvent) -> void:
 	if get_parent() is Player and get_parent().paused: # Used to prevent camera movement when returning from a cutscene.
