@@ -10,7 +10,7 @@ signal gems_changed(amount: int)
 signal progress_changed(report_text: String, overall_progress: float, collected: int, total: int)
 
 var hub_1_at_night := true 
-var camera_distance: int
+var camera_distance: float
 
 var upgrades = {
 	"body_slam": false,
@@ -128,7 +128,7 @@ func initialize() -> void: # Used in "New Game".
 	completion_message_displayed = false
 	initialize_progress()
 	amount_of_gems = 0
-	camera_distance = 10
+	camera_distance = 11
 
 func initialize_progress() -> void:
 	global_progress = { "collected": 0, "total": 0, "percentage": 0.0 }
