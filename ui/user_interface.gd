@@ -7,7 +7,6 @@ var hud_visible := false
 
 func _ready() -> void:
 	GameState.dialog = $Dialog
-	GameState.minimap = $Minimap
 	GameState.gems_changed.connect(_on_gems_changed)
 	GameState.progress_changed.connect(_on_progress_changed)
 	minimap_home_position = %MapTexture.position

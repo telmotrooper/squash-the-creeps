@@ -4,7 +4,6 @@ var player: CharacterBody3D
 var grass: MultiMeshInstance3D
 var current_map_name: String
 var dialog: Dialog
-var minimap: Control
 
 signal gems_changed(amount: int)
 signal progress_changed(report_text: String, overall_progress: float, collected: int, total: int)
