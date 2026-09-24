@@ -12,8 +12,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not GameState.player.paused:
-		GameState.dialog.set_text("It isn't going anywhere soon...")
-		GameState.dialog.open_dialog()
+		UserInterface.show_dialog("It isn't going anywhere soon...")
 
 func _on_SpaceshipArea_body_entered(_player: Node) -> void:
 	%SpaceshipLabel3D.show()

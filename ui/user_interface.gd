@@ -1,13 +1,14 @@
 extends Control
 
+signal dialog_finished
+
 var minimap_default_position: Vector2
 var minimap_home_position: Vector2
 var minimap_proportion: float
 var hud_visible := false
 
 func _ready() -> void:
-	GameState.dialog = $Dialog
-	GameState.minimap = $Minimap
+	$Dialog.finished.connect(_on_dialog_finished)
 	GameState.gems_changed.connect(_on_gems_changed)
 	GameState.progress_changed.connect(_on_progress_changed)
 	minimap_home_position = %MapTexture.position
@@ -71,6 +72,13 @@ func _on_congratulations_dialog_confirmed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 
+func show_dialog(text: String) -> void:
+	$Dialog.set_text(text)
+	$Dialog.open_dialog()
+
+func _on_dialog_finished() -> void:
+	dialog_finished.emit()
+
 func resize_minimap() -> void:
 	var minimap_scale = 0.7 if get_window().mode == Window.MODE_WINDOWED else 0.9
 	var minimap_pivot_offset = 40 if get_window().mode == Window.MODE_WINDOWED else 40*3
@@ -90,10 +98,11 @@ func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), pro
 	minimap_proportion = proportion
 	$Minimap.show()
 
-func move_minimap(player_offset: Vector3) -> void:
-	# print('player_offset: (%.2f,%.2f)' % [player_offset.x, player_offset.z])
+func update_minimap(player_offset: Vector3, camera_rotation: float, player_cursor_rotation: float) -> void:
 	%MapTexture.position.x = minimap_default_position.x - player_offset.x * minimap_proportion
 	%MapTexture.position.y = minimap_default_position.y - player_offset.z * minimap_proportion
+	%MinimapPivot.rotation = camera_rotation
+	%PlayerCursorPivot.rotation = player_cursor_rotation
 
 func _on_gems_changed(amount: int) -> void:
 	%GemLabel.text = "%d" % amount

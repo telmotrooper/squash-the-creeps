@@ -271,11 +271,9 @@ func set_health(value: int) -> void:
 	update_color()
 
 func update_minimap() -> void:
-	UserInterface.move_minimap(global_transform.origin - initial_position)
-	var minimap_pivot = UserInterface.get_node("%MinimapPivot")
-	minimap_pivot.rotation = $CameraPivot/Horizontal.rotation.y
-	var player_cursor_pivot = UserInterface.get_node("%PlayerCursorPivot")
-	player_cursor_pivot.rotation = $CameraPivot/Horizontal.rotation.y + $ModelPivot.rotation.y * -1
+	var camera_rotation: float = $CameraPivot/Horizontal.rotation.y
+	var player_cursor_rotation: float = camera_rotation + $ModelPivot.rotation.y * -1
+	UserInterface.update_minimap(global_transform.origin - initial_position, camera_rotation, player_cursor_rotation)
 
 func set_cutscene_mode(enabled: bool) -> void:
 	if enabled:

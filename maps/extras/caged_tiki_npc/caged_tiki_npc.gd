@@ -15,13 +15,12 @@ func free_tiki() -> void:
 	# Move Tiki to the floor.
 	create_tween().tween_property($tiki_npc, "position:y", 0, 0.25)
 	
-	GameState.dialog.set_text(
+	UserInterface.show_dialog(
 		"Thanks for saving me, maaan!\n" +
 		"I found this blue thingy in the beach... you can have it."
 	)
-	GameState.dialog.open_dialog()
 	
-	await GameState.dialog.finished
+	await UserInterface.dialog_finished
 	
 	$tiki_npc/Label3D.text = "THANKS!"
 	$tiki_npc/Label3D.show()

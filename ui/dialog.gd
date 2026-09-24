@@ -1,5 +1,4 @@
 extends Control
-class_name Dialog
 
 signal finished
 
@@ -42,7 +41,7 @@ func set_text(text) -> void:
 
 func open_dialog() -> void:
 	GameState.player.set_cutscene_mode(true)
-	GameState.minimap.hide()
+	%Minimap.hide()
 	show()
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.5)
@@ -60,7 +59,7 @@ func close_dialog() -> void:
 		text_to_write = ""
 		%DialogText.text = ""
 		hide()
-		GameState.minimap.show()
+		%Minimap.show()
 		GameState.player.set_cutscene_mode(false)
 		finished.emit()
 	)
