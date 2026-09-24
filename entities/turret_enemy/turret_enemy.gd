@@ -48,11 +48,9 @@ func _on_alert_timer_timeout() -> void:
 
 func _on_gun_timer_timeout() -> void:
 	if is_instance_valid(GameState.player):
-		# The position (Vector3) passed to the bullet is an approximation
-		# of where we want it to spawn relative to this node.
+		# Spawn bullet at the barrel based on the reference bullet's position.
 		var bullet = bullet_scene.instantiate()
-		bullet.setup($ReferenceBullet.global_transform.origin, GameState.player.transform.origin)
-		bullet.rotation = rotation
+		bullet.setup($ReferenceBullet.global_transform.origin, GameState.player, $Enemy)
 		add_child(bullet)
 		bullet.start()
 
