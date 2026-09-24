@@ -18,7 +18,8 @@ func _ready() -> void:
 	refresh_values()
 
 func refresh_values() -> void:
-	%GrassOptionButton.select(Configuration.get_value("graphics", "grass_amount"))
+	var grass_option := 0 if Configuration.grass_enabled() else 1
+	%GrassOptionButton.select(grass_option)
 
 	if GameState.current_map_name: # TODO: Find a way to find option from label (maybe iterate through the items?)
 		if GameState.current_map_name == 'hub_1':
@@ -61,7 +62,8 @@ func _on_SoundVolumeSlider_value_changed(value):
 	Configuration.set_volume("Sound", value)
 
 func _on_GrassOptionButton_item_selected(index):
-	GameState.update_grass(index)
+	var enabled: bool = index == 0
+	Configuration.update_grass(enabled)
 
 func _on_MapOptionButton_item_selected(index):
 	var map_name = %MapOptionButton.get_item_text(index)

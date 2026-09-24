@@ -1,7 +1,6 @@
 extends Node
 
 var player: CharacterBody3D
-var grass: MultiMeshInstance3D
 var current_map_name: String
 
 signal gems_changed(amount: int)
@@ -211,18 +210,6 @@ func register_gem(map_name: String, path: NodePath, gem_value: int) -> void:
 	
 	if not path in gems_collected[map_name]:
 		gems_collected[map_name][path] = { "collected": false, "value": gem_value }
-
-func update_grass(index: int = -1) -> void:
-	if index == -1: # If called with no index, set the one from the configuration file.
-		index = Configuration.get_value("graphics", "grass_amount")
-	
-	if is_instance_valid(GameState.grass):
-		if index == 0: # Enabled
-			GameState.grass.show()
-		else: # Disabled
-			GameState.grass.hide()
-
-	Configuration.update_setting("graphics", "grass_amount", index)
 
 func change_map(map_name: String) -> void:
 	GameState.current_map_name = map_name

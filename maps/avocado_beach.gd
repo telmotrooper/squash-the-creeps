@@ -5,8 +5,8 @@ extends Node3D
 
 func _ready() -> void:
 	GameState.play_music(map_music)
-	GameState.grass = %Grass
-	GameState.update_grass()
+	Configuration.grass_visibility_changed.connect(_on_grass_visibility_changed)
+	_on_grass_visibility_changed(Configuration.grass_enabled())
 	UserInterface.set_minimap(minimap, Vector2(0,0), 1.72)
 	# 2.35 is a good proportion for a camera with size 550 m
 	# 1.72 is a good proportion for a camera with size 750 m
@@ -15,6 +15,9 @@ func _ready() -> void:
 	if not GameState.cutscenes_played.avocado_beach_preview:
 		GameState.cutscenes_played.avocado_beach_preview = true
 		$CutsceneAnimationPlayer.play("preview")
+
+func _on_grass_visibility_changed(enabled: bool) -> void:
+	%Grass.visible = enabled
 
 func _on_RedButton_pressed() -> void:
 	$Map/MovingPlatforms/Manual.move_platforms()
