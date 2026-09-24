@@ -1,29 +1,27 @@
 extends CharacterBody3D
 
-var target: Vector3
+var target: Node3D
+var return_target: Node3D
 
 var speed := 35
 var direction := Vector3.ZERO
 var just_spun := false
 
-func setup(new_position, new_target) -> Node3D:
-	position = new_position
-	target = new_target # Currently target is not doing anything.
-	return self
-
 func _ready() -> void:
-	set_up_direction(Vector3.UP)
 	set_physics_process(false)
 
+func setup(new_position: Vector3, new_target: Node3D, new_return_target: Node3D) -> void:
+	position = new_position
+	target = new_target
+	return_target = new_return_target
+
 func start() -> void:
+	look_at(target.global_position)
 	set_physics_process(true)
 	$Timer.start()
 
 func _physics_process(_delta: float) -> void:
-	# look_at(target, Vector3.UP)
-	velocity = Vector3.FORWARD * speed
-	# TODO: Current the bullet ignores the height the player is in, fix this.
-	velocity = velocity.rotated(Vector3.UP, rotation.y) # Aim at player horizontally.
+	velocity = -transform.basis.z * speed
 	
 	# Store before move_and_slide(), so it's not affected by collisions.
 	direction = velocity.normalized()
@@ -48,7 +46,10 @@ func interact_on_spin(_player_position: Vector3) -> void:
 		return
 	just_spun = true
 	
-	rotation.y += PI
+	if is_instance_valid(return_target): # Send it back to the return target (e.g. enemy inside the turret).
+		look_at(return_target.global_position)
+	else:
+		rotate_object_local(Vector3.UP, PI) # Otherwise, just return it to the direction it came from.
 	
 	await get_tree().create_timer(0.5).timeout
 	just_spun = false
