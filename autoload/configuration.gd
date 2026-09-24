@@ -1,5 +1,7 @@
 extends Node
 
+signal grass_visibility_changed(enabled: bool)
+
 var file_path = "user://settings.cfg"
 @onready var config = ConfigFile.new()
 
@@ -17,7 +19,7 @@ var defaults: Dictionary = {
 	"graphics": {
 		"fullscreen": true,
 		"draw_distance": 500,
-		"grass_amount": 0
+		"grass_enabled": true
 	},
 	"debug": {
 		"body_slam": true,
@@ -56,6 +58,13 @@ func update_setting(section: String, key: String, value) -> void:
 func get_value(section: String, key: String):
 	return config.get_value(section, key)
 
+func grass_enabled() -> bool:
+	return get_value("graphics", "grass_enabled")
+
+func update_grass(enabled: bool) -> void:
+	update_setting("graphics", "grass_enabled", enabled)
+	grass_visibility_changed.emit(enabled)
+
 func denormalize_volume(volume: float) -> float:
 	return (max_volume - min_volume) * volume/100 + min_volume
 
@@ -79,5 +88,6 @@ func reset_settings() -> void:
 		if section != "debug": # For now we don't reset player upgrades.
 			for key in defaults[section]:
 				config.set_value(section, key, defaults[section][key])
-				
-	GameState.update_grass()
+	
+	config.save(file_path)
+	grass_visibility_changed.emit(grass_enabled())
