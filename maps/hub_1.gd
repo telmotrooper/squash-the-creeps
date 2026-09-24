@@ -40,5 +40,4 @@ func _on_AudioStreamPlayer_finished() -> void:
 
 func _on_CutsceneAnimationPlayer_animation_finished(_anim_name: String) -> void:
 	$Cutscene.queue_free()
-	GameState.dialog.set_text("The ship is completely busted... I won't be able to get out of here easily. Where IS here though?")
-	GameState.dialog.open_dialog()
+	UserInterface.show_dialog("The ship is completely busted... I won't be able to get out of here easily. Where IS here though?")

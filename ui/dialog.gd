@@ -1,5 +1,4 @@
 extends Control
-class_name Dialog
 
 signal finished
 
