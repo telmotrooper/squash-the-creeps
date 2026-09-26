@@ -25,6 +25,7 @@ config/windows_native_icon="res://assets/icon.ico"
 
 Configuration="*res://autoload/configuration.gd"
 GameState="*res://autoload/game_state.tscn"
+SceneLoader="*res://autoload/scene_loader.gd"
 Hotkeys="*res://autoload/hotkeys.gd"
 Utils="*res://autoload/utils.gd"
 UserInterface="*res://ui/user_interface.tscn"

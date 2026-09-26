@@ -9,6 +9,8 @@ var loading_scene = null
 var progress = []
 
 func _ready() -> void:
+	SceneLoader.register(self)
+	SceneLoader.cover_screen()
 	set_process(false)
 	load_scene(initial_scene.get_path())
 
@@ -18,8 +20,8 @@ func load_scene(scene_to_load: NodePath) -> void:
 	# $ProgressBar.show()
 	ResourceLoader.load_threaded_request(loading_scene)
 	
-	$FadeTransition.fade_out()
-	await $FadeTransition.faded_out
+	SceneLoader.fade_out()
+	await SceneLoader.faded_out
 	
 	if current_scene:
 		$WorldScene.remove_child(current_scene)
@@ -44,7 +46,12 @@ func _process(_delta: float) -> void:
 			GameState.generate_progress_report(str(current_scene.name))
 		$WorldScene.add_child(current_scene)
 		get_tree().paused = false
-		$FadeTransition.fade_in()
+		SceneLoader.fade_in()
 		set_process(false)
 		# await get_tree().create_timer(0.5).timeout
 		# $ProgressBar.hide()
+
+func current_scene_path() -> String:
+	if current_scene == null:
+		return ""
+	return current_scene.scene_file_path

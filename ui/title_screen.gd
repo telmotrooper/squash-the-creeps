@@ -21,8 +21,11 @@ func _ready() -> void:
 	%Settings.hide()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and submenu_open:
-		_on_Settings_back_button_pressed()
+	if Input.is_action_just_pressed("ui_cancel"):
+		if submenu_open:
+			_on_Settings_back_button_pressed()
+		else:
+			get_tree().quit()
 
 func _on_menu_button_pressed(button_name: String) -> void:
 	submenu_open = true
@@ -33,11 +36,8 @@ func _on_AnimationPlayerMenu_animation_finished(anim_name: String) -> void:
 	if anim_name == MENU_FADE_OUT:
 		if button_pressed == "new_game":
 			GameState.current_map_name = "hub_1"
-			if is_instance_valid($"/root/Main"):
-				$"/root/Main".load_scene(new_game_scene.get_path())
-				GameState.initialize()
-			else:
-				var _error = get_tree().change_scene_to_file(new_game_scene.get_path())
+			SceneLoader.change_scene(new_game_scene.get_path())
+			GameState.initialize()
 		elif button_pressed == "settings":
 			%Settings.show()
 		elif button_pressed == "exit":

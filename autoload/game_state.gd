@@ -214,11 +214,7 @@ func register_gem(map_name: String, path: NodePath, gem_value: int) -> void:
 func change_map(map_name: String) -> void:
 	GameState.current_map_name = map_name
 	var map_file = "res://maps/%s.tscn" % map_name
-	#Utils.exists(map_file) 
-	if is_instance_valid($"/root/Main"): # Game started normally, use background loading.
-		$"/root/Main".load_scene(map_file)
-	else: # Game started through "Play Scene" in editor.
-		var _error = get_tree().change_scene_to_file(map_file)
+	SceneLoader.change_scene(map_file)
 
 func play_audio(stream: AudioStream) -> void:
 	if !$Audio/AudioStreamPlayer1.playing:
@@ -248,14 +244,6 @@ func play_music(stream: AudioStream) -> void:
 
 func stop_music() -> void:
 	$BGM.stop()
-
-func reload_current_scene() -> void:
-	var Main = get_node_or_null("/root/Main")
-	if is_instance_valid(Main): # Game started normally, use background loading.
-		var WorldScene = $"/root/Main/WorldScene"
-		Main.load_scene(WorldScene.get_child(0).scene_file_path)
-	else: # Game started through "Play Scene" in editor.
-		var _error = get_tree().reload_current_scene()
 
 func change_bgm_volume(amount: float) -> void:
 	$BGM.volume_db += amount
