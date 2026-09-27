@@ -11,11 +11,19 @@ func _ready() -> void:
 	$Dialog.finished.connect(_on_dialog_finished)
 	GameState.gems_changed.connect(_on_gems_changed)
 	GameState.progress_changed.connect(_on_progress_changed)
+	get_window().size_changed.connect(update_content_scale)
+	update_content_scale()
 	minimap_home_position = %MapTexture.position
 	
 	$Dialog.modulate = Color(1, 1, 1, 0)
 	resize_minimap()
 	reset_for_map()
+
+func update_content_scale() -> void:
+	# Scale up the UI if the window width is higher than 1920.
+	var window_width := get_window().size.x
+	var content_scale := maxf(window_width / 1920.0, 1.0)
+	get_tree().root.content_scale_factor = content_scale
 
 func reset_for_map() -> void:
 	hud_visible = false
@@ -86,8 +94,9 @@ func resize_minimap() -> void:
 	$Minimap.pivot_offset = Vector2(minimap_pivot_offset,-minimap_pivot_offset)
 
 func set_minimap(minimap_texture: Texture2D, center: Vector2 = Vector2(0,0), proportion: float = 1.0) -> void:
-	if is_instance_valid(GameState.player):
-		%InnerMinimapPivot.rotation = GameState.player.rotation.y
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if player:
+		%InnerMinimapPivot.rotation = player.rotation.y
 	
 	%MapTexture.texture = minimap_texture
 	# Centralize the minimap on the player.

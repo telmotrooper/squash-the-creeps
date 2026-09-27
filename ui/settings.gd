@@ -15,19 +15,15 @@ func _ready() -> void:
 		%MapLabel.hide()
 		%MapOptionButton.hide()
 	
-	refresh_values()
+	visibility_changed.connect(_on_visibility_changed)
 
 func refresh_values() -> void:
 	var grass_option := 0 if Configuration.grass_enabled() else 1
 	%GrassOptionButton.select(grass_option)
 
-	if GameState.current_map_name: # TODO: Find a way to find option from label (maybe iterate through the items?)
-		if GameState.current_map_name == 'hub_1':
-			%MapOptionButton.select(0)
-		elif (GameState.current_map_name == 'avocado_beach'):
-			%MapOptionButton.select(1)
-		elif (GameState.current_map_name == 'lake_map'):
-			%MapOptionButton.select(2)
+	var map_index := find_map_index(GameState.current_map_name)
+	if map_index != -1:
+		%MapOptionButton.select(map_index)
 	
 	%DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
 	%DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
@@ -41,11 +37,22 @@ func refresh_values() -> void:
 	%SoundVolumeLabel.text = sound_volume_text % Configuration.get_value("audio", "sound_volume")
 	%SoundVolumeSlider.value = Configuration.get_value("audio", "sound_volume")
 
+func find_map_index(map_name: String) -> int:
+	for i in range(%MapOptionButton.item_count):
+		if %MapOptionButton.get_item_text(i) == map_name:
+			return i
+	return -1
+
+func _on_visibility_changed() -> void:
+	if visible:
+		refresh_values()
+
 func _on_DrawDistanceSlider_value_changed(value):
 	Configuration.update_setting("graphics", "draw_distance", value)
 	%DrawDistanceLabel.text = draw_distance_text % value
-	if is_instance_valid(GameState.player):
-		GameState.player.set_draw_distance(value)
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if player:
+		player.set_draw_distance(value)
 
 func _on_SensitivitySlider_value_changed(value):
 	Configuration.update_setting("controls", "mouse_sensitivity", value)

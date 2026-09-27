@@ -40,7 +40,9 @@ func set_text(text) -> void:
 	text_to_write = text
 
 func open_dialog() -> void:
-	GameState.player.set_cutscene_mode(true)
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if player:
+		player.set_cutscene_mode(true)
 	%Minimap.hide()
 	show()
 	var tween = create_tween()
@@ -60,6 +62,8 @@ func close_dialog() -> void:
 		%DialogText.text = ""
 		hide()
 		%Minimap.show()
-		GameState.player.set_cutscene_mode(false)
+		var player := get_tree().get_first_node_in_group("players") as Player
+		if player:
+			player.set_cutscene_mode(false)
 		finished.emit()
 	)
