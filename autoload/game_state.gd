@@ -65,7 +65,6 @@ var events = {
 
 var collision_layers = {}
 
-const initial_grass = 3000
 
 func _ready() -> void:
 	var fallback_scene = "res://maps/avocado_beach.tscn"
