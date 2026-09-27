@@ -1,6 +1,7 @@
 extends Node
 
 signal grass_visibility_changed(enabled: bool)
+signal draw_distance_changed(distance: int)
 
 var file_path = "user://settings.cfg"
 @onready var config = ConfigFile.new()
@@ -61,9 +62,16 @@ func get_value(section: String, key: String):
 func grass_enabled() -> bool:
 	return get_value("graphics", "grass_enabled")
 
+func draw_distance() -> int:
+	return get_value("graphics", "draw_distance")
+
 func update_grass(enabled: bool) -> void:
 	update_setting("graphics", "grass_enabled", enabled)
 	grass_visibility_changed.emit(enabled)
+
+func update_draw_distance(distance: int) -> void:
+	update_setting("graphics", "draw_distance", distance)
+	draw_distance_changed.emit(distance)
 
 func denormalize_volume(volume: float) -> float:
 	return (max_volume - min_volume) * volume/100 + min_volume
@@ -91,3 +99,4 @@ func reset_settings() -> void:
 	
 	config.save(file_path)
 	grass_visibility_changed.emit(grass_enabled())
+	draw_distance_changed.emit(draw_distance())

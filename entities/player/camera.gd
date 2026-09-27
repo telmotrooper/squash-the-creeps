@@ -17,10 +17,13 @@ func _ready() -> void:
 		
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	# Fetch draw distance from configuration file.
-	%Camera3D.far = Configuration.get_value("graphics", "draw_distance")
+	Configuration.draw_distance_changed.connect(set_draw_distance)
+	set_draw_distance(Configuration.draw_distance())
 	# Start looking slightly from above instead of level.
 	$Horizontal/Vertical.rotation_degrees.x = vertical
+
+func set_draw_distance(distance: int) -> void:
+	%Camera3D.far = distance
 
 func _input(event: InputEvent) -> void:
 	if get_parent() is Player and get_parent().paused: # Used to prevent camera movement when returning from a cutscene.

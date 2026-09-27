@@ -225,9 +225,6 @@ func _on_EnemyDetector_body_entered(body: Node, direction: Vector3 = Vector3.ZER
 	just_thrown_back = true
 	being_thrown_back = true
 
-func set_draw_distance(value: int) -> void:
-	%Camera3D.far = value
-
 func _on_DashDurationTimer_timeout() -> void:
 	is_dashing = false
 

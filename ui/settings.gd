@@ -25,8 +25,8 @@ func refresh_values() -> void:
 	if map_index != -1:
 		%MapOptionButton.select(map_index)
 	
-	%DrawDistanceLabel.text = draw_distance_text % Configuration.get_value("graphics", "draw_distance")
-	%DrawDistanceSlider.value = Configuration.get_value("graphics", "draw_distance")
+	%DrawDistanceLabel.text = draw_distance_text % Configuration.draw_distance()
+	%DrawDistanceSlider.value = Configuration.draw_distance()
 	
 	%SensitivityLabel.text = sensitivity_text % Configuration.get_value("controls", "mouse_sensitivity")
 	%SensitivitySlider.value = Configuration.get_value("controls", "mouse_sensitivity")
@@ -48,11 +48,8 @@ func _on_visibility_changed() -> void:
 		refresh_values()
 
 func _on_DrawDistanceSlider_value_changed(value):
-	Configuration.update_setting("graphics", "draw_distance", value)
+	Configuration.update_draw_distance(value)
 	%DrawDistanceLabel.text = draw_distance_text % value
-	var player := get_tree().get_first_node_in_group("players") as Player
-	if player:
-		player.set_draw_distance(value)
 
 func _on_SensitivitySlider_value_changed(value):
 	Configuration.update_setting("controls", "mouse_sensitivity", value)
