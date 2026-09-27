@@ -1,3 +1,4 @@
+class_name FadeTransition
 extends ColorRect
 
 signal faded_in

@@ -1,22 +1,8 @@
-[gd_scene format=3 uid="uid://ugh2m8t2l7r6"]
+[gd_scene format=3 uid="uid://b2a7opd01ecwn"]
 
-[ext_resource type="Script" uid="uid://dbj6j5wal0fpg" path="res://main.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://bkk8jxmcw8q4x" path="res://ui/title_screen.tscn" id="3"]
+[ext_resource type="Script" uid="uid://dbj6j5wal0fpg" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bkk8jxmcw8q4x" path="res://ui/title_screen.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node3D" unique_id=1583338211]
-script = ExtResource("2")
-initial_scene = ExtResource("3")
-
-[node name="WorldScene" type="Node3D" parent="." unique_id=49240749]
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1320832109]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -60.0
-offset_right = -20.0
-offset_bottom = -20.0
+script = ExtResource("1_ig7tw")
+initial_scene = ExtResource("2_0xm2m")
