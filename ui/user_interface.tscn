@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bjkiu68hnfn6a" path="res://assets/pan14_cheering-church-3.ogg" id="8_10biq"]
 [ext_resource type="Texture2D" uid="uid://ckq7kecygm8wk" path="res://assets/minimap/minimap-mask.svg" id="9_3xw3k"]
 [ext_resource type="FontFile" uid="uid://cjwtskrde6shl" path="res://assets/fonts/montserrat_extra_bold.ttf" id="14_ly17m"]
+[ext_resource type="PackedScene" uid="uid://2ysxp08lphfh" path="res://ui/fade_transition.tscn" id="15_fade"]
 
 [sub_resource type="Animation" id="3"]
 resource_name = "RESET"
@@ -654,6 +655,10 @@ offset_left = 25.0
 offset_top = -47.0
 offset_right = 104.0
 text = "FPS: 0"
+
+[node name="ScreenFade" type="CanvasLayer" parent="." unique_id=1938475620]
+
+[node name="FadeTransition" parent="ScreenFade" unique_id=1938475621 instance=ExtResource("15_fade")]
 
 [connection signal="timeout" from="HUDTimer" to="." method="hide_hud"]
 [connection signal="pressed" from="Pause/Submenus/Controls/BackButton" to="Pause" method="return_to_pause_menu"]

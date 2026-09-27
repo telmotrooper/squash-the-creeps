@@ -236,16 +236,12 @@ func move_to_last_safe_position() -> void:
 	paused = true
 	
 	if health == 1:
-		GameState.reload_current_scene()
+		SceneLoader.reload()
 	else:
-		var fade_transition = get_node_or_null("/root/Main/FadeTransition")
-		if fade_transition: # Always available when started from "main" scene.
-			fade_transition.fade_out()
-			await fade_transition.faded_out
-			take_damage() # Player changes color while the screen is black.
-			fade_transition.fade_in()
-		else: # If not started from "main" scene, still call "take_damage".
-			take_damage()
+		SceneLoader.fade_out()
+		await SceneLoader.faded_out
+		take_damage() # Player changes color while the screen is black.
+		SceneLoader.fade_in()
 		$EffectsAnimationPlayer.play("grow")
 		global_transform.origin = last_safe_position
 		paused = false
@@ -264,7 +260,7 @@ func take_damage() -> void:
 	update_color()
 
 	if health <= 0:
-		GameState.reload_current_scene()
+		SceneLoader.reload()
 
 func set_health(value: int) -> void:
 	health = value

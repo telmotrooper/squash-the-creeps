@@ -40,11 +40,7 @@ func _on_ResumeButton_pressed() -> void:
 
 func _on_MainMenuButton_pressed() -> void:
 	var title_screen = "res://ui/title_screen.tscn"
-	if is_instance_valid($"/root/Main"):
-		$"/root/Main".load_scene(title_screen)
-	else:
-		var _error = get_tree().change_scene_to_file(title_screen)
-	
+	SceneLoader.change_scene(title_screen)
 	pause()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -61,7 +57,7 @@ func open_submenu(node_path: NodePath) -> void:
 	get_node(node_path).show()
 
 func _on_RestartMapButton_pressed() -> void:
-	GameState.reload_current_scene()
+	SceneLoader.reload()
 	pause()
 
 func _on_DoubleJumpCheckButton_toggled(button_pressed: bool) -> void:
