@@ -37,7 +37,6 @@ var throw_back_direction := Vector3.ZERO
 var floating := false
 
 func _ready() -> void:
-	GameState.player = self
 	initial_position = global_transform.origin
 	$DashDurationTimer.wait_time = dash_duration
 	
@@ -273,7 +272,7 @@ func update_minimap() -> void:
 
 func set_cutscene_mode(enabled: bool) -> void:
 	if enabled:
-		GameState.player.paused = true
+		paused = true
 		$AnimationPlayer.speed_scale = 1.0
 	else:
-		GameState.player.paused = false
+		paused = false

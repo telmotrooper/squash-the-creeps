@@ -17,8 +17,9 @@ func _physics_process(_delta: float) -> void:
 			$AlertTimer.start()
 			set_physics_process(false)
 		ATTACKING:
-			if is_instance_valid(GameState.player):
-				aim_at_player(GameState.player.transform.origin)
+			var player := get_tree().get_first_node_in_group("players") as Player
+			if player:
+				aim_at_player(player.transform.origin)
 				
 				if $GunTimer.is_stopped():
 					_on_gun_timer_timeout() # Trigger first shot immediately.
@@ -47,10 +48,11 @@ func _on_alert_timer_timeout() -> void:
 	set_physics_process(true)
 
 func _on_gun_timer_timeout() -> void:
-	if is_instance_valid(GameState.player):
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if player:
 		# Spawn bullet at the barrel based on the reference bullet's position.
 		var bullet = bullet_scene.instantiate()
-		bullet.setup($ReferenceBullet.global_transform.origin, GameState.player, $Enemy)
+		bullet.setup($ReferenceBullet.global_transform.origin, player, $Enemy)
 		add_child(bullet)
 		bullet.start()
 

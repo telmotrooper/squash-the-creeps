@@ -45,11 +45,12 @@ func _physics_process(delta: float) -> void:
 			if get_parent() is PathFollow3D:
 				# Reset rotation, otherwise enemy won't be able to chase player.
 				get_parent().rotation = Vector3.ZERO
-			if is_instance_valid(GameState.player) and not already_squashed:
-				var to_player := GameState.player.global_position - global_position
+			var player := get_tree().get_first_node_in_group("players") as Player
+			if player and not already_squashed:
+				var to_player := player.global_position - global_position
 				var horizontal_offset := Vector2(to_player.x, to_player.z) # discard height
 				if horizontal_offset.length() > 3.0:
-					initiliaze(self.transform.origin, GameState.player.transform.origin, false, chasing_speed)
+					initiliaze(self.transform.origin, player.transform.origin, false, chasing_speed)
 
 func _on_VisibilityNotifier_screen_exited() -> void:
 	pass # Prevent "queue_free()" from parent.

@@ -11,7 +11,8 @@ func _ready() -> void:
 	initial_basis = basis
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and not GameState.player.paused:
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if Input.is_action_just_pressed("interact") and player != null and not player.paused:
 		UserInterface.show_dialog("It isn't going anywhere soon...")
 
 func _on_SpaceshipArea_body_entered(_player: Node) -> void:

@@ -1,6 +1,5 @@
 extends Node
 
-var player: CharacterBody3D
 var current_map_name: String
 
 signal gems_changed(amount: int)

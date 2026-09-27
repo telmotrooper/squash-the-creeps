@@ -44,8 +44,9 @@ func refresh_values() -> void:
 func _on_DrawDistanceSlider_value_changed(value):
 	Configuration.update_setting("graphics", "draw_distance", value)
 	%DrawDistanceLabel.text = draw_distance_text % value
-	if is_instance_valid(GameState.player):
-		GameState.player.set_draw_distance(value)
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if player:
+		player.set_draw_distance(value)
 
 func _on_SensitivitySlider_value_changed(value):
 	Configuration.update_setting("controls", "mouse_sensitivity", value)

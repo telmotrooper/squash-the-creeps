@@ -28,7 +28,11 @@ func _on_AreaToStopParticles_body_exited(player: Node) -> void:
 
 func _on_AreaToMakePlayerFloat_body_entered(_body: Node) -> void:
 	if %TunnelFloatingParticles.emitting:
-		GameState.player.floating = true
+		var player := get_tree().get_first_node_in_group("players") as Player
+		if player:
+			player.floating = true
 
 func _on_AreaToMakePlayerFloat_body_exited(_body: Node) -> void:
-	GameState.player.floating = false
+	var player := get_tree().get_first_node_in_group("players") as Player
+	if player:
+		player.floating = false
